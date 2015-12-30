@@ -19,7 +19,7 @@ $(document).ready(function() {
         }
     });
 
-    new TweenMax.from("#caption > h1", 1, {'scale': 5, 'opacity': 0, 'delay': 1});
+    new TweenMax.from("#caption > img", 1, {'scale': 5, 'opacity': 0, 'delay': 1});
     new TweenMax.staggerFrom("#caption > p", 1, {'y': '100%', 'opacity': 0, 'delay': 2.25}, 0.5);
 
     new ScrollMagic.Scene({'triggerElement': '#about-section', 'duration': $(window).height() - $("#main-navbar").height()})
