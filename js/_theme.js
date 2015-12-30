@@ -10,8 +10,8 @@ $(document).ready(function() {
     $("section").each(function() {
         if ($(this).attr('id') == 'contact-section') {
             new ScrollMagic.Scene({'triggerElement': "#contact-trigger", 'triggerHook': 'onLeave', 'duration': 100})
-            .setTween(TweenMax.fromTo("#contact-section", 1, {'y': '100%'}, {'y': '0%'}))
-            .addIndicators()
+            // .setTween(TweenMax.fromTo("#contact-section", 1, {'y': '100%'}, {'y': '0%'}))
+            // .addIndicators()
             .addTo(controller);
         } else {
             new ScrollMagic.Scene({'triggerElement': $(this)})
@@ -25,6 +25,9 @@ $(document).ready(function() {
     new ScrollMagic.Scene({'triggerElement': '#about-section', 'duration': $(window).height() - $("#main-navbar").height()})
     .setTween(TweenMax.fromTo("#caption", 1, {'opacity': 1}, {'y': ($(window).height() - $("#caption").height()) / 2, 'opacity': 0.5}))
     .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '#about-section', 'offset': '100%'})
+    .setTween(TweenMax.to(".scrollDown", 1, {'opacity': 0}))
+    .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#about-section', 'duration': '100%'})
     .setTween(TweenMax.from("#about-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
@@ -34,6 +37,59 @@ $(document).ready(function() {
     new ScrollMagic.Scene({'triggerElement': '.stanford', 'duration': '100%'})
     .setTween(TweenMax.from("#stanford-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
+
+    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 300})
+    .setTween(TweenMax.fromTo("#story_2016 > div.story-item-content > div.story-item-wrap", 1, {'x': '50%', 'opacity': 0, 'ease':Power3.easeOut}, {'x': '0%', 'opacity': 1}))
+    .on('enter', function() {
+        $("#story_2016 > div.story-item-content > span.si-year").addClass('active');
+        $("#story_2015 > div.story-item-content > span.si-year").removeClass('active');
+        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
+    })
+    .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 700})
+    .setTween(TweenMax.fromTo("#story_2016 > div.story-item-content > div.story-item-wrap", 1, {'x': '0%', 'opacity': 1}, {'x': '-50%', 'opacity': 0, 'ease':Power3.easeOut}))
+    .on('enter', function() {
+        $("#story_2015 > div.story-item-content > span.si-year").addClass('active');
+        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
+        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
+    })
+    .on('leave', function() {
+        $("#story_2016 > div.story-item-content > span.si-year").addClass('active');
+        $("#story_2015 > div.story-item-content > span.si-year").removeClass('active');
+        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
+    })
+    .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 700})
+    .setTween(TweenMax.fromTo("#story_2015 > div.story-item-content > div.story-item-wrap", 1, {'x': '50%', 'opacity': 0, 'ease':Power3.easeOut}, {'x': '0%', 'opacity': 1}))
+    .on('enter', function() {
+        $("#story_2015 > div.story-item-content > span.si-year").addClass('active');
+        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
+        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
+    })
+    .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 850})
+    .setTween(TweenMax.fromTo("#story_2015 > div.story-item-content > div.story-item-wrap", 1, {'x': '0%', 'opacity': 1}, {'x': '-50%', 'opacity': 0, 'ease':Power3.easeOut}))
+    .on('enter', function() {
+        $("#story_2011 > div.story-item-content > span.si-year").addClass('active');
+        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
+        $("#story_2015 > div.story-item-content > span.si-year").removeClass('active');
+    })
+    .on('leave', function() {
+        $("#story_2015 > div.story-item-content > span.si-year").addClass('active');
+        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
+        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
+    })
+    .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 850})
+    .setTween(TweenMax.fromTo("#story_2011 > div.story-item-content > div.story-item-wrap", 1, {'x': '50%', 'opacity': 0, 'ease':Power3.easeOut}, {'x': '0%', 'opacity': 1}))
+    .on('enter', function() {
+        $("#story_2011 > div.story-item-content > span.si-year").addClass('active');
+        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
+        $("#story_2015 > div.story-item-content > span.si-year").removeClass('active');
+    })
+    .addTo(controller);
+
+
     new ScrollMagic.Scene({'triggerElement': '#portfolio-section', 'duration': '100%'})
     .setTween(TweenMax.from("#work-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
@@ -44,10 +100,10 @@ $(document).ready(function() {
     .setTween(TweenMax.from("#skill-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#skill-trigger', 'offset': '100%'})
-    .setTween(TweenMax.staggerFrom(".skill-bar.left", 1, {'x': '-150%', 'opacity': 0.25, 'scale': 2, 'ease': Back.easeIn}, 0.2))
+    .setTween(TweenMax.staggerFrom(".skill-bar.left > .progress", 1, {'x': '-150%', 'opacity': 0.25, 'scale': 2, 'ease': Back.easeIn}, 0.1))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#skill-trigger', 'offset': '100%'})
-    .setTween(TweenMax.staggerFrom(".skill-bar.right", 1, {'x': '150%', 'opacity': 0.25, 'scale': 2, 'ease': Back.easeIn}, 0.5))
+    .setTween(TweenMax.staggerFrom(".skill-bar.right > .progress", 1, {'x': '150%', 'opacity': 0.25, 'scale': 2, 'ease': Back.easeIn}, 0.1))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#stat-trigger', 'duration': '100%', 'offset': '100%'})
     .setTween(TweenMax.from("#stat-header", 1, {'y': '-100%', 'opacity': 0}))
@@ -60,40 +116,44 @@ $(document).ready(function() {
         $("div.fact-inner > p.lead").removeClass('counter-finish');
         setTimeout(function() {
             $("#count_num_1").countTo({
-                'from': 0, 'to': 500, 'speed': 2000,
-                'onComplete': function() { $(this).next().addClass('counter-finish'); }
+                'from': 0, 'to': 5, 'speed': 2000,
+                'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 0);
         setTimeout(function() {
             $("#count_num_2").countTo({
-                'from': 0, 'to': 500, 'speed': 2000,
-                'onComplete': function() { $(this).next().addClass('counter-finish'); }
+                'from': 0, 'to': 16000, 'speed': 2000,
+                'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 200);
         setTimeout(function() {
             $("#count_num_3").countTo({
-                'from': 0, 'to': 500, 'speed': 2000,
-                'onComplete': function() { $(this).next().addClass('counter-finish'); }
+                'from': 0, 'to': 10, 'speed': 2000,
+                'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 400);
         setTimeout(function() {
             $("#count_num_4").countTo({
-                'from': 0, 'to': 500, 'speed': 2000,
-                'onComplete': function() { $(this).next().addClass('counter-finish'); }
+                'from': 0, 'to': 4, 'speed': 2000,
+                'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 600);
     })
-    .addTo(controller);    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'duration': '100%'})
+    .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'duration': '100%'})
+    .setTween(TweenMax.from("#pub-header", 1, {'y': '-100%', 'opacity': 0}))
+    .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'duration': '100%'})
     .setTween(TweenMax.from("#contact-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': '200%'})
     .setTween(TweenMax.staggerFrom(".rotate-box-1.square-icon > .rotate-box-icon", 1, {'rotationX': 360, 'opacity': 0.25}, 0.1))
     .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height()})
+    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
     .setTween(TweenMax.staggerFrom(".contact-info > h4, .contact-address > li", 1, {'x': '-100%', 'y': '100%', 'opacity': 0.25}, 0.1))
     .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height()})
-    .setTween(TweenMax.staggerFrom(".contact-form > h4, .contact-form > form > *", 1, {'x': '100%', 'y': '100%', 'opacity': 0.25}, 0.1))
+    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
+    .setTween(TweenMax.staggerFrom(".contact-form > h4, .contact-form > form > .form-group", 1, {'x': '100%', 'y': '100%', 'opacity': 0.25}, 0.1))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': 'footer'})
     .setTween(TweenMax.from("#footer-header", 2, {'y': '-100%', 'opacity': 0}))
@@ -105,6 +165,7 @@ $(document).ready(function() {
     $(".portfolio_single_content").each(function() {
         $(this).css('height', $("img", this).css('height'));
     });
+    $(".progress-bar").hover(function() { $(this).addClass('progress-bar-striped active'); }, function() { $(this).removeClass('progress-bar-striped active'); })
 
     $("#home").parallax();
     
@@ -113,15 +174,15 @@ $(document).ready(function() {
 
 $(window).scroll(function() {
     if ($(window).scrollTop() > $(window).height() / 2 + $("#caption").height()) {
-        $('.scrolltotop').fadeIn();
+        $('.scrollTop').fadeIn();
         $('.navbar-fixed-top').addClass('navbar-shrink navbar-default').removeClass('navbar-transparent');
     } else {
-        $('.scrolltotop').fadeOut();
+        $('.scrollTop').fadeOut();
         $('.navbar-fixed-top').removeClass('navbar-shrink navbar-default').addClass('navbar-transparent');
     }
 });
 
-$('.scrolltotop').on('click', function(event) {
+$('.scrollTop').on('click', function(event) {
     $('html, body').animate({scrollTop : 0}, 1000, 'easeInOutExpo');
     event.preventDefault();
 });
