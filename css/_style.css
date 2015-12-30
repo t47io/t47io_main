@@ -46,7 +46,7 @@ body .body { height: 100%; }
 	height: 110%;
 	top: -5%;
 	left: -5%;
-	background-image: url(../img/slider-bg.jpg); 
+	background-image: url('../img/bg_main.jpg'); 
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -54,8 +54,13 @@ body .body { height: 100%; }
 }
 
 
+@font-face {
+    font-family: "Tenor Sans Local";
+    src: local("Tenor Sans"), url("fonts/TenorSans-Regular.ttf");
+    font-weight: normal; font-style: normal;
+}
 * {
-	font-family: 'Tenor Sans', Helvetica, Arial, sans-serif;
+	font-family: 'Tenor Sans', 'Tenor Sans Local', Helvetica, Arial, sans-serif;
 	border-radius: 0 !important;
 	-webkit-border-radius: 0 !important;
 	-moz-border-radius: 0 !important;
@@ -87,13 +92,13 @@ section {
 	width: 100%;
 	height: 100%;
 	z-index: 99999;
-	background: #fff url(../img/page-loader.gif) center center no-repeat;
+	background: #fff url('../img/fg_loader.gif') center center no-repeat;
 }
 .divider {
 	width: 100%;
-	height: 23px;
-	background: url('../img/devider.png') no-repeat center center;
-	margin: 5px 0 10px;
+	height: 52px;
+	background: url('../img/fg_divider.gif') no-repeat center center;
+	margin: -10px 0px -5px 0px;
 }
 .thumbnail {
 	padding: 15px;
@@ -159,7 +164,7 @@ b { font-weight: 900; }
 	-ms-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.navbar-default .navbar-brand, .navbar-shrink .navbar-brand, .navbar-transparent .navbar-brand, .navbar-inverse .navbar-brand { background-image: url(../img/logo.png); }
+.navbar-default .navbar-brand, .navbar-shrink .navbar-brand, .navbar-transparent .navbar-brand, .navbar-inverse .navbar-brand { background-image: url('../img/t47_logo.png'); }
 
 .navbar-nav li a {
 	padding: 24px 0;
@@ -427,6 +432,7 @@ a.rotate-box-1, a.rotate-box-2 {
 }
 .progress-bar {
 	background-color: #9fc906;
+	color: #000;
 	font-size: 14px;
 	line-height: 7px;
 	padding: 5px;
@@ -669,8 +675,6 @@ p.subtitle {
 	-o-transition: all 0.6s ease-in-out;
 	-ms-transition: all 0.6s ease-in-out;
 	transition: all 0.6s ease-in-out;
-}
-.btn-default, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active { 
 	background: #72A603;
 	color: #fff;
 }
@@ -854,6 +858,7 @@ p.subtitle {
 .si-header, .si-year { color: #191919; }
 .si-year {
 	font-size: 2em;
+	font-weight: 900;
 	color: #fff;
 	text-align: right;
 	position: absolute;
