@@ -1,3 +1,7 @@
+var bio_timer = 0, bio_bg_imgs = ['img/background/stanford_quad.jpg', 'img/background/clark_center.jpg', 'img/background/lksc_building.jpg', 'img/background/cau_east.jpg'];
+var stat_timer = 0, stat_bg_imgs = ['img/background/fish_necklace.jpg', 'img/background/lawn_bench.jpg', 'img/background/cliff_reed.jpg', 'img/background/flower.jpg'];
+
+
 $(window).load(function() {
     $(".page-loader").fadeOut("slow");
 });
@@ -8,18 +12,12 @@ $(document).ready(function() {
         'globalSceneOptions': {'triggerHook': 'onEnter', }
     });
     $("section").each(function() {
-        if ($(this).attr('id') == 'contact-section') {
-            new ScrollMagic.Scene({'triggerElement': "#contact-trigger", 'triggerHook': 'onLeave', 'duration': 100})
-            // .setTween(TweenMax.fromTo("#contact-section", 1, {'y': '100%'}, {'y': '0%'}))
-            // .addIndicators()
-            .addTo(controller);
-        } else {
-            new ScrollMagic.Scene({'triggerElement': $(this)})
-            .addTo(controller);
-        }
+        new ScrollMagic.Scene({'triggerElement': $(this)})
+        .addTo(controller);
     });
 
-    new TweenMax.from("#caption > img", 1, {'scale': 5, 'opacity': 0, 'delay': 1});
+    TweenMax.defaultOverwrite = false;
+    new TweenMax.from("#caption > img", 1, {'scale': $(window).width() / 500, 'opacity': 0, 'delay': 1});
     new TweenMax.staggerFrom("#caption > p", 1, {'y': '100%', 'opacity': 0, 'delay': 2.25}, 0.5);
 
     new ScrollMagic.Scene({'triggerElement': '#about-section', 'duration': $(window).height() - $("#main-navbar").height()})
@@ -34,67 +32,15 @@ $(document).ready(function() {
     new ScrollMagic.Scene({'triggerElement': '#about-section', 'offset': '300%'})
     .setTween(TweenMax.staggerFrom(".rotate-box-2.square-icon > .rotate-box-icon", 1, {'rotation': 360*2, 'opacity': 0.25, 'ease':Bounce.easeOut}, 0.1))
     .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '.stanford', 'duration': '100%'})
+    new ScrollMagic.Scene({'triggerElement': '#stanford-trigger', 'duration': '100%'})
     .setTween(TweenMax.from("#stanford-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
-
-    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 300})
-    .setTween(TweenMax.fromTo("#story_2016 > div.story-item-content > div.story-item-wrap", 1, {'x': '50%', 'opacity': 0, 'ease':Power3.easeOut}, {'x': '0%', 'opacity': 1}))
-    .on('enter', function() {
-        $("#story_2016 > div.story-item-content > span.si-year").addClass('active');
-        $("#story_2015 > div.story-item-content > span.si-year").removeClass('active');
-        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
-    })
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 700})
-    .setTween(TweenMax.fromTo("#story_2016 > div.story-item-content > div.story-item-wrap", 1, {'x': '0%', 'opacity': 1}, {'x': '-50%', 'opacity': 0, 'ease':Power3.easeOut}))
-    .on('enter', function() {
-        $("#story_2015 > div.story-item-content > span.si-year").addClass('active');
-        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
-        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
-    })
-    .on('leave', function() {
-        $("#story_2016 > div.story-item-content > span.si-year").addClass('active');
-        $("#story_2015 > div.story-item-content > span.si-year").removeClass('active');
-        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
-    })
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 700})
-    .setTween(TweenMax.fromTo("#story_2015 > div.story-item-content > div.story-item-wrap", 1, {'x': '50%', 'opacity': 0, 'ease':Power3.easeOut}, {'x': '0%', 'opacity': 1}))
-    .on('enter', function() {
-        $("#story_2015 > div.story-item-content > span.si-year").addClass('active');
-        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
-        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
-    })
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 850})
-    .setTween(TweenMax.fromTo("#story_2015 > div.story-item-content > div.story-item-wrap", 1, {'x': '0%', 'opacity': 1}, {'x': '-50%', 'opacity': 0, 'ease':Power3.easeOut}))
-    .on('enter', function() {
-        $("#story_2011 > div.story-item-content > span.si-year").addClass('active');
-        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
-        $("#story_2015 > div.story-item-content > span.si-year").removeClass('active');
-    })
-    .on('leave', function() {
-        $("#story_2015 > div.story-item-content > span.si-year").addClass('active');
-        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
-        $("#story_2011 > div.story-item-content > span.si-year").removeClass('active');
-    })
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '.stanford', 'offset': 850})
-    .setTween(TweenMax.fromTo("#story_2011 > div.story-item-content > div.story-item-wrap", 1, {'x': '50%', 'opacity': 0, 'ease':Power3.easeOut}, {'x': '0%', 'opacity': 1}))
-    .on('enter', function() {
-        $("#story_2011 > div.story-item-content > span.si-year").addClass('active');
-        $("#story_2016 > div.story-item-content > span.si-year").removeClass('active');
-        $("#story_2015 > div.story-item-content > span.si-year").removeClass('active');
-    })
-    .addTo(controller);
-
 
     new ScrollMagic.Scene({'triggerElement': '#portfolio-section', 'duration': '100%'})
     .setTween(TweenMax.from("#work-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#portfolio', 'duration': 1000})
-    .setTween(TweenMax.staggerFrom(".portfolio_single_content", 1, {'y': '100%', 'opacity': 0, 'scale': 2, 'ease':Elastic.easeInOut}, 0.1))
+    .setTween(TweenMax.staggerFrom(".portfolio_single_content", 1, {'y': '100%', 'opacity': 0, 'scale': 2, 'ease': Elastic.easeInOut}, 0.1))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#skill-trigger', 'duration': '100%'})
     .setTween(TweenMax.from("#skill-header", 1, {'y': '-100%', 'opacity': 0}))
@@ -140,8 +86,12 @@ $(document).ready(function() {
         }, 600);
     })
     .addTo(controller);
+
     new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'duration': '100%'})
     .setTween(TweenMax.from("#pub-header", 1, {'y': '-100%', 'opacity': 0}))
+    .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
+    .setTween(TweenMax.staggerFrom("#pub-content > table > tbody > tr", 1, {'rotationX': 540, 'opacity': 0.25}, 0.2))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#contact-section', 'duration': '100%'})
     .setTween(TweenMax.from("#contact-header", 1, {'y': '-100%', 'opacity': 0}))
@@ -165,21 +115,56 @@ $(document).ready(function() {
     $(".portfolio_single_content").each(function() {
         $(this).css('height', $("img", this).css('height'));
     });
-    $(".progress-bar").hover(function() { $(this).addClass('progress-bar-striped active'); }, function() { $(this).removeClass('progress-bar-striped active'); })
+    $(".progress").hover(function() {
+        $(this).children().addClass('progress-bar-striped active');
+    }, function() {
+        $(this).children().removeClass('progress-bar-striped active');
+    });
 
-    $("#home").parallax();
+    $('.carousel').carousel({'interval': 5000});
+    $(".stanford").css('background-image', "url('" + bio_bg_imgs[0] + "')");
+    $("#stanford-carousel").on('slide.bs.carousel', function(event) {
+        bio_timer = $(event.relatedTarget).attr('data-slide-to');
+        $(".stanford").css('background-image', "url('" + bio_bg_imgs[bio_timer] + "')");
+    });
+    $("#counter-trigger").css('background-image', "url('" + stat_bg_imgs[0] + "')");
+    $("#stat-carousel").on('slide.bs.carousel', function(event) {
+        stat_timer = $(event.relatedTarget).attr('data-slide-to');
+        $("#counter-trigger").css('background-image', "url('" + stat_bg_imgs[stat_timer] + "')");
+    });
+
+    // $("#home").parallax();
     
 });
 
 
 $(window).scroll(function() {
-    if ($(window).scrollTop() > $(window).height() / 2 + $("#caption").height()) {
-        $('.scrollTop').fadeIn();
-        $('.navbar-fixed-top').addClass('navbar-shrink navbar-default').removeClass('navbar-transparent');
-    } else {
-        $('.scrollTop').fadeOut();
-        $('.navbar-fixed-top').removeClass('navbar-shrink navbar-default').addClass('navbar-transparent');
-    }
+    clearTimeout($.data(this, 'scrollTimer'));
+    $.data(this, 'scrollTimer', setTimeout(function() {
+        var h = $(window).scrollTop();
+        if (h >= $(window).height() / 2) {
+            $('.scrollTop').fadeIn();
+            $('.navbar-fixed-top').addClass('navbar-shrink navbar-default').removeClass('navbar-transparent');
+        } else {
+            $('.scrollTop').fadeOut();
+            $('.navbar-fixed-top').removeClass('navbar-shrink navbar-default').addClass('navbar-transparent');
+        }
+
+        h = (h - $("#stanford-carousel").offset().top) / $("#stanford-carousel").height() + 0.4;
+        if (h <= 0.45) {
+            $("#story_2016 > div.story-item-content").addClass('active').parent().css("z-index", 15);
+            $("#story_2015 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2011 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+        } else if (h > 0.45 & h <= 0.7) {
+            $("#story_2015 > div.story-item-content").addClass('active').parent().css("z-index", 15);
+            $("#story_2016 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2011 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+        } else {
+            $("#story_2011 > div.story-item-content").addClass('active').parent().css("z-index", 15);
+            $("#story_2016 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2015 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+        }
+    }, 100));
 });
 
 $('.scrollTop').on('click', function(event) {
