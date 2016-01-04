@@ -111,6 +111,7 @@ $(document).ready(function() {
     .setTween(TweenMax.from("#footer-header", 2, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
 
+
     setInterval(function () {
         $("#caption > p").removeClass(cap_class[cap_timer]);
         cap_timer += 1;
@@ -119,6 +120,7 @@ $(document).ready(function() {
 
     }, 1000);
     $(".rotate-box-2.square-icon").on('click', function(event) { event.preventDefault(); });
+    $(".portfolio_single_content > div > a").on('click', function(event) { event.preventDefault(); });
     $(".portfolio_single_content").each(function() {
         $(this).css('height', $("img", this).css('height'));
     });
@@ -145,8 +147,6 @@ $(document).ready(function() {
         $("#contact-carousel").parent().css('background-image', "url('" + contact_bg_imgs[contact_timer] + "')");
     });
 
-    // $("#home").parallax();
-    
 });
 
 
