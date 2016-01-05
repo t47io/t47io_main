@@ -26,8 +26,22 @@
 		<![endif]-->
 	</head>
 
-  <body data-spy="scroll" data-target="#main-navbar">
-    <div class="page-loader"></div>
+  <body>
+    <div class="page-loader">
+      <span class="load-center"></span>
+      <div class="load-content">
+        <p>
+          <img src="img/t47/t47_logo_alt_g.png" width=192/>
+          <br/>
+          <img src="img/fg_loader.gif" />
+          <br/>
+        </p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%;" id="load-progress"></div>
+        </div>
+      </div>
+    </div>
+
   	<div class="body">
       <header id="header" class="header-main">
         <nav id="main-navbar" class="navbar navbar-transparent navbar-fixed-top" role="navigation">
@@ -44,7 +58,7 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a class="page-scroll" href="body">Home</a></li>
+                <li><a class="page-scroll" href="#home-section">Home</a></li>
                 <li><a class="page-scroll" href="#about-section">About</a></li>
                 <li><a class="page-scroll" href="#portfolio-section">Works</a></li>
                 <li><a class="page-scroll" href="#contact-section">Contact</a></li>
@@ -936,12 +950,13 @@
       <footer class="text-off-white">
         <div class="footer">
           <div class="container text-center" id="footer-header">
-            <p class="copyright">Copyright <i class="fa fa-fw fa-copyright"></i> <a>2015 - 2016</a> Designed, built &amp; managed by <b><a href="http://t47.io/" class="theme-author">t47</a></b>.</p>
+            <p class="copyright">Copyright <i class="fa fa-fw fa-copyright"></i> <a>2015 - 2016</a> Designed, built &amp; managed by <b><a href="http://t47.io/" class="theme-author">t47</a></b>. All rights reserverd.</p>
+            <p class="copyright" style="padding-top:10px;">Code and content on this site is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-SA 4.0</a>.</p>
           </div>
         </div>
       </footer>
 
-      <a href="#" class="scrollTop"><i class="fa fa-arrow-up fa-fw fa-lg"></i></a>
+      <a href="#home-section" class="scrollTop"><i class="fa fa-arrow-up fa-fw fa-lg"></i></a>
     </div>
 
 
