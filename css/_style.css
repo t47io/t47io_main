@@ -6,6 +6,16 @@ body {
 	color: #363940;
 }
 body .body { height: 100%; }
+
+
+.bgimg2-lg {
+  background-image: url("../img/bg_rna_2.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 75%;
+}
+
+
 .cover {
 	position: absolute;
 	width: 100%;
@@ -88,8 +98,8 @@ section {
 .page-loader {
 	text-align: center;
 	position: fixed;
-/*	left: 0px;
-	top: 0px; */
+	left: 0px;
+	top: 0px; 
 	width: 100%;
 	height: 100%;
 	z-index: 99999;
@@ -98,12 +108,12 @@ section {
 .page-loader .load-center {
     display: inline-block;
     height: 100%;
-    vertical-align: middle;
+    vertical-align: bottom;
 }
 .page-loader .load-content {
-	vertical-align: middle; 
+	vertical-align: bottom; 
 	display: inline-block;
-	width: 33%;
+	max-width: 50%;
 }
 .divider {
 	width: 100%;
@@ -322,20 +332,14 @@ body.boxed .body .navbar-inverse.navbar-transparent.navbar-shrink .navbar-brand 
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px) {
-
 	.navbar-collapse {
 			background-color: #9fc906;
 			border-color: #fff !important;
 		}
-	.navbar-default.navbar-shrink .navbar-nav li.active a {
-		box-shadow: none !important;
-	}
+	.navbar-default.navbar-shrink .navbar-nav li.active a {	box-shadow: none !important; }
 	.navbar-nav li a:hover, 
 	.navbar-nav li > a:focus, 
-	.navbar-nav > li.active > a {
-		color: #385200;
-	}
-
+	.navbar-nav > li.active > a { color: #385200; }
 }
 
 
@@ -514,15 +518,16 @@ a.rotate-box-2 {
 }
 #home-section .container { height: 100%; }
 #home-section .caption {
-	position: relative;
-	top: 75%;
+	position: absolute;
+	bottom: 20%;
 	/*left: -30%;*/
-	margin-top: -70px;
+	/*margin-top: -70px;*/
 }
 #home-section .caption p {
 	letter-spacing: 2px;
-	font-size: 16px;
+	font-size: 3vh;
 	margin-top: 10px;
+	margin-left: 20px;
 	-moz-transition:color 1s ease-in-out;
 	-webkit-transition:color 1s ease-in-out; 
 	-o-transition:color 1s ease-in-out;
@@ -1069,6 +1074,13 @@ p.subtitle {
 }
 .story-item:after { content: ""; display: table; clear: both; }
 .story-item:last-child { margin: 0; }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+	.story { padding: 50px 50px 50px 100px; }
+	.timeline { left: 100px; }
+}
+
 
 .table { margin-bottom: 10px; }
 .table thead tr th,

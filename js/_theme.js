@@ -20,9 +20,9 @@ var contact_timer = 0, contact_bg_imgs = ['img/background/campus_map.jpg', 'img/
 
 // $("#load-progress").attr('aria-valuenow', 30);
 // $("#load-progress").css('width', '30%');
-// img_preload(bio_bg_imgs);
-// img_preload(stat_bg_imgs);
-// img_preload(contact_bg_imgs);
+img_preload(bio_bg_imgs);
+img_preload(stat_bg_imgs);
+img_preload(contact_bg_imgs);
 $("#stanford-carousel").parent().css('background-image', "url('" + bio_bg_imgs[0] + "')");
 $("#stat-carousel").parent().css('background-image', "url('" + stat_bg_imgs[0] + "')");
 $("#contact-carousel").parent().css('background-image', "url('" + contact_bg_imgs[0] + "')");
@@ -41,7 +41,8 @@ $(window).on('load', function() {
 
     TweenMax.defaultOverwrite = false;
     new TweenMax.from("#caption > img", 1, {'scale': $(window).width() / 500, 'opacity': 0, 'delay': 1.5});
-    new TweenMax.staggerFrom("#caption > p", 1, {'y': '100%', 'opacity': 0, 'delay': 2.25}, 0.5);
+    new TweenMax.staggerFrom("#subtitle_1 > span", 0.125, {'border-right': '15px solid #f44336', 'opacity': 0, 'delay': 3}, 0.125);
+    new TweenMax.staggerFrom("#subtitle_2 > span", 0.125, {'border-right': '15px solid #f44336', 'opacity': 0, 'delay': 7}, 0.125);
 
     new ScrollMagic.Scene({'triggerElement': '#about-section', 'offset': $(window).height() / 2, 'duration': $(window).height() / 2 - $("#main-navbar").height()})
     .setTween(TweenMax.fromTo("#caption", 1, {'opacity': 1}, {'y': '125%', 'opacity': 0.5}))
@@ -133,12 +134,14 @@ $(window).on('load', function() {
     .addTo(controller);
 
 
-    setInterval(function () {
-        $("#caption > p").removeClass(cap_class[cap_timer]);
-        cap_timer += 1;
-        if (cap_timer == 6) { cap_timer = 0; }
-        $("#caption > p").addClass(cap_class[cap_timer]);
-    }, 2000);
+    setTimeout(function() {
+        setInterval(function () {
+            $("#caption > p").removeClass(cap_class[cap_timer]);
+            cap_timer += 1;
+            if (cap_timer == 6) { cap_timer = 0; }
+            $("#caption > p").addClass(cap_class[cap_timer]);
+        }, 2000);
+    }, 8500);
     setInterval(function () {
         $(".scrollDown > i.fa").removeClass(arrow_class[arrow_timer]);
         arrow_timer += 1;
