@@ -40,9 +40,13 @@ $(window).on('load', function() {
     });
 
     TweenMax.defaultOverwrite = false;
-    new TweenMax.from("#caption > img", 1, {'scale': $(window).width() / 500, 'opacity': 0, 'delay': 1.5});
-    new TweenMax.staggerFrom("#subtitle_1 > span", 0.125, {'border-right': '15px solid #f44336', 'opacity': 0, 'delay': 3}, 0.125);
-    new TweenMax.staggerFrom("#subtitle_2 > span", 0.125, {'border-right': '15px solid #f44336', 'opacity': 0, 'delay': 7}, 0.125);
+    if ($(window).width() <= 500) {
+        new TweenMax.from("#caption > img", 1, {'scale': 0, 'opacity': 0, 'delay': 1.5});
+    } else {
+        new TweenMax.from("#caption > img", 1, {'scale': $(window).width() / 500, 'opacity': 0, 'delay': 1.5});
+        new TweenMax.staggerFrom("#subtitle_1 > span", 0.125, {'border-right': '15px solid #f44336', 'opacity': 0, 'delay': 3}, 0.125);
+        new TweenMax.staggerFrom("#subtitle_2 > span", 0.125, {'border-right': '15px solid #f44336', 'opacity': 0, 'delay': 7}, 0.125);
+    }
 
     new ScrollMagic.Scene({'triggerElement': '#about-section', 'offset': $(window).height() / 2, 'duration': $(window).height() / 2 - $("#main-navbar").height()})
     .setTween(TweenMax.fromTo("#caption", 1, {'opacity': 1}, {'y': '125%', 'opacity': 0.5}))
