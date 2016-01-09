@@ -523,7 +523,9 @@ a.rotate-box-2 {
 	/*left: -30%;*/
 	/*margin-top: -70px;*/
 }
+#home-section .caption img { max-width: 50%; }
 #home-section .caption p {
+	opacity: 0;
 	letter-spacing: 2px;
 	font-size: 3vh;
 	margin-top: 10px;
@@ -534,7 +536,10 @@ a.rotate-box-2 {
 	-ms-transition:color 1s ease-in-out;
 	transition:color 1s ease-in-out;
 }
-
+.blink_cursor {
+  color: #f44336;
+  font-weight: bold;
+}
 
 .stanford {
 	position: relative;
@@ -1079,6 +1084,12 @@ p.subtitle {
 @media only screen and (max-width : 767px) {
 	.story { padding: 50px 50px 50px 100px; }
 	.timeline { left: 100px; }
+}
+@media only screen and (max-width : 512px) {
+	#home-section .caption img { max-width: 35%; }
+}
+@media only screen and (min-width : 767px) {
+	#home-section .caption img { max-width: 75%; }
 }
 
 
