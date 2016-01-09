@@ -700,12 +700,18 @@ ul.contact-address li i { margin-right: 10px; }
 	padding: 60px 0 35px;
 }
 .footer-top .col-md-4 { margin-bottom: 25px; }
-.footer {
-	background-color: #2d3035;
-	padding: 30px 0;
+.footer { 
+	background-color: #2d3035; 
+	height: 96px;
+	margin: 0px;
 }
 .footer a{ text-decoration: none; }
-
+.footer img {
+	height:100%;
+	max-width:128px;
+	padding: 0px;
+}
+#footer-header { padding-top: 30px; }
 
 .page-header {
 	margin: 0 0 60px 0;
@@ -1084,6 +1090,8 @@ p.subtitle {
 @media only screen and (max-width : 767px) {
 	.story { padding: 50px 50px 50px 100px; }
 	.timeline { left: 100px; }
+	.footer { height:auto; }
+	#footer-header { padding-bottom: 30px; }
 }
 @media only screen and (max-width : 512px) {
 	#home-section .caption img { max-width: 35%; }
