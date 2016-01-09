@@ -177,6 +177,8 @@ $(window).on('load', function() {
     }, function() {
         $(this).children().removeClass('progress-bar-striped active');
     });
+    $("#img_sfo").on('click', function() { window.open('https://dribbble.com/shots/1772409-Golden-Gate-Bridge', '_blank'); });
+    $("#img_sea").on('click', function() { window.open('https://dribbble.com/shots/2037387-Seattle-FTW', '_blank'); });
 
     $('.carousel').carousel({'interval': 5000});
     $("#stanford-carousel").on('slide.bs.carousel', function(event) {
@@ -206,7 +208,11 @@ $(window).on('load', function() {
 
 $(window).on('scroll', function() {
     if ($(window).scrollTop() >= $(window).height() / 2 + $("#main-navbar").height()) {
-        $('.scrollTop').fadeIn();
+        if ($(window).scrollTop() >= $("footer").offset().top - $(window).height()) {
+            $(".scrollTop").fadeOut();
+        } else {
+            $('.scrollTop').fadeIn();
+        }
         $('.navbar-fixed-top').addClass('navbar-shrink navbar-default').removeClass('navbar-transparent');
     } else {
         $('.scrollTop').fadeOut();
