@@ -14,9 +14,9 @@ function img_preload(img_array) {
 
 var cap_timer = 0, cap_class = ['text-white', 'text-light-green', 'text-green', 'text-dark-green', 'text-green', 'text-light-green'];
 var arrow_timer = 0, arrow_class = ['text-white', 'text-light-green'];
-var bio_timer = 0, bio_bg_imgs = ['img/background/hover_tower.jpg', 'img/background/yosemite.jpg', 'img/background/lksc_building.jpg', 'img/background/cau_east.jpg'];
+var bio_timer = 0, bio_bg_imgs = ['img/background/hover_tower.jpg', 'img/background/yosemite.jpg', 'img/background/lksc_building.jpg', 'img/background/big_sur.jpg'];
 var stat_timer = 0, stat_bg_imgs = ['img/background/fish_necklace.jpg', 'img/background/lawn_bench.jpg', 'img/background/cliff_reed.jpg', 'img/background/flower.jpg'];
-var contact_timer = 0, contact_bg_imgs = ['img/background/campus_map.jpg', 'img/background/tunnel.jpg', 'img/background/red_papercut.jpg', 'img/background/big_sur.jpg'];
+var contact_timer = 0, contact_bg_imgs = ['img/background/campus_map.jpg', 'img/background/muir_trees.jpg', 'img/background/red_papercut.jpg', 'img/background/succulent.jpg'];
 
 // $("#load-progress").attr('aria-valuenow', 30);
 // $("#load-progress").css('width', '30%');
@@ -39,14 +39,43 @@ $(window).on('load', function() {
         .addTo(controller);
     });
 
+
     TweenMax.defaultOverwrite = false;
-    if ($(window).width() <= 500) {
-        new TweenMax.from("#caption > img", 1, {'scale': 0, 'opacity': 0, 'delay': 1.5});
-    } else {
-        new TweenMax.from("#caption > img", 1, {'scale': $(window).width() / 500, 'opacity': 0, 'delay': 1.5});
-        new TweenMax.staggerFrom("#subtitle_1 > span", 0.125, {'border-right': '15px solid #f44336', 'opacity': 0, 'delay': 3}, 0.125);
-        new TweenMax.staggerFrom("#subtitle_2 > span", 0.125, {'border-right': '15px solid #f44336', 'opacity': 0, 'delay': 7}, 0.125);
-    }
+    new TweenMax.from("#caption > img", 1, {
+        'scale': $(window).width() / 500, 'opacity': 0, 'delay': 1.5,
+        'onComplete': function () {
+            setInterval(function() {
+                $(".scrollDown > i.fa").removeClass(arrow_class[arrow_timer]);
+                arrow_timer += 1;
+                if (arrow_timer == 2) { arrow_timer = 0; }
+                $(".scrollDown > i.fa").addClass(arrow_class[arrow_timer]);
+            }, 2000);
+
+            setTimeout(function() {
+                $("#subtitle_1").typewrite({
+                    'delay': 125, 'extra_char': '<b class="blink_cursor">|</b>', 'trim': true,
+                    'callback': function () {
+                        setTimeout(function() {
+                            $("b.blink_cursor").remove();
+                            $("#subtitle_2").typewrite({
+                                'delay': 125, 'extra_char': '<b class="blink_cursor">|</b>', 'trim': true,
+                                'callback': function () {
+                                    setTimeout(function() { $("b.blink_cursor").remove(); }, 500);
+                                    setInterval(function () {
+                                        $("#caption > p").removeClass(cap_class[cap_timer]);
+                                        cap_timer += 1;
+                                        if (cap_timer == 6) { cap_timer = 0; }
+                                        $("#caption > p").addClass(cap_class[cap_timer]);
+                                    }, 2000);
+                                }
+                            });
+                        }, 500);
+                    }
+                });    
+            }, 500);
+        
+        }
+    });
 
     new ScrollMagic.Scene({'triggerElement': '#about-section', 'offset': $(window).height() / 2, 'duration': $(window).height() / 2 - $("#main-navbar").height()})
     .setTween(TweenMax.fromTo("#caption", 1, {'opacity': 1}, {'y': '125%', 'opacity': 0.5}))
@@ -138,20 +167,6 @@ $(window).on('load', function() {
     .addTo(controller);
 
 
-    setTimeout(function() {
-        setInterval(function () {
-            $("#caption > p").removeClass(cap_class[cap_timer]);
-            cap_timer += 1;
-            if (cap_timer == 6) { cap_timer = 0; }
-            $("#caption > p").addClass(cap_class[cap_timer]);
-        }, 2000);
-    }, 8500);
-    setInterval(function () {
-        $(".scrollDown > i.fa").removeClass(arrow_class[arrow_timer]);
-        arrow_timer += 1;
-        if (arrow_timer == 2) { arrow_timer = 0; }
-        $(".scrollDown > i.fa").addClass(arrow_class[arrow_timer]);
-    }, 2000);
     $(".rotate-box-2.square-icon").on('click', function(event) { event.preventDefault(); });
     $(".portfolio_single_content > div > a").on('click', function(event) { event.preventDefault(); });
     $(".portfolio_single_content").each(function() {
