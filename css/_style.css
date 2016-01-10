@@ -4,6 +4,7 @@ body {
 	height: 100%;
 	font-size: 14px;
 	color: #363940;
+	-webkit-text-size-adjust: 100%;
 }
 body .body { height: 100%; }
 
@@ -341,7 +342,11 @@ body.boxed .body .navbar-inverse.navbar-transparent.navbar-shrink .navbar-brand 
 	.navbar-nav li > a:focus, 
 	.navbar-nav > li.active > a { color: #385200; }
 }
-
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+	.parallax {
+		background-attachment: scroll;
+	}
+}
 
 .rotate-box-1, 
 .rotate-box-2 {
