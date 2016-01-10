@@ -60,7 +60,10 @@ $(window).on('load', function() {
                             $("#subtitle_2").typewrite({
                                 'delay': 125, 'extra_char': '<b class="blink_cursor">|</b>', 'trim': true,
                                 'callback': function () {
-                                    setTimeout(function() { $("b.blink_cursor").remove(); }, 500);
+                                    setTimeout(function() {
+                                        $("b.blink_cursor").remove();
+                                        $("#home-section > div.cover").css('background-color', 'rgba(0, 7, 11, 0.25)');
+                                    }, 500);
                                     setInterval(function () {
                                         $("#caption > p").removeClass(cap_class[cap_timer]);
                                         cap_timer += 1;
