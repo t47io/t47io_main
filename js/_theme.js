@@ -14,9 +14,9 @@ function img_preload(img_array) {
 
 var cap_timer = 0, cap_class = ['text-white', 'text-light-green', 'text-green', 'text-dark-green', 'text-green', 'text-light-green'];
 var arrow_timer = 0, arrow_class = ['text-white', 'text-light-green'];
-var bio_timer = 0, bio_bg_imgs = ['img/background/hover_tower.jpg', 'img/background/yosemite.jpg', 'img/background/lksc_building.jpg', 'img/background/big_sur.jpg'];
-var stat_timer = 0, stat_bg_imgs = ['img/background/fish_necklace.jpg', 'img/background/lawn_bench.jpg', 'img/background/cliff_reed.jpg', 'img/background/flower.jpg'];
-var contact_timer = 0, contact_bg_imgs = ['img/background/campus_map.jpg', 'img/background/muir_trees.jpg', 'img/background/red_papercut.jpg', 'img/background/succulent.jpg'];
+var bio_timer = 0, bio_bg_imgs = ['img/background/hover_tower.jpg', 'img/background/yosemite.jpg', 'img/background/lksc_building.jpg', 'img/background/big_sur.jpg', 'img/background/golden_gate.jpg'];
+var stat_timer = 0, stat_bg_imgs = ['img/background/fish_necklace.jpg', 'img/background/lawn_bench.jpg', 'img/background/cliff_reed.jpg', 'img/background/flower.jpg', 'img/background/tunnel.jpg'];
+var contact_timer = 0, contact_bg_imgs = ['img/background/campus_map.jpg', 'img/background/muir_trees.jpg', 'img/background/red_papercut.jpg', 'img/background/succulent.jpg', 'img/background/nano_dna.jpg'];
 
 // $("#load-progress").attr('aria-valuenow', 30);
 // $("#load-progress").css('width', '30%');
@@ -148,7 +148,7 @@ $(window).on('load', function() {
     .setTween(TweenMax.from("#pub-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
-    .setTween(TweenMax.staggerFrom("#pub-content > table > tbody > tr", 1, {'rotationX': 540, 'opacity': 0.25}, 0.2))
+    .setTween(TweenMax.staggerFrom("#pub-content > table > tbody > tr", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#contact-section', 'duration': '100%'})
     .setTween(TweenMax.from("#contact-header", 1, {'y': '-100%', 'opacity': 0}))
@@ -177,8 +177,6 @@ $(window).on('load', function() {
     }, function() {
         $(this).children().removeClass('progress-bar-striped active');
     });
-    $("#img_sfo").on('click', function() { window.open('https://dribbble.com/shots/1772409-Golden-Gate-Bridge', '_blank'); });
-    $("#img_sea").on('click', function() { window.open('https://dribbble.com/shots/2037387-Seattle-FTW', '_blank'); });
 
     $('.carousel').carousel({'interval': 5000});
     $("#stanford-carousel").on('slide.bs.carousel', function(event) {

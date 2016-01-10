@@ -706,12 +706,12 @@ ul.contact-address li i { margin-right: 10px; }
 	margin: 0px;
 }
 .footer a{ text-decoration: none; }
-.footer img {
+.footer a img {
 	height:100%;
 	max-width:128px;
 	padding: 0px;
 }
-#footer-header { padding-top: 30px; }
+#footer-header { padding: 30px 0px 0px 0px; }
 
 .page-header {
 	margin: 0 0 60px 0;
