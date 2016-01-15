@@ -128,7 +128,7 @@ $(window).on('load', function() {
         }, 0);
         setTimeout(function() {
             $("#count_num_2").countTo({
-                'from': 0, 'to': 16000, 'speed': 2000,
+                'from': 0, 'to': 16500, 'speed': 2000,
                 'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 200);
@@ -180,6 +180,7 @@ $(window).on('load', function() {
     }, function() {
         $(this).children().removeClass('progress-bar-striped active');
     });
+    $("td > a.text-light-gray > i.fa").css('text-decoration', 'line-through').on('click', false);
 
     $('.carousel').carousel({'interval': 5000});
     $("#stanford-carousel").on('slide.bs.carousel', function(event) {
