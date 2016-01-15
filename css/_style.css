@@ -67,9 +67,14 @@ body .body { height: 100%; }
 
 @font-face {
     font-family: "Tenor Sans Local";
-    src: local("Tenor Sans"), url("fonts/TenorSans-Regular.ttf");
+    src: local("Tenor Sans"), url("../fonts/TenorSans-Regular.ttf") format("truetype");
     font-weight: normal; font-style: normal;
 }
+/*@font-face {
+	font-family: "CC Icons";
+	src: local("CC Icons"), url("../fonts/CC-Icons.ttf") format("truetype");
+	font-weight: normal; font-style: normal;
+}*/
 * {
 	font-family: 'Tenor Sans', 'Tenor Sans Local', Helvetica, Arial, sans-serif;
 	border-radius: 0 !important;
@@ -80,6 +85,10 @@ body .body { height: 100%; }
 	outline: none !important;
 	box-shadow: none !important;
 }
+/*.cc { 
+	font-family: "CC Icons";
+	font-weight: normal;
+}*/
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
