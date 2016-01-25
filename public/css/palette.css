@@ -1,0 +1,82 @@
+.starter-template {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	text-align: center;
+}
+#center {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#main {
+	vertical-align: middle;
+	display: inline-block;
+	min-width: 640px;
+	max-width: 800px;
+}
+
+
+.bgimg2-lg {
+  background-image: url("/img/bg_rna_2.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100%;
+  padding:50px 0px;
+}
+
+.label-primary {
+	background-color: #5496d7;
+}
+.label-warning {
+	background-color: #fef159;
+	color: #000;
+}
+.label-danger {
+	background-color: #ff5c2b;
+}
+.label-info {
+	background-color: #3ed4e7;
+}
+.label-success {
+	background-color: #29be92;
+}
+.label-green {
+	background-color: #50cc32;
+}
+.label-light-blue {
+	background-color: #8ee4cf;
+}
+.label-brown {
+	background-color: #d39a6f;
+}
+.label-violet {
+	background-color: #c28fdd;
+}
+.label-orange {
+	background-color: #ff912e;
+}
+.label-dark-red {
+	background-color: #d86f5c;
+}
+.label-inverse {
+	background-color: #000;
+}
+.label-white {
+	color: #fff;
+}
+.label-dark-blue {
+	background-color: #7d95c9;
+}
+.label-gray {
+	background-color: #b7bac5;
+}
+.label-dark-green {
+	background-color: #24920C;
+}
+.label-teal {
+	background-color: #008080;
+}
+.label-magenta {
+	background-color: #ff69bc;
+}
