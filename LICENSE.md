@@ -103,7 +103,7 @@ In addition to the conditions in Section 3(a), if You Share Adapted Material You
 
 3. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter's License You apply.
 
-# Section 4 – Sui Generis Database Rights
+## Section 4 – Sui Generis Database Rights
 
 Where the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:
 
@@ -115,7 +115,7 @@ c. You must comply with the conditions in Section 3(a) if You Share all or a sub
 
 For the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.
 
-# Section 5 – Disclaimer of Warranties and Limitation of Liability
+## Section 5 – Disclaimer of Warranties and Limitation of Liability
 
 **a. Unless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.**
 
@@ -123,7 +123,7 @@ For the avoidance of doubt, this Section 4 supplements and does not replace Your
 
 c. The disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.
 
-# Section 6 – Term and Termination
+## Section 6 – Term and Termination
 
 a. This Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.
 
@@ -139,13 +139,13 @@ c. For the avoidance of doubt, the Licensor may also offer the Licensed Material
 
 d. Sections 1, 5, 6, 7, and 8 survive termination of this Public License.
 
-# Section 7 – Other Terms and Conditions
+## Section 7 – Other Terms and Conditions
 
 a. The Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.
 
 b. Any arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.
 
-# Section 8 – Interpretation
+## Section 8 – Interpretation
 
 a. For the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.
 
