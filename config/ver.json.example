@@ -1,0 +1,9 @@
+{
+	"jQuery":        "2.2.0",
+	"Bootstrap":     "3.3.6",
+	"FontAwesome":   "4.5.0",
+	"SmoothScroll":  "1.4.1",
+	"ScrollMagic":   "2.0.5",
+	"GSAP":          "1.18.2",
+	"parallax":      "2.1.3"
+}

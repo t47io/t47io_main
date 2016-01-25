@@ -1,0 +1,82 @@
+{
+	"project":      5,
+	"code":         16500,
+	"publication":  0,
+	"scholarship":  4,
+
+	"citations": {
+		"-2016": [null, null],
+		"-2015": [5, 0, 0, 14, 32],
+		"-2014": [11, 19],
+		"-2013": [9]
+	},
+
+	"skills": {
+		"left": [
+			{
+				"title": "Web Server Backend",
+				"icon":  "fa-server",
+				"items": [
+					["pyhon + Django + Apache2", 95],
+					["Node.js + Nginx", 75]
+				]
+			},
+			{
+				"title": "Web Server Frontend",
+				"icon":  "fa-eyedropper",
+				"items": [
+					["HTML5 &amp; CSS", 90],
+					["D3.js", 80],
+					["jQuery + DataTables", 90],
+					["ScrollMagic + TweenMax GSAP", 80],
+					["Photoshop + Illustrator", 85]
+				]
+			},
+			{
+				"title": "Administration Tasks",
+				"icon":  "fa-user-secret",
+				"items": [
+					["Linux (Ubuntu) + OSX", 90],
+					["git + pip + npm", 90],
+					["AWS EC2 / ELB + Webauth + Kerberos", 85],
+					["API: Slack + Google Analytics + AWS CloudWatch", 90]
+				]
+			}
+		],
+		"right": [
+			{
+				"title": "Scientific Computing",
+				"icon":  "fa-calculator",
+				"items": [
+					["MATLAB", 90],
+					["python + NumPy + Numba", 80]
+				]
+			},
+			{
+				"title": "Machine Learning",
+				"icon":  "fa-cogs",
+				"items": [
+					["R", 80],
+					["python + pandas + scikit-learn", 65]
+				]
+			},
+			{
+				"title": "Database Related",
+				"icon":  "fa-database",
+				"items": [
+					["MySQL", 95],
+					["Splunk + Tableau + Datameer", 75]
+				]
+			},
+			{
+				"title": "Biochemistry",
+				"icon":  "fa-heartbeat",
+				"items": [
+					["RNA chemistry + High-throughput quantitation", 100],
+					["Multidimensional RNA mapping + Compensatory mutagenesis", 100],
+					["Illumina NGS", 85]
+				]
+			}
+		]
+	}
+}
