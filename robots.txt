@@ -36,13 +36,17 @@ User-agent: Yahoo-MMCrawler
 
 # Directories
 Disallow: /.git/
-Disallow: /fonts/
-Disallow: /js/*.min.js
-Disallow: /pdf/2*.pdf
+Disallow: /public/fonts/
+Disallow: /public/js/*.min.js
+Disallow: /public/pdf/2*.pdf
+Disallow: /node_modules/
+Disallow: /config/
+
 
 # Files
 Disallow: /*.sh
 Disallow: /*.md
+Disallow: /app.js
 Disallow: /.gitignore
 
 # Paths (clean URLs)
