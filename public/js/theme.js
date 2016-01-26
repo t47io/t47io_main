@@ -18,9 +18,6 @@ var bio_timer = 0, bio_bg_imgs = ['/img/background/hover_tower.jpg', '/img/backg
 var stat_timer = 0, stat_bg_imgs = ['/img/background/fish_necklace.jpg', '/img/background/lawn_bench.jpg', '/img/background/cliff_reed.jpg', '/img/background/flower.jpg', '/img/background/tunnel.jpg'];
 var contact_timer = 0, contact_bg_imgs = ['/img/background/campus_map.jpg', '/img/background/muir_trees.jpg', '/img/background/red_papercut.jpg', '/img/background/succulent.jpg', '/img/background/nano_dna.jpg'];
 
-img_preload(bio_bg_imgs);
-img_preload(stat_bg_imgs);
-img_preload(contact_bg_imgs);
 $("#stanford-carousel").parent().css('background-image', "url('" + bio_bg_imgs[0] + "')");
 $("#stat-carousel").parent().css('background-image', "url('" + stat_bg_imgs[0] + "')");
 $("#contact-carousel").parent().css('background-image', "url('" + contact_bg_imgs[0] + "')");
@@ -205,6 +202,11 @@ $(window).on('load', function() {
         'target': '#main-navbar',
         'offset': 65
     });
+
+
+    img_preload(bio_bg_imgs);
+    img_preload(stat_bg_imgs);
+    img_preload(contact_bg_imgs);
 });
 
 
