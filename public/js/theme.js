@@ -168,6 +168,7 @@ $(window).on('load', function() {
     .addTo(controller);
 
 
+    $("#subtitle_0").css("width", $("#subtitle_1").css("width"));
     $(".rotate-box-2.square-icon").on('click', function(event) { event.preventDefault(); });
     $(".portfolio_single_content > div > a").on('click', function(event) { event.preventDefault(); });
     $(".portfolio_single_content").each(function() {

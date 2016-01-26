@@ -33,21 +33,23 @@ User-agent: bingbot
 User-agent: Slurp
 User-agent: Yahoo-Blogs
 User-agent: Yahoo-MMCrawler
+User-agent: Applebot
+User-agent: Twitterbot
+User-agent: Yandexbot
+User-agent: FacebookExternalHit
 
 # Directories
-Disallow: /.git/
-Disallow: /public/fonts/
-Disallow: /public/js/*.min.js
-Disallow: /public/pdf/2*.pdf
-Disallow: /node_modules/
-Disallow: /config/
-
+Disallow: /fonts/
+Disallow: /js/*.min.js
+# Disallow: /pdf/2*.pdf
 
 # Files
 Disallow: /*.sh
 Disallow: /*.md
-Disallow: /app.js
-Disallow: /.gitignore
+
+# Links
+Disallow: /get_ver
+Disallow: /send
 
 # Paths (clean URLs)
 Disallow: /test/
@@ -57,3 +59,5 @@ Disallow: /server-status/
 # Paths (no clean URLs)
 
 Crawl-delay: 600
+
+Sitemap: http://t47.io/sitemap.xml
