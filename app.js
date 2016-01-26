@@ -101,13 +101,20 @@ app.route('/send')
 			'DEBUG': DEBUG_STR,
 			'GA_ID': GA_ID
 		});
-	})
+	});
 });
 
 app.get('/resume', function (req, res) {
     res.setHeader('Cache-Control', 'public, max-age=1296000');
     res.setHeader('Content-Disposition', 'inline; filename="SiqiTian_resume.pdf"');
 	res.sendFile(resume);
+});
+
+app.get(/^\/robots\.txt\/?$/, function (req, res) {
+	res.sendFile('robots.txt', {'root': root});
+});
+app.get(/^\/sitemap\.xml\/?$/, function (req, res) {
+	res.sendFile('sitemap.xml', {'root': root});
 });
 
 app.get(/^\/error\/(400|401|403|404|500|503)\/?$/, function (req, res, next) {
@@ -137,14 +144,14 @@ app.delete('*', function (req, res, next) {
 });
 
 app.use(function (err, req, res, next) {
-	if ([400, 401, 403, 404, 500, 503].indexOf(err.status) != -1) {
-		res.status(err.status);
-		res.render(err.status.toString() + '.html', {
-			'DEBUG': DEBUG_STR,
-			'GA_ID': GA_ID
-		});
-	} else {
-		res.sendStatus(501);
+	if ([400, 401, 403, 404, 500, 503].indexOf(err.status) == -1) {
+		err.status = 503;
 	}
+
+	res.status(err.status);
+	res.render(err.status.toString() + '.html', {
+		'DEBUG': DEBUG_STR,
+		'GA_ID': GA_ID
+	});
 });
 
