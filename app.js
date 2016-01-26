@@ -18,6 +18,10 @@ var app       = express(),
 	smtp = emailer.createTransport(config.email.protocol + '://' + contact.replace('@', '%40') + ':' + config.email.password + '@' + config.email.host + ':' + config.email.port);
 for (var key in pub) {
 	dat.publication += pub[key].length;
+	for (var i = 0; i < pub[key].length; i++) {
+		var item = pub[key][i];
+		item.author = item.author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>');
+	}
 }
 var resume     = '';
 glob(path.join(root, 'pdf/Resume*.pdf'), {}, function (err, files) {

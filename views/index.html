@@ -530,29 +530,32 @@
                   </a>
                 </td>
                 <td>
-                  <span class="text-gray">{{p.author}} (<b class="text-light-green">{{-year}}</b>)</span>
-                  <br/>
-                  <b>"{{p.title}}"</b>
-                  <br/>
-                  <i class="text-green">{{p.journal}}</i>
-                  {% if p.is_ready %}
-                  <b>{{p.issue}}</b>: {{p.page}}.
-                  <a href="{{p.url}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
-                  <a href="/pdf/{{p.file|replace('.png','')|replace('.jpg','')}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
-                    {% if p.code %}
-                    <a href="{{p.code}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-code-o"></i></a>
+                  <p class="text-gray">{{p.author}} (<b class="text-light-green">{{-year}}</b>)</p>
+                  <p><b style="font-size:16px;">"{{p.title}}"</b></p>
+                  <p style="padding-top:5px;">
+                    <i class="text-green">{{p.journal}}</i>
+                    {% if p.is_ready %}
+                    <b>{{p.issue}}</b>: {{p.page}}.
+                    <a href="{{p.url}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
+                    <a href="/pdf/{{p.file|replace('.png','')|replace('.jpg','')}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+                      {% if p.code %}
+                      <a href="{{p.code}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-code-o"></i></a>
+                      {% endif %}
+                      <span class="pull-right text-gray bg-light-gray">
+                        <i class="fa fa-fw fa-balance-scale"></i>
+                        <i><small>Cited by :</small></i>
+                        {% if dat_dict.citations[year][loop.index0] %}
+                        <u class="text-main">{{dat_dict.citations[year][loop.index0]}}</u>
+                        {% else %}
+                        <u class="text-gray">{{dat_dict.citations[year][loop.index0]}}</u>
+                        {% endif %}
+                      </span>
+                    {% else %}
+                    , <span class="text-gray">{{p.issue}}</span>.
+                    <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
+                    <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
                     {% endif %}
-                    {% if dat_dict.citations[year][loop.index0] %}
-                    <span class="pull-right text-gray bg-light-gray">
-                      <i class="fa fa-fw fa-balance-scale"></i>
-                      <i><small>Cited by :</small></i> <u class="text-main">{{dat_dict.citations[year][loop.index0]}}</u>
-                    </span>
-                    {% endif %}
-                  {% else %}
-                  , <span class="text-gray">{{p.issue}}</span>.
-                  <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
-                  <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
-                  {% endif %}
+                  </p>
                 </td>
               </tr>
               {% endfor %}
