@@ -1,6 +1,6 @@
 {
 	"project":      5,
-	"code":         16500,
+	"code":         16750,
 	"publication":  0,
 	"scholarship":  4,
 
@@ -10,6 +10,69 @@
 		"-2014": [11, 19],
 		"-2013": [9]
 	},
+
+	"projects": [
+		{
+			"image":       "/img/portfolio/thumbnail_RMDB.jpg",
+			"url":         "https://rmdb.stanford.edu/",
+			"title":       "NA Mapping Database",
+			"description": "Academic Data Sharing and Visualization"
+		},
+		{
+			"image":       "/img/portfolio/thumbnail_Primerize.jpg",
+			"url":         "https://primerize.stanford.edu/",
+			"title":       "Primerize Server",
+			"description": "PCR Assembly Primer Design and Service"
+		},
+		{
+			"image":       "/img/portfolio/thumbnail_DasLab.jpg",
+			"url":         "https://daslab.stanford.edu/",
+			"title":       "Das Lab Website",
+			"description": "Intricate System for Automated Scheduling<br/>and Secure Content Management"
+		},
+		{
+			"image":       "/img/portfolio/thumbnail_Eterna.jpg",
+			"url":         "http://data.t47.io/",
+			"title":       "Eterna Data Browser",
+			"description": "Interactive App for Multidimensional<br/>Data Visualization and Analysis"
+		},
+		{
+			"image":       "/img//portfolio/thumbnail_HiTRACE.jpg",
+			"url":         "https://github.com/hitrace/hitrace",
+			"title":       "HiTRACE Graphics",
+			"description": "High-Throughput Data Processing Pipeline<br/>and Standardized Graphical Archiving"
+		},
+		{
+			"image":       "/img/portfolio/thumbnail_Spindle.jpg",
+			"url":         "https://github.com/t47io/SpindleUtil",
+			"title":       "Spindle Utility",
+			"description": "Automated Image Selection and Quantitation"
+		},
+		{
+			"image":       "/img/portfolio/thumbnail_MMR.jpg",
+			"url":         "http://rnajournal.cshlp.org/content/20/11/1815",
+			"title":       "Mutate-Map-Rescue",
+			"description": "Robust Validation of SHAPE-directed RNA Structure<br/>and Uncovering Excited States"
+		},
+		{
+			"image":       "/img/portfolio/thumbnail_IRES.jpg",
+			"url":         "http://www.nature.com/nature/journal/v517/n7532/full/nature14010.html",
+			"title":       "Mammalian IRES",
+			"description": "Characterization of <u><b>1<sup>st</sup></b></u> RNA Translational Regulatory Elements<br/>on Mammalian Body-Plan Regulators"
+		},
+		{
+			"image":       "/img/portfolio/thumbnail_Flu.jpg",
+			"url":         "http://glennlab.stanford.edu/",
+			"title":       "Influenza Packaging",
+			"description": "Validation of <u><b>1<sup>st</sup></b></u> RNA Element for Flu Virulence Attenuation"
+		},
+		{
+			"image":       "/img/portfolio/thumbnail_Celica.jpg",
+			"url":         "/img/portfolio/project_Celica.jpg",
+			"title":       "Project Celica",
+			"description": "DIY Customization Unleashed on My <u><b>1<sup>st</sup></b></u> Car"
+		}
+	],
 
 	"skills": {
 		"left": [
