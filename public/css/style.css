@@ -189,6 +189,7 @@ section {
 }
 small { font-size: 12px; }
 .fa-sm { font-size: 10px !important; }
+.fa-md { font-size: 13px !important; }
 a { color: #72a603; }
 a:hover, a:focus {
 	color: #9fc906;
