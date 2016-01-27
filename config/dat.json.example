@@ -15,7 +15,7 @@
 		{
 			"image":       "/img/portfolio/thumbnail_RMDB.jpg",
 			"url":         "https://rmdb.stanford.edu/",
-			"title":       "NA Mapping Database",
+			"title":       "RNA Mapping Database",
 			"description": "Academic Data Sharing and Visualization"
 		},
 		{
@@ -37,7 +37,7 @@
 			"description": "Interactive App for Multidimensional<br/>Data Visualization and Analysis"
 		},
 		{
-			"image":       "/img//portfolio/thumbnail_HiTRACE.jpg",
+			"image":       "/img/portfolio/thumbnail_HiTRACE.jpg",
 			"url":         "https://github.com/hitrace/hitrace",
 			"title":       "HiTRACE Graphics",
 			"description": "High-Throughput Data Processing Pipeline<br/>and Standardized Graphical Archiving"
@@ -127,7 +127,7 @@
 				"title": "Database Related",
 				"icon":  "fa-database",
 				"items": [
-					["MySQL", 95],
+					["MySQL + HiveQL", 95],
 					["Splunk + Tableau + Datameer", 75]
 				]
 			},
