@@ -80,15 +80,15 @@
 				"title": "Web Server Backend",
 				"icon":  "fa-server",
 				"items": [
-					["pyhon + Django + Apache2", 95],
-					["Node.js + Nginx", 75]
+					["pyhon + Django + Apache", 95],
+					["Node.js + Nginx, uwsgi", 75]
 				]
 			},
 			{
 				"title": "Web Server Frontend",
 				"icon":  "fa-eyedropper",
 				"items": [
-					["HTML5 &amp; CSS", 90],
+					["HTML5 &amp; CSS, Jinja", 90],
 					["D3.js", 80],
 					["jQuery + DataTables", 90],
 					["ScrollMagic + TweenMax GSAP", 80],
@@ -100,9 +100,9 @@
 				"icon":  "fa-user-secret",
 				"items": [
 					["Linux (Ubuntu) + OSX", 90],
-					["git + pip + npm", 90],
-					["AWS EC2 / ELB + Webauth + Kerberos", 85],
-					["API: Slack + Google Analytics + AWS CloudWatch", 90]
+					["git, pip, npm", 90],
+					["AWS EC2 / ELB, Webauth + Kerberos", 85],
+					["API: Oauth, Slack, AWS CloudWatch", 90]
 				]
 			}
 		],
@@ -127,7 +127,7 @@
 				"title": "Database Related",
 				"icon":  "fa-database",
 				"items": [
-					["MySQL + HiveQL", 95],
+					["MySQL, HiveQL", 95],
 					["Splunk + Tableau + Datameer", 75]
 				]
 			},
