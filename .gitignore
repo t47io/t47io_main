@@ -1,3 +1,5 @@
+!.gitignore
+
 public/css/*.min.css
 public/js/*.min.js
 public/pdf/*.pdf
