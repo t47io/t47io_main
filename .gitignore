@@ -7,4 +7,5 @@ public/pdf/*.pdf
 config/*.json
 
 node_modules/
+bower_components/
 
