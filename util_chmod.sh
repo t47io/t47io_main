@@ -1,5 +1,5 @@
 sudo chown -R admin:www-data *
-sudo chown -R admin:admin node_modules
+sudo chown -R admin:admin node_modules bower_components
 sudo chmod 640 *.js* *.md
 
 sudo chmod 640 $(find public -type f)

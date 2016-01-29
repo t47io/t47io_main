@@ -34,8 +34,7 @@ glob(path.join(root, 'pdf/Resume*.pdf'), {}, function (err, files) {
 	resume = files[files.length - 1];
 });
 
-var DEBUG     = config.DEBUG,
-	DEBUG_STR = DEBUG ? '' : '.min',
+var DEBUG     = !config.DEBUG,
 	GA_ID     = config.ga_tracker,
 	port      = config.port;
 
@@ -66,16 +65,35 @@ app.listen(port, function () {
 app.get('/', function (req, res) {
 	var res_date = resume.replace(path.join(root, 'pdf/Resume_'), '').replace('.pdf', '');
 	res.render('index.html', {
-		'DEBUG':     DEBUG_STR,
+		'DEBUG':     DEBUG,
 		'pub_list':  pub,
 		'dat_dict':  dat,
 		'resume':    moment(res_date, 'YYYYMMDD').format('MMM YYYY'),
 		'GA_ID':     GA_ID
 	});
 });
-app.get('/get_ver', function (req, res) {
-	res.sendFile('ver.json', {'root': path.join(__dirname, 'config')});
+
+app.get(/^\/bower_components\/(.+)\/?$/, function (req, res, next) {
+	var file = req.params[0];
+	if (fs.existsSync('bower_components/' + file)) {
+		res.sendFile(req.params[0], {'root': path.join(__dirname, 'bower_components')});
+	} else {
+		var err = new Error();
+		err.status = 404;
+		next(err);
+	}
 });
+app.get(/^\/fonts\/(.+)\/?$/, function (req, res, next) {
+	var file = req.params[0];
+	if (fs.existsSync('bower_components/font-awesome/fonts/' + file)) {
+		res.sendFile(req.params[0], {'root': path.join(__dirname, 'bower_components/font-awesome/fonts')});
+	} else {
+		var err = new Error();
+		err.status = 404;
+		next(err);
+	}
+});
+
 
 app.route('/send')
 .get(function (req, res, next) {
@@ -102,7 +120,7 @@ app.route('/send')
 		}
 		console.log('Message sent.');
 		res.status(201).render('201.html', {
-			'DEBUG': DEBUG_STR,
+			'DEBUG': DEBUG,
 			'GA_ID': GA_ID
 		});
 	});
@@ -114,12 +132,14 @@ app.get('/resume', function (req, res) {
 	res.sendFile(resume);
 });
 
+
 app.get(/^\/robots\.txt\/?$/, function (req, res) {
 	res.sendFile('robots.txt', {'root': root});
 });
 app.get(/^\/sitemap\.xml\/?$/, function (req, res) {
 	res.sendFile('sitemap.xml', {'root': root});
 });
+
 
 app.get(/^\/error\/(400|401|403|404|500|503)\/?$/, function (req, res, next) {
 	var err = new Error();
@@ -147,6 +167,7 @@ app.delete('*', function (req, res, next) {
 	next(err);
 });
 
+
 app.use(function (err, req, res, next) {
 	if ([400, 401, 403, 404, 500, 503].indexOf(err.status) == -1) {
 		err.status = 503;
@@ -154,7 +175,7 @@ app.use(function (err, req, res, next) {
 
 	res.status(err.status);
 	res.render(err.status.toString() + '.html', {
-		'DEBUG': DEBUG_STR,
+		'DEBUG': DEBUG,
 		'GA_ID': GA_ID
 	});
 });
