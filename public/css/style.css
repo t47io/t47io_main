@@ -67,7 +67,7 @@ body .body { height: 100%; }
 
 @font-face {
     font-family: "Tenor Sans Local";
-    src: local("Tenor Sans"), url("/fonts/TenorSans-Regular.ttf") format("truetype");
+    src: local("Tenor Sans"), url("/TenorSans-Regular.ttf") format("truetype");
     font-weight: normal; font-style: normal;
 }
 /*@font-face {

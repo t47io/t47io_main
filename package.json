@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Siqi Tian <contact@t47.io>",
   "license": "CC-BY-NC-SA",
   "description": "Personal website assets of t47.io",
@@ -19,8 +19,14 @@
 
   "dependencies": {
     "body-parser": ">=1.14.2",
+    "bower":       ">=1.7.7",
     "express":     ">=4.13.4",
     "glob":        ">=6.0.4",
+    "grunt":       ">=0.4.5",
+    "grunt-contrib-clean":  ">=0.7.0",
+    "grunt-contrib-concat": ">=0.5.1",
+    "grunt-contrib-cssmin": ">=0.14.0",
+    "grunt-contrib-uglify": ">=0.11.0",
     "helmet":      ">=1.1.0",
     "moment":      ">=2.11.1",
     "nodemailer":  ">=2.0.0",

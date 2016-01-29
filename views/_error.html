@@ -17,9 +17,15 @@
     <link rel="shortcut icon" type="image/png" href="/img/t47/t47_icon.png" />
     <link rel="apple-touch-icon" type="image/png" href="/img/t47/t47_icon.png" />
 
-    <link rel="stylesheet" type="text/css" href="/css/lib/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/palette{{DEBUG}}.css">
+    {% if DEBUG %}
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/palette.css">
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="/css/_lib.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/_clr.min.css" />
+    {% endif %}
+
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
