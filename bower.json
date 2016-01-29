@@ -1,0 +1,33 @@
+{
+  "name": "t47io_main",
+  "description": "Personal website assets of t47.io",
+  "main": "app.js",
+  "authors": [
+    "Siqi Tian <contact@t47.io>"
+  ],
+  "license": "CC-BY-NC-SA",
+  "keywords": [
+    "t47io",
+    "personal",
+    "portfolio"
+  ],
+  "homepage": "https://github.com/t47io/t47io_main",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.5.0",
+    "gsap": "^1.18.2",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.0",
+    "scrollmagic": "^2.0.5"
+  }
+}
