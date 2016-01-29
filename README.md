@@ -6,12 +6,14 @@ This is the _Code and Content_ repository for **t47io Main** Website. The online
 
 ## Installation
 
-**t47io Main** requires the following [**`Node.js`**](https://nodejs.org/) packages as dependencies, most of which can be installed through [`npm`](https://www.npmjs.com/).
+**t47io Main** requires the following [**`Node.js`**](https://nodejs.org/) packages as dependencies (see in `package.json`), most of which can be installed through [`npm`](https://www.npmjs.com/).
 
 ```json
 body-parser  >=  1.14.2
+bower        >=  1.7.7
 express      >=  4.13.4
 glob         >=  6.0.4
+grunt        >=  0.4.5
 helmet       >=  1.1.0
 moment       >=  2.11.1
 nodemailer   >=  2.0.0
@@ -21,9 +23,28 @@ sanitizer    >=  0.1.3
 supervisor   >=  0.9.1
 ```
 
+For `bower`, the following libraries are maintained (see in `bower.json`): 
+
+```json
+bootstrap    >=  3.3.6
+font-awesome >=  4.5.0
+gsap         >=  1.18.2
+jquery       >=  2.2.0
+scollmagic   >=  2.0.5
+```
+
+Also for `grunt`, the following packages are used (see in `package.json`):
+
+```json
+grunt-contrib-clean  >= 0.7.0
+grunt-contrib-concat >= 0.5.1
+grunt-contrib-cssmin >= 0.14.0
+grunt-contrib-uglify >= 0.11.0
+```
+
 **t47io Main** also requires proper setup of `nginx` reverse proxy, and `pm2` startup scripts.
 
-Lastly, assets preparation is required for the 1st time through running `util_minify.sh`, `util_chmod.sh` and manually replacing `config/*.json`. 
+Lastly, assets preparation is required for the 1st time through running `grunt prod`, `util_chmod.sh` and manually replacing `config/*.json`. 
 
 ## Usage
 

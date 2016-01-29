@@ -34,7 +34,7 @@ glob(path.join(root, 'pdf/Resume*.pdf'), {}, function (err, files) {
 	resume = files[files.length - 1];
 });
 
-var DEBUG     = !config.DEBUG,
+var DEBUG     = config.DEBUG,
 	GA_ID     = config.ga_tracker,
 	port      = config.port;
 
