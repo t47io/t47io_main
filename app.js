@@ -27,7 +27,7 @@ var resume     = '';
 glob(path.join(root, 'pdf/Resume*.pdf'), {}, function (err, files) {
 	if (err) {
 		console.log(err);
-		var err = new Error();
+		err = new Error();
 		err.status = 500;
 		next(err);
 	}
@@ -114,7 +114,7 @@ app.route('/send')
 	}, function (err, info) {
 		if (err) {
 			console.log(err);
-			var err = new Error();
+			err = new Error();
 			err.status = 500;
 			next(err);
 		}

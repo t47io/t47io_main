@@ -65,15 +65,37 @@ module.exports = function(grunt) {
     'clean': [
       'public/css/_*.min.css',
       'public/js/_*.min.js'
-    ]
+    ],
+
+    'jshint': {
+      'options': {
+        'reporter': require('jshint-stylish')
+      },
+      'files': [
+        'app.js',
+        'public/js/theme.js'
+      ]
+    },
+
+    'watch': {
+      'files': [
+        'public/css/*.css',
+        '!public/css/_*.min.css',
+        'public/js/*.js',
+        '!public/js/_*.min.js'
+      ],
+      'tasks': ['prod']
+    }
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('prod', ['clean', 'cssmin', 'uglify', 'concat']);
+  grunt.registerTask('prod', ['clean', 'cssmin', 'jshint', 'uglify', 'concat']);
 
 };

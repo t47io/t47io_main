@@ -2,12 +2,12 @@ function img_preload(img_array) {
     for (var i = 0; i < img_array.length; i++) {
         var img = new Image();
         img.src = img_array[i];
-        img.onload = function() { 
-            var percent = parseInt($("#load-progress").attr('aria-valuenow'));
-            percent += 5;
-            $("#load-progress").attr('aria-valuenow', percent);
-            $("#load-progress").css('width', percent + '%');
-        }
+        // img.onload = function() { 
+        //     var percent = parseInt($("#load-progress").attr('aria-valuenow'));
+        //     percent += 5;
+        //     $("#load-progress").attr('aria-valuenow', percent);
+        //     $("#load-progress").css('width', percent + '%');
+        // };
     }
 }
 
