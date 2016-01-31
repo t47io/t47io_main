@@ -5,6 +5,7 @@ public/js/*.min.js
 public/pdf/*.pdf
 
 config/*.json
+data/
 
 node_modules/
 bower_components/

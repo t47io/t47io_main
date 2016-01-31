@@ -197,4 +197,13 @@ body {
 .fa-sm { font-size: 10px !important; }
 .fa-md { font-size: 13px !important; }
 
+.place_holder {
+  height: 200px;
+  background-size: 96px;
+  opacity: 0.5;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-image: url("/img/fg_loader_dot.gif");  
+  background-position: center;
+}
 
