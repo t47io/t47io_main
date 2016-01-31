@@ -65,12 +65,12 @@
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand page-scroll" href="index.html">T47</a>
+              <a class="navbar-brand page-scroll" href="/">T47</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -352,13 +352,13 @@
               <div class="portfoloi_content_area" >
                 <div class="portfolio_content">
                   <div class="row"  id="portfolio">
-                    {% for p in dat_dict.projects %}
+                    {% for p in dat_dict.projects.order %}
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                       <div class="portfolio_single_content">
-                        <img src="{{p.image}}" alt="{{p.title}}"/>
+                        <img src="{{dat_dict.projects[p].image}}" alt="{{dat_dict.projects[p].title}}"/>
                         <div>
-                          <a href="{{p.url}}" target="_blank">{{p.title}} <i class="fa fa-fw fa-md fa-external-link"></i></a>
-                          <span>{{p.description}}</span>
+                          <a href="{{dat_dict.projects[p].url}}" target="_blank">{{dat_dict.projects[p].title}} <i class="fa fa-fw fa-md fa-external-link"></i></a>
+                          <span>{{dat_dict.projects[p].description}}</span>
                         </div>
                       </div>
                     </div>
@@ -750,7 +750,6 @@
     {% else %}
     <script type="text/javascript" src="/js/_lib.min.js"></script>
     <script type="text/javascript" src="/js/_anim.min.js"></script>
-    <script type="text/javascript" src="/js/_util.min.js"></script>
     <script type="text/javascript" src="/js/_indx.min.js"></script>
     {% endif %}
   </body> 
