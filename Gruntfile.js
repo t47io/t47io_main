@@ -18,13 +18,7 @@ module.exports = function(grunt) {
             'bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
             'bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js',
             'bower_components/scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js',
-            'bower_components/gsap/src/minified/jquery.gsap.min.js'
-          ]
-        }
-      },
-      'index': {
-        'files': {
-          'public/js/_util.min.js': [
+            'bower_components/gsap/src/minified/jquery.gsap.min.js',
             'public/js/lib/SmoothScroll.min.js',
             'public/js/lib/CountTo.min.js',
             'public/js/lib/TypeWriter.min.js'
