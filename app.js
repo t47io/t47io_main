@@ -84,7 +84,7 @@ app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica)\/?$/,
 	});
 });
 app.get('/git', function (req, res, next) {
-	if (['daslab', 'rmdb', 'primerize', 'na_thermo', 'rdatkit', 'htirace', 'spindle'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
+	if (['daslab', 'rmdb', 'primerize', 'nathermo', 'rdatkit', 'htirace', 'spindle'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
 		var json = JSON.parse(fs.readFileSync('data/' + req.query.repo + '_' + req.query.type + '.json', 'utf8'));
 		if (req.query.tqx) {
 			var req_id = req.query.tqx.replace('reqId:', '');
@@ -196,6 +196,7 @@ app.delete('*', function (req, res, next) {
 
 app.use(function (err, req, res, next) {
 	if ([400, 401, 403, 404, 500, 503].indexOf(err.status) == -1) {
+		console.log(err);
 		err.status = 503;
 	}
 

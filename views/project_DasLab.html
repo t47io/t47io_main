@@ -5,21 +5,31 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
       <h1>{{title}}</h1>
       <p class="lead">{{description}}</p>
-      <p><img src="/img/portfolio/project_daslab_banner.jpg" style="max-width:100%;" /></p>
+      <p class="thumbnail"><img src="/img/portfolio/project_daslab_banner.jpg" style="max-width:100%;" /></p>
       <hr/>
       <h2><i class="fa fa-fw fa-hand-pointer-o"></i> Access</h2>
-      <p class="lead">
-        <span class="label label-warning">Production</span>: <a href="https://daslab.stanford.edu/" target="_blank">https://daslab.stanford.edu/</a>
-        <br/>
-        <span class="label label-success">Demo</span>: <a href="http://demo.t47.io/" target="_blank">http://demo.t47.io/</a> (For internal system)
-      </p>
+      <br/>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+          <h3><span class="label label-warning">Production</span></h3>
+          <p class="lead" style="margin: 5px 0px;"><a href="https://daslab.stanford.edu/" target="_blank">https://daslab.stanford.edu/ <i class="fa fa-fw fa-sm fa-external-link"></i></a></p>
+          <p>Internal Site <span class="label label-danger">not</span> accessible to <u>public</u> (<span class="label label-info">WebAuth</span> gated).</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+          <h3><span class="label label-success">Demonstration</span></h3>
+          <p class="lead" style="margin: 5px 0px;"><a href="http://demo.t47.io/" target="_blank">http://demo.t47.io/ <i class="fa fa-fw fa-sm fa-external-link"></i></a></p>
+          <p>Internal Site with <span class="label label-violet">mock-up</span> data for <u>public</u> view.</p>
+        </div>
+      </div>
+      <br/>
       <hr/>
       <h2><i class="fa fa-fw fa-hand-o-right"></i> Features</h2>
+      <br/>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 carousel-parent">
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
       <div id="carousel-1" class="carousel carousel-fade slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
@@ -28,31 +38,44 @@
           <li data-target="#carousel-1" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
+          <div class="item active thumbnail">
             <img src="/img/portfolio/project_daslab_1_fs.jpg" alt="Meeting Archive">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_1_jc.jpg" alt="Resource Timeline">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_1_ppl.jpg" alt="Member Contact">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_1_cal.jpg" alt="Shared Calendar">
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-archive"></i> Group Resources Management</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Weekly meeting archive organized in tab-views</li>
+        <li>Timeline of events (Journal Club, Rotation Student, etc.)</li>
+        <li>Group contact book in name cards</li>
+        <li>Shared calendar of scheduling</li>
+      </ul>
     </div>
   </div>  
 
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-area-chart"></i> Analytics Dashbord</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Group dashboard of vendor services, including GitHub, Slack and Dropbox</li>
+        <li>Admin dashboard of server status, including Apache, AWS CloudWatch and Google Analytics</li>
+        <li>Admin console of system packge version control</li>
+      </ul>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 carousel-parent">
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
       <div id="carousel-2" class="carousel carousel-fade slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
@@ -62,19 +85,19 @@
           <li data-target="#carousel-2" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
+          <div class="item active thumbnail">
             <img src="/img/portfolio/project_daslab_2_ga.jpg" alt="Google Analytics">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_2_aws.jpg" alt="AWS CloudWatch">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_2_git.jpg" alt="GitHub Repository">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_2_ver.jpg" alt="Version Console">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_2_slk.jpg" alt="Slack Activity">
           </div>
         </div>
@@ -83,7 +106,7 @@
   </div>  
 
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 carousel-parent">
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
       <div id="carousel-3" class="carousel carousel-fade slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-3" data-slide-to="0" class="active"></li>
@@ -92,46 +115,61 @@
           <li data-target="#carousel-3" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
+          <div class="item active thumbnail">
             <img src="/img/portfolio/project_daslab_3_bot.jpg" alt="Bot Reminders">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_3_slk.jpg" alt="Meeting Scheduler">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_3_cfg.jpg" alt="Bot Config">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_3_bkp.jpg" alt="Backup Config">
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-sliders"></i> Bot Automation</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Bot for automated weekly meeting setup and Slack notifications</li>
+        <li>Full configuration of bot and backup daemon</li>
+      </ul>
     </div>
   </div>  
 
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-lock"></i> Security &amp; Database</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Bibliography management and easy export</li>
+        <li>Access control via WebAuth</li>
+        <li>Detailed server admin manual and reference</li>
+      </ul>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 carousel-parent">
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
       <div id="carousel-4" class="carousel carousel-fade slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-4" data-slide-to="0" class="active"></li>
           <li data-target="#carousel-4" data-slide-to="1"></li>
           <li data-target="#carousel-4" data-slide-to="2"></li>
+          <li data-target="#carousel-4" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
+          <div class="item active thumbnail">
             <img src="/img/portfolio/project_daslab_4_pub.jpg" alt="Publication Database">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_4_exp.jpg" alt="Publication Export">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_4_usr.jpg" alt="Profile Database">
+          </div>
+          <div class="item thumbnail">
+            <img src="/img/portfolio/project_daslab_4_wau.jpg" alt="WebAuth Access">
           </div>
         </div>
       </div>
@@ -139,7 +177,7 @@
   </div>  
 
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 carousel-parent">
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
       <div id="carousel-5" class="carousel carousel-fade slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-5" data-slide-to="0" class="active"></li>
@@ -148,23 +186,27 @@
           <li data-target="#carousel-5" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
+          <div class="item active thumbnail">
             <img src="/img/portfolio/project_daslab_5_500.jpg" alt="Internal Server Error">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_5_404.jpg" alt="Not Found">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_5_401.jpg" alt="Unauthorized">
           </div>
-          <div class="item">
+          <div class="item thumbnail">
             <img src="/img/portfolio/project_daslab_5_400.jpg" alt="Bad Request">
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-fort-awesome"></i> Error Pages</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Custom HTTP Errors with a mix of RNA puns</li>
+      </ul>
     </div>
   </div>  
 
@@ -174,6 +216,21 @@
       <h2 class="text-center"><i class="fa fa-fw fa-code-fork"></i> Repository</h2>
       <br/>
       <div class="place_holder" id="git_body"></div>
+      <hr/>
+      <h2 class="text-center"><i class="fa fa-fw fa-hand-pointer-o"></i> Access</h2>
+      <br/>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+          <h3><span class="label label-warning">Production</span></h3>
+          <p class="lead" style="margin: 5px 0px;"><a href="https://daslab.stanford.edu/" target="_blank">https://daslab.stanford.edu/ <i class="fa fa-fw fa-sm fa-external-link"></i></a></p>
+          <p>Internal Site <span class="label label-danger">not</span> accessible to <u>public</u> (<span class="label label-info">WebAuth</span> gated).</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+          <h3><span class="label label-success">Demonstration</span></h3>
+          <p class="lead" style="margin: 5px 0px;"><a href="http://demo.t47.io/" target="_blank">http://demo.t47.io/ <i class="fa fa-fw fa-sm fa-external-link"></i></a></p>
+          <p>Internal Site with <span class="label label-violet">mock-up</span> data for <u>public</u> view.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -182,15 +239,13 @@
 {% block script %}
   <script type="text/javascript">
     var repo = ["{{proj}}"];
-
-    $(document).ready(function() {
-      $('.carousel').carousel({'interval': 2500});
-    });
   </script>
   <script type="text/javascript" src="https://www.google.com/jsapi" ></script>
-  {% if DEBUG %}
-    <script type="text/javascript" src="/js/gviz.js" ></script>
-  {% else %}
 
+  {% if DEBUG %}
+  <script type="text/javascript" src="/js/gviz.js" ></script>
+  <script type="text/javascript" src="/js/util.js" ></script>
+  {% else %}
+  <script type="text/javascript" src="/js/_gviz.min.js" ></script>
   {% endif %}
 {% endblock %}
