@@ -1,9 +1,19 @@
+@font-face {
+    font-family: "Tenor Sans Local";
+    src: local("Tenor Sans"), url("/TenorSans-Regular.ttf") format("truetype");
+    font-weight: normal; font-style: normal;
+}
+* {
+	font-family: 'Tenor Sans', 'Tenor Sans Local', Helvetica, Arial, sans-serif;
+}
+
+
 html { 
   overflow-y: scroll; 
 }
 body {
   padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -13,6 +23,9 @@ body {
   width: auto;
   position:	relative;
   text-align: left;
+}
+.thumbnail {
+	padding: 10px;
 }
 
 
@@ -158,11 +171,19 @@ body {
 
 
 .carousel-indicators {
-	bottom: -50px;
+	bottom: -25px;
 }
 .carousel-indicators > li {
 	border-color: #ccc;
+	background-color: #eee;
+	border-radius: 0px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	border-width: 2px;
 }
+.carousel-indicators > li:hover,
 .carousel-indicators > li.active {
 	border-color: #9fc906;
 	background-color: #cfe482;
@@ -190,13 +211,26 @@ body {
 }
 .carousel-fade .carousel-control { z-index: 2; }
 .carousel-parent {
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 }
 
 
 .fa-sm { font-size: 10px !important; }
 .fa-md { font-size: 13px !important; }
+a { color: #72a603; }
+a:hover, a:focus {
+	color: #9fc906;
+	text-decoration: none;
+}
+b { font-weight: 900; }
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 900;
+	margin-bottom: 10px;
+}
 
+.ul_desp.lead > li {
+	padding-top: 10px;
+}
 .place_holder {
   height: 200px;
   background-size: 96px;
@@ -205,5 +239,111 @@ body {
   background-repeat: no-repeat;
   background-image: url("/img/fg_loader_dot.gif");  
   background-position: center;
+}
+
+
+.footer { 
+	background-color: #2d3035; 
+	height: 96px;
+	width: 100%;
+	margin: 0px;
+	display: table;
+}
+.footer a { text-decoration: none; }
+.footer div { display: table-cell; }
+.footer div.mini-city {
+	height: 96px;
+	width: 128px !important;
+	padding: 0px;
+}
+.footer div.mini-city:last-child {
+	text-align: right;
+}
+.footer div.mini-city a img {
+	height: 96px;
+	width: 128px;
+	padding: 0px;
+	vertical-align: text-bottom;
+}
+#footer-header { padding-top: 30px; }
+p.copyright { 
+	margin: 0px; 
+	line-height: 1;
+}
+
+@media only screen and (max-width : 767px) {
+	.footer { height:auto; }
+	#footer-header { padding-bottom: 30px; }
+}
+
+
+.text-main { color: #363940; } /* Theme main color */
+.text-white { color: #fff; }
+.text-off-white { color: #e7e7e7;}
+.text-dark { color: #000; }
+.text-dark-green { color: #3e5b02;}
+.text-green { color: #72a603; }
+.text-light-green { color: #9fc906; }
+.text-gray { color: #888; }
+.text-light-gray { color: #ccc; }
+.bg-light-green { 
+	background-color: #f8fee3; 
+	padding: 0px;
+	border-radius: 0.25em !important;
+}
+.bg-light-gray {
+	background-color: #f0f0f0; 
+	padding: 0px 5px;
+	border-radius: 0.25em !important;
+}
+.bg-black {
+	background-color: rgba(0, 7, 11, 0.5); 
+	padding: 0px 5px;
+	border-radius: 0.25em !important;
+}
+
+
+.scrollTop {
+	position: fixed;
+	display: none;
+	bottom: 20px;
+	right: 30px;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	text-decoration: none;
+	z-index: 9999;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	color: #9fc906;
+	border: 2px solid #9fc906;
+
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.scrollTop .fa {
+	padding-left: 4px;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg) translate(-7px, 5px);
+
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.scrollTop:hover {
+	background-color: #9fc906;
+}
+.scrollTop:hover .fa {
+	color: #fff;
 }
 

@@ -91,7 +91,7 @@ body .body { height: 100%; }
 }*/
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: bold;
+	font-weight: 900;
 	margin-bottom: 10px;
 }
 h1 { font-size: 36px; }
@@ -738,11 +738,6 @@ ul.contact-address li:last-child:hover i.fa { color: #363940; }
 ul.contact-address li i { margin-right: 10px; }
 
 
-.footer-top {
-	background-color: #72a603;
-	padding: 60px 0 35px;
-}
-.footer-top .col-md-4 { margin-bottom: 25px; }
 .footer { 
 	background-color: #2d3035; 
 	height: 96px;
@@ -987,6 +982,12 @@ p.subtitle {
 	transform: rotate(45deg);
 	color: #9fc906;
 	border: 2px solid #9fc906;
+
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 .scrollTop .fa {
 	padding-left: 4px;
@@ -994,6 +995,18 @@ p.subtitle {
 	-moz-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);
 	transform: rotate(-45deg) translate(0px, -1px);
+
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.scrollTop:hover {
+	background-color: #9fc906;
+}
+.scrollTop:hover .fa {
+	color: #fff;
 }
 .scrollDown {
 	position: absolute;

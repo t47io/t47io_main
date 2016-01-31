@@ -30,6 +30,12 @@ module.exports = function(grunt) {
     'uglify': {
       'index': {
         'files': {'public/js/_indx.min.js': ['public/js/theme.js']}
+      },
+      'gviz': {
+        'files': {'public/js/_gviz.min.js': [
+          'public/js/util.js',
+          'public/js/gviz.js'
+        ]}
       }
     },
 
@@ -67,7 +73,9 @@ module.exports = function(grunt) {
       },
       'files': [
         'app.js',
-        'public/js/theme.js'
+        'public/js/*.js',
+        '!public/js/load.js',
+        '!public/js/_*.min.js'
       ]
     },
 

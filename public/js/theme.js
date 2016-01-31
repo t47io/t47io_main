@@ -170,6 +170,9 @@ $(window).on('load', function() {
     // $(".portfolio_single_content > div > a").on('click', function(event) { event.preventDefault(); });
     $(".portfolio_single_content").each(function() {
         $(this).css('height', $("img", this).css('height'));
+        $(this).on('click', function() {
+            window.open($("a", this).attr('href'), '_blank');
+        });
     });
     $(".progress").hover(function() {
         $(this).children().addClass('progress-bar-striped active');
@@ -203,6 +206,8 @@ $(window).on('load', function() {
         'offset': 65
     });
 
+    var today = new Date();
+    $("#cp_year").text(today.getFullYear());
 
     img_preload(bio_bg_imgs);
     img_preload(stat_bg_imgs);
