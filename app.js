@@ -7,7 +7,8 @@ var body_p    = require('body-parser'),
     moment    = require('moment'),
     nunjucks  = require('nunjucks'),
 	path      = require('path'),
-	sanitizer = require('sanitizer');
+	sanitizer = require('sanitizer'),
+	striptags = require('striptags');
 
 var app       = express(),
 	root      = path.join(__dirname, 'public'),
@@ -72,6 +73,31 @@ app.get('/', function (req, res) {
 		'GA_ID':     GA_ID
 	});
 });
+app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica)\/?$/, function (req, res, next) {
+	var proj = req.params[0];
+	res.render('project_' + proj + '.html', {
+		'DEBUG':        DEBUG,
+		'proj':         proj,
+		'title':        dat.projects[proj].title,
+		'description':  striptags(dat.projects[proj].description),
+		'GA_ID':        GA_ID
+	});
+});
+app.get('/git', function (req, res, next) {
+	if (['daslab', 'rmdb', 'primerize', 'na_thermo', 'rdatkit', 'htirace', 'spindle'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
+		var json = JSON.parse(fs.readFileSync('data/' + req.query.repo + '_' + req.query.type + '.json', 'utf8'));
+		if (req.query.tqx) {
+			var req_id = req.query.tqx.replace('reqId:', '');
+			json.reqId = req_id;
+		}
+		res.json(json);
+	} else {
+		var err = new Error();
+		err.status = 400;
+		next(err);
+	}
+});
+
 
 app.get(/^\/bower_components\/(.+)\/?$/, function (req, res, next) {
 	var file = req.params[0];
