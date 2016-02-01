@@ -14,12 +14,14 @@
 			"image":       "image",
 			"url":         "url",
 			"title":       "title",
+			"class":       "class",
 			"description": "description"
 		},
 		{
 			"image":       "image",
 			"url":         "url",
 			"title":       "title",
+			"class":       "class",
 			"description": "description"
 		}
 	],
