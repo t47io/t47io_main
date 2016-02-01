@@ -84,7 +84,7 @@ app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica)\/?$/,
 	});
 });
 app.get('/git', function (req, res, next) {
-	if (['daslab', 'rmdb', 'primerize', 'nathermo', 'rdatkit', 'htirace', 'spindle'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
+	if (['daslab', 'rmdb', 'primerize', 'nathermo', 'rdatkit', 'hitrace', 'spindle'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
 		var json = JSON.parse(fs.readFileSync('data/' + req.query.repo + '_' + req.query.type + '.json', 'utf8'));
 		if (req.query.tqx) {
 			var req_id = req.query.tqx.replace('reqId:', '');
@@ -133,23 +133,29 @@ app.route('/send')
 		subject  = sanitizer.escape(req.body.subject),
 		message  = sanitizer.escape(req.body.message);
 
-	smtp.sendMail({
-		'to'      : contact,
-		'subject' : subject,
-		'text'    : name + ' <' + email + '>\n\n' + message
-	}, function (err, info) {
-		if (err) {
-			console.log(err);
-			err = new Error();
-			err.status = 500;
-			next(err);
-		}
-		console.log('Message sent.');
-		res.status(201).render('201.html', {
-			'DEBUG': DEBUG,
-			'GA_ID': GA_ID
+	if (name.length && email.length && subject.length && message.length) {
+		smtp.sendMail({
+			'to'      : contact,
+			'subject' : subject,
+			'text'    : name + ' <' + email + '>\n' + moment().format() + '\n\n' + message
+		}, function (err, info) {
+			if (err) {
+				console.log(err);
+				err = new Error();
+				err.status = 500;
+				next(err);
+			}
+			console.log('Message sent.');
+			res.status(201).render('201.html', {
+				'DEBUG': DEBUG,
+				'GA_ID': GA_ID
+			});
 		});
-	});
+	} else {
+		var err = new Error();
+		err.status = 400;
+		next(err);
+	}
 });
 
 app.get('/resume', function (req, res) {

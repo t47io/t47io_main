@@ -22,6 +22,7 @@ nodemailer      >=  2.0.0
 nunjucks        >=  2.3.0
 pm2             >=  1.0.0
 sanitizer       >=  0.1.3
+striptags       >=  2.1.1
 supervisor      >=  0.9.1
 ```
 
