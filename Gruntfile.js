@@ -57,6 +57,14 @@ module.exports = function(grunt) {
           ]
         }
       },
+      'proj': {
+        'files': {
+          'public/css/_proj.min.css': [
+            'public/css/palette.css',
+            'public/css/project.css'
+          ]
+        }
+      },
       'error': {
         'files': {'public/css/_clr.min.css': ['public/css/palette.css']}
       }
