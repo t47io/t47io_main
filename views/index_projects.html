@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="portfolio">
+      <div class="page-header-wrapper">
+        <div class="container">
+          <div class="page-header text-center" id="work-header">
+            <h2>My Works</h2>
+            <div class="divider"></div>
+            <p class="subtitle">what I am proud of</p>
+          </div>
+        </div>
+      </div>
+      <div class="portfoloi_content_area" >
+        <div class="portfolio_content">
+          <div class="row"  id="portfolio">
+            {% for p in dat_dict.projects.order %}
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="portfolio_single_content">
+                <img src="{{dat_dict.projects[p].image}}" alt="{{dat_dict.projects[p].title}}"/>
+                <div>
+                  <a href="{{dat_dict.projects[p].url}}" target="_blank">{{dat_dict.projects[p].title}} <i class="fa fa-fw fa-md fa-external-link"></i></a>
+                  <span>{{dat_dict.projects[p].description}}</span>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>

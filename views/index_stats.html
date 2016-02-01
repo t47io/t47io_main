@@ -1,0 +1,80 @@
+<div class="extra-space-xxl" id="stat-trigger"></div>
+
+
+<div id="counter-trigger" class="counter-up text-white parallax bg_rotate_fade">
+  
+  <div id="stat-carousel" class="carousel carousel-fade slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#stat-carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#stat-carousel" data-slide-to="1"></li>
+      <li data-target="#stat-carousel" data-slide-to="2"></li>
+      <li data-target="#stat-carousel" data-slide-to="3"></li>
+      <li data-target="#stat-carousel" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active" data-slide-to="0"></div>
+      <div class="item" data-slide-to="1"></div>
+      <div class="item" data-slide-to="2"></div>
+      <div class="item" data-slide-to="3"></div>
+      <div class="item" data-slide-to="4"></div>
+    </div>
+  </div>
+  
+  <div class="cover"></div>
+
+  <div class="page-header-wrapper">
+    <div class="container">
+      <div class="page-header text-center" id="stat-header">
+        <h2>My Stats</h2>
+        <div class="divider"></div>
+        <p class="subtitle">what I achieved</p>
+      </div>
+    </div>
+  </div>
+  <div class="extra-space-l"></div>
+  <div class="container">
+    <div class="row">
+      <div class="fact text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="fact-inner">
+          <i class="fa fa-sitemap fa-3x fa-fw"></i>
+          <div class="extra-space-m"></div>
+          <span id="count_num_1" class="counter">{{dat_dict.project}}</span>
+          <div class="extra-space-m"></div>
+          <p class="lead"><b>Full Projects</b></p>
+        </div>
+      </div>
+
+      <div class="fact text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="fact-inner">
+          <i class="fa fa-code fa-3x fa-fw"></i>
+          <div class="extra-space-m"></div>
+          <span id="count_num_2" class="counter">{{dat_dict.code}}</span>
+          <div class="extra-space-m"></div>
+          <p class="lead"><b>Lines of Code</b></p>
+        </div>
+      </div>
+
+      <div class="fact text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="fact-inner">
+          <i class="fa fa-graduation-cap fa-3x fa-fw"></i>
+          <div class="extra-space-m"></div>
+          <span id="count_num_3" class="counter">{{dat_dict.publication}}</span>
+          <div class="extra-space-m"></div>
+          <p class="lead"><b>Publications</b></p>
+        </div>
+      </div>
+
+      <div class="fact last text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="fact-inner">
+          <i class="fa fa-trophy fa-3x fa-fw"></i>
+          <div class="extra-space-m"></div>
+          <span id="count_num_4" class="counter">{{dat_dict.scholarship}}</span>
+          <div class="extra-space-m"></div>
+          <p class="lead"><b>Scholarships</b></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="extra-space-l"></div>
+</div>

@@ -1,0 +1,89 @@
+<div class="extra-space-xxl" id="pub-trigger"></div>
+<div class="page-header-wrapper">
+  <div class="container">
+    <div class="page-header text-center" id="pub-header">
+      <h2>my research</h2>
+      <div class="divider"></div>
+      <p class="subtitle">what I published</p>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="pub-content">
+  {% for year, pub in pub_list %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-lg-1 col-md-1 col-sm-2 col-xs-2"></th>
+        <th class="col-lg-2 col-md-2 col-sm-4 col-xs-4"></th>
+        <th class="col-lg-9 col-md-9 col-sm-6 col-xs-6"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in pub %}
+      <tr>
+        <td>
+          {% if loop.first %}
+          {{-year}}
+          {% endif %}
+        </td>
+        <td class="pub_single_content">
+          {% if p.is_ready %}
+          <a href="{{p.url}}" target="_blank">
+          {% else %}
+          <a href="#" target="_blank">
+          {% endif %}
+            <img src="/img/publication/{{p.file}}" alt="{{p.file|replace('.png','')|replace('.jpg','')}}" width="100%"/>
+          </a>
+        </td>
+        <td>
+          <p class="text-gray">{{p.author}} (<b class="text-light-green">{{-year}}</b>)</p>
+          <p><b style="font-size:16px;">"{{p.title}}"</b></p>
+          <p style="padding-top:5px;">
+            <i class="text-green">{{p.journal}}</i>
+            {% if p.is_ready %}
+            <b>{{p.issue}}</b>: {{p.page}}.
+            <a href="{{p.url}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
+            <a href="/pdf/{{p.file|replace('.png','')|replace('.jpg','')}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+              {% if p.code %}
+              <a href="{{p.code}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-code-o"></i></a>
+              {% endif %}
+              <span class="pull-right text-gray bg-light-gray">
+                <i class="fa fa-fw fa-balance-scale"></i>
+                <i><small>Cited by :</small></i>
+                {% if dat_dict.citations[year][loop.index0] %}
+                <u class="text-main">{{dat_dict.citations[year][loop.index0]}}</u>
+                {% else %}
+                <u class="text-gray">{{dat_dict.citations[year][loop.index0]}}</u>
+                {% endif %}
+              </span>
+            {% else %}
+            , <span class="text-gray">{{p.issue}}</span>.
+            <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
+            <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+            {% endif %}
+          </p>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+
+  <div class="extra-space-l"></div>
+  <div class="row">
+    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2"></div>
+    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+      <h4 class="text-gray text-center">
+        <span class="fa-stack">
+          <i class="fa fa-fw fa-square fa-stack-2x text-light-green"></i>
+          <i class="fa fa-fw fa-search fa-stack-1x text-white"></i>
+        </span>
+        Find more on <a href="https://scholar.google.com/citations?user=HbNbD8AAAAAJ" target="_blank">Google Scholar <i class="fa fa-fw fa-sm fa-external-link"></i></a> and <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=Siqi%20Tian%5BAuthor%20-%20Full%5D" target="_blank">PubMed <i class="fa fa-fw fa-sm fa-external-link"></i></a>.
+      </h4>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2"></div>
+  </div>
+</div>
+<!-- <div class="extra-space-m"></div> -->
+<div class="extra-space-xl" id="contact-trigger"></div>

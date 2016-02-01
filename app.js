@@ -65,7 +65,7 @@ app.listen(port, function () {
 
 app.get('/', function (req, res) {
 	var res_date = resume.replace(path.join(root, 'pdf/Resume_'), '').replace('.pdf', '');
-	res.render('index.html', {
+	res.render('_index.html', {
 		'DEBUG':     DEBUG,
 		'pub_list':  pub,
 		'dat_dict':  dat,
@@ -207,7 +207,7 @@ app.use(function (err, req, res, next) {
 	}
 
 	res.status(err.status);
-	res.render(err.status.toString() + '.html', {
+	res.render('http_' + err.status.toString() + '.html', {
 		'DEBUG': DEBUG,
 		'GA_ID': GA_ID
 	});
