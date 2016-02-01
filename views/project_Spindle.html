@@ -1,0 +1,100 @@
+{% extends "_detail.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+      <h1>{{title}}</h1>
+      <p class="lead">{{description}}</p>
+      <p class="thumbnail"><img src="/img/portfolio/project_spindle_banner.jpg" style="max-width:100%;" /></p>
+      <hr/>
+      <h2><i class="fa fa-fw fa-hand-pointer-o"></i> Access</h2>
+      <br/>
+      <p class="lead" style="margin: 5px 0px;"><span class="label label-orange">Repository</span> <a href="https://github.com/t47io/SpindleUtil/" target="_blank">https://github.com/t47io/SpindleUtil/ <i class="fa fa-fw fa-sm fa-external-link"></i></a></p>
+      <br/>
+      <hr/>
+      <h2><i class="fa fa-fw fa-hand-o-right"></i> Features</h2>
+      <br/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
+      <div id="carousel-1" class="carousel carousel-fade slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-1" data-slide-to="1"></li>
+          <li data-target="#carousel-1" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active thumbnail">
+            <img src="/img/portfolio/project_spindle_1_qrt.jpg" alt="Image Manipulation">
+          </div>
+          <div class="item thumbnail">
+            <img src="/img/portfolio/project_spindle_1_lst.jpg" alt="Image Browse">
+          </div>
+          <div class="item thumbnail">
+            <img src="/img/portfolio/project_spindle_1_bar.jpg" alt="Data Quantitation">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-crop"></i> Spindle Shape Quantitation</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Interactive image selector and rotation, 10x faster than Fiji manually</li>
+        <li>Automated fluorescence intensity quantitation and comparison</li>
+      </ul>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-road"></i> Tracks Classification</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Tip-tracking visualizer with classification and color highlighting</li>
+      </ul>
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
+      <div id="carousel-2" class="carousel carousel-fade slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active thumbnail">
+            <img src="/img/portfolio/project_spindle_2_trk.jpg" alt="MT Tracks Colored">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <hr/>
+      <h2 class="text-center"><i class="fa fa-fw fa-code-fork"></i> Repository</h2>
+      <br/>
+      <div class="place_holder" id="git_body"></div>
+      <hr/>
+      <h2 class="text-center"><i class="fa fa-fw fa-hand-pointer-o"></i> Access</h2>
+      <br/>
+      <p class="lead text-center" style="margin: 5px 0px;"><span class="label label-orange">Repository</span> <a href="https://github.com/t47io/SpindleUtil/" target="_blank">https://github.com/t47io/SpindleUtil/ <i class="fa fa-fw fa-sm fa-external-link"></i></a></p>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript">
+    var repo = ["{{proj}}"];
+  </script>
+  <script type="text/javascript" src="https://www.google.com/jsapi" ></script>
+
+  {% if DEBUG %}
+  <script type="text/javascript" src="/js/gviz.js" ></script>
+  <script type="text/javascript" src="/js/util.js" ></script>
+  {% else %}
+  <script type="text/javascript" src="/js/_gviz.min.js" ></script>
+  {% endif %}
+{% endblock %}

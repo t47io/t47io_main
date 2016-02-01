@@ -4,55 +4,91 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-<url>
-  <loc>http://t47.io/</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/pdf/2015_Cheng_eLife.pdf</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/pdf/2015_Tian_NucleicAcidResearch.pdf</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/pdf/2015_Lee_Bioinfomatics.pdf</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/pdf/2015_Miao_RNA.pdf</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/pdf/2015_Xue_Nature.pdf</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/pdf/2014_Tian_RNA.pdf</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/pdf/2014_Kladwang_Biochemistry.pdf</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/pdf/2013_Shi_NewPhytologist.pdf</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-</url>
-<url>
-  <loc>http://t47.io/resume/</loc>
-  <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
+  <url>
+    <loc>http://t47.io/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/pdf/2015_Cheng_eLife.pdf</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/pdf/2015_Tian_NucleicAcidResearch.pdf</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/pdf/2015_Lee_Bioinfomatics.pdf</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/pdf/2015_Miao_RNA.pdf</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/pdf/2015_Xue_Nature.pdf</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/pdf/2014_Tian_RNA.pdf</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/pdf/2014_Kladwang_Biochemistry.pdf</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/pdf/2013_Shi_NewPhytologist.pdf</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>http://t47.io/project/daslab/</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/project/rmdb/</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/project/primerize/</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/project/eterna/</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/project/hitrace/</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/project/spindle/</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://t47.io/project/celica/</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>http://t47.io/resume/</loc>
+    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

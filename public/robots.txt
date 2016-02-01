@@ -39,16 +39,15 @@ User-agent: Yandexbot
 User-agent: FacebookExternalHit
 
 # Directories
-Disallow: /fonts/
-Disallow: /js/*.min.js
-# Disallow: /pdf/2*.pdf
+Disallow: /TenorSans-Regular.pdf
+Disallow: /js/_*.min.js
+Disallow: /js/lib/*.min.js
 
 # Files
 Disallow: /*.sh
 Disallow: /*.md
 
 # Links
-Disallow: /get_ver
 Disallow: /send
 
 # Paths (clean URLs)
