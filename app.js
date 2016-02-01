@@ -75,13 +75,18 @@ app.get('/', function (req, res) {
 });
 app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica)\/?$/, function (req, res, next) {
 	var proj = req.params[0];
-	res.render('project_' + proj + '.html', {
-		'DEBUG':        DEBUG,
-		'proj':         proj,
-		'title':        dat.projects[proj].title,
-		'description':  striptags(dat.projects[proj].description),
-		'GA_ID':        GA_ID
-	});
+
+	if (proj == 'celica') {
+		res.sendFile('project_Celica.jpg', {'root': path.join(__dirname, 'public/img/portfolio/')});
+	} else {
+		res.render('project_' + proj + '.html', {
+			'DEBUG':        DEBUG,
+			'proj':         proj,
+			'title':        dat.projects[proj].title,
+			'description':  striptags(dat.projects[proj].description),
+			'GA_ID':        GA_ID
+		});
+	}
 });
 app.get('/git', function (req, res, next) {
 	if (['daslab', 'rmdb', 'primerize', 'nathermo', 'rdatkit', 'hitrace', 'spindle'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {

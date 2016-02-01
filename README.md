@@ -32,6 +32,7 @@ For `bower`, the following libraries are maintained (see in `bower.json`):
 bootstrap    >=  3.3.6
 font-awesome >=  4.5.0
 gsap         >=  1.18.2
+isotope      >=  2.2.2
 jquery       >=  2.2.0
 scollmagic   >=  2.0.5
 ```

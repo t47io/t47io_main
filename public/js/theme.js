@@ -174,6 +174,19 @@ $(window).on('load', function() {
             window.open($("a", this).attr('href'), '_blank');
         });
     });
+    $(".portfolio_menu ul li").click(function(){
+        $(".portfolio_menu ul li").removeClass('active_prot_menu');
+        $(this).addClass('active_prot_menu');
+    });
+    $("#portfolio").isotope({
+        'itemSelector': '.portfolio_item',
+        'layoutMode': 'fitRows'
+    });
+    $("#filters").on('click', 'a', function(event) {
+        $("#portfolio").isotope({ 'filter': $(this).attr('data-filter') });
+        event.preventDefault();
+    });
+
     $(".progress").hover(function() {
         $(this).children().addClass('progress-bar-striped active');
     }, function() {

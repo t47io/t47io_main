@@ -592,7 +592,43 @@ a.rotate-box-2 {
 	transition:all 1s ease-in-out;
 }
 
-.portfolio_single_content{
+.portfolio_menu {
+	text-align: center;
+	overflow: hidden;
+	margin-top:22px;
+	margin-bottom:48px;
+}
+.portfolio_menu ul {
+	list-style: none outside none;
+    text-align: center;
+}
+.portfolio_menu ul li {
+    display: inline-block;
+}
+.portfolio_menu ul li a {
+	color: #363940;
+	background: transparent;
+    display: inline-block;
+    margin: 4px;
+    padding: 8px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.active_prot_menu a {
+	background: #72a603 !important;
+	color: #fff !important;
+	font-weight: 900;
+}
+.portfolio_menu ul li a:hover {
+	background: #9fc906 !important;
+	color: #fff !important;
+}
+.portfolio_item {
+	left: auto !important;
+	top: auto !important;
+	position: relative !important;
+}
+.portfolio_single_content {
 	position: relative;
 	top: 0;
 	left: 0;
