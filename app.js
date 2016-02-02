@@ -24,7 +24,7 @@ for (var key in pub) {
 		item.author = item.author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>');
 	}
 }
-var resume     = '';
+var resume = '', git_contrib = '';
 glob(path.join(root, 'pdf/Resume*.pdf'), {}, function (err, files) {
 	if (err) {
 		console.log(err);
@@ -34,6 +34,16 @@ glob(path.join(root, 'pdf/Resume*.pdf'), {}, function (err, files) {
 	}
 	resume = files[files.length - 1];
 });
+glob(path.join(__dirname, 'data/git_contrib_*.svg'), {}, function (err, files) {
+	if (err) {
+		console.log(err);
+		err = new Error();
+		err.status = 500;
+		next(err);
+	}
+	git_contrib = files[files.length - 1];
+});
+
 
 var DEBUG     = config.DEBUG,
 	GA_ID     = config.ga_tracker,
@@ -87,6 +97,17 @@ app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica)\/?$/,
 			'GA_ID':        GA_ID
 		});
 	}
+});
+
+
+app.get('/resume', function (req, res) {
+    res.setHeader('Cache-Control', 'public, max-age=1296000');
+    res.setHeader('Content-Disposition', 'inline; filename="SiqiTian_resume.pdf"');
+	res.sendFile(resume);
+});
+app.get('/git/contrib', function (req, res) {
+    res.setHeader('Cache-Control', 'public, max-age=1296000');
+	res.sendFile(git_contrib);
 });
 app.get('/git', function (req, res, next) {
 	if (['daslab', 'rmdb', 'primerize', 'nathermo', 'rdatkit', 'hitrace', 'spindle'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
@@ -163,18 +184,15 @@ app.route('/send')
 	}
 });
 
-app.get('/resume', function (req, res) {
-    res.setHeader('Cache-Control', 'public, max-age=1296000');
-    res.setHeader('Content-Disposition', 'inline; filename="SiqiTian_resume.pdf"');
-	res.sendFile(resume);
-});
-
 
 app.get(/^\/robots\.txt\/?$/, function (req, res) {
 	res.sendFile('robots.txt', {'root': root});
 });
 app.get(/^\/sitemap\.xml\/?$/, function (req, res) {
 	res.sendFile('sitemap.xml', {'root': root});
+});
+app.get(/^\/git\_contribs\.svg\/?$/, function (req, res) {
+	res.sendFile('git_contribs.svg', {'root': root});
 });
 
 

@@ -1230,3 +1230,20 @@ p.subtitle {
 	opacity: 1;
 }
 
+
+text.month,
+text.wday {
+	fill: #888;
+	font-size: 10px;
+}
+text.legend {
+	fill: #888;
+	font-size: 12px;
+}
+rect.day { shape-rendering: crispedges; }
+rect.day:hover { stroke: #333; }
+.tooltip-inner {
+    background-color: #363940;
+    color: #e7e7e7;
+    opacity: 0.9;
+}
