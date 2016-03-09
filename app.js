@@ -114,7 +114,12 @@ app.get('/git', function (req, res, next) {
         var json = JSON.parse(fs.readFileSync('data/' + req.query.repo + '_' + req.query.type + '.json', 'utf8'));
         if (req.query.tqx) {
             var req_id = req.query.tqx.replace('reqId:', '');
-            json.reqId = req_id;
+            json = {
+                'table':   json,
+                'reqId':   req_id,
+                'status':  'ok',
+                'version': '0.6'
+            };
         }
         res.json(json);
     } else {
