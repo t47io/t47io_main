@@ -7,7 +7,7 @@
 			"issue":    "issue",
 			"page":     "page",
 			"is_ready": false,
-			"file":     "file.png",
+			"file":     "filename_without_extension",
 			"code":     ""
 		}
 	],
@@ -19,7 +19,7 @@
 			"issue":    "issue",
 			"page":     "page",
 			"is_ready": true,
-			"file":     "file.png",
+			"file":     "filename_without_extension",
 			"code":     ""
 		}
 		{
@@ -29,7 +29,7 @@
 			"issue":    "issue",
 			"page":     "page",
 			"is_ready": true,
-			"file":     "file.png",
+			"file":     "filename_without_extension",
 			"code":     ""
 		}
 	]

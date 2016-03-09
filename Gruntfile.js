@@ -54,7 +54,8 @@ module.exports = function(grunt) {
           'public/css/_indx.min.css': [
             'public/css/reset.css',
             'public/css/style.css',
-            'public/css/mobile.css'
+            'public/css/mobile.css',
+            'public/css/sprites_index.css'
           ]
         }
       },
@@ -62,7 +63,8 @@ module.exports = function(grunt) {
         'files': {
           'public/css/_proj.min.css': [
             'public/css/palette.css',
-            'public/css/project.css'
+            'public/css/project.css',
+            'public/css/sprites_project.css'
           ]
         }
       },
