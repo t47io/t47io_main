@@ -23,11 +23,13 @@
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/palette.css" />
     <link rel="stylesheet" type="text/css" href="/css/project.css" />
+    <link rel="stylesheet" type="text/css" href="/css/project_sprites.css" />
     {% else %}
     <link rel="stylesheet" type="text/css" href="/css/_lib.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/_proj.min.css" />
     {% endif %}
 
+    {% block head %}{% endblock %}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
