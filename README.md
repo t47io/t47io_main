@@ -1,6 +1,6 @@
 # t47io Main Website
 
-<img src="http://t47.io/img/t47/t47_logo_g.png" alt="T47 Logo" width="150px" align="right">
+<img src="http://demo.t47.io/site_media/images/logo_t47.png" alt="T47 Logo" width="150px" align="right">
 
 This is the _Code and Content_ repository for **t47io Main** Website. The online portfolio is freely accessible at http://t47.io/.
 

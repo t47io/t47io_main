@@ -203,15 +203,9 @@ b { font-weight: 900; }
 }
 
 .navbar-brand {
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
 	width: 120px;
 	height: auto;
-	padding: 24px 0;
-	text-indent: -99999px;
-	font-size: 24px;
-	font-weight: 600;
+	padding: 0;
 	line-height: 20px;
 	letter-spacing: 4px;
 	-webkit-transition: all 0.2s ease-in-out;
@@ -220,11 +214,11 @@ b { font-weight: 900; }
 	-ms-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.navbar-default .navbar-brand,
+/*.navbar-default .navbar-brand,
 .navbar-shrink .navbar-brand,
 .navbar-inverse .navbar-brand { background-image: url('/img/t47/t47_logo.png'); }
 .navbar-transparent .navbar-brand { background-image: url('/img/t47/t47_logo_g.png'); }
-
+*/
 .navbar-nav li a {
 	padding: 24px 0;
 	margin-left: 25px;
@@ -773,7 +767,7 @@ ul.contact-address li i { margin-right: 10px; }
 	display: table;
 }
 .footer a{ text-decoration: none; }
-.footer div { display: table-cell; }
+.footer > div { display: table-cell; }
 .footer div.mini-city {
 	height: 96px;
 	width: 128px !important;

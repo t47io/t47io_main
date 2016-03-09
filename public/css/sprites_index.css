@@ -1,6 +1,7 @@
-.sprite {
-  display: inline-block;
+div.publication_sprite {
   width: 100%;
+  height: 0;
+  padding-bottom: 50%;
 }
 
 
