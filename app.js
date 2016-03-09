@@ -87,7 +87,7 @@ app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica)\/?$/,
     var proj = req.params[0];
 
     if (proj == 'celica') {
-        res.sendFile('project_Celica.jpg', {'root': path.join(__dirname, 'public/img/portfolio/')});
+        res.sendFile('project_celica.jpg', {'root': path.join(__dirname, 'public/img/portfolio/')});
     } else {
         res.render('project_' + proj + '.html', {
             'DEBUG':        DEBUG,

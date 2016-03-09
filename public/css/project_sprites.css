@@ -1,0 +1,175 @@
+.spindle_1_qrt, .spindle_1_lst, .spindle_1_bar,
+.rmdb_1_map, .rmdb_1_bar, .rmdb_1_sdp, .rmdb_1_brw,
+.rmdb_3_hub, .rmdb_3_aws, .rmdb_3_rna,
+.primerize_1_plt, .primerize_1_asb, .primerize_1_prm, .primerize_1_inp,
+.primerize_2_que, .primerize_2_tut, .primerize_2_exp, .primerize_2_pip, .primerize_2_ptc,
+.primerize_3_ins, .primerize_3_cls, .primerize_3_met, .primerize_3_atr,
+.hitrace_1_str, .hitrace_1_clr, .hitrace_1_box, .hitrace_1_mtx,
+.hitrace_2_bpp, .hitrace_2_str, .hitrace_2_mca, .hitrace_2_gel,
+.eterna_1_lab, .eterna_1_col,
+.eterna_2_sec, .eterna_2_gph,
+.daslab_1_fs, .daslab_1_jc, .daslab_1_ppl, .daslab_1_cal,
+.daslab_2_ga, .daslab_2_aws, .daslab_2_git, .daslab_2_ver, .daslab_2_slk,
+.daslab_3_bot, .daslab_3_slk, .daslab_3_cfg, .daslab_3_bkp,
+.daslab_4_pub, .daslab_4_exp, .daslab_4_usr, .daslab_4_wau, .daslab_4_doc,
+.daslab_5_500, .daslab_5_404, .daslab_5_401, .daslab_5_400 {
+  max-width: 1200px; 
+  max-height: 675px;
+}
+
+.spindle_1_qrt::after, .spindle_1_lst::after, .spindle_1_bar::after,
+.rmdb_1_map::after, .rmdb_1_bar::after, .rmdb_1_sdp::after, .rmdb_1_brw::after,
+.rmdb_3_hub::after, .rmdb_3_aws::after, .rmdb_3_rna::after,
+.primerize_1_plt::after, .primerize_1_asb::after, .primerize_1_prm::after, .primerize_1_inp::after,
+.primerize_2_que::after, .primerize_2_tut::after, .primerize_2_exp::after, .primerize_2_pip::after, .primerize_2_ptc::after, 
+.primerize_3_ins::after .primerize_3_cls::after, .primerize_3_met::after, .primerize_3_atr::after,
+.hitrace_1_str::after, .hitrace_1_clr::after, .hitrace_1_box::after, .hitrace_1_mtx::after,
+.hitrace_2_bpp::after, .hitrace_2_str::after, .hitrace_2_mca::after, .hitrace_2_gel::after,
+.eterna_1_lab::after, .eterna_1_col::after,
+.eterna_2_sec::after, .eterna_2_gph::after,
+.daslab_1_fs::after, .daslab_1_jc::after, .daslab_1_ppl::after, .daslab_1_cal::after,
+.daslab_2_ga::after, .daslab_2_aws::after, .daslab_2_git::after, .daslab_2_ver::after, .daslab_2_slk::after,
+.daslab_3_bot::after, .daslab_3_slk::after, .daslab_3_cfg::after, .daslab_3_bkp::after,
+.daslab_4_pub::after, .daslab_4_exp::after, .daslab_4_usr::after, .daslab_4_wau::after, .daslab_4_doc::after,
+.daslab_5_500::after, .daslab_5_404::after, .daslab_5_401::after, .daslab_5_400::after {
+  content: ' ';
+  display: inline-block;
+  max-width: 100%;
+  background-size: 100% auto; 
+  width: 100%; 
+  height: 0; 
+  padding-bottom: 56.25%;
+}
+
+
+.spindle_1_qrt::after,
+.spindle_1_lst::after,
+.spindle_1_bar::after { background-image: url('/img/portfolio/project_spindle_1.jpg'); 
+}
+.spindle_1_qrt::after { background-position: 0 0%; }
+.spindle_1_lst::after { background-position: 0 50%; }
+.spindle_1_bar::after { background-position: 0 100%; }
+
+
+.rmdb_1_map::after,
+.rmdb_1_bar::after,
+.rmdb_1_sdp::after,
+.rmdb_1_brw::after { background-image: url('/img/portfolio/project_rmdb_1.jpg'); }
+.rmdb_3_hub::after,
+.rmdb_3_aws::after,
+.rmdb_3_rna::after { background-image: url('/img/portfolio/project_rmdb_3.jpg'); }
+
+.rmdb_1_map::after { background-position: 0 0%; }
+.rmdb_1_bar::after { background-position: 0 33.33%; }
+.rmdb_1_sdp::after { background-position: 0 66.67%; }
+.rmdb_1_brw::after { background-position: 0 100%; }
+.rmdb_3_hub::after { background-position: 0 0%; }
+.rmdb_3_aws::after { background-position: 0 50%; }
+.rmdb_3_rna::after { background-position: 0 100%; }
+
+
+.primerize_1_plt::after,
+.primerize_1_asb::after,
+.primerize_1_prm::after,
+.primerize_1_inp::after { background-image: url('/img/portfolio/project_primerize_1.jpg'); }
+.primerize_2_que::after,
+.primerize_2_tut::after,
+.primerize_2_exp::after,
+.primerize_2_pip::after,
+.primerize_2_ptc::after { background-image: url('/img/portfolio/project_primerize_2.jpg'); }
+.primerize_3_ins::after,
+.primerize_3_cls::after,
+.primerize_3_met::after,
+.primerize_3_atr::after { background-image: url('/img/portfolio/project_primerize_3.jpg'); }
+
+.primerize_1_plt::after { background-position: 0 0%; }
+.primerize_1_asb::after { background-position: 0 33.33%; }
+.primerize_1_prm::after { background-position: 0 66.67%; }
+.primerize_1_inp::after { background-position: 0 100%; }
+.primerize_2_que::after { background-position: 0 0%; }
+.primerize_2_tut::after { background-position: 0 25%; }
+.primerize_2_exp::after { background-position: 0 50%; }
+.primerize_2_pip::after { background-position: 0 75%; }
+.primerize_2_ptc::after { background-position: 0 100%; }
+.primerize_3_ins::after { background-position: 0 0%; }
+.primerize_3_cls::after { background-position: 0 33.33%; }
+.primerize_3_met::after { background-position: 0 66.67%; }
+.primerize_3_atr::after { background-position: 0 100%; }
+
+
+.hitrace_1_str::after,
+.hitrace_1_clr::after,
+.hitrace_1_box::after,
+.hitrace_1_mtx::after { background-image: url('/img/portfolio/project_hitrace_1.jpg'); }
+.hitrace_2_bpp::after,
+.hitrace_2_str::after,
+.hitrace_2_mca::after,
+.hitrace_2_gel::after { background-image: url('/img/portfolio/project_hitrace_2.jpg'); }
+
+.hitrace_1_str::after { background-position: 0 0%; }
+.hitrace_1_clr::after { background-position: 0 33.33%; }
+.hitrace_1_box::after { background-position: 0 66.67%; }
+.hitrace_1_mtx::after { background-position: 0 100%; }
+.hitrace_2_bpp::after { background-position: 0 0%; }
+.hitrace_2_str::after { background-position: 0 33.33%; }
+.hitrace_2_mca::after { background-position: 0 66.67%; }
+.hitrace_2_gel::after { background-position: 0 100%; }
+
+
+.eterna_1_lab::after,
+.eterna_1_col::after { background-image: url('/img/portfolio/project_eterna_1.jpg'); }
+.eterna_2_sec::after,
+.eterna_2_gph::after { background-image: url('/img/portfolio/project_eterna_2.jpg'); }
+
+.eterna_1_lab::after { background-position: 0 0%; }
+.eterna_1_col::after { background-position: 0 100%; }
+.eterna_2_sec::after { background-position: 0 0%; }
+.eterna_2_gph::after { background-position: 0 100%; }
+
+
+.daslab_1_fs::after,
+.daslab_1_jc::after,
+.daslab_1_ppl::after,
+.daslab_1_cal::after { background-image: url('/img/portfolio/project_daslab_1.jpg'); }
+.daslab_2_ga::after, 
+.daslab_2_aws::after, 
+.daslab_2_git::after, 
+.daslab_2_ver::after, 
+.daslab_2_slk::after { background-image: url('/img/portfolio/project_daslab_2.jpg'); }
+.daslab_3_bot::after, 
+.daslab_3_slk::after, 
+.daslab_3_cfg::after, 
+.daslab_3_bkp::after { background-image: url('/img/portfolio/project_daslab_3.jpg'); }
+.daslab_4_pub::after, 
+.daslab_4_exp::after, 
+.daslab_4_usr::after, 
+.daslab_4_wau::after, 
+.daslab_4_doc::after { background-image: url('/img/portfolio/project_daslab_4.jpg'); }
+.daslab_5_500::after, 
+.daslab_5_404::after, 
+.daslab_5_401::after,
+.daslab_5_400::after { background-image: url('/img/portfolio/project_daslab_5.jpg'); }
+
+.daslab_1_fs::after { background-position: 0 0%; }
+.daslab_1_jc::after { background-position: 0 33.33%; }
+.daslab_1_ppl::after { background-position: 0 66.67%; }
+.daslab_1_cal::after { background-position: 0 100%; }
+.daslab_2_ga::after { background-position: 0 0%; }
+.daslab_2_aws::after { background-position: 0 25%; }
+.daslab_2_git::after { background-position: 0 50%; }
+.daslab_2_ver::after { background-position: 0 75%; }
+.daslab_2_slk::after { background-position: 0 100%; }
+.daslab_3_bot::after { background-position: 0 0%; }
+.daslab_3_slk::after { background-position: 0 33.33%; }
+.daslab_3_cfg::after { background-position: 0 66.67%; }
+.daslab_3_bkp::after { background-position: 0 100%; }
+.daslab_4_pub::after { background-position: 0 0%; }
+.daslab_4_exp::after { background-position: 0 25%; }
+.daslab_4_usr::after { background-position: 0 50%; }
+.daslab_4_wau::after { background-position: 0 75%; }
+.daslab_4_doc::after { background-position: 0 100%; }
+.daslab_5_500::after { background-position: 0 0%; }
+.daslab_5_404::after { background-position: 0 33.33%; }
+.daslab_5_401::after { background-position: 0 66.67%; }
+.daslab_5_400::after { background-position: 0 100%; }
+
