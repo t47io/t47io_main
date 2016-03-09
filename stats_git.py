@@ -7,7 +7,7 @@ import simplejson
 import time
 
 
-repos = (('daslab', 'Daslab/Server_DasLab'), ('hitrace', 'hitrace/hitrace'), ('nathermo', 'Daslab/Primerize'), ('rdatkit', 'hitrace/RDATKit'), ('rmdb', 'Daslab/Server_RMDB'), ('spindle', 't47io/SpindleUtil'))
+repos = (('daslab', 'Daslab/Server_DasLab'), ('hitrace', 'hitrace/hitrace'), ('nathermo', 'Daslab/Primerize'), ('primerize', 'Daslab/Server_Primerize'), ('rdatkit', 'hitrace/RDATKit'), ('rmdb', 'Daslab/Server_RMDB'), ('spindle', 't47io/SpindleUtil'))
 
 access_token = simplejson.load(open('config/env.json', 'r'))['git_token']
 gh = Github(login_or_token=access_token)
@@ -83,8 +83,7 @@ for (tag, name) in repos:
         data_table = gviz_api.DataTable(desp)
         data_table.LoadData(data)
 
-        table = simplejson.loads(data_table.ToJSon(columns_order=stats, order_by='Timestamp'))
-        json = {'reqId': '__REQ_ID__', 'version': '0.6', 'status': 'ok', 'table': table}
-        simplejson.dump(json, open('data/%s_%s.json' % (tag, qs), 'w'), sort_keys=True, indent=' ' * 4)
+        json = simplejson.loads(data_table.ToJSon(columns_order=stats, order_by='Timestamp'))
+        simplejson.dump(json, open('data/%s_%s.json' % (tag, qs), 'w'), sort_keys=True)
 
 
