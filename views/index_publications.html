@@ -33,7 +33,7 @@
           {% else %}
           <a href="#" target="_blank">
           {% endif %}
-            <img src="/img/publication/{{p.file}}" alt="{{p.file|replace('.png','')|replace('.jpg','')}}" width="100%"/>
+            <div class="sprite"><div class="pub_{{p.file}}"></div></div>
           </a>
         </td>
         <td>
@@ -44,7 +44,7 @@
             {% if p.is_ready %}
             <b>{{p.issue}}</b>: {{p.page}}.
             <a href="{{p.url}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
-            <a href="/pdf/{{p.file|replace('.png','')|replace('.jpg','')}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+            <a href="/pdf/{{p.file}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
               {% if p.code %}
               <a href="{{p.code}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-code-o"></i></a>
               {% endif %}
