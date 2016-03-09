@@ -28,6 +28,7 @@ $(window).on('scroll', function() {
 
 $(document).ready(function() {
   $('.carousel').carousel({'interval': 2500});
+  $('[data-toggle="tooltip"]').tooltip({'container': 'body'});
 
   var today = new Date();
   $("#cp_year").text(today.getFullYear());
