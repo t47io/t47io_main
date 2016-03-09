@@ -255,9 +255,11 @@ $(window).on('scroll', function() {
             $('.scrollTop').fadeIn();
         }
         $('.navbar-fixed-top').addClass('navbar-shrink navbar-default').removeClass('navbar-transparent');
+        $('a.navbar-brand > i').addClass('logo_o').removeClass('logo_g');
     } else {
         $('.scrollTop').fadeOut();
         $('.navbar-fixed-top').removeClass('navbar-shrink navbar-default').addClass('navbar-transparent');
+        $('a.navbar-brand > i').removeClass('logo_o').addClass('logo_g');
     }
 
     clearTimeout($.data(this, 'scrollTimer'));

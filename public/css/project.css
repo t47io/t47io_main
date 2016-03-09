@@ -44,15 +44,9 @@ body {
 }
 
 .navbar-brand {
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
 	width: 120px;
 	height: auto;
-	padding: 24px 0;
-	text-indent: -99999px;
-	font-size: 24px;
-	font-weight: 600;
+	padding: 0;
 	line-height: 20px;
 	letter-spacing: 4px;
 	-webkit-transition: all 0.2s ease-in-out;
@@ -61,8 +55,6 @@ body {
 	-ms-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.navbar-default .navbar-brand { background-image: url('/img/t47/t47_logo.png'); }
-
 .navbar-nav li a {
 	padding: 24px 0;
 	margin-left: 25px;
@@ -250,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
 	display: table;
 }
 .footer a { text-decoration: none; }
-.footer div { display: table-cell; }
+.footer > div { display: table-cell; }
 .footer div.mini-city {
 	height: 96px;
 	width: 128px !important;
@@ -266,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 	vertical-align: text-bottom;
 }
 #footer-header { padding-top: 30px; }
-p.copyright { 
+.copyright { 
 	margin: 0px; 
 	line-height: 1;
 }
@@ -345,13 +337,5 @@ p.copyright {
 }
 .scrollTop:hover .fa {
 	color: #fff;
-}
-
-
-.sprite { display: inline-block; }
-div.carousel_sprite {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
 }
 

@@ -55,6 +55,7 @@ module.exports = function(grunt) {
             'public/css/reset.css',
             'public/css/style.css',
             'public/css/mobile.css',
+            'public/css/sprites_logo.css',
             'public/css/sprites_index.css'
           ]
         }
@@ -64,12 +65,18 @@ module.exports = function(grunt) {
           'public/css/_proj.min.css': [
             'public/css/palette.css',
             'public/css/project.css',
+            'public/css/sprites_logo.css',
             'public/css/sprites_project.css'
           ]
         }
       },
       'error': {
-        'files': {'public/css/_clr.min.css': ['public/css/palette.css']}
+        'files': {
+          'public/css/_clr.min.css': [
+            'public/css/sprites_logo.css',
+            'public/css/palette.css'
+          ]
+        }
       }
     },
 
