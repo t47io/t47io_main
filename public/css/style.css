@@ -1128,7 +1128,6 @@ p.subtitle {
 	font-size: 0.6em;
 	color: #888;
 }
-.si-header a img { max-width:100%; }
 .si-header, 
 .si-year { color: #191919; }
 .si-year {
@@ -1207,17 +1206,16 @@ p.subtitle {
 	vertical-align: text-top;
 }
 .table tbody tr td:nth-child(2) { border-left: 5px solid #72a603; }
-.pub_single_content img{
+.pub_single_content a div {
 	text-align: center;
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
-	opacity: 0.75;
-	background: none repeat scroll 0 0 rgba( 114, 166, 3, 0.75);
+	opacity: 0.8;
 }
-.pub_single_content:hover img{
+.pub_single_content:hover a div {
 	opacity: 1;
 }
 
