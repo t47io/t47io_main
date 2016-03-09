@@ -70,11 +70,6 @@ body .body { height: 100%; }
     src: local("Tenor Sans"), url("/TenorSans-Regular.ttf") format("truetype");
     font-weight: normal; font-style: normal;
 }
-/*@font-face {
-	font-family: "CC Icons";
-	src: local("CC Icons"), url("/fonts/CC-Icons.ttf") format("truetype");
-	font-weight: normal; font-style: normal;
-}*/
 * {
 	font-family: 'Tenor Sans', 'Tenor Sans Local', Helvetica, Arial, sans-serif;
 	border-radius: 0 !important;
@@ -85,10 +80,6 @@ body .body { height: 100%; }
 	outline: none !important;
 	box-shadow: none !important;
 }
-/*.cc { 
-	font-family: "CC Icons";
-	font-weight: normal;
-}*/
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 900;
@@ -638,14 +629,14 @@ a.rotate-box-2 {
 	overflow:hidden;
 	
 }
-.portfolio_single_content:hover img{
+.portfolio_single_content:hover div.sprite {
 	 -o-transform: scale(1.5);
 	 -webkit-transform: scale(1.5);
 	 -moz-transform: scale(1.5);
 	 -ms-transform: scale(1.5);
 	 transform: scale(1.5);
 }
-.portfolio_single_content img{
+.portfolio_single_content div.sprite {
 	border: 1px solid #ccc;
 	margin-left: -1px;
 	margin-top: -1px;
@@ -661,7 +652,7 @@ a.rotate-box-2 {
 	-ms-transition:all 1s ease-in-out;
 	transition:all 1s ease-in-out;
 }
-.portfolio_single_content div{
+.portfolio_single_content div.subtitle {
 	position:absolute;
 	top:0;
 	left:0;
@@ -675,11 +666,11 @@ a.rotate-box-2 {
 	background: none repeat scroll 0 0 rgba( 114, 166, 3, 0.75);
 }
 
-.portfolio_single_content:hover div{
+.portfolio_single_content:hover div.subtitle {
 	transform:scale(1);
 	opacity:1;
 }
-.portfolio_single_content div a{
+.portfolio_single_content div.subtitle a {
 	color: #FFFFFF;
 	display: block;
 	font-size: 2em;
@@ -690,7 +681,7 @@ a.rotate-box-2 {
 	font-variant: small-caps;
 	/*text-transform: uppercase;*/
 }
-.portfolio_single_content div span{
+.portfolio_single_content div.subtitle span {
 	color: #FFFFFF;
 	font-size: 14px;
 	font-weight: normal;

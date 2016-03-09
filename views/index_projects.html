@@ -35,9 +35,9 @@
             {% for p in dat_dict.projects.order %}
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 {{dat_dict.projects[p].class}} portfolio_item">
               <div class="portfolio_single_content">
-                <img src="{{dat_dict.projects[p].image}}" alt="{{dat_dict.projects[p].title}}"/>
-                <div>
-                  <a href="{{dat_dict.projects[p].url}}" target="_blank">{{dat_dict.projects[p].title}} <i class="fa fa-fw fa-md fa-external-link"></i></a>
+                <div class="sprite"><div class="thumb_{{p}}"></div></div>
+                <div class="subtitle">
+                  <a href="{% if dat_dict.projects[p].url %}{{dat_dict.projects[p].url}}{% else %}/project/{{p}}{% endif %}" target="_blank">{{dat_dict.projects[p].title}} <i class="fa fa-fw fa-md fa-external-link"></i></a>
                   <span>{{dat_dict.projects[p].description}}</span>
                 </div>
               </div>
