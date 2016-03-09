@@ -172,7 +172,7 @@ $(window).on('load', function() {
             });
         });
         $('<text x="0" y="120" ># Includes contributions from <tspan style="font-style:italic;">private</tspan> repositories</text>' + '<g transform="translate(572, 108)">' + '<rect class="day" width="11" height="11" x="0" fill="#eee" />' + '<rect class="day" width="11" height="11" x="13" fill="#d6e685" />' + '<rect class="day" width="11" height="11" x="26" fill="#8cc665" />' + '<rect class="day" width="11" height="11" x="39" fill="#44a340" />' + '<rect class="day" width="11" height="11" x="52" fill="#1e6823" />' + '</g>' + '<text x="534" y="118" class="legend">Less</text>' + '<text x="646" y="118" class="legend">More</text>').appendTo($("#git_body > svg > g"));
-        $("#git_body > svg").html($("#git_body > svg").html());
+        $("#git_body > svg").attr("height", "150").html($("#git_body > svg").html());
         $('[data-toggle="tooltip"]').tooltip({
             'placement': 'top',
             'container': 'body'
