@@ -1,9 +1,10 @@
 {
-	"project":      5,
-	"code":         10000,
-	"publication":  10,
-	"scholarship":  4,
-
+	"counters": {
+		"project":      5,
+		"code":         10000,
+		"publication":  10,
+		"scholarship":  4
+	},
 	"citations": {
 		"-2016": [null, null],
 		"-2015": [5, 0, 0, 14, 32]

@@ -18,7 +18,7 @@ var app       = express(),
     contact   = config.email.login,
     smtp = emailer.createTransport(config.email.protocol + '://' + contact.replace('@', '%40') + ':' + config.email.password + '@' + config.email.host + ':' + config.email.port);
 for (var key in pub) {
-    dat.publication += pub[key].length;
+    dat.counters.publication += pub[key].length;
     for (var i = 0; i < pub[key].length; i++) {
         var item = pub[key][i];
         item.author = item.author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>');

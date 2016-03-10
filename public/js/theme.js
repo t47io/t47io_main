@@ -117,25 +117,25 @@ $(window).on('load', function() {
         $("div.fact-inner > p.lead").removeClass('counter-finish');
         setTimeout(function() {
             $("#count_num_1").countTo({
-                'from': 0, 'to': count_to[0], 'speed': 1500,
+                'from': 0, 'to': count_to.project, 'speed': 1500,
                 'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 0);
         setTimeout(function() {
             $("#count_num_2").countTo({
-                'from': 0, 'to': count_to[1], 'speed': 1500,
+                'from': 0, 'to': count_to.code, 'speed': 1500,
                 'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 200);
         setTimeout(function() {
             $("#count_num_3").countTo({
-                'from': 0, 'to': count_to[2], 'speed': 1500,
+                'from': 0, 'to': count_to.publication, 'speed': 1500,
                 'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 400);
         setTimeout(function() {
             $("#count_num_4").countTo({
-                'from': 0, 'to': count_to[3], 'speed': 1500,
+                'from': 0, 'to': count_to.scholarship, 'speed': 1500,
                 'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
             });
         }, 600);
