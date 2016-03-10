@@ -52,6 +52,7 @@ grunt-contrib-watch   >=  0.6.1
 
 ```json
 beautifulsoup4  >=  4.4.0
+html5lib        >=  0.9999999
 PyGithub        >=  1.26.0
 simplejson      >=  3.8.1
 ```
