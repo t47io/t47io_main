@@ -29,23 +29,31 @@ supervisor      >=  0.9.1
 For `bower`, the following libraries are maintained (see in `bower.json`): 
 
 ```json
-bootstrap    >=  3.3.6
-font-awesome >=  4.5.0
-gsap         >=  1.18.2
-isotope      >=  2.2.2
-jquery       >=  2.2.0
-scollmagic   >=  2.0.5
+bootstrap     >=  3.3.6
+font-awesome  >=  4.5.0
+gsap          >=  1.18.2
+isotope       >=  2.2.2
+jquery        >=  2.2.0
+scollmagic    >=  2.0.5
 ```
 
 Also for `grunt`, the following packages are used (see in `package.json`):
 
 ```json
-grunt-contrib-clean  >= 0.7.0
-grunt-contrib-concat >= 0.5.1
-grunt-contrib-cssmin >= 0.14.0
-grunt-contrib-jshint >= 0.12.0
-grunt-contrib-uglify >= 0.11.0
-grunt-contrib-watch  >= 0.6.1
+grunt-contrib-clean   >=  0.7.0
+grunt-contrib-concat  >=  0.5.1
+grunt-contrib-cssmin  >=  0.14.0
+grunt-contrib-jshint  >=  0.12.0
+grunt-contrib-uglify  >=  0.11.0
+grunt-contrib-watch   >=  0.6.1
+```
+
+`cron` jobs retrieves recent statistics on _AWS_ and _Google Scholar_ using [**`Python`**](https://www.python.org/). The following libraries are required:
+
+```json
+beautifulsoup4  >=  4.4.0
+PyGithub        >=  1.26.0
+simplejson      >=  3.8.1
 ```
 
 **t47io Main** also requires proper setup of `nginx` reverse proxy, and `pm2` startup scripts.
