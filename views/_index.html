@@ -152,7 +152,12 @@
     <script type="text/javascript" src="/js/_indx.min.js"></script>
     {% endif %}
     <script type="text/javascript">
-      var count_to = [{{dat_dict.project}}, {{dat_dict.code}}, {{dat_dict.publication}}, {{dat_dict.scholarship}}];
+      var count_to = {
+        "code":        {{dat_dict.counters.code}},
+        "project":     {{dat_dict.counters.project}},
+        "publication": {{dat_dict.counters.publication}},
+        "scholarship": {{dat_dict.counters.scholarship}}
+      };
     </script>
   </body> 
 </html>
