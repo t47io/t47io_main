@@ -60,6 +60,7 @@ app.use(function (req, res, next) {
 app.use( express.static(root) );
 app.use( helmet() );
 app.use( body_p.urlencoded({'extended': true}) );
+app.disable('x-powered-by');
 
 app.engine('nunj', nunjucks.render);
 app.set('view engine', 'nunjucks');
