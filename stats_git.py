@@ -1,5 +1,7 @@
+from datetime import datetime
 import gviz_api
 from github import Github
+import math
 import operator
 import pytz
 import requests
@@ -49,7 +51,7 @@ for (tag, name) in repos:
 
     for qs in ['c', 'a']:
         data = []
-        desp = {'Timestamp': ('datetime', 'Timestamp'), 'Samples': ('number', 'Samples'), 'Unit': ('string', 'Count')}
+        desp = {'Timestamp': ('datetime', 'Timestamp')}
         stats = ['Timestamp']
 
         if qs == 'c':
@@ -61,8 +63,16 @@ for (tag, name) in repos:
                 i += 1
             if contribs is None: raise Exception("PyGithub failed")
             fields = ['Commits']
+
+            data_month = {}
             for contrib in contribs:
-                data.append({u'Timestamp': contrib.week, u'Commits': sum(contrib.days)})
+                month_temp = contrib.week.replace(day=1)
+                if month_temp in data_month:
+                    data_month[month_temp] += sum(contrib.days)
+                else:
+                    data_month[month_temp] = sum(contrib.days)
+            for month in data_month:
+                data.append({u'Timestamp': month, u'Commits': data_month[month]})
         elif qs == 'a':
             i = 0
             contribs = repo.get_stats_code_frequency()
@@ -72,8 +82,17 @@ for (tag, name) in repos:
                 i += 1
             if contribs is None: raise Exception("PyGithub failed")
             fields = ['Additions', 'Deletions']
+
+            data_month = {}
             for contrib in contribs:
-                data.append({u'Timestamp': contrib.week, u'Additions': contrib.additions, u'Deletions': contrib.deletions})
+                month_temp = contrib.week.replace(day=1)
+                if month_temp in data_month:
+                    data_month[month_temp]['Additions'] += contrib.additions
+                    data_month[month_temp]['Deletions'] += contrib.deletions
+                else:
+                    data_month[month_temp] = {'Additions': contrib.additions, 'Deletions': contrib.deletions}
+            for month in data_month:
+                data.append({u'Timestamp': month, u'Additions': data_month[month]['Additions'], u'Deletions': data_month[month]['Deletions']})
 
         for field in fields:
             stats.append(field)
