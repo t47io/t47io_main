@@ -224,14 +224,14 @@ h1, h2, h3, h4, h5, h6 {
 	padding-top: 10px;
 }
 .place_holder {
-  height: 200px;
-  background-size: 96px;
-  opacity: 0.5;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  background-image: url("/img/fg_loader_dot.gif");  
-  background-position: center;
+  height: 175px;
+  opacity: 0.5;git
 }
+.place_holder > div.center-block {
+	width: 72px; 
+	padding-top: 51px;
+}
+.git { height: 175px; }
 
 
 .footer { 
