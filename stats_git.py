@@ -1,7 +1,5 @@
-from datetime import datetime
 import gviz_api
 from github import Github
-import math
 import operator
 import pytz
 import requests
@@ -51,7 +49,7 @@ for (tag, name) in repos:
 
     for qs in ['c', 'a']:
         data = []
-        desp = {'Timestamp': ('datetime', 'Timestamp')}
+        desp = {'Timestamp': ('date', 'Timestamp')}
         stats = ['Timestamp']
 
         if qs == 'c':
@@ -66,7 +64,7 @@ for (tag, name) in repos:
 
             data_month = {}
             for contrib in contribs:
-                month_temp = contrib.week.replace(day=1)
+                month_temp = contrib.week.replace(day=1).date()
                 if month_temp in data_month:
                     data_month[month_temp] += sum(contrib.days)
                 else:

@@ -65,6 +65,7 @@ module.exports = function(grunt) {
           'public/css/_proj.min.css': [
             'public/css/palette.css',
             'public/css/project.css',
+            'public/css/loader_project.css',
             'public/css/sprites_logo.css',
             'public/css/sprites_project.css'
           ]

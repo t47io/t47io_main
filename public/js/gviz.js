@@ -44,10 +44,12 @@ function drawGIT(data) {
             'hAxis': {
                 'gridlines': {'count': -1},
                 'textStyle': {'italic': true},
-                'format': 'MMM dd'
+                'format': 'MMM yy',
             },
+            'tooltip': {'showColorCode': true},
             'lineWidth': 2,
-            'pointSize': 3,
+            'pointSize': 5,
+            'pointShape': 'square',
             'colors': ['#03a9f4'],
             'animation': {'startup': true, 'duration': 1000, 'easing': 'inAndOut'}
         }
@@ -75,8 +77,10 @@ function drawGIT(data) {
             'hAxis': {
                 'gridlines': {'count': -1},
                 'textStyle': {'italic': true},
-                'format': 'MMM dd'
+                'format': 'MMM yy',
             },
+            'tooltip': {'showColorCode': true},
+            'focusTarget': 'category',
             'lineWidth': 2,
             'pointSize': 3,
             'colors': ['#9fc906', '#f44336'],
@@ -108,7 +112,4 @@ function drawChart() {
     }
 
 }
-
-
-
 
