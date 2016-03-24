@@ -55,8 +55,15 @@ module.exports = function(grunt) {
             'public/css/reset.css',
             'public/css/style.css',
             'public/css/mobile.css',
-            'public/css/sprites_logo.css',
             'public/css/sprites_index.css'
+          ]
+        }
+      },
+      'load': {
+        'files': {
+          'public/css/_load.min.css': [
+            'public/css/loader_index.css',
+            'public/css/sprites_logo.css'
           ]
         }
       },

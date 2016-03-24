@@ -15,16 +15,10 @@
     <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Tenor+Sans:400'>
 
     {% if DEBUG %}
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="/css/loader_index.css" />
     <link rel="stylesheet" type="text/css" href="/css/sprites_logo.css" />
-    <link rel="stylesheet" type="text/css" href="/css/sprites_index.css" />
     {% else %}
-    <link rel="stylesheet" type="text/css" href="/css/_lib.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/_indx.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/_load.min.css" />
     {% endif %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -48,13 +42,22 @@
     <div class="page-loader bgimg2-lg">
       <span class="load-center"></span>
       <div class="load-content">
-        <p>
-          <img src="/img/bg_rna_2.png" style="display:none" />
-          <div class="sprite" style="width:250px; max-width:50%;"><i class="logo_alt_g"></i></div>
-          <br/>
-          <img src="/img/fg_loader_helix.gif" alt="T47 Loading" style="max-width:100%" />
-          <br/><br/><br/><br/><br/><br/>
-        </p>
+        <img src="/img/bg_rna_2.png" style="display:none" />
+        <div class="sprite" style="width:250px; max-width:50%;"><i class="logo_alt_g"></i></div>
+        <div class="row">
+          <div class='loader center-block'>
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+            <div></div><div></div>
+          </div>
+        </div>
+        <!-- <img src="/img/fg_loader_helix.gif" alt="T47 Loading" style="max-width:100%" /> -->
         <!-- <div class="progress">
           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;" id="load-progress"></div>
         </div> -->
@@ -132,6 +135,20 @@
 
       <a href="#home-section" class="scrollTop"><i class="fa fa-arrow-up fa-fw fa-lg"></i></a>
     </div>
+
+
+    {% if DEBUG %}
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="/css/sprites_logo.css" />
+    <link rel="stylesheet" type="text/css" href="/css/sprites_index.css" />
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="/css/_lib.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/_indx.min.css" />
+    {% endif %}
 
     {% if DEBUG %}
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
