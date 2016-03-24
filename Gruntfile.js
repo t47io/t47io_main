@@ -81,6 +81,7 @@ module.exports = function(grunt) {
       'error': {
         'files': {
           'public/css/_clr.min.css': [
+            'public/css/loader_project.css',
             'public/css/sprites_logo.css',
             'public/css/palette.css'
           ]

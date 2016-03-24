@@ -20,9 +20,9 @@
 .bgimg2-lg {
   background-image: url("/img/bg_rna_2.png");
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center center;
   background-size: 100%;
-  padding:50px 0px;
+  /*padding:50px 0px;*/
 }
 
 .label-green { background-color: #9fc906; }

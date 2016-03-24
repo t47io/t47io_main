@@ -20,6 +20,7 @@
     {% if DEBUG %}
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/loader_index.css">
     <link rel="stylesheet" type="text/css" href="/css/palette.css">
     <link rel="stylesheet" type="text/css" href="/css/sprites_logo.css" />
     {% else %}
@@ -43,15 +44,46 @@
     <div class="starter-template">
       <span id="center"></span>
       <div class="container theme-showcase" id="main">
-        {% block content %}{% endblock %}
+        <div class="row bgimg2-lg">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div style="height:72px; width:135.5px;"><i class="logo_g"></i></div>
+            {% block image %}{% endblock %}
 
+            <div class="row">
+              <div class='loader center-block' style="width:75%;">
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+                <div></div><div></div><div></div>
+                <div></div><div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:left;">
+            <h2 style="margin-bottom:20px;">
+              {% block h1 %}{% endblock %}
+            </h2>
+            <p style="font-weight:bold; font-size:16px;">
+              {% block p1 %}{% endblock %}
+            </p>
+            <br/>
+            <p><i>In other words,</i></p>
+            <h3>{% block h2 %}{% endblock %}</h3>
+            <p>
+              {% block p2 %}{% endblock %}
+            </p>
+          </div>
+        </div>
         <hr/>
-        {% block footer %}
+
         <footer>
           <div>Copyright <i class="fa fa-fw fa-copyright"></i> <a>2015 - 2016</a> Designed, built &amp; managed by <a href="http://t47.io/" class="theme-author"><div class="sprite" style="height:14px; width:44px;"><i class="logo_alt_g"></i></div></a>. All rights reserverd.</div>
           <p>Code and content on this site is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-SA 4.0</a>.</p>
         </footer>
-        {% endblock %}
       </div>
     </div>
 
