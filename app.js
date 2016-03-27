@@ -191,6 +191,14 @@ app.route('/send')
 });
 
 
+app.get('/load', function (req, res) {
+    res.render('_load.html', {
+        'DEBUG':     DEBUG,
+        'GA_ID':     GA_ID
+    });
+});
+
+
 app.get(/^\/robots\.txt\/?$/, function (req, res) {
     res.sendFile('robots.txt', {'root': root});
 });

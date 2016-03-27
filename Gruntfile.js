@@ -59,11 +59,22 @@ module.exports = function(grunt) {
           ]
         }
       },
+      'init': {
+        'files': {
+          'public/css/_init.min.css': [
+            'public/css/loader_index.css',
+            'public/css/sprites_logo.css'
+          ]
+        }
+      },
       'load': {
         'files': {
           'public/css/_load.min.css': [
+            'bower_components/bootstrap/dist/css/bootstrap.min.css',
             'public/css/loader_index.css',
-            'public/css/sprites_logo.css'
+            'public/css/sprites_logo.css',
+            'public/css/reset.css',
+            'public/css/mobile.css'
           ]
         }
       },
