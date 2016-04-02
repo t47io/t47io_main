@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>T47io main by t47io</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>T47io main</h1>
+        <p>Personal website assets</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/t47io/t47io_main" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/t47io/t47io_main/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/t47io/t47io_main/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a id="t47io-main-website" class="anchor" href="#t47io-main-website" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>t47io Main Website</h1>
+
+<p><img src="http://demo.t47.io/site_media/images/logo_t47.png" alt="T47 Logo" width="150px" align="right"></p>
+
+<p>This is the <em>Code and Content</em> repository for <strong>t47io Main</strong> Website. The online portfolio is freely accessible at <a href="http://t47.io/">http://t47.io/</a>.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p><strong>t47io Main</strong> requires the following <a href="https://nodejs.org/"><strong><code>Node.js</code></strong></a> packages as dependencies (see in <code>package.json</code>), most of which can be installed through <a href="https://www.npmjs.com/"><code>npm</code></a>.</p>
+
+<div class="highlight highlight-source-json"><pre>body-parser     &gt;=  <span class="pl-c1">1.14</span>.<span class="pl-c1">2</span>
+bower           &gt;=  <span class="pl-c1">1.7</span>.<span class="pl-c1">7</span>
+express         &gt;=  <span class="pl-c1">4.13</span>.<span class="pl-c1">4</span>
+glob            &gt;=  <span class="pl-c1">6.0</span>.<span class="pl-c1">4</span>
+grunt           &gt;=  <span class="pl-c1">0.4</span>.<span class="pl-c1">5</span>
+helmet          &gt;=  <span class="pl-c1">1.1</span>.<span class="pl-c1">0</span>
+jshint          &gt;=  <span class="pl-c1">2.9</span>.<span class="pl-c1">1</span>
+jshint-stylish  &gt;=  <span class="pl-c1">2.1</span>.<span class="pl-c1">0</span>
+moment          &gt;=  <span class="pl-c1">2.11</span>.<span class="pl-c1">1</span>
+nodemailer      &gt;=  <span class="pl-c1">2.0</span>.<span class="pl-c1">0</span>
+nunjucks        &gt;=  <span class="pl-c1">2.3</span>.<span class="pl-c1">0</span>
+pm<span class="pl-c1">2</span>             &gt;=  <span class="pl-c1">1.0</span>.<span class="pl-c1">0</span>
+sanitizer       &gt;=  <span class="pl-c1">0.1</span>.<span class="pl-c1">3</span>
+striptags       &gt;=  <span class="pl-c1">2.1</span>.<span class="pl-c1">1</span>
+supervisor      &gt;=  <span class="pl-c1">0.9</span>.<span class="pl-c1">1</span></pre></div>
+
+<p>For <code>bower</code>, the following libraries are maintained (see in <code>bower.json</code>): </p>
+
+<div class="highlight highlight-source-json"><pre>bootstrap     &gt;=  <span class="pl-c1">3.3</span>.<span class="pl-c1">6</span>
+font-awesome  &gt;=  <span class="pl-c1">4.5</span>.<span class="pl-c1">0</span>
+gsap          &gt;=  <span class="pl-c1">1.18</span>.<span class="pl-c1">2</span>
+isotope       &gt;=  <span class="pl-c1">2.2</span>.<span class="pl-c1">2</span>
+jquery        &gt;=  <span class="pl-c1">2.2</span>.<span class="pl-c1">0</span>
+scollmagic    &gt;=  <span class="pl-c1">2.0</span>.<span class="pl-c1">5</span></pre></div>
+
+<p>Also for <code>grunt</code>, the following packages are used (see in <code>package.json</code>):</p>
+
+<div class="highlight highlight-source-json"><pre>grunt-contrib-clean   &gt;=  <span class="pl-c1">0.7</span>.<span class="pl-c1">0</span>
+grunt-contrib-concat  &gt;=  <span class="pl-c1">0.5</span>.<span class="pl-c1">1</span>
+grunt-contrib-cssmin  &gt;=  <span class="pl-c1">0.14</span>.<span class="pl-c1">0</span>
+grunt-contrib-jshint  &gt;=  <span class="pl-c1">0.12</span>.<span class="pl-c1">0</span>
+grunt-contrib-uglify  &gt;=  <span class="pl-c1">0.11</span>.<span class="pl-c1">0</span>
+grunt-contrib-watch   &gt;=  <span class="pl-c1">0.6</span>.<span class="pl-c1">1</span></pre></div>
+
+<p><code>cron</code> jobs retrieves recent statistics on <em>AWS</em> and <em>Google Scholar</em> using <a href="https://www.python.org/"><strong><code>Python</code></strong></a>. The following libraries are required:</p>
+
+<div class="highlight highlight-source-json"><pre>beautifulsoup<span class="pl-c1">4</span>  &gt;=  <span class="pl-c1">4.4</span>.<span class="pl-c1">0</span>
+html<span class="pl-c1">5</span>lib        &gt;=  <span class="pl-c1">0.9999999</span>
+PyGithub        &gt;=  <span class="pl-c1">1.26</span>.<span class="pl-c1">0</span>
+simplejson      &gt;=  <span class="pl-c1">3.8</span>.<span class="pl-c1">1</span></pre></div>
+
+<p><strong>t47io Main</strong> also requires proper setup of <code>nginx</code> reverse proxy, and <code>pm2</code> startup scripts.</p>
+
+<p>Lastly, assets preparation is required for the 1st time through running <code>grunt prod</code>, <code>util_chmod.sh</code> and manually replacing <code>config/*.json</code>. </p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To run the test/dev server, use:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> path/to/server_main/repo
+supervisor app.js</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p><strong>Copyright © 2014-2016: Siqi Tian. All Rights Reserved.</strong></p>
+
+<p>Code and content are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><strong>CC-BY-NC-SA 4.0</strong></a>.</p>
+
+<p>by <a href="http://t47.io/"><strong>t47</strong></a>, <em>January 2016</em>.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/t47io">t47io</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
