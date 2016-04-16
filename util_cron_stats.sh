@@ -1,3 +1,4 @@
+#!/bin/sh
 cd /home/admin/t47io/main
 
 python stats_git.py
