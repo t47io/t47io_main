@@ -146,7 +146,10 @@ $(window).on('load', function() {
     .setTween(TweenMax.from("#pub-header", 1, {'y': '-100%', 'opacity': 0}))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
-    .setTween(TweenMax.staggerFrom("#pub-content > table > tbody > tr", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
+    .setTween(TweenMax.staggerFrom("div.pub-body > div.row", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
+    .addTo(controller);
+    new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
+    .setTween(TweenMax.staggerFrom("div.pub-year", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
     .addTo(controller);
     new ScrollMagic.Scene({'triggerElement': '#contact-section', 'duration': '100%'})
     .setTween(TweenMax.from("#contact-header", 1, {'y': '-100%', 'opacity': 0}))

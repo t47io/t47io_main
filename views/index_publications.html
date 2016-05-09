@@ -11,63 +11,58 @@
 
 <div class="container" id="pub-content">
   {% for year, pub in pub_list %}
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="col-lg-1 col-md-1 col-sm-2 col-xs-2"></th>
-        <th class="col-lg-2 col-md-2 col-sm-4 col-xs-4"></th>
-        <th class="col-lg-9 col-md-9 col-sm-6 col-xs-6"></th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for p in pub %}
-      <tr>
-        <td>
-          {% if loop.first %}
-          {{-year}}
-          {% endif %}
-        </td>
-        <td class="pub_single_content">
-          {% if p.is_ready %}
-          <a href="{{p.url}}" target="_blank">
-          {% else %}
-          <a href="#" target="_blank">
-          {% endif %}
-            <div class="sprite publication_sprite" data-toggle="tooltip" data-placement="bottom" title="{{p.file}}"><div class="pub_{{p.file}}"></div></div>
-          </a>
-        </td>
-        <td>
-          <p class="text-gray">{{p.author}} (<b class="text-light-green">{{-year}}</b>)</p>
-          <p><b style="font-size:16px;">"{{p.title}}"</b></p>
-          <p style="padding-top:5px;">
-            <i class="text-green">{{p.journal}}</i>
-            {% if p.is_ready %}
-            <b>{{p.issue}}</b>: {{p.page}}.
-            <a href="{{p.url}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
-            <a href="/pdf/{{p.file}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
-              {% if p.code %}
-              <a href="{{p.code}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-code-o"></i></a>
+    <div class="row">
+      <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 pub-year">
+        {{-year}}
+      </div>
+      <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pub-body">
+        {% for p in pub %}
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pub-img">
+            <div class="pub_single_content">
+              {% if p.is_ready %}
+              <a href="{{p.url}}" target="_blank">
+              {% else %}
+              <a href="#" target="_blank">
               {% endif %}
-              <span class="pull-right text-gray bg-light-gray">
-                <i class="fa fa-fw fa-balance-scale"></i>
-                <i><small>Cited by :</small></i>
-                {% if dat_dict.citations[year][loop.index0] %}
-                <u class="text-main">{{dat_dict.citations[year][loop.index0]}}</u>
-                {% else %}
-                <u class="text-gray">{{dat_dict.citations[year][loop.index0]}}</u>
+                <div class="sprite publication_sprite" data-toggle="tooltip" data-placement="bottom" title="{{p.file}}"><div class="pub_{{p.file}}"></div></div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 pub-text">
+            <p class="text-gray">{{p.author}} (<b class="text-light-green">{{-year}}</b>)</p>
+            <p><b style="font-size:16px;">"{{p.title}}"</b></p>
+            <p style="padding-top:5px;">
+              <i class="text-green">{{p.journal}}</i>
+              {% if p.is_ready %}
+              <b>{{p.issue}}</b>: {{p.page}}.
+              <a href="{{p.url}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
+              <a href="/pdf/{{p.file}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+                {% if p.code %}
+                <a href="{{p.code}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-code-o"></i></a>
                 {% endif %}
-              </span>
-            {% else %}
-            , <span class="text-gray">{{p.issue}}</span>.
-            <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
-            <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
-            {% endif %}
-          </p>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+                <span class="pull-right text-gray bg-light-gray">
+                  <i class="fa fa-fw fa-balance-scale"></i>
+                  <i><small>Cited by :</small></i>
+                  {% if dat_dict.citations[year][loop.index0] %}
+                  <u class="text-main">{{dat_dict.citations[year][loop.index0]}}</u>
+                  {% else %}
+                  <u class="text-gray">{{dat_dict.citations[year][loop.index0]}}</u>
+                  {% endif %}
+                </span>
+              {% else %}
+              , <span class="text-gray">{{p.issue}}</span>.
+              <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
+              <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+              {% endif %}
+            </p>
+            <br class="hidden-lg hidden-md" />
+            <hr class="hidden-lg hidden-md" />
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   {% endfor %}
 
   <div class="extra-space-l"></div>

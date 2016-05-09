@@ -1161,18 +1161,17 @@ p.subtitle {
 	#home-section .caption img { max-width: 75%; }
 }
 
-
-.table { margin-bottom: 10px; }
-.table thead tr th,
-.table tbody tr td {
-	border: 0px;
-}
-.table tbody tr td:first-child {
+#pub-content > div.row { margin: 0px 0px 20px 0px; }
+#pub-content > div > div.row > div,
+div.pub-year { padding: 8px;}
+div.pub-year {
 	color: #888;
 	font-size: 2em;
 	vertical-align: text-top;
 }
-.table tbody tr td:nth-child(2) { border-left: 5px solid #72a603; }
+div.pub-body { border-left: 5px solid #72a603; }
+div.pub-body > div.row { margin: 12px 0px; }
+div.pub-text { line-height: 20px; }
 .pub_single_content a div {
 	text-align: center;
 	-webkit-transition: all 0.5s ease-in-out;
