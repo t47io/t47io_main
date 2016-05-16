@@ -22,7 +22,9 @@ div.carousel_sprite {
 .daslab_5_500, .daslab_5_404, .daslab_5_401, .daslab_5_400,
 .celica_1_frm, .celica_1_spr, .celica_1_clp, .celica_1_plt, .celica_1_whl, .celica_1_flr,
 .celica_2_wng, .celica_2_hub, .celica_2_rad, .celica_2_vnl, .celica_2_tap, .celica_2_led,
-.celica_3_rer, .celica_3_vis, .celica_3_ihc, .celica_3_sc2, .celica_3_trk {
+.celica_3_rer, .celica_3_vis, .celica_3_ihc, .celica_3_sc2, .celica_3_trk,
+.ribokit_1_nav, .ribokit_1_syx, .ribokit_1_ref, .ribokit_1_hgl, .ribokit_1_err, 
+.ribokit_2_hit, .ribokit_2_prm, .ribokit_2_pkg, .ribokit_2_vis, .ribokit_2_ins {
   max-width: 1200px; 
   max-height: 675px;
 }
@@ -44,7 +46,9 @@ div.carousel_sprite {
 .daslab_5_500::after, .daslab_5_404::after, .daslab_5_401::after, .daslab_5_400::after,
 .celica_1_frm::after, .celica_1_spr::after, .celica_1_clp::after, .celica_1_plt::after, .celica_1_whl::after, .celica_1_flr::after,
 .celica_2_wng::after, .celica_2_hub::after, .celica_2_rad::after, .celica_2_vnl::after, .celica_2_tap::after, .celica_2_led::after,
-.celica_3_rer::after, .celica_3_vis::after, .celica_3_ihc::after, .celica_3_sc2::after, .celica_3_trk::after {
+.celica_3_rer::after, .celica_3_vis::after, .celica_3_ihc::after, .celica_3_sc2::after, .celica_3_trk::after,
+.ribokit_1_nav::after, .ribokit_1_syx::after, .ribokit_1_ref::after, .ribokit_1_hgl::after, .ribokit_1_err::after, 
+.ribokit_2_hit::after, .ribokit_2_prm::after, .ribokit_2_pkg::after, .ribokit_2_vis::after, .ribokit_2_ins::after {
   content: ' ';
   display: inline-block;
   max-width: 100%;
@@ -222,4 +226,27 @@ div.carousel_sprite {
 .celica_3_ihc::after { background-position: 0 50%; }
 .celica_3_sc2::after { background-position: 0 75%; }
 .celica_3_trk::after { background-position: 0 100%; }
+
+
+.ribokit_1_nav::after,
+.ribokit_1_syx::after,
+.ribokit_1_ref::after,
+.ribokit_1_hgl::after,
+.ribokit_1_err::after { background-image: url('/img/portfolio/project_ribokit_1.jpg'); }
+.ribokit_2_hit::after, 
+.ribokit_2_prm::after,
+.ribokit_2_pkg::after, 
+.ribokit_2_vis::after, 
+.ribokit_2_ins::after { background-image: url('/img/portfolio/project_ribokit_2.jpg'); }
+
+.ribokit_1_nav::after { background-position: 0 0%; }
+.ribokit_1_syx::after { background-position: 0 25%; }
+.ribokit_1_ref::after { background-position: 0 50%; }
+.ribokit_1_hgl::after { background-position: 0 75%; }
+.ribokit_1_err::after { background-position: 0 100%; }
+.ribokit_2_hit::after { background-position: 0 0%; }
+.ribokit_2_prm::after { background-position: 0 25%; }
+.ribokit_2_pkg::after { background-position: 0 50%; }
+.ribokit_2_vis::after { background-position: 0 75%; }
+.ribokit_2_ins::after { background-position: 0 100%; }
 

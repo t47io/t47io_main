@@ -1,0 +1,191 @@
+{% extends "_detail.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+      <h1>{{title}}</h1>
+      <p class="lead">{{description}}</p>
+      <p class="thumbnail"><img src="/img/portfolio/project_primerize.jpg" style="max-width:100%;" /></p>
+      <hr/>
+      <h2><i class="fa fa-fw fa-hand-pointer-o"></i> Access</h2>
+      <br/>
+      <p class="lead" style="margin: 5px 0px;">
+        <span class="label label-yellow">Production</span>
+        <a href="https://primerize.stanford.edu/" target="_blank">https://primerize.stanford.edu/ <i class="fa fa-fw fa-sm fa-external-link"></i></a>
+      </p>
+      <br/>
+      <hr/>
+      <h2><i class="fa fa-fw fa-hand-o-right"></i> Features</h2>
+      <br/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
+      <div id="carousel-1" class="carousel carousel-fade slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-1" data-slide-to="1"></li>
+          <li data-target="#carousel-1" data-slide-to="2"></li>
+          <li data-target="#carousel-1" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item thumbnail carousel_sprite active">
+            <div class="primerize_1_plt" data-toggle="tooltip" data-placement="top" title="D3 Plate Layout"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_1_asb" data-toggle="tooltip" data-placement="top" title="Assembly Scheme"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_1_prm" data-toggle="tooltip" data-placement="top" title="Output Table"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_1_inp" data-toggle="tooltip" data-placement="top" title="Input Options"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-indent"></i> Result Visualization</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Inteactive 96-well plate view using D3.js</li>
+        <li>Text representation of assembly scheme</li>
+        <li>Responsive input and full demo</li>
+      </ul>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-bookmark"></i> Tutorial &amp; Protocol</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Illustration of job queue and interface</li>
+        <li>Full experimental protocol of pipeline and strategy</li>
+      </ul>
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
+      <div id="carousel-2" class="carousel carousel-fade slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-2" data-slide-to="1"></li>
+          <li data-target="#carousel-2" data-slide-to="2"></li>
+          <li data-target="#carousel-2" data-slide-to="3"></li>
+          <li data-target="#carousel-2" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item thumbnail carousel_sprite active">
+            <div class="primerize_2_que" data-toggle="tooltip" data-placement="top" title="Job Queue"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_2_tut" data-toggle="tooltip" data-placement="top" title="Interface Tutorial"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_2_exp" data-toggle="tooltip" data-placement="top" title="Experiment Strategy"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_2_pip" data-toggle="tooltip" data-placement="top" title="Experiment Pipeline"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_2_ptc" data-toggle="tooltip" data-placement="top" title="Experiment Protocol"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
+      <div id="carousel-3" class="carousel carousel-fade slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-3" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-3" data-slide-to="1"></li>
+          <li data-target="#carousel-3" data-slide-to="2"></li>
+          <li data-target="#carousel-3" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item thumbnail carousel_sprite active">
+            <div class="primerize_3_ins" data-toggle="tooltip" data-placement="top" title="Package Installation"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_3_cls" data-toggle="tooltip" data-placement="top" title="Class Definitions"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_3_met" data-toggle="tooltip" data-placement="top" title="CLass Methods"></div>
+          </div>
+          <div class="item thumbnail carousel_sprite">
+            <div class="primerize_3_atr" data-toggle="tooltip" data-placement="top" title="Instance Attributes"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+      <h3><i class="fa fa-fw fa-cube"></i> Python Package</h3>
+      <br/>
+      <ul class="ul_desp">
+        <li>Stand-alone <i>Python</i> package for academic use</li>
+        <li>Highlighted class references</li>
+      </ul>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <hr/>
+      <h2 class="text-center"><i class="fa fa-fw fa-code-fork"></i> Repository</h2>
+      <br/>
+      <div class="place_holder" id="git_body">
+        <div class="center-block">
+          <div class="cube">
+            <div class="ani1">
+              <div class="front"><i></i><i></i><i></i></div>
+              <div class="left"><i></i><i></i><i></i></div>
+            </div>
+            <div class="ani2">
+              <div class="front"><i></i><i></i><i></i></div>
+              <div class="bottom"><i></i><i></i><i></i></div>
+            </div>
+            <div class="ani3">
+              <div class="front"><i></i><i></i><i></i></div>
+              <div class="right"><i></i><i></i><i></i></div>
+            </div>
+            <div class="ani4">
+              <div class="front"><i></i><i></i><i></i></div>
+              <div class="top"><i></i><i></i><i></i></div>
+            </div>
+            <div class="shadow"></div>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <h2 class="text-center"><i class="fa fa-fw fa-book"></i> Documentation</h2>
+      <br/>
+      <p class="lead text-center" style="margin: 5px 0px;">
+        Complete <a href="https://daslab.github.io/Primerize/" target="_blank">Package Reference <i class="fa fa-fw fa-sm fa-external-link"></i></a> and <a href="https://github.com/DasLab/Server_Primerize/wiki/" target="_blank">Server Admin Manual <i class="fa fa-fw fa-sm fa-external-link"></i></a>
+      </p>
+      <hr/>
+      <h2 class="text-center"><i class="fa fa-fw fa-hand-pointer-o"></i> Access</h2>
+      <br/>
+      <p class="lead text-center" style="margin: 5px 0px;">
+        <span class="label label-yellow">Production</span>
+        <a href="https://primerize.stanford.edu/" target="_blank">https://primerize.stanford.edu/ <i class="fa fa-fw fa-sm fa-external-link"></i></a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript">
+    var repo = ["{{proj}}", "nathermo"];
+  </script>
+  <script type="text/javascript" src="https://www.google.com/jsapi" ></script>
+
+  {% if DEBUG %}
+  <script type="text/javascript" src="/js/gviz.js" ></script>
+  <script type="text/javascript" src="/js/util.js" ></script>
+  {% else %}
+  <script type="text/javascript" src="/js/_gviz.min.js" ></script>
+  {% endif %}
+{% endblock %}
