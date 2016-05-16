@@ -19,7 +19,10 @@ div.carousel_sprite {
 .daslab_2_ga, .daslab_2_aws, .daslab_2_git, .daslab_2_ver, .daslab_2_slk,
 .daslab_3_bot, .daslab_3_slk, .daslab_3_cfg, .daslab_3_bkp,
 .daslab_4_pub, .daslab_4_exp, .daslab_4_usr, .daslab_4_wau, .daslab_4_doc,
-.daslab_5_500, .daslab_5_404, .daslab_5_401, .daslab_5_400 {
+.daslab_5_500, .daslab_5_404, .daslab_5_401, .daslab_5_400,
+.celica_1_frm, .celica_1_spr, .celica_1_clp, .celica_1_plt, .celica_1_whl, .celica_1_flr,
+.celica_2_wng, .celica_2_hub, .celica_2_rad, .celica_2_vnl, .celica_2_tap, .celica_2_led,
+.celica_3_rer, .celica_3_vis, .celica_3_ihc, .celica_3_sc2, .celica_3_trk {
   max-width: 1200px; 
   max-height: 675px;
 }
@@ -38,7 +41,10 @@ div.carousel_sprite {
 .daslab_2_ga::after, .daslab_2_aws::after, .daslab_2_git::after, .daslab_2_ver::after, .daslab_2_slk::after,
 .daslab_3_bot::after, .daslab_3_slk::after, .daslab_3_cfg::after, .daslab_3_bkp::after,
 .daslab_4_pub::after, .daslab_4_exp::after, .daslab_4_usr::after, .daslab_4_wau::after, .daslab_4_doc::after,
-.daslab_5_500::after, .daslab_5_404::after, .daslab_5_401::after, .daslab_5_400::after {
+.daslab_5_500::after, .daslab_5_404::after, .daslab_5_401::after, .daslab_5_400::after,
+.celica_1_frm::after, .celica_1_spr::after, .celica_1_clp::after, .celica_1_plt::after, .celica_1_whl::after, .celica_1_flr::after,
+.celica_2_wng::after, .celica_2_hub::after, .celica_2_rad::after, .celica_2_vnl::after, .celica_2_tap::after, .celica_2_led::after,
+.celica_3_rer::after, .celica_3_vis::after, .celica_3_ihc::after, .celica_3_sc2::after, .celica_3_trk::after {
   content: ' ';
   display: inline-block;
   max-width: 100%;
@@ -179,4 +185,41 @@ div.carousel_sprite {
 .daslab_5_404::after { background-position: 0 33.33%; }
 .daslab_5_401::after { background-position: 0 66.67%; }
 .daslab_5_400::after { background-position: 0 100%; }
+
+
+.celica_1_frm::after, 
+.celica_1_spr::after, 
+.celica_1_clp::after, 
+.celica_1_plt::after, 
+.celica_1_whl::after, 
+.celica_1_flr::after { background-image: url('/img/portfolio/project_celica_1.jpg'); }
+.celica_2_wng::after, 
+.celica_2_hub::after, 
+.celica_2_rad::after, 
+.celica_2_vnl::after, 
+.celica_2_tap::after, 
+.celica_2_led::after { background-image: url('/img/portfolio/project_celica_2.jpg'); }
+.celica_3_rer::after, 
+.celica_3_vis::after, 
+.celica_3_ihc::after, 
+.celica_3_sc2::after, 
+.celica_3_trk::after { background-image: url('/img/portfolio/project_celica_3.jpg'); }
+
+.celica_1_frm::after { background-position: 0 0%; }
+.celica_1_spr::after { background-position: 0 20%; }
+.celica_1_clp::after { background-position: 0 40%; }
+.celica_1_plt::after { background-position: 0 60%; }
+.celica_1_whl::after { background-position: 0 80%; }
+.celica_1_flr::after { background-position: 0 100%; }
+.celica_2_wng::after { background-position: 0 0%; }
+.celica_2_hub::after { background-position: 0 20%; }
+.celica_2_rad::after { background-position: 0 40%; }
+.celica_2_vnl::after { background-position: 0 60%; }
+.celica_2_tap::after { background-position: 0 80%; }
+.celica_2_led::after { background-position: 0 100%; }
+.celica_3_rer::after { background-position: 0 0%; }
+.celica_3_vis::after { background-position: 0 25%; }
+.celica_3_ihc::after { background-position: 0 50%; }
+.celica_3_sc2::after { background-position: 0 75%; }
+.celica_3_trk::after { background-position: 0 100%; }
 

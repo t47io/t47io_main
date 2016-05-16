@@ -86,18 +86,13 @@ app.get('/', function (req, res) {
 });
 app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica)\/?$/, function (req, res, next) {
     var proj = req.params[0];
-
-    if (proj == 'celica') {
-        res.sendFile('project_celica.jpg', {'root': path.join(__dirname, 'public/img/portfolio/')});
-    } else {
-        res.render('project_' + proj + '.html', {
-            'DEBUG':        DEBUG,
-            'proj':         proj,
-            'title':        dat.projects[proj].title,
-            'description':  striptags(dat.projects[proj].description),
-            'GA_ID':        GA_ID
-        });
-    }
+    res.render('project_' + proj + '.html', {
+        'DEBUG':        DEBUG,
+        'proj':         proj,
+        'title':        dat.projects[proj].title,
+        'description':  striptags(dat.projects[proj].description),
+        'GA_ID':        GA_ID
+    });
 });
 
 
