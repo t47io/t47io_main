@@ -8,7 +8,7 @@ div.publication_sprite {
 .thumb_daslab, .thumb_rmdb, .thumb_primerize,
 .thumb_eterna, .thumb_hitrace, .thumb_spindle,
 .thumb_m2r, .thumb_ires, .thumb_flu,
-.thumb_celica {
+.thumb_celica, .thumb_ribokit {
   max-width: 640px; 
   max-height: 480px;
 }
@@ -16,7 +16,7 @@ div.publication_sprite {
 .thumb_daslab::after, .thumb_rmdb::after, .thumb_primerize::after,
 .thumb_eterna::after, .thumb_hitrace::after, .thumb_spindle::after,
 .thumb_m2r::after, .thumb_ires::after, .thumb_flu::after,
-.thumb_celica::after {
+.thumb_celica::after, .thumb_ribokit::after {
   content: ' ';
   display: inline-block;
   max-width: 100%;
@@ -37,6 +37,7 @@ div.publication_sprite {
 .thumb_ires::after { background-position: 50% 66.67%; }
 .thumb_flu::after { background-position: 100% 66.67%; }
 .thumb_celica::after { background-position: 0% 100%; }
+.thumb_ribokit::after { background-position: 50% 100%; }
 
 
 .pub_2013_Shi_NewPhytol,
