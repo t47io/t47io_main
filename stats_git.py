@@ -7,7 +7,19 @@ import simplejson
 import time
 
 
-repos = (('daslab', 'Daslab/Server_DasLab'), ('hitrace', 'hitrace/hitrace'), ('nathermo', 'Daslab/Primerize'), ('primerize', 'Daslab/Server_Primerize'), ('rdatkit', 'hitrace/RDATKit'), ('rmdb', 'Daslab/Server_RMDB'), ('spindle', 't47io/SpindleUtil'))
+repos = (
+    ('biers', 'DasLab/Biers'),
+    ('daslab', 'DasLab/Server_DasLab'),
+    ('hitrace', 'hitrace/HiTRACE'),
+    ('jekyll', 't47io/ribokit-Jekyll-theme'),
+    ('nathermo', 'DasLab/Primerize'),
+    ('primerize', 'DasLab/Server_Primerize'),
+    ('rdatkit', 'hitrace/RDATKit'),
+    ('ribokit', 'ribokit/ribokit.github.io'),
+    ('rmdb', 'DasLab/Server_RMDB'),
+    ('sphinx', 't47io/ribokit-Sphinx-theme'),
+    ('spindle', 't47io/SpindleUtil')
+)
 
 access_token = simplejson.load(open('config/env.json', 'r'))['git_token']
 gh = Github(login_or_token=access_token)

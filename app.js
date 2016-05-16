@@ -106,7 +106,7 @@ app.get('/git/contrib', function (req, res) {
     res.sendFile(git_contrib);
 });
 app.get('/git', function (req, res, next) {
-    if (['daslab', 'rmdb', 'primerize', 'nathermo', 'rdatkit', 'hitrace', 'spindle', 'ribokit', 'jekyll', 'sphinx'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
+    if (['daslab', 'rmdb', 'primerize', 'nathermo', 'rdatkit', 'hitrace', 'biers', 'spindle', 'ribokit', 'jekyll', 'sphinx'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
         var json = JSON.parse(fs.readFileSync('data/' + req.query.repo + '_' + req.query.type + '.json', 'utf8'));
         if (req.query.tqx) {
             var req_id = req.query.tqx.replace('reqId:', '');
