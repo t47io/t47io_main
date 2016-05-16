@@ -48,7 +48,8 @@ div.publication_sprite {
 .pub_2015_Tian_NAR,
 .pub_2015_Cheng_eLife,
 .pub_2016_Tian_QRB,
-.pub_2016_Hagey_Nature {
+.pub_2016_Hagey_Science,
+.pub_2016_Chen_Science {
   max-width: 432px;
   max-height: 216px;
 }
@@ -62,7 +63,8 @@ div.publication_sprite {
 .pub_2015_Tian_NAR::after,
 .pub_2015_Cheng_eLife::after,
 .pub_2016_Tian_QRB::after,
-.pub_2016_Hagey_Nature::after {
+.pub_2016_Hagey_Science::after,
+.pub_2016_Chen_Science::after {
   content: ' ';
   display: inline-block;
   max-width: 100%;
@@ -82,7 +84,8 @@ div.publication_sprite {
 .pub_2015_Tian_NAR::after { background-position: 0 60%; }
 .pub_2015_Cheng_eLife::after { background-position: 0 70%; }
 .pub_2016_Tian_QRB::after { background-position: 0 80%; }
-.pub_2016_Hagey_Nature::after { background-position: 0 90%; }
+.pub_2016_Hagey_Science::after { background-position: 0 90%; }
+.pub_2016_Chen_Science::after { background-position: 0 100%; }
 
 
 .aff_Stanford,
