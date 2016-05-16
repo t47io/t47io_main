@@ -178,7 +178,7 @@ app.route('/send')
                 next(err);
             }
             console.log('Message sent.');
-            res.status(201).render('201.html', {
+            res.status(201).render('http_201.html', {
                 'DEBUG': DEBUG,
                 'GA_ID': GA_ID
             });
