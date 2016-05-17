@@ -200,8 +200,8 @@ app.get(/^\/robots\.txt\/?$/, function (req, res) {
 app.get(/^\/sitemap\.xml\/?$/, function (req, res) {
     res.sendFile('sitemap.xml', {'root': root});
 });
-app.get(/^\/git\_contribs\.svg\/?$/, function (req, res) {
-    res.sendFile('git_contribs.svg', {'root': root});
+app.get(/^\/favicon\.ico\/?$/, function (req, res) {
+    res.sendFile('img/t47/t47_icon.png', {'root': root});
 });
 
 
