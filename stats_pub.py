@@ -19,7 +19,7 @@ def send_notify_emails(msg_subject, msg_content):
 
 def filter_words(string, min_len, exclude=[]):
     str_list = [str(x.lower()) for x in re.findall("[a-zA-Z]+", string) if len(x) > min_len]
-    return [x for x in str_list if x not in exclude]
+    return filter(lambda x: (x not in exclude), str_list)
 
 
 try:
