@@ -16,6 +16,7 @@ repos = (
     ('primerize', 'DasLab/Server_Primerize'),
     ('rdatkit', 'hitrace/RDATKit'),
     ('ribokit', 'ribokit/ribokit.github.io'),
+    ('ribopaint', 'ribokit/RiboPaint'),
     ('rmdb', 'DasLab/Server_RMDB'),
     ('sphinx', 't47io/ribokit-Sphinx-theme'),
     ('spindle', 't47io/SpindleUtil')
