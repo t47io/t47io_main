@@ -7,27 +7,14 @@ import simplejson
 import time
 
 
-repos = (
-    ('biers', 'DasLab/Biers'),
-    ('daslab', 'DasLab/Server_DasLab'),
-    ('hitrace', 'hitrace/HiTRACE'),
-    ('jekyll', 't47io/ribokit-Jekyll-theme'),
-    ('nathermo', 'DasLab/Primerize'),
-    ('primerize', 'DasLab/Server_Primerize'),
-    ('rdatkit', 'hitrace/RDATKit'),
-    ('ribokit', 'ribokit/ribokit.github.io'),
-    ('ribopaint', 'ribokit/RiboPaint'),
-    ('rmdb', 'DasLab/Server_RMDB'),
-    ('sphinx', 't47io/ribokit-Sphinx-theme'),
-    ('spindle', 't47io/SpindleUtil')
-)
-
-access_token = simplejson.load(open('config/env.json', 'r'))['git_token']
-gh = Github(login_or_token=access_token)
 TIME_ZONE = 'America/Los_Angeles'
+env_json = simplejson.load(open('config/env.json', 'r'))
+repos = env_json['git_repo']
+access_token = env_json['git_token']
+gh = Github(login_or_token=access_token)
 
 
-for (tag, name) in repos:
+for tag, name in repos.iteritems():
     repo = gh.get_repo(name)
 
     created_at = repo.created_at.replace(tzinfo=pytz.utc).astimezone(pytz.timezone(TIME_ZONE)).strftime('%Y-%m-%d %H:%M:%S')

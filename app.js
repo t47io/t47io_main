@@ -80,6 +80,7 @@ app.get('/', function (req, res) {
         'DEBUG':     DEBUG,
         'pub_list':  pub,
         'dat_dict':  dat,
+        'links':     config.links,
         'resume':    moment(res_date, 'YYYYMMDD').format('MMM YYYY'),
         'GA_ID':     GA_ID
     });

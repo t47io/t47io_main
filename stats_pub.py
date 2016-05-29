@@ -22,8 +22,10 @@ def filter_words(string, min_len, exclude=[]):
     return filter(lambda x: (x not in exclude), str_list)
 
 
+env_json = simplejson.load(open('config/env.json', 'r'))
+
 try:
-    r = urllib.urlopen('https://scholar.google.com/citations?user=HbNbD8AAAAAJ&hl=en').read()
+    r = urllib.urlopen(env_json['links']['google_scholar']).read()
     soup = BeautifulSoup(r, 'html5lib')
     all_records = []
 
@@ -97,7 +99,7 @@ except Exception:
 
 
 try:
-    r = urllib.urlopen('https://github.com/t47io').read()
+    r = urllib.urlopen(env_json['links']['github']).read()
     soup = BeautifulSoup(r, 'html5lib')
     git_svg = soup.find(class_='js-calendar-graph-svg')
     git_svg.attrs['height'] = 150
@@ -121,7 +123,6 @@ except Exception:
     print('%s%s\n' % (ts, err))
 
 
-env_json = simplejson.load(open('config/env.json', 'r'))
 if not env_json['DEBUG']:
     email_dict = {}
     sum_cite = 0
