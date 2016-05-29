@@ -29,10 +29,10 @@ try:
 
     tbody = soup.find(id='gsc_a_b')
     for tr in tbody.find_all('tr'):
-        title = tr.find('td', class_='gsc_a_t').find('a').getText().encode('ascii','ignore')
-        author = tr.find('td', class_='gsc_a_t').find('div', class_='gs_gray').getText().encode('ascii','ignore')
-        year = tr.find('span', class_='gsc_a_h').getText().encode('ascii','ignore')
-        cite = tr.find('td', class_='gsc_a_c').find('a', class_='gsc_a_ac').getText().encode('ascii','ignore')
+        title = tr.find('td', class_='gsc_a_t').find('a').getText().encode('ascii', 'ignore')
+        author = tr.find('td', class_='gsc_a_t').find('div', class_='gs_gray').getText().encode('ascii', 'ignore')
+        year = tr.find('span', class_='gsc_a_h').getText().encode('ascii', 'ignore')
+        cite = tr.find('td', class_='gsc_a_c').find('a', class_='gsc_a_ac').getText().encode('ascii', 'ignore')
 
         if 'correction:' in title.lower() and not cite:
             continue
@@ -84,10 +84,10 @@ try:
             print cite_records
             sys.exit(1)
 
-
     dat_json = simplejson.load(open('config/dat.json', 'r'))
     dat_json['citations'] = cite_records
     simplejson.dump(dat_json, open('config/dat.json', 'w'), indent=' ' * 4, sort_keys=True)
+    print('\033[92mSUCCESS\033[0m: Google Scholar citation records updated.\n')
 
 except Exception:
     print('\033[41mERROR\033[0m: Failed to update Google Scholar citation.\n')
@@ -96,19 +96,44 @@ except Exception:
     print('%s%s\n' % (ts, err))
 
 
-print('\033[92mSUCCESS\033[0m: Google Scholar citation records updated.\n')
+try:
+    r = urllib.urlopen('https://github.com/t47io').read()
+    soup = BeautifulSoup(r, 'html5lib')
+    git_svg = soup.find(class_='js-calendar-graph-svg')
+    git_svg.attrs['height'] = 150
+    dom_append = BeautifulSoup('<text x="0" y="120" ># Includes contributions from <tspan style="font-style:italic;">private</tspan> repositories</text>\n' + '<g transform="translate(572, 108)" id="legend">\n' + '<rect class="day day_0" x="0" />\n' + '<rect class="day day_1" x="13" />\n' + '<rect class="day day_2" x="26" />\n' + '<rect class="day day_3" x="39" />\n' + '<rect class="day day_4" x="52" />\n' + '</g>\n' + '<text x="534" y="118" class="legend">Less</text>\n' + '<text x="646" y="118" class="legend">More</text>\n', 'html.parser')
+    git_svg.find('g').append(dom_append)
 
-email_dict = {}
-sum_cite = 0
-for key in pub_json.keys():
-    for i, obj in enumerate(pub_json[key]):
-        num = cite_records[key][i]
-        email_dict[obj['file']] = num
-        if num is not None:
-            sum_cite += num
-email_dict['sum'] = sum_cite
-msg = '%s\n%s\n' % (time.ctime(), simplejson.dumps(email_dict, indent=' ' * 4, sort_keys=True))
+    colors = ['#eeeeee', '#d6e685', '#8cc665', '#44a340', '#1e6823']
+    list_rect = soup.find_all("rect", class_="day")
+    for rect in list_rect:
+        if rect.attrs['fill'] in colors:
+            rect.attrs['class'] = 'day day_%s' % (colors.index(rect.attrs['fill']))
+        del rect.attrs['height'], rect.attrs['width'], rect.attrs['fill']
 
-env_json = simplejson.load(open('config/env.json', 'r'))['email']
-(EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD) = (env_json['host'], int(env_json['port']), env_json['login'], env_json['password'])
-send_notify_emails('[t47io] Google Scholar Citation Update', msg)
+    open('data/git_contrib_%s.svg' % time.strftime('%Y%m%d', time.localtime()), 'w').write(str(git_svg))
+    print('\033[92mSUCCESS\033[0m: GitHub contribution records updated.\n')
+
+except Exception:
+    print('\033[41mERROR\033[0m: Failed to update GitHub contribution.\n')
+    err = traceback.format_exc()
+    ts = '%s\n' % time.ctime()
+    print('%s%s\n' % (ts, err))
+
+
+env_json = simplejson.load(open('config/env.json', 'r'))
+if not env_json['DEBUG']:
+    email_dict = {}
+    sum_cite = 0
+    for key in pub_json.keys():
+        for i, obj in enumerate(pub_json[key]):
+            num = cite_records[key][i]
+            email_dict[obj['file']] = num
+            if num is not None:
+                sum_cite += num
+    email_dict['sum'] = sum_cite
+    msg = '%s\n%s\n' % (time.ctime(), simplejson.dumps(email_dict, indent=' ' * 4, sort_keys=True))
+
+    env_email = env_json['email']
+    (EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD) = (env_email['host'], int(env_email['port']), env_email['login'], env_email['password'])
+    send_notify_emails('[t47io] Google Scholar Citation Update', msg)
