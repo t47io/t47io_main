@@ -1195,8 +1195,17 @@ text.legend {
 	fill: #888;
 	font-size: 12px;
 }
-rect.day { shape-rendering: crispedges; }
+rect.day {
+	shape-rendering: crispedges;
+	height: 11px;
+	width: 11px;
+}
 rect.day:hover { stroke: #333; }
+rect.day.day_0 { fill: #eee; }
+rect.day.day_1 { fill: #d6e685; }
+rect.day.day_2 { fill: #8cc665; }
+rect.day.day_3 { fill: #44a340; }
+rect.day.day_4 { fill: #1e6823; }
 .tooltip-inner {
     background-color: #363940;
     color: #e7e7e7;
