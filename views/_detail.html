@@ -60,7 +60,17 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="#">Portfolio</a></li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-expanded="false">
+                Portfolio
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu nav nav-pills nav-stacked" role="menu">
+                {% for p in projs %}
+                <li {% if p == proj %}class="active"{% endif %}><a href="/project/{{p}}">{{p}}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -95,6 +105,13 @@
 
     {% block script %}{% endblock %}
     <script type="text/javascript">
+      $(document).ready(function() {
+        $(".dropdown-toggle").dropdown();
+        $(".dropdown").hover(
+          function(){ $(this).addClass("open") },
+          function(){ $(this).removeClass("open") }
+        );
+      });
       $(window).on('load', function() {
         $(".page-loader").fadeOut(250);
       });

@@ -16,7 +16,9 @@ var app       = express(),
     dat       = JSON.parse(fs.readFileSync('config/dat.json', 'utf8')),
     config    = JSON.parse(fs.readFileSync('config/env.json', 'utf8')),
     contact   = config.email.login,
-    smtp = emailer.createTransport(config.email.protocol + '://' + contact.replace('@', '%40') + ':' + config.email.password + '@' + config.email.host + ':' + config.email.port);
+    smtp      = emailer.createTransport(config.email.protocol + '://' + contact.replace('@', '%40') + ':' + config.email.password + '@' + config.email.host + ':' + config.email.port),
+    projs     = [];
+
 for (var key in pub) {
     dat.counters.publication += pub[key].length;
     for (var i = 0; i < pub[key].length; i++) {
@@ -24,6 +26,11 @@ for (var key in pub) {
         item.author = item.author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>');
     }
 }
+for (var i = 0; i < dat.projects.order.length; i++) {
+    var key = dat.projects.order[i];
+    if (!('url' in dat.projects[key])) { projs.push(key); }
+}
+
 var resume = '', git_contrib = '';
 glob(path.join(root, 'pdf/Resume*.pdf'), {}, function (err, files) {
     if (err) {
@@ -90,6 +97,7 @@ app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica|riboki
     res.render('project_' + proj + '.html', {
         'DEBUG':        DEBUG,
         'proj':         proj,
+        'projs':        projs,
         'title':        dat.projects[proj].title,
         'description':  striptags(dat.projects[proj].description),
         'GA_ID':        GA_ID
@@ -107,7 +115,7 @@ app.get('/git/contrib', function (req, res) {
     res.sendFile(git_contrib);
 });
 app.get('/git', function (req, res, next) {
-    if (['daslab', 'rmdb', 'primerize', 'nathermo', 'rdatkit', 'hitrace', 'biers', 'spindle', 'ribokit', 'ribopaint', 'jekyll', 'sphinx'].indexOf(req.query.repo) > -1 && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
+    if (req.query.repo in config.git_repo && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
         var json = JSON.parse(fs.readFileSync('data/' + req.query.repo + '_' + req.query.type + '.json', 'utf8'));
         if (req.query.tqx) {
             var req_id = req.query.tqx.replace('reqId:', '');
