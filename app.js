@@ -208,7 +208,7 @@ app.get(/^\/favicon\.ico\/?$/, function (req, res) {
 });
 
 
-app.get(/^\/(400|401|403|404|500|503)\/?$/, function (req, res, next) {
+app.get(/^\/error\/(400|401|403|404|500|503)\/?$/, function (req, res, next) {
     var err = new Error();
     err.status = parseInt(req.params[0]);
     next(err);
