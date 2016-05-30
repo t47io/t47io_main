@@ -78,7 +78,7 @@
       	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="contact-form">
           	<h4><i class="fa fa-paper-plane-o fa-lg fa-fw"></i> Keep in Touch</h4>
-            <form id="form_email" method="post" action="/send/" enctype="application/x-www-form-urlencoded" target="_blank">
+            <form id="form_email" method="post" action="/send/" enctype="application/x-www-form-urlencoded">
               <div class="form-group">
                 <input type="text" name="name" class="form-control input-lg" placeholder="Your Name" required>
               </div>
@@ -91,7 +91,7 @@
               <div class="form-group">
                 <textarea name="message" class="form-control input-lg" rows="5" placeholder="Message" required></textarea>
               </div>
-              <button type="submit" class="btn btn-default form-group"><i class="fa fa-envelope-o fa-lg fa-fw"></i> Send</button>
+              <button type="submit" class="btn btn-default form-group"><i class="fa fa-envelope-o fa-lg fa-fw" id="send-icon"></i> Send</button>
             </form>
           </div>	
         </div>

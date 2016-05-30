@@ -203,8 +203,33 @@ $(window).on('load', function() {
         'layoutMode': 'fitRows'
     });
     $("#filters").on('click', 'a', function(event) {
-        $("#portfolio").isotope({ 'filter': $(this).attr('data-filter') });
         event.preventDefault();
+        $("#portfolio").isotope({ 'filter': $(this).attr('data-filter') });
+    });
+    $("#form_email").submit(function(event) {
+        event.preventDefault();
+        $("#send-icon").removeClass("fa-envelope-o").addClass("fa-cog fa-spin");
+        $("#form_email > button.btn").prop("disabled", true);
+
+        $.ajax({
+            type: "POST",
+            url: $(this).attr("action"),
+            data: $(this).serialize(),
+            success: function(data) {
+                $("#send-icon").removeClass("fa-cog fa-spin").addClass("fa-check-circle-o");
+                $("#form_email > button.btn").prop("disabled", false);
+                $("#form_email")[0].reset();
+                window.location.href = '/send/';
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                $("#send-icon").removeClass("fa-cog fa-spin").addClass("fa-times-circle-o");
+                $("#form_email > button.btn").removeClass("btn-default").addClass("btn-danger");
+                setTimeout(function() {
+                $("#form_email > button.btn").removeClass("btn-danger").addClass("btn-default").prop("disabled", false);
+                $("#send-icon").removeClass("fa-times-circle-o").addClass("fa-envelope-o");
+                }, 5000);
+            }
+        });
     });
 
     $(".progress").hover(function() {

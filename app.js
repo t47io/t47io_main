@@ -159,9 +159,10 @@ app.get(/^\/fonts\/(.+)\/?$/, function (req, res, next) {
 
 app.route('/send')
 .get(function (req, res, next) {
-    var err = new Error();
-    err.status = 400;
-    next(err);
+    res.render('http_201.html', {
+        'DEBUG': DEBUG,
+        'GA_ID': GA_ID
+    });
 })
 .post(function (req, res, next) {
     var name     = sanitizer.escape(req.body.name),
@@ -177,20 +178,13 @@ app.route('/send')
         }, function (err, info) {
             if (err) {
                 console.log(err);
-                err = new Error();
-                err.status = 500;
-                next(err);
+                res.status(500).send();
             }
             console.log('Message sent.');
-            res.status(201).render('http_201.html', {
-                'DEBUG': DEBUG,
-                'GA_ID': GA_ID
-            });
+            res.status(201).send();
         });
     } else {
-        var err = new Error();
-        err.status = 400;
-        next(err);
+        res.status(400).send();
     }
 });
 
@@ -214,7 +208,7 @@ app.get(/^\/favicon\.ico\/?$/, function (req, res) {
 });
 
 
-app.get(/^\/error\/(400|401|403|404|500|503)\/?$/, function (req, res, next) {
+app.get(/^\/(400|401|403|404|500|503)\/?$/, function (req, res, next) {
     var err = new Error();
     err.status = parseInt(req.params[0]);
     next(err);
