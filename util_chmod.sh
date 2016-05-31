@@ -11,5 +11,7 @@ find config -type d | sudo xargs chmod 750
 find data -type f | sudo xargs chmod 640
 find data -type d | sudo xargs chmod 750
 
-sudo chown -R admin:admin *.sh
+sudo chown -R admin:admin *.sh .git
 sudo chmod -R 700 *.sh
+find .git -type f | sudo xargs chmod 640
+find .git -type d | sudo xargs chmod 750
