@@ -17,30 +17,35 @@
       </div>
       <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pub-body">
         {% for p in pub %}
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pub-img">
-            <div class="pub_single_content">
-              {% if p.is_ready %}
-              <a href="{{p.url}}" target="_blank">
-              {% else %}
-              <a href="#" target="_blank">
-              {% endif %}
-                <div class="sprite publication_sprite" data-toggle="tooltip" data-placement="bottom" title="{{p.file}}"><div class="pub_{{p.file}}"></div></div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 pub-text">
-            <p class="text-gray">{{p.author}} (<b class="text-light-green">{{-year}}</b>)</p>
-            <p><b style="font-size:16px;">"{{p.title}}"</b></p>
-            <p style="padding-top:5px;">
-              <i class="text-green">{{p.journal}}</i>
-              {% if p.is_ready %}
-              <b>{{p.issue}}</b>: {{p.page}}.
-              <a href="{{p.url}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
-              <a href="/pdf/{{p.file}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
-                {% if p.code %}
-                <a href="{{p.code}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-code-o"></i></a>
+          {% if not p.is_hidden %}
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pub-img">
+              <div class="pub_single_content">
+                {% if p.is_preprint %}
+                <a href="#" target="_blank">
+                {% else %}
+                <a href="{{p.url}}" target="_blank">
                 {% endif %}
+                  <div class="sprite publication_sprite" data-toggle="tooltip" data-placement="bottom" title="{{p.file}}"><div class="pub_{{p.file}}"></div></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 pub-text">
+              <p class="text-gray">{{p.author}} (<b class="text-light-green">{{-year}}</b>)</p>
+              <p><b style="font-size:16px;">"{{p.title}}"</b></p>
+              <p style="padding-top:5px;">
+                <i class="text-green">{{p.journal}}</i>
+                {% if p.is_preprint %}
+                , <span class="text-gray">{{p.issue}}</span>.
+                <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
+                <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+                {% else %}
+                <b>{{p.issue}}</b>: {{p.page}}.
+                <a href="{{p.url}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
+                <a href="/pdf/{{p.file}}.pdf" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+                  {% if p.code %}
+                  <a href="{{p.code}}" target="_blank" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-code-o"></i></a>
+                  {% endif %}
                 <span class="pull-right text-gray bg-light-gray">
                   <i class="fa fa-fw fa-balance-scale"></i>
                   <i><small>Cited by :</small></i>
@@ -50,16 +55,13 @@
                   <u class="text-gray">{{dat_dict.citations[year][loop.index0]}}</u>
                   {% endif %}
                 </span>
-              {% else %}
-              , <span class="text-gray">{{p.issue}}</span>.
-              <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
-              <a href="#" target="_blank" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
-              {% endif %}
-            </p>
-            <br class="hidden-lg hidden-md" />
-            <hr class="hidden-lg hidden-md" />
+                {% endif %}
+              </p>
+              <br class="hidden-lg hidden-md" />
+              <hr class="hidden-lg hidden-md" />
+            </div>
           </div>
-        </div>
+          {% endif %}
         {% endfor %}
       </div>
     </div>

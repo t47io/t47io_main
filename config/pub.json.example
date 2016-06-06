@@ -6,8 +6,9 @@
 			"journal":  "journal",
 			"issue":    "issue",
 			"page":     "page",
-			"is_ready": false,
+			"is_preprint": true,
 			"file":     "filename_without_extension",
+			"url":      "doi_url",
 			"code":     ""
 		}
 	],
@@ -18,8 +19,8 @@
 			"journal":  "journal",
 			"issue":    "issue",
 			"page":     "page",
-			"is_ready": true,
 			"file":     "filename_without_extension",
+			"url":      "doi_url",
 			"code":     ""
 		}
 		{
@@ -28,9 +29,8 @@
 			"journal":  "journal",
 			"issue":    "issue",
 			"page":     "page",
-			"is_ready": true,
 			"file":     "filename_without_extension",
-			"code":     ""
+			"url":      "doi_url"
 		}
 	]
 }
