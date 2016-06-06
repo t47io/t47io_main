@@ -1,8 +1,8 @@
 # t47io Main Website
 
-<img src="http://demo.t47.io/site_media/images/logo_t47.png" alt="T47 Logo" width="150px" align="right">
+<img src="https://demo.t47.io/site_media/images/logo_t47.png" alt="T47 Logo" width="150px" align="right">
 
-This is the _Code and Content_ repository for **t47io Main** Website. The online portfolio is freely accessible at http://t47.io/.
+This is the _Code and Content_ repository for **t47io Main** Website. The online portfolio is freely accessible at https://t47.io/.
 
 ## Installation
 
@@ -79,5 +79,5 @@ supervisor app.js
 Code and content are licensed under [**CC-BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 
-by [**t47**](http://t47.io/), *January 2016*.
+by [**t47**](https://t47.io/), *January 2016*.
 
