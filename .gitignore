@@ -8,3 +8,7 @@ src/pdf/*.pdf
 node_modules/
 bower_components/
 
+!data/**/.gitignore
+!dist/**/.gitignore
+!node_modules/**/.gitignore
+!bower_components/**/.gitignore
