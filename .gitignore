@@ -1,11 +1,9 @@
 !.gitignore
 
-public/css/*.min.css
-public/js/*.min.js
-public/pdf/*.pdf
-
 config/*.json
 data/
+dist/
+src/pdf/*.pdf
 
 node_modules/
 bower_components/

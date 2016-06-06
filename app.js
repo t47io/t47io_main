@@ -11,13 +11,17 @@ var body_p    = require('body-parser'),
     striptags = require('striptags');
 
 var app       = express(),
-    root      = path.join(__dirname, 'public'),
     pub       = JSON.parse(fs.readFileSync('config/pub.json', 'utf8')),
     dat       = JSON.parse(fs.readFileSync('config/dat.json', 'utf8')),
     config    = JSON.parse(fs.readFileSync('config/env.json', 'utf8')),
     contact   = config.email.login,
     smtp      = emailer.createTransport(config.email.protocol + '://' + contact.replace('@', '%40') + ':' + config.email.password + '@' + config.email.host + ':' + config.email.port),
     projs     = [];
+
+var DEBUG     = config.DEBUG,
+    GA_ID     = config.ga_tracker,
+    port      = config.port,
+    root      = path.join(__dirname, DEBUG ? 'src' : 'dist');
 
 for (var key in pub) {
     dat.counters.publication += pub[key].length;
@@ -52,10 +56,6 @@ glob(path.join(__dirname, 'data/git_contrib_*.svg'), {}, function (err, files) {
 });
 
 
-var DEBUG     = config.DEBUG,
-    GA_ID     = config.ga_tracker,
-    port      = config.port;
-
 app.use(function (req, res, next) {
     if (req.url.match(/\.(png|jpg|gif|svg|ttf|pdf)$/)) {
         res.setHeader('Cache-Control', 'public, max-age=5184000');      // 60 days
@@ -71,7 +71,7 @@ app.disable('x-powered-by');
 
 app.engine('nunj', nunjucks.render);
 app.set('view engine', 'nunjucks');
-nunjucks.configure('views', {
+nunjucks.configure(DEBUG ? 'src/html' : 'dist/html', {
     'autoescape': false,
     'express':    app
 });

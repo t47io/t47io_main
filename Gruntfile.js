@@ -2,10 +2,11 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     'pkg': '<json:package.json>',
+
     'concat': {
       'lib': {
         'files': {
-          'public/js/_lib.min.js': [
+          'dist/js/_lib.min.js': [
             'bower_components/jquery/dist/jquery.min.js',
             'bower_components/bootstrap/dist/js/bootstrap.min.js'
           ]
@@ -13,16 +14,16 @@ module.exports = function(grunt) {
       },
       'animation': {
         'files': {
-          'public/js/_anim.min.js': [
+          'dist/js/_anim.min.js': [
             'bower_components/gsap/src/minified/TweenMax.min.js',
             'bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
             'bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js',
             'bower_components/scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js',
             'bower_components/gsap/src/minified/jquery.gsap.min.js',
             'bower_components/isotope/dist/isotope.pkgd.min.js',
-            'public/js/lib/SmoothScroll.min.js',
-            'public/js/lib/CountTo.min.js',
-            'public/js/lib/TypeWriter.min.js'
+            'src/js/lib/SmoothScroll.min.js',
+            'src/js/lib/CountTo.min.js',
+            'src/js/lib/TypeWriter.min.js'
           ]
         }
       }
@@ -30,23 +31,23 @@ module.exports = function(grunt) {
 
     'uglify': {
       'index': {
-        'files': {'public/js/_indx.min.js': ['public/js/theme.js']}
+        'files': {'dist/js/_indx.min.js': ['src/js/theme.js']}
       },
       'gviz': {
-        'files': {'public/js/_gviz.min.js': [
-          'public/js/util.js',
-          'public/js/gviz.js'
+        'files': {'dist/js/_gviz.min.js': [
+          'src/js/util.js',
+          'src/js/gviz.js'
         ]}
       },
       'ga': {
-        'files': {'public/js/_ga.min.js': ['public/js/analytics.js']}
+        'files': {'dist/js/_ga.min.js': ['src/js/analytics.js']}
       }
     },
 
     'cssmin': {
       'lib': {
         'files': {
-          'public/css/_lib.min.css': [
+          'dist/css/_lib.min.css': [
             'bower_components/bootstrap/dist/css/bootstrap.min.css',
             'bower_components/font-awesome/css/font-awesome.min.css'
           ]
@@ -54,59 +55,89 @@ module.exports = function(grunt) {
       },
       'index': {
         'files': {
-          'public/css/_indx.min.css': [
-            'public/css/reset.css',
-            'public/css/style.css',
-            'public/css/mobile.css',
-            'public/css/sprites_index.css'
+          'dist/css/_indx.min.css': [
+            'src/css/reset.css',
+            'src/css/style.css',
+            'src/css/mobile.css',
+            'src/css/sprites_index.css'
           ]
         }
       },
       'init': {
         'files': {
-          'public/css/_init.min.css': [
-            'public/css/loader_index.css',
-            'public/css/sprites_logo.css'
+          'dist/css/_init.min.css': [
+            'src/css/loader_index.css',
+            'src/css/sprites_logo.css'
           ]
         }
       },
       'load': {
         'files': {
-          'public/css/_load.min.css': [
+          'dist/css/_load.min.css': [
             'bower_components/bootstrap/dist/css/bootstrap.min.css',
-            'public/css/loader_index.css',
-            'public/css/sprites_logo.css',
-            'public/css/reset.css',
-            'public/css/mobile.css'
+            'src/css/loader_index.css',
+            'src/css/sprites_logo.css',
+            'src/css/reset.css',
+            'src/css/mobile.css'
           ]
         }
       },
       'proj': {
         'files': {
-          'public/css/_proj.min.css': [
-            'public/css/palette.css',
-            'public/css/project.css',
-            'public/css/loader_project.css',
-            'public/css/sprites_logo.css',
-            'public/css/sprites_project.css'
+          'dist/css/_proj.min.css': [
+            'src/css/palette.css',
+            'src/css/project.css',
+            'src/css/loader_project.css',
+            'src/css/sprites_logo.css',
+            'src/css/sprites_project.css'
           ]
         }
       },
       'error': {
         'files': {
-          'public/css/_clr.min.css': [
-            'public/css/loader_index.css',
-            'public/css/sprites_logo.css',
-            'public/css/palette.css'
+          'dist/css/_clr.min.css': [
+            'src/css/loader_index.css',
+            'src/css/sprites_logo.css',
+            'src/css/palette.css'
           ]
         }
       }
     },
 
-    'clean': [
-      'public/css/_*.min.css',
-      'public/js/_*.min.js'
-    ],
+    'htmlmin': {
+      'main': {
+        'options': {
+          'ignoreCustomFragments': [ /(\{(\{|\%))[\ \w\"\.\=\_]*((\%|\})\})/ ],
+          'removeComments': true,
+          'collapseWhitespace': true,
+          'minifyCSS': true,
+          'minifyJS': true
+        },
+        'files': [{
+          'expand': true,
+          'cwd': 'src/html',
+          'src': '*.html',
+          'dest': 'dist/html/'
+        }]
+      }
+    },
+
+    'clean': ['dist/*'],
+
+    'copy': {
+      'main': {
+        'expand': true,
+        'cwd': 'src',
+        'src': [
+          'img/**',
+          'pdf/**',
+          'robots.txt',
+          'sitemap.xml',
+          '*.ttf'
+        ],
+        'dest': 'dist/'
+      }
+    },
 
     'jshint': {
       'options': {
@@ -114,18 +145,15 @@ module.exports = function(grunt) {
       },
       'files': [
         'app.js',
-        'public/js/*.js',
-        '!public/js/load.js',
-        '!public/js/_*.min.js'
+        'src/js/*.js',
+        '!src/js/analytics.js'
       ]
     },
 
     'watch': {
       'files': [
-        'public/css/*.css',
-        '!public/css/_*.min.css',
-        'public/js/*.js',
-        '!public/js/_*.min.js'
+        'src/css/*.css',
+        'src/js/*.js'
       ],
       'tasks': ['prod']
     }
@@ -134,11 +162,13 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('prod', ['clean', 'cssmin', 'jshint', 'uglify', 'concat']);
+  grunt.registerTask('prod', ['clean', 'cssmin', 'jshint', 'uglify', 'concat', 'htmlmin', 'copy']);
 
 };

@@ -42,7 +42,9 @@ Also for `grunt`, the following packages are used (see in `package.json`):
 ```json
 grunt-contrib-clean   >=  0.7.0
 grunt-contrib-concat  >=  0.5.1
+grunt-contrib-copy    >=  1.0.0
 grunt-contrib-cssmin  >=  0.14.0
+grunt-contrib-htmlmin >=  1.4.0
 grunt-contrib-jshint  >=  0.12.0
 grunt-contrib-uglify  >=  0.11.0
 grunt-contrib-watch   >=  0.6.1
