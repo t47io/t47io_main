@@ -37,6 +37,9 @@ module.exports = function(grunt) {
           'public/js/util.js',
           'public/js/gviz.js'
         ]}
+      },
+      'ga': {
+        'files': {'public/js/_ga.min.js': ['public/js/analytics.js']}
       }
     },
 
