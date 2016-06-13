@@ -107,7 +107,7 @@ module.exports = function(grunt) {
     'htmlmin': {
       'main': {
         'options': {
-          'ignoreCustomFragments': [ /(\{(\{|\%))[\ \w\"\.\=\_]*((\%|\})\})/ ],
+          'ignoreCustomFragments': [ /(\{(\{|\%))[\ \w\"\'\.\=\!\_]*((\%|\})\})/ ],
           'removeComments': true,
           'collapseWhitespace': true,
           'minifyCSS': true,
