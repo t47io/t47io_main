@@ -9,8 +9,8 @@ import urllib
 
 
 def send_notify_emails(msg_subject, msg_content):
-    smtpserver = smtplib.SMTP(EMAIL_HOST, EMAIL_PORT)
-    smtpserver.starttls()
+    smtpserver = smtplib.SMTP_SSL(EMAIL_HOST, EMAIL_PORT)
+    # smtpserver.starttls()
     smtpserver.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
     msg = 'Subject: %s\n\n%s' % (msg_subject, msg_content)
     smtpserver.sendmail(EMAIL_HOST_USER, [EMAIL_HOST_USER], msg)
