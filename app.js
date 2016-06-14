@@ -8,6 +8,7 @@ var body_p    = require('body-parser'),
     nunjucks  = require('nunjucks'),
     path      = require('path'),
     sanitizer = require('sanitizer'),
+    sass      = require('node-sass-middleware'),
     striptags = require('striptags');
 
 var app       = express(),
@@ -64,6 +65,14 @@ app.use(function (req, res, next) {
     }
     next();
 });
+app.use( sass({
+    'src':         path.join(root, 'sass/'),
+    'dest':        path.join(root, 'css/'),
+    'prefix':      '/css',
+    'response':    false,
+    'outputStyle': 'expanded',
+    'debug':        DEBUG
+}) );
 app.use( express.static(root) );
 app.use( helmet() );
 app.use( body_p.urlencoded({'extended': true}) );
