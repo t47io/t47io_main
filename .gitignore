@@ -5,6 +5,7 @@ data/
 dist/
 src/pdf/*.pdf
 src/css/*.css
+!src/css/reset.css
 
 node_modules/
 bower_components/
