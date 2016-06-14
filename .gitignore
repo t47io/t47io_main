@@ -4,6 +4,7 @@ config/*.json
 data/
 dist/
 src/pdf/*.pdf
+src/css/*.css
 
 node_modules/
 bower_components/
