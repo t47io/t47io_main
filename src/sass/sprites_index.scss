@@ -8,5 +8,5 @@ div.publication_sprite {
 
 
 @include img_sprites('/img/portfolio/thumbnails.jpg', 640px, 480px, ('thumb_daslab', 'thumb_rmdb', 'thumb_primerize', 'thumb_eterna', 'thumb_hitrace', 'thumb_spindle', 'thumb_m2r', 'thumb_ires', 'thumb_flu', 'thumb_celica', 'thumb_ribokit'));
-@include img_sprites('/img/sp_publications.jpg', 432px, 216px, ('pub_2013_Shi_NewPhytol', 'pub_2014_Kladwang_Biochemistry', 'pub_2014_Tian_RNA', 'pub_2015_Xue_Nature', 'pub_2015_Miao_RNA', 'pub_2015_Lee_Bioinfomatics', 'pub_2015_Tian_NAR', 'pub_2015_Cheng_eLife', 'pub_2016_Tian_QRB', 'pub_2016_Hagey_Science', 'pub_2016_Chen_Science'))
-@include img_sprites('/img/sp_affiliations.png', 512px, 224px, ('aff_Stanford', 'aff_Autodesk', 'aff_CAU'))
+@include img_sprites('/img/sp_publications.jpg', 432px, 216px, ('pub_2013_Shi_NewPhytol', 'pub_2014_Kladwang_Biochemistry', 'pub_2014_Tian_RNA', 'pub_2015_Xue_Nature', 'pub_2015_Miao_RNA', 'pub_2015_Lee_Bioinfomatics', 'pub_2015_Tian_NAR', 'pub_2015_Cheng_eLife', 'pub_2016_Tian_QRB', 'pub_2016_Hagey_Science', 'pub_2016_Chen_Science'));
+@include img_sprites('/img/sp_affiliations.png', 512px, 224px, ('aff_Stanford', 'aff_Autodesk', 'aff_CAU'));

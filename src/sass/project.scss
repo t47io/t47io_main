@@ -31,3 +31,26 @@ body { padding: 50px 15px 0px 15px; }
 	margin: 0px; 
 	line-height: 1;
 }
+
+
+.carousel-indicators {
+  bottom: -25px;
+
+  > li {
+    border-color: $clr-kl;
+    background-color: $clr-kl2;
+    border-radius: 0px;
+    border-width: 2px;
+    @include transform(rotate(45deg));
+
+    &:hover, &.active {
+      border-color: $clr-gl;
+      background-color: $clr-gl2;
+    }
+  }
+}
+.scrollTop {
+  .fa {
+    transform: rotate(-45deg) translate(-7px, 5px);
+  }
+}
