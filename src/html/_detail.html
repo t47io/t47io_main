@@ -101,22 +101,31 @@
     <script type="text/javascript" src="/js/_lib.min.js"></script>
     {% endif %}
 
-    {% block script %}{% endblock %}
     <script type="text/javascript">
-      $(document).ready(function() {
-        $(".dropdown-toggle").dropdown();
-        $(".dropdown").hover(
-          function(){ $(this).addClass("open") },
-          function(){ $(this).removeClass("open") }
-        );
-      });
-      $(window).on('load', function() {
-        $(".page-loader").fadeOut(250);
-      });
-      $(window).on('beforeunload', function() {
-        $(".page-loader").fadeIn(250);
-      });
+      var proj = "{{proj}}";
+      if (proj === "hitrace") {
+        var repo = ["hitrace", "biers", "ribopaint"];
+      } else if (proj === "primerize") {
+        var repo = ["primerize", "nathermo"];
+      } else if (proj === "ribokit") {
+        var repo = ["ribokit", "jekyll", "sphinx"];
+      } else if (proj === "rmdb") {
+        var repo = ["rmdb", "rdatkit"];
+      } else if (proj === "daslab" || proj === "spindle") {
+        var repo = ["{{proj}}"];
+      } else {
+        var repo = [];
+      }
     </script>
+    <script type="text/javascript" src="https://www.google.com/jsapi" ></script>
+
+    {% block script %}{% endblock %}
+    {% if DEBUG %}
+    <script type="text/javascript" src="/js/gviz.js" ></script>
+    <script type="text/javascript" src="/js/util.js" ></script>
+    {% else %}
+    <script type="text/javascript" src="/js/_gviz.min.js" ></script>
+    {% endif %}
   </body>
 </html>
 

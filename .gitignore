@@ -9,6 +9,7 @@ src/css/*.css
 
 node_modules/
 bower_components/
+.sass-cache/
 
 !data/**/.gitignore
 !dist/**/.gitignore

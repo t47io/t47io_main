@@ -135,17 +135,3 @@
   </div>
 
 {% endblock %}
-
-{% block script %}
-  <script type="text/javascript">
-    var repo = ["{{proj}}", "rdatkit"];
-  </script>
-  <script type="text/javascript" src="https://www.google.com/jsapi" ></script>
-
-  {% if DEBUG %}
-  <script type="text/javascript" src="/js/gviz.js" ></script>
-  <script type="text/javascript" src="/js/util.js" ></script>
-  {% else %}
-  <script type="text/javascript" src="/js/_gviz.min.js" ></script>
-  {% endif %}
-{% endblock %}

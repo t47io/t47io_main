@@ -26,6 +26,14 @@ $(window).on('scroll', function() {
   }
 });
 
+$(window).on('load', function() {
+  $(".page-loader").fadeOut(250);
+});
+$(window).on('beforeunload', function() {
+  $(".page-loader").fadeIn(250);
+});
+
+
 $(document).ready(function() {
   $('.carousel').carousel({'interval': 2500});
   $('[data-toggle="tooltip"]').tooltip({'container': 'body'});
@@ -39,5 +47,9 @@ $(document).ready(function() {
     $("ul.ul_desp").addClass("lead");
   }
 
-
+  $(".dropdown-toggle").dropdown();
+  $(".dropdown").hover(
+    function(){ $(this).addClass("open"); },
+    function(){ $(this).removeClass("open"); }
+  );
 });
