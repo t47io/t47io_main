@@ -44,12 +44,12 @@
       <span id="center"></span>
       <div class="container theme-showcase" id="main">
         <div class="row bgimg2-lg">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div style="height:72px; width:135.5px;"><i class="logo_g"></i></div>
             {% block image %}{% endblock %}
-            {% include "_helix.html" %}
+            <div class="hidden-xs">{% include "_helix.html" %}</div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:left;">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="text-align:left;">
             <h2 style="margin-bottom:20px;">
               {% block h1 %}{% endblock %}
             </h2>

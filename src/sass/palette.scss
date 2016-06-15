@@ -15,7 +15,20 @@
 	min-width: 640px;
 	max-width: 800px;
 }
-
+@media only screen and (max-width : 768px) {
+  .starter-template { position: relative; }
+}
+@media only screen and (max-width : 480px) {
+  #center {
+    display: none;
+  }
+  #main {
+    vertical-align: middle;
+    display: inline-block;
+    min-width: initial;
+    max-width: 480px;
+  }
+}
 
 .bgimg2-lg {
   background-image: url("/img/bg_rna_2.png");
