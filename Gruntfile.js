@@ -44,6 +44,18 @@ module.exports = function(grunt) {
       }
     },
 
+    'sass': {
+      'main': {
+        'files': [{
+          'expand': true,
+          'cwd': 'src/sass',
+          'src': '*.scss',
+          'dest': 'dist/css/',
+          'ext': '.css'
+        }]
+      }
+    },
+
     'cssmin': {
       'lib': {
         'files': {
@@ -122,8 +134,14 @@ module.exports = function(grunt) {
       }
     },
 
-    'clean': ['dist/*'],
-
+    'clean': {
+      'all': ['dist/*'],
+      'css': [
+        'dist/css/*.map',
+        'dist/css/*.css',
+        '!dist/css/_*.css'
+      ]
+    },
     'copy': {
       'main': {
         'expand': true,
@@ -166,9 +184,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('prod', ['clean', 'cssmin', 'jshint', 'uglify', 'concat', 'htmlmin', 'copy']);
+  grunt.registerTask('prod', ['clean:all', 'sass', 'cssmin', 'jshint', 'uglify', 'concat', 'htmlmin', 'copy', 'clean:css']);
 
 };

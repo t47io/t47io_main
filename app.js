@@ -65,14 +65,16 @@ app.use(function (req, res, next) {
     }
     next();
 });
-app.use( sass({
-    'src':         path.join(root, 'sass/'),
-    'dest':        path.join(root, 'css/'),
-    'prefix':      '/css',
-    'response':    false,
-    'outputStyle': 'expanded',
-    'debug':        DEBUG
-}) );
+if (DEBUG) {
+    app.use( sass({
+        'src':         path.join(root, 'sass/'),
+        'dest':        path.join(root, 'css/'),
+        'prefix':      '/css',
+        'response':    false,
+        'outputStyle': 'expanded',
+        'debug':        DEBUG
+    }) );
+}
 app.use( express.static(root) );
 app.use( helmet() );
 app.use( body_p.urlencoded({'extended': true}) );
