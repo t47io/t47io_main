@@ -1,3 +1,6 @@
+@import 'share';
+
+
 html { height: 100% !important; }
 body {
 	position: relative;
@@ -23,8 +26,6 @@ body {
   background-color: $clr-w;
   padding: 50px 0;
 }
-
-@import 'share';
 
 * {
 	@include border_radius(0 !important);
