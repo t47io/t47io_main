@@ -13,7 +13,7 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
+    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 carousel-parent">
       <div id="carousel-1" class="carousel carousel-fade slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
       <h3><i class="fa fa-fw fa-wrench"></i> Mechanical Hands-on</h3>
       <br/>
       <ul class="ul_desp">
@@ -59,7 +59,7 @@
   </div>  
 
   <div class="row">
-    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
       <h3><i class="fa fa-fw fa-object-group"></i> One-of-a-Kind Design</h3>
       <br/>
       <ul class="ul_desp">
@@ -70,7 +70,7 @@
         <li>Black-out window, blue-accent interior</li>
       </ul>
     </div>
-    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
+    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 carousel-parent">
       <div id="carousel-2" class="carousel carousel-fade slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
@@ -105,7 +105,7 @@
   </div>  
 
   <div class="row">
-    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6 carousel-parent">
+    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 carousel-parent">
       <div id="carousel-3" class="carousel carousel-fade slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-3" data-slide-to="0" class="active"></li>
@@ -133,7 +133,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
       <h3><i class="fa fa-fw fa-tachometer"></i> Dazzling Electronics</h3>
       <br/>
       <ul class="ul_desp">
@@ -148,6 +148,10 @@
 {% endblock %}
 
 {% block script %}
+  <script type="text/javascript">
+    var repo = [];
+  </script>
+  <script type="text/javascript" src="https://www.google.com/jsapi" ></script>
   {% if DEBUG %}
   <script type="text/javascript" src="/js/gviz.js" ></script>
   <script type="text/javascript" src="/js/util.js" ></script>
