@@ -19,12 +19,8 @@
   .starter-template { position: relative; }
 }
 @media only screen and (max-width : 480px) {
-  #center {
-    display: none;
-  }
+  #center { display: none; }
   #main {
-    vertical-align: middle;
-    display: inline-block;
     min-width: initial;
     max-width: 480px;
   }

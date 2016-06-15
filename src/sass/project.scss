@@ -13,9 +13,7 @@ body { padding: 50px 15px 0px 15px; }
 
 .thumbnail { padding: 10px; }
 
-.ul_desp.lead > li {
-	padding-top: 10px;
-}
+.ul_desp.lead > li { padding-top: 10px; }
 .place_holder {
   height: 175px;
   opacity: 0.5;
@@ -38,9 +36,9 @@ body { padding: 50px 15px 0px 15px; }
 
   > li {
     border-color: $clr-kl;
-    background-color: $clr-kl2;
     border-radius: 0px;
     border-width: 2px;
+    background-color: $clr-kl2;
     @include transform(rotate(45deg));
 
     &:hover, &.active {
@@ -50,7 +48,5 @@ body { padding: 50px 15px 0px 15px; }
   }
 }
 .scrollTop {
-  .fa {
-    transform: rotate(-45deg) translate(-7px, 5px);
-  }
+  .fa { transform: rotate(-45deg) translate(-7px, 5px); }
 }

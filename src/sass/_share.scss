@@ -56,20 +56,21 @@ $clr-kll: #f0f0f0;
 .text-light-green { color: $clr-gl; }
 .text-gray { color: $clr-k; }
 .text-light-gray { color: $clr-kl; }
-.bg-light-green { 
-  background-color: $clr-go; 
+.bg {
   padding: 0px;
   border-radius: 0.25em !important;
 }
+.bg-light-green { 
+  background-color: $clr-go; 
+  @extend .bg;
+}
 .bg-light-gray {
   background-color: $clr-kll; 
-  padding: 0px 5px;
-  border-radius: 0.25em !important;
+  @extend .bg;
 }
 .bg-black {
   background-color: rgba(0, 7, 11, 0.5); 
-  padding: 0px 5px;
-  border-radius: 0.25em !important;
+  @extend .bg;
 }
 
 
@@ -200,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .navbar-fixed-top .container {
-  @include transition(0.2s)
+  @include transition(0.2s);
 }
 .navbar-shrink {
   z-index: 9999;
@@ -232,9 +233,7 @@ h1, h2, h3, h4, h5, h6 {
       text-align: right;
     }
     a img {
-      height: 96px;
-      width: 128px;
-      padding: 0px;
+      @extend div.mini-city;
       vertical-align: text-bottom;
     }
   }
