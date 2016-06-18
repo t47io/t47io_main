@@ -152,7 +152,7 @@ ver_txt += "$(tput setab 1) curl %s | wget %s | tar %s | pandoc %s | imagemagick
 ver_txt += "$(tput setab 172) python %s | java %s | ruby %s | node %s | sass %s | gcc %s | make %s $(tput sgr 0)\n" % (ver['python'], ver['java'], ver['ruby'], ver['node'], ver['sass'], ver['gcc'], ver['make'])
 ver_txt += '$(tput setab 11)$(tput setaf 16) django %s | crontab %s | environ %s | suit %s | adminplus %s | filemanager %s $(tput sgr 0)\n' % (ver['django'], ver['django_crontab'], ver['django_environ'], ver['django_suit'], ver['django_adminplus'], ver['django_filemanager'])
 ver_txt += '$(tput setab 2) tkinter %s | virtualenv %s | boto %s | slacker %s | dropbox %s | gviz %s $(tput sgr 0)\n' % (ver['tkinter'], ver['virtualenv'], ver['boto'], ver['slacker'], ver['dropbox'], ver['gviz'])
-ver_txt += '$(tput setab 22) requests %s | simplejson %s | pygithub 1%s | beautifulsoup %s | html5lib %s $(tput sgr 0)\n' % (ver['requests'], ver['simplejson'], ver['pygithub'], ver['beautifulsoup'], ver['html5lib'])
+ver_txt += '$(tput setab 22) requests %s | simplejson %s | pygithub %s | beautifulsoup %s | html5lib %s $(tput sgr 0)\n' % (ver['requests'], ver['simplejson'], ver['pygithub'], ver['beautifulsoup'], ver['html5lib'])
 ver_txt += '$(tput setab 39) express %s | helmet %s | sanitizer %s | nunjucks %s | glob %s | striptags %s $(tput sgr 0)\n' % (ver['express'], ver['helmet'], ver['sanitizer'], ver['nunjucks'], ver['glob'], ver['striptags'])
 ver_txt += '$(tput setab 20) jshint %s | jshint-stylish %s | body-parser %s | nodemailer %s | supervisor %s $(tput sgr 0)\n' % (ver['jshint'], ver['jshint-stylish'], ver['body-parser'], ver['nodemailer'], ver['supervisor'])
 ver_txt += '$(tput setab 6) grunt %s | clean %s | concat %s | copy %s | sass %s | node-sass-middleware %s $(tput sgr 0)\n' % (ver['grunt'], ver['grunt_contrib_clean'], ver['grunt_contrib_concat'], ver['grunt_contrib_copy'], ver['grunt_contrib_sass'], ver['node-sass'])
@@ -160,7 +160,7 @@ ver_txt += '$(tput setab 55) jshint %s | cssmin %s | htmlmin %s | imagemin %s | 
 ver_txt += '$(tput setab 171) bower %s | bootstrap %s | jquery %s | font-awesome %s | isotope %s | gsap %s $(tput sgr 0)\n' % (ver['bower'], ver['bootstrap'], ver['jquery'], ver['font-awesome'], ver['isotope'], ver['gsap'])
 ver_txt += '$(tput setab 198) scrollmagic %s | head-load %s | moment %s | fullcalendar %s | d3js %s $(tput sgr 0)\n' % (ver['scrollmagic'], ver['headjs'], ver['moment'], ver['fullcalendar'], ver['d3'])
 ver_txt += '$(tput setab 8) nginx %s | uwsgi %s | pm2 %s | openssl %s | letsencrypt %s | mysql %s $(tput sgr 0)\n' % (ver['nginx'], ver['uwsgi'], ver['pm2'], ver['openssl'], ver['letsencrypt'], ver['mysql'])
-ver_txt += '$(tput setab 15)$(tput setaf 16) git %s | pip %s | npm %s | gem %s | htop %s | yui-compressor %s $(tput setaf 16) $(tput sgr 0)\n' % (ver['git'], ver['pip'], ver['npm'], ver['gem'], ver['htop'], ver['yuicompressor'])
+ver_txt += '$(tput setab 15)$(tput setaf 16) git %s | pip %s | npm %s | gem %s | htop %s | yui-compressor %s $(tput sgr 0)\n' % (ver['git'], ver['pip'], ver['npm'], ver['gem'], ver['htop'], ver['yuicompressor'])
 subprocess.check_call('echo "%s" > %s/data/sys_ver.txt' % (ver_txt, MEDIA_ROOT), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
 
