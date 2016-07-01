@@ -1,0 +1,28 @@
+{% extends "_error.html" %}
+
+{% block image %}
+<img src="/img/error/502.png" height="auto" style="max-width:100%;" />
+{% endblock %}
+
+{% block h1 %}
+<span class="label label-gray">Refolding</span>
+{% endblock %}
+
+{% block p1 %}
+<b>
+  Magnesium mediated RNA refolding is in progress.
+  <br/>
+  Tertiary contacts and native functions are being restored.
+</b>
+{% endblock %}
+
+{% block h2 %}
+<span class="label label-gray">502: Bad Gateway</span>
+{% endblock %}
+
+{% block p2 %}
+<code><b>Sorry!</b></code>
+<br/>
+The service you requested is not available at this time due to an invalid response from the upstream server. Please come back and try again later.
+{% endblock %}
+

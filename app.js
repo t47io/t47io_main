@@ -219,7 +219,7 @@ app.get(/^\/favicon\.ico\/?$/, function (req, res) {
 });
 
 
-app.get(/^\/error\/(400|401|403|404|500|503)\/?$/, function (req, res, next) {
+app.get(/^\/error\/(400|401|403|404|405|500|502|503)\/?$/, function (req, res, next) {
     var err = new Error();
     err.status = parseInt(req.params[0]);
     next(err);
@@ -231,23 +231,23 @@ app.get('*', function (req, res, next) {
 });
 app.post('*', function (req, res, next) {
     var err = new Error();
-    err.status = 403;
+    err.status = 405;
     next(err);
 });
 app.put('*', function (req, res, next) {
     var err = new Error();
-    err.status = 403;
+    err.status = 405;
     next(err);
 });
 app.delete('*', function (req, res, next) {
     var err = new Error();
-    err.status = 403;
+    err.status = 405;
     next(err);
 });
 
 
 app.use(function (err, req, res, next) {
-    if ([400, 401, 403, 404, 500, 503].indexOf(err.status) == -1) {
+    if ([400, 401, 403, 404, 405, 500, 502, 503].indexOf(err.status) == -1) {
         console.log(err);
         err.status = 503;
     }
