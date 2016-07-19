@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
+import os
 import re
 import simplejson
 import smtplib
@@ -25,6 +26,7 @@ def filter_words(string, min_len, exclude=[]):
 
 
 env_json = simplejson.load(open('config/env.json', 'r'))
+MEDIA_ROOT = os.getcwd()
 
 try:
     r = urllib.urlopen(env_json['links']['google_scholar']).read()
@@ -129,7 +131,7 @@ subprocess.check_call('echo | openssl s_client -connect t47.io:443 | openssl x50
 exp_date = subprocess.Popen('sed %s %s' % ("'s/^notAfter\=//g'", os.path.join(MEDIA_ROOT, 'data/temp.txt')), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()[0].strip()
 exp_date = datetime.strptime(exp_date.replace('notAfter=', ''), "%b %d %H:%M:%S %Y %Z")
 f = open(os.path.join(MEDIA_ROOT, 'data/sys_ssl.txt'), 'w')
-f.write(int(datetime.today() >= exp_date - timedelta(days=15)))
+f.write('%d' % int(datetime.today() >= exp_date - timedelta(days=15)))
 f.close()
 
 
