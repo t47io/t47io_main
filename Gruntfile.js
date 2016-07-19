@@ -68,6 +68,7 @@ module.exports = function(grunt) {
       'index': {
         'files': {
           'dist/css/_indx.min.css': [
+            'src/css/font.css',
             'src/css/reset.css',
             'src/css/style.css',
             'src/css/mobile.css',
@@ -97,6 +98,7 @@ module.exports = function(grunt) {
       'proj': {
         'files': {
           'dist/css/_proj.min.css': [
+            'src/css/font.css',
             'src/css/palette.css',
             'src/css/project.css',
             'src/css/loader_project.css',
