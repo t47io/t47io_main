@@ -1,4 +1,3 @@
-from datetime import datetime, timedelta
 import os
 import re
 import subprocess
@@ -142,14 +141,6 @@ ver['htop'] = subprocess.Popen("htop --version | head -1 | sed 's/.*htop //g' | 
 ver['yuicompressor'] = subprocess.Popen("java -jar %s/../yuicompressor.jar -V" % MEDIA_ROOT, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()[0].strip()
 print ", \033[94m14\033[0m."
 sys.stdout.flush()
-
-
-subprocess.check_call('echo | openssl s_client -connect t47.io:443 | openssl x509 -noout -enddate > %s' % os.path.join(MEDIA_ROOT, 'data/temp.txt'), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-exp_date = subprocess.Popen('sed %s %s' % ("'s/^notAfter\=//g'", os.path.join(MEDIA_ROOT, 'data/temp.txt')), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()[0].strip()
-exp_date = datetime.strptime(exp_date.replace('notAfter=', ''), "%b %d %H:%M:%S %Y %Z")
-f = open(os.path.join(MEDIA_ROOT, 'data/sys_ssl.txt'), 'w')
-f.write(int(datetime.today() >= exp_date - timedelta(days=15)))
-f.close()
 
 
 subprocess.Popen('rm %s' % os.path.join(MEDIA_ROOT, 'data/temp.txt'), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

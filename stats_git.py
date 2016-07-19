@@ -14,8 +14,10 @@ access_token = env_json['git_token']
 gh = Github(login_or_token=access_token)
 
 
+j = 0
 for tag, name in repos.iteritems():
     repo = gh.get_repo(name)
+    j += 1
 
     created_at = repo.created_at.replace(tzinfo=pytz.utc).astimezone(pytz.timezone(TIME_ZONE)).strftime('%Y-%m-%d %H:%M:%S')
     pushed_at = repo.pushed_at.replace(tzinfo=pytz.utc).astimezone(pytz.timezone(TIME_ZONE)).strftime('%Y-%m-%d %H:%M:%S')
@@ -102,5 +104,7 @@ for tag, name in repos.iteritems():
 
         json = simplejson.loads(data_table.ToJSon(columns_order=stats, order_by='Timestamp'))
         simplejson.dump(json, open('data/%s_%s.json' % (tag, qs), 'w'), sort_keys=True)
+
+    print("\033[92mSUCCESS\033[0m: GIT \033[94mrepo\033[0m: %d / %d (%s)." % (j, len(repos), name))
 
 
