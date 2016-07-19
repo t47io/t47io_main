@@ -141,11 +141,11 @@ module.exports = function(grunt) {
         'expand': true,
         'cwd': 'src',
         'src': [
+          'fonts/**',
           'img/**',
           'pdf/**',
           'robots.txt',
-          'sitemap.xml',
-          '*.ttf'
+          'sitemap.xml'
         ],
         'dest': 'dist/'
       }
