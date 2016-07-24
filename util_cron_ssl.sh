@@ -1,5 +1,7 @@
 #!/bin/sh
-if [ "$(cat /home/admin/t47io/main/data/sys_ssl.txt)" == 1 ]; then
+SSL_STATUS=$(cat /home/admin/t47io/main/data/sys_ssl.txt)
+
+if [ "$SSL_STATUS" -eq 1 ]; then
     service nginx stop
 
     echo >> /home/admin/log_ssl.log
