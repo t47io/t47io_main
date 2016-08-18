@@ -1,6 +1,7 @@
 sudo chown -R admin:www-data *
 sudo chown -R admin:admin data node_modules bower_components
-sudo chmod 640 *.js* *.md *.py
+sudo chown admin:admin *.py *.js *.json *.md *.txt
+sudo chmod 600 *.js* *.md *.py
 
 find src -type f | sudo xargs chmod 640
 find src -type d | sudo xargs chmod 750
