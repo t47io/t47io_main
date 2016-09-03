@@ -250,6 +250,15 @@ app.delete('*', function (req, res, next) {
 });
 
 
+app.use(function (req, res, next) {
+    if(req.url.substr(-1) == '/' && req.url.length > 1) {
+        var query = req.url.slice(req.path.length);
+        res.redirect(301, req.url.slice(0, -1) + query);
+    } else {
+        next();
+    }
+});
+
 app.use(function (err, req, res, next) {
     if ([400, 401, 403, 404, 405, 500, 502, 503].indexOf(err.status) == -1) {
         console.log(err);
