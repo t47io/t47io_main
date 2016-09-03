@@ -121,6 +121,10 @@ app.get('/resume', function (req, res) {
     res.setHeader('Content-Disposition', 'inline; filename="SiqiTian_resume.pdf"');
     res.sendFile(resume);
 });
+app.get('/defense', function (req, res) {
+    res.setHeader('Cache-Control', 'public, max-age=1296000');
+    res.sendFile('/img/t47/phd_defense.png');
+});
 app.get('/git/contrib', function (req, res) {
     res.setHeader('Cache-Control', 'public, max-age=1296000');
     res.sendFile(git_contrib);
