@@ -123,7 +123,7 @@ app.get('/resume', function (req, res) {
 });
 app.get('/defense', function (req, res) {
     res.setHeader('Cache-Control', 'public, max-age=1296000');
-    res.sendFile('/img/t47/phd_defense.png');
+    res.sendFile(path.join(root, 'img/t47/phd_defense.png'));
 });
 app.get('/git/contrib', function (req, res) {
     res.setHeader('Cache-Control', 'public, max-age=1296000');
