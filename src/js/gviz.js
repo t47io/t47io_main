@@ -16,7 +16,7 @@ function drawGIT(data) {
         lb_private = '<span class="label label-gray">public</span>';
     }
     $("#git-name-" + name).html('<span class="lead"><mark><b><u>' + data.id + '</u></b></mark></span>&nbsp;&nbsp;' + lb_private);
-    $("#git-url-" + name).html('<a href="' + data.url + '" target="_blank"><code>' + data.url + '</code> <i class="fa fa-fw fa-sm fa-external-link"></i></a>');
+    $("#git-url-" + name).html('<a href="' + data.url + '" target="_blank" rel="noopener noreferrer external"><code>' + data.url + '</code> <i class="fa fa-fw fa-sm fa-external-link"></i></a>');
     $("#git-label-" + name).html('<span class="label label-green">created</span>&nbsp;<span class="label label-yellow">' + data.created_at + '</span>&nbsp;&nbsp;<span class="label label-green">last pushed</span>&nbsp;<span class="label label-yellow">' + data.pushed_at + '</span></p><p><span class="label label-red">issue</span>&nbsp;' + data.num_issues + '&nbsp;&nbsp;<span class="label label-blue">download</span>&nbsp;' + data.num_downloads + '&nbsp;&nbsp;<span class="label label-blue">pull</span>&nbsp;' + data.num_pulls + '&nbsp;&nbsp;<span class="label label-purple">branch</span>&nbsp;' + data.num_branches + '&nbsp;&nbsp;<span class="label label-purple">fork</span>&nbsp;' + data.num_forks + '&nbsp;&nbsp;<span class="label label-purple">watcher</span>&nbsp;' + data.num_watchers);
 
     for (var j = 0; j < data.data.length; j++) {

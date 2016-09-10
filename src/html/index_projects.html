@@ -37,7 +37,7 @@
               <div class="portfolio_single_content">
                 <div class="sprite"><div class="thumb_{{p}}"></div></div>
                 <div class="subtitle">
-                  <a href="{% if dat_dict.projects[p].url %}{{dat_dict.projects[p].url}}{% else %}/project/{{p}}{% endif %}" target="_blank">{{dat_dict.projects[p].title}} <i class="fa fa-fw fa-md fa-external-link"></i></a>
+                  <a href="{% if dat_dict.projects[p].url %}{{dat_dict.projects[p].url}}{% else %}/project/{{p}}{% endif %}" target="_blank" rel="noopener">{{dat_dict.projects[p].title}} <i class="fa fa-fw fa-md fa-external-link"></i></a>
                   <span>{{dat_dict.projects[p].description}}</span>
                 </div>
               </div>
