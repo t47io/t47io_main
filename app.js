@@ -186,18 +186,22 @@ app.route('/send')
         message  = sanitizer.escape(req.body.message);
 
     if (name.length && email.length && subject.length && message.length) {
-        smtp.sendMail({
-            'to'      : contact,
-            'subject' : subject,
-            'text'    : name + ' <' + email + '>\n' + moment().format() + '\n\n' + message
-        }, function (err, info) {
-            if (err) {
-                console.log(err);
-                res.status(500).send();
-            }
-            console.log('Message sent.');
-            res.status(201).send();
-        });
+        if (subject.indexOf('http://') !== -1) {
+            res.status(403).send();
+        } else {
+            smtp.sendMail({
+                'to'      : contact,
+                'subject' : subject,
+                'text'    : name + ' <' + email + '>\n' + moment().format() + '\n\n' + message
+            }, function (err, info) {
+                if (err) {
+                    console.log(err);
+                    res.status(500).send();
+                }
+                console.log('Message sent.');
+                res.status(201).send();
+            });
+        }
     } else {
         res.status(400).send();
     }
