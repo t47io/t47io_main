@@ -186,7 +186,7 @@ app.route('/send')
         message  = sanitizer.escape(req.body.message);
 
     if (name.length && email.length && subject.length && message.length) {
-        if (subject.indexOf('http://') !== -1) {
+        if (subject.indexOf('http://') !== -1 || subject.indexOf('https://') !== -1) {
             res.status(403).send();
         } else {
             smtp.sendMail({
