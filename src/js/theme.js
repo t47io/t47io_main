@@ -175,6 +175,7 @@ $(window).on('load', function() {
                 'title': $(this).attr('data-count') + ' contribution(s) on ' + $(this).attr('data-date')
             });
         });
+        $("#git_body > svg").css("overflow", "visible");
         $('[data-toggle="tooltip"]').tooltip({
             'placement': $(this).attr('data-placement'),
             'container': 'body'

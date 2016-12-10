@@ -13,7 +13,7 @@
   {% for year, pub in pub_list %}
     <div class="row">
       <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 pub-year">
-        {{-year}}
+        {{year|int|abs}}
       </div>
       <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pub-body">
         {% for p in pub %}
