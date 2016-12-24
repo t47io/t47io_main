@@ -11,30 +11,11 @@ function img_preload(img_array) {
     }
 }
 
-var utilTweenList = Object.getPrototypeOf(KUTE.allTo("body", {}, {}));
-
-function flattenTweens(tweenList) {
-    tweenList = tweenList.map(function(tween) { return tween.tweens || tween; })
-    return [].concat.apply([], tweenList);
-}
-
-function chainTweens(tweenList) {
-    if (tweenList.length === 1) {
-        return tweenList[0];
-    } else {
-        var obj = {tweens: tweenList};
-        Object.setPrototypeOf(obj, utilTweenList);
-        return obj;
-    }
-}
-
 function addScene(trigger, offset, tweenList, controller) {
-    offset = offset < 1 ? offset * $(trigger).height() : offset
-    tweenList = flattenTweens(tweenList);
-    var tweenReverse = tweenList.filter(function(tween) { return tween.options.hasOwnProperty('reverse'); });
-    tweenReverse = tweenReverse.map(function(tween) { return tween.reverse(); });
-    tweenList = chainTweens(tweenList);
-    tweenReverse = chainTweens(tweenReverse);
+    offset = offset < 1 ? offset * $(trigger).height() : offset;
+    var tweenReverse = KUTE.util.chainTweens(KUTE.util.reverseTweens(tweenList));
+    tweenList = KUTE.util.chainTweens(tweenList);
+
     new ScrollMagic.Scene({
         triggerElement: trigger,
         offset: offset
@@ -76,7 +57,7 @@ $(window).on('load', function() {
     addScene("#trg_stanford", 125, [tweens.about.affliation.header], controller);
     addScene("#sec_portfolio", 125, [tweens.portfolio.project.header, tweens.portfolio.project.showThumbnail], controller);
     addScene("#trg_skill", 125, [tweens.portfolio.skill.header, tweens.portfolio.skill.showProgressLeft, tweens.portfolio.skill.showProgressRight], controller);
-    // addScene("#h_skill", 256, [tweens.portfolio.skill.showProgressLeft, tweens.portfolio.skill.showProgressRight], [], controller);
+    addScene("#h_skill", 256, [tweens.portfolio.skill.showProgressLeft, tweens.portfolio.skill.showProgressRight], [], controller);
 
 
 

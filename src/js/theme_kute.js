@@ -1,4 +1,4 @@
-var duration_1s = {duration: 1000}, reversable = {reverse: true};
+var duration_1s = {duration: 1000}, reversable = {reversable: true};
 
 function headerTween(target) {
     return KUTE.fromTo(target,
