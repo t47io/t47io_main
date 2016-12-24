@@ -1,7 +1,7 @@
-<div class="extra-space-xxl" id="pub-trigger"></div>
+<div class="extra-space-xxl" id="trg_pub"></div>
 <div class="page-header-wrapper">
   <div class="container">
-    <div class="page-header text-center" id="pub-header">
+    <div class="page-header text-center" id="h_pub">
       <h2>my research</h2>
       <div class="divider"></div>
       <p class="subtitle">what I published</p>
@@ -18,7 +18,7 @@
       <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pub-body">
         {% for p in pub %}
           {% if not p.is_hidden %}
-          <div class="row">
+          <div class="row pub_row">
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pub-img">
               <div class="pub_single_content">
                 {% if p.is_preprint %}

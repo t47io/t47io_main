@@ -90,8 +90,10 @@
 			</section>
         
         
-      <section id="sec_about" class="page text-center">
+      <section id="ABOUT__section" class="page text-center">
         {% include "index_about.html" %}
+      </section>
+      <section id="AFFILIATION__section" class="page text-center">
         {% include "index_affiliation.html" %}
       </section>
 
@@ -104,7 +106,7 @@
       </section>
       
         
-			<section id="contact-section" class="text-white">
+			<section id="sec_contact" class="text-white">
         {% include "index_contact.html" %}
       </section>
 
@@ -125,11 +127,20 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/mobile.css" />
     <link rel="stylesheet" type="text/css" href="/css/sprites_index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme_about.css" />
     {% else %}
     <link rel="stylesheet" type="text/css" href="/css/_lib.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/_indx.min.css" />
     {% endif %}
 
+    <script type="text/javascript">
+      var count_to = {
+        "code":        {{dat_dict.counters.code}},
+        "project":     {{dat_dict.counters.project}},
+        "publication": {{dat_dict.counters.publication}},
+        "scholarship": {{dat_dict.counters.scholarship}}
+      };
+    </script>
     {% if DEBUG %}
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -157,13 +168,5 @@
     <script type="text/javascript" src="/js/_anim.min.js"></script>
     <script type="text/javascript" src="/js/_indx.min.js"></script>
     {% endif %}
-    <script type="text/javascript">
-      var count_to = {
-        "code":        {{dat_dict.counters.code}},
-        "project":     {{dat_dict.counters.project}},
-        "publication": {{dat_dict.counters.publication}},
-        "scholarship": {{dat_dict.counters.scholarship}}
-      };
-    </script>
   </body> 
 </html>
