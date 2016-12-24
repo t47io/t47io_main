@@ -43,75 +43,22 @@ $(window).on('load', function() {
         globalSceneOptions: {triggerHook: 'onEnter'},
         addIndicators: true
     });
-    $("section").each(function() {
-        // new ScrollMagic.Scene({'triggerElement': $(this)})
-        // .addTo(controller);
-    });
 
-
-    // TweenLite.defaultOverwrite = false;
     tweens.home.name.start();
 
-    addScene("#sec_about", 125, [tweens.home.fade, tweens.home.arrow], controller);
-    addScene("#trg_about", 125, [tweens.about.intro.header, tweens.about.intro.spinIcon], controller);
-    addScene("#trg_stanford", 125, [tweens.about.affliation.header], controller);
+    addScene("#ABOUT__section", 125, [tweens.home.fade, tweens.home.arrow], controller);
+    addScene(".ABOUT__trigger", 125, [tweens.about.header, tweens.about.spinIcon], controller);
+    addScene("#trg_stanford", 125, [tweens.affliation.header], controller);
     addScene("#sec_portfolio", 125, [tweens.portfolio.project.header, tweens.portfolio.project.showThumbnail], controller);
     addScene("#trg_skill", 125, [tweens.portfolio.skill.header, tweens.portfolio.skill.showProgressLeft, tweens.portfolio.skill.showProgressRight], controller);
-    addScene("#h_skill", 256, [tweens.portfolio.skill.showProgressLeft, tweens.portfolio.skill.showProgressRight], [], controller);
+    addScene("#trg_stat", 125, [tweens.portfolio.stats.header, tweens.portfolio.stats.filpCounter, tweens.portfolio.stats.countUp.project, tweens.portfolio.stats.countUp.code, tweens.portfolio.stats.countUp.publication, tweens.portfolio.stats.countUp.scholarship], controller);
+    addScene("#trg_pub", 125, [tweens.portfolio.publication.header, tweens.portfolio.publication.flipEntry, tweens.portfolio.publication.flipYear, ], controller);
+    addScene("#trg_contact", 125, [tweens.contact.header, tweens.contact.flipIcon, tweens.contact.showTitleLeft], controller);
 
 
 
-    // new ScrollMagic.Scene({'triggerElement': '#stat-trigger', 'duration': '100%', 'offset': '100%'})
-    // .setTween(TweenLite.from("#stat-header", 1, {'y': '-100%', 'opacity': 0}))
-    // .addTo(controller);
-    // new ScrollMagic.Scene({'triggerElement': '#counter-trigger', 'offset': '100%'})
-    // .setTween(tl.staggerFrom(".fact-inner", 1, {'rotationY': 360, 'scale': 0}, 0.2))
-    // .addTo(controller);
-    // new ScrollMagic.Scene({'triggerElement': '#counter-trigger', 'offset': '300%'})
-    // .on('start', function() {
-    //     $("div.fact-inner > p.lead").removeClass('counter-finish');
-    //     setTimeout(function() {
-    //         $("#count_num_1").countTo({
-    //             'from': 0, 'to': count_to.project, 'speed': 1500,
-    //             'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
-    //         });
-    //     }, 0);
-    //     setTimeout(function() {
-    //         $("#count_num_2").countTo({
-    //             'from': 0, 'to': count_to.code, 'speed': 1500,
-    //             'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
-    //         });
-    //     }, 200);
-    //     setTimeout(function() {
-    //         $("#count_num_3").countTo({
-    //             'from': 0, 'to': count_to.publication, 'speed': 1500,
-    //             'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
-    //         });
-    //     }, 400);
-    //     setTimeout(function() {
-    //         $("#count_num_4").countTo({
-    //             'from': 0, 'to': count_to.scholarship, 'speed': 1500,
-    //             'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
-    //         });
-    //     }, 600);
-    // })
-    // .addTo(controller);
 
-    // new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'duration': '100%'})
-    // .setTween(TweenLite.from("#pub-header", 1, {'y': '-100%', 'opacity': 0}))
-    // .addTo(controller);
-    // new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
-    // .setTween(tl.staggerFrom("div.pub-body > div.row", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
-    // .addTo(controller);
-    // new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
-    // .setTween(tl.staggerFrom("div.pub-year", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
-    // .addTo(controller);
-    // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'duration': '100%'})
-    // .setTween(TweenLite.from("#contact-header", 1, {'y': '-100%', 'opacity': 0}))
-    // .addTo(controller);
-    // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': '200%'})
-    // .setTween(tl.staggerFrom(".rotate-box-1.square-icon > .rotate-box-icon", 1, {'rotationX': 360, 'opacity': 0.25}, 0.1))
-    // .addTo(controller);
+
     // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
     // .setTween(tl.staggerFrom(".contact-info > h4, .contact-address > li", 1, {'x': '-100%', 'y': '100%', 'opacity': 0.25}, 0.1))
     // .addTo(controller);
