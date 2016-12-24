@@ -11,6 +11,38 @@ function img_preload(img_array) {
     }
 }
 
+var utilTweenList = Object.getPrototypeOf(KUTE.allTo("body", {}, {}));
+
+function flattenTweens(tweenList) {
+    tweenList = tweenList.map(function(tween) { return tween.tweens || tween; })
+    return [].concat.apply([], tweenList);
+}
+
+function chainTweens(tweenList) {
+    if (tweenList.length === 1) {
+        return tweenList[0];
+    } else {
+        var obj = {tweens: tweenList};
+        Object.setPrototypeOf(obj, utilTweenList);
+        return obj;
+    }
+}
+
+function addScene(trigger, offset, tweenList, controller) {
+    offset = offset < 1 ? offset * $(trigger).height() : offset
+    tweenList = flattenTweens(tweenList);
+    var tweenReverse = tweenList.filter(function(tween) { return tween.options.hasOwnProperty('reverse'); });
+    tweenReverse = tweenReverse.map(function(tween) { return tween.reverse(); });
+    tweenList = chainTweens(tweenList);
+    tweenReverse = chainTweens(tweenReverse);
+    new ScrollMagic.Scene({
+        triggerElement: trigger,
+        offset: offset
+    }).on('enter', function() { tweenList.start(); })
+    .on('leave', function() { tweenReverse.start(); })
+    .addTo(controller);
+}
+
 
 var cap_timer = 0, cap_class = ['text-white', 'text-light-green', 'text-green', 'text-dark-green', 'text-green', 'text-light-green'];
 var arrow_timer = 0, arrow_class = ['text-white', 'text-light-green'];
@@ -27,163 +59,105 @@ $(window).on('load', function() {
     $(".page-loader").fadeOut('slow');
 
     var controller = new $.ScrollMagic.Controller({
-        'globalSceneOptions': {'triggerHook': 'onEnter', }
+        globalSceneOptions: {triggerHook: 'onEnter'},
+        addIndicators: true
     });
     $("section").each(function() {
-        new ScrollMagic.Scene({'triggerElement': $(this)})
-        .addTo(controller);
+        // new ScrollMagic.Scene({'triggerElement': $(this)})
+        // .addTo(controller);
     });
 
 
-    TweenMax.defaultOverwrite = false;
-    new TweenMax.from("#caption > img", 1, {
-        'scale': $(window).width() / 500, 'opacity': 0, 'delay': 1.5,
-        'onComplete': function () {
-            setInterval(function() {
-                $(".scrollDown > i.fa").removeClass(arrow_class[arrow_timer]);
-                arrow_timer += 1;
-                if (arrow_timer == 2) { arrow_timer = 0; }
-                $(".scrollDown > i.fa").addClass(arrow_class[arrow_timer]);
-            }, 2000);
+    // TweenLite.defaultOverwrite = false;
+    tweens.home.name.start();
 
-            setTimeout(function() {
-                $("#subtitle_1").typewrite({
-                    'delay': 80, 'extra_char': '<b class="blink_cursor">|</b>', 'trim': true,
-                    'callback': function () {
-                        setTimeout(function() {
-                            $("b.blink_cursor").remove();
-                            $("#subtitle_2").typewrite({
-                                'delay': 80, 'extra_char': '<b class="blink_cursor">|</b>', 'trim': true,
-                                'callback': function () {
-                                    setTimeout(function() {
-                                        $("b.blink_cursor").remove();
-                                        $("#home-section > div.cover").css('background-color', 'rgba(0, 7, 11, 0.25)');
-                                    }, 500);
-                                    setInterval(function () {
-                                        $("#caption > p").removeClass(cap_class[cap_timer]);
-                                        cap_timer += 1;
-                                        if (cap_timer == 6) { cap_timer = 0; }
-                                        $("#caption > p").addClass(cap_class[cap_timer]);
-                                    }, 2000);
-                                }
-                            });
-                        }, 500);
-                    }
-                });
-            }, 500);
-        
-        }
-    });
+    addScene("#sec_about", 125, [tweens.home.fade, tweens.home.arrow], controller);
+    addScene("#trg_about", 125, [tweens.about.intro.header, tweens.about.intro.spinIcon], controller);
+    addScene("#trg_stanford", 125, [tweens.about.affliation.header], controller);
+    addScene("#sec_portfolio", 125, [tweens.portfolio.project.header, tweens.portfolio.project.showThumbnail], controller);
+    addScene("#trg_skill", 125, [tweens.portfolio.skill.header, tweens.portfolio.skill.showProgressLeft, tweens.portfolio.skill.showProgressRight], controller);
+    // addScene("#h_skill", 256, [tweens.portfolio.skill.showProgressLeft, tweens.portfolio.skill.showProgressRight], [], controller);
 
-    new ScrollMagic.Scene({'triggerElement': '#about-section', 'offset': $(window).height() / 2, 'duration': $(window).height() / 2 - $("#main-navbar").height()})
-    .setTween(TweenMax.fromTo("#caption", 1, {'opacity': 1}, {'y': '125%', 'opacity': 0.5}))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#about-section', 'offset': '100%'})
-    .setTween(TweenMax.to(".scrollDown", 1, {'opacity': 0}))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#about-section', 'duration': '100%'})
-    .setTween(TweenMax.from("#about-header", 1, {'y': '-100%', 'opacity': 0}))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#about-section', 'offset': '300%'})
-    .setTween(TweenMax.staggerFrom(".rotate-box-2.square-icon > .rotate-box-icon", 1, {'rotation': 360*2, 'opacity': 0.25, 'ease':Bounce.easeOut}, 0.1))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#stanford-trigger', 'duration': '100%'})
-    .setTween(TweenMax.from("#stanford-header", 1, {'y': '-100%', 'opacity': 0}))
-    .addTo(controller);
 
-    new ScrollMagic.Scene({'triggerElement': '#portfolio-section', 'duration': '100%'})
-    .setTween(TweenMax.from("#work-header", 1, {'y': '-100%', 'opacity': 0}))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#work-header', 'triggerHook': 'onLeave'})
-    .setTween(TweenMax.staggerFrom(".portfolio_single_content", 1.5, {'y': '100%', 'opacity': 0, 'scale': 2, 'ease': Elastic.easeInOut}, 0.2))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#skill-trigger', 'duration': '100%'})
-    .setTween(TweenMax.from("#skill-header", 1, {'y': '-100%', 'opacity': 0}))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#skill-trigger', 'offset': '100%'})
-    .setTween(TweenMax.staggerFrom(".skill-bar.left > .progress", 1, {'x': '-150%', 'opacity': 0.25, 'scale': 2, 'ease': Back.easeIn}, 0.1))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#skill-trigger', 'offset': '100%'})
-    .setTween(TweenMax.staggerFrom(".skill-bar.right > .progress", 1, {'x': '150%', 'opacity': 0.25, 'scale': 2, 'ease': Back.easeIn}, 0.1))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#stat-trigger', 'duration': '100%', 'offset': '100%'})
-    .setTween(TweenMax.from("#stat-header", 1, {'y': '-100%', 'opacity': 0}))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#counter-trigger', 'offset': '100%'})
-    .setTween(TweenMax.staggerFrom(".fact-inner", 1, {'rotationY': 360, 'scale': 0}, 0.2))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#counter-trigger', 'offset': '300%'})
-    .on('start', function() {
-        $("div.fact-inner > p.lead").removeClass('counter-finish');
-        setTimeout(function() {
-            $("#count_num_1").countTo({
-                'from': 0, 'to': count_to.project, 'speed': 1500,
-                'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
-            });
-        }, 0);
-        setTimeout(function() {
-            $("#count_num_2").countTo({
-                'from': 0, 'to': count_to.code, 'speed': 1500,
-                'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
-            });
-        }, 200);
-        setTimeout(function() {
-            $("#count_num_3").countTo({
-                'from': 0, 'to': count_to.publication, 'speed': 1500,
-                'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
-            });
-        }, 400);
-        setTimeout(function() {
-            $("#count_num_4").countTo({
-                'from': 0, 'to': count_to.scholarship, 'speed': 1500,
-                'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
-            });
-        }, 600);
-    })
-    .addTo(controller);
 
-    new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'duration': '100%'})
-    .setTween(TweenMax.from("#pub-header", 1, {'y': '-100%', 'opacity': 0}))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
-    .setTween(TweenMax.staggerFrom("div.pub-body > div.row", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
-    .setTween(TweenMax.staggerFrom("div.pub-year", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'duration': '100%'})
-    .setTween(TweenMax.from("#contact-header", 1, {'y': '-100%', 'opacity': 0}))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': '200%'})
-    .setTween(TweenMax.staggerFrom(".rotate-box-1.square-icon > .rotate-box-icon", 1, {'rotationX': 360, 'opacity': 0.25}, 0.1))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
-    .setTween(TweenMax.staggerFrom(".contact-info > h4, .contact-address > li", 1, {'x': '-100%', 'y': '100%', 'opacity': 0.25}, 0.1))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
-    .setTween(TweenMax.staggerFrom(".contact-form > h4, .contact-form > form > .form-group", 1, {'x': '100%', 'y': '100%', 'opacity': 0.25}, 0.1))
-    .addTo(controller);
-    new ScrollMagic.Scene({'triggerElement': 'footer'})
-    .setTween(TweenMax.from("#footer-header", 2, {'y': '-100%', 'opacity': 0}))
-    .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#stat-trigger', 'duration': '100%', 'offset': '100%'})
+    // .setTween(TweenLite.from("#stat-header", 1, {'y': '-100%', 'opacity': 0}))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#counter-trigger', 'offset': '100%'})
+    // .setTween(tl.staggerFrom(".fact-inner", 1, {'rotationY': 360, 'scale': 0}, 0.2))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#counter-trigger', 'offset': '300%'})
+    // .on('start', function() {
+    //     $("div.fact-inner > p.lead").removeClass('counter-finish');
+    //     setTimeout(function() {
+    //         $("#count_num_1").countTo({
+    //             'from': 0, 'to': count_to.project, 'speed': 1500,
+    //             'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
+    //         });
+    //     }, 0);
+    //     setTimeout(function() {
+    //         $("#count_num_2").countTo({
+    //             'from': 0, 'to': count_to.code, 'speed': 1500,
+    //             'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
+    //         });
+    //     }, 200);
+    //     setTimeout(function() {
+    //         $("#count_num_3").countTo({
+    //             'from': 0, 'to': count_to.publication, 'speed': 1500,
+    //             'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
+    //         });
+    //     }, 400);
+    //     setTimeout(function() {
+    //         $("#count_num_4").countTo({
+    //             'from': 0, 'to': count_to.scholarship, 'speed': 1500,
+    //             'onComplete': function() { $(this).next().next().addClass('counter-finish'); }
+    //         });
+    //     }, 600);
+    // })
+    // .addTo(controller);
 
-    $("#git_body").load('/git/contrib/', function() {
-        $("#git_body > svg > g > g:not(#legend) > rect.day").each(function() {
-            $(this).attr({
-                'data-toggle': 'tooltip',
-                'data-placement': 'top',
-                'title': $(this).attr('data-count') + ' contribution(s) on ' + $(this).attr('data-date')
-            });
-        });
-        $("#git_body > svg").css("overflow", "visible");
-        $('[data-toggle="tooltip"]').tooltip({
-            'placement': $(this).attr('data-placement'),
-            'container': 'body'
-        });
-    });
-    new ScrollMagic.Scene({'triggerElement': '#git-trigger', 'offset': '100%'})
-    .setTween(TweenMax.staggerFrom("#git-trigger", 1, {'rotationY': 180, 'opacity': 0.25, 'ease': Back.easeIn}, 0.1))
-    .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'duration': '100%'})
+    // .setTween(TweenLite.from("#pub-header", 1, {'y': '-100%', 'opacity': 0}))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
+    // .setTween(tl.staggerFrom("div.pub-body > div.row", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#pub-trigger', 'offset': '300%'})
+    // .setTween(tl.staggerFrom("div.pub-year", 1, {'rotationX': 180, 'opacity': 0.25}, 0.2))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'duration': '100%'})
+    // .setTween(TweenLite.from("#contact-header", 1, {'y': '-100%', 'opacity': 0}))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': '200%'})
+    // .setTween(tl.staggerFrom(".rotate-box-1.square-icon > .rotate-box-icon", 1, {'rotationX': 360, 'opacity': 0.25}, 0.1))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
+    // .setTween(tl.staggerFrom(".contact-info > h4, .contact-address > li", 1, {'x': '-100%', 'y': '100%', 'opacity': 0.25}, 0.1))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
+    // .setTween(tl.staggerFrom(".contact-form > h4, .contact-form > form > .form-group", 1, {'x': '100%', 'y': '100%', 'opacity': 0.25}, 0.1))
+    // .addTo(controller);
+    // new ScrollMagic.Scene({'triggerElement': 'footer'})
+    // .setTween(TweenLite.from("#footer-header", 2, {'y': '-100%', 'opacity': 0}))
+    // .addTo(controller);
+
+    // $("#git_body").load('/git/contrib/', function() {
+    //     $("#git_body > svg > g > g:not(#legend) > rect.day").each(function() {
+    //         $(this).attr({
+    //             'data-toggle': 'tooltip',
+    //             'data-placement': 'top',
+    //             'title': $(this).attr('data-count') + ' contribution(s) on ' + $(this).attr('data-date')
+    //         });
+    //     });
+    //     $("#git_body > svg").css("overflow", "visible");
+    //     $('[data-toggle="tooltip"]').tooltip({
+    //         'placement': $(this).attr('data-placement'),
+    //         'container': 'body'
+    //     });
+    // });
+    // new ScrollMagic.Scene({'triggerElement': '#git-trigger', 'offset': '100%'})
+    // .setTween(tl.staggerFrom("#git-trigger", 1, {'rotationY': 180, 'opacity': 0.25, 'ease': Back.easeIn}, 0.1))
+    // .addTo(controller);
 
 
     $("#subtitle_0").css("width", $("#subtitle_1").css("width"));
