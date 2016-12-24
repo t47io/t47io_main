@@ -1,7 +1,7 @@
-<div class="extra-space-xxl" id="skill-trigger"></div>
+<div class="extra-space-xxl" id="trg_skill"></div>
 <div class="page-header-wrapper">
   <div class="container">
-    <div class="page-header text-center" id="skill-header">
+    <div class="page-header text-center" id="h_skill">
       <h2>my skills</h2>
       <div class="divider"></div>
       <p class="subtitle">what I learned</p>
@@ -18,7 +18,7 @@
           <h6><i class="fa fa-fw fa-lg {{s.icon}}"></i> {{s.title}}</h6>
         </div>
           {% for i in s.items %}
-          <div class="progress">
+          <div class="progress left">
             <div class="progress-bar" role="progressbar" aria-valuenow="{{i[1]}}" aria-valuemin="0" aria-valuemax="100" style="width: {{i[1]}}%;">{{i[0]}}</div>
           </div>
           {% endfor %}
@@ -33,7 +33,7 @@
           <h6><i class="fa fa-fw fa-lg {{s.icon}}"></i> {{s.title}}</h6>
         </div>
           {% for i in s.items %}
-          <div class="progress">
+          <div class="progress right">
             <div class="progress-bar" role="progressbar" aria-valuenow="{{i[1]}}" aria-valuemin="0" aria-valuemax="100" style="width: {{i[1]}}%;">{{i[0]}}</div>
           </div>
           {% endfor %}
