@@ -1,0 +1,23 @@
+@import 'share';
+
+
+.PUBS__row { margin: 0px 0px 20px 0px; }
+.PUBS__year {
+  color: $clr-k;
+  font-size: 2em;
+  padding: 8px;
+  vertical-align: text-top;
+}
+.PUBS__content { border-left: 5px solid $clr-g; }
+.PUBS__entry { margin: 12px 0px; }
+.PUBS__text { line-height: 20px; }
+
+.PUBS__image {
+  a div {
+    text-align: center;
+    opacity: 0.8;
+    @include transition(0.5s);
+  }
+
+  &:hover a div { opacity: 1; }
+}

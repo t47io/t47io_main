@@ -1,0 +1,122 @@
+@import 'share';
+
+.AFFILIATION__story {
+  position: relative;
+  padding: 50px 100px 50px 200px;
+}
+.AFFILIATION__timeline {
+  position: absolute; 
+  width: 1px; 
+  height: 100%; 
+  left: 200px; 
+  top: 0px;
+  border-right: 2px solid #d9d9d9; 
+  z-index: 5; 
+
+  &::before, &::after {
+    content: "";
+    left: -5px;
+    width: 12px;
+    height: 12px;
+    background: #d9d9d9;
+    position: absolute;
+    @include border_radius(6px);
+  }
+  &::before { top: 0px; }
+  &::after { bottom: 0px; }
+}
+
+.AFFILIATION__entry {
+  width: 100%;
+  margin-top: -50px;
+  margin-bottom: -50px;
+  position: relative;
+  z-index: 10;
+  float: left;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  &:last-child { margin: 0; }
+}
+
+.AFFILIATION__content {
+  width: 100%;
+  padding-left: 50px;
+  float: left; 
+  position: relative;
+
+  .AFFILIATION__panel {
+    background: #e6e6e6;
+    padding: 15px 20px 20px;
+    border-left: 5px solid $clr-gl;
+    text-align: left;
+    opacity: 0;
+    @include transform(matrix(1, 0, 0, 1, -200, 0));
+    @include transition(0.25s);
+  }
+  &.active {
+    .AFFILIATION__panel {
+      opacity: 1;
+      @include transform(matrix(1, 0, 0, 1, 0, 0));
+    }
+    .AFFILIATION__year {
+      color: $clr-gl;
+
+      &::after { background-color: $clr-gl; }
+    }
+  }
+}
+
+.AFFILIATION__title {
+  color: #191919;
+  font-size: 1.6em;
+  /*text-transform: uppercase;*/
+  font-weight: bold;
+  font-variant: small-caps;
+  text-align: center;
+  padding-left: 4px;
+
+  a { color: $clr-g; }
+  span {
+    font-variant: normal;
+    font-size: 0.6em;
+    color: $clr-k;
+  }
+}
+.AFFILIATION__year {
+  font-size: 2em;
+  font-weight: 900;
+  color: $clr-w;
+  text-align: right;
+  position: absolute;
+  width: 200px;
+  top: 37%;
+  left: -225px; 
+
+  &::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    left: 220px;
+    top: 15%;
+    background: $clr-g;
+    position: absolute;
+    z-index: 6;
+    @include border_radius(6px);
+  }
+}
+.AFFILIATION__text {
+  border-left: 2px dashed $clr-kl;
+  padding: 15px;
+  /*margin: 10px -15px -15px;*/
+  color: #000;
+  line-height: 150%;
+}
+
+@media only screen and (max-width : 767px) {
+  .AFFILIATION__story { padding: 50px 50px 50px 100px; }
+  .AFFILIATION__timeline { left: 100px; }
+}

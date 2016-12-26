@@ -1,0 +1,38 @@
+@import 'share';
+
+.STATS__area {
+  position: relative;
+  background-color: #171717;
+  padding: 80px 0 50px 0;
+
+  .STATS__item:last-of-type { border-right: none; }
+  .STATS__counter {
+    padding-bottom: 30px;
+
+    &:hover i.fa { color: $clr-gl; }
+    .STATS__num { font-size: 54px; }
+  }
+}
+
+text.month,
+text.wday {
+  fill: $clr-k;
+  font-size: 10px;
+}
+text.legend {
+  fill: $clr-k;
+  font-size: 11px;
+}
+rect.day {
+  shape-rendering: crispedges;
+  height: 11px;
+  width: 11px;
+
+  &:hover { stroke: #333; }
+  &.day_0 { fill: #eee; }
+  &.day_1 { fill: #d6e685; }
+  &.day_2 { fill: #8cc665; }
+  &.day_3 { fill: #44a340; }
+  &.day_4 { fill: #1e6823; }
+}
+

@@ -1,0 +1,137 @@
+@import 'share';
+
+h4 {
+  font-weight: 900;
+  margin-bottom: 25px;
+}
+
+.CONTACT__box {
+  display: inline-block;
+  margin: 30px 0;
+  text-decoration: none;
+  color: #363940;
+
+  .CONTACT__icon {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    float: left;
+
+    font-size: 18px;
+    line-height: 45px;
+    text-align: center;
+
+    color: $clr-w;
+    background-color: $clr-g;
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    // @include transform(rotate(45deg));
+    @include transition(0.2s);
+
+    .fa {
+      @include transform(rotate(-45deg));
+      @include transition(0.2s);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      bottom: 3px;
+      left: 3px;
+      border: 2px solid $clr-w;
+    }
+  }
+
+  &:hover {
+    .CONTACT__icon {
+      background-color: $clr-gl;
+
+      @include transform(rotate(0deg));
+      @include transition(0.2s);
+
+      .fa {
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -o-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        @include transform(scale(2, 1.41) rotate(90deg) rotateX(225deg));
+        @include transition(0.2s);
+      }
+    }
+  }
+}
+
+
+ul.CONTACT__social {
+  text-align: center;
+  margin: 0 auto;
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+
+    .CONTACT__box { margin: 0; }
+    a i {
+      color: $clr-w;
+      font-size:20px;
+    }
+  }
+}
+
+ul.CONTACT__address {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin: 15px 0;
+
+  li {
+    padding: 0 0 20px;
+    margin: 0;
+
+    i { margin-right: 10px; }
+
+    &:last-child { padding-bottom: 0; }
+    &:hover {
+      i.fa { color: $clr-gl; }
+    }
+    &:last-of-type {
+      a {
+        @include transition(0.2s);
+      }
+
+      &:hover {
+        span.CONTACT__resume { display: inline; }
+        i.fa { color: #363940; }
+      }
+    }
+  }
+
+  span.CONTACT__resume { display: none; }
+}
+
+.CONTACT__form {
+  margin-bottom: 40px;
+
+  button {
+    height: 40px;
+
+    &:hover { color: $clr-w; }
+  }
+  .input-lg { font-size: 14px; }
+}
+.form-control {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: $clr-w;
+  border-color: #2A2A2A;
+
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-color: $clr-gl;
+    @include box_shadow(none);
+  }
+}
+

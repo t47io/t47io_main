@@ -1,0 +1,26 @@
+@import 'share';
+
+.SKILLS__progress {
+  overflow: visible;
+  height: 25px;
+  margin-bottom: 20px;
+  border: 3px solid $clr-g;
+  background-color: transparent;
+  @include box_shadow(none);
+}
+.SKILLS__bar {
+  background-color: $clr-gl;
+  color: #000;
+  font-size: 14px;
+  line-height: 9px;
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+  @include box_shadow(none);
+
+  &:hover {
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-size: 40px 40px;
+  }
+}
+.SKILLS__title h6 { font-weight: 900; }
