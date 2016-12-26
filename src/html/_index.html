@@ -71,43 +71,41 @@
       </header>
       
       
-			<section id="home-section" class="parallax" style="background-image:url('/img/t47/t47_avatar.jpg')">
-        <div class="cover"></div>
+			<section id="HOME__section" class="parallax" style="background-image:url('/img/t47/t47_avatar.jpg')">
+        <div class="cover HOME__shade"></div>
 				<div class="container">
-					<div class="caption text-white">
-						<div class="item" id="caption">
-							<img src='/img/t47/t47_name_2_line.gif' alt="Siqi Tian" width="480" id="img_name" style="opacity:0;" />
-              <p class="text-white" id="subtitle_0" style="margin-top: -10px;">&nbsp;</p>
-              <p class="text-white" id="subtitle_1">Full-Stack Web Developer</p>
-							<p class="text-white" id="subtitle_2">RNA Biochemist &amp; Automator</p>
-						</div>
+					<div class="HOME__content text-white">
+						<img src='/img/t47/t47_name_2_line.gif' alt="Siqi Tian" width="480" id="img_name" style="opacity:0;" />
+            <p class="text-white" id="subtitle_0" style="margin-top: -10px;">&nbsp;</p>
+            <p class="text-white" id="subtitle_1" style="height: 25px;"></p>
+						<p class="text-white" id="subtitle_2" style="height: 25px;"></p>
 					</div>
-          <div class="scrollDown">
+          <div class="HOME__scroll_down">
             <i class="fa fa-3x fa-fw fa-arrow-circle-down"></i>
           </div>
 
 				</div>
 			</section>
         
-      <section id="ABOUT__section" class="page text-center">
+      <section id="ABOUT__section" class="text-center">
         {% include "index_about.html" %}
       </section>
-      <section id="AFFILIATION__section" class="page text-center">
+      <section id="AFFILIATION__section" class="text-center">
         {% include "index_affiliation.html" %}
       </section>
-      <section id="PORTFOLIO__section" class="page bg-style1">
+      <section id="PORTFOLIO__section">
         {% include "index_portfolio.html" %}
       </section>
-      <section id="SKILLS__section" class="page bg-style1">
+      <section id="SKILLS__section">
         {% include "index_skills.html" %}
       </section>
-      <section id="STATS__section" class="page bg-style1">
+      <section id="STATS__section">
         {% include "index_stats.html" %}
       </section>
-      <section id="PUBS__section" class="page bg-style1">
+      <section id="PUBS__section">
         {% include "index_pubs.html" %}
       </section>
-			<section id="CONTACT__section" class="text-white">
+			<section id="CONTACT__section">
         {% include "index_contact.html" %}
       </section>
 
@@ -115,7 +113,7 @@
         {% include "_footer.html" %}
       </footer>
 
-      <a href="#home-section" class="scrollTop"><i class="fa fa-arrow-up fa-fw fa-lg"></i></a>
+      <a href="#HOME__section" class="scrollTop"><i class="fa fa-arrow-up fa-fw fa-lg"></i></a>
     </div>
 
 
@@ -127,6 +125,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/mobile.css" />
     <link rel="stylesheet" type="text/css" href="/css/sprites_index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme_home.css" />
     <link rel="stylesheet" type="text/css" href="/css/theme_about.css" />
     <link rel="stylesheet" type="text/css" href="/css/theme_affiliation.css" />
     <link rel="stylesheet" type="text/css" href="/css/theme_portfolio.css" />
@@ -148,14 +147,16 @@
       };
     </script>
     {% if DEBUG %}
+<!--
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  -->
     <script type="text/javascript" src="/bower_components/isotope/dist/isotope.pkgd.min.js"></script>
 
     <script type="text/javascript" src="/js/zepto.min.js"></script>
+    <script>var $=jQuery=Zepto;</script>
     <script type="text/javascript" src="/js/KUTE/kute.min.js"></script>
     <script type="text/javascript" src="/js/KUTE/kute-css.min.js"></script>
-    <script type="text/javascript" src="/js/KUTE/kute-text.min.js"></script>
     <script type="text/javascript" src="/js/kute-extend.js"></script>
 
     <script type="text/javascript" src="/bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
@@ -164,7 +165,6 @@
     
     <script type="text/javascript" src="/js/lib/SmoothScroll.min.js"></script>
     <script type="text/javascript" src="/js/lib/CountTo.min.js"></script>
-    <script type="text/javascript" src="/js/lib/TypeWriter.min.js"></script>
 
     <script type="text/javascript" src="/js/theme_kute.js"></script>
 

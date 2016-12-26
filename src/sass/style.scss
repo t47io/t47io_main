@@ -22,9 +22,6 @@ body {
 	padding: 20px;
 }
 .page {
-  overflow: hidden;
-  background-color: $clr-w;
-  padding: 50px 0;
 }
 
 * {
@@ -80,7 +77,15 @@ body {
 }
 
 
-section { position: relative; }
+section {
+	position: relative;
+
+	&:not(:last-of-type):not(:first-of-type) {
+	  overflow: hidden;
+	  background-color: $clr-w;
+	  padding: 50px 0;
+	}
+}
 small { font-size: 12px; }
 h1 { font-size: 36px; }
 h2 { font-size: 30px; }
@@ -198,32 +203,6 @@ p {	font-size: 14px/1.5em; }
 
 
 
-#home-section {
-	height: 100%;
-	width: 100%;
-
-	.container { height: 100%; }
-	.caption {
-		position: absolute;
-		bottom: 20%;
-		/*left: -30%;*/
-		/*margin-top: -70px;*/
-
-		img { max-width: 50%; }
-		p {
-			opacity: 0;
-			letter-spacing: 2px;
-			font-size: 3vh;
-			margin-top: 10px;
-			margin-left: 20px;
-			@include transition(1s);
-		}
-	}
-}
-.blink_cursor {
-  color: #f44336;
-  font-weight: bold;
-}
 
 .stanford {
 	position: relative;
@@ -233,10 +212,6 @@ p {	font-size: 14px/1.5em; }
 .stanford .cover, 
 .counter-up .cover, 
 #contact-section .cover { background-color: rgba(0, 7, 11, 0.5); }
-#home-section .cover { 
-	background-color: rgba(0, 7, 11, 0.75); 
-	@include transition(1s);
-}
 
 
 
@@ -348,27 +323,6 @@ p.subtitle {
 	padding: 10px 80px;
 }
 
-
-.scrollDown {
-	position: absolute;
-	top: 90%;
-	right: 30px;
-
-	.fa {
-		/*color: $clr-gl;*/
-		opacity: 0.5;
-		@include transition(0.5s);
-	}
-	&:hover .fa { opacity: 1; }
-}
-
-
-@media only screen and (max-width : 512px) {
-  #home-section .caption img { max-width: 35%; }
-}
-@media only screen and (min-width : 767px) {
-  #home-section .caption img { max-width: 75%; }
-}
 
 
 .tooltip-inner {
