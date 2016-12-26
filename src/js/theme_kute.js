@@ -21,41 +21,7 @@ var tweens = {
         typeWrite2: KUTE.to("#subtitle_2", {text: 'RNA Biochemist & Automator'}, {delay: 5850, duration: 3200, complete: function() { blinkTween(".HOME__cursor"); }}),
         brighten: KUTE.to(".HOME__shade", {backgroundColor: 'rgba(0, 7, 11, 0.25)'}, Object.assign({delay: 9000}, duration_1s)),
         colorArrow: KUTE.fromTo(".HOME__scroll_down i", {color: '#fff'}, {color: '#9fc906'}, {repeat: Infinity, duration: 5000}),
-        //     'complete': function() {
-        //         setInterval(function() {
-        //             $(".scrollDown > i.fa").removeClass(arrow_class[arrow_timer]);
-        //             arrow_timer += 1;
-        //             if (arrow_timer == 2) { arrow_timer = 0; }
-        //             $(".scrollDown > i.fa").addClass(arrow_class[arrow_timer]);
-        //         }, 2000);
 
-        //         setTimeout(function() {
-        //             $("#subtitle_1").typewrite({
-        //                 delay: 80, 'extra_char': '<b class="blink_cursor">|</b>', 'trim': true,
-        //                 'callback': function () {
-        //                     setTimeout(function() {
-        //                         $("b.blink_cursor").remove();
-        //                         $("#subtitle_2").typewrite({
-        //                             delay: 80, 'extra_char': '<b class="blink_cursor">|</b>', 'trim': true,
-        //                             'callback': function () {
-        //                                 setTimeout(function() {
-        //                                     $("b.blink_cursor").remove();
-        //                                     ;
-        //                                 }, 500);
-        //                                 // setInterval(function() {
-        //                                 //     $("#caption > p").removeClass(cap_class[cap_timer]);
-        //                                 //     cap_timer += 1;
-        //                                 //     if (cap_timer == 6) { cap_timer = 0; }
-        //                                 //     $("#caption > p").addClass(cap_class[cap_timer]);
-        //                                 // }, 2000);
-        //                             }
-        //                         });
-        //                     }, 500);
-        //                 }
-        //             });
-        //         }, 500);
-        //     }
-        // }),
         fadeTitle: KUTE.fromTo(".HOME__content", {opacity: 1}, {opacity: 0.5}, Object.assign(reversable, duration_1s)),
         fadeScroll: KUTE.fromTo(".HOME__scroll_down", {opacity: 0.5}, {opacity: 1}, Object.assign(reversable, duration_1s)),
     },
@@ -92,20 +58,24 @@ var tweens = {
         filpCounter: KUTE.allFromTo(".STATS__counter", 
             {rotateY: 360, scale: 0},
             {rotateY: 0, scale: 1},
-            Object.assign({offset: 200, delay: 500}, duration_1s)),
+            Object.assign({offset: 200, delay: 500, complete: function() { $(".STATS__text").addClass("done"); }}, duration_1s)),
         countUp: {
-            project: KUTE.to("#STATS__counter_1",
+            project: KUTE.fromTo("#STATS__counter_1",
+                {number: 0},
                 {number: count_to.project},
-                {delay: 200, duration: 1500}),
-            code: KUTE.to("#STATS__counter_2",
+                {delay: 700, duration: 1500}),
+            code: KUTE.fromTo("#STATS__counter_2",
+                {number: 0},
                 {number: count_to.code},
-                {delay: 400, duration: 1500}),
-            publication: KUTE.to("#STATS__counter_3",
+                {delay: 900, duration: 2500}),
+            publication: KUTE.fromTo("#STATS__counter_3",
+                {number: 0},
                 {number: count_to.publication},
-                {delay: 600, duration: 1500}),
-            scholarship: KUTE.to("#STATS__counter_4",
+                {delay: 1100, duration: 1500}),
+            scholarship: KUTE.fromTo("#STATS__counter_4",
+                {number: 0},
                 {number: count_to.scholarship},
-                {delay: 800, duration: 1500})
+                {delay: 1300, duration: 1500})
         },
         flipGithub: KUTE.fromTo(".STATS__github", 
             {rotateY: 180, opacity: 0.25},
