@@ -64,6 +64,30 @@
     }
   };
 
+
+  KUTE.prepareStart.text = KUTE.prepareStart.number = function(p,v) {
+    return this.element.innerHTML;
+  };
+    
+  KUTE.parseProperty.text = function(p,v) {
+    if ( !( 'text' in KUTE.dom ) ) {
+      KUTE.dom.text = function(l,p,a,b,v,o) {
+        l.innerHTML = b.substring(0, Math.min(v * b.length, b.length)>>0 ) + '<b class="HOME__cursor">|</b>';
+      }
+    }
+    return v;
+  };
+    
+  KUTE.parseProperty.number = function(p,v,l) {
+    if ( !( 'number' in KUTE.dom ) ) {
+      KUTE.dom.number = function(l,p,a,b,v) {
+        l.innerHTML = Interpolate.number(a, b, v)>>0;
+      }
+    }
+    return parseInt(v) || 0;
+  };
+
+
   return this;
 }));
 
