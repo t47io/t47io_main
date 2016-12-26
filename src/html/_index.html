@@ -89,28 +89,28 @@
 				</div>
 			</section>
         
-        
       <section id="ABOUT__section" class="page text-center">
         {% include "index_about.html" %}
       </section>
       <section id="AFFILIATION__section" class="page text-center">
         {% include "index_affiliation.html" %}
       </section>
-
-
-      <section id="sec_portfolio" class="page bg-style1">
-        {% include "index_projects.html" %}
-        {% include "index_skills.html" %}
-        {% include "index_stats.html" %}
-        {% include "index_publications.html" %}
+      <section id="PORTFOLIO__section" class="page bg-style1">
+        {% include "index_portfolio.html" %}
       </section>
-      
-        
-			<section id="sec_contact" class="text-white">
+      <section id="SKILLS__section" class="page bg-style1">
+        {% include "index_skills.html" %}
+      </section>
+      <section id="STATS__section" class="page bg-style1">
+        {% include "index_stats.html" %}
+      </section>
+      <section id="PUBS__section" class="page bg-style1">
+        {% include "index_pubs.html" %}
+      </section>
+			<section id="CONTACT__section" class="text-white">
         {% include "index_contact.html" %}
       </section>
 
-        
       <footer class="text-off-white">
         {% include "_footer.html" %}
       </footer>
@@ -128,6 +128,12 @@
     <link rel="stylesheet" type="text/css" href="/css/mobile.css" />
     <link rel="stylesheet" type="text/css" href="/css/sprites_index.css" />
     <link rel="stylesheet" type="text/css" href="/css/theme_about.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme_affiliation.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme_portfolio.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme_skills.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme_stats.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme_pubs.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme_contact.css" />
     {% else %}
     <link rel="stylesheet" type="text/css" href="/css/_lib.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/_indx.min.css" />

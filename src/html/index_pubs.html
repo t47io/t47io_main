@@ -1,28 +1,26 @@
-<div class="extra-space-xxl" id="trg_pub"></div>
-<div class="page-header-wrapper">
-  <div class="container">
-    <div class="page-header text-center" id="h_pub">
-      <h2>my research</h2>
-      <div class="divider"></div>
-      <p class="subtitle">what I published</p>
-    </div>
+<div class="extra-space-xxl PUBS__trigger"></div>
+<div class="container">
+  <div class="page-header text-center PUBS__header">
+    <h2>my research</h2>
+    <div class="divider"></div>
+    <p class="subtitle">what I published</p>
   </div>
 </div>
 
 <div class="container" id="pub-content">
   {% for year, pub in pub_list %}
-    <div class="row">
-      <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 pub-year">
+    <div class="row PUBS__row">
+      <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 PUBS__year">
         {{year|int|abs}}
       </div>
-      <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9 pub-body">
+      <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9 PUBS__content">
         {% for p in pub %}
           {% if not p.is_hidden %}
-          <div class="row pub_row">
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pub-img">
-              <div class="pub_single_content">
+          <div class="row PUBS__entry">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+              <div class="PUBS__image">
                 {% if p.is_preprint %}
-                <a href="#" target="_blank" rel="noopener noreferrer external">
+                <a href="javascript:void(0)" target="_blank" rel="noopener noreferrer external">
                 {% else %}
                 <a href="{{p.url}}" target="_blank" rel="noopener noreferrer external">
                 {% endif %}
@@ -30,15 +28,15 @@
                 </a>
               </div>
             </div>
-            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 pub-text">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 PUBS__text">
               <p class="text-gray">{{p.author}} (<b class="text-light-green">{{-year}}</b>)</p>
               <p><b style="font-size:16px;">"{{p.title}}"</b></p>
               <p style="padding-top:5px;">
                 <i class="text-green">{{p.journal}}</i>
                 {% if p.is_preprint %}
                 , <span class="text-gray">{{p.issue}}</span>.
-                <a href="#" target="_blank" rel="noopener noreferrer external" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer external" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener noreferrer external" class="text-light-gray"><i class="fa fa-fw fa-file-word-o"></i></a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener noreferrer external" class="text-light-gray"><i class="fa fa-fw fa-file-pdf-o"></i></a>
                 {% else %}
                 <b>{{p.issue}}</b>: {{p.page}}.
                 <a href="{{p.url}}" target="_blank" rel="noopener noreferrer external" class="text-dark-green bg-light-green"><i class="fa fa-fw fa-file-word-o"></i></a>
@@ -83,4 +81,4 @@
   </div>
 </div>
 <!-- <div class="extra-space-m"></div> -->
-<div class="extra-space-xl" id="contact-trigger"></div>
+<div class="extra-space-xl CONTACT__trigger"></div>

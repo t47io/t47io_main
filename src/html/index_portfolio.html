@@ -1,0 +1,48 @@
+<div class="row PORTFOLIO__trigger">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="container">
+      <div class="page-header text-center PORTFOLIO__header">
+        <h2>My Works</h2>
+        <div class="divider"></div>
+        <p class="subtitle">what I am proud of</p>
+      </div>
+    </div>
+
+    <p class="text-gray text-center">
+      <span class="fa-stack">
+        <i class="fa fa-fw fa-square fa-stack-2x text-light-green"></i>
+        <i class="fa fa-fw fa-mouse-pointer fa-stack-1x text-white"></i>
+      </span>
+      Click for more details about each <span class="text-green">project</span>.
+    </p>
+
+    <div class="PORTFOLIO__area" >
+      <div class="PORTFOLIO__menu" id="PORTFOLIO__filter">
+        <ul>
+          <li class="active"><a href="#" data-filter="*">all</a></li>
+          <li><a href="#" data-filter=".web">Web</a></li>
+          <li><a href="#" data-filter=".soft" >Software</a></li>
+          <li><a href="#" data-filter=".rna">RNA Biochem</a></li>
+          <li><a href="#" data-filter=".other">Misc</a></li>
+        </ul>
+      </div>
+
+      <div class="PORTFOLIO__content">
+        <div class="row PORTFOLIO__div">
+          {% for p in dat_dict.projects.order %}
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 {{dat_dict.projects[p].class}} PORTFOLIO__entry">
+            <div class="PORTFOLIO__item">
+              <div class="sprite"><div class="thumb_{{p}}"></div></div>
+              <div class="PORTFOLIO__text">
+                <a href="{% if dat_dict.projects[p].url %}{{dat_dict.projects[p].url}}{% else %}/project/{{p}}{% endif %}" target="_blank" rel="noopener">{{dat_dict.projects[p].title}} <i class="fa fa-fw fa-md fa-external-link"></i></a>
+                <span>{{dat_dict.projects[p].description}}</span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
