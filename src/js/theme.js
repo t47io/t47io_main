@@ -48,66 +48,50 @@ $(window).on('load', function() {
 
     addScene("#ABOUT__section", 125, [tweens.home.fade, tweens.home.arrow], controller);
     addScene(".ABOUT__trigger", 125, [tweens.about.header, tweens.about.spinIcon], controller);
-    addScene("#trg_stanford", 125, [tweens.affliation.header], controller);
-    addScene("#sec_portfolio", 125, [tweens.portfolio.project.header, tweens.portfolio.project.showThumbnail], controller);
-    addScene("#trg_skill", 125, [tweens.portfolio.skill.header, tweens.portfolio.skill.showProgressLeft, tweens.portfolio.skill.showProgressRight], controller);
-    addScene("#trg_stat", 125, [tweens.portfolio.stats.header, tweens.portfolio.stats.filpCounter, tweens.portfolio.stats.countUp.project, tweens.portfolio.stats.countUp.code, tweens.portfolio.stats.countUp.publication, tweens.portfolio.stats.countUp.scholarship], controller);
-    addScene("#trg_pub", 125, [tweens.portfolio.publication.header, tweens.portfolio.publication.flipEntry, tweens.portfolio.publication.flipYear, ], controller);
-    addScene("#trg_contact", 125, [tweens.contact.header, tweens.contact.flipIcon, tweens.contact.showTitleLeft], controller);
+    addScene(".AFFILIATION__trigger", 125, [tweens.affliation.header], controller);
+    addScene(".PORTFOLIO__trigger", 125, [tweens.portfolio.header, tweens.portfolio.showThumbnail], controller);
+    addScene(".SKILLS__trigger", 125, [tweens.skills.header, tweens.skills.showProgressLeft, tweens.skills.showProgressRight], controller);
+    addScene(".STATS__trigger", 125, [tweens.stats.header, tweens.stats.filpCounter, tweens.stats.countUp.project, tweens.stats.countUp.code, tweens.stats.countUp.publication, tweens.stats.countUp.scholarship], controller);
+    addScene(".STATS__trigger", 875, [tweens.stats.flipGithub], controller);
+    addScene(".PUBS__trigger", 125, [tweens.pubs.header, tweens.pubs.flipEntry, tweens.pubs.flipYear], controller);
+    addScene(".CONTACT__trigger", 250, [tweens.contact.header, tweens.contact.flipIcon, tweens.contact.rotateIcon, tweens.contact.showListLeft, tweens.contact.showFormRight], controller);
+    addScene(".footer", 0, [tweens.footer], controller);
 
 
-
-
-
-    // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
-    // .setTween(tl.staggerFrom(".contact-info > h4, .contact-address > li", 1, {'x': '-100%', 'y': '100%', 'opacity': 0.25}, 0.1))
-    // .addTo(controller);
-    // new ScrollMagic.Scene({'triggerElement': '#contact-section', 'offset': $("#contact-section").height() * 0.75})
-    // .setTween(tl.staggerFrom(".contact-form > h4, .contact-form > form > .form-group", 1, {'x': '100%', 'y': '100%', 'opacity': 0.25}, 0.1))
-    // .addTo(controller);
-    // new ScrollMagic.Scene({'triggerElement': 'footer'})
-    // .setTween(TweenLite.from("#footer-header", 2, {'y': '-100%', 'opacity': 0}))
-    // .addTo(controller);
-
-    // $("#git_body").load('/git/contrib/', function() {
-    //     $("#git_body > svg > g > g:not(#legend) > rect.day").each(function() {
-    //         $(this).attr({
-    //             'data-toggle': 'tooltip',
-    //             'data-placement': 'top',
-    //             'title': $(this).attr('data-count') + ' contribution(s) on ' + $(this).attr('data-date')
-    //         });
-    //     });
-    //     $("#git_body > svg").css("overflow", "visible");
-    //     $('[data-toggle="tooltip"]').tooltip({
-    //         'placement': $(this).attr('data-placement'),
-    //         'container': 'body'
-    //     });
-    // });
-    // new ScrollMagic.Scene({'triggerElement': '#git-trigger', 'offset': '100%'})
-    // .setTween(tl.staggerFrom("#git-trigger", 1, {'rotationY': 180, 'opacity': 0.25, 'ease': Back.easeIn}, 0.1))
-    // .addTo(controller);
+    $(".STATS__github").load('/git/contrib/', function() {
+        $(".STATS__github > svg > g > g:not(#legend) > rect.day").each(function() {
+            $(this).attr({
+                'data-toggle': 'tooltip',
+                'data-placement': 'top',
+                'title': $(this).attr('data-count') + ' contribution(s) on ' + $(this).attr('data-date')
+            });
+        });
+        $(".STATS__github > svg").css("overflow", "visible");
+        $('[data-toggle="tooltip"]').tooltip({
+            'placement': $(this).attr('data-placement'),
+            'container': 'body'
+        });
+    });
 
 
     $("#subtitle_0").css("width", $("#subtitle_1").css("width"));
-    $(".rotate-box-2.square-icon").on('click', function(event) { event.preventDefault(); });
-    // $(".portfolio_single_content > div > a").on('click', function(event) { event.preventDefault(); });
-    $(".portfolio_single_content").each(function() {
+    $(".PORTFOLIO__item").each(function() {
         $(this).css('height', $("img", this).css('height'));
         $(this).on('click', function() {
             window.open($("a", this).attr('href'), '_blank');
         });
     });
-    $(".portfolio_menu ul li").click(function(){
-        $(".portfolio_menu ul li").removeClass('active_prot_menu');
-        $(this).addClass('active_prot_menu');
+    $(".PORTFOLIO__menu ul li").click(function(){
+        $(".PORTFOLIO__menu ul li").removeClass('active');
+        $(this).addClass('active');
     });
-    $("#portfolio").isotope({
-        'itemSelector': '.portfolio_item',
+    $(".PORTFOLIO__div").isotope({
+        'itemSelector': '.PORTFOLIO__entry',
         'layoutMode': 'fitRows'
     });
-    $("#filters").on('click', 'a', function(event) {
+    $("#PORTFOLIO__filter").on('click', 'a', function(event) {
         event.preventDefault();
-        $("#portfolio").isotope({ 'filter': $(this).attr('data-filter') });
+        $(".PORTFOLIO__div").isotope({ 'filter': $(this).attr('data-filter') });
     });
     $("#form_email").submit(function(event) {
         event.preventDefault();
@@ -134,14 +118,6 @@ $(window).on('load', function() {
             }
         });
     });
-
-    $(".progress").hover(function() {
-        $(this).children().addClass('progress-bar-striped active');
-    }, function() {
-        $(this).children().removeClass('progress-bar-striped active');
-    });
-    $("td > a.text-light-gray > i.fa").css('text-decoration', 'line-through').on('click', false);
-    $(".contact-address > li:last-child").hover(function() { $("#res_date").fadeIn(250); }, function() { $("#res_date").fadeOut(250); });
 
     $('.carousel').carousel({'interval': 5000});
     $("#stanford-carousel").on('slide.bs.carousel', function(event) {
@@ -195,17 +171,17 @@ $(window).on('scroll', function() {
     $.data(this, 'scrollTimer', setTimeout(function() {
         var h = ($(window).scrollTop() - $("#stanford-carousel").offset().top) / $("#stanford-carousel").height() + 0.4;
         if (h <= 0.45) {
-            $("#story_2016 > div.story-item-content").addClass('active').parent().css("z-index", 15);
-            $("#story_2015 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
-            $("#story_2011 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2016 > .AFFILIATION__content").addClass('active').parent().css("z-index", 15);
+            $("#story_2015 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2011 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
         } else if (h > 0.45 & h <= 0.7) {
-            $("#story_2015 > div.story-item-content").addClass('active').parent().css("z-index", 15);
-            $("#story_2016 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
-            $("#story_2011 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2015 > .AFFILIATION__content").addClass('active').parent().css("z-index", 15);
+            $("#story_2016 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2011 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
         } else {
-            $("#story_2011 > div.story-item-content").addClass('active').parent().css("z-index", 15);
-            $("#story_2016 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
-            $("#story_2015 > div.story-item-content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2011 > .AFFILIATION__content").addClass('active').parent().css("z-index", 15);
+            $("#story_2016 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
+            $("#story_2015 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
         }
     }, 100));
 });
