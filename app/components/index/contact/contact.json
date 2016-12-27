@@ -1,0 +1,25 @@
+{
+	"items": [
+		{
+			"icon": "linkedin",
+			"url": "https://www.linkedin.com/in/t47io/"
+		},
+		{
+			"icon": "github",
+			"url": "https://github.com/t47io/"
+		},
+		{
+			"icon": "facebook",
+			"url": "https://www.facebook.com/t47io/"
+		},
+		{
+			"icon": "google",
+			"url": "https://plus.google.com/105247593940611311425/"
+		},
+		{
+			"icon": "twitter",
+			"url": "https://twitter.com/t47io/"
+		}
+	],
+	"resume": ""
+}
