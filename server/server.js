@@ -1,23 +1,27 @@
-const path = require('path');
-const webpack = require('webpack');
-const webpackMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
+import webpack from 'webpack';
+import webpackMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
 
-const express = require('express');
+import config_webpack from '../webpack.config.js';
+import {DEBUG, PORT, GA_ID, EMAIL_RECV, SMTP, ARGS} from './config.js';
 
-const config = require('../webpack.config.js');
+import body_p from 'body-parser';
+import express from 'express';
+import helmet from 'helmet';
+import path from 'path';
+
+
 const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
+app.use( helmet() );
+app.use( body_p.urlencoded({'extended': true}) );
+app.disable('x-powered-by');
 
-const isProduction = false;
-const port = 3000;
-const publicPath = path.resolve(__dirname, '../public');
 
-
-if (!isProduction) {
-  const compiler = webpack(config);
+if (DEBUG) {
+  const compiler = webpack(config_webpack);
   const middleware = webpackMiddleware(compiler, {
-    publicPath: config.output.publicPath,
+    publicPath: config_webpack.output.publicPath,
     index: "index.html",
 
     noInfo: false,
@@ -35,17 +39,19 @@ if (!isProduction) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
-  app.get('/', function(req, res) {
-    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, '../public/index.html')));
-    res.end();
-  });
-} else {
-  app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-  });
 }
 
-
-app.listen(port, function() {
-  console.log('Server running on port ' + port);
+app.listen(PORT, function() {
+  console.log('t47io Main Site listening on port: ' + PORT + ' ...');
 });
+
+app.get('/', function(req, res) {
+	if (DEBUG) {
+    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, '../public/index.html')));
+    res.end();
+	} else {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+	}
+});
+
+

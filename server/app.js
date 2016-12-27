@@ -1,60 +1,9 @@
-var body_p    = require('body-parser'),
-    emailer   = require('nodemailer'),
-    express   = require('express'),
     fs        = require('fs'),
-    glob      = require('glob'),
-    helmet    = require('helmet'),
     moment    = require('moment'),
     nunjucks  = require('nunjucks'),
-    path      = require('path'),
     sanitizer = require('sanitizer'),
     sass      = require('node-sass-middleware'),
     striptags = require('striptags');
-
-var app       = express(),
-    pub       = JSON.parse(fs.readFileSync('config/pub.json', 'utf8')),
-    dat       = JSON.parse(fs.readFileSync('config/dat.json', 'utf8')),
-    config    = JSON.parse(fs.readFileSync('config/env.json', 'utf8')),
-    contact   = config.email.login,
-    smtp      = emailer.createTransport(config.email.protocol + '://' + contact.replace('@', '%40') + ':' + config.email.password + '@' + config.email.host + ':' + config.email.port),
-    projs     = [];
-
-var DEBUG     = config.DEBUG,
-    GA_ID     = config.ga_tracker,
-    port      = config.port,
-    root      = path.join(__dirname, DEBUG ? 'src' : 'dist');
-
-for (var key in pub) {
-    dat.counters.publication += pub[key].length;
-    for (var i = 0; i < pub[key].length; i++) {
-        var item = pub[key][i];
-        item.author = item.author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>');
-    }
-}
-for (var i = 0; i < dat.projects.order.length; i++) {
-    var key = dat.projects.order[i];
-    if (!('url' in dat.projects[key])) { projs.push(key); }
-}
-
-var resume = '', git_contrib = '';
-glob(path.join(root, 'pdf/Resume*.pdf'), {}, function (err, files) {
-    if (err) {
-        console.log(err);
-        err = new Error();
-        err.status = 500;
-        next(err);
-    }
-    resume = files[files.length - 1];
-});
-glob(path.join(__dirname, 'data/git_contrib_*.svg'), {}, function (err, files) {
-    if (err) {
-        console.log(err);
-        err = new Error();
-        err.status = 500;
-        next(err);
-    }
-    git_contrib = files[files.length - 1];
-});
 
 
 app.use(function (req, res, next) {
@@ -75,22 +24,15 @@ if (DEBUG) {
         'debug':        DEBUG
     }) );
 }
-app.use( express.static(root) );
-app.use( helmet() );
-app.use( body_p.urlencoded({'extended': true}) );
-app.disable('x-powered-by');
 
-app.engine('nunj', nunjucks.render);
-app.set('view engine', 'nunjucks');
-nunjucks.configure(DEBUG ? 'src/html' : 'dist/html', {
-    'autoescape': false,
-    'express':    app
-});
+// app.engine('nunj', nunjucks.render);
+// app.set('view engine', 'nunjucks');
+// nunjucks.configure(DEBUG ? 'src/html' : 'dist/html', {
+//     'autoescape': false,
+//     'express':    app
+// });
 
 
-app.listen(port, function () {
-    console.log('t47io Main Site listening on port: ' + port + ' ...');
-});
 
 app.get('/', function (req, res) {
     var res_date = resume.replace(path.join(root, 'pdf/Resume_'), '').replace('.pdf', '');
