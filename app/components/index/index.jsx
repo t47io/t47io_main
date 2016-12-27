@@ -7,6 +7,7 @@ import PortfolioSection from './portfolio/portfolio.jsx';
 import SkillsSection from './skills/skills.jsx';
 import StatsSection from './stats/stats.jsx';
 import PubsSection from './pubs/pubs.jsx';
+import ContactSection from './contact/contact.jsx';
 
 require('./index.scss');
 
@@ -21,6 +22,7 @@ const Main = () => {
   		<SkillsSection />
   		<StatsSection />
   		<PubsSection />
+  		<ContactSection />
 		</div>
 	);
 };

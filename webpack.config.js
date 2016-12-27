@@ -2,12 +2,17 @@
 
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import purify from 'purifycss-webpack-plugin';
 
+const extractCSS = new ExtractTextPlugin("bundle.css");
 
 const config = {
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    `${__dirname}/app/index.js`
+    'bootstrap-loader',
+    'font-awesome-loader!./font-awesome.config.js',
+    `${__dirname}/app/index.jsx`
   ],
   output: {
     filename: "bundle.js",
@@ -31,17 +36,33 @@ const config = {
     // ],
     loaders: [
       {
-        test: /\.js?$/,
-        loader: "babel-loader",
+        test: /\.(js|jsx)$/,
+        loader: "babel",
         exclude: /node_modules/,
       },
       {
+        test: /\.json$/,
+        loader: "json"
+      },
+      {
         test: /\.scss$/,
-        loaders: ["style-loader", "css-loader", "sass-loader"]
+        loader: extractCSS.extract(["css", "sass"])
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: "file-loader?emitFile=false&name=[path][name].[ext]"
+        loader: "file?emitFile=false&name=[path][name].[ext]"
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url?limit=10000"
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: "file"
+      },
+      {
+        test: /bootstrap-sass\/assets\/javascripts\//,
+        loader: 'imports?jQuery=zepto'
       },
     ]
   },
@@ -52,7 +73,15 @@ const config = {
       inject: 'body',
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    extractCSS,
+    new purify({
+      basePath: __dirname,
+      paths: [
+        'app/**/*.jsx',
+        'public/index.html'
+      ]
+    })
   ],
 
   // devServer: {
