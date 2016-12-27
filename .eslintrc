@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "extends": "airbnb",
+  "ecmaFeatures": {
+    "classes": true,
+    "jsx": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": [0],
+    "linebreak-style": ["error", "unix"],
+    "react/prop-types": ["error", {"ignore": ["children", "route"]}],
+    "new-cap": [0],
+  },
+  "env" :{
+    "browser": true,
+  }
+}
