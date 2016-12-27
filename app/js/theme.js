@@ -39,7 +39,7 @@ $("#contact-carousel").parent().css('background-image', "url('" + contact_bg_img
 $(window).on('load', function() {
     $(".page-loader").fadeOut('slow');
 
-    var controller = new $.ScrollMagic.Controller({
+    var controller = new ScrollMagic.Controller({
         globalSceneOptions: {triggerHook: 'onEnter'},
         addIndicators: true
     });
