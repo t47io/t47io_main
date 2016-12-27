@@ -1,0 +1,28 @@
+{
+	"items": [
+		{
+			"id": 1,
+			"icon": "sitemap",
+			"title": "Full Projects",
+			"value": 5
+		},
+		{
+			"id": 2,
+			"icon": "code",
+			"title": "Lines of Code",
+			"value": 18000
+		},
+		{
+			"id": 3,
+			"icon": "graduation-cap",
+			"title": "Publications",
+			"value": null
+		},
+		{
+			"id": 4,
+			"icon": "trophy",
+			"title": "Scholarships",
+			"value": 4
+		}
+	]
+}
