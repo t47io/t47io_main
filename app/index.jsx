@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Main from './components/index';
+import Main from './components/index/index.jsx';
 
 
 ReactDOM.render(
