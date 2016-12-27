@@ -1,0 +1,36 @@
+{
+    "-2016": [
+        {
+            "author":   "author",
+            "title":    "title",
+            "journal":  "journal",
+            "issue":    "issue",
+            "page":     "page",
+            "is_preprint": true,
+            "file":     "filename_without_extension",
+            "url":      "doi_url",
+            "code":     ""
+        }
+    ],
+    "-2015": [
+        {
+            "author":   "author",
+            "title":    "title",
+            "journal":  "journal",
+            "issue":    "issue",
+            "page":     "page",
+            "file":     "filename_without_extension",
+            "url":      "doi_url",
+            "code":     ""
+        }
+        {
+            "author":   "author",
+            "title":    "title",
+            "journal":  "journal",
+            "issue":    "issue",
+            "page":     "page",
+            "file":     "filename_without_extension",
+            "url":      "doi_url"
+        }
+    ]
+}
