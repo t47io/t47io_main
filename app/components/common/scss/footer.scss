@@ -1,0 +1,31 @@
+@import './util';
+
+
+.footer { 
+  background-color: #2d3035; 
+  height: 96px;
+  width: 100%;
+  margin: 0px;
+  display: table;
+
+  a { text-decoration: none; }
+  > div { display: table-cell; }
+  div.mini-city {
+    height: 96px;
+    width: 128px !important;
+    padding: 0px;
+
+    &:last-child {
+      text-align: right;
+    }
+    a img {
+      @extend div.mini-city;
+      vertical-align: text-bottom;
+    }
+  }
+}
+.FOOTER__header { padding-top: 30px; }
+@media only screen and (max-width : 767px) {
+  .footer { height:auto; }
+  .FOOTER__header { padding-bottom: 30px; }
+}

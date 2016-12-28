@@ -1,0 +1,45 @@
+@import './_util';
+
+
+.text-main { color: #363940; } /* Theme main color */
+.text-white { color: $clr-w; }
+.text-off-white { color: $clr-wo;}
+.text-dark { color: #000; }
+.text-dark-green { color: $clr-gd;}
+.text-green { color: $clr-g; }
+.text-light-green { color: $clr-gl; }
+.text-gray { color: $clr-k; }
+.text-light-gray { color: $clr-kl; }
+.bg {
+  padding: 0px;
+  border-radius: 0.25em !important;
+}
+.bg-light-green { 
+  background-color: $clr-go; 
+  @extend .bg;
+}
+.bg-light-gray {
+  background-color: $clr-kll; 
+  @extend .bg;
+}
+.bg-black {
+  background-color: rgba(0, 7, 11, 0.5); 
+  @extend .bg;
+}
+
+
+.fa-sm { font-size: 10px !important; }
+.fa-md { font-size: 13px !important; }
+a {
+  color: $clr-g;
+
+  &:hover, &:focus {
+    color: $clr-gl;
+    text-decoration: none;
+  }
+}
+b { font-weight: 900; }
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,39 @@
+$clr-gdd: #385200;
+$clr-gd: #3e5b02;
+$clr-g: #72a603;
+$clr-gl: #9fc906;
+$clr-gl2: #cfe482;
+$clr-gll: #e6fcb7;
+$clr-go: #f8fee3;
+$clr-w: #fff;
+$clr-wo: #e7e7e7;
+$clr-k: #888;
+$clr-kl: #ccc;
+$clr-kl2: #eee;
+$clr-kll: #f0f0f0;
+
+@mixin transition($val) {
+  -webkit-transition: all $val ease-in-out;
+  -moz-transition: all $val ease-in-out;
+  -o-transition: all $val ease-in-out;
+  -ms-transition: all $val ease-in-out;
+  transition: all $val ease-in-out;   
+}
+@mixin transform($val) {
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -webkit-transform: $val;
+  transform: $val;
+}
+@mixin box_shadow($val) {
+  -webkit-box-shadow: $val;
+  -moz-box-shadow: $val;
+  box-shadow: $val;
+}
+@mixin border_radius($val) {
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  -ms-border-radius: $val;
+  -o-border-radius: $val;
+  border-radius: $val;
+}
