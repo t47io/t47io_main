@@ -1,7 +1,5 @@
 import React from 'react';
 
-const data = require('../../../config/pubs.json');
-
 
 const PubsItem = ({year, author, title, journal, issue, page, url, code, citation, tag, is_preprint, is_hidden}) => {
   if (is_hidden) { return; }
@@ -23,7 +21,7 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
         </div>
       </div>
       <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12 PUBS__text">
-        <p className="text-gray">{author} (<b className="text-light-green">{year}</b>)</p>
+        <p className="text-gray"><span dangerouslySetInnerHTML={{__html: author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>')}}></span> (<b className="text-light-green">{year}</b>)</p>
         <p><b style="font-size:16px;" dangerouslySetInnerHTML={{__html: `"${title}"`}}></b></p>
         <p style="padding-top:5px;">
           <i className="text-green">{journal}</i>
@@ -55,7 +53,7 @@ const PubsYearPanel = ({year, items}) => (
   </div>
 );
 
-const PubsSection = () => (
+const PubsSection = ({items}) => (
   <section id="PUBS__section">
     <div className="extra-space-xxl PUBS__trigger"></div>
     <div className="container">
@@ -67,7 +65,7 @@ const PubsSection = () => (
     </div>
 
     <div className="container" id="pub-content">
-      {data.items.map((item) => (<PubsYearPanel {...item} />))}
+      {items.map((item) => (<PubsYearPanel {...item} />))}
 
       <div className="extra-space-l"></div>
       <div className="row">

@@ -10,19 +10,20 @@ import PubsSection from './jsx/pubs.jsx';
 import ContactSection from './jsx/contact.jsx';
 
 require('./index.scss');
+const data = require('../../config.json');
 
 
 const Main = () => {
   return (
   	<div>
   		<HomeSection />
-  		<AboutSection />
-  		<AffiliationSection />
-  		<PortfolioSection />
-  		<SkillsSection />
-  		<StatsSection />
-  		<PubsSection />
-  		<ContactSection />
+  		<AboutSection {...(data.about)} />
+  		<AffiliationSection {...(data.affiliation)} />
+  		<PortfolioSection {...(data.portfolio)} />
+  		<SkillsSection {...(data.skills)} />
+  		<StatsSection {...(data.stats)} />
+  		<PubsSection {...(data.pubs)} />
+  		<ContactSection {...(data.contact)} />
 		</div>
 	);
 };

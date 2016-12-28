@@ -1,7 +1,5 @@
 import React from 'react';
 
-const data = require('../../../config/about.json');
-
 
 const AboutItem = ({title, icon, description}) => (
   <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
@@ -15,7 +13,7 @@ const AboutItem = ({title, icon, description}) => (
   </div>
 );
 
-const AboutSection = () => (
+const AboutSection = ({items}) => (
   <section id="ABOUT__section" className="text-center">
     <div className="extra-space-l ABOUT__trigger"></div>
     <div className="container">
@@ -29,7 +27,7 @@ const AboutSection = () => (
     <div className="ABOUT__content">
       <div className="container">
         <div className="row">
-          {data.items.map((item) => (<AboutItem {...item} />))}
+          {items.map((item) => (<AboutItem {...item} />))}
         </div>
       </div>
     </div>

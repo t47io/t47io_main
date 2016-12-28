@@ -1,7 +1,5 @@
 import React from 'react';
 
-const data = require('../../../config/contact.json');
-
 
 const ContactItem = ({icon, url}) => (
   <li>
@@ -9,7 +7,7 @@ const ContactItem = ({icon, url}) => (
   </li>
 );
 
-const ContactSection = () => (
+const ContactSection = ({items, resume}) => (
   <section id="CONTACT__section" class="text-white">
     <div class="stanford parallax bg_rotate_fade">
       <div id="contact-carousel" class="carousel carousel-fade slide" data-ride="carousel">
@@ -40,7 +38,7 @@ const ContactSection = () => (
 
       <div class="container">
         <ul class="CONTACT__social">
-          {data.items.map((item) => (<ContactItem {...item} />))}
+          {items.map((item) => (<ContactItem {...item} />))}
         </ul>
       </div>
       <div class="extra-space-l"></div>
@@ -64,7 +62,7 @@ const ContactSection = () => (
                 </li>
                 <li>
                   <a href="/resume/" target="_blank" rel="noopener" class="btn btn-default"><i class="fa fa-download fa-fw"></i> Resume
-                    <span class="text-main CONTACT__resume"><i class="fa fa-clock-o fa-fw" style="margin-right:0px;"></i> <small>{data.resume}</small></span></a>
+                    <span class="text-main CONTACT__resume"><i class="fa fa-clock-o fa-fw" style="margin-right:0px;"></i> <small>{resume}</small></span></a>
                   </li>
               </ul>
             </div>

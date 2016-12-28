@@ -1,7 +1,5 @@
 import React from 'react';
 
-const data = require('../../../config/portfolio.json');
-
 
 const PortfolioFilter = ({name}) => (
   <li><a href="#" data-filter={`.${name}`} >{name.replace(/\-/g, ' ')}</a></li>
@@ -19,7 +17,7 @@ const PortfolioItem = ({name, category, description, title, url}) => (
   </div>
 );
 
-const PortfolioSection = () => (
+const PortfolioSection = ({items, category}) => (
   <section id="PORTFOLIO__section">
     <div className="row PORTFOLIO__trigger">
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -43,13 +41,13 @@ const PortfolioSection = () => (
           <div className="PORTFOLIO__menu">
             <ul>
               <li className="active"><a href="#" data-filter="*">all</a></li>
-              {data.category.map((name) => (<PortfolioFilter name={name} />))}
+              {category.map((name) => (<PortfolioFilter name={name} />))}
             </ul>
           </div>
 
           <div className="PORTFOLIO__content">
             <div className="row PORTFOLIO__div">
-              {data.items.map((item) => (<PortfolioItem {...item} />))}
+              {items.map((item) => (<PortfolioItem {...item} />))}
             </div>
           </div>
         </div>

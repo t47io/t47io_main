@@ -1,7 +1,5 @@
 import React from 'react';
 
-const data = require('../../../config/affiliation.json');
-
 
 const AffiliationRewardItem = ({year, title}) => (
   <tr>
@@ -40,7 +38,7 @@ const AffiliationItem = ({year, title, url, geo, role, rewards, tag}) => (
   </div>
 );
 
-const AffiliationSection = () => (
+const AffiliationSection = ({items}) => (
   <section id="AFFILIATION__section" className="text-center">
     <div className="extra-space-l AFFILIATION__trigger"></div>
     <div className="stanford text-white parallax bg_rotate_fade">
@@ -75,7 +73,7 @@ const AffiliationSection = () => (
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div className="AFFILIATION__story">
             <div className="AFFILIATION__timeline"></div>
-            {data.items.map((item) => (<AffiliationItem {...item} />))}
+            {items.map((item) => (<AffiliationItem {...item} />))}
             <div style="clear: both;"></div>
           </div>  
         </div>

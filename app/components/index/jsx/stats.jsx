@@ -1,13 +1,5 @@
 import React from 'react';
 
-const pubs = require('../../../config/pubs.json');
-const data = require('../../../config/stats.json');
-
-let countPubs = 0;
-for (let i in pubs.items) {
-  countPubs += pubs.items[i].items.length;
-}
-data.items[2].value = countPubs;
 
 const StatsItem = ({id, icon, title, value}) => (
   <div className="STATS__item text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
@@ -21,7 +13,7 @@ const StatsItem = ({id, icon, title, value}) => (
   </div>
 );
 
-const StatsSection = () => (
+const StatsSection = ({items, git}) => (
   <section id="STATS__section">
     <div className="extra-space-xxl STATS__trigger"></div>
 
@@ -55,7 +47,7 @@ const StatsSection = () => (
 
       <div className="container">
         <div className="row">
-          {data.items.map((item) => (<StatsItem {...item} />))}
+          {items.map((item) => (<StatsItem {...item} />))}
         </div>
       </div>
       <div className="extra-space-l"></div>

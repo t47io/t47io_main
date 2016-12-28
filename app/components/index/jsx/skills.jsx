@@ -1,7 +1,5 @@
 import React from 'react';
 
-const data = require('../../../config/skills.json');
-
 
 const ProgressBar = ({value, tag, title}) => (
   <div className={`SKILLS__progress ${tag}`}>
@@ -18,7 +16,7 @@ const SkillsPanel = ({title, icon, tag, items}) => (
   </div>
 );
 
-const SkillsSection = () => (
+const SkillsSection = ({items}) => (
   <section id="SKILLS__section">
     <div className="extra-space-xxl SKILLS__trigger"></div>
     <div className="container">
@@ -33,12 +31,12 @@ const SkillsSection = () => (
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div className="SKILLS__panel left">
-            {data.items.left.map((panel) => (<SkillsPanel {...panel} tag="left" />))}
+            {items.left.map((panel) => (<SkillsPanel {...panel} tag="left" />))}
           </div>
         </div>
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div className="SKILLS__panel right">
-            {data.items.left.map((panel) => (<SkillsPanel {...panel} tag="right" />))}
+            {items.left.map((panel) => (<SkillsPanel {...panel} tag="right" />))}
           </div>
         </div>
       </div>
