@@ -1,0 +1,122 @@
+{
+  "items": {
+    "left": [
+      {
+        "icon": "fa-server",
+        "items": [
+          {
+            "title": "Django, Node.js + Express, Jekyll",
+            "value": 90
+          },
+          {
+            "title": "Nginx, Apache, uwsgi",
+            "value": 85
+          },
+          {
+            "title": "AWS EC2 / ELB, Webauth + Kerberos",
+            "value": 85
+          }
+        ],
+        "title": "Web Server Backend"
+      },
+      {
+        "icon": "fa-eyedropper",
+        "items": [
+          {
+            "title": "jQuery, Bootstrap, Require.js",
+            "value": 90
+          },
+          {
+            "title": "D3.js, Google Charts, GSAP + ScrollMagic",
+            "value": 80
+          },
+          {
+            "title": "HTML5 &amp; CSS3, Sass, Jinja",
+            "value": 90
+          },
+          {
+            "title": "Photoshop + Illustrator",
+            "value": 85
+          }
+        ],
+        "title": "Web Server Frontend"
+      },
+      {
+        "icon": "fa-user-secret",
+        "items": [
+          {
+            "title": "git, npm + bower + grunt",
+            "value": 90
+          },
+          {
+            "title": "API: OAuth, Slack, AWS CloudWatch",
+            "value": 85
+          },
+          {
+            "title": "pip, setuptools, sphinx, unittest",
+            "value": 85
+          }
+        ],
+        "title": "Programming &amp; Management"
+      }
+    ],
+    "right": [
+      {
+        "icon": "fa-calculator",
+        "items": [
+          {
+            "title": "MATLAB",
+            "value": 90
+          },
+          {
+            "title": "NumPy + Numba, Linux + sbatch",
+            "value": 75
+          }
+        ],
+        "title": "Scientific Computing"
+      },
+      {
+        "icon": "fa-cogs",
+        "items": [
+          {
+            "title": "R, pandas + scikit-learn",
+            "value": 70
+          }
+        ],
+        "title": "Machine Learning"
+      },
+      {
+        "icon": "fa-database",
+        "items": [
+          {
+            "title": "MySQL, HiveQL",
+            "value": 95
+          },
+          {
+            "title": "Splunk + Tableau + Datameer",
+            "value": 75
+          }
+        ],
+        "title": "Database Related"
+      },
+      {
+        "icon": "fa-heartbeat",
+        "items": [
+          {
+            "title": "RNA chemistry + High-throughput quantitation",
+            "value": 100
+          },
+          {
+            "title": "Multidimensional RNA mapping + Compensatory mutagenesis",
+            "value": 100
+          },
+          {
+            "title": "Illumina NGS",
+            "value": 85
+          }
+        ],
+        "title": "Biochemistry"
+      }
+    ]
+  }
+}
