@@ -13,7 +13,7 @@ const config = {
     `${__dirname}/app/index.jsx`
   ],
   output: {
-    filename: "bundle.js",
+    filename: "main.js",
     path: `${__dirname}/public`,
     publicPath: "/"
   },

@@ -3,7 +3,7 @@ import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import config_webpack from '../webpack.config.js';
-import {DEBUG, PORT, GA_ID, EMAIL_RECV, SMTP, ARGS} from './config.js';
+import {DEBUG, PORT, GA_ID, EMAIL_RECV, SMTP} from './config.js';
 
 import body_p from 'body-parser';
 import express from 'express';

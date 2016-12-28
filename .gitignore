@@ -3,6 +3,7 @@
 server/config/*.json
 public/data/
 public/pdf/
+app/config.json
 !app/components/font.css
 !app/components/reset.css
 
