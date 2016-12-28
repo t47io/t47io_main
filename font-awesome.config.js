@@ -1,7 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-	styleLoader: ExtractTextPlugin.extract('css!sass'),
+  styleLoader: ExtractTextPlugin.extract('css!sass'),
   styles: {
     'mixins': false,
     'bordered-pulled': false,

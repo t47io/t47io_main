@@ -5,8 +5,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import purify from 'purifycss-webpack-plugin';
 
-const extractCSS = new ExtractTextPlugin("bundle.css");
-
 const config = {
   entry: [
     'webpack-hot-middleware/client?reload=true',
@@ -36,7 +34,7 @@ const config = {
     // ],
     loaders: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js(x)?$/,
         loader: "babel",
         exclude: /node_modules/,
       },
@@ -46,7 +44,7 @@ const config = {
       },
       {
         test: /\.scss$/,
-        loader: extractCSS.extract(["css", "sass"])
+        loader: ExtractTextPlugin.extract('css!sass')
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -74,7 +72,7 @@ const config = {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    extractCSS,
+    new ExtractTextPlugin("[name].css"),
     new purify({
       basePath: __dirname,
       paths: [
