@@ -1,7 +1,6 @@
 import React from 'react';
 
-const data = require('./about.json');
-require('./about.scss');
+const data = require('../../../config/about.json');
 
 
 const AboutItem = ({title, icon, description}) => (

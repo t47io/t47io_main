@@ -1,7 +1,6 @@
 import React from 'react';
 
-const data = require('./pubs.json');
-require('./pubs.scss');
+const data = require('../../../config/pubs.json');
 
 
 const PubsItem = ({year, author, title, journal, issue, page, url, code, citation, tag, is_preprint, is_hidden}) => {

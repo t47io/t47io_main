@@ -1,7 +1,6 @@
 import React from 'react';
 
-const data = require('./portfolio.json');
-require('./portfolio.scss');
+const data = require('../../../config/portfolio.json');
 
 
 const PortfolioFilter = ({name}) => (

@@ -1,8 +1,7 @@
 import React from 'react';
 
-const pubs = require('../pubs/pubs.json');
-const data = require('./stats.json');
-require('./stats.scss');
+const pubs = require('../../../config/pubs.json');
+const data = require('../../../config/stats.json');
 
 let countPubs = 0;
 for (let i in pubs.items) {

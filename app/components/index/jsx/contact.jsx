@@ -1,7 +1,6 @@
 import React from 'react';
 
-const data = require('./contact.json');
-require('./contact.scss');
+const data = require('../../../config/contact.json');
 
 
 const ContactItem = ({icon, url}) => (

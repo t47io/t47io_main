@@ -1,6 +1,5 @@
 import React from 'react';
 
-require('./home.scss');
 
 const HomeSection = () => (
   <section id="HOME__section" className="parallax" style="background-image:url('/img/t47/t47_avatar.jpg')">

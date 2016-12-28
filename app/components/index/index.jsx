@@ -1,13 +1,13 @@
 import React from 'react';
 
-import HomeSection from './home/home.jsx';
-import AboutSection from './about/about.jsx';
-import AffiliationSection from './affiliation/affiliation.jsx';
-import PortfolioSection from './portfolio/portfolio.jsx';
-import SkillsSection from './skills/skills.jsx';
-import StatsSection from './stats/stats.jsx';
-import PubsSection from './pubs/pubs.jsx';
-import ContactSection from './contact/contact.jsx';
+import HomeSection from './jsx/home.jsx';
+import AboutSection from './jsx/about.jsx';
+import AffiliationSection from './jsx/affiliation.jsx';
+import PortfolioSection from './jsx/portfolio.jsx';
+import SkillsSection from './jsx/skills.jsx';
+import StatsSection from './jsx/stats.jsx';
+import PubsSection from './jsx/pubs.jsx';
+import ContactSection from './jsx/contact.jsx';
 
 require('./index.scss');
 

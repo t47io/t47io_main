@@ -1,7 +1,6 @@
 import React from 'react';
 
-const data = require('./skills.json');
-require('./skills.scss');
+const data = require('../../../config/skills.json');
 
 
 const ProgressBar = ({value, tag, title}) => (

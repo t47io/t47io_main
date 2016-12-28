@@ -1,7 +1,6 @@
 import React from 'react';
 
-const data = require('./affiliation.json');
-require('./affiliation.scss');
+const data = require('../../../config/affiliation.json');
 
 
 const AffiliationRewardItem = ({year, title}) => (
