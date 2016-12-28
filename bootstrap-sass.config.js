@@ -2,9 +2,9 @@ module.exports = {
   bootstrapVersion: 3,
   styleLoaders: ["css", "sass"], 
 
-  extractStyles: true,
-  verbose: true, 
   debug: false, 
+  extractStyles: true,
+  useFlexbox: true,
 
   scripts: {
     "transition": false,
@@ -21,7 +21,7 @@ module.exports = {
     "affix": false
   },
   styles: {
-    "mixins": false,
+    "mixins": true,
 
     "normalize": true,
     "print": false,

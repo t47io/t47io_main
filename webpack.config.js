@@ -10,7 +10,7 @@ const extractCSS = new ExtractTextPlugin("bundle.css");
 const config = {
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    'bootstrap-loader',
+    'bootstrap-sass-loader!./bootstrap-sass.config.js',
     'font-awesome-loader!./font-awesome.config.js',
     `${__dirname}/app/index.jsx`
   ],
@@ -62,7 +62,7 @@ const config = {
       },
       {
         test: /bootstrap-sass\/assets\/javascripts\//,
-        loader: 'imports?jQuery=zepto'
+        loader: 'imports?jQuery=jquery'
       },
     ]
   },

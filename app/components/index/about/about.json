@@ -13,12 +13,12 @@
 		{
 			"title": "Experiment",
 			"icon": "flask",
-			"description": "RNA molecules are fascinating.\nTesting your own hypothesis is fun.\n<i className='fa fa-fw fa-quote-left text-light-gray'></i>Once a biochemist,&nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;&nbsp;always a biochemist.<i className='fa fa-fw fa-quote-right text-light-gray'></i>"
+			"description": "RNA molecules are fascinating.\nTesting your own hypothesis is fun.\n<i class='fa fa-fw fa-quote-left text-light-gray'></i>Once a biochemist,&nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;&nbsp;always a biochemist.<i class='fa fa-fw fa-quote-right text-light-gray'></i>"
 		},
 		{
 			"title": "Automate",
 			"icon": "history",
-			"description": "A rule set by myself:\n<i className='fa fa-fw fa-quote-left text-light-gray'></i><i>Anything repeated 3 times should be automated.</i><i className='fa fa-fw fa-quote-right text-light-gray'></i>\nAnd not just at work."
+			"description": "A rule set by myself:\n<i class='fa fa-fw fa-quote-left text-light-gray'></i><i>Anything repeated 3 times should be automated.</i><i class='fa fa-fw fa-quote-right text-light-gray'></i>\nAnd not just at work."
 		}
 	]
 }
