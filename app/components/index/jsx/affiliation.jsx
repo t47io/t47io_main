@@ -14,7 +14,7 @@ const AffiliationItem = ({year, title, url, geo, role, rewards, tag}) => (
       <span className="AFFILIATION__year">{year}</span>
       <div className="AFFILIATION__panel row">
         <div className="AFFILIATION__title col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <a href="{url}" target="_blank" rel="noopener noreferrer external">
+          <a href={url} target="_blank" rel="noopener noreferrer external">
             <div className="sprite" style="width:100%;max-width:224px;"><div className={`aff_${tag}`}></div></div>
           </a>
           <br/>
