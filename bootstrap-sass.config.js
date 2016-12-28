@@ -8,20 +8,21 @@ module.exports = {
   extractStyles: true,
   useFlexbox: true,
 
-  scripts: {
-    "transition": false,
-    "alert": false,
-    "button": true,
-    "carousel": true,
-    "collapse": false,
-    "dropdown": true,
-    "modal": false,
-    "tooltip": false,
-    "popover": false,
-    "scrollspy": true,
-    "tab": false,
-    "affix": false
-  },
+  scripts: false,
+  // scripts: {
+  //   "transition": false,
+  //   "alert": false,
+  //   "button": true,
+  //   "carousel": true,
+  //   "collapse": false,
+  //   "dropdown": true,
+  //   "modal": false,
+  //   "tooltip": false,
+  //   "popover": false,
+  //   "scrollspy": true,
+  //   "tab": false,
+  //   "affix": false
+  // },
   styles: {
     "mixins": true,
 

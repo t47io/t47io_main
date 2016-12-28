@@ -5,6 +5,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import purify from 'purifycss-webpack-plugin';
 
+const DEBUG = false;
+
 const config = {
   entry: [
     'webpack-hot-middleware/client?reload=true',
@@ -13,7 +15,7 @@ const config = {
     `${__dirname}/app/index.jsx`
   ],
   output: {
-    filename: "main.js",
+    filename: `main-[hash:8].${DEBUG ? "" : "min."}js`,
     path: `${__dirname}/public`,
     publicPath: "/"
   },
@@ -39,10 +41,6 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.json$/,
-        loader: "json"
-      },
-      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('css!sass')
       },
@@ -56,12 +54,12 @@ const config = {
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: "file"
+        loader: "file?name=[path][name].[ext]"
       },
-      {
-        test: /bootstrap-sass\/assets\/javascripts\//,
-        loader: 'imports?jQuery=jquery'
-      },
+      // {
+      //   test: /bootstrap-sass\/assets\/javascripts\//,
+      //   loader: 'imports?jQuery=jquery'
+      // },
     ]
   },
   plugins: [
@@ -72,13 +70,21 @@ const config = {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("[name].css"),
+    new ExtractTextPlugin(`[name]-[hash:8].${DEBUG ? "" : "min."}css`, {
+      allChunks: true
+    }),
     new purify({
       basePath: __dirname,
       paths: [
         'app/**/*.jsx',
+        'app/**/*.json',
         'public/index.html'
-      ]
+      ],
+      purifyOptions: {minify: !DEBUG}
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: DEBUG ? false : {warnings: false},
+      mangle: !DEBUG
     })
   ],
 

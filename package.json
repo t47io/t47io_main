@@ -57,7 +57,8 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.16.2",
-    "webpack-hot-middleware": "^2.2.0"
+    "webpack-hot-middleware": "^2.2.0",
+    "webpack-zepto": "0.0.1"
   },
   "dependencies": {
     "body-parser": ">=1.14.2",
