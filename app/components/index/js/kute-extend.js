@@ -6,7 +6,7 @@
  * Licensed under MIT-License
  */
 
-(function(root,factory) {
+(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['kute.js'], factory);
   } else if(typeof module == 'object' && typeof require == 'function') {
@@ -16,7 +16,7 @@
   } else {
     throw new Error("pluginName require KUTE.js.");
   }
-}(this, function(KUTE) {
+}(window, function(KUTE) {
   var Tween = KUTE.Tween;
   var protoTweenList = Object.getPrototypeOf(KUTE.allTo("body", {}, {}));
 
