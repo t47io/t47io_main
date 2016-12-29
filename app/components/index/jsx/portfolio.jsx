@@ -1,12 +1,13 @@
 import React from 'react';
+// import Shuffle from 'shufflejs';
 
 
 const PortfolioFilter = ({name}) => (
-  <li><a href="#" data-filter={`.${name}`} >{name.replace(/\-/g, ' ')}</a></li>
+  <li><a href="#" data-filter={name} >{name.replace(/\-/g, ' ')}</a></li>
 );
 
 const PortfolioItem = ({name, category, description, title, url}) => (
-  <div className={`col-xs-12 col-sm-6 col-md-4 col-lg-4 ${category} PORTFOLIO__entry`}>
+  <div className={"col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry"} data-groups={category}>
     <div className="PORTFOLIO__item">
       <div className="sprite"><div className={`thumb_${name}`} ></div></div>
       <div className="PORTFOLIO__text">
@@ -40,13 +41,13 @@ const PortfolioSection = ({items, category}) => (
         <div className="PORTFOLIO__area" >
           <div className="PORTFOLIO__menu">
             <ul>
-              <li className="active"><a href="#" data-filter="*">all</a></li>
+              <li className="active"><a href="#" data-filter="all">all</a></li>
               {category.map((name) => (<PortfolioFilter name={name} />))}
             </ul>
           </div>
 
           <div className="PORTFOLIO__content">
-            <div className="row PORTFOLIO__div">
+            <div className="PORTFOLIO__div">
               {items.map((item) => (<PortfolioItem {...item} />))}
             </div>
           </div>
