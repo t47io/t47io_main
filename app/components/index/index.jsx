@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'webpack-zepto';
 
 import HomeSection from './jsx/home.jsx';
 import AboutSection from './jsx/about.jsx';
@@ -10,24 +9,30 @@ import StatsSection from './jsx/stats.jsx';
 import PubsSection from './jsx/pubs.jsx';
 import ContactSection from './jsx/contact.jsx';
 
+import Footer from '../common/jsx/footer.jsx';
+
+
 require('./index.scss');
+
+require('script!zepto');
+require('script!shufflejs');
+require('script!scrollmagic');
+require('script!kute.js');
+require('script!./js/kute-extend.js');
 
 
 class Main extends React.Component {
-  getInitialState() {
-    return {
-      about: {items: []},
-      affiliation: {items: []},
-      portfolio: {items: [], category: []},
-      skills: {items: {left: [], right: []}},
-      stats: {items: [], git: ""},
-      pubs: {items: []},
-      contact: {items: [], resume: ""}
-    }
+  componentWillMount() {
+    $.ajax({
+      type: 'GET',
+      url: '/config.json', 
+      async: false,
+      success: (data) => { this.setState(data); }
+    });
   }
-
   componentDidMount() {
-    $.getJSON('/config.json', (data) => { this.setState(data); })
+    require('imports?this=>window!expose?tweens!./js/tweens.js');
+    require('script!./js/scroll.js');
   }
 
   render() {
@@ -41,6 +46,8 @@ class Main extends React.Component {
     		<StatsSection {...(this.state.stats)} />
     		<PubsSection {...(this.state.pubs)} />
     		<ContactSection {...(this.state.contact)} />
+
+        <Footer />
   		</div>
   	);
   }
