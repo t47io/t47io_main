@@ -44,14 +44,15 @@
 .PORTFOLIO__div {
   padding: 0px 15px 0px 14px;
 
-  div { padding: 0px; }
+  div {
+    padding: 0px;
+    margin: 0 auto;
+  }
 }
 .PORTFOLIO__entry {
   // left: auto !important;
   // top: auto !important;
   // position: relative !important;
-  height: 0;
-  padding-bottom: 25% !important;
 }
 
 .PORTFOLIO__item {

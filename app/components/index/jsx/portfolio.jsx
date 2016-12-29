@@ -1,21 +1,28 @@
 import React from 'react';
 // import Shuffle from 'shufflejs';
+import {SparkScroll, SparkProxy} from '../js/factory.js';
 
 
 const PortfolioFilter = ({name}) => (
   <li><a href="#" data-filter={name} >{name.replace(/\-/g, ' ')}</a></li>
 );
 
-const PortfolioItem = ({name, category, description, title, url}) => (
-  <div className={"col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry"} data-groups={category}>
-    <div className="PORTFOLIO__item">
+const PortfolioItem = ({name, category, description, title, url, index}) => (
+  <SparkProxy.div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry" proxyId={`PORTFOLIO__proxy_${index}`} >
+    <SparkScroll.div className="PORTFOLIO__item"
+      data-groups={category}
+      proxy={`PORTFOLIO__proxy_${index}`}
+      timeline={{
+        'topBottom': {transform: 'translateY(100%) scale(2)'},
+        'bottomBottom': {transform: 'translateY(0%) scale(1)'}
+      }} >
       <div className="sprite"><div className={`thumb_${name}`} ></div></div>
       <div className="PORTFOLIO__text">
         <a href={url ? url : `/project/${name}`} target="_blank" rel="noopener">{title} <i className="fa fa-fw fa-md fa-external-link"></i></a>
         <span dangerouslySetInnerHTML={{__html: description}} ></span>
       </div>
-    </div>
-  </div>
+    </SparkScroll.div>
+  </SparkProxy.div>
 );
 
 const PortfolioSection = ({items, category}) => (
@@ -48,7 +55,7 @@ const PortfolioSection = ({items, category}) => (
 
           <div className="PORTFOLIO__content">
             <div className="PORTFOLIO__div">
-              {items.map((item) => (<PortfolioItem {...item} />))}
+              {items.map((item, i) => (<PortfolioItem {...item} index={i} />))}
             </div>
           </div>
         </div>

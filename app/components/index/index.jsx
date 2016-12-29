@@ -13,26 +13,28 @@ import Footer from '../common/jsx/footer.jsx';
 
 
 require('./index.scss');
+const data = require('../../../public/config.json');
 
-require('script!zepto');
-require('script!shufflejs');
-require('script!scrollmagic');
-require('script!kute.js');
-require('script!./js/kute-extend.js');
+// require('script!zepto');
+// require('script!shufflejs');
+// require('script!scrollmagic');
+// require('script!kute.js');
+// require('script!./js/kute-extend.js');
 
 
 class Main extends React.Component {
   componentWillMount() {
-    $.ajax({
-      type: 'GET',
-      url: '/config.json', 
-      async: false,
-      success: (data) => { this.setState(data); }
-    });
+    // $.ajax({
+    //   type: 'GET',
+    //   url: '/config.json', 
+    //   async: false,
+    //   success: (data) => { this.setState(data); }
+    // });
+    this.setState(data);
   }
   componentDidMount() {
-    require('imports?this=>window!expose?tweens!./js/tweens.js');
-    require('script!./js/scroll.js');
+    // require('imports?this=>window!expose?tweens!./js/tweens.js');
+    // require('script!./js/scroll.js');
   }
 
   render() {
