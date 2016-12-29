@@ -28,13 +28,6 @@ let plugin = [
     ],
     purifyOptions: {minify: !DEBUG}
   }),
-  new webpack.DefinePlugin({
-    GA_ID: "xxx"
-  }),
-  // new webpack.ProvidePlugin({
-  //   $: 'zepto-webpack',
-  //   // KUTE: 'kute.js'
-  // }),
   new webpack.optimize.DedupePlugin()
 ];
 if (!DEBUG) {
@@ -95,6 +88,10 @@ const config = {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
         loader: "file?name=[path][name].[ext]"
       },
+      {
+        test: /\.json$/,
+        loader: "json"
+      }
       // {
       //   test: /bootstrap-sass\/assets\/javascripts\//,
       //   loader: 'imports?jQuery=jquery'
