@@ -5,7 +5,46 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import purify from 'purifycss-webpack-plugin';
 
-const DEBUG = false;
+const DEBUG = true;
+
+
+let plugin = [
+  new HtmlWebpackPlugin({
+    template: `${__dirname}/app/index.html`,
+    filename: `${__dirname}/public/index.html`,
+    inject: 'body',
+  }),
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new ExtractTextPlugin(`[name]-[hash:8].${DEBUG ? "" : "min."}css`, {
+    allChunks: true
+  }),
+  new purify({
+    basePath: __dirname,
+    paths: [
+      'app/**/*.jsx',
+      'app/**/*.json',
+      'public/index.html'
+    ],
+    purifyOptions: {minify: !DEBUG}
+  }),
+  new webpack.DefinePlugin({
+    GA_ID: "xxx"
+  }),
+  // new webpack.ProvidePlugin({
+  //   $: 'zepto-webpack',
+  //   // KUTE: 'kute.js'
+  // }),
+  new webpack.optimize.DedupePlugin()
+];
+if (!DEBUG) {
+  plugin.push(new webpack.optimize.UglifyJsPlugin({
+    beautify: false,
+    comments: false,
+    compress: {warnings: false, drop_console: true},
+    mangle: {except: ['$', 'require', 'KUTE']}
+  }));
+}
 
 const config = {
   entry: [
@@ -62,31 +101,7 @@ const config = {
       // },
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: `${__dirname}/app/index.html`,
-      filename: `${__dirname}/public/index.html`,
-      inject: 'body',
-    }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin(`[name]-[hash:8].${DEBUG ? "" : "min."}css`, {
-      allChunks: true
-    }),
-    new purify({
-      basePath: __dirname,
-      paths: [
-        'app/**/*.jsx',
-        'app/**/*.json',
-        'public/index.html'
-      ],
-      purifyOptions: {minify: !DEBUG}
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: DEBUG ? false : {warnings: false},
-      mangle: !DEBUG
-    })
-  ],
+  plugins: plugin,
 
   // devServer: {
   //   inline: true,
