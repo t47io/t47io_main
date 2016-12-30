@@ -37,3 +37,27 @@ $clr-kll: #f0f0f0;
   -o-border-radius: $val;
   border-radius: $val;
 }
+
+
+@mixin animation($val, $time, $ease, $loop) {
+  -webkit-animation: $val $time $ease $loop;
+  -moz-animation: $val $time $ease $loop;
+  -ms-animation: $val $time $ease $loop;
+  -o-animation: $val $time $ease $loop;
+  animation: $val $time $ease $loop;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}

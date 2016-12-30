@@ -1,17 +1,24 @@
 import React from 'react';
+import {SparkScroll, SparkProxy} from '../js/factory.js';
+
+import {footer as tween} from '../js/tweens.js';
 
 
 const year = (new Date()).getFullYear();
 
 const Footer = () => (
   <footer class="text-off-white">
-		<div class="footer">
-		  <div class="mini-city hidden-sm hidden-xs">
+		<SparkProxy.div class="footer" proxyId="FOOTER__header">
+		  <SparkScroll.div class="mini-city hidden-sm hidden-xs"
+		  	proxy="FOOTER__header"
+		  	timeline={tween.gifLeft} >
 		    <a href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge" target="_blank" rel="noopener noreferrer external">
 		      <img src="/img/fg_city_sfo.gif" alt="Minimal City SFO" width="128" height="96" />
 		    </a>
-		  </div>
-		  <div class="container text-center FOOTER__header">
+		  </SparkScroll.div>
+		  <SparkScroll.div class="container text-center FOOTER__header"
+		  	proxy="FOOTER__header"
+		  	timeline={tween.header} >
 		    <div class="copyright text-center">
 		      Copyright <i class="fa fa-fw fa-copyright"></i> <a>2015 - {year}</a>
 		      Designed, built &amp; managed by
@@ -29,13 +36,15 @@ const Footer = () => (
 		        <i class="fa fa-fw fa-lg fa-creative-commons"></i> BY-NC-SA 4.0 <i class="fa fa-fw fa-sm fa-external-link"></i>
 		      </a>.
 		    </p>
-		  </div>
-		  <div class="mini-city hidden-sm hidden-xs">
+		  </SparkScroll.div>
+		  <SparkScroll.div class="mini-city hidden-sm hidden-xs"
+		  	proxy="FOOTER__header"
+		  	timeline={tween.gifRight} >
 		    <a href="https://dribbble.com/shots/2037387-Seattle-FTW" target="_blank" rel="noopener noreferrer external">
 		      <img src="/img/fg_city_sea.gif" alt="Minimal City SEA" width="128" height="96" />
 		    </a>
-		  </div>
-		</div>
+		  </SparkScroll.div>
+		</SparkProxy.div>
 	</footer>
 );
 
