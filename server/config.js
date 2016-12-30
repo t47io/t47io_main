@@ -15,6 +15,7 @@ const rootPath = path.join(__dirname, '../public');
 
 
 {
+  const home = require('../app/config/home.json');
   const about = require('../app/config/about.json');
   const affiliation = require('../app/config/affiliation.json');
   const portfolio = require('../app/config/portfolio.json');
@@ -34,7 +35,7 @@ const rootPath = path.join(__dirname, '../public');
   const gitFiles = glob.sync(path.join(rootPath, 'data/git_contrib_*.svg'));
   stats.git = path.basename(gitFiles[gitFiles.length - 1]);
 
-  const config = {about, affiliation, portfolio, skills, stats, pubs, contact};
+  const config = {home, about, affiliation, portfolio, skills, stats, pubs, contact};
   fs.writeFile(path.join(rootPath, 'config.json'), JSON.stringify(config, null, 2));
 }
 

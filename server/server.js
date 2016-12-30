@@ -41,7 +41,7 @@ if (DEBUG) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-app.listen(PORT, function() {
+const server = app.listen(PORT, () => {
   console.log('t47io Main Site listening on port: ' + PORT + ' ...');
 });
 
@@ -54,4 +54,12 @@ app.get('/', function(req, res) {
 	}
 });
 
+
+
+
+// cleanup
+// process.on('SIGINT', () => { server.close(); process.exit(2); });
+// process.on('SIGTERM', () => { server.close(); process.exit(7); });
+// process.on('exit', () => { server.close(); process.exit(0); });
+// process.on('uncaughtException', (e) => { server.close(); process.exit(1); });
 
