@@ -1,3 +1,28 @@
+const func = {
+  countTo: (valFrom, valTo, duration, setState) => {
+    let valNow = valFrom, loopNow = 0;
+    const loops = Math.ceil(duration / 100);
+    const increment = (valTo - valFrom) / loops;
+    const interval = setInterval(() => {
+      valNow += increment;
+      loopNow += 1
+      setState({value: valNow, status: "counting"});
+
+      if (loopNow == loops) {
+        clearInterval(interval);
+        setState({value: valTo, status: "complete"});
+      }
+    }, 100);
+  },
+  onUp: () => {
+    console.log('up')
+  },
+  onDown: () => {
+    console.log('down')
+  }
+};
+
+
 const fadeStart = {opacity: 0}, fadeQuarter = {opacity: 0.25}, fadeHalf = {opacity: 0.5}, fadeEnd = {opacity: 1};
 
 const header = {
@@ -8,14 +33,21 @@ const header = {
 
 const home = {};
 
-const about = {};
+const about = {
+  header,
+  icon: (offset) => ({
+    ease: 'bouncePast',
+    topBottom: {transform: 'rotate(720deg)', ...fadeStart},
+    [`bottomBottom+${offset}`]: {transform: 'rotate(45deg)', ...fadeEnd}
+  })
+};
 
-const affiliation = {};
+const affiliation = {header};
 
 const portfolio = {
   header,
   menu: (offset) => ({
-    topBottom: {transform: 'translateY(100%', ...fadeStart},
+    topBottom: {transform: 'translateY(100%)', ...fadeStart},
     [`bottomBottom+${offset}`]: {transform: 'translateY(0%)', ...fadeEnd}
   }),
   thumbnail: {
@@ -39,14 +71,25 @@ const skills = {
   }
 };
 
-const stats = {};
+const stats = {
+  header,
+  counter: (offset) => ({
+    topBottom: {transform: 'rotateY(360deg) scale(0)'},
+    [`bottomBottom+${offset}`]: {transform: 'rotateY(0deg) scale(1)'}
+  }),
+  git: {
+    ease: 'easeInBack',
+    topBottom: {transform: 'rotateY(180deg)', ...fadeQuarter},
+    bottomBottom: {transform: 'rotateY(0deg)', ...fadeEnd}
+  }
+};
 
 const pubs = {};
 
 const contact = {};
 
 
-export {home, about, affiliation, portfolio, skills, stats, pubs, contact};
+export {home, about, affiliation, portfolio, skills, stats, pubs, contact, func};
 
 
 
@@ -99,27 +142,7 @@ export {home, about, affiliation, portfolio, skills, stats, pubs, contact};
 //         fadeEnd,
 //         {...reversable, ...playOneSec})
 //     },
-//     about: {
-//       header: headerTween(".ABOUT__header"),
-//       spinIcon: KUTE.allFromTo(".ABOUT__icon",
-//         {rotate: 360*2+45, ...fadeStart},
-//         {rotate: 45,...fadeEnd},
-//         {easing: 'easingElasticInOut', offset: 200, ...playOneSec})
-//     },
-//     affliation: {
-//       header: headerTween(".AFFILIATION__header")
-//     },
-//     skills: {
-//       header: headerTween(".SKLLLS__header"),
-//     },
 //     stats: {
-//       header: headerTween(".STATS__header"),
-//       filpCounter: KUTE.allFromTo(".STATS__counter", 
-//         {rotateY: 360, scale: 0},
-//         {rotateY: 0, scale: 1},
-//         {offset: 200, delay: 500, ...playOneSec,
-//           complete: () => { $(".STATS__text").addClass("done"); }}
-//         ),
 //       countUp: {
 //         project: KUTE.fromTo("#STATS__counter_1",
 //           {number: 0},
@@ -138,10 +161,6 @@ export {home, about, affiliation, portfolio, skills, stats, pubs, contact};
 //           {number: $("#STATS__counter_4").text()},
 //           {delay: 1300, duration: 1500})
 //       },
-//       flipGithub: KUTE.fromTo(".STATS__github", 
-//         {rotateY: 180, ...fadeQuarter},
-//         {rotateY: 0, ...fadeEnd},
-//         {easing: 'easingBackIn', ...playOneSec})
 //     },
 //     pubs: {
 //       header: headerTween(".PUBS__header"),

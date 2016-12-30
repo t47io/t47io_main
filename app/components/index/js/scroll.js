@@ -39,12 +39,6 @@ $("#contact-carousel").parent().css('background-image', "url('" + contact_bg_img
 
 $(window).on('load', function() {
     // $(".page-loader").fadeOut('slow');
-    var iso = new window.shuffle(document.querySelector(".PORTFOLIO__div"), {
-        itemSelector: ".PORTFOLIO__entry",
-        // sizer: ".PORTFOLIO__div",
-        columnThreshold: 0.5,
-        delimeter: ','
-    });
 
     var controller = new ScrollMagic.Controller({
         globalSceneOptions: {triggerHook: 'onEnter'},
@@ -55,7 +49,7 @@ $(window).on('load', function() {
     addScene("#ABOUT__section", 125, [tweens.home.fadeTitle, tweens.home.fadeScroll], controller);
     addScene(".ABOUT__trigger", 125, [tweens.about.header, tweens.about.spinIcon], controller);
     addScene(".AFFILIATION__trigger", 125, [tweens.affliation.header], controller);
-    addScene(".PORTFOLIO__trigger", 125, [tweens.portfolio.header, tweens.portfolio.showThumbnail], controller);
+    // addScene(".PORTFOLIO__trigger", 125, [tweens.portfolio.header, tweens.portfolio.showThumbnail], controller);
     addScene(".SKILLS__trigger", 125, [tweens.skills.header, tweens.skills.showProgressLeft, tweens.skills.showProgressRight], controller);
     addScene(".STATS__trigger", 125, [tweens.stats.header, tweens.stats.filpCounter, tweens.stats.countUp.project, tweens.stats.countUp.code, tweens.stats.countUp.publication, tweens.stats.countUp.scholarship], controller);
     addScene(".STATS__trigger", 875, [tweens.stats.flipGithub], controller);
@@ -76,6 +70,12 @@ $(window).on('load', function() {
     });
 
 
+    var iso = new window.shuffle(document.querySelector(".PORTFOLIO__div"), {
+        itemSelector: ".PORTFOLIO__entry",
+        // sizer: ".PORTFOLIO__div",
+        columnThreshold: 0.5,
+        delimeter: ','
+    });
 
     $(".PORTFOLIO__menu").on('click', 'a', function(event) {
         event.preventDefault();
