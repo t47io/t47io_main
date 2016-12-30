@@ -1,4 +1,7 @@
 import React from 'react';
+import {SparkScroll, SparkProxy} from '../js/factory.js';
+
+import {affiliation as tween} from '../js/tweens.js';
 
 
 const AffiliationRewardItem = ({year, title}) => (
@@ -60,13 +63,15 @@ const AffiliationSection = ({items}) => (
       </div>
       <div className="cover"></div>
 
-      <div className="container">
-        <div className="page-header text-center AFFILIATION__header">
+      <SparkProxy.div className="container" proxyId="AFFILIATION__header">
+        <SparkScroll.div className="page-header text-center AFFILIATION__header"
+          proxy="AFFILIATION__header"
+          timeline={tween.header} >
           <h2>who i am</h2>
           <div className="divider"></div>
           <p className="subtitle">where I have been</p>
-        </div>
-      </div>
+        </SparkScroll.div>
+      </SparkProxy.div>
 
       <div className="extra-space-l"></div>
       <div className="row">
