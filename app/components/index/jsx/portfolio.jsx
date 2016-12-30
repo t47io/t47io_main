@@ -2,9 +2,15 @@ import React from 'react';
 // import Shuffle from 'shufflejs';
 import {SparkScroll, SparkProxy} from '../js/factory.js';
 
+import {portfolio as tween} from '../js/tweens.js';
 
-const PortfolioFilter = ({name}) => (
-  <li><a href="#" data-filter={name} >{name.replace(/\-/g, ' ')}</a></li>
+
+const PortfolioFilter = ({name, index}) => (
+  <SparkScroll.li className={name == "all" ? "active" : ""}
+  proxy="PORTFOLIO__menu"
+  timeline={tween.menu(index*20)} >
+    <a href="#" data-filter={name} >{name.replace(/\-/g, ' ')}</a>
+  </SparkScroll.li>
 );
 
 const PortfolioItem = ({name, category, description, title, url, index}) => (
@@ -12,10 +18,7 @@ const PortfolioItem = ({name, category, description, title, url, index}) => (
     <SparkScroll.div className="PORTFOLIO__item"
       data-groups={category}
       proxy={`PORTFOLIO__proxy_${index}`}
-      timeline={{
-        'topBottom': {transform: 'translateY(100%) scale(2)'},
-        'bottomBottom': {transform: 'translateY(0%) scale(1)'}
-      }} >
+      timeline={tween.thumbnail} >
       <div className="sprite"><div className={`thumb_${name}`} ></div></div>
       <div className="PORTFOLIO__text">
         <a href={url ? url : `/project/${name}`} target="_blank" rel="noopener">{title} <i className="fa fa-fw fa-md fa-external-link"></i></a>
@@ -29,13 +32,15 @@ const PortfolioSection = ({items, category}) => (
   <section id="PORTFOLIO__section">
     <div className="row PORTFOLIO__trigger">
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div className="container">
-          <div className="page-header text-center PORTFOLIO__header">
+        <SparkProxy.div className="container" proxyId="PORTFOLIO__header">
+          <SparkScroll.div className="page-header text-center PORTFOLIO__header"
+            proxy="PORTFOLIO__header"
+            timeline={tween.header} >
             <h2>My Works</h2>
             <div className="divider"></div>
             <p className="subtitle">what I am proud of</p>
-          </div>
-        </div>
+          </SparkScroll.div>
+        </SparkProxy.div>
 
         <p className="text-gray text-center">
           <span className="fa-stack">
@@ -47,10 +52,9 @@ const PortfolioSection = ({items, category}) => (
 
         <div className="PORTFOLIO__area" >
           <div className="PORTFOLIO__menu">
-            <ul>
-              <li className="active"><a href="#" data-filter="all">all</a></li>
-              {category.map((name) => (<PortfolioFilter name={name} />))}
-            </ul>
+            <SparkProxy.ul proxyId="PORTFOLIO__menu">
+              {category.map((name, i) => (<PortfolioFilter name={name} index={i} />))}
+            </SparkProxy.ul>
           </div>
 
           <div className="PORTFOLIO__content">
