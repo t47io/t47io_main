@@ -28,6 +28,7 @@ let plugin = [
     ],
     purifyOptions: {minify: !DEBUG}
   }),
+  new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.DedupePlugin()
 ];
 if (!DEBUG) {
@@ -54,7 +55,8 @@ const config = {
   resolve: {
     alias: {
       "react": "preact-compat",
-      "react-dom": "preact-compat"
+      "react-dom": "preact-compat",
+      // "lodash": "underscore"
     }
   },
 
@@ -70,7 +72,7 @@ const config = {
       {
         test: /\.js(x)?$/,
         loader: "babel",
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
