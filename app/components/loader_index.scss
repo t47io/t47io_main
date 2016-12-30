@@ -118,17 +118,6 @@ $padding: 4%;
 }
 
 
-@mixin keyframes($animation-name) {
-  @-webkit-keyframes #{$animation-name} {
-    @content;
-  }
-  @-moz-keyframes #{$animation-name} {
-    @content;
-  }
-  @keyframes #{$animation-name} {
-    @content;
-  }
-}
 @include keyframes(dna_rotate) {
   $i: 0;
   @while $i <= 100 {

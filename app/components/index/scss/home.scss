@@ -11,7 +11,10 @@
     /*left: -30%;*/
     /*margin-top: -70px;*/
 
-    img { max-width: 50%; }
+    img {
+      max-width: 50%;
+      @include transition(1s);
+    }
     p {
       // opacity: 0;
       letter-spacing: 2px;
@@ -37,6 +40,16 @@
 .HOME__cursor {
   color: #f44336;
   font-weight: bold;
+
+  &.blink {
+    @include animation(blink, 0.5s, linear, infinite);
+  }
+  @include keyframes(blink) {
+    0% { opacity: 1; }
+    45% { opacity: 1; }
+    55% { opacity: 0; }
+    100% { opacity: 0; }
+  }
 }
 
 

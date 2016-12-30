@@ -1,6 +1,6 @@
 import React from 'react';
 // import Shuffle from 'shufflejs';
-import {SparkScroll, SparkProxy} from '../js/factory.js';
+import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import {portfolio as tween} from '../js/tweens.js';
 

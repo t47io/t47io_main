@@ -1,5 +1,5 @@
 import React from 'react';
-import {SparkScroll, SparkProxy} from '../js/factory.js';
+import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import {affiliation as tween} from '../js/tweens.js';
 

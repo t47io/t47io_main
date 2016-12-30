@@ -1,4 +1,7 @@
 import React from 'react';
+import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
+
+import {pubs as tween} from '../js/tweens.js';
 
 
 const PubsItem = ({year, author, title, journal, issue, page, url, code, citation, tag, is_preprint, is_hidden}) => {
@@ -12,7 +15,8 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
   const citeClass = citation ? "text-main" : "text-gray";
 
   return (
-    <div className="row PUBS__entry">
+    <SparkScroll.div className="row PUBS__entry"
+      timeline={tween.entry} >
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
           <a href={urlExt} target="_blank" rel="noopener noreferrer external">
@@ -29,24 +33,25 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
           <a href="urlExt" target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-word-o"></i></a>
           <a href="urlPDF" target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-pdf-o"></i></a>
           {codeLink}
-          <span className="pull-right text-gray bg-light-gray">
+          <span className="pull-right text-gray bg-light-gray" style="padding: 0 5px">
             <i className="fa fa-fw fa-balance-scale"></i>
-            <i><small>Cited by :</small></i>
+            <i><small>Cited by :</small></i>&nbsp;
             <u className={citeClass}>{citation}</u>
           </span>
         </p>
         <br className="hidden-lg hidden-md" />
         <hr className="hidden-lg hidden-md" />
       </div>
-    </div>
+    </SparkScroll.div>
   );
 };
 
 const PubsYearPanel = ({year, items}) => (
   <div className="row PUBS__row">
-    <div className="col-lg-1 col-md-1 col-sm-2 col-xs-3 PUBS__year">
+    <SparkScroll.div className="col-lg-1 col-md-1 col-sm-2 col-xs-3 PUBS__year"
+      timeline={tween.year} >
       {year}
-    </div>
+    </SparkScroll.div>
     <div className="col-lg-11 col-md-11 col-sm-10 col-xs-9 PUBS__content">
       {items.map((item) => (<PubsItem {...item} year={year} />))}
     </div>
@@ -56,13 +61,15 @@ const PubsYearPanel = ({year, items}) => (
 const PubsSection = ({items}) => (
   <section id="PUBS__section">
     <div className="extra-space-xxl PUBS__trigger"></div>
-    <div className="container">
-      <div className="page-header text-center PUBS__header">
+    <SparkProxy.div className="container" proxyId="PUBS__header">
+      <SparkScroll.div className="page-header text-center PUBS__header"
+        proxy="PUBS__header"
+        timeline={tween.header} >
         <h2>my research</h2>
         <div className="divider"></div>
         <p className="subtitle">what I published</p>
-      </div>
-    </div>
+      </SparkScroll.div>
+    </SparkProxy.div>
 
     <div className="container" id="pub-content">
       {items.map((item) => (<PubsYearPanel {...item} />))}

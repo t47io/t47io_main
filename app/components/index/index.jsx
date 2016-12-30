@@ -17,9 +17,6 @@ const data = require('../../../public/config.json');
 
 // require('script!zepto');
 // require('script!shufflejs');
-// require('script!scrollmagic');
-// require('script!kute.js');
-// require('script!./js/kute-extend.js');
 
 
 class Main extends React.Component {
@@ -33,14 +30,13 @@ class Main extends React.Component {
     this.setState(data);
   }
   componentDidMount() {
-    // require('imports?this=>window!expose?tweens!./js/tweens.js');
     // require('script!./js/scroll.js');
   }
 
   render() {
     return (
     	<div>
-    		<HomeSection />
+    		<HomeSection {...(this.state.home)} />
     		<AboutSection {...(this.state.about)} />
     		<AffiliationSection {...(this.state.affiliation)} />
     		<PortfolioSection {...(this.state.portfolio)} />
