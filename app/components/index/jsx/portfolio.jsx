@@ -30,8 +30,8 @@ const PortfolioItem = ({name, category, description, title, url, index}) => (
 
 const PortfolioSection = ({items, category}) => (
   <section id="PORTFOLIO__section">
-    <div className="row PORTFOLIO__trigger">
-      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div className="PORTFOLIO__trigger">
+      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0px">
         <SparkProxy.div className="container" proxyId="PORTFOLIO__header">
           <SparkScroll.div className="page-header text-center PORTFOLIO__header"
             proxy="PORTFOLIO__header"
