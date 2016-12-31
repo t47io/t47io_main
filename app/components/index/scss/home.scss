@@ -3,6 +3,7 @@
 #HOME__section {
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
 
   .container { height: 100vh; }
   .HOME__content {
@@ -60,9 +61,9 @@
 
   .fa {
     /*color: $clr-gl;*/
-    opacity: 0.5;
+    opacity: 0.4;
     @include transition(0.5s);
   }
-  &:hover .fa { opacity: 1; }
+  &:hover .fa { opacity: 0.8; }
 }
 

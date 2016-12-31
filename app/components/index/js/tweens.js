@@ -57,33 +57,43 @@ const home = {
     end: {transform: 'scale(1)', ...fadeEnd}
   },
   title: (state, title, setState) => {
-    if (!state.isPlayed) {
-      setState({...state, isPlayed: true});
+    return new Promise((resolve, reject) => {
+      if (!state.isPlayed) {
+        setState({...state, isPlayed: true});
 
-      func.delay(1600)
-      .then(() => func.typeWrite(title, state, setState))
-      .then(() => {
-        func.delay(600, () => setState({...state, isBlink: false}));
-        return func.delay(1000);
-      })
-      .then(() => {
-        setState({...state, isShade: false});
+        func.delay(1600)
+        .then(() => func.typeWrite(title, state, setState))
+        .then(() => {
+          func.delay(600, () => setState({...state, isBlink: false}));
+          return func.delay(1000);
+        })
+        .then(() => {
+          setState({...state, isShade: false});
+          resolve();
+        });
+      }
+    });
+  },
+  color: (state, setState) => {
+    const textClassNames = ['white', 'light-green', 'green', 'dark-green', 'green', 'light-green'];
+    let count = 0;
+
+    setInterval(() => {
+      setState({
+        ...state,
+        textColor: textClassNames[count], 
+        arrowColor: (state.arrowColor === 'white') ? 'light-green' : 'white'
       });
-    }
+      count += 1;
+      if (count == 6) { count = 0; }
+    }, 2000)
+  },
+  fade: {
+    bottomBottom: {transform: 'translateY(0px)', ...fadeEnd},
+    bottomCenter: {transform: 'translateY(-100px)', ...fadeHalf}
   }
 };
-//       colorArrow: KUTE.fromTo(".HOME__scroll_down i",
-//         {color: '#fff'},
-//         {color: '#9fc906'},
-//         {repeat: Infinity, duration: 5000}),
-//       fadeTitle: KUTE.fromTo(".HOME__content",
-//         fadeEnd,
-//         fadeHalf,
-//         {...reversable, ...playOneSec}),
-//       fadeScroll: KUTE.fromTo(".HOME__scroll_down",
-//         fadeHalf,
-//         fadeEnd,
-//         {...reversable, ...playOneSec})
+
 const about = {
   header,
   icon: (offset) => ({

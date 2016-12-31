@@ -11,23 +11,6 @@ function img_preload(img_array) {
     }
 }
 
-function addScene(trigger, offset, tweenList, controller) {
-    offset = offset < 1 ? offset * $(trigger).height() : offset;
-    var tweenReverse = KUTE.util.chainTweens(KUTE.util.reverseTweens(tweenList));
-    tweenList = KUTE.util.chainTweens(tweenList);
-
-    new ScrollMagic.Scene({
-        triggerElement: trigger,
-        offset: offset
-    }).on('enter', function() { tweenList.start(); })
-    .on('leave', function() { tweenReverse.start(); })
-    .addTo(controller);
-}
-
-tweens = tweens.default;
-
-var cap_timer = 0, cap_class = ['text-white', 'text-light-green', 'text-green', 'text-dark-green', 'text-green', 'text-light-green'];
-var arrow_timer = 0, arrow_class = ['text-white', 'text-light-green'];
 var bio_timer = 0, bio_bg_imgs = ['/img/background/hover_tower.jpg', '/img/background/yosemite.jpg', '/img/background/lksc_building.jpg', '/img/background/big_sur.jpg', '/img/background/golden_gate.jpg'];
 var stat_timer = 0, stat_bg_imgs = ['/img/background/fish_necklace.jpg', '/img/background/lawn_bench.jpg', '/img/background/cliff_reed.jpg', '/img/background/flower.jpg', '/img/background/tunnel.jpg'];
 var contact_timer = 0, contact_bg_imgs = ['/img/background/campus_map.jpg', '/img/background/muir_trees.jpg', '/img/background/red_papercut.jpg', '/img/background/succulent.jpg', '/img/background/nano_dna.jpg'];
@@ -39,24 +22,6 @@ $("#contact-carousel").parent().css('background-image', "url('" + contact_bg_img
 
 $(window).on('load', function() {
     // $(".page-loader").fadeOut('slow');
-
-    var controller = new ScrollMagic.Controller({
-        globalSceneOptions: {triggerHook: 'onEnter'},
-        // addIndicators: true
-    });
-
-    addScene("#HOME__section", 0, [tweens.home.name, tweens.home.typeWrite1, tweens.home.typeWrite2, tweens.home.brighten], controller);
-    addScene("#ABOUT__section", 125, [tweens.home.fadeTitle, tweens.home.fadeScroll], controller);
-    addScene(".ABOUT__trigger", 125, [tweens.about.header, tweens.about.spinIcon], controller);
-    addScene(".AFFILIATION__trigger", 125, [tweens.affliation.header], controller);
-    // addScene(".PORTFOLIO__trigger", 125, [tweens.portfolio.header, tweens.portfolio.showThumbnail], controller);
-    addScene(".SKILLS__trigger", 125, [tweens.skills.header, tweens.skills.showProgressLeft, tweens.skills.showProgressRight], controller);
-    addScene(".STATS__trigger", 125, [tweens.stats.header, tweens.stats.filpCounter, tweens.stats.countUp.project, tweens.stats.countUp.code, tweens.stats.countUp.publication, tweens.stats.countUp.scholarship], controller);
-    addScene(".STATS__trigger", 875, [tweens.stats.flipGithub], controller);
-    addScene(".PUBS__trigger", 125, [tweens.pubs.header, tweens.pubs.flipEntry, tweens.pubs.flipYear], controller);
-    addScene(".CONTACT__trigger", 250, [tweens.contact.header, tweens.contact.flipIcon, tweens.contact.rotateIcon, tweens.contact.showListLeft, tweens.contact.showFormRight], controller);
-    addScene(".footer", 0, [tweens.footer], controller);
-
 
     $(".STATS__github").load('/git/contrib/', function() {
         $(".STATS__github > svg > g > g:not(#legend) > rect.day").each(function() {
