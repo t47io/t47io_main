@@ -7,15 +7,10 @@ const footer = {
     topBottom: {transform: 'translateY(-100%)', ...fadeStart},
     bottomBottom: {transform: 'translateY(0%)', ...fadeEnd}
   },
-  gifLeft: {
+  gif: {
     ease: 'easeOutQuint',
-    topBottom: {transform: 'translateY(-100%)', ...fadeStart},
-    bottomBottom: {transform: 'translateY(0%)', ...fadeEnd}
-  },
-  gifRight: {
-    ease: 'easeOutQuint',
-    topBottom: {transform: 'translateY(100%)', ...fadeStart},
-    bottomBottom: {transform: 'translateY(0%)', ...fadeEnd}
+    centerBottom: fadeStart,
+    bottomBottom: fadeEnd
   }
 };
 

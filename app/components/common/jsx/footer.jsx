@@ -11,7 +11,7 @@ const Footer = () => (
 		<SparkProxy.div class="footer" proxyId="FOOTER__header">
 		  <SparkScroll.div class="mini-city hidden-sm hidden-xs"
 		  	proxy="FOOTER__header"
-		  	timeline={tween.gifLeft} >
+		  	timeline={tween.gif} >
 		    <a href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge" target="_blank" rel="noopener noreferrer external">
 		      <img src="/img/fg_city_sfo.gif" alt="Minimal City SFO" width="128" height="96" />
 		    </a>
@@ -21,7 +21,7 @@ const Footer = () => (
 		  	timeline={tween.header} >
 		    <div class="copyright text-center">
 		      Copyright <i class="fa fa-fw fa-copyright"></i> <a>2015 - {year}</a>
-		      Designed, built &amp; managed by
+		      &nbsp;Designed, built &amp; managed by&nbsp;
 		      <a href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external">
 		        <div class="sprite" style="height:14px; width:44px;"><i class="logo_alt_w"></i></div>
 		      </a>.
@@ -31,7 +31,7 @@ const Footer = () => (
 		      <a href="https://github.com/t47io/t47io_main/" target="_blank" rel="noopener noreferrer external" class="text-gray">
 		        Code and content <i class="fa fa-fw fa-sm fa-external-link"></i>
 		      </a>
-		      on this site is licensed under
+		      &nbsp;on this site is licensed under&nbsp;
 		      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer external">
 		        <i class="fa fa-fw fa-lg fa-creative-commons"></i> BY-NC-SA 4.0 <i class="fa fa-fw fa-sm fa-external-link"></i>
 		      </a>.
@@ -39,7 +39,7 @@ const Footer = () => (
 		  </SparkScroll.div>
 		  <SparkScroll.div class="mini-city hidden-sm hidden-xs"
 		  	proxy="FOOTER__header"
-		  	timeline={tween.gifRight} >
+		  	timeline={tween.gif} >
 		    <a href="https://dribbble.com/shots/2037387-Seattle-FTW" target="_blank" rel="noopener noreferrer external">
 		      <img src="/img/fg_city_sea.gif" alt="Minimal City SEA" width="128" height="96" />
 		    </a>

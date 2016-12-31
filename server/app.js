@@ -1,8 +1,6 @@
     fs        = require('fs'),
-    moment    = require('moment'),
     nunjucks  = require('nunjucks'),
     sanitizer = require('sanitizer'),
-    sass      = require('node-sass-middleware'),
     striptags = require('striptags');
 
 
@@ -24,14 +22,6 @@ if (DEBUG) {
         'debug':        DEBUG
     }) );
 }
-
-// app.engine('nunj', nunjucks.render);
-// app.set('view engine', 'nunjucks');
-// nunjucks.configure(DEBUG ? 'src/html' : 'dist/html', {
-//     'autoescape': false,
-//     'express':    app
-// });
-
 
 
 app.get('/', function (req, res) {
@@ -92,26 +82,26 @@ app.get('/git', function (req, res, next) {
 });
 
 
-app.get(/^\/bower_components\/(.+)\/?$/, function (req, res, next) {
-    var file = req.params[0];
-    if (fs.existsSync('bower_components/' + file)) {
-        res.sendFile(req.params[0], {'root': path.join(__dirname, 'bower_components')});
-    } else {
-        var err = new Error();
-        err.status = 404;
-        next(err);
-    }
-});
-app.get(/^\/fonts\/(.+)\/?$/, function (req, res, next) {
-    var file = req.params[0];
-    if (fs.existsSync('bower_components/font-awesome/fonts/' + file)) {
-        res.sendFile(req.params[0], {'root': path.join(__dirname, 'bower_components/font-awesome/fonts')});
-    } else {
-        var err = new Error();
-        err.status = 404;
-        next(err);
-    }
-});
+// app.get(/^\/bower_components\/(.+)\/?$/, function (req, res, next) {
+//     var file = req.params[0];
+//     if (fs.existsSync('bower_components/' + file)) {
+//         res.sendFile(req.params[0], {'root': path.join(__dirname, 'bower_components')});
+//     } else {
+//         var err = new Error();
+//         err.status = 404;
+//         next(err);
+//     }
+// });
+// app.get(/^\/fonts\/(.+)\/?$/, function (req, res, next) {
+//     var file = req.params[0];
+//     if (fs.existsSync('bower_components/font-awesome/fonts/' + file)) {
+//         res.sendFile(req.params[0], {'root': path.join(__dirname, 'bower_components/font-awesome/fonts')});
+//     } else {
+//         var err = new Error();
+//         err.status = 404;
+//         next(err);
+//     }
+// });
 
 
 app.route('/send')
