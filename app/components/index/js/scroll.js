@@ -11,14 +11,6 @@ function img_preload(img_array) {
     }
 }
 
-var bio_timer = 0, bio_bg_imgs = ['/img/background/hover_tower.jpg', '/img/background/yosemite.jpg', '/img/background/lksc_building.jpg', '/img/background/big_sur.jpg', '/img/background/golden_gate.jpg'];
-var stat_timer = 0, stat_bg_imgs = ['/img/background/fish_necklace.jpg', '/img/background/lawn_bench.jpg', '/img/background/cliff_reed.jpg', '/img/background/flower.jpg', '/img/background/tunnel.jpg'];
-var contact_timer = 0, contact_bg_imgs = ['/img/background/campus_map.jpg', '/img/background/muir_trees.jpg', '/img/background/red_papercut.jpg', '/img/background/succulent.jpg', '/img/background/nano_dna.jpg'];
-
-$("#stanford-carousel").parent().css('background-image', "url('" + bio_bg_imgs[0] + "')");
-$("#stat-carousel").parent().css('background-image', "url('" + stat_bg_imgs[0] + "')");
-$("#contact-carousel").parent().css('background-image', "url('" + contact_bg_imgs[0] + "')");
-
 
 $(window).on('load', function() {
     // $(".page-loader").fadeOut('slow');
@@ -34,20 +26,6 @@ $(window).on('load', function() {
         $(".STATS__github > svg").css("overflow", "visible");
     });
 
-
-    var iso = new window.shuffle(document.querySelector(".PORTFOLIO__div"), {
-        itemSelector: ".PORTFOLIO__entry",
-        // sizer: ".PORTFOLIO__div",
-        columnThreshold: 0.5,
-        delimeter: ','
-    });
-
-    $(".PORTFOLIO__menu").on('click', 'a', function(event) {
-        event.preventDefault();
-        $(".PORTFOLIO__menu li").removeClass('active');
-        $(this).parent().addClass('active');
-        iso.filter($(this).attr('data-filter'));
-    });
 
     $("#form_email").submit(function(event) {
         event.preventDefault();
@@ -73,20 +51,6 @@ $(window).on('load', function() {
                 }, 5000);
             }
         });
-    });
-
-    // $('.carousel').carousel({'interval': 5000});
-    $("#stanford-carousel").on('slide.bs.carousel', function(event) {
-        bio_timer = $(event.relatedTarget).attr('data-slide-to');
-        $("#stanford-carousel").parent().css('background-image', "url('" + bio_bg_imgs[bio_timer] + "')");
-    });
-    $("#stat-carousel").on('slide.bs.carousel', function(event) {
-        stat_timer = $(event.relatedTarget).attr('data-slide-to');
-        $("#stat-carousel").parent().css('background-image', "url('" + stat_bg_imgs[stat_timer] + "')");
-    });
-    $("#contact-carousel").on('slide.bs.carousel', function(event) {
-        contact_timer = $(event.relatedTarget).attr('data-slide-to');
-        $("#contact-carousel").parent().css('background-image', "url('" + contact_bg_imgs[contact_timer] + "')");
     });
 
 

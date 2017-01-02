@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../../common/jsx/carousel.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import {affiliation as tween} from '../js/tweens.js';
@@ -41,28 +42,12 @@ const AffiliationItem = ({year, title, url, geo, role, rewards, tag}) => (
   </div>
 );
 
-const AffiliationSection = ({items}) => (
+const AffiliationSection = ({items, background}) => (
   <section id="AFFILIATION__section" className="text-center">
     <div className="extra-space-l AFFILIATION__trigger"></div>
-    <div className="stanford text-white parallax bg_rotate_fade">
-      <div id="stanford-carousel" className="carousel carousel-fade slide" data-ride="carousel">
-        <ol className="carousel-indicators">
-          <li data-target="#stanford-carousel" data-slide-to="0" className="active"></li>
-          <li data-target="#stanford-carousel" data-slide-to="1"></li>
-          <li data-target="#stanford-carousel" data-slide-to="2"></li>
-          <li data-target="#stanford-carousel" data-slide-to="3"></li>
-          <li data-target="#stanford-carousel" data-slide-to="4"></li>
-        </ol>
-        <div className="carousel-inner" role="listbox">
-          <div className="item active" data-slide-to="0"></div>
-          <div className="item" data-slide-to="1"></div>
-          <div className="item" data-slide-to="2"></div>
-          <div className="item" data-slide-to="3"></div>
-          <div className="item" data-slide-to="4"></div>
-        </div>
-      </div>
-      <div className="cover"></div>
 
+    <Carousel extraClassName="stanford text-white"
+      items={background} interval={4000} >
       <SparkProxy.div className="container" proxyId="AFFILIATION__header">
         <SparkScroll.div className="page-header text-center AFFILIATION__header"
           proxy="AFFILIATION__header"
@@ -84,7 +69,7 @@ const AffiliationSection = ({items}) => (
         </div>
       </div>
       <div className="extra-space-l"></div>
-    </div>
+    </Carousel>
   </section>
 );
 

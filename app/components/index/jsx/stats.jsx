@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../../common/jsx/carousel.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import {stats as tween} from '../js/tweens.js';
@@ -32,29 +33,12 @@ class StatsItem extends React.Component {
   }
 }
 
-const StatsSection = ({items, git}) => (
+const StatsSection = ({items, background, git}) => (
   <section id="STATS__section">
     <div className="extra-space-xxl STATS__trigger"></div>
 
-    <div className="STATS__area text-white parallax bg_rotate_fade">
-      <div id="stat-carousel" className="carousel carousel-fade slide" data-ride="carousel">
-        <ol className="carousel-indicators">
-          <li data-target="#stat-carousel" data-slide-to="0" className="active"></li>
-          <li data-target="#stat-carousel" data-slide-to="1"></li>
-          <li data-target="#stat-carousel" data-slide-to="2"></li>
-          <li data-target="#stat-carousel" data-slide-to="3"></li>
-          <li data-target="#stat-carousel" data-slide-to="4"></li>
-        </ol>
-        <div className="carousel-inner" role="listbox">
-          <div className="item active" data-slide-to="0"></div>
-          <div className="item" data-slide-to="1"></div>
-          <div className="item" data-slide-to="2"></div>
-          <div className="item" data-slide-to="3"></div>
-          <div className="item" data-slide-to="4"></div>
-        </div>
-      </div>
-      
-      <div className="cover"></div>
+    <Carousel extraClassName="STATS__area text-white"
+      items={background} interval={4000} >
       <SparkProxy.div className="container" proxyId="STATS__header">
         <SparkScroll.div className="page-header text-center STATS__header"
           proxy="STATS__header"
@@ -72,7 +56,7 @@ const StatsSection = ({items, git}) => (
         </SparkProxy.div>
       </div>
       <div className="extra-space-l"></div>
-    </div>
+    </Carousel>
 
     <div className="extra-space-xl"></div>
     <h3 className="text-center">

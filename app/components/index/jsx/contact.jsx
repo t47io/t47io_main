@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../../common/jsx/carousel.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import {contact as tween} from '../js/tweens.js';
@@ -16,31 +17,14 @@ const ContactItem = ({icon, url}) => (
   </li>
 );
 
-const ContactSection = ({items, resume}) => {
+const ContactSection = ({items, background, resume}) => {
   const date = resume.slice(7, -4);
   const objDate = new Date(`${date.slice(4, 6)}/01/1900`);
   
   return (
     <section id="CONTACT__section" class="text-white">
-      <div class="stanford parallax bg_rotate_fade">
-        <div id="contact-carousel" class="carousel carousel-fade slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#contact-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#contact-carousel" data-slide-to="1"></li>
-            <li data-target="#contact-carousel" data-slide-to="2"></li>
-            <li data-target="#contact-carousel" data-slide-to="3"></li>
-            <li data-target="#contact-carousel" data-slide-to="4"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox">
-            <div class="item active" data-slide-to="0"></div>
-            <div class="item" data-slide-to="1"></div>
-            <div class="item" data-slide-to="2"></div>
-            <div class="item" data-slide-to="3"></div>
-            <div class="item" data-slide-to="4"></div>
-          </div>
-        </div>
-
-        <div class="cover"></div>
+      <Carousel extraClassName="stanford"
+        items={background} interval={4000} >
         <SparkProxy.div class="container" proxyId="CONTACT__header">
           <SparkScroll.div class="page-header text-center CONTACT__header"
             proxy="CONTACT__header"
@@ -116,7 +100,7 @@ const ContactSection = ({items, resume}) => {
           </div>
         </div>
 
-      </div>
+      </Carousel>
     </section>
   );
 }
