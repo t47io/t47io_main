@@ -39,7 +39,7 @@ class HomeSection extends React.Component {
             <p className="text-white" style="margin-top: -10px;">&nbsp;</p>
             <p className={`text-${this.state.textColor}`} style="line-height: 25px; height: 50px;">
               <span dangerouslySetInnerHTML={{__html: this.state.title}} ></span>
-              <b class={`HOME__cursor ${this.state.isBlink ? "blink" : ""}`} >{(this.state.isShade & this.state.isName) ? "|" : ""}</b>
+              <b class={`HOME__cursor ${this.state.isBlink ? "blink" : ""}`} >{(this.state.isShade && this.state.isName) ? "|" : ""}</b>
             </p>
           </SparkScroll.div>
           <SparkScroll.div className="HOME__scroll_down"

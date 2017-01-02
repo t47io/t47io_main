@@ -45,7 +45,8 @@ const server = app.listen(PORT, () => {
   console.log('t47io Main Site listening on port: ' + PORT + ' ...');
 });
 
-app.get('/', function(req, res) {
+
+app.get('/', (req, res) => {
 	if (DEBUG) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, '../public/index.html')));
     res.end();
@@ -53,9 +54,6 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 	}
 });
-
-
-
 
 // cleanup
 // process.on('SIGINT', () => { server.close(); process.exit(2); });
