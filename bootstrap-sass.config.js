@@ -6,7 +6,6 @@ module.exports = {
 
   debug: false, 
   extractStyles: true,
-  useFlexbox: true,
 
   scripts: false,
   // scripts: {
@@ -25,47 +24,44 @@ module.exports = {
   // },
   styles: {
     "mixins": true,
-
     "normalize": true,
-    "print": false,
-    "glyphicons": false,
+    "utilities": true,
+    "responsive-utilities": true,
 
-    "scaffolding": true,
-    "type": true,
-    "code": true,
-    "grid": true,
-    "tables": false,
-    "forms": true,
     "buttons": true,
-
-    "component-animations": true,
+    "carousel": true,
+    "code": true,
     "dropdowns": true,
-    "button-groups": false,
+    "forms": true,
+    "grid": true,
     "input-groups": true,
+    "jumbotron": true,
+    "labels": true,
     "navs": true,
     "navbar": true,
-    "breadcrumbs": false,
-    "pagination": false,
-    "pager": false,
-    "labels": true,
-    "badges": false,
-    "jumbotron": true,
+    "scaffolding": true,
     "thumbnails": true,
+    "type": true,
+
     "alerts": false,
-    "progress-bars": true,
-    "media": false,
+    "badges": false,
+    "breadcrumbs": false,
+    "button-groups": false,
+    "close": false,
+    "component-animations": false,
+    "glyphicons": false,
     "list-group": false,
-    "panels": false,
-    "wells": false,
-    "responsive-embed": false,
-    "close": true,
-
+    "media": false,
     "modals": false,
-    "tooltip": false,
+    "pager": false,
+    "pagination": false,
+    "panels": false,
     "popovers": false,
-    "carousel": true,
-
-    "utilities": true,
-    "responsive-utilities": true
+    "print": false,
+    "progress-bars": false,
+    "responsive-embed": false,
+    "tables": false,
+    "tooltip": false,
+    "wells": false
   }
 };

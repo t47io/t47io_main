@@ -25,5 +25,12 @@
 			"value": 4
 		}
 	],
+	"background": [
+		"fish_necklace",
+		"lawn_bench",
+		"cliff_reed",
+		"flower",
+		"tunnel"
+	],
 	"git": ""
 }

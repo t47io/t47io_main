@@ -71,7 +71,11 @@
 			"tag": "CAU"
 		}
 	],
-	"carousel": [
-
+	"background": [
+		"hoover_tower",
+		"yosemite",
+		"lksc_building",
+		"big_sur",
+		"golden_gate"
 	]
 }

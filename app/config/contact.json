@@ -21,5 +21,12 @@
 			"url": "https://twitter.com/t47io/"
 		}
 	],
+	"background": [
+		"campus_map",
+		"muir_trees",
+		"red_papercut",
+		"succulent",
+		"nano_dna"
+	],
 	"resume": ""
 }
