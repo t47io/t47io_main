@@ -7,6 +7,7 @@ import BabiliPlugin from 'babili-webpack-plugin';
 import purify from 'purifycss-webpack-plugin';
 
 const DEBUG = !((process.argv.indexOf('--production') > 0) || (process.argv.indexOf('-p') > 0) || (process.env.npm_lifecycle_event === 'build'));
+console.log(`DEBUG mode ? ${DEBUG}`);
 
 
 let plugin = [

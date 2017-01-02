@@ -66,6 +66,7 @@
     "body-parser": ">=1.14.2",
     "express": ">=4.13.4",
     "font-awesome": "^4.7.0",
+    "fs-extra": "^1.0.0",
     "glob-promise": "^3.1.0",
     "helmet": ">=1.1.0",
     "nodemailer": ">=2.0.0",
