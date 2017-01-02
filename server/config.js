@@ -36,7 +36,7 @@ const rootPath = path.join(__dirname, '../public');
   stats.git = path.basename(gitFiles[gitFiles.length - 1]);
 
   const config = {home, about, affiliation, portfolio, skills, stats, pubs, contact};
-  fs.writeFile(path.join(rootPath, 'config.json'), JSON.stringify(config, null, 2));
+  fs.writeFileSync(path.join(rootPath, 'config.json'), JSON.stringify(config, null, 2));
 }
 
 export {DEBUG, PORT, GA_ID, EMAIL_RECV, SMTP};

@@ -7,12 +7,15 @@ import {DEBUG, PORT, GA_ID, EMAIL_RECV, SMTP} from './config.js';
 
 import body_p from 'body-parser';
 import express from 'express';
+import fs from 'fs-extra';
+import glob from 'glob-promise';
 import helmet from 'helmet';
 import path from 'path';
 
 
 const app = express();
-app.use(express.static(path.join(__dirname, '../public')));
+const publicPath = path.join(__dirname, '../public');
+app.use(express.static(publicPath));
 app.use( helmet() );
 app.use( body_p.urlencoded({'extended': true}) );
 app.disable('x-powered-by');
@@ -39,6 +42,12 @@ if (DEBUG) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
+
+  // remove public/ files for DEBUG
+  fs.removeSync(path.join(publicPath, 'index.html'));
+  glob.sync(path.join(publicPath, 'main-*[.min]?.*')).forEach((path) => fs.removeSync(path));
+  glob.sync(path.join(publicPath, '*.woff*')).forEach((path) => fs.removeSync(path));
+  fs.removeSync(path.join(publicPath, 'node_modules'));
 }
 
 const server = app.listen(PORT, () => {
@@ -48,10 +57,10 @@ const server = app.listen(PORT, () => {
 
 app.get('/', (req, res) => {
 	if (DEBUG) {
-    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, '../public/index.html')));
+    res.write(middleware.fileSystem.readFileSync(path.join(publicPath, 'index.html')));
     res.end();
 	} else {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.sendFile(path.join(publicPath, 'index.html'));
 	}
 });
 
