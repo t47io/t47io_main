@@ -3,7 +3,6 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import CompressionPlugin from 'compression-webpack-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
 import purify from 'purifycss-webpack-plugin';
 
