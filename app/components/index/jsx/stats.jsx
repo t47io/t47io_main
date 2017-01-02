@@ -33,7 +33,7 @@ class StatsItem extends React.Component {
   }
 }
 
-const StatsSection = ({items, background, git}) => (
+const StatsSection = ({items, background, links, git, svg}) => (
   <section id="STATS__section">
     <div className="extra-space-xxl STATS__trigger"></div>
 
@@ -61,10 +61,11 @@ const StatsSection = ({items, background, git}) => (
     <div className="extra-space-xl"></div>
     <h3 className="text-center">
       <i className="fa fa-fw fa-github"></i> Contributions
-      <a href="{{links.github}}" target="_blank" rel="noopener noreferrer external"><i className="fa fa-fw fa-sm fa-external-link"></i></a>
+      <a href={links.github} target="_blank" rel="noopener noreferrer external">&nbsp;<i className="fa fa-fw fa-sm fa-external-link"></i></a>
     </h3>
     <SparkScroll.div className="text-center STATS__github"
-      timeline={tween.git} ></SparkScroll.div>
+      timeline={tween.git}
+      dangerouslySetInnerHTML={{__html: svg}} ></SparkScroll.div>
   </section>
 );
 

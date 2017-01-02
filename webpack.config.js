@@ -116,6 +116,10 @@ const config = {
         test: /\.(png|jpg|gif)$/,
         loader: "file?emitFile=false&name=[path][name].[ext]"
       },
+      // {
+      //   test: /git_contrib_([0-9]){8}\.svg$/,
+      //   loader: "url"
+      // },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: "url?limit=10000"
@@ -126,12 +130,9 @@ const config = {
       },
       {
         test: /\.json$/,
-        loader: "json"
+        loader: "json",
+        // include: [`${__dirname}/public/config.json`]
       }
-      // {
-      //   test: /bootstrap-sass\/assets\/javascripts\//,
-      //   loader: 'imports?jQuery=jquery'
-      // },
     ]
   },
   plugins: plugin,

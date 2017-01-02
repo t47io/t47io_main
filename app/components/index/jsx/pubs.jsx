@@ -7,7 +7,7 @@ import {pubs as tween} from '../js/tweens.js';
 const PubsItem = ({year, author, title, journal, issue, page, url, code, citation, tag, is_preprint, is_hidden}) => {
   if (is_hidden) { return; }
   const urlExt = is_preprint ? "javascript:void(0)" : url;
-  const urlPDF = is_preprint ? "javascript:void(0)" : `/pdf/${tag}`;
+  const urlPDF = is_preprint ? "javascript:void(0)" : `/pdf/${tag}.pdf`;
   const urlClass = is_preprint ? "text-light-gray" : "text-dark-green bg-light-green";
 
   const issuePage = is_preprint ? (<span>, <span className="text-gray">{issue}</span>.</span>) : (<span><b>{issue}</b>: {page}.</span>);
@@ -29,9 +29,9 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
         <p><b style="font-size:16px;" dangerouslySetInnerHTML={{__html: `"${title}"`}}></b></p>
         <p style="padding-top:5px;">
           <i className="text-green">{journal}</i>
-          {issuePage}
-          <a href="urlExt" target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-word-o"></i></a>
-          <a href="urlPDF" target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-pdf-o"></i></a>
+          &nbsp;{issuePage}
+          <a href={urlExt} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-word-o"></i></a>
+          <a href={urlPDF} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-pdf-o"></i></a>
           {codeLink}
           <span className="pull-right text-gray bg-light-gray" style="padding: 0 5px">
             <i className="fa fa-fw fa-balance-scale"></i>
@@ -58,7 +58,7 @@ const PubsYearPanel = ({year, items}) => (
   </div>
 );
 
-const PubsSection = ({items}) => (
+const PubsSection = ({items, links}) => (
   <section id="PUBS__section">
     <div className="extra-space-xxl PUBS__trigger"></div>
     <SparkProxy.div className="container" proxyId="PUBS__header">
@@ -83,7 +83,7 @@ const PubsSection = ({items}) => (
               <i className="fa fa-fw fa-square fa-stack-2x text-light-green"></i>
               <i className="fa fa-fw fa-search fa-stack-1x text-white"></i>
             </span>
-            Find more on <a href="{{links.google_scholar}}" target="_blank" rel="noopener noreferrer external">Google Scholar <i className="fa fa-fw fa-sm fa-external-link"></i></a> and <a href="{{links.pubmed}}" target="_blank" rel="noopener noreferrer external">PubMed <i className="fa fa-fw fa-sm fa-external-link"></i></a>.
+            Find more on <a href={links.google_scholar} target="_blank" rel="noopener noreferrer external">Google Scholar <i className="fa fa-fw fa-sm fa-external-link"></i></a> and <a href={links.pubmed} target="_blank" rel="noopener noreferrer external">PubMed <i className="fa fa-fw fa-sm fa-external-link"></i></a>.
           </h4>
         </div>
         <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2"></div>

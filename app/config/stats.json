@@ -32,5 +32,8 @@
 		"flower",
 		"tunnel"
 	],
+	"links": {
+		"github": "https://github.com/t47io"
+	},
 	"git": ""
 }

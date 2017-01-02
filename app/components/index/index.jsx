@@ -14,6 +14,8 @@ import Footer from '../common/jsx/footer.jsx';
 
 require('./index.scss');
 const data = require('../../../public/config.json');
+const svg = require(`../../../public/data/${data.stats.git}`);
+
 
 // require('script!zepto');
 // require('script!shufflejs');
@@ -41,7 +43,7 @@ class Main extends React.Component {
     		<AffiliationSection {...(this.state.affiliation)} />
     		<PortfolioSection {...(this.state.portfolio)} />
     		<SkillsSection {...(this.state.skills)} />
-    		<StatsSection {...(this.state.stats)} />
+    		<StatsSection {...(this.state.stats)} svg={svg} />
     		<PubsSection {...(this.state.pubs)} />
     		<ContactSection {...(this.state.contact)} />
 
