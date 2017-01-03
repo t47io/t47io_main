@@ -1,5 +1,5 @@
 import React from 'react';
-// import Shuffle from 'react-shuffle';
+import SectionHeader from '../../common/jsx/header.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import {portfolio as tween} from '../js/tweens.js';
@@ -53,15 +53,7 @@ class PortfolioSection extends React.Component {
       <section id="PORTFOLIO__section">
         <div className="PORTFOLIO__trigger">
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0px">
-            <SparkProxy.div className="container" proxyId="PORTFOLIO__header">
-              <SparkScroll.div className="UTIL__section_header text-center PORTFOLIO__header"
-                proxy="PORTFOLIO__header"
-                timeline={tween.header} >
-                <h2>My Works</h2>
-                <div className="UTIL__divider"></div>
-                <p className="UTIL__section_subtitle">what I am proud of</p>
-              </SparkScroll.div>
-            </SparkProxy.div>
+            <SectionHeader title="my works" subtitle="what I am proud of" proxyId="PORTFOLIO__header" tween={tween.header} />
 
             <p className="text-gray text-center">
               <span className="fa-stack">

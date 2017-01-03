@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionHeader from '../../common/jsx/header.jsx';
 import Carousel from '../../common/jsx/carousel.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
@@ -39,15 +40,7 @@ const StatsSection = ({items, background, links, git, svg}) => (
 
     <Carousel extraClassName="STATS__area text-white"
       items={background} interval={4000} >
-      <SparkProxy.div className="container" proxyId="STATS__header">
-        <SparkScroll.div className="UTIL__section_header text-center STATS__header"
-          proxy="STATS__header"
-          timeline={tween.header} >
-          <h2>My Stats</h2>
-          <div className="UTIL__divider"></div>
-          <p className="UTIL__section_subtitle">what I achieved</p>
-        </SparkScroll.div>
-      </SparkProxy.div>
+      <SectionHeader title="my stats" subtitle="what I achieved" proxyId="STATS__header" tween={tween.header} />
       <div className="UTIL__spacer-lg"></div>
 
       <div className="container">

@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionHeader from '../../common/jsx/header.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import {pubs as tween} from '../js/tweens.js';
@@ -61,15 +62,7 @@ const PubsYearPanel = ({year, items}) => (
 const PubsSection = ({items, links}) => (
   <section id="PUBS__section">
     <div className="UTIL__spacer-hg PUBS__trigger"></div>
-    <SparkProxy.div className="container" proxyId="PUBS__header">
-      <SparkScroll.div className="UTIL__section_header text-center PUBS__header"
-        proxy="PUBS__header"
-        timeline={tween.header} >
-        <h2>my research</h2>
-        <div className="UTIL__divider"></div>
-        <p className="UTIL__section_subtitle">what I published</p>
-      </SparkScroll.div>
-    </SparkProxy.div>
+    <SectionHeader title="my research" subtitle="what I published" proxyId="PUBS__header" tween={tween.header} />
 
     <div className="container">
       {items.map((item) => (<PubsYearPanel {...item} />))}

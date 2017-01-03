@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionHeader from '../../common/jsx/header.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import {about as tween} from '../js/tweens.js';
@@ -23,15 +24,7 @@ const AboutItem = ({title, icon, description, index}) => (
 const AboutSection = ({items}) => (
   <section id="ABOUT__section" className="text-center">
     <div className="UTIL__spacer-lg ABOUT__trigger"></div>
-    <SparkProxy.div className="container" proxyId="ABOUT__header">
-      <SparkScroll.div className="UTIL__section_header text-center ABOUT__header"
-        proxy="ABOUT__header"
-        timeline={tween.header} >
-        <h2>What I do</h2>
-        <div className="UTIL__divider"></div>
-        <p className="UTIL__section_subtitle">what I enjoy &amp; good at</p>
-      </SparkScroll.div>
-    </SparkProxy.div>
+    <SectionHeader title="what i do" subtitle="what I enjoy & good at" proxyId="ABOUT__header" tween={tween.header} />
 
     <div className="ABOUT__content">
       <div className="container">

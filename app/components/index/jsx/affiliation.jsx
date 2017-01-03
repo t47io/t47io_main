@@ -1,5 +1,6 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
+import SectionHeader from '../../common/jsx/header.jsx';
 import Carousel from '../../common/jsx/carousel.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
@@ -68,15 +69,7 @@ class AffiliationSection extends React.Component {
 
         <Carousel extraClassName="long text-white"
           items={background} interval={4000} >
-          <SparkProxy.div className="container" proxyId="AFFILIATION__header">
-            <SparkScroll.div className="UTIL__section_header text-center AFFILIATION__header"
-              proxy="AFFILIATION__header"
-              timeline={tween.header} >
-              <h2>who i am</h2>
-              <div className="UTIL__divider"></div>
-              <p className="UTIL__section_subtitle">where I have been</p>
-            </SparkScroll.div>
-          </SparkProxy.div>
+          <SectionHeader title="who i am" subtitle="where I have been" proxyId="AFFILIATION__header" tween={tween.header} />
 
           <div className="UTIL__spacer-lg"></div>
           <div className="row">
