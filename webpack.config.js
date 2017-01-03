@@ -106,7 +106,7 @@ const config = {
       {
         test: /\.js(x)?$/,
         loader: "babel",
-        exclude: /node_modules/
+        include: /app/
       },
       {
         test: /\.scss$/,
@@ -131,6 +131,7 @@ const config = {
       {
         test: /\.json$/,
         loader: "json",
+        exclude: /public\/data/
         // include: [`${__dirname}/public/config.json`]
       }
     ]

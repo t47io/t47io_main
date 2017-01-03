@@ -12,6 +12,7 @@ import ContactSection from './jsx/contact.jsx';
 
 import Navbar from '../common/jsx/navbar.jsx';
 import Footer from '../common/jsx/footer.jsx';
+import ScrollTop from '../common/jsx/scrolltop.jsx';
 
 
 require('./index.scss');
@@ -97,10 +98,7 @@ class Main extends React.Component {
 
         <Waypoint onPositionChange={this.onScrollFooter.bind(this)} />
         <Footer />
-        <a href="#HOME__section" className="scrollTop"
-          style={{opacity: this.state.scroll.top || this.state.scroll.bottom ? 0 : 1, visibility: this.state.scroll.top || this.state.scroll.bottom ? "hidden" : "visible"}} >
-          <i className="fa fa-arrow-up fa-fw fa-lg"></i>
-        </a>
+        <ScrollTop {...(this.state.scroll)} />
   		</div>
   	);
   }

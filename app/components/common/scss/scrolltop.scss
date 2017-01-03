@@ -1,0 +1,27 @@
+.scrollTop {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  bottom: 20px;
+  right: 30px;
+  width: 34px;
+  height: 34px;
+  color: $clr-gl;
+  border: 2px solid $clr-gl;
+  line-height: 34px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 9999;
+  @include transform(rotate(45deg));
+  @include transition(0.5s);
+
+  .fa {
+    padding-left: 4px;
+    @include transition(0.5s);
+    @include transform(rotate(-45deg));
+
+    transform: rotate(-45deg) translate(0px, -1px);
+  }
+  &:hover { background-color: $clr-gl; }
+  &:hover .fa { color: $clr-w; }
+}
