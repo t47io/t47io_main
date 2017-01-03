@@ -16,8 +16,8 @@ import Footer from '../common/jsx/footer.jsx';
 
 require('./index.scss');
 const data = require('../../../public/config.json');
-const svg = require(`../../../public/data/${data.stats.git}`);
-
+// const svg = require(`../../../public/data/${data.stats.git}`);
+const svg = '';
 
 // require('script!zepto');
 // require('script!shufflejs');

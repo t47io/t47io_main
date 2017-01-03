@@ -15,6 +15,7 @@
 @import '../sprites_index';
 @import '../sprites_logo';
 
+@import '../mobile';
 @import '../font.css';
 @import '../wenk.min.css';
 
@@ -208,15 +209,31 @@ p {	font-size: 14px/1.5em; }
 	font-weight: 600;
 }
 @media only screen and (max-width : 767px) {
-	.navbar-collapse {
-			background-color: $clr-gl;
-			border-color: $clr-w !important;
-		}
+	.navbar-collapse.collapse {
+		background-color: $clr-gl;
+		border-color: $clr-w;
+
+		float: right;
+		text-align: right;
+		padding-right: 40px;
+	}
 	.navbar-default.navbar-shrink .navbar-nav li.active a {
 		@include box_shadow(none !important);
 	}
 	.navbar-nav {
-		li a:hover, li > a:focus, > li.active > a { color: $clr-gdd; }
+		li { 
+			a:hover, a:focus { background-color: $clr-gdd; }
+			&.active {
+				a { color: $clr-gdd; }
+				a:hover, a:focus { color: $clr-w; }
+			}
+		}
+	}
+
+	.collapse {
+		display: none;
+
+		&.in { display: block; }
 	}
 }
 
