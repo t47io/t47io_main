@@ -25,7 +25,8 @@
 					"title": "Graduate Teaching Assistant"
 				}
 			],
-			"tag": "Stanford"
+			"tag": "Stanford",
+			"offset": "50px"
 		},
 		{
 			"year": 2015,
@@ -38,7 +39,8 @@
 				"team": "IPG Product Intelligence"
 			},
 			"rewards": [],
-			"tag": "Autodesk"
+			"tag": "Autodesk",
+			"offset": "-200px"
 		},
 		{
 			"year": 2011,
@@ -68,7 +70,8 @@
 					"title": "\"Xizhi\" Education Foundation Scholarship"
 				}
 			],
-			"tag": "CAU"
+			"tag": "CAU",
+			"offset": "-300px"
 		}
 	],
 	"background": [

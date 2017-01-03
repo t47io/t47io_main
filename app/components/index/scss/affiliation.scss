@@ -116,7 +116,11 @@
   line-height: 150%;
 }
 
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : 991px) {
   .AFFILIATION__story { padding: 50px 50px 50px 100px; }
   .AFFILIATION__timeline { left: 100px; }
+  .AFFILIATION__text {
+    text-align: center;
+    p { margin-bottom: 0px; }
+  }
 }

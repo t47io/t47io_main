@@ -70,23 +70,6 @@ $(window).on('load', function() {
 
 
 $(window).on('scroll', function() {
-    if ($(window).scrollTop() >= $(window).height() / 2 + $("#main-navbar").height()) {
-        if ($(window).scrollTop() >= $("footer").offset().top - $(window).height()) {
-            // $(".scrollTop").fadeOut();
-            $(".scrollTop").hide();
-        } else {
-            // $('.scrollTop').fadeIn();
-            $(".scrollTop").show();
-        }
-        $('.navbar-fixed-top').addClass('navbar-shrink navbar-default').removeClass('navbar-transparent');
-        $('a.navbar-brand > i').addClass('logo_o').removeClass('logo_g');
-    } else {
-        $(".scrollTop").hide();
-        // $('.scrollTop').fadeOut();
-        $('.navbar-fixed-top').removeClass('navbar-shrink navbar-default').addClass('navbar-transparent');
-        $('a.navbar-brand > i').removeClass('logo_o').addClass('logo_g');
-    }
-
     // clearTimeout($.data(this, 'scrollTimer'));
     // $.data(this, 'scrollTimer', setTimeout(function() {
     //     var h = ($(window).scrollTop() - $("#stanford-carousel").offset().top) / $("#stanford-carousel").height() + 0.4;
