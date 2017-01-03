@@ -5,7 +5,9 @@
   position: relative;
   width: 100%;
   background-color: $clr-g;
-
+}
+@media only screen and (max-width : 767px) {
+  #CONTACT__section { text-align: center; }
 }
 
 
@@ -73,6 +75,18 @@ h4.CONTACT__title {
     }
   }
 }
+@media only screen and (max-width : 767px) {
+  .CONTACT__box {
+    text-align: center;
+    margin-top: 0;
+
+    .CONTACT__icon {
+      float: none ;
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  }
+}
 
 
 ul.CONTACT__social {
@@ -132,16 +146,5 @@ ul.CONTACT__address {
     &:hover { color: $clr-w; }
   }
   .input-lg { font-size: 14px; }
-}
-.form-control {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: $clr-w;
-  border-color: #2A2A2A;
-
-  &:focus {
-    background-color: rgba(0, 0, 0, 0.75);
-    border-color: $clr-gl;
-    @include box_shadow(none);
-  }
 }
 

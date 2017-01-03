@@ -33,7 +33,12 @@
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
   .UTIL__parallax { background-attachment: scroll; }
 }
-
+@media only screen and (max-width : 992px) {
+  .UTIL__parallax {
+    background-attachment: scroll !important;
+    background-position: 50% 50% !important;
+  }
+}
 
 .UTIL__spacer-md, .UTIL__spacer-lg, .UTIL__spacer-xl, .UTIL__spacer-hg { width: 100%; }
 .UTIL__spacer-md { height: 20px; }

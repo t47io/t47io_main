@@ -19,7 +19,6 @@
 @import '../sprites_index';
 @import '../sprites_logo';
 
-@import '../mobile';
 @import '../font.css';
 @import '../wenk.min.css';
 
@@ -64,113 +63,8 @@ h5 { font-size: 18px; }
 p {	font-size: 14px/1.5em; }
 
 
-.navbar-fixed-top {
-	&.navbar-shrink {
-		.container {
-			padding-top: 0 !important;
-			padding-bottom: 0 !important;
-		}		
-		.navbar-brand {
-			color: $clr-kl;
-
-			&:hover { color: $clr-gdd; }
-			&:focus { color: $clr-kl; }
-		}
-
-		&.navbar-default {
-			.navbar-nav li a { color: $clr-gll; }
-			.navbar-brand {
-				color: $clr-w;
-
-				&:hover { color: $clr-gdd; }
-			}
-		}
-
-		&.navbar-inverse {
-			background-color: #111;
-
-			.navbar-nav {
-				li a {
-					color: $clr-kl;
-
-					&:hover, &:focus {
-						background-color: transparent;
-						color: $clr-gdd;
-					}
-				}
-				.active a, .active a:hover, .active a:focus, li.active a {
-					background-color: transparent;
-					color: $clr-gdd;
-				}
-			}
-		}
-	}
-}
-.navbar-transparent {
-	background-color: transparent;
-
-	.navbar-nav li a {
-		color: $clr-w;
-		text-transform: uppercase;
-	}
-	.navbar-nav li:hover a {
-		background-color: transparent;
-		color: $clr-gl;
-	}
-	.navbar-brand {
-		color: $clr-g;
-		opacity: 0.5;
-
-		&:focus { color: $clr-gl; }
-	}
-
-	&.navbar-fixed-top .container {
-		padding-top: 30px;
-		padding-bottom: 0;
-	}
-	&.navbar-fixed-bottom .container {
-		padding-top: 0;
-		padding-bottom: 30px;
-	}
-}
-.navbar-nav li a {
-	padding: 24px 0;
-	margin-left: 25px;
-	font-size: 13px;
-	font-weight: 600;
-}
-@media only screen and (max-width : 767px) {
-	.navbar-collapse.collapse {
-		background-color: $clr-gl;
-		border-color: $clr-w;
-
-		float: right;
-		text-align: right;
-		padding-right: 40px;
-	}
-	.navbar-default.navbar-shrink .navbar-nav li.active a {
-		@include box_shadow(none !important);
-	}
-	.navbar-nav {
-		li { 
-			a:hover, a:focus { background-color: $clr-gdd; }
-			&.active {
-				a { color: $clr-gdd; }
-				a:hover, a:focus { color: $clr-w; }
-			}
-		}
-	}
-
-	.collapse {
-		display: none;
-
-		&.in { display: block; }
-	}
-}
-
-
-.tooltip-inner {
-    background-color: #363940;
-    color: $clr-wo;
-    opacity: 0.9;
-}
+// .tooltip-inner {
+//     background-color: #363940;
+//     color: $clr-wo;
+//     opacity: 0.9;
+// }

@@ -28,8 +28,46 @@ body { padding: 50px 15px 0px 15px; }
     background-color: transparent;
   }
 }
+@media only screen and (min-width : 768px) {
+  /* Make Navigation Toggle on Desktop Hover (use class: dropdown-hover) */
+  .dropdown-hover:hover > .dropdown-menu {
+    display: block;
+  }
+}
 
 
+  .dropdown-menu {
+    padding: 10px 0;
+    border: 1px solid $clr-gl;
+    border-top: 2px solid $clr-gl;
+    @include box_shadow(0 6px 10px rgba(0, 0, 0, 0.08));
+
+    > li > a {
+      padding: 8px 20px;
+      color: $clr-gdd;
+      text-align: right;
+      margin-left: 0px;
+      border-radius: 0px;
+
+      &:hover, &:focus {
+        background-color: $clr-gll !important; 
+        font-weight: bold;
+      }       
+    }
+    > li.active > a,
+    > li.active > a:hover,
+    > li.active > a:focus {
+      color: $clr-w !important;
+      background-color: $clr-gl !important; 
+      font-weight: bold;
+    }
+@media only screen and (max-width : 767px) {
+  .navbar-nav {
+    .open .dropdown-menu > li > a { padding: 10px 10px 10px 45px !important; }
+  }
+}
+
+    
 .thumbnail {
   padding: 10px;
   margin-bottom: 20px;

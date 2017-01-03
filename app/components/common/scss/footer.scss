@@ -26,6 +26,7 @@
 }
 .FOOTER__header { padding-top: 30px; }
 @media only screen and (max-width : 767px) {
-  .footer { height:auto; }
+  footer { text-align: center; }
+  .footer { height: auto; }
   .FOOTER__header { padding-bottom: 30px; }
 }
