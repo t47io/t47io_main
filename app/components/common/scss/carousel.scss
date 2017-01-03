@@ -1,0 +1,35 @@
+.COMMON__carousel {
+  float: left;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+
+  &.fade .COMMON__carousel_item {
+    overflow: hidden;
+    @include transition(0.5s);
+
+    img { max-width: none; }
+  }
+
+  .COMMON__carousel_indicators {
+    li {
+      margin: 0px 7px;
+      border: 3px solid $clr-kl;
+      width: 14px;
+      height: 14px;
+      opacity: 0.5;
+      @include transition(0.2s);
+      @include transform(rotate(45deg));
+
+      &.active {
+        border: 3px solid $clr-gl;
+        background-color: transparent;
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+.COMMON__carousel_parent { margin-bottom: 25px; }

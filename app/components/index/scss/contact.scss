@@ -1,4 +1,13 @@
 @import '../../common/scss/util';
+@import './form';
+
+#CONTACT__section {
+  position: relative;
+  width: 100%;
+  background-color: $clr-g;
+
+}
+
 
 h4.CONTACT__title {
   font-weight: 900;

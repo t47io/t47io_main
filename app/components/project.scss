@@ -11,7 +11,32 @@ body { padding: 50px 15px 0px 15px; }
 }
 
 
-.thumbnail { padding: 10px; }
+.dropdown-menu {
+  li a {
+    padding: 4px 20px;
+    text-transform: uppercase;
+
+    &:hover, &:focus {
+      color: $clr-gdd; 
+      text-decoration: none;
+      background-color: transparent;
+    }
+  }
+  .active a, .active a:hover, .active a:focus {
+    color: $clr-gdd; 
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
+
+.thumbnail {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: $clr-w;
+  border: 1px solid #ddd;
+  @include transition(0.2s);
+}
 
 .ul_desp.lead > li { padding-top: 10px; }
 .place_holder {

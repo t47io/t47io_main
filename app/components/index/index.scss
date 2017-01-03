@@ -1,9 +1,12 @@
 @import '../common/scss/util';
+@import '../common/scss/type';
+
 @import '../common/scss/navbar';
 @import '../common/scss/footer';
 @import '../common/scss/scrolltop';
-@import '../common/scss/type';
+@import '../common/scss/carousel';
 
+@import './scss/util';
 @import './scss/home';
 @import './scss/about';
 @import './scss/affiliation';
@@ -33,17 +36,6 @@ body {
 	.body { height: 100%; }
 	.boxed { color: $clr-kl; }
 }
-.cover {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0px;
-	top: 0px;
-	background-color: rgba(0, 7, 11, 0.15);
-	padding: 20px;
-}
-.page {
-}
 
 * {
 	@include border_radius(0 !important);
@@ -53,50 +45,6 @@ body {
 		@include box_shadow(none !important);
 	}
 }
-
-.divider {
-	width: 100%;
-	height: 52px;
-	background: url('/img/fg_divider.gif') no-repeat center center;
-	margin: -10px 0px -5px 0px;
-}
-.thumbnail {
-	padding: 15px;
-	margin-bottom: 20px;
-	background-color: $clr-w;
-	border: 1px solid #ddd;
-	@include transition(0.2s);
-}
-.form-control {
-	@include box_shadow(none);
-}
-
-#home {
-  float: left;
-  display: block;
-  position: relative;
-  margin: 0px;
-  padding: 0px;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.parallax {
-	position: relative;
-	background-position: 50% 30%;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	-webkit-background-size: cover;
-  background-size: cover;
-}
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
-	.parallax { background-attachment: scroll; }
-}
-.bg_rotate_fade {
-	@include transition(0.5s);
-}
-
 
 section {
 	position: relative;
@@ -115,24 +63,6 @@ h4 { font-size: 22px; }
 h5 { font-size: 18px; }
 p {	font-size: 14px/1.5em; }
 
-
-.dropdown-menu {
-	li a {
-		padding: 4px 20px;
-		text-transform: uppercase;
-
-		&:hover, &:focus {
-			color: $clr-gdd; 
-			text-decoration: none;
-			background-color: transparent;
-		}
-	}
-	.active a, .active a:hover, .active a:focus {
-		color: $clr-gdd; 
-		text-decoration: none;
-		background-color: transparent;
-	}
-}
 
 .navbar-fixed-top {
 	&.navbar-shrink {
@@ -237,129 +167,6 @@ p {	font-size: 14px/1.5em; }
 		&.in { display: block; }
 	}
 }
-
-
-
-
-.stanford {
-	position: relative;
-	overflow: hidden;
-	padding: 80px 0px;
-}
-.stanford .cover, 
-.counter-up .cover, 
-#contact-section .cover { background-color: rgba(0, 7, 11, 0.5); }
-
-
-
-#social-section { padding: 80px 0; }
-
-#contact-section {
-	position: relative;
-	width: 100%;
-	background-color: $clr-g;
-
-}
-
-
-.page-header {
-	margin: 0 0 60px 0;
-	padding: 0;
-	border: none;
-
-	h2 { text-transform: uppercase; }
-}
-p.subtitle {
-	letter-spacing: 2px;
-	margin-top: 10px;
-}
-
-.carousel {
-	float: left;
-	position: absolute;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	overflow:hidden;
-}
-.carousel-indicators {
-	li {
-		margin: 0px 7px;
-		border: 3px solid $clr-kl;
-		width: 14px;
-		height: 14px;
-		opacity: 0.5;
-		@include transition(0.2s);
-		@include transform(rotate(45deg));
-
-		&.active {
-			border: 3px solid $clr-gl;
-			background-color: transparent;
-			opacity: 0.75;
-		}
-	}
-}
-.carousel-fade .carousel-inner .item img { max-width: none; }
-
-.extra-space-m, .extra-space-l, .extra-space-xl, .extra-space-xxl { width: 100%; }
-.extra-space-m { height: 20px; }
-.extra-space-l { height: 40px; }
-.extra-space-xl { height: 60px; }
-.extra-space-xxl { height: 80px; }
-
-
-.btn {
-	position: relative;
-	letter-spacing: 1.5px;
-	border: none;
-
-	&:active {
-		top: 2px;
-		@include box_shadow(inset 0 3px 5px rgba(0, 0, 0, 0.16));
-	}
-}
-.btn-default {
-	&:hover, &:disabled:hover {
-		color: $clr-w;
-		background: $clr-gl;
-	}	
-	&, &:disabled, &.disabled, &:focus, &.focus, &:active, &.active {
-		background: $clr-g;
-		color: $clr-w;
-		@include transition(0.6s);
-	}
-}
-.btn-primary {
-	&:hover, &:disabled:hover {
-		color: $clr-w;
-		background: #1867a8;
-	}	
-	&, &:disabled, &.disabled, &:focus, &.focus, &:active, &.active {
-		background: #3078b3;
-		color: $clr-w;
-		@include transition(0.6s);
-	}
-}
-.btn-danger {
-	&:hover, &:disabled:hover {
-		color: $clr-w;
-		background: #d81508;
-	}	
-	&, &:disabled, &.disabled, &:focus, &.focus, &:active, &.active {
-		background: #e7392d;
-		color: $clr-w;
-		@include transition(0.6s);
-	}
-}
-.btn-lg {
-	font-size: 1.3em;
-	padding: 10px 40px;
-}
-.btn-lg-xl {
-	font-size: 1.4em;
-	padding: 10px 80px;
-}
-
 
 
 .tooltip-inner {

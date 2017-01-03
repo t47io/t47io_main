@@ -54,40 +54,11 @@ $(window).on('load', function() {
     });
 
 
-    $('.page-scroll, .scrollTop').on('click', function(event) {
-        $('html, body').stop().animate({'scrollTop': $($(this).attr('href')).offset().top - 64}, 1000, 'easeInOutExpo');
-        event.preventDefault();
-    });
-    // $('body').scrollspy({
-    //     'target': '#main-navbar',
-    //     'offset': 65
-    // });
-
     img_preload(bio_bg_imgs);
     img_preload(stat_bg_imgs);
     img_preload(contact_bg_imgs);
 });
 
-
-$(window).on('scroll', function() {
-    // clearTimeout($.data(this, 'scrollTimer'));
-    // $.data(this, 'scrollTimer', setTimeout(function() {
-    //     var h = ($(window).scrollTop() - $("#stanford-carousel").offset().top) / $("#stanford-carousel").height() + 0.4;
-    //     if (h <= 0.45) {
-    //         $("#story_2016 > .AFFILIATION__content").addClass('active').parent().css("z-index", 15);
-    //         $("#story_2015 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
-    //         $("#story_2011 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
-    //     } else if (h > 0.45 & h <= 0.7) {
-    //         $("#story_2015 > .AFFILIATION__content").addClass('active').parent().css("z-index", 15);
-    //         $("#story_2016 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
-    //         $("#story_2011 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
-    //     } else {
-    //         $("#story_2011 > .AFFILIATION__content").addClass('active').parent().css("z-index", 15);
-    //         $("#story_2016 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
-    //         $("#story_2015 > .AFFILIATION__content").removeClass('active').parent().css("z-index", 10);
-    //     }
-    // }, 100));
-});
 
 
 $(document).on('click', '.navbar-collapse.in', function(event) {
