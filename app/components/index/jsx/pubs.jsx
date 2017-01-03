@@ -60,21 +60,21 @@ const PubsYearPanel = ({year, items}) => (
 
 const PubsSection = ({items, links}) => (
   <section id="PUBS__section">
-    <div className="extra-space-xxl PUBS__trigger"></div>
+    <div className="UTIL__spacer-hg PUBS__trigger"></div>
     <SparkProxy.div className="container" proxyId="PUBS__header">
-      <SparkScroll.div className="page-header text-center PUBS__header"
+      <SparkScroll.div className="UTIL__section_header text-center PUBS__header"
         proxy="PUBS__header"
         timeline={tween.header} >
         <h2>my research</h2>
-        <div className="divider"></div>
-        <p className="subtitle">what I published</p>
+        <div className="UTIL__divider"></div>
+        <p className="UTIL__section_subtitle">what I published</p>
       </SparkScroll.div>
     </SparkProxy.div>
 
-    <div className="container" id="pub-content">
+    <div className="container">
       {items.map((item) => (<PubsYearPanel {...item} />))}
 
-      <div className="extra-space-l"></div>
+      <div className="UTIL__spacer-lg"></div>
       <div className="row">
         <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2"></div>
         <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
@@ -89,7 +89,7 @@ const PubsSection = ({items, links}) => (
         <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2"></div>
       </div>
     </div>
-    <div className="extra-space-xl CONTACT__trigger"></div>
+    <div className="UTIL__spacer-xl CONTACT__trigger"></div>
   </section>
 );
 

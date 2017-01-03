@@ -25,14 +25,14 @@ const SkillsPanel = ({title, icon, tag, items, index}) => (
 
 const SkillsSection = ({items}) => (
   <section id="SKILLS__section">
-    <div className="extra-space-xxl SKILLS__trigger"></div>
+    <div className="UTIL__spacer-hg SKILLS__trigger"></div>
     <SparkProxy.div className="container" proxyId="SKLLLS__header">
-      <SparkScroll.div className="page-header text-center SKLLLS__header"
+      <SparkScroll.div className="UTIL__section_header text-center SKLLLS__header"
         proxy="SKLLLS__header"
         timeline={tween.header} >
         <h2>my skills</h2>
-        <div className="divider"></div>
-        <p className="subtitle">what I learned</p>
+        <div className="UTIL__divider"></div>
+        <p className="UTIL__section_subtitle">what I learned</p>
       </SparkScroll.div>
     </SparkProxy.div>
 

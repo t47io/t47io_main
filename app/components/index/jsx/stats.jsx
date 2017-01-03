@@ -23,9 +23,9 @@ class StatsItem extends React.Component {
           }}
           timeline={tween.counter(index*10)} >
           <i className={`fa fa-${icon} fa-3x fa-fw`}></i>
-          <div className="extra-space-m"></div>
+          <div className="UTIL__spacer-md"></div>
           <span id={`STATS__counter_${id}`} className="STATS__num">{this.state.value}</span>
-          <div className="extra-space-m"></div>
+          <div className="UTIL__spacer-md"></div>
           <p className={`lead STATS__text ${done}`}><b>{title}</b></p>
         </SparkScroll.div>
       </div>
@@ -35,30 +35,30 @@ class StatsItem extends React.Component {
 
 const StatsSection = ({items, background, links, git, svg}) => (
   <section id="STATS__section">
-    <div className="extra-space-xxl STATS__trigger"></div>
+    <div className="UTIL__spacer-hg STATS__trigger"></div>
 
     <Carousel extraClassName="STATS__area text-white"
       items={background} interval={4000} >
       <SparkProxy.div className="container" proxyId="STATS__header">
-        <SparkScroll.div className="page-header text-center STATS__header"
+        <SparkScroll.div className="UTIL__section_header text-center STATS__header"
           proxy="STATS__header"
           timeline={tween.header} >
           <h2>My Stats</h2>
-          <div className="divider"></div>
-          <p className="subtitle">what I achieved</p>
+          <div className="UTIL__divider"></div>
+          <p className="UTIL__section_subtitle">what I achieved</p>
         </SparkScroll.div>
       </SparkProxy.div>
-      <div className="extra-space-l"></div>
+      <div className="UTIL__spacer-lg"></div>
 
       <div className="container">
         <SparkProxy.div className="row" proxyId="STATS__proxy">
           {items.map((item, i) => (<StatsItem {...item} index={i} />))}
         </SparkProxy.div>
       </div>
-      <div className="extra-space-l"></div>
+      <div className="UTIL__spacer-lg"></div>
     </Carousel>
 
-    <div className="extra-space-xl"></div>
+    <div className="UTIL__spacer-xl"></div>
     <h3 className="text-center">
       <i className="fa fa-fw fa-github"></i> Contributions
       <a href={links.github} target="_blank" rel="noopener noreferrer external">&nbsp;<i className="fa fa-fw fa-sm fa-external-link"></i></a>

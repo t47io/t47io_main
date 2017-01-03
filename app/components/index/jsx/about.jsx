@@ -22,14 +22,14 @@ const AboutItem = ({title, icon, description, index}) => (
 
 const AboutSection = ({items}) => (
   <section id="ABOUT__section" className="text-center">
-    <div className="extra-space-l ABOUT__trigger"></div>
+    <div className="UTIL__spacer-lg ABOUT__trigger"></div>
     <SparkProxy.div className="container" proxyId="ABOUT__header">
-      <SparkScroll.div className="page-header text-center ABOUT__header"
+      <SparkScroll.div className="UTIL__section_header text-center ABOUT__header"
         proxy="ABOUT__header"
         timeline={tween.header} >
         <h2>What I do</h2>
-        <div className="divider"></div>
-        <p className="subtitle">what I enjoy &amp; good at</p>
+        <div className="UTIL__divider"></div>
+        <p className="UTIL__section_subtitle">what I enjoy &amp; good at</p>
       </SparkScroll.div>
     </SparkProxy.div>
 

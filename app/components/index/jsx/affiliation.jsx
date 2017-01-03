@@ -64,21 +64,21 @@ class AffiliationSection extends React.Component {
     const {items, background} = this.props, {scroll} = this.state;
     return (
       <section id="AFFILIATION__section" className="text-center">
-        <div className="extra-space-l AFFILIATION__trigger"></div>
+        <div className="UTIL__spacer-lg AFFILIATION__trigger"></div>
 
-        <Carousel extraClassName="stanford text-white"
+        <Carousel extraClassName="long text-white"
           items={background} interval={4000} >
           <SparkProxy.div className="container" proxyId="AFFILIATION__header">
-            <SparkScroll.div className="page-header text-center AFFILIATION__header"
+            <SparkScroll.div className="UTIL__section_header text-center AFFILIATION__header"
               proxy="AFFILIATION__header"
               timeline={tween.header} >
               <h2>who i am</h2>
-              <div className="divider"></div>
-              <p className="subtitle">where I have been</p>
+              <div className="UTIL__divider"></div>
+              <p className="UTIL__section_subtitle">where I have been</p>
             </SparkScroll.div>
           </SparkProxy.div>
 
-          <div className="extra-space-l"></div>
+          <div className="UTIL__spacer-lg"></div>
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <div className="AFFILIATION__story">
@@ -88,7 +88,7 @@ class AffiliationSection extends React.Component {
               </div>  
             </div>
           </div>
-          <div className="extra-space-l"></div>
+          <div className="UTIL__spacer-lg"></div>
         </Carousel>
       </section>
     );

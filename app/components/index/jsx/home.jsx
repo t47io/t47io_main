@@ -29,8 +29,8 @@ class HomeSection extends React.Component {
 
   render() {
     return (
-      <section id="HOME__section" className="parallax" style="background-image:url('/img/t47/t47_avatar.jpg')">
-        <div className="cover HOME__shade" style={{backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.75 : 0.25})`}}></div>
+      <section id="HOME__section" className="UTIL__parallax" style="background-image:url('/img/t47/t47_avatar.jpg')">
+        <div className="UTIL__cover HOME__shade" style={{backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.75 : 0.25})`}}></div>
         <div className="container">
           <SparkScroll.div className="HOME__content text-white"
             proxy="ABOUT__header"
