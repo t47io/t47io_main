@@ -56,9 +56,14 @@ const StatsSection = ({items, background, links, git, svg}) => (
       <i className="fa fa-fw fa-github"></i> Contributions
       <a href={links.github} target="_blank" rel="noopener noreferrer external">&nbsp;<i className="fa fa-fw fa-sm fa-external-link"></i></a>
     </h3>
+    <div className="UTIL__spacer-md"></div>
     <SparkScroll.div className="text-center STATS__github"
       timeline={tween.git}
-      dangerouslySetInnerHTML={{__html: svg}} ></SparkScroll.div>
+      dangerouslySetInnerHTML={{__html: svg}} >
+      <svg style="display:none;">
+        <text className="month wday legend day day_0 day_1 day_2 day_3 day_4"></text>
+      </svg>
+    </SparkScroll.div>
   </section>
 );
 

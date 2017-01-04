@@ -61,7 +61,7 @@ const PubsYearPanel = ({year, items}) => (
 
 const PubsSection = ({items, links}) => (
   <section id="PUBS__section">
-    <div className="UTIL__spacer-hg PUBS__trigger"></div>
+    <div className="UTIL__spacer-md PUBS__trigger"></div>
     <SectionHeader title="my research" subtitle="what I published" proxyId="PUBS__header" tween={tween.header} />
 
     <div className="container">

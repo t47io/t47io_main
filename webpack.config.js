@@ -130,7 +130,7 @@ const config = {
       },
       {
         test: /\.svg$/i,
-        loader: "svg-inline"
+        loader: "svg-inline?-removeSVGTagAttrs"
       },
       {
         test: /\.json$/i,

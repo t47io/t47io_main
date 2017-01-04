@@ -23,7 +23,6 @@ $(window).on('load', function() {
                 'title': $(this).attr('data-count') + ' contribution(s) on ' + $(this).attr('data-date')
             });
         });
-        $(".STATS__github > svg").css("overflow", "visible");
     });
 
 
