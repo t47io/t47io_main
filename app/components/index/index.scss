@@ -1,4 +1,5 @@
 @import '../common/scss/util';
+@import '../common/scss/font';
 @import '../common/scss/type';
 @import '../common/scss/logo';
 
@@ -19,40 +20,39 @@
 @import './scss/pubs';
 @import './scss/contact';
 
-@import '../font.css';
-@import '../wenk.min.css';
+@import '../../vendor/wenk';
 
 
 html { height: 100% !important; }
 body {
-	position: relative;
-	height: 100%;
-	line-height: 1;
-	font-size: 14px;
-	color: #363940;
-	-webkit-text-size-adjust: 100%;
+  position: relative;
+  height: 100%;
+  line-height: 1;
+  font-size: 14px;
+  color: #363940;
+  -webkit-text-size-adjust: 100%;
 
-	.body { height: 100%; }
-	.boxed { color: $clr-kl; }
+  .body { height: 100%; }
+  .boxed { color: $clr-kl; }
 }
 
 * {
-	@include border_radius(0 !important);
+  @include border_radius(0 !important);
 
-	&:focus { 
-		outline: none !important;
-		@include box_shadow(none !important);
-	}
+  &:focus { 
+    outline: none !important;
+    @include box_shadow(none !important);
+  }
 }
 
 section {
-	position: relative;
+  position: relative;
 
-	&:not(:last-of-type):not(:first-of-type) {
-	  overflow: hidden;
-	  background-color: $clr-w;
-	  padding: 50px 0;
-	}
+  &:not(:last-of-type):not(:first-of-type) {
+    overflow: hidden;
+    background-color: $clr-w;
+    padding: 50px 0;
+  }
 }
 small { font-size: 12px; }
 h1 { font-size: 36px; }
@@ -60,7 +60,7 @@ h2 { font-size: 30px; }
 h3 { font-size: 26px; }
 h4 { font-size: 22px; }
 h5 { font-size: 18px; }
-p {	font-size: 14px/1.5em; }
+p { font-size: 14px/1.5em; }
 
 
 // .tooltip-inner {

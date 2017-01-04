@@ -26,7 +26,10 @@ let plugin = [
       'app/**/*.json',
       'public/index.html'
     ],
-    purifyOptions: {minify: !DEBUG}
+    purifyOptions: {
+      minify: !DEBUG,
+      info: true
+    }
   }),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.DedupePlugin()
@@ -114,19 +117,35 @@ const config = {
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
-        loader: "url?limit=12800&name=[name]-[hash:8].[ext]"
+        loader: "url",
+        query: {
+          limit: 25600,
+          mimetype: "application/font-woff",
+          name: "[name]-[hash:8].[ext]"
+        }
       },
       {
         test: /fontawesome-webfont\.(ttf|eot|svg)(\?[\s\S]+)?$/i,
-        loader: "file?name=[name]-[hash:8].[ext]"
+        loader: "file",
+        query: {
+          name: "[name]-[hash:8].[ext]"
+        }
       },
       {
         test: /\.(png|jpg|gif)$/i,
-        loader: "url?limit=25600&name=[name]-[hash:8].[ext]"
+        loader: "url",
+        query: {
+          limit: 25600,
+          name: "[name]-[hash:8].[ext]"
+        }
       },
       {
         test: /\.svg$/i,
-        loader: "svg-inline?-removeSVGTagAttrs"
+        loader: "svg-inline",
+        query: {
+          removeSVGTagAttrs: false,
+          mimetype: "image/svg+xml"
+        }
       },
       {
         test: /\.json$/i,
