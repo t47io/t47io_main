@@ -48,7 +48,8 @@ const ContactSection = ({items, background, resume}) => {
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stanford, CA 94305, USA
                 </SparkScroll.li>
                 <SparkScroll.li timeline={tween.listLeft} >
-                  <i class="fa fa-phone fa-lg fa-fw"></i><img src="/img/t47/t47_phone.gif" alt="T47 phone no." style="height:1.1em; vertical-align:text-top;" />
+                  <i class="fa fa-phone fa-lg fa-fw"></i>
+                  <img src={require('../img/contact_phone.gif')} alt="T47 phone no." style="height:1.1em; vertical-align:text-top;" />
                 </SparkScroll.li>
                 <SparkScroll.li timeline={tween.listLeft} >
                   <i class="fa fa-envelope fa-lg fa-fw"></i>

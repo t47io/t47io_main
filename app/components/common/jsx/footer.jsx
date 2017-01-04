@@ -13,7 +13,8 @@ const Footer = () => (
         proxy="FOOTER__header"
         timeline={tween.gif} >
         <a href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge" target="_blank" rel="noopener noreferrer external">
-          <img src="/img/fg_city_sfo.gif" alt="Minimal City SFO" width="128" height="96" />
+          <img alt="Minimal City SFO" width="128" height="96"
+            src={require('../img/fg_city_sfo.gif')} />
         </a>
       </SparkScroll.div>
       <SparkScroll.div class="container text-center FOOTER__header"
@@ -41,7 +42,8 @@ const Footer = () => (
         proxy="FOOTER__header"
         timeline={tween.gif} >
         <a href="https://dribbble.com/shots/2037387-Seattle-FTW" target="_blank" rel="noopener noreferrer external">
-          <img src="/img/fg_city_sea.gif" alt="Minimal City SEA" width="128" height="96" />
+          <img alt="Minimal City SEA" width="128" height="96"
+            src={require('../img/fg_city_sea.gif')} />
         </a>
       </SparkScroll.div>
     </SparkProxy.div>

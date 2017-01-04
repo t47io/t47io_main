@@ -17,11 +17,7 @@ import ScrollTop from '../common/jsx/scrolltop.jsx';
 
 require('./index.scss');
 const data = require('../../../public/config.json');
-// const svg = require(`../../../public/data/${data.stats.git}`);
-const svg = '';
-
-// require('script!zepto');
-// require('script!shufflejs');
+const svg = require('../../../public/data/git_contrib.svg');
 
 
 class Main extends React.Component {
@@ -43,7 +39,6 @@ class Main extends React.Component {
     });
   }
   componentDidMount() {
-    // require('script!./js/scroll.js');
   }
 
   onEnterSection(section) {
