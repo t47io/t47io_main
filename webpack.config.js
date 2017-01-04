@@ -104,32 +104,36 @@ const config = {
     // ],
     loaders: [
       {
-        test: /\.js(x)?$/,
+        test: /\.js(x)?$/i,
         loader: "babel",
         include: /app/
       },
       {
-        test: /\.scss$/,
+        test: /\.scss$/i,
         loader: ExtractTextPlugin.extract('css!sass')
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        loader: "file?emitFile=false&name=[path][name].[ext]"
       },
       // {
       //   test: /git_contrib_([0-9]){8}\.svg$/,
       //   loader: "url"
       // },
       {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "url?limit=10000"
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
+        loader: "url?limit=128000"
       },
       {
-        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        test: /fontawesome-webfont\.(ttf|eot|svg)(\?[\s\S]+)?$/i,
         loader: "file?name=[path][name].[ext]"
       },
       {
-        test: /\.json$/,
+        test: /\.(png|jpg|gif)$/i,
+        loader: "url?limit=256000"
+      },
+      {
+        test: /\.svg$/i,
+        loader: "url?limit=128000"
+      },
+      {
+        test: /\.json$/i,
         loader: "json",
         exclude: /public\/data/
         // include: [`${__dirname}/public/config.json`]
