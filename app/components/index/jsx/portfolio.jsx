@@ -19,7 +19,9 @@ const PortfolioItem = ({name, category, description, title, url, index}) => (
       proxy={`PORTFOLIO__proxy_${index}`}
       data-category={category}
       timeline={tween.thumbnail} >
-      <div className="sprite"><div className={`thumb_${name}`} ></div></div>
+      <div className="SPRITE">
+        <div className={`SPRITE__portfolio-${name}`} ></div>
+      </div>
       <div className="PORTFOLIO__text">
         <a href={url ? url : `/project/${name}`} target="_blank" rel="noopener">{title} <i className="fa fa-fw fa-md fa-external-link"></i></a>
         <span dangerouslySetInnerHTML={{__html: description}} ></span>

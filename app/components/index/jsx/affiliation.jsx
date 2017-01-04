@@ -22,7 +22,9 @@ const AffiliationItem = ({year, title, url, geo, role, rewards, tag, offset, scr
       <div className="AFFILIATION__panel row">
         <div className="AFFILIATION__title col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <a href={url} target="_blank" rel="noopener noreferrer external">
-            <div className="sprite" style="width:100%;max-width:224px;"><div className={`aff_${tag}`}></div></div>
+            <div className="SPRITE">
+              <div className={`SPRITE__affiliation-${tag}`}></div>
+            </div>
           </a>
           <br/>
           <a href={url} target="_blank" rel="noopener noreferrer external">{title} <i className="fa fa-fw fa-sm fa-external-link"></i></a>
@@ -65,10 +67,9 @@ class AffiliationSection extends React.Component {
     const {items, background} = this.props, {scroll} = this.state;
     return (
       <section id="AFFILIATION__section" className="text-center">
-        <div className="UTIL__spacer-lg AFFILIATION__trigger"></div>
-
-        <Carousel extraClassName="long text-white"
+        <Carousel extraClassName="text-white"
           items={background} interval={4000} >
+          <div className="UTIL__spacer-lg AFFILIATION__trigger"></div>
           <SectionHeader title="who i am" subtitle="where I have been" proxyId="AFFILIATION__header" tween={tween.header} />
 
           <div className="UTIL__spacer-lg"></div>

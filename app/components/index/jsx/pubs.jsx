@@ -21,7 +21,9 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
           <a href={urlExt} target="_blank" rel="noopener noreferrer external">
-            <div className="sprite publication_sprite" data-wenk-pos="right" data-wenk={tag}><div className={`pub_${tag}`}></div></div>
+            <div className="SPRITE" data-wenk-pos="right" data-wenk={tag}>
+              <div className={`SPRITE__pubs-${tag}`}></div>
+            </div>
           </a>
         </div>
       </div>
