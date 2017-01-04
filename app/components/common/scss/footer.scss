@@ -1,7 +1,7 @@
 @import './util';
 
 
-.footer { 
+.FOOTER { 
   background-color: #2d3035; 
   height: 96px;
   width: 100%;
@@ -10,7 +10,8 @@
 
   a { text-decoration: none; }
   > div { display: table-cell; }
-  div.mini-city {
+
+  .FOOTTER__city_gif {
     height: 96px;
     width: 128px !important;
     padding: 0px;
@@ -19,14 +20,25 @@
       text-align: right;
     }
     a img {
-      @extend div.mini-city;
+      @extend .FOOTTER__city_gif;
       vertical-align: text-bottom;
     }
   }
 }
+
 .FOOTER__header { padding-top: 30px; }
 @media only screen and (max-width : 767px) {
   footer { text-align: center; }
   .footer { height: auto; }
   .FOOTER__header { padding-bottom: 30px; }
+}
+
+.COMMON__footer_logo {
+  svg {
+    height: 14px;
+    width: 44px;
+  }
+
+  .T47__logo_alt path { fill: $clr-g; }
+  .T47__logo_alt-fill path { fill: transparent; }
 }

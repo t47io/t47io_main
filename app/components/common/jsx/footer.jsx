@@ -8,8 +8,8 @@ const year = (new Date()).getFullYear();
 
 const Footer = () => (
   <footer class="text-off-white">
-    <SparkProxy.div class="footer" proxyId="FOOTER__header">
-      <SparkScroll.div class="mini-city hidden-sm hidden-xs"
+    <SparkProxy.div class="FOOTER" proxyId="FOOTER__header">
+      <SparkScroll.div class="FOOTTER__city_gif hidden-sm hidden-xs"
         proxy="FOOTER__header"
         timeline={tween.gif} >
         <a href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge" target="_blank" rel="noopener noreferrer external">
@@ -23,9 +23,8 @@ const Footer = () => (
         <div class="copyright text-center">
           Copyright <i class="fa fa-fw fa-copyright"></i> <a>2015 - {year}</a>
           &nbsp;Designed, built &amp; managed by&nbsp;
-          <a href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external">
-            <div class="sprite" style="height:14px; width:44px;"><i class="logo_alt_w"></i></div>
-          </a>.
+          <a href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" className="COMMON__footer_logo"
+            dangerouslySetInnerHTML={{__html: require('../img/t47_logo_alt.svg')}} ></a>.
           All rights reserverd.
         </div>
         <p class="copyright" style="padding-top:10px;">
@@ -38,7 +37,7 @@ const Footer = () => (
           </a>.
         </p>
       </SparkScroll.div>
-      <SparkScroll.div class="mini-city hidden-sm hidden-xs"
+      <SparkScroll.div class="FOOTTER__city_gif hidden-sm hidden-xs"
         proxy="FOOTER__header"
         timeline={tween.gif} >
         <a href="https://dribbble.com/shots/2037387-Seattle-FTW" target="_blank" rel="noopener noreferrer external">

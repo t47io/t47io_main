@@ -130,7 +130,7 @@ const config = {
       },
       {
         test: /\.svg$/i,
-        loader: "url?limit=128000"
+        loader: "svg-inline"
       },
       {
         test: /\.json$/i,

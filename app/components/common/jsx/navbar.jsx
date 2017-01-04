@@ -33,9 +33,8 @@ class Navbar extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="COMMON__navbar_logo" href="/">
-            	<i className={`${top ? "logo_g" : "logo_o"}`} ></i>
-            </a>
+            <a href="/" className={`COMMON__navbar_logo ${top ? "green" : "white"}`}
+              dangerouslySetInnerHTML={{__html: require('../img/t47_logo.svg')}} ></a>
           </div>
 
           <div className={`COMMON__navbar-collapse navbar-collapse ${toggle ? "display" : ""}`} >
