@@ -1,4 +1,4 @@
-.sprite { display: inline-block; }
+.SPRITE { display: inline-block; }
 
 @function list_prefix($list, $prefix) {
   $result: ();
@@ -15,6 +15,7 @@
   }
   @return $result;
 }
+
 
 @mixin img_sprites($img, $w, $h, $cls_names) {
   $cls_names: list_prefix($cls_names, '.');
@@ -38,6 +39,34 @@
   @for $i from 1 through length($cls_after) {
     #{nth($cls_after, $i)} {
       background-position: 0 percentage(($i - 1) / (length($cls_after) - 1));
+    }
+  }
+}
+
+@mixin img_sprites_bg($img, $w, $h, $cls_names) {
+  $cls_names: list_prefix($cls_names, '.');
+  $cls_after: list_suffix($cls_names, '::after');
+
+  #{$cls_names} {
+    width: 100%; 
+    height: 0; 
+    max-width: $w;
+    max-height: $h;
+    max-width: 100%;
+    background-size: 100% auto; 
+    background-image: url($img);
+    padding-bottom: percentage($h / $w);
+  }
+
+  @for $i from 1 through length($cls_after) {
+    #{nth($cls_names, $i)} {
+      background-position: 0 percentage(($i - 1) / (length($cls_after) - 1));
+    }
+
+    @media only screen and (max-width : 992px) {
+      #{nth($cls_names, $i)} {
+        background-position: 50% percentage(($i - 1) / (length($cls_after) - 1));
+      }
     }
   }
 }

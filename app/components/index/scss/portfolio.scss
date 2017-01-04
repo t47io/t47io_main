@@ -65,7 +65,7 @@
   /*margin-bottom:30px;*/
   overflow: hidden;
 
-  div.sprite {
+  div.SPRITE {
     border: 1px solid $clr-kl;
     margin-left: -1px;
     margin-top: -1px;
@@ -93,7 +93,7 @@
   }
 
   &:hover {
-    div.sprite {
+    div.SPRITE {
       @include transform(scale(1.5));
     }
     div.PORTFOLIO__text {

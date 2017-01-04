@@ -85,6 +85,11 @@
     font-size: 0.6em;
     color: $clr-k;
   }
+
+  div.SPRITE {
+    width: 100%;
+    max-width: 224px;
+  }
 }
 .AFFILIATION__year {
   font-size: 2em;

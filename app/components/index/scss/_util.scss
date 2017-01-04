@@ -4,7 +4,7 @@
   height: 100%;
   left: 0px;
   top: 0px;
-  background-color: rgba(0, 7, 11, 0.15);
+  background-color: rgba(0, 7, 11, 0.5);
   padding: 20px;
 }
 .UTIL__divider {
@@ -16,27 +16,28 @@
 
 .UTIL__parallax {
   position: relative;
-  background-position: 50% 30%;
+  
   background-repeat: no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
   background-size: cover;
 
+  &:not(.bg) { background-position: 50% 30%; }
   &.fade { @include transition(0.5s); }
-  &.long {
-    overflow: hidden;
-    padding: 80px 0px;
-
-    .UTIL__cover { background-color: rgba(0, 7, 11, 0.5); }
-  }
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
   .UTIL__parallax { background-attachment: scroll; }
 }
 @media only screen and (max-width : 992px) {
   .UTIL__parallax {
-    background-attachment: scroll !important;
-    background-position: 50% 50% !important;
+    background-attachment: scroll;
+    
+    &:not(.bg) { background-position: 50% 50%; }
+    &.bg {
+      background-size: initial;
+      padding-bottom: 80px;
+      height: 100%;
+    }
   }
 }
 
