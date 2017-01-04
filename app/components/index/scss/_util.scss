@@ -22,6 +22,10 @@
   -webkit-background-size: cover;
   background-size: cover;
 
+  &.bg {
+    padding-bottom: 80px;
+    height: 100%;
+  }
   &:not(.bg) { background-position: 50% 30%; }
   &.fade { @include transition(0.5s); }
 }
@@ -33,11 +37,7 @@
     background-attachment: scroll;
     
     &:not(.bg) { background-position: 50% 50%; }
-    &.bg {
-      background-size: initial;
-      padding-bottom: 80px;
-      height: 100%;
-    }
+    &.bg { background-size: initial; }
   }
 }
 
