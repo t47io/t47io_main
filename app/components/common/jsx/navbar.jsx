@@ -1,5 +1,6 @@
 import React from 'react';
 import smoothScroll from 'smoothscroll';
+import {Logo} from './logo.jsx';
 
 
 const scrollTo = (target) => smoothScroll(document.getElementById(target), 2000);
@@ -33,8 +34,7 @@ class Navbar extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a href="/" className={`COMMON__navbar_logo ${top ? "green" : "white"}`}
-              dangerouslySetInnerHTML={{__html: require('../img/t47_logo.svg')}} ></a>
+            <Logo href="/" className={`COMMON__navbar_logo ${top ? "green" : "white"}`} />
           </div>
 
           <div className={`COMMON__navbar-collapse navbar-collapse ${toggle ? "display" : ""}`} >

@@ -1,4 +1,5 @@
 import React from 'react';
+import {LogoAlt} from './logo.jsx';
 import {SparkScroll, SparkProxy} from '../js/factory.js';
 
 import {footer as tween} from '../js/tweens.js';
@@ -23,9 +24,8 @@ const Footer = () => (
         <div class="copyright text-center">
           Copyright <i class="fa fa-fw fa-copyright"></i> <a>2015 - {year}</a>
           &nbsp;Designed, built &amp; managed by&nbsp;
-          <a href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" className="COMMON__footer_logo"
-            dangerouslySetInnerHTML={{__html: require('../img/t47_logo_alt.svg')}} ></a>.
-          All rights reserverd.
+          <LogoAlt href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" className="COMMON__footer_logo green-transparent" />
+          . All rights reserverd.
         </div>
         <p class="copyright" style="padding-top:10px;">
           <a href="https://github.com/t47io/t47io_main/" target="_blank" rel="noopener noreferrer external" class="text-gray">

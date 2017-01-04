@@ -1,0 +1,7 @@
+@import './util';
+
+.green .T47__logo path { fill: $clr-g; }
+.white .T47__logo path { fill: $clr-w; }
+
+.green-transparent .T47__logo_alt path { fill: $clr-g; }
+.green-transparent .T47__logo_alt-fill path { fill: transparent; }
