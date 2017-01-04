@@ -16,21 +16,11 @@ import ScrollTop from '../common/jsx/scrolltop.jsx';
 
 
 require('./index.scss');
-const data = require('../../../public/config.json');
-const svg = require('../../../public/data/git_contrib.svg');
-
 
 class Main extends React.Component {
-  componentWillMount() {
-    // $.ajax({
-    //   type: 'GET',
-    //   url: '/config.json', 
-    //   async: false,
-    //   success: (data) => { this.setState(data); }
-    // });
+  constructor(props) {
+    super(props);
     this.setState({
-      ...data,
-      sections: ['home', 'about', 'portfolio', 'contact'],
       scroll: {
         section: 'home',
         top: true,
@@ -38,12 +28,9 @@ class Main extends React.Component {
       }
     });
   }
-  componentDidMount() {
-  }
 
   onEnterSection(section) {
     this.setState({
-      ...(this.state),
       scroll: {
         ...(this.state.scroll),
         section
@@ -52,7 +39,6 @@ class Main extends React.Component {
   }
   onScrollNavbar({currentPosition}) {
     this.setState({
-      ...(this.state),
       scroll: {
         ...(this.state.scroll),
         top: currentPosition === 'inside'
@@ -61,7 +47,6 @@ class Main extends React.Component {
   }
   onScrollFooter({currentPosition}) {
     this.setState({
-      ...(this.state),
       scroll: {
         ...(this.state.scroll),
         bottom: currentPosition === 'inside'
@@ -70,30 +55,32 @@ class Main extends React.Component {
   }
 
   render() {
+    const {home, about, affiliation, portfolio, skills, stats, pubs, contact, svg} = this.props, {scroll} = this.state;
+
     return (
     	<div>
-        <Navbar items={this.state.sections} {...(this.state.scroll)} />
+        <Navbar items={home.sections} {...scroll} />
 
         <Waypoint onEnter={this.onEnterSection.bind(this, 'home')} />
-    		<HomeSection {...(this.state.home)} />
+    		<HomeSection {...home} />
 
         <Waypoint onEnter={this.onEnterSection.bind(this, 'about')} />
         <Waypoint topOffset="200px" onPositionChange={this.onScrollNavbar.bind(this)} />
-    		<AboutSection {...(this.state.about)} />
-    		<AffiliationSection {...(this.state.affiliation)} />
+    		<AboutSection {...about} />
+    		<AffiliationSection {...affiliation} />
 
         <Waypoint onEnter={this.onEnterSection.bind(this, 'portfolio')} />
-    		<PortfolioSection {...(this.state.portfolio)} />
-    		<SkillsSection {...(this.state.skills)} />
-    		<StatsSection {...(this.state.stats)} svg={svg} />
-    		<PubsSection {...(this.state.pubs)} />
+    		<PortfolioSection {...portfolio} />
+    		<SkillsSection {...skills} />
+    		<StatsSection {...stats} svg={svg} />
+    		<PubsSection {...pubs} />
 
         <Waypoint onEnter={this.onEnterSection.bind(this, 'contact')} />
-    		<ContactSection {...(this.state.contact)} />
+    		<ContactSection {...contact} />
 
         <Waypoint onPositionChange={this.onScrollFooter.bind(this)} />
         <Footer />
-        <ScrollTop {...(this.state.scroll)} />
+        <ScrollTop {...scroll} />
   		</div>
   	);
   }

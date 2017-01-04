@@ -7,6 +7,7 @@ require("font-awesome-loader");
 
 
 ReactDOM.render(
-  <Main />,
+  <Main {...(require('../public/config.json'))}
+  	svg={require('../public/data/git_contrib.svg')} />,
   document.getElementById("app")
 );
