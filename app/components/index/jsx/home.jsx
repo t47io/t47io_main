@@ -37,11 +37,11 @@ class HomeSection extends React.Component {
             timeline={tween.fade} >
             <img alt="Siqi Tian" width="480"
               style={this.state.isName ? tween.name.end : tween.name.start}
-              src={require('../img/t47_name_2_line.gif')} />
+              src={require('../img/t47_name.gif')} />
             <p className="text-white" style="margin-top: -10px;">&nbsp;</p>
             <p className={`text-${this.state.textColor}`} style="line-height: 25px; height: 50px;">
               <span dangerouslySetInnerHTML={{__html: this.state.title}} ></span>
-              <b class={`HOME__cursor ${this.state.isBlink ? "blink" : ""}`} >{(this.state.isShade && this.state.isName) ? "|" : ""}</b>
+              <b className={`HOME__cursor ${this.state.isBlink ? "blink" : ""}`} >{(this.state.isShade && this.state.isName) ? "|" : ""}</b>
             </p>
           </SparkScroll.div>
           <SparkScroll.div className="HOME__scroll_down"

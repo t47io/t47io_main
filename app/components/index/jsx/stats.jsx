@@ -36,10 +36,9 @@ class StatsItem extends React.Component {
 
 const StatsSection = ({items, background, links, git, svg}) => (
   <section id="STATS__section">
-    <div className="UTIL__spacer-hg STATS__trigger"></div>
-
     <Carousel extraClassName="STATS__area text-white"
       items={background} interval={4000} >
+      <div className="UTIL__spacer-lg STATS__trigger"></div>
       <SectionHeader title="my stats" subtitle="what I achieved" proxyId="STATS__header" tween={tween.header} />
       <div className="UTIL__spacer-lg"></div>
 

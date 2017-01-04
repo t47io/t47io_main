@@ -30,8 +30,7 @@ class Carousel extends React.Component {
   render() {
     const {items, extraClassName, children} = this.props, {current} = this.state;
     return (
-      <div className={`${extraClassName} UTIL__parallax fade`}
-        style={`background-image: url('/img/background/${items[current]}.jpg')`} >
+      <div className={`${extraClassName} SPRITE__bg-${items[current]} UTIL__parallax bg fade`} >
         <div className="COMMON__carousel fade">
           <ol className="COMMON__carousel_indicators carousel-indicators">
             {items.map((item, i) => (<IndicatorItem current={current} index={i} onClick={this.onClick.bind(this)} />))}
