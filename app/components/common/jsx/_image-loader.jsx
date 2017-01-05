@@ -8,12 +8,11 @@ class ImageLoader extends React.Component {
   }
 
   onLoad() {
-    setTimeout(() => this.setState({isLoaded: true}), 1500)
-    ;
+    this.setState({isLoaded: true});
   }
 
   render() {
-    const {tinySrc, fullSrc} = this.props;
+    const {tinySrc, fullSrc, extraClassName = ""} = this.props;
     const {isLoaded} = this.state;
     const isFilter = isLoaded ? "none": "blur(20px)";
     const bgImage = isLoaded ? fullSrc : tinySrc;
@@ -28,7 +27,7 @@ class ImageLoader extends React.Component {
     };
 
     return (
-      <div className="UTIL__parallax" style={divStyle} >
+      <div className={extraClassName} style={divStyle} >
         <img style="display:none" src={tinySrc}
           onLoad={this.onLoad.bind(this)} />
       </div>

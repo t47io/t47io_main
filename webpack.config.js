@@ -26,10 +26,7 @@ let plugin = [
       'app/**/*.json',
       'public/index.html'
     ],
-    purifyOptions: {
-      minify: !DEBUG,
-      info: true
-    }
+    purifyOptions: {minify: !DEBUG}
   }),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.DedupePlugin()

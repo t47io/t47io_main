@@ -1,7 +1,7 @@
 import React from 'react';
-import SectionHeader from '../../common/jsx/header.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
+import SectionHeader from '../../common/jsx/header.jsx';
 import {skills as tween} from '../js/tweens.js';
 
 

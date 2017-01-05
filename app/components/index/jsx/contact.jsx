@@ -1,8 +1,8 @@
 import React from 'react';
-import SectionHeader from '../../common/jsx/header.jsx';
-import Carousel from '../../common/jsx/carousel.jsx';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
+import SectionHeader from '../../common/jsx/header.jsx';
+import Carousel from '../../common/jsx/carousel.jsx';
 import {contact as tween} from '../js/tweens.js';
 
 
