@@ -2,24 +2,28 @@
 
 .ABOUT__box {
   display: inline-block;
-  margin: 30px 0;
+  margin: 2em 0;
   text-decoration: none;
   color: #363940;
 
-  h4 { font-weight: 900; }
+  h4 {
+    font-size: 1.75em;
+    font-weight: 900;
+    margin-bottom: 1em;
+  }
 
   .ABOUT__icon {
-    width: 75px;
-    height: 75px;
+    width: 2.25em;
+    height: 2.25em;
     display: inline-block;
 
-    font-size: 36px;
-    line-height: 75px;
+    font-size: 2.5rem;
+    line-height: 2.25em;
     text-align: center;
 
     color: $clr-w;
     background-color: $clr-g;
-    margin-bottom: 15px;
+    margin-bottom: 1em;
 
     @include transform(rotate(45deg));
     @include transition(0.2s);
@@ -40,13 +44,16 @@
     }
   }
   .ABOUT__text {
-    margin-top: 30px;
+    margin-top: 2em;
 
     &:hover { color: $clr-gl; }
     a {
       @include transition(0.2s);
     }
-    p { line-height: 150%; }
+    p {
+      line-height: 1.5em;
+      margin-bottom: 0;
+    }
   }
 
   &:hover {

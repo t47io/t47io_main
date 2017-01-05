@@ -2,10 +2,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   background-color: rgba(0, 7, 11, 0.5);
-  padding: 20px;
+  padding: 1.5em;
 }
 .UTIL__divider {
   width: 100%;
@@ -23,7 +23,7 @@
   background-size: cover;
 
   &.bg {
-    padding-bottom: 80px;
+    padding-bottom: 5.5rem;
     height: 100%;
   }
   &:not(.bg) { background-position: 50% 30%; }
@@ -42,20 +42,21 @@
 }
 
 .UTIL__spacer-md, .UTIL__spacer-lg, .UTIL__spacer-xl, .UTIL__spacer-hg { width: 100%; }
-.UTIL__spacer-md { height: 20px; }
-.UTIL__spacer-lg { height: 40px; }
-.UTIL__spacer-xl { height: 60px; }
-.UTIL__spacer-hg { height: 80px; }
+.UTIL__spacer-md { height: 1.45rem; }
+.UTIL__spacer-lg { height: 2.85rem; }
+.UTIL__spacer-xl { height: 4.30rem; }
+.UTIL__spacer-hg { height: 5.70rem; }
 
 
 .UTIL__section_header {
-  margin: 0 0 60px 0;
+  margin: 0 0 4.25em 0;
   padding: 0;
   border: none;
 
   h2 { text-transform: uppercase; }
 }
 p.UTIL__section_subtitle {
-  letter-spacing: 2px;
-  margin-top: 10px;
+  letter-spacing: 0.15em;
+  margin-top: 0.75em;
+  font-size: 1.25em;
 }

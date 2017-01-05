@@ -2,34 +2,33 @@
 
 .AFFILIATION__story {
   position: relative;
-  padding: 50px 100px 50px 200px;
+  padding: 3.5em 7em 3.5em 14em;
 }
 .AFFILIATION__timeline {
   position: absolute; 
   width: 1px; 
   height: 100%; 
-  left: 200px; 
-  top: 0px;
+  left: 14em; 
+  top: 0;
   border-right: 2px solid #d9d9d9; 
   z-index: 5; 
 
   &::before, &::after {
     content: "";
-    left: -5px;
-    width: 12px;
-    height: 12px;
+    left: -0.4em;
+    width: 1em;
+    height: 1em;
     background: #d9d9d9;
     position: absolute;
-    @include border_radius(6px);
+    @include border_radius(0.5em);
   }
-  &::before { top: 0px; }
-  &::after { bottom: 0px; }
+  &::before { top: 0; }
+  &::after { bottom: 0; }
 }
 
 .AFFILIATION__entry {
   width: 100%;
-  margin-top: -50px;
-  margin-bottom: -50px;
+  margin: -3.5em 0;
   position: relative;
   z-index: 10;
   float: left;
@@ -44,13 +43,13 @@
 
 .AFFILIATION__content {
   width: 100%;
-  padding-left: 50px;
+  padding-left: 3.5em;
   float: left; 
   position: relative;
 
   .AFFILIATION__panel {
     background: #e6e6e6;
-    padding: 15px 20px 20px;
+    padding: 1.5em;
     border-left: 5px solid $clr-gl;
     text-align: left;
     opacity: 0;
@@ -82,7 +81,7 @@
   a { color: $clr-g; }
   span {
     font-variant: normal;
-    font-size: 0.6em;
+    font-size: 0.7em;
     color: $clr-k;
   }
 
@@ -97,35 +96,37 @@
   color: $clr-w;
   text-align: right;
   position: absolute;
-  width: 200px;
-  top: 37%;
-  left: -225px; 
+  width: 14em;
+  top: 33.33333%;
+  left: -15em; 
 
   &::after {
     content: "";
-    width: 12px;
-    height: 12px;
-    left: 220px;
-    top: 15%;
+    width: 0.5em;
+    height: 0.5em;
+    left: 14.8em;
+    top: 33.33333%;
     background: $clr-g;
     position: absolute;
     z-index: 6;
-    @include border_radius(6px);
+    @include border_radius(0.5em);
   }
 }
 .AFFILIATION__text {
   border-left: 2px dashed $clr-kl;
-  padding: 15px;
+  padding: 1em;
   /*margin: 10px -15px -15px;*/
   color: #000;
   line-height: 150%;
+
+  p { font-size: 1.1em; }
 }
 
 @media only screen and (max-width : 991px) {
-  .AFFILIATION__story { padding: 50px 50px 50px 100px; }
-  .AFFILIATION__timeline { left: 100px; }
+  .AFFILIATION__story { padding: 3.5em 3.5em 3.5em 7.5em; }
+  .AFFILIATION__timeline { left: 7.5em; }
   .AFFILIATION__text {
     text-align: center;
-    p { margin-bottom: 0px; }
+    p { margin-bottom: 0; }
   }
 }

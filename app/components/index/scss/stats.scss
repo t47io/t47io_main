@@ -1,15 +1,12 @@
 @import '../../common/scss/util';
 
 .STATS__area {
-  position: relative;
-  background-color: #171717;
-
   .STATS__item:last-of-type { border-right: none; }
   .STATS__counter {
-    padding-bottom: 30px;
+    padding-bottom: 2.25em;
 
     &:hover i.fa { color: $clr-gl; }
-    .STATS__num { font-size: 54px; }
+    .STATS__num { font-size: 4em; }
     .STATS__text.done { color: $clr-g; }
   }
 }

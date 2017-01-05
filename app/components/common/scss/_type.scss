@@ -1,4 +1,4 @@
-@import './_util';
+@import './util';
 
 
 .text-main { color: #363940; } /* Theme main color */
@@ -10,26 +10,18 @@
 .text-light-green { color: $clr-gl; }
 .text-gray { color: $clr-k; }
 .text-light-gray { color: $clr-kl; }
-.bg {
-  padding: 0px;
-  border-radius: 0.25em !important;
-}
-.bg-light-green { 
-  background-color: $clr-go; 
-  @extend .bg;
-}
-.bg-light-gray {
-  background-color: $clr-kll; 
-  @extend .bg;
-}
+
+.bg-light-green,
+.bg-light-gray,
 .bg-black {
-  background-color: rgba(0, 7, 11, 0.5); 
-  @extend .bg;
+  padding: 0;
+  border-radius: 0.25em;
 }
+.bg-light-green { background-color: $clr-go; }
+.bg-light-gray { background-color: $clr-kll; }
+.bg-black { background-color: rgba(0, 7, 11, 0.5); }
 
 
-.fa-sm { font-size: 10px !important; }
-.fa-md { font-size: 13px !important; }
 a {
   color: $clr-g;
 
@@ -41,5 +33,5 @@ a {
 b { font-weight: 900; }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
-  margin-bottom: 10px;
+  margin-bottom: 0.7rem;
 }

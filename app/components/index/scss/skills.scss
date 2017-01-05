@@ -2,18 +2,17 @@
 
 .SKILLS__progress {
   overflow: visible;
-  height: 25px;
-  margin-bottom: 20px;
+  height: 1.5em;
+  margin-bottom: 1.25em;
   border: 3px solid $clr-g;
+  box-sizing: content-box;
   background-color: transparent;
   @include box_shadow(none);
 }
 .SKILLS__bar {
   background-color: $clr-gl;
   color: #000;
-  font-size: 14px;
-  line-height: 9px;
-  padding: 5px;
+  padding: 0.25em;
   text-align: center;
   font-weight: bold;
   @include box_shadow(none);
@@ -23,4 +22,6 @@
     background-size: 40px 40px;
   }
 }
+
 .SKILLS__title h6 { font-weight: 900; }
+.SKILLS__chapter { padding-bottom: 1em; }

@@ -10,19 +10,17 @@
   .HOME__content {
     position: absolute;
     bottom: 20%;
-    /*left: -30%;*/
-    /*margin-top: -70px;*/
 
     img {
+      margin-left: 1em;
       max-width: 50%;
       @include transition(1s);
     }
     p {
-      // opacity: 0;
       letter-spacing: 2px;
-      font-size: 3vh;
-      margin-top: 10px;
-      margin-left: 20px;
+      font-size: 1.5rem;
+      margin-top: 0.8em;
+      margin-left: 1.5em;
       @include transition(1s);
     }
   }
@@ -39,6 +37,10 @@
   @include transition(1s);
 }
 
+.HOME__typewrite {
+  line-height: 1.8rem;
+  height: 3.6rem;
+}
 .HOME__cursor {
   color: #f44336;
   font-weight: bold;
@@ -58,13 +60,12 @@
 .HOME__scroll_down {
   position: absolute;
   top: 90%;
-  right: 30px;
+  right: 2em;
 
   .fa {
-    /*color: $clr-gl;*/
     opacity: 0.4;
     @include transition(0.5s);
   }
-  &:hover .fa { opacity: 0.8; }
+  &:hover .fa { opacity: 0.75; }
 }
 

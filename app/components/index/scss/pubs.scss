@@ -5,12 +5,16 @@
 .PUBS__year {
   color: $clr-k;
   font-size: 2em;
-  padding: 8px;
+  padding: 0.5em;
   vertical-align: text-top;
 }
 .PUBS__content { border-left: 5px solid $clr-g; }
-.PUBS__entry { margin: 12px 0px; }
-.PUBS__text { line-height: 20px; }
+.PUBS__entry { margin: 1em 0; }
+.PUBS__title {
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+.PUBS__text { line-height: 1.5em; }
 
 .PUBS__image {
   .SPRITE {
