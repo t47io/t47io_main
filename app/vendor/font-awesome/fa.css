@@ -7,40 +7,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.fa-sm { font-size: 0.66666667em; }
+.fa-md { font-size: 1em; }
 .fa-lg {
   font-size: 1.33333333em;
   line-height: 0.75em;
   vertical-align: -15%;
 }
-.fa-2x {
-  font-size: 2em;
-}
-.fa-3x {
-  font-size: 3em;
-}
-.fa-4x {
-  font-size: 4em;
-}
-.fa-5x {
-  font-size: 5em;
-}
+.fa-2x { font-size: 2em; }
+.fa-3x { font-size: 3em; }
+.fa-4x { font-size: 4em; }
+
 .fa-fw {
   width: 1.28571429em;
   text-align: center;
 }
 
-.fa-pull-left {
-  float: left;
-}
-.fa-pull-right {
-  float: right;
-}
-.fa.fa-pull-left {
-  margin-right: .3em;
-}
-.fa.fa-pull-right {
-  margin-left: .3em;
-}
+.fa-pull-left { float: left; }
+.fa-pull-right { float: right; }
+.fa.fa-pull-left { margin-right: .3em; }
+.fa.fa-pull-right { margin-left: .3em; }
 
 .fa-stack {
   position: relative;
@@ -57,12 +43,6 @@
   width: 100%;
   text-align: center;
 }
-.fa-stack-1x {
-  line-height: inherit;
-}
-.fa-stack-2x {
-  font-size: 2em;
-}
-.fa-inverse {
-  color: #ffffff;
-}
+.fa-stack-1x { line-height: inherit; }
+.fa-stack-2x { font-size: 2em; }
+.fa-inverse { color: #ffffff; }
