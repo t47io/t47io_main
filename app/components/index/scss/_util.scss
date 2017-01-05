@@ -16,18 +16,21 @@
 
 .UTIL__parallax {
   position: relative;
+  width: 100%;
+  height: 100%;
   
   background-repeat: no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
   background-size: cover;
 
+  @include transition(0.5s);
+
   &.bg {
     padding-bottom: 5.5rem;
     height: 100%;
   }
   &:not(.bg) { background-position: 50% 30%; }
-  &.fade { @include transition(0.5s); }
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
   .UTIL__parallax { background-attachment: scroll; }

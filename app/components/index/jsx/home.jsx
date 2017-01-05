@@ -1,5 +1,6 @@
 import React from 'react';
 import {SparkScroll} from '../../common/js/factory.js';
+import ImageLoader from '../../common/jsx/_image-loader.jsx';
 
 import {home as tween, func} from '../js/tweens.js';
 
@@ -27,10 +28,13 @@ class HomeSection extends React.Component {
     });
   }
 
+
   render() {
     return (
-      <section id="HOME__section" className="UTIL__parallax">
-        <div className="UTIL__cover HOME__shade" style={{backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.75 : 0.25})`}}></div>
+      <section id="HOME__section">
+        <ImageLoader tinySrc={require('../img/blur/t47_avatar.jpg')} fullSrc={require('../img/t47_avatar.jpg')} />
+        <div className="UTIL__cover HOME__shade" style={{backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.25 : 0})`}} ></div>
+
         <div className="container">
           <SparkScroll.div className="HOME__content text-white"
             proxy="ABOUT__header"

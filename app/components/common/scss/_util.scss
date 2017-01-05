@@ -37,6 +37,13 @@ $clr-kll: #f0f0f0;
   -o-border-radius: $val;
   border-radius: $val;
 }
+@mixin filter($val) {
+  -webkit-filter: $val;
+  -moz-filter: $val;
+  -o-filter: $val;
+  -ms-filter: $val;
+  filter: $val;  
+}
 
 
 @mixin animation($val, $time, $ease, $loop) {
