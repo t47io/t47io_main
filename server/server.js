@@ -46,8 +46,8 @@ if (DEBUG) {
   // remove public/ files for DEBUG
   fs.removeSync(path.join(publicPath, 'index.html'));
   glob.sync(path.join(publicPath, 'main-*[.min]?.*')).forEach((path) => fs.removeSync(path));
-  glob.sync(path.join(publicPath, '*.woff*')).forEach((path) => fs.removeSync(path));
-  fs.removeSync(path.join(publicPath, 'node_modules'));
+  fs.removeSync(path.join(publicPath, 'image'));
+  fs.removeSync(path.join(publicPath, 'font'));
 }
 
 const server = app.listen(PORT, () => {

@@ -21,13 +21,13 @@ const Footer = () => (
       <SparkScroll.div className="container text-center FOOTER__header"
         proxy="FOOTER__header"
         timeline={tween.header} >
-        <div className="copyright text-center">
+        <div className="FOOTER__copyright text-center">
           Copyright <i className="fa fa-fw fa-copyright"></i> <a>2015 - {year}</a>
           &nbsp;Designed, built &amp; managed by&nbsp;
           <LogoAlt href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" className="COMMON__footer_logo green-transparent" />
           . All rights reserverd.
         </div>
-        <p className="copyright" style="padding-top:10px;">
+        <p className="FOOTER__copyright">
           <a href="https://github.com/t47io/t47io_main/" target="_blank" rel="noopener noreferrer external" className="text-gray">
             Code and content <i className="fa fa-fw fa-sm fa-link-ext"></i>
           </a>

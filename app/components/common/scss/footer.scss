@@ -22,13 +22,14 @@
       vertical-align: text-bottom;
     }
   }
-}
 
-.FOOTER__header { padding-top: 2rem; }
+  .FOOTER__copyright:last-of-type { padding-top: 0.8em; }
+}
+.FOOTER__header { padding-top: 1em; }
+
 @media only screen and (max-width : 767px) {
   footer { text-align: center; }
   .footer { height: auto; }
-  .FOOTER__header { padding-bottom: 2rem; }
 }
 
 .COMMON__footer_logo {

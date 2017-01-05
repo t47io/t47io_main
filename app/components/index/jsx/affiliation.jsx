@@ -59,7 +59,6 @@ class AffiliationSection extends React.Component {
 
   onScrollItem(year) {
     return ({currentPosition, previousPosition}) => {
-      console.log(year, currentPosition, previousPosition)
       if (currentPosition === 'inside' || previousPosition === 'inside') { this.setState({scroll: year}); }
     };
   }
@@ -79,7 +78,6 @@ class AffiliationSection extends React.Component {
               <div className="AFFILIATION__story">
                 <div className="AFFILIATION__timeline"></div>
                 {items.map((item) => (<AffiliationItem {...item} scroll={scroll} onPositionChange={this.onScrollItem.bind(this)} />))}
-                <div style="clear: both;"></div>
               </div>  
             </div>
           </div>

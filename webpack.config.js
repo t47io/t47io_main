@@ -121,7 +121,7 @@ const config = {
         query: {
           limit: 25600,
           mimetype: "application/x-font-woff",
-          name: "[name]-[hash:8].[ext]"
+          name: "font/[hash:8].[ext]"
         }
       },
       {
@@ -129,7 +129,7 @@ const config = {
         loader: "url",
         query: {
           limit: 25600,
-          name: "[name]-[hash:8].[ext]"
+          name: "image/[hash:8].[ext]"
         }
       },
       {

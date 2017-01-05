@@ -54,7 +54,7 @@ class PortfolioSection extends React.Component {
     return (
       <section id="PORTFOLIO__section">
         <div className="PORTFOLIO__trigger">
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0px">
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0">
             <SectionHeader title="my works" subtitle="what I am proud of" proxyId="PORTFOLIO__header" tween={tween.header} />
 
             <p className="text-gray text-center">

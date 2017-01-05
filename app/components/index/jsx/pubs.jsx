@@ -36,9 +36,9 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
           <a href={urlExt} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-word"></i></a>
           <a href={urlPDF} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-pdf"></i></a>
           {codeLink}
-          <span className="pull-right text-gray bg-light-gray" style="padding: 0 5px">
+          <span className="PUBS__cite pull-right text-gray bg-light-gray">
             <i className="fa fa-fw fa-balance-scale"></i>
-            <i><small>Cited by :</small></i>&nbsp;
+            &nbsp;<i><small>Cited by :</small></i>&nbsp;
             <u className={citeClass}>{citation}</u>
           </span>
         </p>

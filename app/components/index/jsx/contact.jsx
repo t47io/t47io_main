@@ -61,7 +61,7 @@ const ContactSection = ({items, background, resume}) => {
                 <SparkScroll.li timeline={tween.listLeft} >
                   <a href="/resume/" target="_blank" rel="noopener" className="btn btn-default"><i className="fa fa-download fa-fw"></i> Resume
                     <span className="text-main CONTACT__resume">
-                      &nbsp;<i className="fa fa-clock fa-fw" style="margin-right:0px;"></i> <small>{objDate.toLocaleString('en-us', {month: 'short'})} {date.slice(0, 4)}</small>
+                      &nbsp;<i className="fa fa-clock fa-fw" style="margin-right: 0"></i> <small>{objDate.toLocaleString('en-us', {month: 'short'})} {date.slice(0, 4)}</small>
                     </span>
                   </a>
                 </SparkScroll.li>
