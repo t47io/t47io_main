@@ -16,7 +16,7 @@ const ProgressBar = ({value, tag, title, index}) => (
 );
 
 const SkillsPanel = ({title, icon, tag, items, index}) => (
-  <div>
+  <div className="SKILLS__chapter">
     <div className="SKILLS__title">
       <h6><i className={`fa fa-fw fa-lg fa-${icon}`}></i> {title}</h6>
     </div>

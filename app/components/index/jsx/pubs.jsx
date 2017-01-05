@@ -12,7 +12,7 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
   const urlClass = is_preprint ? "text-light-gray" : "text-dark-green bg-light-green";
 
   const issuePage = is_preprint ? (<span>, <span className="text-gray">{issue}</span>.</span>) : (<span><b>{issue}</b>: {page}.</span>);
-  const codeLink = code ? (<a href={code} target="_blank" rel="noopener noreferrer external" className="text-dark-green bg-light-green"><i className="fa fa-fw fa-file-code-o"></i></a>): "";
+  const codeLink = code ? (<a href={code} target="_blank" rel="noopener noreferrer external" className="text-dark-green bg-light-green"><i className="fa fa-fw fa-file-code"></i></a>): "";
   const citeClass = citation ? "text-main" : "text-gray";
 
   return (
@@ -29,12 +29,12 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
       </div>
       <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12 PUBS__text">
         <p className="text-gray"><span dangerouslySetInnerHTML={{__html: author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>')}}></span> (<b className="text-light-green">{year}</b>)</p>
-        <p><b style="font-size:16px;" dangerouslySetInnerHTML={{__html: `"${title}"`}}></b></p>
-        <p style="padding-top:5px;">
+        <p><b className="PUBS__title" dangerouslySetInnerHTML={{__html: `"${title}"`}}></b></p>
+        <p>
           <i className="text-green">{journal}</i>
           &nbsp;{issuePage}
-          <a href={urlExt} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-word-o"></i></a>
-          <a href={urlPDF} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-pdf-o"></i></a>
+          <a href={urlExt} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-word"></i></a>
+          <a href={urlPDF} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-pdf"></i></a>
           {codeLink}
           <span className="pull-right text-gray bg-light-gray" style="padding: 0 5px">
             <i className="fa fa-fw fa-balance-scale"></i>
@@ -75,10 +75,10 @@ const PubsSection = ({items, links}) => (
         <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
           <h4 className="text-gray text-center">
             <span className="fa-stack">
-              <i className="fa fa-fw fa-square fa-stack-2x text-light-green"></i>
+              <i className="fa fa-fw fa-blank fa-stack-2x text-light-green"></i>
               <i className="fa fa-fw fa-search fa-stack-1x text-white"></i>
             </span>
-            Find more on <a href={links.google_scholar} target="_blank" rel="noopener noreferrer external">Google Scholar <i className="fa fa-fw fa-sm fa-external-link"></i></a> and <a href={links.pubmed} target="_blank" rel="noopener noreferrer external">PubMed <i className="fa fa-fw fa-sm fa-external-link"></i></a>.
+            Find more on <a href={links.google_scholar} target="_blank" rel="noopener noreferrer external">Google Scholar <i className="fa fa-fw fa-sm fa-link-ext"></i></a> and <a href={links.pubmed} target="_blank" rel="noopener noreferrer external">PubMed <i className="fa fa-fw fa-sm fa-link-ext"></i></a>.
           </h4>
         </div>
         <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2"></div>

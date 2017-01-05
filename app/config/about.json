@@ -1,24 +1,24 @@
 {
-	"items": [
-		{
-			"title": "Design",
-			"icon": "magic",
-			"description": "Beautiful UI enhances experience.\nEvery project deserves one.\nIt makes me so happy,\nAnd I am <b>obsessed</b> with it."
-		},
-		{
-			"title": "Build",
-			"icon": "wrench",
-			"description": "<b>Having a great idea</b> is fantastic.\n<b>Making it real</b> is even more terrific.\nLittle things can <b>change the world</b>.\n<i>The spirit of engineers."
-		},
-		{
-			"title": "Experiment",
-			"icon": "flask",
-			"description": "RNA molecules are fascinating.\nTesting your own hypothesis is fun.\n<i class='fa fa-fw fa-quote-left text-light-gray'></i>Once a biochemist,&nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;&nbsp;always a biochemist.<i class='fa fa-fw fa-quote-right text-light-gray'></i>"
-		},
-		{
-			"title": "Automate",
-			"icon": "history",
-			"description": "A rule set by myself:\n<i class='fa fa-fw fa-quote-left text-light-gray'></i><i>Anything repeated 3 times should be automated.</i><i class='fa fa-fw fa-quote-right text-light-gray'></i>\nAnd not just at work."
-		}
-	]
+  "items": [
+    {
+      "title": "Design",
+      "icon": "magic",
+      "description": "Beautiful UI enhances experience.\nEvery project deserves one.\nIt makes me so happy,\nAnd I am <b>obsessed</b> with it."
+    },
+    {
+      "title": "Build",
+      "icon": "wrench",
+      "description": "<b>Having a great idea</b> is fantastic.\n<b>Making it real</b> is even more terrific.\nLittle things can <b>change the world</b>.\n<i>The spirit of engineers."
+    },
+    {
+      "title": "Experiment",
+      "icon": "beaker",
+      "description": "RNA molecules are fascinating.\nTesting your own hypothesis is fun.\n<i class='fa fa-fw fa-quote-left text-light-gray'></i>Once a biochemist,&nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;&nbsp;always a biochemist.<i class='fa fa-fw fa-quote-right text-light-gray'></i>"
+    },
+    {
+      "title": "Automate",
+      "icon": "history",
+      "description": "A rule set by myself:\n<i class='fa fa-fw fa-quote-left text-light-gray'></i><i>Anything repeated 3 times should be automated.</i><i class='fa fa-fw fa-quote-right text-light-gray'></i>\nAnd not just at work."
+    }
+  ]
 }

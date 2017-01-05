@@ -23,7 +23,7 @@ const PortfolioItem = ({name, category, description, title, url, index}) => (
         <div className={`SPRITE__portfolio-${name}`} ></div>
       </div>
       <div className="PORTFOLIO__text">
-        <a href={url ? url : `/project/${name}`} target="_blank" rel="noopener">{title} <i className="fa fa-fw fa-md fa-external-link"></i></a>
+        <a href={url ? url : `/project/${name}`} target="_blank" rel="noopener">{title} <i className="fa fa-fw fa-md fa-link-ext"></i></a>
         <span dangerouslySetInnerHTML={{__html: description}} ></span>
       </div>
     </SparkScroll.div>
@@ -59,7 +59,7 @@ class PortfolioSection extends React.Component {
 
             <p className="text-gray text-center">
               <span className="fa-stack">
-                <i className="fa fa-fw fa-square fa-stack-2x text-light-green"></i>
+                <i className="fa fa-fw fa-blank fa-stack-2x text-light-green"></i>
                 <i className="fa fa-fw fa-mouse-pointer fa-stack-1x text-white"></i>
               </span>
               Click for more details about each <span className="text-green">project</span>.

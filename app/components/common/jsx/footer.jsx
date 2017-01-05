@@ -29,11 +29,11 @@ const Footer = () => (
         </div>
         <p className="copyright" style="padding-top:10px;">
           <a href="https://github.com/t47io/t47io_main/" target="_blank" rel="noopener noreferrer external" className="text-gray">
-            Code and content <i className="fa fa-fw fa-sm fa-external-link"></i>
+            Code and content <i className="fa fa-fw fa-sm fa-link-ext"></i>
           </a>
           &nbsp;on this site is licensed under&nbsp;
           <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer external">
-            <i className="fa fa-fw fa-lg fa-creative-commons"></i> BY-NC-SA 4.0 <i className="fa fa-fw fa-sm fa-external-link"></i>
+            <i className="fa fa-fw fa-lg fa-creative-commons"></i> BY-NC-SA 4.0 <i className="fa fa-fw fa-sm fa-link-ext"></i>
           </a>.
         </p>
       </SparkScroll.div>

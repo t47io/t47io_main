@@ -44,7 +44,7 @@ const ContactSection = ({items, background, resume}) => {
               </SparkScroll.h4>
               <ul className="CONTACT__address">
                 <SparkScroll.li timeline={tween.listLeft} >
-                  <i className="fa fa-map-marker fa-lg fa-fw"></i>279 Campus Drive West, Room B419
+                  <i className="fa fa-location fa-lg fa-fw"></i>279 Campus Drive West, Room B419
                   <br/><br/>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stanford, CA 94305, USA
                 </SparkScroll.li>
@@ -54,14 +54,14 @@ const ContactSection = ({items, background, resume}) => {
                     src={require('../img/t47_phone.gif')} />
                 </SparkScroll.li>
                 <SparkScroll.li timeline={tween.listLeft} >
-                  <i className="fa fa-envelope fa-lg fa-fw"></i>
+                  <i className="fa fa-mail-alt fa-lg fa-fw"></i>
                   <b><a className="text-light-green" href="mailto:t47@alumni.stanford.edu" target="_blank" rel="noopener noreferrer external">t47 @ alumni.stanford.edu</a></b> |&nbsp;
                   <a className="text-light-gray" href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external">contact @ t47.io</a>
                 </SparkScroll.li>
                 <SparkScroll.li timeline={tween.listLeft} >
                   <a href="/resume/" target="_blank" rel="noopener" className="btn btn-default"><i className="fa fa-download fa-fw"></i> Resume
                     <span className="text-main CONTACT__resume">
-                      &nbsp;<i className="fa fa-clock-o fa-fw" style="margin-right:0px;"></i> <small>{objDate.toLocaleString('en-us', {month: 'short'})} {date.slice(0, 4)}</small>
+                      &nbsp;<i className="fa fa-clock fa-fw" style="margin-right:0px;"></i> <small>{objDate.toLocaleString('en-us', {month: 'short'})} {date.slice(0, 4)}</small>
                     </span>
                   </a>
                 </SparkScroll.li>
@@ -70,7 +70,7 @@ const ContactSection = ({items, background, resume}) => {
           
             <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <SparkScroll.h4 className="CONTACT__title" timeline={tween.formRight} >
-                <i className="fa fa-paper-plane-o fa-lg fa-fw"></i> Keep in Touch
+                <i className="fa fa-paper-plane-empty fa-lg fa-fw"></i> Keep in Touch
               </SparkScroll.h4>
               <form className="CONTACT__form" method="post" action="/send/" enctype="application/x-www-form-urlencoded">
                 <SparkScroll.div className="form-group" timeline={tween.formRight} >
@@ -86,7 +86,7 @@ const ContactSection = ({items, background, resume}) => {
                   <textarea name="message" className="form-control input-lg" rows="5" placeholder="Message" required></textarea>
                 </SparkScroll.div>
                 <SparkScroll.div className="form-group" timeline={tween.formRight} >
-                  <button type="submit" className="btn btn-default btn-block"><i className="fa fa-envelope-o fa-lg fa-fw" id="send-icon"></i> Send</button>
+                  <button type="submit" className="btn btn-default btn-block"><i className="fa fa-mail fa-lg fa-fw" id="send-icon"></i> Send</button>
                 </SparkScroll.div>
               </form>
             </div>

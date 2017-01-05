@@ -62,7 +62,7 @@
     ],
     "right": [
       {
-        "icon": "calculator",
+        "icon": "calc",
         "items": [
           {
             "title": "MATLAB",
@@ -76,7 +76,7 @@
         "title": "Scientific Computing"
       },
       {
-        "icon": "cogs",
+        "icon": "cog-alt",
         "items": [
           {
             "title": "R, pandas + scikit-learn",

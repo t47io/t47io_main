@@ -123,12 +123,12 @@ const skills = {
   progressLeft: {
     ease: 'easeInBack',
     topBottom: {transform: 'translateX(-150%) scale(2)', ...fadeQuarter},
-    topCenter: {transform: 'translateX(0%) scale(1)', ...fadeEnd}
+    'topPct+75': {transform: 'translateX(0%) scale(1)', ...fadeEnd}
   },
   progressRight: {
     ease: 'easeInBack',
     topBottom: {transform: 'translateX(150%) scale(2)', ...fadeQuarter},
-    topCenter: {transform: 'translateX(0%) scale(1)', ...fadeEnd}
+    'topPct+75': {transform: 'translateX(0%) scale(1)', ...fadeEnd}
   }
 };
 

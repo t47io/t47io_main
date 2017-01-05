@@ -14,7 +14,7 @@ const AffiliationRewardItem = ({year, title}) => (
   </tr>
 );
 
-const AffiliationItem = ({year, title, url, geo, role, rewards, tag, offset, scroll, onPositionChange}) => (
+const AffiliationItem = ({year, title, url, geo, role, rewards, tag, scroll, onPositionChange}) => (
   <div className="AFFILIATION__entry" id={`story_${year}`}
     style={`z-index: ${(year === scroll) ? 15 : 10}`} >
     <div className={`AFFILIATION__content ${(year === scroll) ? "active" : ""}`} >
@@ -27,7 +27,7 @@ const AffiliationItem = ({year, title, url, geo, role, rewards, tag, offset, scr
             </div>
           </a>
           <br/>
-          <a href={url} target="_blank" rel="noopener noreferrer external">{title} <i className="fa fa-fw fa-sm fa-external-link"></i></a>
+          <a href={url} target="_blank" rel="noopener noreferrer external">{title} <i className="fa fa-fw fa-sm fa-link-ext"></i></a>
           <br/>
           <span>{geo}</span>
         </div>
@@ -46,7 +46,7 @@ const AffiliationItem = ({year, title, url, geo, role, rewards, tag, offset, scr
           </table>
         </div>
       </div>
-      <Waypoint onPositionChange={onPositionChange(year)} topOffset={offset} />
+      <Waypoint onPositionChange={onPositionChange(year)} />
     </div>
   </div>
 );
@@ -59,6 +59,7 @@ class AffiliationSection extends React.Component {
 
   onScrollItem(year) {
     return ({currentPosition, previousPosition}) => {
+      console.log(year, currentPosition, previousPosition)
       if (currentPosition === 'inside' || previousPosition === 'inside') { this.setState({scroll: year}); }
     };
   }

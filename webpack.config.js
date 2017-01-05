@@ -75,7 +75,7 @@ if (!DEBUG) {
 let entry = DEBUG ? ['webpack-hot-middleware/client?reload=true'] : [];
 entry = entry.concat([
   'bootstrap-sass-loader!./bootstrap-sass.config.js',
-  'font-awesome-loader!./font-awesome.config.js',
+  // 'font-awesome-loader!./font-awesome.config.js',
   `${__dirname}/app/index.jsx`
 ]);
 
@@ -116,18 +116,11 @@ const config = {
         loader: ExtractTextPlugin.extract('css!sass')
       },
       {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
+        test: /\.woff$/i,
         loader: "url",
         query: {
           limit: 25600,
-          mimetype: "application/font-woff",
-          name: "[name]-[hash:8].[ext]"
-        }
-      },
-      {
-        test: /fontawesome-webfont\.(ttf|eot|svg)(\?[\s\S]+)?$/i,
-        loader: "file",
-        query: {
+          mimetype: "application/x-font-woff",
           name: "[name]-[hash:8].[ext]"
         }
       },
