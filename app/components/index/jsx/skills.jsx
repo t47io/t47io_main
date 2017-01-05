@@ -18,7 +18,7 @@ const ProgressBar = ({value, tag, title, index}) => (
 const SkillsPanel = ({title, icon, tag, items, index}) => (
   <div>
     <div className="SKILLS__title">
-      <h6><i className={`fa fa-fw fa-lg ${icon}`}></i> {title}</h6>
+      <h6><i className={`fa fa-fw fa-lg fa-${icon}`}></i> {title}</h6>
     </div>
     {items.map((item, i) => (<ProgressBar {...item} tag={tag} index={`${index}-${i}`} />))}
   </div>
@@ -38,7 +38,7 @@ const SkillsSection = ({items}) => (
         </div>
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div className="SKILLS__panel right">
-            {items.left.map((panel, i) => (<SkillsPanel {...panel} tag="Right" index={i} />))}
+            {items.right.map((panel, i) => (<SkillsPanel {...panel} tag="Right" index={i} />))}
           </div>
         </div>
       </div>

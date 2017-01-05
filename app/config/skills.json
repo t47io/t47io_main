@@ -2,7 +2,7 @@
   "items": {
     "left": [
       {
-        "icon": "fa-server",
+        "icon": "server",
         "items": [
           {
             "title": "Django, Node.js + Express, Jekyll",
@@ -20,7 +20,7 @@
         "title": "Web Server Backend"
       },
       {
-        "icon": "fa-eyedropper",
+        "icon": "eyedropper",
         "items": [
           {
             "title": "jQuery, Bootstrap, Require.js",
@@ -31,7 +31,7 @@
             "value": 80
           },
           {
-            "title": "HTML5 &amp; CSS3, Sass, Jinja",
+            "title": "HTML5 & CSS3, Sass, Jinja",
             "value": 90
           },
           {
@@ -42,7 +42,7 @@
         "title": "Web Server Frontend"
       },
       {
-        "icon": "fa-user-secret",
+        "icon": "user-secret",
         "items": [
           {
             "title": "git, npm + bower + grunt",
@@ -57,12 +57,12 @@
             "value": 85
           }
         ],
-        "title": "Programming &amp; Management"
+        "title": "Programming & Management"
       }
     ],
     "right": [
       {
-        "icon": "fa-calculator",
+        "icon": "calculator",
         "items": [
           {
             "title": "MATLAB",
@@ -76,7 +76,7 @@
         "title": "Scientific Computing"
       },
       {
-        "icon": "fa-cogs",
+        "icon": "cogs",
         "items": [
           {
             "title": "R, pandas + scikit-learn",
@@ -86,7 +86,7 @@
         "title": "Machine Learning"
       },
       {
-        "icon": "fa-database",
+        "icon": "database",
         "items": [
           {
             "title": "MySQL, HiveQL",
@@ -100,7 +100,7 @@
         "title": "Database Related"
       },
       {
-        "icon": "fa-heartbeat",
+        "icon": "heartbeat",
         "items": [
           {
             "title": "RNA chemistry + High-throughput quantitation",
