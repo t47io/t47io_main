@@ -1,9 +1,22 @@
 {
   "items": [
     {
+      "year": 2017,
+      "title": "Minted LLC",
+      "url": "https://www.minted.com/",
+      "geo": "San Francisco, CA, USA",
+      "role": {
+        "position": "Full-Stack",
+        "title": "Software Engineer",
+        "team": ""
+      },
+      "rewards": [],
+      "tag": "Minted"
+    },
+    {
       "year": 2016,
       "title": "Stanford University",
-      "url": "http://www.stanford.edu/",
+      "url": "https://www.stanford.edu/",
       "geo": "Palo Alto, CA, USA",
       "role": {
         "position": "Ph.D.",
@@ -43,7 +56,7 @@
     {
       "year": 2011,
       "title": "China Agricultural University",
-      "url": "http://en.cau.edu.cn/",
+      "url": "https://english.cau.edu.cn/",
       "geo": "Beijing, China",
       "role": {
         "position": "B.S.",

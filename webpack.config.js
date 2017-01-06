@@ -91,10 +91,7 @@ const config = {
   resolve: {
     alias: {
       "react": "preact-compat",
-      "react-dom": "preact-compat",
-      // "lodash": "lodash/core"
-      // "lodash": "underscore"
-      // "underscore": "lodash"
+      "react-dom": "preact-compat"
     }
   },
 
