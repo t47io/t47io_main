@@ -5,15 +5,20 @@ import SectionHeader from '../../common/jsx/header.jsx';
 import {pubs as tween} from '../js/tweens.js';
 
 
-const PubsItem = ({year, author, title, journal, issue, page, url, code, citation, tag, is_preprint, is_hidden}) => {
-  if (is_hidden) { return; }
-  const urlExt = is_preprint ? "javascript:void(0)" : url;
+const PubsItem = ({year, author, title, journal, issue, page, url, code, citation, tag, is_preprint}) => {
+  const urlExt = url ? url : "javascript:void(0)";
   const urlPDF = is_preprint ? "javascript:void(0)" : `/pdf/${tag}.pdf`;
   const urlClass = is_preprint ? "text-light-gray" : "text-dark-green bg-light-green";
 
   const issuePage = is_preprint ? (<span>, <span className="text-gray">{issue}</span>.</span>) : (<span><b>{issue}</b>: {page}.</span>);
   const codeLink = code ? (<a href={code} target="_blank" rel="noopener noreferrer external" className="text-dark-green bg-light-green"><i className="fa fa-fw fa-file-code"></i></a>): "";
-  const citeClass = citation ? "text-main" : "text-gray";
+  const citeElement = !citation ? "" : (
+    <span className="PUBS__cite pull-right text-gray bg-light-gray">
+      <i className="fa fa-fw fa-balance-scale"></i>
+      &nbsp;<i><small>Cited by :</small></i>&nbsp;
+      <u className="text-main">{citation}</u>
+    </span>
+  );
 
   return (
     <SparkScroll.div className="row PUBS__entry"
@@ -36,11 +41,7 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
           <a href={urlExt} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-word"></i></a>
           <a href={urlPDF} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-pdf"></i></a>
           {codeLink}
-          <span className="PUBS__cite pull-right text-gray bg-light-gray">
-            <i className="fa fa-fw fa-balance-scale"></i>
-            &nbsp;<i><small>Cited by :</small></i>&nbsp;
-            <u className={citeClass}>{citation}</u>
-          </span>
+          {citeElement}
         </p>
         <br className="hidden-lg hidden-md" />
         <hr className="hidden-lg hidden-md" />
@@ -56,7 +57,7 @@ const PubsYearPanel = ({year, items}) => (
       {year}
     </SparkScroll.div>
     <div className="col-lg-11 col-md-11 col-sm-10 col-xs-9 PUBS__content">
-      {items.map((item) => (<PubsItem {...item} year={year} />))}
+      {items.filter((item) => (!item.is_hidden)).map((item) => (<PubsItem {...item} year={year} />))}
     </div>
   </div>
 );

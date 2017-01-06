@@ -9,11 +9,11 @@
             "value": 90
           },
           {
-            "title": "Nginx, Apache, uwsgi",
+            "title": "nginx, uWSGI, Apache",
             "value": 85
           },
           {
-            "title": "AWS EC2 / ELB, Webauth + Kerberos",
+            "title": "AWS EC2 / ELB, HTTP2, Webauth + Kerberos, Vultr, letsencrypt",
             "value": 85
           }
         ],
@@ -23,7 +23,11 @@
         "icon": "eyedropper",
         "items": [
           {
-            "title": "jQuery, Bootstrap, Require.js",
+            "title": "React, Redux, ES6",
+            "value": 80
+          },
+          {
+            "title": "Material UI, Bootstrap, jQuery",
             "value": 90
           },
           {
@@ -31,7 +35,7 @@
             "value": 80
           },
           {
-            "title": "HTML5 & CSS3, Sass, Jinja",
+            "title": "HTML5 & CSS3, Sass, JSS, Jinja",
             "value": 90
           },
           {
@@ -45,7 +49,7 @@
         "icon": "user-secret",
         "items": [
           {
-            "title": "git, npm + bower + grunt",
+            "title": "Git, webpack + Babel, Grunt, Bower, npm",
             "value": 90
           },
           {
@@ -53,7 +57,7 @@
             "value": 85
           },
           {
-            "title": "pip, setuptools, sphinx, unittest",
+            "title": "pip, setuptools, Sphinx, unittest",
             "value": 85
           }
         ],

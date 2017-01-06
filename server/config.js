@@ -34,7 +34,7 @@ const getGitContrib = () => {
 
   let countPubs = 0;
   for (let i in pubs.items) {
-    countPubs += pubs.items[i].items.length;
+    countPubs += pubs.items[i].items.filter((item) => (!item.is_hidden)).length;
   }
   stats.items[2].value = countPubs;
 
