@@ -33,7 +33,7 @@ class HomeSection extends React.Component {
     return (
       <section id="HOME__section">
         <ImageLoader extraClassName="UTIL__parallax"
-          tinySrc={require('../img/blur/t47_avatar.jpg')}
+          tinySrc={require('../img/t47_avatar_blur.jpg')}
           fullSrc={require('../img/t47_avatar.jpg')} />
         <div className="UTIL__cover HOME__shade"
           style={{backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.25 : 0})`}} ></div>

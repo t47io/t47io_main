@@ -3,6 +3,7 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
 import purify from 'purifycss-webpack-plugin';
 
@@ -28,6 +29,7 @@ let plugin = [
     ],
     purifyOptions: {minify: !DEBUG}
   }),
+  new LodashModuleReplacementPlugin(),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.DedupePlugin()
 ];
@@ -90,7 +92,9 @@ const config = {
     alias: {
       "react": "preact-compat",
       "react-dom": "preact-compat",
+      // "lodash": "lodash/core"
       // "lodash": "underscore"
+      // "underscore": "lodash"
     }
   },
 
