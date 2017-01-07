@@ -1,17 +1,27 @@
 {
   "items": [
     {
-      "year": 2016,
+      "year": 2017,
       "items": [
         {
+          "author": "Tian, S., Kladwang, W., and Das, R.",
+          "title": "Four-dimensional chemical mapping restores a Monod-Wyman-Changeux model for the <i>V. vulnificus</i> adenine riboswitch ",
+          "journal": "eLife",
+          "issue": "in preparation",
+          "is_preprint": true,
+          "is_hidden": true,
+          "citation": null,
+          "tag": "2017_Tian_eLife"
+        },
+        {
           "author": "Chen, L., Freund, A., Batista, P., Tian, S., Lee, B., Das, R., Chang, H., and Artandi, S.",
-          "title": "TCAB1 stimulates telomerase catalytic activity by modulating telomerase RNA structure",
+          "title": "<i>TCAB1</i> stimulates telomerase catalytic activity by modulating telomerase RNA structure",
           "journal": "Science",
           "issue": "in preparation",
           "is_preprint": true,
           "is_hidden": true,
           "citation": null,
-          "tag": "2016_Chen_Science"
+          "tag": "2017_Chen_Science"
         },
         {
           "author": "Hagey, R.J., Tian, S., Elazar, M., Kladwang, W., Pham, E.A., Taubenberger, J.K., Das, R., and Glenn, J.S.",
@@ -19,9 +29,37 @@
           "journal": "Science",
           "issue": "submitted",
           "is_preprint": true,
+          "is_hidden": true,
           "citation": null,
-          "tag": "2016_Hagey_Science"
+          "tag": "2017_Hagey_NatMed"
         },
+        {
+          "author": "Miao, Z., Adamiak, R.W., Antczak, M., Batey, R.T., Becka, A., Biesiada, M., Boniecki, M.J., Bujnicki, J.M., Chen, S-J., Cheng, C.Y., Chou, F-C., Ferré-D'Amaré, A.R., Das, R., Dawson, W.K., Ding, F., Dokholyan, N.V., Dunin-Horkawicz, S., Geniesse, C., Kappel, K., Kladwang, W., Krokhotin, A., Lach, G.E., Magnus, M., Major, F., Mann, T.H., Pachulska-Wieczorek, K., Patel, D.J., Piccirilli, J.A., Popenda, M., Purzycka, K.J., Ren, A., Rice, G.M., Santalucia, J.Jr., Sarzynska, J., Szachniuk, M., Tandon, A., Trausch, J.J., Tian, S., Wang, J., Weeks, K.M., Williams, B., Xiao, Y., Xu, X., Zhang, D, Zok, T., and Westhof, E.",
+          "title": "RNA-Puzzles Round III: 3D RNA structure prediction of five riboswitches and one ribozyme",
+          "journal": "RNA",
+          "issue": "submitted",
+          "is_preprint": true,
+          "is_hidden": true,
+          "citation": null,
+          "tag": "2017_Miao_RNA"
+        },
+        {
+          "author": "Tian, S., and Das, R.",
+          "title": "Primerize-2D: Automated primer design for RNA multidimensional chemical mapping",
+          "journal": "Bioinformatics",
+          "issue": "in press",
+          "page": "",
+          "is_preprint": true,
+          "citation": null,
+          "tag": "2017_Tian_Bioinformatics",
+          "url": "https://bioinformatics.oxfordjournals.org/cgi/content/abstract/btw814",
+          "code": "http://primerize2d.stanford.edu/"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "items": [
         {
           "author": "Tian, S., and Das, R.",
           "title": "RNA structure through multidimensional chemical mapping",
@@ -30,7 +68,7 @@
           "page": "1 - 30",
           "citation": 1,
           "tag": "2016_Tian_QRB",
-          "url": "http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=10242118&fulltextType=RV&fileId=S0033583516000020"
+          "url": "https://www.cambridge.org/core/journals/quarterly-reviews-of-biophysics/article/rna-structure-through-multidimensional-chemical-mapping/1D773A4C81E046E6BA4521BAF688E0DC"
         }
       ]
     },
@@ -45,7 +83,7 @@
           "page": "e07600",
           "citation": 14,
           "tag": "2015_Cheng_eLife",
-          "url": "http://elifesciences.org/content/4/e07600",
+          "url": "https://elifesciences.org/content/4/e07600",
           "code": "https://rmdb.stanford.edu/mapseeker/"
         },
         {
@@ -56,7 +94,7 @@
           "page": "W522 - W526",
           "citation": 1,
           "tag": "2015_Tian_NAR",
-          "url": "http://nar.oxfordjournals.org/content/43/W1/W522",
+          "url": "https://nar.oxfordjournals.org/content/43/W1/W522",
           "code": "https://primerize.stanford.edu/"
         },
         {
@@ -64,13 +102,14 @@
           "title": "Automated band annotation for RNA structure probing experiments with numerous capillary electrophoresis profiles",
           "journal": "Bioinformatics",
           "issue": "31 (17)",
+          "page": "2808 - 2815",
           "citation": 1,
           "tag": "2015_Lee_Bioinfomatics",
-          "url": "http://bioinformatics.oxfordjournals.org/content/31/17/2808.abstract",
+          "url": "https://bioinformatics.oxfordjournals.org/content/31/17/2808.abstract",
           "code": "https://rmdb.stanford.edu/hitrace/"
         },
         {
-          "author": "Miao, Z., Adamiak, R.W., Blanchet, M-F., Boniecki, M., Bujnicki, J.M., Chen, S-J., Cheng, C.Y., Chojnowski, G., Chou, F-C., Cordero, P., Cruz, J.A., Ferré-D'Amaré, A, Das, R., Ding, F., Dokholyan, N.V., Dunin-Horkawicz, S., Kladwang, W., Krokhotin, A., Lach, G., Magnus, M., Major, F., Mann, T.H., Masquida, B., Matelska, D., Meyer, M., Peselis, A., Popenda, M., Purzycka, K.J., Serganov, A., Stasiewicz, J., Szachniuk, M., Tandon, A., Tian, S., Wang, J., Xiao, Y., Xu, X., Zhang, J, Zhao, P., Zok, T., and Westhof, E.",
+          "author": "Miao, Z., Adamiak, R.W., Blanchet, M-F., Boniecki, M., Bujnicki, J.M., Chen, S-J., Cheng, C.Y., Chojnowski, G., Chou, F-C., Cordero, P., Cruz, J.A., Ferré-D'Amaré, A.R., Das, R., Ding, F., Dokholyan, N.V., Dunin-Horkawicz, S., Kladwang, W., Krokhotin, A., Lach, G., Magnus, M., Major, F., Mann, T.H., Masquida, B., Matelska, D., Meyer, M., Peselis, A., Popenda, M., Purzycka, K.J., Serganov, A., Stasiewicz, J., Szachniuk, M., Tandon, A., Tian, S., Wang, J., Xiao, Y., Xu, X., Zhang, J, Zhao, P., Zok, T., and Westhof, E.",
           "title": "RNA-Puzzles Round II: Assessment of RNA structure prediction programs applied to three large RNA structures",
           "journal": "RNA",
           "issue": "21 (6)",
@@ -112,7 +151,7 @@
           "page": "3063 - 3065",
           "citation": 21,
           "tag": "2014_Kladwang_Biochemistry",
-          "url": "http://pubs.acs.org/doi/abs/10.1021/bi5003426"
+          "url": "https://pubs.acs.org/doi/abs/10.1021/bi5003426"
         }
       ]
     },
@@ -127,7 +166,7 @@
           "page": "135 - 150",
           "citation": 15,
           "tag": "2013_Shi_NewPhytol",
-          "url": "http://onlinelibrary.wiley.com/doi/10.1111/nph.12275/abstract"
+          "url": "https://onlinelibrary.wiley.com/doi/10.1111/nph.12275/abstract"
         }
       ]
     }
