@@ -10,8 +10,9 @@
 .UTIL__divider {
   width: 100%;
   height: 52px;
-  background: url('./img/fg_divider.gif') no-repeat center center;
   margin: -10px 0px -5px 0px;
+  background: url('./img/fg_divider.png') no-repeat center center;
+  background-size: auto 52px;
 }
 
 .UTIL__parallax {
@@ -21,9 +22,7 @@
   
   background-repeat: no-repeat;
   background-attachment: fixed;
-  -webkit-background-size: cover;
   background-size: cover;
-
   @include transition(0.5s);
 
   &.bg {

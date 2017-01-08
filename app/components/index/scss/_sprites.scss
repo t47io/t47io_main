@@ -14,7 +14,7 @@
     'SPRITE__portfolio-flu',
     'SPRITE__portfolio-celica',
     'SPRITE__portfolio-ribokit'
-  )
+  ), false
 );
 @include img_sprites('./img/sp_publications.jpg',
   432px, 216px, (
@@ -32,7 +32,7 @@
     'SPRITE__pubs-2017_Hagey_NatMed',
     'SPRITE__pubs-2017_Chen_Science',
     'SPRITE__pubs-2017_Tian_eLife'
-  )
+  ), true
 );
 @include img_sprites('./img/sp_affiliation.png',
   512px, 224px, (
@@ -40,7 +40,7 @@
     'SPRITE__affiliation-Autodesk',
     'SPRITE__affiliation-Stanford',
     'SPRITE__affiliation-Minted'
-  )
+  ), true
 );
 
 @include img_sprites_bg('./img/bg_set_1.jpg',

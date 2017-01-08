@@ -1,3 +1,6 @@
+@import './util';
+
+
 .SPRITE { display: inline-block; }
 
 @function list_prefix($list, $prefix) {
@@ -17,7 +20,7 @@
 }
 
 
-@mixin img_sprites($img, $w, $h, $cls_names) {
+@mixin img_sprites($img, $w, $h, $cls_names, $retina) {
   $cls_names: list_prefix($cls_names, '.');
   $cls_after: list_suffix($cls_names, '::after');
 
@@ -29,11 +32,18 @@
     content: ' ';
     display: inline-block;
     max-width: 100%;
-    background-size: 100% auto; 
     width: 100%; 
     height: 0; 
-    background-image: url($img);
     padding-bottom: percentage($h / $w);
+    background-image: url($img);
+    background-size: 100% auto; 
+
+    @if $retina == true {
+      @include retina_image($img);
+    } else {
+      background-image: url($img);
+    }
+
   }
 
   @for $i from 1 through length($cls_after) {
@@ -52,8 +62,9 @@
     max-width: $w;
     max-height: $h;
     background-size: 110% auto; 
-    background-image: url($img);
     padding-bottom: 5.75rem;
+
+    background-image: url($img);
   }
 
   @for $i from 1 through length($cls_after) {
