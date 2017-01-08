@@ -1,0 +1,52 @@
+@import '../../common/scss/util';
+
+
+$clr-k: #cfd8dc;
+$clr-g: #9fc906;
+$clr-r: #f44336;
+$clr-c: #03a9f4;
+$clr-y: #ffc107;
+$clr-p: #9c27b0;
+$list-clr: $clr-k, $clr-g, $clr-r, $clr-c, $clr-y, $clr-p, $clr-g, $clr-k, $clr-c, $clr-r, $clr-p, $clr-y;
+
+
+@mixin transform($val) {
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -webkit-transform: $val;
+  transform: $val;
+}
+@mixin border_radius($val) {
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  -ms-border-radius: $val;
+  -o-border-radius: $val;
+  border-radius: $val;
+}
+
+
+@include keyframes(dna_rotate) {
+  $i: 0;
+  @while $i <= 100 {
+    #{$i}% {
+      opacity: 1;
+      @if $i % 100 == 0 {
+        top: 20%;
+        z-index: 0;
+        @include transform(scale(1));
+      }
+      @else if $i % 50 == 0 {
+        top: 60%;
+        z-index: 1;
+        @include transform(scale(1));
+      }
+      @else if $i == 25 {
+        @include transform(scale(1.8));
+      }
+      @else {
+        @include transform(scale(0.5));
+      }
+    }
+    $i: $i + 25;
+  }
+}
