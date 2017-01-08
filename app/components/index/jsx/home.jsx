@@ -33,7 +33,7 @@ class HomeSection extends React.Component {
     return (
       <section id="HOME__section">
         <ImageLoader extraClassName="UTIL__parallax"
-          tinySrc={require('../img/t47_avatar_blur.jpg')}
+          tinySrc={require('../img/t47_avatar@x.jpg')}
           fullSrc={require('../img/t47_avatar.jpg')} />
         <div className="UTIL__cover HOME__shade"
           style={{backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.25 : 0})`}} ></div>
@@ -44,7 +44,7 @@ class HomeSection extends React.Component {
             timeline={tween.fade} >
             <img alt="Siqi Tian" width="480"
               style={this.state.isName ? tween.name.end : tween.name.start}
-              src={require('../img/t47_name.gif')} />
+              src={require('../img/t47_name.png')} />
             <p className="text-white" style="margin-top: -10px;">&nbsp;</p>
             <p className={`HOME__typewrite text-${this.state.textColor}`} >
               <span dangerouslySetInnerHTML={{__html: this.state.title}} ></span>

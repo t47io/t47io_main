@@ -51,7 +51,7 @@ const ContactSection = ({items, background, resume}) => {
                 <SparkScroll.li timeline={tween.listLeft} >
                   <i className="fa fa-phone fa-lg fa-fw"></i>
                   <img className="CONTACT__phone" alt="T47 phone no."
-                    src={require('../img/t47_phone.gif')} />
+                    src={require('../img/t47_phone.png')} />
                 </SparkScroll.li>
                 <SparkScroll.li timeline={tween.listLeft} >
                   <i className="fa fa-mail-alt fa-lg fa-fw"></i>

@@ -15,7 +15,8 @@ const Footer = () => (
         timeline={tween.gif} >
         <a href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge" target="_blank" rel="noopener noreferrer external">
           <img alt="Minimal City SFO" width="128" height="96"
-            src={require('../img/fg_city_sfo.gif')} />
+            src={require('../img/fg_city_sfo.gif')}
+            srcSet={`${require('../img/fg_city_sfo.gif')} 1x, ${require('../img/fg_city_sfo@1.5x.gif')} 1.5x, ${require('../img/fg_city_sfo@2x.gif')} 2x, ${require('../img/fg_city_sfo@3x.gif')} 3x`} />
         </a>
       </SparkScroll.div>
       <SparkScroll.div className="container text-center FOOTER__header"
@@ -42,7 +43,8 @@ const Footer = () => (
         timeline={tween.gif} >
         <a href="https://dribbble.com/shots/2037387-Seattle-FTW" target="_blank" rel="noopener noreferrer external">
           <img alt="Minimal City SEA" width="128" height="96"
-            src={require('../img/fg_city_sea.gif')} />
+            src={require('../img/fg_city_sea.gif')}
+            srcSet={`${require('../img/fg_city_sea.gif')} 1x, ${require('../img/fg_city_sea@1.5x.gif')} 1.5x, ${require('../img/fg_city_sea@2x.gif')} 2x, ${require('../img/fg_city_sea@3x.gif')} 3x`} />
         </a>
       </SparkScroll.div>
     </SparkProxy.div>
