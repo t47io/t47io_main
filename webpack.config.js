@@ -14,10 +14,13 @@ console.log(`DEBUG mode ? ${DEBUG}`);
 let plugin = [
   new HtmlWebpackPlugin({
     template: `${__dirname}/app/index.html`,
+    title: 'xxx',
+
     filename: `${__dirname}/public/index.html`,
     inject: 'body',
+    xhtml: true
   }),
-  new ExtractTextPlugin(`[name]-[hash:8].${DEBUG ? "" : "min."}css`, {
+  new ExtractTextPlugin(`[hash:8].${DEBUG ? "" : "min."}css`, {
     allChunks: true
   }),
   new purify({
@@ -27,11 +30,23 @@ let plugin = [
       'app/**/*.json',
       'public/index.html'
     ],
-    purifyOptions: {minify: !DEBUG}
+    purifyOptions: {
+      minify: !DEBUG,
+      info: !DEBUG,
+      // rejected: true
+    }
   }),
   new LodashModuleReplacementPlugin(),
+  // new webpack.optimize.CommonsChunkPlugin({
+  //   name: 'common',
+  //   filename: `[name]-[hash:8].${DEBUG ? "" : "min."}js`,
+  //   // chunks: ['main'],
+  //   // async: true,
+  //   children: true,
+  //   minChunks: 2
+  // }),
   new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.optimize.DedupePlugin()
+  new webpack.optimize.DedupePlugin(),
 ];
 if (!DEBUG) {
   plugin = [
@@ -41,7 +56,7 @@ if (!DEBUG) {
         'BABEL_ENV': JSON.stringify('production')
       }
     }),
-    ...(plugin),
+    ...plugin,
     new BabiliPlugin({
       comments: false
     }),
@@ -65,24 +80,26 @@ if (!DEBUG) {
   ];
 } else {
   plugin = [
-    plugin[0],
     new webpack.HotModuleReplacementPlugin(),
-    ...(plugin.slice(1))
+    ...plugin
   ];
 }
 
-let entry = DEBUG ? ['webpack-hot-middleware/client?reload=true'] : [];
-entry = entry.concat([
-  'bootstrap-sass-loader!./bootstrap-sass.config.js',
-  // 'font-awesome-loader!./font-awesome.config.js',
-  `${__dirname}/app/index.jsx`
-]);
+let entry = {
+  load: [
+    'bootstrap-sass-loader!./bootstrap-sass.config.js',
+    // 'font-awesome-loader!./font-awesome.config.js',
+    `${__dirname}/app/index.jsx`
+  ]
+};
+if (DEBUG) { entry.load.unshift('webpack-hot-middleware/client?reload=true'); }
 
 
 const config = {
   entry: entry,
   output: {
-    filename: `main-[hash:8].${DEBUG ? "" : "min."}js`,
+    filename: `[hash:8].${DEBUG ? "" : "min."}js`,
+    chunkFilename: `[chunkhash:8].${DEBUG ? "" : "min."}js`,
     path: `${__dirname}/public`,
     publicPath: "/"
   },
@@ -142,7 +159,6 @@ const config = {
         test: /\.json$/i,
         loader: "json",
         exclude: /public\/data/
-        // include: [`${__dirname}/public/config.json`]
       }
     ]
   },
