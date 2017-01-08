@@ -1,11 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Main from './components/index/index.jsx';
+import AsyncComponent from './components/loading/jsx/async.jsx';
+import HelixLoading from './components/loading/jsx/helix.jsx';
+
+
+const loader = (callback) => {
+  require.ensure([], (require) => {
+      const Main = require('./components/index/index.jsx');
+
+      callback(Main, {
+        ...(require('../public/config.json')),
+        svg: require('../public/data/git_contrib.svg')
+      });
+  });
+}
 
 
 ReactDOM.render(
-  <Main {...(require('../public/config.json'))}
-  	svg={require('../public/data/git_contrib.svg')} />,
+  <AsyncComponent loader={loader} placeholder={<HelixLoading />} />,
   document.getElementById("app")
 );
