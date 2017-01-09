@@ -4,6 +4,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import config_webpack from '../webpack.config.js';
 import {DEBUG, PORT, EMAIL_RECV, SMTP} from './config.js';
+import {getResume, getGitContrib} from './_util.js';
 
 import body_p from 'body-parser';
 import compression from 'compression';
@@ -17,7 +18,16 @@ import path from 'path';
 const app = express();
 const publicPath = path.join(__dirname, '../public');
 
+
 if (DEBUG) { app.use(compression()); }
+app.use(function (req, res, next) {
+    if (req.url.match(/\.(png|jpg|gif|svg|ttf|pdf)$/)) {
+        res.setHeader('Cache-Control', 'public, max-age=5184000');      // 60 days
+    } else if (req.url.match(/\.(css|js|json)$/)) {
+        res.setHeader('Cache-Control', 'public, max-age=1296000');      // 15 days
+    }
+    next();
+});
 app.use(express.static(publicPath));
 app.use(helmet());
 app.use(body_p.urlencoded({'extended': true}));
@@ -66,6 +76,19 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(publicPath, 'index.html'));
 	}
 });
+
+app.get('/resume', function (req, res) {
+    res.setHeader('Cache-Control', 'public, max-age=5184000'); // 60 days
+    res.setHeader('Content-Disposition', 'inline; filename="SiqiTian_resume.pdf"');
+    res.sendFile(getResume(publicPath));
+});
+app.get('/git/contrib', function (req, res) {
+    res.setHeader('Cache-Control', 'public, max-age=604800'); // 7 days
+    res.sendFile(getGitContrib(publicPath));
+});
+
+
+
 
 // cleanup
 // process.on('SIGINT', () => { server.close(); process.exit(2); });

@@ -4,37 +4,6 @@
     striptags = require('striptags');
 
 
-app.use(function (req, res, next) {
-    if (req.url.match(/\.(png|jpg|gif|svg|ttf|pdf)$/)) {
-        res.setHeader('Cache-Control', 'public, max-age=5184000');      // 60 days
-    } else if (req.url.match(/\.(css|js|json)$/)) {
-        res.setHeader('Cache-Control', 'public, max-age=1296000');      // 15 days
-    }
-    next();
-});
-if (DEBUG) {
-    app.use( sass({
-        'src':         path.join(root, 'sass/'),
-        'dest':        path.join(root, 'css/'),
-        'prefix':      '/css',
-        'response':    false,
-        'outputStyle': 'expanded',
-        'debug':        DEBUG
-    }) );
-}
-
-
-app.get('/', function (req, res) {
-    var res_date = resume.replace(path.join(root, 'pdf/Resume_'), '').replace('.pdf', '');
-    res.render('_index.html', {
-        'DEBUG':     DEBUG,
-        'pub_list':  pub,
-        'dat_dict':  dat,
-        'links':     config.links,
-        'resume':    moment(res_date, 'YYYYMMDD').format('MMM YYYY'),
-        'GA_ID':     GA_ID
-    });
-});
 app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica|ribokit)\/?$/, function (req, res, next) {
     var proj = req.params[0];
     res.render('project_' + proj + '.html', {
@@ -48,19 +17,11 @@ app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica|riboki
 });
 
 
-app.get('/resume', function (req, res) {
-    res.setHeader('Cache-Control', 'public, max-age=1296000');
-    res.setHeader('Content-Disposition', 'inline; filename="SiqiTian_resume.pdf"');
-    res.sendFile(resume);
-});
 app.get('/defense', function (req, res) {
     res.setHeader('Cache-Control', 'public, max-age=1296000');
     res.sendFile(path.join(root, 'img/t47/phd_defense.png'));
 });
-app.get('/git/contrib', function (req, res) {
-    res.setHeader('Cache-Control', 'public, max-age=1296000');
-    res.sendFile(git_contrib);
-});
+
 app.get('/git', function (req, res, next) {
     if (req.query.repo in config.git_repo && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
         var json = JSON.parse(fs.readFileSync('data/' + req.query.repo + '_' + req.query.type + '.json', 'utf8'));
@@ -80,29 +41,6 @@ app.get('/git', function (req, res, next) {
         next(err);
     }
 });
-
-
-// app.get(/^\/bower_components\/(.+)\/?$/, function (req, res, next) {
-//     var file = req.params[0];
-//     if (fs.existsSync('bower_components/' + file)) {
-//         res.sendFile(req.params[0], {'root': path.join(__dirname, 'bower_components')});
-//     } else {
-//         var err = new Error();
-//         err.status = 404;
-//         next(err);
-//     }
-// });
-// app.get(/^\/fonts\/(.+)\/?$/, function (req, res, next) {
-//     var file = req.params[0];
-//     if (fs.existsSync('bower_components/font-awesome/fonts/' + file)) {
-//         res.sendFile(req.params[0], {'root': path.join(__dirname, 'bower_components/font-awesome/fonts')});
-//     } else {
-//         var err = new Error();
-//         err.status = 404;
-//         next(err);
-//     }
-// });
-
 
 app.route('/send')
 .get(function (req, res, next) {
@@ -140,20 +78,6 @@ app.route('/send')
 });
 
 
-app.get('/load', function (req, res) {
-    res.render('_load.html', {
-        'DEBUG':     DEBUG,
-        'GA_ID':     GA_ID
-    });
-});
-
-
-app.get(/^\/robots\.txt\/?$/, function (req, res) {
-    res.sendFile('robots.txt', {'root': root});
-});
-app.get(/^\/sitemap\.xml\/?$/, function (req, res) {
-    res.sendFile('sitemap.xml', {'root': root});
-});
 app.get(/^\/favicon\.ico\/?$/, function (req, res) {
     res.sendFile('img/t47/t47_icon.png', {'root': root});
 });
