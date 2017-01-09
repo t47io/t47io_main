@@ -29,6 +29,10 @@ class Main extends React.Component {
     });
   }
 
+  componentDidMount() {
+    document.querySelector(".LOAD__container").style.opacity = 0;
+  }
+
   onEnterSection(section) {
     this.setState({
       scroll: {

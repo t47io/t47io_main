@@ -37,11 +37,6 @@ const helixLoading = {CSS, HTML};
 const title = "SIQI TIAN - Full-Stack Web Developer & RNA Biochemistry Automator | T47.IO";
 
 const meta = [
-  {charset: "utf-8"},
-  {
-    'http-equiv': "Content-Type",
-    content: "text/html; charset=UTF-8"
-  },
   {
     name: "description",
     content: "Personal portfolio of Siqi Tian, a full-stack web designer and developer, as well as an RNA biochemist (PhD) from Stanford University."
