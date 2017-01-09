@@ -63,10 +63,9 @@ const env = require('./config/env.json');
 
 const DEBUG = env.DEBUG;
 const PORT = env.port;
-const GA_ID = env.ga_tracker;
 const EMAIL_RECV = env.email.login;
 
 const SMTP = emailer.createTransport(`${env.email.protocol}://${EMAIL_RECV.replace('@', '%40')}:${env.email.password}@${env.email.host}:${env.email.port}`);
 
 
-export {DEBUG, PORT, GA_ID, EMAIL_RECV, SMTP};
+export {DEBUG, PORT, EMAIL_RECV, SMTP};

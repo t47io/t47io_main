@@ -3,9 +3,10 @@ import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import config_webpack from '../webpack.config.js';
-import {DEBUG, PORT, GA_ID, EMAIL_RECV, SMTP} from './config.js';
+import {DEBUG, PORT, EMAIL_RECV, SMTP} from './config.js';
 
 import body_p from 'body-parser';
+import compression from 'compression';
 import express from 'express';
 import fs from 'fs-extra';
 import glob from 'glob-promise';
@@ -15,9 +16,11 @@ import path from 'path';
 
 const app = express();
 const publicPath = path.join(__dirname, '../public');
+
+if (DEBUG) { app.use(compression()); }
 app.use(express.static(publicPath));
-app.use( helmet() );
-app.use( body_p.urlencoded({'extended': true}) );
+app.use(helmet());
+app.use(body_p.urlencoded({'extended': true}));
 app.disable('x-powered-by');
 
 
