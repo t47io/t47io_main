@@ -23,6 +23,7 @@ class HomeSection extends React.Component {
   onLoad() {
     func.delay(800, () => {
       document.querySelector(".LOAD__container").style.opacity = 0;
+      document.querySelector(".LOAD__container").style.zIndex = -1;
       return func.delay(800);
     })
     .then(() => this.setState({...(this.state), isName: true}))

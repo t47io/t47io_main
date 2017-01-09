@@ -55,7 +55,7 @@ class Main extends React.Component {
   }
 
   render() {
-    const {home, about, affiliation, portfolio, skills, stats, pubs, contact, svg} = this.props, {scroll} = this.state;
+    const {home, about, affiliation, portfolio, skills, stats, pubs, contact} = this.props, {scroll} = this.state;
 
     return (
     	<div>
@@ -72,7 +72,7 @@ class Main extends React.Component {
         <Waypoint onEnter={this.onEnterSection.bind(this, 'portfolio')} />
     		<PortfolioSection {...portfolio} />
     		<SkillsSection {...skills} />
-    		<StatsSection {...stats} svg={svg} />
+    		<StatsSection {...stats} />
     		<PubsSection {...pubs} />
 
         <Waypoint onEnter={this.onEnterSection.bind(this, 'contact')} />
