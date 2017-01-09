@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
@@ -22,7 +21,6 @@ const Plugins = (DEBUG) => {
       helixLoading, 
       googleAnalytics
     }),
-    new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'defer'}),
     new ExtractTextPlugin(`[hash:8].${DEBUG ? "" : "min."}css`, {
       allChunks: true
     }),
