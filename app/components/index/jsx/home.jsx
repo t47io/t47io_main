@@ -1,7 +1,7 @@
 import React from 'react';
 import {SparkScroll} from '../../common/js/factory.js';
 
-import ImageLoader from '../../common/jsx/_image-loader.jsx';
+// import ImageLoader from '../../common/jsx/_image-loader.jsx';
 import {home as tween, func} from '../js/tweens.js';
 
 
@@ -17,10 +17,14 @@ class HomeSection extends React.Component {
       textColor: "white",
       arrowColor: "white"
     };
+    this.bgImage = require('../img/t47_avatar.jpg');
   }
 
-  componentDidMount() {
-    func.delay(800)
+  onLoad() {
+    func.delay(800, () => {
+      document.querySelector(".LOAD__container").style.opacity = 0;
+      return func.delay(800);
+    })
     .then(() => this.setState({...(this.state), isName: true}))
     .then(() => tween.title(this.state, this.props.title, this.setState.bind(this)))
     .then(() => {
@@ -32,9 +36,14 @@ class HomeSection extends React.Component {
   render() {
     return (
       <section id="HOME__section">
-        <ImageLoader extraClassName="UTIL__parallax"
-          tinySrc={require('../img/t47_avatar@x.jpg')}
-          fullSrc={require('../img/t47_avatar.jpg')} />
+        <div className="UTIL__parallax" style={{backgroundImage: `url(${this.bgImage})`}} >
+          <img style="display:none" src={this.bgImage}
+            onLoad={this.onLoad.bind(this)} />
+        </div>
+
+        {/* <ImageLoader extraClassName="UTIL__parallax"
+           tinySrc={require('../img/t47_avatar@x.jpg')}
+           fullSrc={require('../img/t47_avatar.jpg')} /> */}
         <div className="UTIL__cover HOME__shade"
           style={{backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.25 : 0})`}} ></div>
 

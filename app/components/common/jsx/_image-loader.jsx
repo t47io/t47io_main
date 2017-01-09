@@ -28,7 +28,7 @@ class ImageLoader extends React.Component {
 
     return (
       <div className={extraClassName} style={divStyle} >
-        <img style="display:none" src={tinySrc}
+        <img style="display:none" src={fullSrc}
           onLoad={this.onLoad.bind(this)} />
       </div>
     );
