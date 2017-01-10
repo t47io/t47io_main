@@ -29,6 +29,7 @@ const Plugins = (DEBUG) => {
       paths: [
         'app/**/*.jsx',
         'app/**/*.json',
+        'app/**/*.scss',
         'public/index.html'
       ],
       purifyOptions: {
