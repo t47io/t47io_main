@@ -6,7 +6,7 @@ import path from 'path';
 import request from 'request';
 
 
-const json = require('../config/index/pubs.json');
+const json = require('../../config/index/pubs.json');
 
 const filter = /[a-zA-Z]+/g;
 const filterWords = (input, minLen, exclude = [], subset = NaN) => {
@@ -74,7 +74,7 @@ try {
       console.log(`${colors.yellow("WARNING")}: ${restRecords.length} record(s) from Google Scholar was not matched.`);
       restRecords.map((item) => console.log(`${colors.yellow("WARNING")}: entry ${item.year} / ${item.author.join()} / ${item.title.join(" ")}`));
     }
-    fs.writeJsonSync(path.join(__dirname, '../config/index/pubs.json'), newJson);
+    fs.writeJsonSync(path.join(__dirname, '../../config/index/pubs.json'), newJson);
     console.log(`${colors.green("SUCCESS")}: Google Scholar citation records updated.`);
   });
 } catch (e) {

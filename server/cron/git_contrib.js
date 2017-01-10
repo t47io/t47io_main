@@ -6,7 +6,7 @@ import path from 'path';
 import request from 'request';
 
 
-const json = require('../config/index/stats.json');
+const json = require('../../config/index/stats.json');
 const gridColors = ['#eeeeee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
 
 
@@ -46,7 +46,7 @@ try {
   request(json.links.github, (error, response, body) => {
     let newJson = _.clone(json);
     newJson.git = modifyHTML(body).replace(/\n[ ]+/g, '');
-    fs.writeJsonSync(path.join(__dirname, '../config/index/stats.json'), newJson);
+    fs.writeJsonSync(path.join(__dirname, '../../config/index/stats.json'), newJson);
 
     console.log(`${colors.green("SUCCESS")}: GitHub contribution records updated.`);
   });
