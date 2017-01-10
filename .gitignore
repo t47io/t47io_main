@@ -1,18 +1,13 @@
 !.gitignore
 
-server/config/*.json
+config/server.json
 public/data/
 public/pdf/
 public/config.json
-!app/components/font.css
-!app/components/reset.css
 
 node_modules/
-bower_components/
 .sass-cache/
 *yarn*
 
 !public/data/**/.gitignore
-!dist/**/.gitignore
 !node_modules/**/.gitignore
-!bower_components/**/.gitignore
