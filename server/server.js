@@ -4,7 +4,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import config_webpack from '../webpack.config.js';
 import {DEBUG, PORT, EMAIL_RECV, SMTP} from './config.js';
-import {getResume, getGitContrib} from './_util.js';
+import {getResume} from './_util.js';
 
 import body_p from 'body-parser';
 import compression from 'compression';
@@ -82,11 +82,6 @@ app.get('/resume', function (req, res) {
     res.setHeader('Content-Disposition', 'inline; filename="SiqiTian_resume.pdf"');
     res.sendFile(getResume(publicPath));
 });
-app.get('/git/contrib', function (req, res) {
-    res.setHeader('Cache-Control', 'public, max-age=604800'); // 7 days
-    res.sendFile(getGitContrib(publicPath));
-});
-
 
 
 

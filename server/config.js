@@ -3,20 +3,20 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
-import {getResumeName, getGitContribName} from './_util.js';
+import {getResumeName} from './_util.js';
 
 const rootPath = path.join(__dirname, '../public');
 
 
 (function concatJSON() {
-  const home = require('../app/config/home.json');
-  const about = require('../app/config/about.json');
-  const affiliation = require('../app/config/affiliation.json');
-  const portfolio = require('../app/config/portfolio.json');
-  const skills = require('../app/config/skills.json');
-  let stats = require('../app/config/stats.json');
-  const pubs = require('../app/config/pubs.json');
-  const contact = require('../app/config/contact.json');
+  const home = require('../config/index/home.json');
+  const about = require('../config/index/about.json');
+  const affiliation = require('../config/index/affiliation.json');
+  const portfolio = require('../config/index/portfolio.json');
+  const skills = require('../config/index/skills.json');
+  let stats = require('../config/index/stats.json');
+  const pubs = require('../config/index/pubs.json');
+  const contact = require('../config/index/contact.json');
 
   let countPubs = 0;
   for (let i in pubs.items) {
@@ -30,10 +30,7 @@ const rootPath = path.join(__dirname, '../public');
     affiliation,
     portfolio,
     skills,
-    stats: {
-      ...stats,
-      git: getGitContribName(rootPath)
-    },
+    stats,
     pubs,
     contact: {
       ...contact,
@@ -45,7 +42,7 @@ const rootPath = path.join(__dirname, '../public');
 })();
 
 
-const env = require('./config/env.json');
+const env = require('../config/server.json');
 
 const DEBUG = env.DEBUG;
 const PORT = env.port;
