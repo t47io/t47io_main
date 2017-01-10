@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
-import {getResumeName} from './_util.js';
+import {getResume} from './_util.js';
 
 const rootPath = path.join(__dirname, '../public');
 
@@ -34,7 +34,7 @@ const rootPath = path.join(__dirname, '../public');
     pubs,
     contact: {
       ...contact,
-      resume: getResumeName(rootPath)
+      resume: getResume(rootPath)
     }
   };
 
