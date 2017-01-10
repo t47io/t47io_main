@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import SectionHeader from '../../common/jsx/header.jsx';
@@ -26,7 +27,7 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
           <a href={urlExt} target="_blank" rel="noopener noreferrer external">
-            <div className="SPRITE" data-wenk-pos="right" data-wenk={tag}>
+            <div className="SPRITE" data-tip={tag} data-for="PUBS__tooltip">
               <div className={`SPRITE__pubs-${tag}`}></div>
             </div>
           </a>
@@ -69,6 +70,7 @@ const PubsSection = ({items, links}) => (
 
     <div className="container">
       {items.map((item) => (<PubsYearPanel {...item} />))}
+      <ReactTooltip effect="solid" place="bottom" id="PUBS__tooltip" />
 
       <div className="UTIL__spacer-lg"></div>
       <div className="row">

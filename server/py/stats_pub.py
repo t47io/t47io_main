@@ -102,30 +102,6 @@ except Exception:
     print('%s%s\n' % (ts, err))
 
 
-try:
-    r = urllib.urlopen(env_json['links']['github']).read()
-    soup = BeautifulSoup(r, 'html5lib')
-    git_svg = soup.find(class_='js-calendar-graph-svg')
-    git_svg.attrs['height'] = 150
-    dom_append = BeautifulSoup('<text x="0" y="120" ># Includes contributions from <tspan style="font-style:italic;">private</tspan> repositories</text>\n' + '<g transform="translate(572, 108)" id="legend">\n' + '<rect class="day day_0" x="0" />\n' + '<rect class="day day_1" x="13" />\n' + '<rect class="day day_2" x="26" />\n' + '<rect class="day day_3" x="39" />\n' + '<rect class="day day_4" x="52" />\n' + '</g>\n' + '<text x="534" y="118" class="legend">Less</text>\n' + '<text x="646" y="118" class="legend">More</text>\n', 'html.parser')
-    git_svg.find('g').append(dom_append)
-
-    colors = ['#eeeeee', '#d6e685', '#8cc665', '#44a340', '#1e6823']
-    list_rect = soup.find_all("rect", class_="day")
-    for rect in list_rect:
-        if rect.attrs['fill'] in colors:
-            rect.attrs['class'] = 'day day_%s' % (colors.index(rect.attrs['fill']))
-        del rect.attrs['height'], rect.attrs['width'], rect.attrs['fill']
-
-    open('data/git_contrib_%s.svg' % time.strftime('%Y%m%d', time.localtime()), 'w').write(str(git_svg))
-    print('\033[92mSUCCESS\033[0m: GitHub contribution records updated.\n')
-
-except Exception:
-    print('\033[41mERROR\033[0m: Failed to update GitHub contribution.\n')
-    err = traceback.format_exc()
-    ts = '%s\n' % time.ctime()
-    print('%s%s\n' % (ts, err))
-
 
 subprocess.check_call('echo | openssl s_client -connect t47.io:443 | openssl x509 -noout -enddate > %s' % os.path.join(MEDIA_ROOT, 'data/temp.txt'), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 exp_date = subprocess.Popen('sed %s %s' % ("'s/^notAfter\=//g'", os.path.join(MEDIA_ROOT, 'data/temp.txt')), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()[0].strip()

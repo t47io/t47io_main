@@ -1,5 +1,6 @@
 import React from 'react';
 import 'whatwg-fetch';
+import ReactTooltip from 'react-tooltip';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import SectionHeader from '../../common/jsx/header.jsx';
@@ -63,6 +64,7 @@ class StatsSVG extends React.Component {
       <SparkScroll.div className="text-center STATS__github"
         timeline={tween.git} 
         dangerouslySetInnerHTML={{__html: innerSVG}} >
+        <ReactTooltip effect="solid" place="top" id="STATS__tooltip" />
       </SparkScroll.div>
     );
   }
