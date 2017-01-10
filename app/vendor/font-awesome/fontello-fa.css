@@ -3,7 +3,7 @@
   font-weight: normal;
   font-style: normal;
 
-  src: url("../../vendor/font-awesome/font/fontello-fa.woff") format("woff");
+  src: url("../vendor/font-awesome/font/fontello-fa.woff") format("woff");
 }
 
 [class^="fa-"]:before, [class*=" fa-"]:before {

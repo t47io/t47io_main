@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Main from './components/index/index.jsx';
+import Main from './index/index.jsx';
 
 ReactDOM.render(
   <Main {...(require('../public/config.json'))} />,

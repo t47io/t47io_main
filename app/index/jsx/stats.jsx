@@ -1,5 +1,4 @@
 import React from 'react';
-import 'whatwg-fetch';
 import ReactTooltip from 'react-tooltip';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
@@ -37,40 +36,6 @@ class StatsItem extends React.Component {
 }
 
 
-class StatsSVG extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoaded: false,
-      SVG: null
-    };
-  }
-
-  componentDidMount() {
-    fetch('/git/contrib')
-    .then((response) => response.text())
-    .then((svg) => {
-      this.setState({
-        isLoaded: true,
-        SVG: svg
-      });
-    });
-  }
-
-  render() {
-    const innerSVG = (this.state.isLoaded) ? this.state.SVG : this.props.placeholder;
-
-    return (
-      <SparkScroll.div className="text-center STATS__github"
-        timeline={tween.git} 
-        dangerouslySetInnerHTML={{__html: innerSVG}} >
-        <ReactTooltip effect="solid" place="top" id="STATS__tooltip" />
-      </SparkScroll.div>
-    );
-  }
-}
-
-
 const StatsSection = ({items, background, links, git}) => (
   <section id="STATS__section">
     <Carousel extraClassName="STATS__area text-white"
@@ -94,11 +59,11 @@ const StatsSection = ({items, background, links, git}) => (
     </h3>
 
     <div className="UTIL__spacer-md"></div>
-    <StatsSVG placeholder={`
-      <svg style="opacity:0" height="150px">
-        <text class="month wday legend day day_0 day_1 day_2 day_3 day_4"></text>
-      </svg>
-    `} />
+    <SparkScroll.div className="text-center STATS__github"
+      timeline={tween.git} 
+      dangerouslySetInnerHTML={{__html: git}} >
+      <ReactTooltip effect="solid" place="top" id="STATS__tooltip" />
+    </SparkScroll.div>
   </section>
 );
 
