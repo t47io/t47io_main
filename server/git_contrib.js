@@ -42,12 +42,15 @@ const modifyHTML = (body) => {
   return $.html();
 };
 
+try {
+  request(json.links.github, (error, response, body) => {
+    let newJson = _.clone(json);
+    newJson.git = modifyHTML(body).replace(/\n[ ]+/g, '');
+    fs.writeJsonSync(path.join(__dirname, '../config/index/stats.json'), newJson);
 
-request(json.links.github, (error, response, body) => {
-  let newJson = _.clone(json);
-  newJson.git = modifyHTML(body);
-  console.log(newJson.git.match(/\n[ ]+/g))
-  fs.writeJsonSync(path.join(__dirname, '../config/index/stats.json'), newJson);
-
-  console.log(`${colors.green("SUCCESS")}: GitHub contribution records updated.`);
-});
+    console.log(`${colors.green("SUCCESS")}: GitHub contribution records updated.`);
+  });
+} catch (e) {
+  console.log(e);
+  console.log(`${colors.red("ERROR")}: Failed to update GitHub contribution records.`);
+}
