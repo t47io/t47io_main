@@ -6,7 +6,7 @@ import config_webpack from '../webpack.config.js';
 import {DEBUG, PORT, EMAIL_RECV, SMTP} from './config.js';
 import {getResume} from './_util.js';
 
-import body_p from 'body-parser';
+import bodyParser from 'body-parser';
 import compression from 'compression';
 import express from 'express';
 import fs from 'fs-extra';
@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(publicPath));
 app.use(helmet());
-app.use(body_p.urlencoded({'extended': true}));
+app.use(bodyParser.urlencoded({'extended': true}));
 app.disable('x-powered-by');
 
 

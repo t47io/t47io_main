@@ -1,21 +1,23 @@
 import cheerio from 'cheerio';
+import colors from 'colors';
 import fs from 'fs-extra';
+import _ from 'lodash/core';
 import path from 'path';
 import request from 'request';
 
 
 const json = require('../config/index/stats.json');
-const colors = ['#eeeeee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
+const gridColors = ['#eeeeee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
 
 
-request(json.links.github, (error, response, body) => {
+const modifyHTML = (body) => {
   let $html = cheerio.load(body);
   $html = $html.html(".js-calendar-graph-svg");
   let $ = cheerio.load($html);
 
   $("svg").attr('height', 150).removeAttr('class');
   $("rect").each(function() {
-    $(this).addClass(`day day_${colors.indexOf($(this).attr('fill'))}`);
+    $(this).addClass(`day day_${gridColors.indexOf($(this).attr('fill'))}`);
 
     if ($(this).attr('data-count') !== "0") {
       $(this).attr('data-for', 'STATS__tooltip');
@@ -37,7 +39,15 @@ request(json.links.github, (error, response, body) => {
     <text x="646" y="118" class="legend">More</text>
   `);
 
-  
-  json.git = $.html();
-  fs.writeJsonSync(path.join(__dirname, '../config/index/stats.json'), json);
+  return $.html();
+};
+
+
+request(json.links.github, (error, response, body) => {
+  let newJson = _.clone(json);
+  newJson.git = modifyHTML(body);
+  console.log(newJson.git.match(/\n[ ]+/g))
+  fs.writeJsonSync(path.join(__dirname, '../config/index/stats.json'), newJson);
+
+  console.log(`${colors.green("SUCCESS")}: GitHub contribution records updated.`);
 });
