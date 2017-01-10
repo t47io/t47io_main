@@ -13,12 +13,7 @@ const getGitContrib = (rootPath) => {
   const gitFiles = glob.sync(path.join(rootPath, 'data/git_contrib_*.svg'));
   return gitFiles[gitFiles.length - 1];
 };
-const getGitContribName = (rootPath) => {
-  const latestGitFile = getGitContrib(rootPath);
-  fs.removeSync(path.join(rootPath, 'data/git_contrib.svg'));
-  fs.copySync(latestGitFile, path.join(rootPath, 'data/git_contrib.svg'))
-  return path.basename(latestGitFile);
-}
+const getGitContribName = (rootPath) => path.basename(getGitContrib(rootPath));
 
 
 export {

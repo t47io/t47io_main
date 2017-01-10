@@ -1,17 +1,4 @@
 $(window).on('load', function() {
-    // $(".page-loader").fadeOut('slow');
-
-    $(".STATS__github").load('/git/contrib/', function() {
-        $(".STATS__github > svg > g > g:not(#legend) > rect.day").each(function() {
-            $(this).attr({
-                'data-toggle': 'tooltip',
-                'data-placement': 'top',
-                'title': $(this).attr('data-count') + ' contribution(s) on ' + $(this).attr('data-date')
-            });
-        });
-    });
-
-
     $("#form_email").submit(function(event) {
         event.preventDefault();
         $("#send-icon").removeClass("fa-envelope-o").addClass("fa-cog fa-spin");
