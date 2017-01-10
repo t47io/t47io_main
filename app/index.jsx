@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'whatwg-fetch';
 
 import Main from './index/index.jsx';
 
-ReactDOM.render(
-  <Main {...(require('../public/config.json'))} />,
-  document.getElementById("app")
-);
+
+fetch('/config.json')
+.then((response) => response.json())
+.then((json) => {
+  ReactDOM.render(
+    <Main {...json} />,
+    document.getElementById("app")
+  );
+});
 
 
 // import AsyncComponent from './components/loading/jsx/async.jsx';
