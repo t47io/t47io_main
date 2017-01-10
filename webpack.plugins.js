@@ -6,7 +6,7 @@ import BabiliPlugin from 'babili-webpack-plugin';
 import purify from 'purifycss-webpack-plugin';
 
 import {title, meta, helixLoading, googleAnalytics} from './webpack.render.js';
-const env = require('./server/config/env.json');
+const env = require('./config/server.json');
 
 
 const Plugins = (DEBUG) => {

@@ -3,11 +3,11 @@ import sass from 'node-sass';
 
 
 const CSS = sass.renderSync({
-  file: `${__dirname}/app/components/loading/scss/async.scss`,
+  file: `${__dirname}/app/loading/scss/async.scss`,
   outputStyle: 'compressed'
 }).css.toString();
 
-const logoAltSVG = fs.readFileSync('./app/components/common/img/t47_logo_alt.svg');
+const logoAltSVG = fs.readFileSync('./app/common/img/t47_logo_alt.svg');
 const HTML = `
   <div class="LOAD__container UTIL__image-RNA">
     <div class="LOAD__content">
@@ -60,7 +60,7 @@ const meta = [
 ];
 
 
-const env = require('./server/config/env.json');
+const env = require('./config/server.json');
 const googleAnalytics = {trackingID: env.ga_tracker};
 
 export {title, meta, helixLoading, googleAnalytics};
