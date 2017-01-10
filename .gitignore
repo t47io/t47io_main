@@ -1,6 +1,6 @@
 !.gitignore
 
-config/server.json
+config/**/*.json
 public/data/
 public/pdf/
 public/config.json

@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "year": 2016,
+      "title": "affiliation",
+      "url": "url",
+      "geo": "address",
+      "role": {
+        "position": "bold",
+        "title": "role title",
+        "team": "@ underline"
+      },
+      "rewards": [
+        {
+          "year": 2011,
+          "title": "reward title"
+        },
+        {},
+        {
+          "year": 2014,
+          "title": "reward title"
+        }
+      ],
+      "tag": "affiliation_tag"
+    },
+    {
+      "year": 2011,
+      "title": "affiliation",
+      "url": "url",
+      "geo": "address",
+      "role": {
+        "position": "bold",
+        "title": "role title",
+        "team": "@ underline"
+      },
+      "rewards": [],
+      "tag": "affiliation_tag"
+    }  ],
+  "background": [
+    "img_1",
+    "img_2",
+    "img_3"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "icon": "icon",
+      "title": "title",
+      "value": null
+    },
+    {
+      "id": 2,
+      "icon": "icon",
+      "title": "title",
+      "value": null
+    }
+  ],
+  "background": [
+    "img_1",
+    "img_2",
+    "img_3"
+  ],
+  "links": {
+    "github": "https://github.com/user"
+  },
+  "git": "<svg></svg>"
+}

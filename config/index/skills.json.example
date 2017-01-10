@@ -1,0 +1,56 @@
+{
+  "items": {
+    "left": [
+      {
+        "icon": "icon",
+        "items": [
+          {
+            "title": "title",
+            "value": 50
+          },
+          {
+            "title": "title",
+            "value": 50
+          }
+        ],
+        "title": "section title"
+      },
+      {
+        "icon": "icon",
+        "items": [
+          {
+            "title": "title",
+            "value": 50
+          }
+        ],
+        "title": "section title"
+      }
+    ],
+    "right": [
+      {
+        "icon": "icon",
+        "items": [
+          {
+            "title": "title",
+            "value": 50
+          },
+          {
+            "title": "title",
+            "value": 50
+          }
+        ],
+        "title": "section title"
+      },
+      {
+        "icon": "icon",
+        "items": [
+          {
+            "title": "title",
+            "value": 50
+          }
+        ],
+        "title": "section title"
+      }
+    ]
+  }
+}
