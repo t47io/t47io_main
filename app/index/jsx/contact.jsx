@@ -124,7 +124,7 @@ const ContactSection = ({items, background, resume}) => {
                 <SparkScroll.li timeline={tween.listLeft} >
                   <i className="fa fa-location fa-lg fa-fw"></i>279 Campus Drive West, Room B419
                   <br/><br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stanford, CA 94305, USA
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stanford, CA 94305, USA
                 </SparkScroll.li>
                 <SparkScroll.li timeline={tween.listLeft} >
                   <i className="fa fa-phone fa-lg fa-fw"></i>

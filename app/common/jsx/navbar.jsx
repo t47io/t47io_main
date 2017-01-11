@@ -3,12 +3,9 @@ import smoothScroll from 'smoothscroll';
 import {Logo} from './logo.jsx';
 
 
-const scrollTo = (target) => smoothScroll(document.getElementById(target), 2000);
-
-
-const NavbarItem = ({item, section}) => (
+const NavbarItem = ({item, section, scrollTo}) => (
 	<li className={(item === section) ? "active" : ""} >
-		<a href="javascript:void(0)" className="COMMON__navbar_link" onClick={scrollTo.bind(this, `${item.toUpperCase()}__section`)} >{item}</a>
+		<a href="javascript:void(0)" className="COMMON__navbar_link" onClick={scrollTo} >{item}</a>
 	</li>
 );
 
@@ -20,6 +17,10 @@ class Navbar extends React.Component {
 
   onMobileCollapse() {
     this.setState({toggle: !(this.state.toggle)});
+  }
+  scrollTo(target) {
+    smoothScroll(document.getElementById(target), 2000);
+    this.setState({toggle: false});
   }
 
   render() {
@@ -39,7 +40,7 @@ class Navbar extends React.Component {
 
           <div className={`COMMON__navbar-collapse navbar-collapse ${toggle ? "display" : ""}`} >
             <ul className="nav navbar-right">
-            	{items.map((item) => (<NavbarItem item={item} section={section} />))}
+            	{items.map((item) => (<NavbarItem item={item} section={section} scrollTo={this.scrollTo.bind(this, `${item.toUpperCase()}__section`)} />))}
             </ul>
           </div>
         </div>
