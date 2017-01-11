@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
+import OptimizeJsPlugin from 'optimize-js-plugin';
 import purify from 'purifycss-webpack-plugin';
 
 import {title, meta, helixLoading, googleAnalytics} from './webpack.render.js';
@@ -75,6 +76,9 @@ const Plugins = (DEBUG) => {
           screw_ie8: true,
           keep_fnames: false
         }
+      }),
+      new OptimizeJsPlugin({
+        sourceMap: false
       }),
       new webpack.optimize.AggressiveMergingPlugin({
         minSizeReduce: 1.2
