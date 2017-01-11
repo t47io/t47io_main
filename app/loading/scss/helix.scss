@@ -31,10 +31,21 @@
     display: inline-block;
     max-width: 75%;
     width: 50%;
-    margin-top: 4rem;
+    margin-top: 14rem;
   }
 
   div.row { margin-top: 4rem; }
+}
+@media only screen and (max-height: 512px) {
+  .LOAD__container {
+    .LOAD__content { margin-top: 6rem; }
+    div.row { margin-top: 0; }
+  }
+}
+@media only screen and (max-width: 512px) {
+  .LOAD__container {
+    .LOAD__content { width: 75%; }
+  }
 }
 
 .LOAD__logo svg { max-width: 50%; }

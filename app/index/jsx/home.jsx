@@ -21,10 +21,11 @@ class HomeSection extends React.Component {
   }
 
   onLoad() {
-    func.delay(800, () => {
+    func.delay(1000, () => {
       document.querySelector(".LOAD__container").style.opacity = 0;
-      document.querySelector(".LOAD__container").style.zIndex = -1;
-      return func.delay(800);
+      return func.delay(1000, () => {
+        document.querySelector(".LOAD__container").style.zIndex = -1;
+      });
     })
     .then(() => this.setState({...(this.state), isName: true}))
     .then(() => tween.title(this.state, this.props.title, this.setState.bind(this)))
