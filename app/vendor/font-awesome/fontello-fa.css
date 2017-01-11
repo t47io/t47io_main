@@ -46,6 +46,9 @@
 .fa-bookmark:before { content: '\e812'; }
 .fa-print:before { content: '\e813'; }
 .fa-road:before { content: '\e814'; }
+.fa-cog:before { content: '\e815'; }
+.fa-ok-circled:before { content: '\e816'; }
+.fa-cancel-circled:before { content: '\e817'; }
 .fa-link-ext:before { content: '\f08e'; }
 .fa-twitter:before { content: '\f099'; }
 .fa-facebook:before { content: '\f09a'; }
