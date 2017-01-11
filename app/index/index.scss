@@ -33,11 +33,11 @@ body {
 }
 
 * {
-  @include border_radius(0 !important);
+  @include border_radius(0);
 
   &:focus { 
-    outline: none !important;
-    @include box_shadow(none !important);
+    outline: none;
+    @include box_shadow(none);
   }
 }
 
