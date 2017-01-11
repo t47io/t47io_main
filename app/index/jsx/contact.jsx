@@ -1,4 +1,5 @@
 import React from 'react';
+import 'whatwg-fetch';
 import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
 
 import SectionHeader from '../../common/jsx/header.jsx';
@@ -17,6 +18,83 @@ const ContactItem = ({icon, url}) => (
     </a>
   </li>
 );
+
+
+class ContactForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isSending: false,
+      isError: false,
+      isSuccess: false
+    };
+    this.input = {};
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      ...(this.state),
+      isSending: true
+    });
+
+    fetch('/send', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: this.input.name.value,
+        email: this.input.email.value,
+        subject: this.input.subject.value,
+        message: this.input.message.value
+      })
+    })
+    .then((response) => {
+      this.setState({
+        isSending: false,
+        isError: ([400, 403, 500].indexOf(response.status) !== -1),
+        isSuccess: (response.status === 201)
+      }, () => {
+        if (this.state.isSuccess) { window.location.href = '/send'; }
+      });
+      setTimeout(() => {
+        this.setState({
+          ...(this.state),
+          isError: false
+        })
+      }, 5000);
+    });
+
+  }
+
+  render() {
+    const {isSending, isError, isSuccess} = this.state;
+    const icon = isSending ? "fa-cog fa-spin" : (isError ? "fa-times-circle-o" : (isSuccess ? "fa-check-circle-o" : "fa-mail"));
+
+    return (
+      <form className="CONTACT__form" onSubmit={this.onSubmit.bind(this)} >
+        <SparkScroll.div className="form-group" timeline={tween.formRight} >
+          <input type="text" name="name" className="form-control input-lg" placeholder="Your Name" required ref={(input) => { this.input.name = input; }} />
+        </SparkScroll.div>
+        <SparkScroll.div className="form-group" timeline={tween.formRight} >
+          <input type="email" name="email" className="form-control input-lg" placeholder="E-mail" required ref={(input) => { this.input.email = input; }} />
+        </SparkScroll.div>
+        <SparkScroll.div className="form-group" timeline={tween.formRight} >
+          <input type="text" name="subject" className="form-control input-lg" placeholder="Subject" required ref={(input) => { this.input.subject = input; }} />
+        </SparkScroll.div>
+        <SparkScroll.div className="form-group" timeline={tween.formRight} >
+          <textarea name="message" className="form-control input-lg" rows="5" placeholder="Message" required ref={(input) => { this.input.message = input; }} ></textarea>
+        </SparkScroll.div>
+        <SparkScroll.div className="form-group" timeline={tween.formRight} >
+          <button type="submit" className={`btn btn-${isError ? "danger" : "default"} btn-block`} disabled={isSending} >
+            <i className={`fa ${icon} fa-lg fa-fw`} ></i>
+            &nbsp;Send
+          </button>
+        </SparkScroll.div>
+      </form>
+    );
+  }
+}
+
 
 const ContactSection = ({items, background, resume}) => {
   const date = resume.slice(7, -4);
@@ -72,23 +150,7 @@ const ContactSection = ({items, background, resume}) => {
               <SparkScroll.h4 className="CONTACT__title" timeline={tween.formRight} >
                 <i className="fa fa-paper-plane-empty fa-lg fa-fw"></i> Keep in Touch
               </SparkScroll.h4>
-              <form className="CONTACT__form" method="post" action="/send/" enctype="application/x-www-form-urlencoded">
-                <SparkScroll.div className="form-group" timeline={tween.formRight} >
-                  <input type="text" name="name" className="form-control input-lg" placeholder="Your Name" required />
-                </SparkScroll.div>
-                <SparkScroll.div className="form-group" timeline={tween.formRight} >
-                  <input type="email" name="email" className="form-control input-lg" placeholder="E-mail" required />
-                </SparkScroll.div>
-                <SparkScroll.div className="form-group" timeline={tween.formRight} >
-                  <input type="text" name="subject" className="form-control input-lg" placeholder="Subject" required />
-                </SparkScroll.div>
-                <SparkScroll.div className="form-group" timeline={tween.formRight} >
-                  <textarea name="message" className="form-control input-lg" rows="5" placeholder="Message" required></textarea>
-                </SparkScroll.div>
-                <SparkScroll.div className="form-group" timeline={tween.formRight} >
-                  <button type="submit" className="btn btn-default btn-block"><i className="fa fa-mail fa-lg fa-fw" id="send-icon"></i> Send</button>
-                </SparkScroll.div>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>

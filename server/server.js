@@ -8,12 +8,14 @@ import {getResume} from './_util.js';
 
 import bodyParser from 'body-parser';
 import compression from 'compression';
+import emailValidator from 'email-validator';
 import express from 'express';
 import fs from 'fs-extra';
 import glob from 'glob-promise';
 import helmet from 'helmet';
 import _ from 'lodash';
 import path from 'path';
+import sanitizer from 'sanitizer';
 
 
 const app = express();
@@ -31,7 +33,7 @@ app.use((req, res, next) => {
 });
 app.use(express.static(publicPath));
 app.use(helmet());
-app.use(bodyParser.urlencoded({'extended': true}));
+app.use(bodyParser.json());
 app.disable('x-powered-by');
 
 
@@ -92,34 +94,39 @@ app.get(/^\/favicon\.ico\/?$/, (req, res) => {
 
 app.route('/send')
 .get((req, res, next) => {
-  res.status(405).send();
+  res.sendStatus(201);
 })
 .post((req, res, next) => {
   let form = _.map(req.body, (item) => sanitizer.escape(item));
-  console.log(form)
-  console.log(_.filter(form, (item) => item.length) )
-  res.status(401).send();
+  const [name, email, subject, message] = form;
 
-  if (_.filter(form, (item) => item.length) === 4) {
-      if (_.startsWith(subject, 'http')) {
-          res.status(403).send();
-      } else {
-        SMTP.sendMail({
-          to: EMAIL_RECV,
-          subject,
-          text: name + ' <' + email + '>\n' + moment().format() + '\n\n' + message
-        }, (err, info) => {
-          if (err) {
-            console.log(err);
-            res.status(500).send();
-          }
-          console.log('Message sent.');
-          res.status(201).send();
-        });
-      }
-  } else {
-    res.status(400).send();
+  if (_.filter(form, (item) => item.length).length !== 4) {
+    res.sendStatus(400);
+    return;
   }
+  if (_.startsWith(subject, 'http') || !emailValidator.validate(email)) {
+    res.sendStatus(403);
+    return;
+  }
+
+  SMTP.sendMail({
+    to: EMAIL_RECV,
+    subject,
+    text: `
+    ${new Date().toUTCString()}
+    ${name} <${email}>
+
+    ${message}
+    `
+  }, (err, info) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+      return;
+    }
+    console.log('Message sent.');
+    res.sendStatus(201);
+  });
 });
 
 
@@ -156,7 +163,7 @@ app.use((err, req, res, next) => {
     err.status = 503;
   }
 
-  res.status(err.status).send(err.status);
+  res.send(err.status);
   // res.render('http_' + err.status.toString() + '.html', {
   //   'DEBUG': DEBUG,
   //   'GA_ID': GA_ID
