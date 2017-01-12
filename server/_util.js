@@ -1,4 +1,3 @@
-import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
