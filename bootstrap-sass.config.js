@@ -2,7 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   bootstrapVersion: 3,
-  styleLoader: ExtractTextPlugin.extract('css!sass'),
+  styleLoader: ExtractTextPlugin.extract("css-loader!sass-loader"),
 
   debug: false, 
   extractStyles: true,

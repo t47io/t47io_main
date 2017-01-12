@@ -5,16 +5,16 @@ const Loaders = () => {
   return [
     {
       test: /\.js(x)?$/i,
-      loader: "babel",
+      loader: "babel-loader",
       include: /app/
     },
     {
       test: /\.scss$/i,
-      loader: ExtractTextPlugin.extract('css!sass')
+      loader: ExtractTextPlugin.extract("css-loader!sass-loader")
     },
     {
       test: /\.woff$/i,
-      loader: "url",
+      loader: "url-loader",
       query: {
         limit: 25600,
         mimetype: "application/x-font-woff",
@@ -23,7 +23,7 @@ const Loaders = () => {
     },
     {
       test: /\.(png|jpg|gif)$/i,
-      loader: "url",
+      loader: "url-loader",
       query: {
         limit: 25600,
         name: "image/[hash:8].[ext]"
@@ -31,7 +31,7 @@ const Loaders = () => {
     },
     {
       test: /\.svg$/i,
-      loader: "svg-inline",
+      loader: "svg-inline-loader",
       query: {
         removeSVGTagAttrs: false,
         mimetype: "image/svg+xml"
@@ -39,7 +39,7 @@ const Loaders = () => {
     },
     // {
     //   test: /\.json$/i,
-    //   loader: "json",
+    //   loader: "json-loader",
     //   exclude: /public\/data/
     // }
   ];
