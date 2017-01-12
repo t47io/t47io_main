@@ -16,6 +16,7 @@ import {DEBUG, PORT} from './config.js';
 
 
 const app = express();
+let middleware = null;
 const publicPath = path.join(__dirname, '../public');
 
 
@@ -37,7 +38,7 @@ app.disable('x-powered-by');
 
 if (DEBUG) {
   const compiler = webpack(webpackConfig);
-  const middleware = webpackMiddleware(compiler, {
+  middleware = webpackMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
     index: "index.html",
 
@@ -69,4 +70,4 @@ const server = app.listen(PORT, () => {
 });
 
 
-export default app;
+export {app, middleware};

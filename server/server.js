@@ -1,6 +1,6 @@
 import {DEBUG, EMAIL_RECV, SMTP} from './config.js';
 import {concatIndexJSON} from './json.js';
-import app from './middleware.js';
+import {app, middleware} from './middleware.js';
 import {getResume} from './_util.js';
 
 import emailValidator from 'email-validator';
@@ -15,8 +15,7 @@ concatIndexJSON(publicPath);
 
 app.get('/', (req, res) => {
 	if (DEBUG) {
-    res.write(middleware.fileSystem.readFileSync(path.join(publicPath, 'index.html')));
-    res.end();
+    res.type('html').send(middleware.fileSystem.readFileSync(path.join(publicPath, 'index.html')));
 	} else {
     res.sendFile(path.join(publicPath, 'index.html'));
 	}
@@ -99,10 +98,11 @@ app.use((err, req, res, next) => {
     err.status = 503;
   }
 
-  res.send(err.status);
-  // res.render('http_' + err.status.toString() + '.html', {
-  //   'DEBUG': DEBUG,
-  //   'GA_ID': GA_ID
-  // });
+  res.status(err.status);
+  if (DEBUG) {
+    res.type('html').send(middleware.fileSystem.readFileSync(path.join(publicPath, 'error.html')));
+  } else {
+    res.sendFile(path.join(publicPath, 'error.html'));
+  }
 });
 
