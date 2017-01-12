@@ -6,23 +6,31 @@ import BabiliPlugin from 'babili-webpack-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
 import purify from 'purifycss-webpack-plugin';
 
-import {title, meta, helixLoading, googleAnalytics} from './webpack.render.js';
-const env = require('./config/server.json');
+import {indexPage, errorPage, helixLoading, googleAnalytics} from './webpack.render.js';
 
 
 const Plugins = (DEBUG) => {
   let plugin = [
     new HtmlWebpackPlugin({
+      chunks: ['main'],
       template: `${__dirname}/app/index.html`,
       filename: `${__dirname}/public/index.html`,
       inject: false,
 
-      title,
-      meta,
+      ...indexPage,
       helixLoading, 
       googleAnalytics
     }),
-    new ExtractTextPlugin(`[hash:8].${DEBUG ? "" : "min."}css`, {
+    new HtmlWebpackPlugin({
+      chunks: ['error'],
+      template: `${__dirname}/app/error.html`,
+      filename: `${__dirname}/public/error.html`,
+      inject: false,
+
+      ...errorPage,
+      googleAnalytics
+    }),
+    new ExtractTextPlugin(`${DEBUG ? "[name]-[hash:8]" : "[chunkhash:8].min"}.css`, {
       allChunks: true
     }),
     new purify({
@@ -80,9 +88,9 @@ const Plugins = (DEBUG) => {
       new OptimizeJsPlugin({
         sourceMap: false
       }),
-      new webpack.optimize.AggressiveMergingPlugin({
-        minSizeReduce: 1.2
-      })
+      // new webpack.optimize.AggressiveMergingPlugin({
+      //   minSizeReduce: 1.2
+      // })
     ];
   } else {
     plugin = [
