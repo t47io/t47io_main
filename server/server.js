@@ -1,74 +1,16 @@
-import webpack from 'webpack';
-import webpackMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-
-import config_webpack from '../webpack.config.js';
-import {DEBUG, PORT, EMAIL_RECV, SMTP} from './config.js';
+import {DEBUG, EMAIL_RECV, SMTP} from './config.js';
+import {concatIndexJSON} from './json.js';
+import app from './middleware.js';
 import {getResume} from './_util.js';
 
-import bodyParser from 'body-parser';
-import compression from 'compression';
 import emailValidator from 'email-validator';
-import express from 'express';
-import fs from 'fs-extra';
-import glob from 'glob-promise';
-import helmet from 'helmet';
 import _ from 'lodash';
 import path from 'path';
 import sanitizer from 'sanitizer';
 
 
-const app = express();
 const publicPath = path.join(__dirname, '../public');
-
-
-if (DEBUG) { app.use(compression()); }
-app.use((req, res, next) => {
-  if (req.url.match(/\.(png|jpg|gif|svg|ttf|pdf)$/)) {
-    res.setHeader('Cache-Control', 'public, max-age=5184000');      // 60 days
-  } else if (req.url.match(/\.(css|js|json)$/)) {
-    res.setHeader('Cache-Control', 'public, max-age=1296000');      // 15 days
-  }
-  next();
-});
-app.use(express.static(publicPath));
-app.use(helmet());
-app.use(bodyParser.json());
-app.disable('x-powered-by');
-
-
-if (DEBUG) {
-  const compiler = webpack(config_webpack);
-  const middleware = webpackMiddleware(compiler, {
-    publicPath: config_webpack.output.publicPath,
-    index: "index.html",
-
-    noInfo: false,
-    quiet: false,
-    lazy: false,
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: true
-    },
-    serverSideRender: false,
-    stats: {
-      colors: true
-    }
-	});
-
-  app.use(middleware);
-  app.use(webpackHotMiddleware(compiler));
-
-  // remove public/ files for DEBUG
-  fs.removeSync(path.join(publicPath, 'index.html'));
-  glob.sync(path.join(publicPath, '*.min.+(js|css)*')).forEach((path) => fs.removeSync(path));
-  fs.removeSync(path.join(publicPath, 'image'));
-  fs.removeSync(path.join(publicPath, 'font'));
-}
-
-const server = app.listen(PORT, () => {
-  console.log('t47io Main Site listening on port: ' + PORT + ' ...');
-});
+concatIndexJSON(publicPath);
 
 
 app.get('/', (req, res) => {
@@ -87,9 +29,6 @@ app.get('/resume', (req, res) => {
     root: path.join(publicPath, 'pdf')
   });
 });
-app.get(/^\/favicon\.ico\/?$/, (req, res) => {
-  res.sendFile('t47_icon.png', {root: publicPath});
-});
 
 
 app.route('/send')
@@ -101,12 +40,10 @@ app.route('/send')
   const [name, email, subject, message] = form;
 
   if (_.filter(form, (item) => item.length).length !== 4) {
-    res.sendStatus(400);
-    return;
+    return res.sendStatus(400);
   }
   if (_.startsWith(subject, 'http') || !emailValidator.validate(email)) {
-    res.sendStatus(403);
-    return;
+    return res.sendStatus(403);
   }
 
   SMTP.sendMail({
@@ -121,8 +58,7 @@ app.route('/send')
   }, (err, info) => {
     if (err) {
       console.log(err);
-      res.sendStatus(500);
-      return;
+      return res.sendStatus(500);
     }
     console.log('Message sent.');
     res.sendStatus(201);
