@@ -4,8 +4,8 @@
 @include img_sprites('./img/sp_portfolio.jpg',
   640px, 480px, (
     'SPRITE__portfolio-daslab',
-    'SPRITE__portfolio-rmdb',
     'SPRITE__portfolio-primerize',
+    'SPRITE__portfolio-rmdb',
     'SPRITE__portfolio-eterna',
     'SPRITE__portfolio-hitrace',
     'SPRITE__portfolio-spindle',
@@ -14,7 +14,7 @@
     'SPRITE__portfolio-flu',
     'SPRITE__portfolio-celica',
     'SPRITE__portfolio-ribokit'
-  ), false
+  ), true
 );
 @include img_sprites('./img/sp_publications.jpg',
   432px, 216px, (
