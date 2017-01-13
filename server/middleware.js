@@ -21,16 +21,8 @@ const publicPath = path.join(__dirname, '../public');
 
 
 if (DEBUG) { app.use(compression()); }
-app.use((req, res, next) => {
-  if (req.url.match(/\.(png|jpg|gif|svg|ttf|pdf)$/)) {
-    res.setHeader('Cache-Control', 'public, max-age=5184000');      // 60 days
-  } else if (req.url.match(/\.(css|js|json)$/)) {
-    res.setHeader('Cache-Control', 'public, max-age=1296000');      // 15 days
-  }
-  next();
-});
 app.use(favicon(path.join(publicPath, 't47_icon.png')));
-app.use(express.static(publicPath));
+app.use(express.static(publicPath, {maxAge: '30 days'}));
 app.use(helmet());
 app.use(bodyParser.json());
 app.disable('x-powered-by');
@@ -59,10 +51,10 @@ if (DEBUG) {
   app.use(webpackHotMiddleware(compiler));
 
   // remove public/ files for DEBUG
-  fs.removeSync(path.join(publicPath, 'index.html'));
-  glob.sync(path.join(publicPath, '*.min.+(js|css)*')).forEach((path) => fs.removeSync(path));
-  fs.removeSync(path.join(publicPath, 'image'));
-  fs.removeSync(path.join(publicPath, 'font'));
+  // glob.sync(path.join(publicPath, '*.html')).forEach((path) => fs.removeSync(path));
+  // glob.sync(path.join(publicPath, '*.min.+(js|css)*')).forEach((path) => fs.removeSync(path));
+  // fs.removeSync(path.join(publicPath, 'image'));
+  // fs.removeSync(path.join(publicPath, 'font'));
 }
 
 const server = app.listen(PORT, () => {

@@ -22,10 +22,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/resume', (req, res) => {
-  res.setHeader('Cache-Control', 'public, max-age=5184000'); // 60 days
-  res.setHeader('Content-Disposition', 'inline; filename="SiqiTian_resume.pdf"');
   res.sendFile(getResume(publicPath), {
-    root: path.join(publicPath, 'pdf')
+    root: path.join(publicPath, 'pdf'),
+    headers: {
+      'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"'
+    },
+    maxAge: '60 days'
   });
 });
 
@@ -84,13 +86,13 @@ app.all('*', (req, res, next) => {
   next(err);
 });
 
-app.use((req, res, next) => {
-  if(_.endsWith(req.url.substr(-1), '/') && req.url.length > 1) {
-    const query = req.url.slice(req.path.length);
-    res.redirect(301, req.url.slice(0, -1) + query);
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   if(_.endsWith(req.url.substr(-1), '/') && req.url.length > 1) {
+//     const query = req.url.slice(req.path.length);
+//     res.redirect(301, req.url.slice(0, -1) + query);
+//   }
+//   next();
+// });
 
 app.use((err, req, res, next) => {
   if (!_.includes([400, 401, 403, 404, 405, 500, 502, 503], err.status)) {
