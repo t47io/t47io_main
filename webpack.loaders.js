@@ -37,11 +37,11 @@ const Loaders = () => {
         mimetype: "image/svg+xml"
       }
     },
-    // {
-    //   test: /\.json$/i,
-    //   loader: "json-loader",
-    //   exclude: /public\/data/
-    // }
+    {
+      test: /\.json$/i,
+      loader: "json-loader",
+      exclude: /public\/data/
+    }
   ];
 };
 

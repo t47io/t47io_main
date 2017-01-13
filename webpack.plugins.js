@@ -57,7 +57,7 @@ const Plugins = (DEBUG) => {
     //   minChunks: 2
     // }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.DedupePlugin()
   ];
   if (!DEBUG) {
     plugin = [
