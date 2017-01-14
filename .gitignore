@@ -4,6 +4,8 @@ config/**/*.json
 public/data/
 public/pdf/
 public/config.json
+public/*.min.*
+public/*.html
 
 node_modules/
 .sass-cache/
