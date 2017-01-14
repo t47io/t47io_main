@@ -13,6 +13,11 @@
   .LOAD__content {
     margin-top: 0;
     width: 60%;
+
+    p:first-of-type {
+      font-size: 1.15rem;
+      margin-bottom: 3rem;
+    }
   }
   .UTIL__image-RNA {
     background-position: center center;
@@ -20,18 +25,44 @@
   }
 
   h2 { margin-bottom: 20px; }
-  p:first-of-type { font-size: 16px; }
   img { max-width: 100%; }
+  hr { width: 60%; }
   .green {
     text-align: left;
 
-    & svg {
-      height: 72px;
-      width: 135.5px;
+    svg {
+      height: 6rem;
+      width: auto;
+
+      .T47__logo path { fill: $clr-gl; }
     }
   }
 } 
+@media only screen and (max-width: 767px) {
+  .LOAD__container {
+    height: auto;
+    position: static;
+    padding: 2rem 0;
+    text-align: center;
 
+    .LOAD__content {
+      width: auto;
+
+      p:first-of-type { margin-bottom: 1rem; }
+    }
+    .UTIL__image-RNA {
+      background-position: center center;
+      background-size: 100%;
+    }
+
+    img { max-width: 75%; }
+    h2 { margin-bottom: 10px; }
+    hr { width: 80%; }
+    .green { text-align: center; }
+  }
+}
+
+a { color: $clr-gl; }
 
 footer {
   text-align: center;
@@ -43,4 +74,6 @@ footer {
     vertical-align: text-top;
   }
 }
-
+@media only screen and (max-width: 767px) {
+  p { margin-bottom: 0; }
+}
