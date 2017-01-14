@@ -29,15 +29,15 @@ const copySVG = loadFileSync('../app/error/img/copyright.svg');
 const ccSVG = loadFileSync('../app/error/img/creative-commons.svg');
 const footerHTML = renderToString(<Footer logo={logoAltSVG} copy={copySVG} cc={ccSVG} />);
 const CSS = sass.renderSync({
-  file: path.join(__dirname, '../app/error/scss/error.scss'),
+  file: path.join(__dirname, '../app/error/error.scss'),
   outputStyle: 'compressed'
 }).css.toString();
 
 
 [400, 401, 403, 404, 405, 500, 502, 503, 201].map((code) => {
   const Component = Components[codes[code]];
-  const bodyHTML = `${renderToString(<Component />)}<hr/>${footerHTML}`;
-  const HTML = baseHTML.replace("<div class=\"body\" id=\"app\"></div>", bodyHTML).replace("html{}", CSS);
+  let bodyHTML = `${renderToString(<Component />).slice(0, -6)}<hr/>${footerHTML}</div>`;
+  let HTML = baseHTML.replace("<div class=\"body\" id=\"app\"></div>", bodyHTML).replace("html{}", CSS);
 
   fs.writeFileSync(path.join(__dirname, `../public/${code}.html`), HTML, 'utf8');
 });
