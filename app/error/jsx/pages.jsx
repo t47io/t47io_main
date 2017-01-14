@@ -2,7 +2,7 @@ import React from 'react';
 import fs from 'fs';
 import path from 'path';
 
-import ErrorPage from './error.jsx';
+import ErrorPage from '../error.jsx';
 
 
 const json = require('../../../config/error.json');

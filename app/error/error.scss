@@ -1,0 +1,46 @@
+@import '../common/scss/util';
+@import '../common/scss/reset';
+@import '../common/scss/logo';
+
+@import './scss/bootstrap';
+@import '../loading/scss/layout';
+@import '../project/scss/palette';
+
+
+.LOAD__container {
+  text-align: left;
+
+  .LOAD__content {
+    margin-top: 0;
+    width: 60%;
+  }
+  .UTIL__image-RNA {
+    background-position: center center;
+    background-size: 100%;
+  }
+
+  h2 { margin-bottom: 20px; }
+  p:first-of-type { font-size: 16px; }
+  img { max-width: 100%; }
+  .green {
+    text-align: left;
+
+    & svg {
+      height: 72px;
+      width: 135.5px;
+    }
+  }
+} 
+
+
+footer {
+  text-align: center;
+
+  .fa svg,
+  .green-white svg {
+    height: 1em;
+    width: auto;
+    vertical-align: text-top;
+  }
+}
+
