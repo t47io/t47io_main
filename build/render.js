@@ -1,10 +1,11 @@
 import fs from 'fs';
 import sass from 'node-sass';
+import path from 'path';
 
 
 const helixLoading = {
   CSS: sass.renderSync({
-        file: `${__dirname}/app/loading/scss/async.scss`,
+        file: path.join(__dirname, '../app/loading/scss/async.scss'),
         outputStyle: 'compressed'
       }).css.toString(),
   HTML: `
@@ -33,6 +34,20 @@ const helixLoading = {
 };
 
 
+const commonMeta = [
+  {
+    name: "author",
+    content: "Siqi Tian"
+  },
+  {
+    name: "viewport",
+    content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  },
+  {
+    name: "robots",
+    content: "noodp, noydir"
+  }
+];
 const indexPage = {
   title: "SIQI TIAN - Full-Stack Web Developer & RNA Biochemistry Automator | T47.IO",
   meta: [
@@ -44,21 +59,9 @@ const indexPage = {
       name: "keywords",
       content: "Siqi Tian, Portfolio, Personal Website, Design, RNA, Full-Stack Developer, t47io"
     },
-    {
-      name: "author",
-      content: "Siqi Tian"
-    },
-    {
-      name: "viewport",
-      content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    },
-    {
-      name: "robots",
-      content: "noodp, noydir"
-    }
+    ...commonMeta
   ]
 };
-
 const errorPage = {
   title: "SIQI TIAN - Error Page | T47.IO",
   meta: [
@@ -70,23 +73,12 @@ const errorPage = {
       name: "keywords",
       content: "Siqi Tian, Portfolio, Personal Website, Error Page"
     },
-    {
-      name: "author",
-      content: "Siqi Tian"
-    },
-    {
-      name: "viewport",
-      content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    },
-    {
-      name: "robots",
-      content: "noodp, noydir"
-    }
+    ...commonMeta
   ]
 };
 
 
-const env = require('./config/server.json');
+const env = require('../config/server.json');
 const googleAnalytics = {trackingID: env.ga_tracker};
 
 export {indexPage, errorPage, helixLoading, googleAnalytics};

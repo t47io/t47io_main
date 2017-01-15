@@ -5,16 +5,19 @@ import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
 import purify from 'purifycss-webpack-plugin';
+import path from 'path';
 
-import {indexPage, errorPage, helixLoading, googleAnalytics} from './webpack.render.js';
+import {indexPage, errorPage, helixLoading, googleAnalytics} from './render.js';
+
+const rootPath = path.join(__dirname, '../');
 
 
 const Plugins = (DEBUG) => {
   let plugin = [
     new HtmlWebpackPlugin({
       chunks: ['main'],
-      template: `${__dirname}/app/index.html`,
-      filename: `${__dirname}/public/index.html`,
+      template: `${rootPath}/app/index.html`,
+      filename: `${rootPath}/public/index.html`,
       inject: false,
 
       ...indexPage,
@@ -23,8 +26,8 @@ const Plugins = (DEBUG) => {
     }),
     new HtmlWebpackPlugin({
       chunks: ['error'],
-      template: `${__dirname}/app/error.html`,
-      filename: `${__dirname}/public/error.html`,
+      template: `${rootPath}/app/error.html`,
+      filename: `${rootPath}/public/error.html`,
       inject: false,
 
       ...errorPage,
@@ -34,7 +37,7 @@ const Plugins = (DEBUG) => {
       allChunks: true
     }),
     new purify({
-      basePath: __dirname,
+      basePath: rootPath,
       paths: [
         'app/**/*.jsx',
         'app/**/*.json',

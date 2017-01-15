@@ -1,8 +1,8 @@
 'use strict';
 
 import webpack from 'webpack';
-import Plugins from './webpack.plugins.js';
-import Loaders from './webpack.loaders.js';
+import Plugins from './build/plugins.js';
+import Loaders from './build/loaders.js';
 
 
 const DEBUG = !((process.argv.indexOf('--production') > 0) || (process.argv.indexOf('-p') > 0) || (process.env.npm_lifecycle_event === 'build'));
