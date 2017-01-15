@@ -7,7 +7,6 @@ const ErrorPage = ({logo, code, color, img, title, text}) => (
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div className="green" dangerouslySetInnerHTML={{__html: logo}} ></div>
         <img src={img} height="auto" />
-        <div className="hidden-xs"></div>
       </div>
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <h2>
