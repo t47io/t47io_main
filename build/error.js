@@ -1,5 +1,7 @@
 import React from 'react';
-import {renderToString} from 'react-dom/server';
+import {renderToStaticMarkup} from 'react-dom/server';
+
+import colors from 'colors';
 import fs from 'fs';
 import path from 'path';
 import purify from 'purify-css';
@@ -23,22 +25,28 @@ const codes = {
 
 const loadFileSync = (filename) => fs.readFileSync(path.join(__dirname, filename), 'utf8');
 
+try {
+  const baseHTML = loadFileSync('../public/error.html');
+  const logoAltSVG = loadFileSync('../app/common/img/t47_logo_alt.svg');
+  const copySVG = loadFileSync('../app/error/img/copyright.svg');
+  const ccSVG = loadFileSync('../app/error/img/creative-commons.svg');
+  const footerHTML = renderToStaticMarkup(<Footer logo={logoAltSVG} copy={copySVG} cc={ccSVG} />);
+  const rawCSS = sass.renderSync({
+    file: path.join(__dirname, '../app/error/error.scss')
+  }).css.toString();
 
-const baseHTML = loadFileSync('../public/error.html');
-const logoAltSVG = loadFileSync('../app/common/img/t47_logo_alt.svg');
-const copySVG = loadFileSync('../app/error/img/copyright.svg');
-const ccSVG = loadFileSync('../app/error/img/creative-commons.svg');
-const footerHTML = renderToString(<Footer logo={logoAltSVG} copy={copySVG} cc={ccSVG} />);
-const rawCSS = sass.renderSync({
-  file: path.join(__dirname, '../app/error/error.scss')
-}).css.toString();
 
+  Object.keys(codes).map((code) => {
+    const Component = Components[codes[code]];
+    const bodyHTML = `${renderToStaticMarkup(<Component />).slice(0, -6)}<hr/>${footerHTML}</div>`;
+    const cleanCSS = purify(bodyHTML, rawCSS, {minify: true});
+    const finalHTML = baseHTML.replace("<div class=\"body\" id=\"app\"></div>", bodyHTML).replace("html{}", cleanCSS);
 
-[400, 401, 403, 404, 405, 500, 502, 503, 201].map((code) => {
-  const Component = Components[codes[code]];
-  const bodyHTML = `${renderToString(<Component />).slice(0, -6)}<hr/>${footerHTML}</div>`;
-  const cleanCSS = purify(bodyHTML, rawCSS, {minify: true});
-  const finalHTML = baseHTML.replace("<div class=\"body\" id=\"app\"></div>", bodyHTML).replace("html{}", cleanCSS);
+    fs.writeFileSync(path.join(__dirname, `../public/${code}.html`), finalHTML, 'utf8');
+  });
+  console.log(`${colors.green("SUCCESS")}: Custom Error Pages created.`);
+} catch (e) {
+  console.log(e);
+  console.log(`${colors.red("ERROR")}: Failed to create Custom Error Pages.`);
+}
 
-  fs.writeFileSync(path.join(__dirname, `../public/${code}.html`), finalHTML, 'utf8');
-});

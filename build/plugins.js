@@ -93,7 +93,7 @@ const Plugins = (DEBUG) => {
       }),
       // new webpack.optimize.AggressiveMergingPlugin({
       //   minSizeReduce: 1.2
-      // })
+      // }),
     ];
   } else {
     plugin = [

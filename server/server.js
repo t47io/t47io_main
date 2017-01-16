@@ -102,9 +102,9 @@ app.use((err, req, res, next) => {
 
   res.status(err.status);
   if (DEBUG) {
-    res.type('html').send(middleware.fileSystem.readFileSync(path.join(publicPath, 'error.html')));
+    res.type('html').send(middleware.fileSystem.readFileSync(path.join(publicPath, `${err.status}.html`)));
   } else {
-    res.sendFile(path.join(publicPath, 'error.html'));
+    res.sendFile(path.join(publicPath, `${err.status}.html`));
   }
 });
 

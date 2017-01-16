@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -x babel-node -d 3 -V server/server.js",
-    "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack --production --progress"
+
+    "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack --production --progress",
+    "postbuild": "babel-node ./build/error.js"
   },
   "repository": {
     "type": "git",
@@ -63,7 +65,6 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.2.0",
-    "webpack-shell-plugin": "^0.5.0",
     "whatwg-fetch": "^2.0.1"
   },
   "dependencies": {
