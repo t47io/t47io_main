@@ -9,7 +9,8 @@ public/*.html
 
 node_modules/
 .sass-cache/
-*yarn*
+
+yarn.lock
 
 !public/data/**/.gitignore
 !node_modules/**/.gitignore
