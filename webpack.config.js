@@ -11,7 +11,8 @@ console.log(`DEBUG mode ? ${DEBUG}`);
 
 let entry = {
   main: [
-    'bootstrap-sass-loader!./bootstrap-sass.config.js',
+    'bootstrap-loader',
+    // 'bootstrap-sass-loader!./bootstrap-sass.config.js',
     // 'font-awesome-loader!./font-awesome.config.js',
     './app/index.jsx'
   ],
@@ -44,7 +45,7 @@ const config = {
     //     include: `${__dirname}/src`
     //   }
     // ],
-    loaders: Loaders()
+    rules: Loaders()
   },
   plugins: Plugins(DEBUG),
 

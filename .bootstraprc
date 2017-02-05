@@ -1,28 +1,16 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+{
+  "bootstrapVersion": 3,
+  "styleLoaders": [
+    "style-loader",
+    "css-loader",
+    "sass-loader"
+  ],
 
-module.exports = {
-  bootstrapVersion: 3,
-  styleLoader: ExtractTextPlugin.extract("css-loader!sass-loader"),
+  "debug": false,
+  "extractStyles": false,
 
-  debug: false, 
-  extractStyles: true,
-
-  scripts: false,
-  // scripts: {
-  //   "transition": false,
-  //   "alert": false,
-  //   "button": true,
-  //   "carousel": true,
-  //   "collapse": false,
-  //   "dropdown": true,
-  //   "modal": false,
-  //   "tooltip": false,
-  //   "popover": false,
-  //   "scrollspy": true,
-  //   "tab": false,
-  //   "affix": false
-  // },
-  styles: {
+  "scripts": false,
+  "styles": {
     "mixins": true,
     "normalize": true,
     "utilities": true,
@@ -64,4 +52,4 @@ module.exports = {
     "tooltip": false,
     "wells": false
   }
-};
+}
