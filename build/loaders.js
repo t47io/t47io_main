@@ -5,43 +5,60 @@ const Loaders = () => {
   return [
     {
       test: /\.js(x)?$/i,
-      loader: "babel-loader",
-      include: /app/
+      include: /app/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ["es2015"]
+        }
+      }
     },
     {
       test: /\.scss$/i,
-      loader: ExtractTextPlugin.extract("css-loader!sass-loader")
+      use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: [
+          "css-loader",
+          "sass-loader"
+        ]
+      })
     },
     {
       test: /\.woff$/i,
-      loader: "url-loader",
-      query: {
-        limit: 25600,
-        mimetype: "application/x-font-woff",
-        name: "font/[hash:8].[ext]"
+      use: {
+        loader: "url-loader",
+        options: {
+          limit: 25600,
+          mimetype: "application/x-font-woff",
+          name: "font/[hash:8].[ext]"
+        }
       }
     },
     {
       test: /\.(png|jpg|gif)$/i,
-      loader: "url-loader",
-      query: {
-        limit: 25600,
-        name: "image/[hash:8].[ext]"
+      use: {
+        loader: "url-loader",
+        options: {
+          limit: 25600,
+          name: "image/[hash:8].[ext]"
+        }
       }
     },
     {
       test: /\.svg$/i,
-      loader: "svg-inline-loader",
-      query: {
-        removeSVGTagAttrs: false,
-        mimetype: "image/svg+xml"
+      use: {
+        loader: "svg-inline-loader",
+        options: {
+          removeSVGTagAttrs: false,
+          mimetype: "image/svg+xml"
+        }
       }
     },
-    {
-      test: /\.json$/i,
-      loader: "json-loader",
-      exclude: /public\/data/
-    }
+    // {
+    //   test: /\.json$/i,
+    //   loader: "json-loader",
+    //   exclude: /public\/data/
+    // }
   ];
 };
 

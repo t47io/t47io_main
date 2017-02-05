@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
 import purify from 'purifycss-webpack-plugin';
 import path from 'path';
@@ -33,7 +34,8 @@ const Plugins = (DEBUG) => {
       ...errorPage,
       googleAnalytics
     }),
-    new ExtractTextPlugin(`${DEBUG ? "[name]-[hash:8]" : "[chunkhash:8].min"}.css`, {
+    new ExtractTextPlugin({
+      filename: `${DEBUG ? "[name]-[hash:8]" : "[chunkhash:8].min"}.css`,
       allChunks: true
     }),
     new purify({
@@ -59,8 +61,6 @@ const Plugins = (DEBUG) => {
     //   children: true,
     //   minChunks: 2
     // }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin()
   ];
   if (!DEBUG) {
     plugin = [
@@ -71,10 +71,14 @@ const Plugins = (DEBUG) => {
         }
       }),
       ...plugin,
-      new BabiliPlugin({
-        comments: false
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false
       }),
-      new webpack.optimize.UglifyJsPlugin({
+      new BabiliPlugin({
+        comments: false,
+      }),
+      new UglifyJsPlugin({
         beautify: false,
         comments: false,
         sourceMap: false,
