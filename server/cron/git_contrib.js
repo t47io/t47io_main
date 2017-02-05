@@ -10,7 +10,19 @@ const json = require('../../config/index/stats.json');
 const gridColors = ['#eeeeee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
 
 
-const modifyHTML = (body) => {
+const extractData = (body) => {
+  let $html = cheerio.load(body);
+  $html = $html.html(".js-calendar-graph-svg");
+  let $ = cheerio.load($html);
+
+  const data = {};
+  $("rect").each(function() {
+    data[$(this).attr('data-date')] = parseInt($(this).attr('data-count'), 10);
+  });
+  return data;
+};
+
+const modifyHTML = (body, thisAcctStats, otherAcctStats) => {
   let $html = cheerio.load(body);
   $html = $html.html(".js-calendar-graph-svg");
   let $ = cheerio.load($html);
@@ -20,8 +32,11 @@ const modifyHTML = (body) => {
     $(this).addClass(`day day_${gridColors.indexOf($(this).attr('fill'))}`);
 
     if ($(this).attr('data-count') !== "0") {
+      const dateKey = $(this).attr('data-date');
+      const dataCount = thisAcctStats[dateKey] + otherAcctStats[dateKey];
+
       $(this).attr('data-for', 'STATS__tooltip');
-      $(this).attr('data-tip', `${$(this).attr('data-count')} contribution${$(this).attr('data-count') === "1" ? "" : "s"} on ${$(this).attr('data-date')}`);
+      $(this).attr('data-tip', `${dataCount} contribution${dataCount === 1 ? "" : "s"} on ${dateKey}`);
     }
     $(this).removeAttr('height').removeAttr('width').removeAttr('fill').removeAttr('data-count').removeAttr('data-date');
   });
@@ -42,13 +57,19 @@ const modifyHTML = (body) => {
   return $.html();
 };
 
-try {
-  request(json.links.github, (error, response, body) => {
-    let newJson = _.clone(json);
-    newJson.git = modifyHTML(body).replace(/\n[ ]+/g, '');
-    fs.writeJsonSync(path.join(__dirname, '../../config/index/stats.json'), newJson);
 
-    console.log(`${colors.green("SUCCESS")}: GitHub contribution records updated.`);
+try {
+  request(json.links["github-other"], (error, response, body) => {
+    const otherData = extractData(body);
+    request(json.links.github, (error, response, body) => {
+      const thisData = extractData(body);
+
+      let newJson = _.clone(json);
+      newJson.git = modifyHTML(body, thisData, otherData).replace(/\n[ ]+/g, '');
+      fs.writeJsonSync(path.join(__dirname, '../../config/index/stats.json'), newJson);
+
+      console.log(`${colors.green("SUCCESS")}: GitHub contribution records updated.`);
+    });
   });
 } catch (e) {
   console.log(e);
