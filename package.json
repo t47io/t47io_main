@@ -6,8 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -x babel-node -d 3 -V server/server.js",
+
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js",
-    "postbuild": "babel-node ./build/error.js"
+    "postbuild": "babel-node ./build/error.js",
+
+    "cron:contrib": "babel-node ./server/cron/git_contrib.js",
+    "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
+    "cron:https": "babel-node ./server/cron/ssl_expire.js"
   },
   "repository": {
     "type": "git",
