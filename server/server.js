@@ -100,11 +100,6 @@ app.use((err, req, res, next) => {
     err.status = 503;
   }
 
-  res.status(err.status);
-  if (DEBUG) {
-    res.type('html').send(middleware.fileSystem.readFileSync(path.join(publicPath, `${err.status}.html`)));
-  } else {
-    res.sendFile(path.join(publicPath, `${err.status}.html`));
-  }
+  res.status(err.status).sendFile(path.join(publicPath, `${err.status}.html`));
 });
 

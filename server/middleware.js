@@ -1,8 +1,9 @@
 import webpack from 'webpack';
-import webpackMiddleware from 'webpack-dev-middleware';
+import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import bodyParser from 'body-parser';
+import childProcess from 'child_process';
 import compression from 'compression';
 import express from 'express';
 import favicon from 'serve-favicon';
@@ -30,7 +31,7 @@ app.disable('x-powered-by');
 
 if (DEBUG) {
   const compiler = webpack(webpackConfig);
-  middleware = webpackMiddleware(compiler, {
+  middleware = webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
     index: "index.html",
 
@@ -45,6 +46,10 @@ if (DEBUG) {
     stats: {
       colors: true
     }
+  });
+  middleware.waitUntilValid(() => {
+    fs.writeFileSync(path.join(__dirname, "../public/error.html"), middleware.fileSystem.readFileSync(path.join(publicPath, "error.html")), 'utf8');
+    childProcess.execSync("npm run postbuild");
   });
 
   app.use(middleware);
