@@ -5,7 +5,9 @@ import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import BabiliPlugin from 'babili-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
-import purify from 'purifycss-webpack-plugin';
+import PurifyCSSPlugin from 'purifycss-webpack';
+
+import glob from 'glob';
 import path from 'path';
 
 import {indexPage, errorPage, helixLoading, googleAnalytics} from './render.js';
@@ -15,6 +17,10 @@ const rootPath = path.join(__dirname, '../');
 
 const Plugins = (DEBUG) => {
   let plugin = [
+    new webpack.LoaderOptionsPlugin({
+      minimize: !DEBUG,
+      debug: DEBUG
+    }),
     new HtmlWebpackPlugin({
       chunks: ['main'],
       template: `${rootPath}/app/index.html`,
@@ -38,18 +44,20 @@ const Plugins = (DEBUG) => {
       filename: `${DEBUG ? "[name]-[hash:8]" : "[chunkhash:8].min"}.css`,
       allChunks: true
     }),
-    new purify({
-      basePath: rootPath,
+    new PurifyCSSPlugin({
       paths: [
-        'app/**/*.jsx',
-        'app/**/*.json',
-        'app/**/*.scss',
-        'public/index.html'
+        ...(glob.sync(`${rootPath}/app/**/*.jsx`)),
+        ...(glob.sync(`${rootPath}/app/**/*.json`)),
+        ...(glob.sync(`${rootPath}/app/**/*.scss`)),
+        ...(glob.sync(`${rootPath}/public/**/*.html`)),
+        `${rootPath}/public/config.json`
       ],
+      styleExtensions: ['.css', '.scss'],
+      moduleExtensions: [],
       purifyOptions: {
         minify: !DEBUG,
         info: !DEBUG,
-        // rejected: true
+        rejected: true
       }
     }),
     new LodashModuleReplacementPlugin(),
@@ -71,10 +79,6 @@ const Plugins = (DEBUG) => {
         }
       }),
       ...plugin,
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false
-      }),
       new BabiliPlugin({
         comments: false,
       }),

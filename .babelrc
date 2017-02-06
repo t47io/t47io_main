@@ -19,12 +19,7 @@
       presets: ["react-hmre"]
     },
     production: {
-      presets: [
-        ["babili", {
-          removeConsole: true,
-          removeDebugger: true
-        }]
-      ]
+      presets: ["babili"]
     }
   }
 }
