@@ -37,16 +37,7 @@ const config = {
     }
   },
 
-  module: {
-    // preLoaders: [
-    //   {
-    //     test: /\.js?$/,
-    //     loader: "eslint-loader",
-    //     include: `${__dirname}/src`
-    //   }
-    // ],
-    rules: Loaders()
-  },
+  module: { rules: Loaders() },
   plugins: Plugins(DEBUG),
 
   // devServer: {

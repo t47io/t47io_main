@@ -5,6 +5,15 @@ const Loaders = () => {
   return [
     {
       test: /\.js(x)?$/i,
+      loader: "eslint-loader",
+      enforce: 'pre',
+      exclude: [
+        /node_modules/,
+        /public/
+      ]
+    },
+    {
+      test: /\.js(x)?$/i,
       include: /app/,
       use: {
         loader: "babel-loader",

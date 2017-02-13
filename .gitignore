@@ -1,9 +1,11 @@
 !.gitignore
 
 config/**/*.json
-public/data/
-public/pdf/
 public/config.json
+
+public/data/
+public/image/
+public/pdf/
 public/*.min.*
 public/*.html
 
