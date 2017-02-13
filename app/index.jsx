@@ -6,14 +6,13 @@ import Main from './index/index.jsx';
 
 
 fetch('/config.json')
-.then((response) => response.json())
+.then(response => response.json())
 .then((json) => {
   ReactDOM.render(
     <Main {...json} />,
-    document.getElementById("app")
+    document.getElementById('app')
   );
 });
-
 
 // import AsyncComponent from './components/loading/jsx/async.jsx';
 // import HelixLoading from './components/loading/jsx/helix.jsx';
