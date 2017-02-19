@@ -1,16 +1,27 @@
 import React from 'react';
-import { SparkScroll, SparkProxy } from '../../common/js/factory.js';
+import {
+  SparkScroll,
+  SparkProxy,
+} from '../../common/js/factory.js';
 
 import SectionHeader from '../../common/jsx/header.jsx';
 import { portfolio as tween } from '../js/tweens.js';
 
 
-const PortfolioFilter = ({ name, filter, onClick, index }) => (
+const PortfolioFilter = ({
+  name,
+  filter,
+  onClick,
+  index,
+}) => (
   <SparkScroll.li className={name === filter ? 'active' : ''}
     proxy="PORTFOLIO__menu"
     timeline={tween.menu(index * 20)}
   >
-    <a href="javascript:void(0)" data-filter={name} onClick={onClick} >
+    <a href="javascript:void(0)"
+      data-filter={name}
+      onClick={onClick}
+    >
       {name.replace(/-/g, ' ')}
     </a>
   </SparkScroll.li>
@@ -22,7 +33,14 @@ PortfolioFilter.propTypes = {
   index: React.PropTypes.number.isRequired,
 };
 
-const PortfolioItem = ({ name, category, description, title, url, index }) => (
+const PortfolioItem = ({
+  name,
+  category,
+  description,
+  title,
+  url,
+  index,
+}) => (
   <SparkProxy.div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry"
     proxyId={`PORTFOLIO__proxy_${index}`}
   >
@@ -37,7 +55,6 @@ const PortfolioItem = ({ name, category, description, title, url, index }) => (
       <div className="PORTFOLIO__text">
         <a href={url ? url : `/project/${name}`} target="_blank" rel="noopener noreferrer">
           {title}
-          &nbsp;
           <i className="fa fa-fw fa-md fa-link-ext" />
         </a>
         <span dangerouslySetInnerHTML={{ __html: description }} />
@@ -82,7 +99,9 @@ class PortfolioSection extends React.Component {
     return (
       <section id="PORTFOLIO__section">
         <div className="PORTFOLIO__trigger">
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style={{ padding: '0' }} >
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+            style={{ padding: '0' }}
+          >
             <SectionHeader title="my works" subtitle="what I am proud of"
               proxyId="PORTFOLIO__header"
               tween={tween.header}

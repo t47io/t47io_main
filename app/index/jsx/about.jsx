@@ -1,11 +1,19 @@
 import React from 'react';
-import { SparkScroll, SparkProxy } from '../../common/js/factory.js';
+import {
+  SparkScroll,
+  SparkProxy,
+} from '../../common/js/factory.js';
 
 import SectionHeader from '../../common/jsx/header.jsx';
 import { about as tween } from '../js/tweens.js';
 
 
-const AboutItem = ({ title, icon, description, index }) => (
+const AboutItem = ({
+  title,
+  icon,
+  description,
+  index,
+}) => (
   <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
     <a href="javascript:void(0)" className="ABOUT__box text-center">
       <SparkScroll.span className="ABOUT__icon"
@@ -28,7 +36,9 @@ AboutItem.propTypes = {
   index: React.PropTypes.number.isRequired,
 };
 
-const AboutSection = ({ items }) => (
+const AboutSection = ({
+  items,
+}) => (
   <section id="ABOUT__section" className="text-center">
     <div className="UTIL__spacer-lg ABOUT__trigger" />
     <SectionHeader title="what i do" subtitle="what I enjoy & good at"

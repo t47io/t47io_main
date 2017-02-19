@@ -1,46 +1,88 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import {SparkScroll, SparkProxy} from '../../common/js/factory.js';
+import { SparkScroll } from '../../common/js/factory.js';
 
 import SectionHeader from '../../common/jsx/header.jsx';
-import {pubs as tween} from '../js/tweens.js';
+import { pubs as tween } from '../js/tweens.js';
 
 
-const PubsItem = ({year, author, title, journal, issue, page, url, code, citation, tag, is_preprint}) => {
-  const urlExt = url ? url : "javascript:void(0)";
-  const urlPDF = is_preprint ? "javascript:void(0)" : `/pdf/${tag}.pdf`;
-  const urlClass = is_preprint ? "text-light-gray" : "text-dark-green bg-light-green";
+const PubsItem = ({
+  year,
+  author,
+  title,
+  journal,
+  issue,
+  page,
+  url,
+  code,
+  citation,
+  tag,
+  isPreprint,
+}) => {
+  const urlExt = url ? url : 'javascript:void(0)';
+  const urlPDF = isPreprint ? 'javascript:void(0)' : `/pdf/${tag}.pdf`;
+  const urlClass = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
 
-  const issuePage = is_preprint ? (<span>, <span className="text-gray">{issue}</span>.</span>) : (<span><b>{issue}</b>: {page}.</span>);
-  const codeLink = code ? (<a href={code} target="_blank" rel="noopener noreferrer external" className="text-dark-green bg-light-green"><i className="fa fa-fw fa-file-code"></i></a>): "";
-  const citeElement = !citation ? "" : (
-    <span className="PUBS__cite pull-right text-gray bg-light-gray">
-      <i className="fa fa-fw fa-balance-scale"></i>
-      &nbsp;<i><small>Cited by :</small></i>&nbsp;
-      <u className="text-main">{citation}</u>
+  const issuePage = isPreprint ? (
+    <span>
+      , <span className="text-gray">{issue}</span>.
+    </span>
+  ) : (
+    <span>
+      <b>{issue}</b>: {page}.
     </span>
   );
+  const codeLink = code ? (
+    <a href={code} target="_blank" rel="noopener noreferrer external" className="text-dark-green bg-light-green">
+      <i className="fa fa-fw fa-file-code" />
+    </a>
+  ) : null;
+  const citeElement = citation ? (
+    <span className="PUBS__cite pull-right text-gray bg-light-gray">
+      <i className="fa fa-fw fa-balance-scale" />
+      <i>
+        <small>Cited by :</small>
+      </i>
+      <u className="text-main">{citation}</u>
+    </span>
+  ) : null;
 
   return (
     <SparkScroll.div className="row PUBS__entry"
-      timeline={tween.entry} >
+      timeline={tween.entry}
+    >
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
           <a href={urlExt} target="_blank" rel="noopener noreferrer external">
             <div className="SPRITE" data-tip={tag} data-for="PUBS__tooltip">
-              <div className={`SPRITE__pubs-${tag}`}></div>
+              <div className={`SPRITE__pubs-${tag}`} />
             </div>
           </a>
         </div>
       </div>
       <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12 PUBS__text">
-        <p className="text-gray"><span dangerouslySetInnerHTML={{__html: author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>')}}></span> (<b className="text-light-green">{year}</b>)</p>
-        <p><b className="PUBS__title" dangerouslySetInnerHTML={{__html: `"${title}"`}}></b></p>
+        <p className="text-gray">
+          <span dangerouslySetInnerHTML={{ __html: author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>') }} />
+          (
+          <b className="text-light-green">{year}</b>
+          )
+        </p>
+        <p>
+          <b className="PUBS__title" dangerouslySetInnerHTML={{ __html: `"${title}"` }} />
+        </p>
         <p>
           <i className="text-green">{journal}</i>
-          &nbsp;{issuePage}
-          <a href={urlExt} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-word"></i></a>
-          <a href={urlPDF} target="_blank" rel="noopener noreferrer external" className={urlClass}><i className="fa fa-fw fa-file-pdf"></i></a>
+          {issuePage}
+          <a href={urlExt} target="_blank" rel="noopener noreferrer external"
+            className={urlClass}
+          >
+            <i className="fa fa-fw fa-file-word" />
+          </a>
+          <a href={urlPDF} target="_blank" rel="noopener noreferrer external"
+            className={urlClass}
+          >
+            <i className="fa fa-fw fa-file-pdf" />
+          </a>
           {codeLink}
           {citeElement}
         </p>
@@ -50,46 +92,88 @@ const PubsItem = ({year, author, title, journal, issue, page, url, code, citatio
     </SparkScroll.div>
   );
 };
+PubsItem.propTypes = {
+  year: React.PropTypes.number.isRequired,
+  author: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string.isRequired,
+  journal: React.PropTypes.string.isRequired,
+  issue: React.PropTypes.string.isRequired,
+  page: React.PropTypes.string.isRequired,
+  url: React.PropTypes.string.isRequired,
+  code: React.PropTypes.string.isRequired,
+  citation: React.PropTypes.number.isRequired,
+  tag: React.PropTypes.string.isRequired,
+  isPreprint: React.PropTypes.bool.isRequired,
+};
 
-const PubsYearPanel = ({year, items}) => (
+const PubsYearPanel = ({
+  year,
+  items,
+}) => (
   <div className="row PUBS__row">
     <SparkScroll.div className="col-lg-1 col-md-1 col-sm-2 col-xs-3 PUBS__year"
-      timeline={tween.year} >
+      timeline={tween.year}
+    >
       {year}
     </SparkScroll.div>
     <div className="col-lg-11 col-md-11 col-sm-10 col-xs-9 PUBS__content">
-      {items.filter((item) => (!item.is_hidden)).map((item) => (<PubsItem {...item} year={year} />))}
+      {items.filter(item => (!item.is_hidden)).map(item => (
+        <PubsItem {...item} year={year} />
+      ))}
     </div>
   </div>
 );
+PubsYearPanel.propTypes = {
+  year: React.PropTypes.number.isRequired,
+  items: React.PropTypes.array.isRequired,
+};
 
-const PubsSection = ({items, links}) => (
+const PubsSection = ({
+  items,
+  links,
+}) => (
   <section id="PUBS__section">
-    <div className="UTIL__spacer-md PUBS__trigger"></div>
-    <SectionHeader title="my research" subtitle="what I published" proxyId="PUBS__header" tween={tween.header} />
+    <div className="UTIL__spacer-md PUBS__trigger" />
+    <SectionHeader title="my research" subtitle="what I published"
+      proxyId="PUBS__header"
+      tween={tween.header}
+    />
 
     <div className="container">
-      {items.map((item) => (<PubsYearPanel {...item} />))}
+      {items.map(item => (<PubsYearPanel {...item} />))}
       <ReactTooltip effect="solid" place="bottom" id="PUBS__tooltip" />
 
-      <div className="UTIL__spacer-lg"></div>
+      <div className="UTIL__spacer-lg" />
       <div className="row">
-        <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2"></div>
+        <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
         <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
           <h4 className="text-gray text-center">
             <span className="fa-stack">
-              <i className="fa fa-fw fa-blank fa-stack-2x text-light-green"></i>
-              <i className="fa fa-fw fa-search fa-stack-1x text-white"></i>
+              <i className="fa fa-fw fa-blank fa-stack-2x text-light-green" />
+              <i className="fa fa-fw fa-search fa-stack-1x text-white" />
             </span>
-            Find more on <a href={links.google_scholar} target="_blank" rel="noopener noreferrer external">Google Scholar <i className="fa fa-fw fa-sm fa-link-ext"></i></a> and <a href={links.pubmed} target="_blank" rel="noopener noreferrer external">PubMed <i className="fa fa-fw fa-sm fa-link-ext"></i></a>.
+            Find more on
+            <a href={links.google_scholar} target="_blank" rel="noopener noreferrer external">
+              Google Scholar
+              <i className="fa fa-fw fa-sm fa-link-ext" />
+            </a>
+            and
+            <a href={links.pubmed} target="_blank" rel="noopener noreferrer external">
+              PubMed
+              <i className="fa fa-fw fa-sm fa-link-ext" />
+            </a>.
           </h4>
         </div>
-        <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2"></div>
+        <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
       </div>
     </div>
-    <div className="UTIL__spacer-xl CONTACT__trigger"></div>
+    <div className="UTIL__spacer-xl CONTACT__trigger" />
   </section>
 );
+PubsSection.propTypes = {
+  items: React.PropTypes.array.isRequired,
+  links: React.PropTypes.object.isRequired,
+};
 
 
 export default PubsSection;

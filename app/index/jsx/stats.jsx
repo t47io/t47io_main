@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import { SparkScroll, SparkProxy } from '../../common/js/factory.js';
+import {
+  SparkScroll,
+  SparkProxy,
+} from '../../common/js/factory.js';
 
 import SectionHeader from '../../common/jsx/header.jsx';
 import Carousel from '../../common/jsx/carousel.jsx';
@@ -47,7 +50,12 @@ StatsItem.propTypes = {
 };
 
 
-const StatsSection = ({ items, background, links, git }) => (
+const StatsSection = ({
+  items,
+  background,
+  links,
+  git,
+}) => (
   <section id="STATS__section">
     <Carousel extraClassName="STATS__area text-white"
       items={background} interval={4000}
@@ -71,7 +79,6 @@ const StatsSection = ({ items, background, links, git }) => (
     <h3 className="text-center">
       <i className="fa fa-fw fa-github-circled" />
       Contributions
-      &nbsp;
       <a href={links.github} target="_blank" rel="noopener noreferrer external">
         <i className="fa fa-fw fa-sm fa-link-ext" />
       </a>

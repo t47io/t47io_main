@@ -6,7 +6,10 @@ import Carousel from '../../common/jsx/carousel.jsx';
 import { affiliation as tween } from '../js/tweens.js';
 
 
-const AffiliationRewardItem = ({ year, title }) => (
+const AffiliationRewardItem = ({
+  year,
+  title,
+}) => (
   <tr>
     <td>
       <i className="text-gray">{year}</i>
@@ -20,7 +23,17 @@ AffiliationRewardItem.propTypes = {
   title: React.PropTypes.string.isRequired,
 };
 
-const AffiliationItem = ({ year, title, url, geo, role, rewards, tag, scroll, onPositionChange }) => (
+const AffiliationItem = ({
+  year,
+  title,
+  url,
+  geo,
+  role,
+  rewards,
+  tag,
+  scroll,
+  onPositionChange,
+}) => (
   <div className="AFFILIATION__entry"
     id={`story_${year}`}
     style={{ zIndex: (year === scroll) ? 15 : 10 }}
@@ -37,7 +50,6 @@ const AffiliationItem = ({ year, title, url, geo, role, rewards, tag, scroll, on
           <br />
           <a href={url} target="_blank" rel="noopener noreferrer external">
             {title}
-            &nbsp;
             <i className="fa fa-fw fa-sm fa-link-ext" />
           </a>
           <br />
@@ -47,10 +59,8 @@ const AffiliationItem = ({ year, title, url, geo, role, rewards, tag, scroll, on
           <p>
             <b>{role.position}</b>
             {role.title}
-            &nbsp;
             <br className="hidden-lg hidden-md" />
             <span className="text-green">@</span>
-            &nbsp;
             <u>{role.team}</u>
           </p>
           <br className="hidden-xs hidden-sm" />
@@ -88,7 +98,10 @@ class AffiliationSection extends React.Component {
   }
 
   onScrollItem(year) {
-    return ({ currentPosition, previousPosition }) => {
+    return ({
+      currentPosition,
+      previousPosition,
+    }) => {
       if (currentPosition === 'inside' || previousPosition === 'inside') {
         this.setState({ scroll: year });
       }

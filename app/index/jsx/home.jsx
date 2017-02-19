@@ -2,7 +2,10 @@ import React from 'react';
 import { SparkScroll } from '../../common/js/factory.js';
 
 // import ImageLoader from '../../common/jsx/_image-loader.jsx';
-import { home as tween, func } from '../js/tweens.js';
+import {
+  home as tween,
+  func,
+} from '../js/tweens.js';
 
 
 class HomeSection extends React.Component {
@@ -64,10 +67,12 @@ class HomeSection extends React.Component {
               style={this.state.isName ? tween.name.end : tween.name.start}
               src={require('../img/t47_name.png')}
             />
-            <p className="text-white" style={{ marginTop: '-10px' }} >&nbsp;</p>
-            <p className={`HOME__typewrite text-${this.state.textColor}`} >
+            <p className="text-white"
+              style={{ marginTop: '-10px' }}
+            >&nbsp;</p>
+            <p className={`HOME__typewrite text-${this.state.textColor}`}>
               <span dangerouslySetInnerHTML={{ __html: this.state.title }} />
-              <b className={`HOME__cursor ${this.state.isBlink ? 'blink' : ''}`} >
+              <b className={`HOME__cursor ${this.state.isBlink ? 'blink' : ''}`}>
                 {(this.state.isShade && this.state.isName) ? '|' : ''}
               </b>
             </p>
