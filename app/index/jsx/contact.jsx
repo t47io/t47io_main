@@ -104,7 +104,7 @@ class ContactForm extends React.Component {
           timeline={tween.formRight}
         >
           <input type="email" name="email" placeholder="E-mail" required
-            className="form-control input-lg" 
+            className="form-control input-lg"
             ref={(input) => { this.input.email = input; }}
           />
         </SparkScroll.div>
@@ -213,7 +213,7 @@ const ContactSection = ({
                 <SparkScroll.li
                   timeline={tween.listLeft}
                 >
-                  <a className="btn btn-default" href="/resume/" target="_blank" rel="noopener noreferer">
+                  <a className="btn btn-default" href="/resume/" target="_blank" rel="noopener noreferrer">
                     <i className="fa fa-download fa-fw" />
                     Resume
                     <span className="text-main CONTACT__resume">
