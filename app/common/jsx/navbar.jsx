@@ -6,10 +6,11 @@ import { Logo } from './logo.jsx';
 const NavbarItem = ({
   item,
   section,
-  onScrollTo,
 }) => (
   <li className={(item === section) ? 'active' : ''}>
-    <a href="javascript:void(0)" className="COMMON__navbar_link" onClick={onScrollTo}>
+    <a className="COMMON__navbar_link" href="#" 
+      onClick={() => smoothScroll(document.getElementById(`${item.toUpperCase()}__section`), 2000)}
+    >
       {item}
     </a>
   </li>
@@ -17,7 +18,6 @@ const NavbarItem = ({
 NavbarItem.propTypes = {
   item: React.PropTypes.string.isRequired,
   section: React.PropTypes.string.isRequired,
-  onScrollTo: React.PropTypes.func.isRequired,
 };
 
 class Navbar extends React.Component {
@@ -26,13 +26,13 @@ class Navbar extends React.Component {
     this.state = { toggle: false };
 
     this.onMobileCollapse = this.onMobileCollapse.bind(this);
+    this.onScrollTo = this.onScrollTo.bind(this);
   }
 
   onMobileCollapse() {
     this.setState({ toggle: !(this.state.toggle) });
   }
-  onScrollTo(target) {
-    smoothScroll(document.getElementById(target), 2000);
+  onScrollTo() {
     this.setState({ toggle: false });
   }
 
@@ -56,11 +56,9 @@ class Navbar extends React.Component {
           </div>
 
           <div className={`COMMON__navbar-collapse navbar-collapse ${toggle ? 'display' : ''}`} >
-            <ul className="nav navbar-right">
+            <ul className="nav navbar-right" onClick={this.onScrollTo}>
               {items.map(item => (
-                <NavbarItem item={item} section={section}
-                  onScrollTo={this.onScrollTo.bind(this, `${item.toUpperCase()}__section`)}
-                />
+                <NavbarItem item={item} section={section} />
               ))}
             </ul>
           </div>

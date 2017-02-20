@@ -66,21 +66,21 @@ class Main extends React.Component {
       <div>
         <Navbar items={home.sections} {...scroll} />
 
-        <Waypoint onEnter={this.onEnterSection('home')} />
+        <Waypoint onEnter={() => this.onEnterSection('home')} />
         <HomeSection {...home} />
 
-        <Waypoint onEnter={this.onEnterSection('about')} />
+        <Waypoint onEnter={() => this.onEnterSection('about')} />
         <Waypoint topOffset="200px" onPositionChange={this.onScrollNavbar} />
         <AboutSection {...about} />
         <AffiliationSection {...affiliation} />
 
-        <Waypoint onEnter={this.onEnterSection('portfolio')} />
+        <Waypoint onEnter={() => this.onEnterSection('portfolio')} />
         <PortfolioSection {...portfolio} />
         <SkillsSection {...skills} />
         <StatsSection {...stats} />
         <PubsSection {...pubs} />
 
-        <Waypoint onEnter={this.onEnterSection('contact')} />
+        <Waypoint onEnter={() => this.onEnterSection('contact')} />
         <ContactSection {...contact} />
 
         <Waypoint onPositionChange={this.onScrollFooter} />
