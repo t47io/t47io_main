@@ -1,12 +1,12 @@
 {
   "name": "t47io_main",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -x babel-node -d 3 -V server/server.js",
 
-    "prebuild": "./node_modules/eslint/bin/eslint.js app build server --ext [.jsx,.js]",
+    "prebuild": "./node_modules/eslint/bin/eslint.js app build server webpack.*.js --ext [.jsx,.js]",
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js",
     "postbuild": "babel-node ./build/error.js",
 

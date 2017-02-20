@@ -1,6 +1,3 @@
-'use strict';
-
-import webpack from 'webpack';
 import Plugins from './build/plugins.js';
 import Loaders from './build/loaders.js';
 
@@ -9,7 +6,7 @@ const DEBUG = !((process.argv.indexOf('--production') > 0) || (process.argv.inde
 console.log(`DEBUG mode ? ${DEBUG}`);
 
 
-let entry = {
+const entry = {
   main: [
     'bootstrap-loader',
     // 'bootstrap-sass-loader!./bootstrap-sass.config.js',
@@ -21,7 +18,7 @@ let entry = {
 if (DEBUG) { entry.main.unshift('webpack-hot-middleware/client?reload=true'); }
 
 const config = {
-  entry: entry,
+  entry,
   output: {
     filename: `${DEBUG ? '[name]-[hash:8]' : '[chunkhash:8].min'}.js`,
     chunkFilename: `[chunkhash:8].${DEBUG ? '' : 'min.'}js`,
@@ -32,7 +29,7 @@ const config = {
   devtool: `cheap-module-${DEBUG ? 'eval-' : ''}source-map`,
   resolve: {
     alias: {
-      'react': 'preact-compat',
+      react: 'preact-compat',
       'react-dom': 'preact-compat',
     },
   },
@@ -49,4 +46,3 @@ const config = {
 
 
 export default config;
-

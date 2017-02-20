@@ -7,8 +7,6 @@ import request from 'request';
 
 const json = require('../../config/index/stats.json');
 
-const gridColors = ['#eeeeee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
-
 
 const extractData = (body) => {
   let $html = cheerio.load(body);
@@ -21,8 +19,17 @@ const extractData = (body) => {
   });
   return data;
 };
+const combineData = (data1, data2) => {
+  const combined = {};
+  let maxVal = 0;
+  Object.keys(data1).forEach((key) => {
+    combined[key] = data1[key] + data2[key];
+    maxVal = Math.max(maxVal, combined[key]);
+  });
+  return [combined, maxVal];
+};
 
-const modifyHTML = (body, thisAcctStats, otherAcctStats) => {
+const modifyHTML = (body, combinedAcctStats, maxContrib) => {
   let $html = cheerio.load(body);
   $html = $html.html('.js-calendar-graph-svg');
   const $ = cheerio.load($html);
@@ -30,12 +37,12 @@ const modifyHTML = (body, thisAcctStats, otherAcctStats) => {
   $('svg').attr('height', 150)
     .removeAttr('class');
   $('rect').each(function () {
-    $(this).addClass(`day day_${gridColors.indexOf($(this).attr('fill'))}`);
+    const dateKey = $(this).attr('data-date');
+    const dataCount = combinedAcctStats[dateKey];
+    const dayIdx = (dataCount === 0) ? 0 : Math.floor(dataCount / maxContrib * 5 + 1);
 
-    if ($(this).attr('data-count') !== '0') {
-      const dateKey = $(this).attr('data-date');
-      const dataCount = thisAcctStats[dateKey] + otherAcctStats[dateKey];
-
+    $(this).addClass(`day day_${Math.min(dayIdx, 4)}`);
+    if (dataCount) {
       $(this).attr('data-for', 'STATS__tooltip');
       $(this).attr('data-tip', `${dataCount} contribution${dataCount === 1 ? '' : 's'} on ${dateKey}`);
     }
@@ -69,13 +76,13 @@ try {
     const otherData = extractData(body);
 
     request(json.links.github, (error2, response2, body2) => {
-      if (error) { console.log(error2); }
-
+      if (error2) { console.log(error2); }
       const thisData = extractData(body2);
-      const newJson = _.clone(json);
-      newJson.gitSvg = modifyHTML(body2, thisData, otherData).replace(/\n[ ]+/g, '');
-      fs.writeJsonSync(path.join(__dirname, '../../config/index/stats.json'), newJson);
+      const [allData, maxContrib] = combineData(thisData, otherData);
 
+      const newJson = _.clone(json);
+      newJson.gitSvg = modifyHTML(body2, allData, maxContrib).replace(/\n[ ]+/g, '');
+      fs.writeJsonSync(path.join(__dirname, '../../config/index/stats.json'), newJson);
       console.log(`${colors.green('SUCCESS')}: GitHub contribution records updated.`);
     });
   });
