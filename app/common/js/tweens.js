@@ -22,4 +22,4 @@ const footer = {
 };
 
 
-export default { footer };
+export { footer };

@@ -289,7 +289,7 @@ const contact = {
 };
 
 
-export default {
+export {
   home,
   about,
   affiliation,
