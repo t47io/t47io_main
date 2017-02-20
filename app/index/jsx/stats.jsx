@@ -78,9 +78,17 @@ const StatsSection = ({
     <h3 className="text-center">
       <i className="fa fa-fw fa-github-circled" />
       Contributions
-      <a href={links.github} target="_blank" rel="noopener noreferrer external">
-        <i className="fa fa-fw fa-sm fa-link-ext" />
-      </a>
+      <small style={{ marginLeft: '0.5em' }}>
+        (
+        <a href={links.github} target="_blank" rel="noopener noreferrer external">
+          <i className="fa fa-fw fa-sm fa-link-ext" />
+        </a>
+        and
+        <a href={links.githubMinted} target="_blank" rel="noopener noreferrer external">
+          <i className="fa fa-fw fa-sm fa-link-ext" />
+        </a>
+        )
+      </small>
     </h3>
 
     <div className="UTIL__spacer-md" />

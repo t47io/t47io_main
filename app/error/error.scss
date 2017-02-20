@@ -67,10 +67,19 @@ a { color: $clr-gl; }
 footer {
   text-align: center;
 
+  .fa {
+    display: inline-block;
+
+    &.fa-fw {
+      width: 2em;
+      text-align: center;
+    }
+  }
   .fa svg,
   .green-white svg {
     height: 1em;
     width: auto;
+    margin: 0 0.5em;
     vertical-align: text-top;
   }
 }

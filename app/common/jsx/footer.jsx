@@ -33,8 +33,8 @@ const Footer = () => (
         <div className="FOOTER__copyright text-center">
           Copyright
           <i className="fa fa-fw fa-copyright" />
-          <a>2015 - {year}</a>
-          Designed, built &amp; managed by
+          <a style={{ marginRight: '0.75em' }}>2015 - {year}</a>
+          Designed, built & managed by
           <LogoAlt href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" className="COMMON__footer_logo green-transparent" />
           . All rights reserverd.
         </div>

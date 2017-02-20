@@ -33,7 +33,6 @@
     width: 120px;
     height: auto;
     padding: 0;
-    line-height: 20px;
 
     @include transition(0.2s);
   }
@@ -85,7 +84,6 @@
     display: none;
     float: right;
     text-align: center;
-    max-height: 440px;
 
     background-color: $clr-gl;
     border-top: 2px solid $clr-w;

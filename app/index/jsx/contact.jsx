@@ -131,7 +131,7 @@ class ContactForm extends React.Component {
             className={`btn btn-${isError ? 'danger' : 'default'} btn-block`}
           >
             <i className={`fa ${icon} fa-lg fa-fw`} />
-            Send
+            SEND
           </button>
         </SparkScroll.div>
       </form>
@@ -179,40 +179,35 @@ const ContactSection = ({
                 Find Me
               </SparkScroll.h4>
               <ul className="CONTACT__address">
-                <SparkScroll.li
+                <SparkScroll.li style={{ paddingBottom: '0.8em' }}
                   timeline={tween.listLeft}
                 >
                   <i className="fa fa-location fa-lg fa-fw" />
                   279 Campus Drive West, Room B419
-                  <br /><br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </SparkScroll.li>
+                <SparkScroll.li timeline={tween.listLeft}>
+                  <i className="fa fa-location fa-lg fa-fw" style={{ visibility: 'hidden' }} />
                   Stanford, CA 94305, USA
                 </SparkScroll.li>
-                <SparkScroll.li
-                  timeline={tween.listLeft}
-                >
+                <SparkScroll.li timeline={tween.listLeft}>
                   <i className="fa fa-phone fa-lg fa-fw" />
                   <img className="CONTACT__phone" alt="T47 phone no."
                     src={require('../img/t47_phone.png')}
                   />
                 </SparkScroll.li>
-                <SparkScroll.li
-                  timeline={tween.listLeft}
-                >
+                <SparkScroll.li timeline={tween.listLeft}>
                   <i className="fa fa-mail-alt fa-lg fa-fw" />
                   <b>
                     <a className="text-light-green" href="mailto:t47@alumni.stanford.edu" target="_blank" rel="noopener noreferrer external">
                       t47 @ alumni.stanford.edu
                     </a>
                   </b>
-                  |
+                  {' | '}
                   <a className="text-light-gray" href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external">
                     contact @ t47.io
                   </a>
                 </SparkScroll.li>
-                <SparkScroll.li
-                  timeline={tween.listLeft}
-                >
+                <SparkScroll.li timeline={tween.listLeft}>
                   <a className="btn btn-default" href="/resume/" target="_blank" rel="noopener noreferrer">
                     <i className="fa fa-download fa-fw" />
                     Resume
@@ -220,7 +215,7 @@ const ContactSection = ({
                       <i className="fa fa-clock fa-fw" style={{ marginRight: 0 }} />
                       <small>
                         {objDate.toLocaleString('en-us', { month: 'short' })}
-                        {date.slice(0, 4)}
+                        {` ${date.slice(0, 4)}`}
                       </small>
                     </span>
                   </a>

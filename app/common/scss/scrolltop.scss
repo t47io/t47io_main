@@ -20,7 +20,7 @@
     @include transition(0.5s);
     @include transform(rotate(-45deg));
 
-    transform: rotate(-45deg) translate(0, -0.125em);
+    transform: rotate(-45deg) translate(-1px, -0.125em);
   }
   &:hover { background-color: $clr-gl; }
   &:hover .fa { color: $clr-w; }

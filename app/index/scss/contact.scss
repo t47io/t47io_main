@@ -113,7 +113,7 @@ ul.CONTACT__address {
     margin: 0;
     list-style: none;
 
-    i { margin-right: 0.75em; }
+    i { margin-right: 0.5em; }
 
     &:last-child { padding-bottom: 0; }
     &:hover {
@@ -148,6 +148,10 @@ ul.CONTACT__address {
 
     &:hover { color: $clr-w; }
   }
-  .input-lg { font-size: 1rem; }
+  textarea { resize: vertical; }
+  .input-lg {
+    font-size: 1rem;
+    border-radius: 0;
+  }
 }
 

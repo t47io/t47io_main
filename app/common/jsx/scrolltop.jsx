@@ -6,9 +6,12 @@ const ScrollTop = ({
   bottom,
 }) => (
   <a href="#HOME__section" className="scrollTop"
-    style={{ opacity: top || bottom ? 0 : 1, visibility: top || bottom ? 'hidden' : 'visible' }}
+    style={{
+      opacity: top || bottom ? 0 : 1,
+      visibility: (top || bottom) ? 'hidden' : 'visible',
+    }}
   >
-    <i className="fa fa-up-big fa-fw fa-lg" />
+    <i className="fa fa-up-big fa-fwn fa-lg" />
   </a>
 );
 ScrollTop.propTypes = {

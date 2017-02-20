@@ -19,9 +19,14 @@
 .fa-4x { font-size: 4em; }
 
 .fa-fw {
-  width: 1.28571429em;
+  width: 2em;
   text-align: center;
 }
+.fa-fwn {
+  width: 1.4em;
+  text-align: center;
+}
+.fa-fw.fa-link-ext { margin-left: 0.25em; }
 
 .fa-pull-left { float: left; }
 .fa-pull-right { float: right; }

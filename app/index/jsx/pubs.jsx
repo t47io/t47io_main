@@ -24,17 +24,17 @@ const PubsItem = ({
   const urlClass = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
 
   const issuePage = isPreprint ? (
-    <span>
+    <span style={{ marginLeft: '0.5em' }}>
       , <span className="text-gray">{issue}</span>.
     </span>
   ) : (
-    <span>
+    <span style={{ marginLeft: '0.5em' }}>
       <b>{issue}</b>: {page}.
     </span>
   );
   const codeLink = code ? (
     <a href={code} target="_blank" rel="noopener noreferrer external" className="text-dark-green bg-light-green">
-      <i className="fa fa-fw fa-file-code" />
+      <i className="fa fa-fwn fa-file-code" />
     </a>
   ) : null;
   const citeElement = citation ? (
@@ -43,7 +43,7 @@ const PubsItem = ({
       <i>
         <small>Cited by :</small>
       </i>
-      <u className="text-main">{citation}</u>
+      <u className="text-main" style={{ paddingLeft: '0.5em' }}>{citation}</u>
     </span>
   ) : null;
 
@@ -63,7 +63,7 @@ const PubsItem = ({
       <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12 PUBS__text">
         <p className="text-gray">
           <span dangerouslySetInnerHTML={{ __html: author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>') }} />
-          (
+          {' ('}
           <b className="text-light-green">{year}</b>
           )
         </p>
@@ -76,12 +76,12 @@ const PubsItem = ({
           <a {...urlExt} target="_blank" rel="noopener noreferrer external"
             className={urlClass}
           >
-            <i className="fa fa-fw fa-file-word" />
+            <i className="fa fa-fwn fa-file-word" />
           </a>
           <a {...urlPDF} target="_blank" rel="noopener noreferrer external"
             className={urlClass}
           >
-            <i className="fa fa-fw fa-file-pdf" />
+            <i className="fa fa-fwn fa-file-pdf" />
           </a>
           {codeLink}
           {citeElement}
@@ -153,12 +153,16 @@ const PubsSection = ({
               <i className="fa fa-fw fa-search fa-stack-1x text-white" />
             </span>
             Find more on
-            <a href={links.googleScholar} target="_blank" rel="noopener noreferrer external">
+            <a href={links.googleScholar} target="_blank" rel="noopener noreferrer external"
+              className="PUBS__link"
+            >
               Google Scholar
               <i className="fa fa-fw fa-sm fa-link-ext" />
             </a>
             and
-            <a href={links.pubmed} target="_blank" rel="noopener noreferrer external">
+            <a href={links.pubmed} target="_blank" rel="noopener noreferrer external"
+              className="PUBS__link"
+            >
               PubMed
               <i className="fa fa-fw fa-sm fa-link-ext" />
             </a>.
