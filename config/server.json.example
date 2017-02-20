@@ -6,19 +6,13 @@
         "login":     "user@domain",
         "password":  "secret"
 
-    "ga_tracker":  "UA-uid-n",
-    "git_token":   "access_token",
+    "gaTracker":  "UA-uid-n",
+    "gitToken":   "access_token",
 
-    "git_repo": {
+    "gitRepo": {
         "alias1":     "org1/repo1",
         "alias2":     "org1/repo2",
         "alias3":     "org2/repo1"
-    },
-
-    "links": {
-        "github":         "https://github.com/user",
-        "google_scholar": "https://scholar.google.com/citations?user=user_id&hl=en",
-        "pubmed":         "http://www.ncbi.nlm.nih.gov/pubmed?term=FirstName%20LastName%5BAuthor%20-%20Full%5D"
     },
 
     "port":        8000,

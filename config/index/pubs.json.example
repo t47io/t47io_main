@@ -8,8 +8,8 @@
           "title": "title_html",
           "journal": "journal_fullname",
           "issue": "in preparation",
-          "is_preprint": true,
-          "is_hidden": true,
+          "isPreprint": true,
+          "isHidden": true,
           "citation": null,
           "tag": "pubs_id"
         },
@@ -18,7 +18,7 @@
           "title": "title_html",
           "journal": "journal_fullname",
           "issue": "submitted",
-          "is_preprint": true,
+          "isPreprint": true,
           "citation": null,
           "tag": "pubs_id"
         }
@@ -42,7 +42,7 @@
     }
   ],
   "links": {
-    "google_scholar": "https://scholar.google.com/citations?user=HbNbD8AAAAAJ&hl=en",
+    "googleScholar": "https://scholar.google.com/citations?user=HbNbD8AAAAAJ&hl=en",
     "pubmed": "http://www.ncbi.nlm.nih.gov/pubmed?term=Siqi%20Tian%5BAuthor%20-%20Full%5D"
   }
 }
