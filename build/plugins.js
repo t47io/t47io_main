@@ -10,7 +10,12 @@ import PurifyCSSPlugin from 'purifycss-webpack';
 import glob from 'glob';
 import path from 'path';
 
-import {indexPage, errorPage, helixLoading, googleAnalytics} from './render.js';
+import {
+  indexPage,
+  errorPage,
+  helixLoading,
+  googleAnalytics,
+} from './render.js';
 
 const rootPath = path.join(__dirname, '../');
 
@@ -19,7 +24,7 @@ const Plugins = (DEBUG) => {
   let plugin = [
     new webpack.LoaderOptionsPlugin({
       minimize: !DEBUG,
-      debug: DEBUG
+      debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
       chunks: ['main'],
@@ -28,8 +33,8 @@ const Plugins = (DEBUG) => {
       inject: false,
 
       ...indexPage,
-      helixLoading, 
-      googleAnalytics
+      helixLoading,
+      googleAnalytics,
     }),
     new HtmlWebpackPlugin({
       chunks: ['error'],
@@ -38,11 +43,11 @@ const Plugins = (DEBUG) => {
       inject: false,
 
       ...errorPage,
-      googleAnalytics
+      googleAnalytics,
     }),
     new ExtractTextPlugin({
-      filename: `${DEBUG ? "[name]-[hash:8]" : "[chunkhash:8].min"}.css`,
-      allChunks: true
+      filename: `${DEBUG ? '[name]-[hash:8]' : '[chunkhash:8].min'}.css`,
+      allChunks: true,
     }),
     new PurifyCSSPlugin({
       paths: [
@@ -50,15 +55,15 @@ const Plugins = (DEBUG) => {
         ...(glob.sync(`${rootPath}/app/**/*.json`)),
         ...(glob.sync(`${rootPath}/app/**/*.scss`)),
         ...(glob.sync(`${rootPath}/public/**/*.html`)),
-        `${rootPath}/public/config.json`
+        `${rootPath}/public/config.json`,
       ],
       styleExtensions: ['.css', '.scss'],
       moduleExtensions: [],
       purifyOptions: {
         minify: !DEBUG,
         info: !DEBUG,
-        rejected: true
-      }
+        rejected: true,
+      },
     }),
     new LodashModuleReplacementPlugin(),
     // new webpack.optimize.CommonsChunkPlugin({
@@ -74,9 +79,9 @@ const Plugins = (DEBUG) => {
     plugin = [
       new webpack.DefinePlugin({
         'process.env': {
-          'NODE_ENV': JSON.stringify('production'),
-          'BABEL_ENV': JSON.stringify('production')
-        }
+          NODE_ENV: JSON.stringify('production'),
+          BABEL_ENV: JSON.stringify('production'),
+        },
       }),
       ...plugin,
       new BabiliPlugin({
@@ -88,16 +93,16 @@ const Plugins = (DEBUG) => {
         sourceMap: false,
         compress: {
           warnings: false,
-          drop_console: true
+          drop_console: true,
         },
         mangle: {
           except: ['$'],
           screw_ie8: true,
-          keep_fnames: false
-        }
+          keep_fnames: false,
+        },
       }),
       new OptimizeJsPlugin({
-        sourceMap: false
+        sourceMap: false,
       }),
       // new webpack.optimize.AggressiveMergingPlugin({
       //   minSizeReduce: 1.2
@@ -106,7 +111,7 @@ const Plugins = (DEBUG) => {
   } else {
     plugin = [
       new webpack.HotModuleReplacementPlugin(),
-      ...plugin
+      ...plugin,
     ];
   }
 

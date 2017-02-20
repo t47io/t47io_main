@@ -1,5 +1,5 @@
 import React from 'react';
-import {renderToStaticMarkup} from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 import colors from 'colors';
 import fs from 'fs';
@@ -20,10 +20,10 @@ const codes = {
   500: 'InternalServerError',
   502: 'BadGateway',
   503: 'ServiceUnavailable',
-  201: 'Created'
+  201: 'Created',
 };
 
-const loadFileSync = (filename) => fs.readFileSync(path.join(__dirname, filename), 'utf8');
+const loadFileSync = filename => fs.readFileSync(path.join(__dirname, filename), 'utf8');
 
 try {
   const baseHTML = loadFileSync('../public/error.html');
@@ -32,21 +32,21 @@ try {
   const ccSVG = loadFileSync('../app/error/img/creative-commons.svg');
   const footerHTML = renderToStaticMarkup(<Footer logo={logoAltSVG} copy={copySVG} cc={ccSVG} />);
   const rawCSS = sass.renderSync({
-    file: path.join(__dirname, '../app/error/error.scss')
+    file: path.join(__dirname, '../app/error/error.scss'),
   }).css.toString();
 
 
-  Object.keys(codes).map((code) => {
+  Object.keys(codes).forEach((code) => {
     const Component = Components[codes[code]];
     const bodyHTML = `${renderToStaticMarkup(<Component />).slice(0, -6)}<hr/>${footerHTML}</div>`;
-    const cleanCSS = purify(bodyHTML, rawCSS, {minify: true});
-    const finalHTML = baseHTML.replace("<div class=\"body\" id=\"app\"></div>", bodyHTML).replace("html{}", cleanCSS);
+    const cleanCSS = purify(bodyHTML, rawCSS, { minify: true });
+    const finalHTML = baseHTML.replace('<div class="body" id="app"></div>', bodyHTML).replace('html{}', cleanCSS);
 
     fs.writeFileSync(path.join(__dirname, `../public/${code}.html`), finalHTML, 'utf8');
   });
-  console.log(`${colors.green("SUCCESS")}: Custom Error Pages created.`);
-} catch (e) {
-  console.log(e);
-  console.log(`${colors.red("ERROR")}: Failed to create Custom Error Pages.`);
+  console.log(`${colors.green('SUCCESS')}: Custom Error Pages created.`);
+} catch (err) {
+  console.log(err);
+  console.log(`${colors.red('ERROR')}: Failed to create Custom Error Pages.`);
 }
 
