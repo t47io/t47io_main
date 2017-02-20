@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 import colors from 'colors';
 import fs from 'fs';
+import htmlMinifier from 'html-minifier';
 import path from 'path';
 import purify from 'purify-css';
 import sass from 'node-sass';
@@ -40,7 +41,16 @@ try {
     const Component = Components[codes[code]];
     const bodyHTML = `${renderToStaticMarkup(<Component />).slice(0, -6)}<hr/>${footerHTML}</div>`;
     const cleanCSS = purify(bodyHTML, rawCSS, { minify: true });
-    const finalHTML = baseHTML.replace('<div class="body" id="app"></div>', bodyHTML).replace('html{}', cleanCSS);
+    const finalHTML = htmlMinifier.minify(
+      baseHTML.replace('<div class="body" id="app"></div>', bodyHTML).replace('html{}', cleanCSS), {
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      }
+    );
 
     fs.writeFileSync(path.join(__dirname, `../public/${code}.html`), finalHTML, 'utf8');
   });

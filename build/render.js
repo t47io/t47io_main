@@ -5,6 +5,13 @@ import path from 'path';
 const env = require('../config/server.json');
 
 const googleAnalytics = { trackingID: env.gaTracker };
+const htmlMinify = {
+  collapseWhitespace: true,
+  minifyJS: true,
+  removeComments: true,
+  removeRedundantAttributes: true,
+  useShortDoctype: true,
+};
 
 const helixLoading = {
   CSS: sass.renderSync({
@@ -85,4 +92,5 @@ export {
   errorPage,
   helixLoading,
   googleAnalytics,
+  htmlMinify,
 };

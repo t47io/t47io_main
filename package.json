@@ -4,12 +4,11 @@
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js app build server webpack.*.js --ext [.jsx,.js]",
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -x babel-node -d 3 -V server/server.js",
-
-    "prebuild": "./node_modules/eslint/bin/eslint.js app build server webpack.*.js --ext [.jsx,.js]",
+    "prebuild": "npm run lint",
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js",
     "postbuild": "babel-node ./build/error.js",
-
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
     "cron:https": "babel-node ./server/cron/ssl_expire.js"
@@ -51,6 +50,7 @@
     "exports-loader": "^0.6.3",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.9.0",
+    "html-minifier": "^3.3.3",
     "html-webpack-plugin": "^2.22.0",
     "lodash-webpack-plugin": "^0.10.7",
     "node-sass": "^4.1.1",

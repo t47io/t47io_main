@@ -15,6 +15,7 @@ import {
   errorPage,
   helixLoading,
   googleAnalytics,
+  htmlMinify,
 } from './render.js';
 
 const rootPath = path.join(__dirname, '../');
@@ -31,6 +32,7 @@ const Plugins = (DEBUG) => {
       template: `${rootPath}/app/index.html`,
       filename: `${rootPath}/public/index.html`,
       inject: false,
+      minify: htmlMinify,
 
       ...indexPage,
       helixLoading,
@@ -41,6 +43,7 @@ const Plugins = (DEBUG) => {
       template: `${rootPath}/app/error.html`,
       filename: `${rootPath}/public/error.html`,
       inject: false,
+      minify: htmlMinify,
 
       ...errorPage,
       googleAnalytics,
