@@ -19,8 +19,8 @@ const PubsItem = ({
   tag,
   isPreprint,
 }) => {
-  const urlExt = url ? url : 'javascript:void(0)';
-  const urlPDF = isPreprint ? 'javascript:void(0)' : `/pdf/${tag}.pdf`;
+  const urlExt = url ? { href: url } : {};
+  const urlPDF = isPreprint ? {} : { href: `/pdf/${tag}.pdf` };
   const urlClass = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
 
   const issuePage = isPreprint ? (
@@ -73,12 +73,12 @@ const PubsItem = ({
         <p>
           <i className="text-green">{journal}</i>
           {issuePage}
-          <a href={urlExt} target="_blank" rel="noopener noreferrer external"
+          <a {...urlExt} target="_blank" rel="noopener noreferrer external"
             className={urlClass}
           >
             <i className="fa fa-fw fa-file-word" />
           </a>
-          <a href={urlPDF} target="_blank" rel="noopener noreferrer external"
+          <a {...urlPDF} target="_blank" rel="noopener noreferrer external"
             className={urlClass}
           >
             <i className="fa fa-fw fa-file-pdf" />
@@ -98,12 +98,12 @@ PubsItem.propTypes = {
   title: React.PropTypes.string.isRequired,
   journal: React.PropTypes.string.isRequired,
   issue: React.PropTypes.string.isRequired,
-  page: React.PropTypes.string.isRequired,
-  url: React.PropTypes.string.isRequired,
-  code: React.PropTypes.string.isRequired,
-  citation: React.PropTypes.number.isRequired,
+  page: React.PropTypes.string,
+  url: React.PropTypes.string,
+  code: React.PropTypes.string,
+  citation: React.PropTypes.number,
   tag: React.PropTypes.string.isRequired,
-  isPreprint: React.PropTypes.bool.isRequired,
+  isPreprint: React.PropTypes.bool,
 };
 
 const PubsYearPanel = ({
@@ -117,7 +117,7 @@ const PubsYearPanel = ({
       {year}
     </SparkScroll.div>
     <div className="col-lg-11 col-md-11 col-sm-10 col-xs-9 PUBS__content">
-      {items.filter(item => (!item.is_hidden)).map(item => (
+      {items.filter(item => (!item.isHidden)).map(item => (
         <PubsItem {...item} year={year} />
       ))}
     </div>
@@ -153,7 +153,7 @@ const PubsSection = ({
               <i className="fa fa-fw fa-search fa-stack-1x text-white" />
             </span>
             Find more on
-            <a href={links.google_scholar} target="_blank" rel="noopener noreferrer external">
+            <a href={links.googleScholar} target="_blank" rel="noopener noreferrer external">
               Google Scholar
               <i className="fa fa-fw fa-sm fa-link-ext" />
             </a>
@@ -172,7 +172,10 @@ const PubsSection = ({
 );
 PubsSection.propTypes = {
   items: React.PropTypes.array.isRequired,
-  links: React.PropTypes.object.isRequired,
+  links: React.PropTypes.shape({
+    googleScholar: React.PropTypes.string.isRequired,
+    pubmed: React.PropTypes.string.isRequired,
+  }),
 };
 
 

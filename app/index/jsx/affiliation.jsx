@@ -19,8 +19,27 @@ const AffiliationRewardItem = ({
   </tr>
 );
 AffiliationRewardItem.propTypes = {
-  year: React.PropTypes.number.isRequired,
+  year: React.PropTypes.number,
+  title: React.PropTypes.string,
+};
+
+const AffiliationRole = ({
+  title,
+  position,
+  team,
+}) => (
+  <p>
+    <b>{position}</b>
+    {title}
+    <br className="hidden-lg hidden-md" />
+    <span className="text-green">@</span>
+    <u>{team}</u>
+  </p>
+);
+AffiliationRole.propTypes = {
   title: React.PropTypes.string.isRequired,
+  position: React.PropTypes.string.isRequired,
+  team: React.PropTypes.string.isRequired,
 };
 
 const AffiliationItem = ({
@@ -56,13 +75,7 @@ const AffiliationItem = ({
           <span>{geo}</span>
         </div>
         <div className="AFFILIATION__text col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <p>
-            <b>{role.position}</b>
-            {role.title}
-            <br className="hidden-lg hidden-md" />
-            <span className="text-green">@</span>
-            <u>{role.team}</u>
-          </p>
+          <AffiliationRole {...role} />
           <br className="hidden-xs hidden-sm" />
           <table className="hidden-xs hidden-sm">
             <tbody>
@@ -80,7 +93,7 @@ AffiliationItem.propTypes = {
   title: React.PropTypes.string.isRequired,
   url: React.PropTypes.string.isRequired,
   geo: React.PropTypes.string.isRequired,
-  role: React.PropTypes.string.isRequired,
+  role: React.PropTypes.object.isRequired,
   rewards: React.PropTypes.array.isRequired,
   tag: React.PropTypes.string.isRequired,
   scroll: React.PropTypes.number.isRequired,

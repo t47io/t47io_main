@@ -9,9 +9,9 @@ import { skills as tween } from '../js/tweens.js';
 
 
 const ProgressBar = ({
+  title,
   value,
   tag,
-  title,
   index,
 }) => (
   <SparkProxy.div proxyId={`SKILLS__proxy${tag}_${index}`}>
@@ -29,10 +29,10 @@ const ProgressBar = ({
   </SparkProxy.div>
 );
 ProgressBar.propTypes = {
+  title: React.PropTypes.string.isRequired,
   value: React.PropTypes.number.isRequired,
   tag: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  index: React.PropTypes.number.isRequired,
+  index: React.PropTypes.string.isRequired,
 };
 
 const SkillsPanel = ({
@@ -93,7 +93,10 @@ const SkillsSection = ({
   </section>
 );
 SkillsSection.propTypes = {
-  items: React.PropTypes.array.isRequired,
+  items: React.PropTypes.shape({
+    left: React.PropTypes.array.isRequired,
+    right: React.PropTypes.array.isRequired,
+  }),
 };
 
 

@@ -30,7 +30,7 @@ SectionHeader.propTypes = {
   title: React.PropTypes.string.isRequired,
   subtitle: React.PropTypes.string.isRequired,
   proxyId: React.PropTypes.string.isRequired,
-  tween: React.PropTypes.func.isRequired,
+  tween: React.PropTypes.object.isRequired,
 };
 
 

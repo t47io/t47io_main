@@ -6,7 +6,10 @@ const IndicatorItem = ({
   onClick,
   index,
 }) => (
-  <li data-slide={index} className={current === index ? 'active' : ''} onClick={onClick} />
+  <li className={current === index ? 'active' : ''}
+    data-slide={index}
+    onClick={onClick}
+  />
 );
 IndicatorItem.propTypes = {
   current: React.PropTypes.number.isRequired,
@@ -28,7 +31,7 @@ class Carousel extends React.Component {
 
   onClick(e) {
     clearInterval(this.timer);
-    this.setState({ current: parseInt(e.target.dataset.slide) });
+    this.setState({ current: parseInt(e.target.dataset.slide, 10) });
     this.onLoop();
   }
   onLoop() {

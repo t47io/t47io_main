@@ -18,10 +18,7 @@ const PortfolioFilter = ({
     proxy="PORTFOLIO__menu"
     timeline={tween.menu(index * 20)}
   >
-    <a href="javascript:void(0)"
-      data-filter={name}
-      onClick={onClick}
-    >
+    <a href="#" data-filter={name} onClick={onClick}>
       {name.replace(/-/g, ' ')}
     </a>
   </SparkScroll.li>
@@ -53,7 +50,7 @@ const PortfolioItem = ({
         <div className={`SPRITE__portfolio-${name}`} />
       </div>
       <div className="PORTFOLIO__text">
-        <a href={url ? url : `/project/${name}`} target="_blank" rel="noopener noreferrer">
+        <a href={url || `/project/${name}`} target="_blank" rel="noopener noreferrer">
           {title}
           <i className="fa fa-fw fa-md fa-link-ext" />
         </a>
@@ -67,7 +64,7 @@ PortfolioItem.propTypes = {
   category: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
-  url: React.PropTypes.string.isRequired,
+  url: React.PropTypes.string,
   index: React.PropTypes.number.isRequired,
 };
 
@@ -85,7 +82,8 @@ class PortfolioSection extends React.Component {
   onFilter(e) {
     e.preventDefault();
     const filter = e.target.dataset.filter;
-    const items = (filter === 'all') ? this.props.items : this.props.items.filter(item => (item.category === filter));
+    const items = (filter === 'all') ? this.props.items :
+      this.props.items.filter(item => (item.category === filter));
     this.setState({
       items,
       filter,

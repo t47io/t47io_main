@@ -24,25 +24,35 @@ const func = {
     let valNow = '', loopNow = 0;
     const loops = valTo.length;
 
-    const interval = setInterval(() => {
-      valNow = valTo.slice(0, loopNow);
-      setState({
-        ...state,
-        title: valNow.replace(/!/g, '').replace(/@/g, '<br/>'),
-      });
-      loopNow += 1;
+    try {
+      const interval = setInterval(() => {
+        valNow = valTo.slice(0, loopNow);
+        setState({
+          ...state,
+          title: valNow.replace(/!/g, '').replace(/@/g, '<br/>'),
+        });
+        loopNow += 1;
 
-      if (loopNow === loops + 1) {
-        clearInterval(interval);
-        resolve(1);
-      }
-    }, 100);
+        if (loopNow === loops + 1) {
+          clearInterval(interval);
+          resolve(1);
+        }
+      }, 100);
+    } catch (err) {
+      console.log(err);
+      reject(err);
+    }
   })),
   delay: (time, callback) => (new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (typeof callback === 'function') { callback(); }
-      resolve();
-    }, time);
+    try {
+      setTimeout(() => {
+        if (typeof callback === 'function') { callback(); }
+        resolve();
+      }, time);
+    } catch (err) {
+      console.log(err);
+      reject(err);
+    }
   })),
 };
 
@@ -76,28 +86,33 @@ const home = {
     },
   },
   title: (state, title, setState) => (new Promise((resolve, reject) => {
-    if (!state.isPlayed) {
-      setState({
-        ...state,
-        isPlayed: true,
-      });
-
-      func.delay(1600)
-      .then(() => func.typeWrite(title, state, setState))
-      .then(() => {
-        func.delay(600, () => setState({
-          ...state,
-          isBlink: false,
-        }));
-        return func.delay(1000);
-      })
-      .then(() => {
+    try {
+      if (!state.isPlayed) {
         setState({
           ...state,
-          isShade: false,
+          isPlayed: true,
         });
-        resolve();
-      });
+
+        func.delay(1600)
+        .then(() => func.typeWrite(title, state, setState))
+        .then(() => {
+          func.delay(600, () => setState({
+            ...state,
+            isBlink: false,
+          }));
+          return func.delay(1000);
+        })
+        .then(() => {
+          setState({
+            ...state,
+            isShade: false,
+          });
+          resolve();
+        });
+      }
+    } catch (err) {
+      console.log(err);
+      reject(err);
     }
   })),
   color: (state, setState) => {

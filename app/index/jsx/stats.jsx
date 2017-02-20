@@ -17,7 +17,7 @@ class StatsItem extends React.Component {
   }
 
   render() {
-    const { id, icon, title, value, index } = this.props;
+    const { id, icon, title, value } = this.props;
     const done = (this.state.value === value) ? 'done' : '';
 
     return (
@@ -25,7 +25,7 @@ class StatsItem extends React.Component {
         <SparkScroll.div className="STATS__counter"
           proxy="STATS__proxy"
           callback={ratio => this.setState({ value: Math.ceil(ratio * value) })}
-          timeline={tween.counter(index * 10)}
+          timeline={tween.counter(id * 10)}
         >
           <i className={`fa fa-${icon} fa-3x fa-fw`} />
           <div className="UTIL__spacer-md" />
@@ -46,7 +46,6 @@ StatsItem.propTypes = {
   icon: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
   value: React.PropTypes.number.isRequired,
-  index: React.PropTypes.number.isRequired,
 };
 
 
@@ -54,7 +53,7 @@ const StatsSection = ({
   items,
   background,
   links,
-  git,
+  gitSvg,
 }) => (
   <section id="STATS__section">
     <Carousel extraClassName="STATS__area text-white"
@@ -69,7 +68,7 @@ const StatsSection = ({
 
       <div className="container">
         <SparkProxy.div className="row" proxyId="STATS__proxy">
-          {items.map((item, i) => (<StatsItem {...item} index={i} />))}
+          {items.map(item => (<StatsItem {...item} />))}
         </SparkProxy.div>
       </div>
       <div className="UTIL__spacer-lg" />
@@ -87,8 +86,8 @@ const StatsSection = ({
     <div className="UTIL__spacer-md" />
     <SparkScroll.div className="text-center STATS__github"
       timeline={tween.git}
-      dangerouslySetInnerHTML={{ __html: git }}
     >
+      <div dangerouslySetInnerHTML={{ __html: gitSvg }} />
       <ReactTooltip effect="solid" place="top" id="STATS__tooltip" />
     </SparkScroll.div>
   </section>
@@ -96,8 +95,11 @@ const StatsSection = ({
 StatsSection.propTypes = {
   items: React.PropTypes.array.isRequired,
   background: React.PropTypes.array.isRequired,
-  links: React.PropTypes.object.isRequired,
-  git: React.PropTypes.string.isRequired,
+  links: React.PropTypes.shape({
+    github: React.PropTypes.string.isRequired,
+    githubMinted: React.PropTypes.string.isRequired,
+  }),
+  gitSvg: React.PropTypes.string.isRequired,
 };
 
 
