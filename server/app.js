@@ -23,7 +23,7 @@ app.get('/defense', function (req, res) {
 });
 
 app.get('/git', function (req, res, next) {
-    if (req.query.repo in config.git_repo && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
+    if (req.query.repo in config.gitRepo && ['n', 'c', 'a'].indexOf(req.query.type) > -1) {
         var json = JSON.parse(fs.readFileSync('data/' + req.query.repo + '_' + req.query.type + '.json', 'utf8'));
         if (req.query.tqx) {
             var req_id = req.query.tqx.replace('reqId:', '');

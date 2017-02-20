@@ -1,8 +1,12 @@
 import fs from 'fs-extra';
+import glob from 'glob-promise';
 import path from 'path';
 
-import {getResume} from './_util.js';
 
+const getResume = (rootPath) => {
+  const resumeFiles = glob.sync(path.join(rootPath, 'pdf/Resume*.pdf'));
+  return path.basename(resumeFiles[resumeFiles.length - 1]);
+};
 
 const concatIndexJSON = (rootPath) => {
   const home = require('../config/index/home.json');
@@ -10,14 +14,14 @@ const concatIndexJSON = (rootPath) => {
   const affiliation = require('../config/index/affiliation.json');
   const portfolio = require('../config/index/portfolio.json');
   const skills = require('../config/index/skills.json');
-  let stats = require('../config/index/stats.json');
+  const stats = require('../config/index/stats.json');
   const pubs = require('../config/index/pubs.json');
   const contact = require('../config/index/contact.json');
 
   let countPubs = 0;
-  for (let i in pubs.items) {
-    countPubs += pubs.items[i].items.filter((item) => (!item.is_hidden)).length;
-  }
+  Object.keys(pubs.items).forEach((key) => {
+    countPubs += pubs.items[key].items.filter(item => (!item.is_hidden)).length;
+  });
   stats.items[2].value = countPubs;
 
   const config = {
@@ -30,12 +34,15 @@ const concatIndexJSON = (rootPath) => {
     pubs,
     contact: {
       ...contact,
-      resume: getResume(rootPath)
-    }
+      resume: getResume(rootPath),
+    },
   };
 
   fs.writeJsonSync(path.join(rootPath, 'config.json'), config);
 };
 
 
-export {concatIndexJSON};
+export {
+  concatIndexJSON,
+  getResume,
+};

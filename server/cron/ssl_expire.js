@@ -1,31 +1,33 @@
 import colors from 'colors';
-import _ from 'lodash/core';
-import path from 'path';
 import https from 'https';
 
-
-import {DEBUG, PORT, EMAIL_RECV, SMTP} from '../config.js';
+import {
+  DEBUG,
+  EMAIL_RECV,
+  SMTP,
+} from '../config.js';
 
 const pubs = require('../../config/index/pubs.json');
 
 
 const formatPubs = () => {
-  let newPubs = {}, sum = 0;
-  pubs.items.map((item) => {
-    item.items = item.items.map((item) => {
-      newPubs[item.tag] = item.citation;
-      if (item.citation !== null) { sum += item.citation; }
+  const newPubs = {};
+  let sum = 0;
+  pubs.items.forEach((item) => {
+    item.items.forEach((pub) => {
+      newPubs[pub.tag] = pub.citation;
+      if (pub.citation !== null) { sum += pub.citation; }
     });
   });
-  return {newPubs, sum};
+  return { newPubs, sum };
 };
 
 const emailAdmin = (content) => {
   SMTP.sendMail({
     to: EMAIL_RECV,
     subject: '[t47io] Google Scholar Citation Update',
-    'text': content
-  }, (err, info) => {
+    text: content,
+  }, (err) => {
     if (err) { console.log(err); }
   });
 };
@@ -35,10 +37,10 @@ try {
   const req = https.request({
     host: 't47.io',
     method: 'get',
-    path: '/'
+    path: '/',
   }, (res) => {
     const cert = res.socket.getPeerCertificate();
-    const {newPubs, sum} = formatPubs();
+    const { newPubs, sum } = formatPubs();
     const content = `
       ${new Date().toUTCString()}
 
@@ -50,10 +52,10 @@ try {
     `;
     if (!DEBUG) { emailAdmin(content); }
   });
-  req.end(); 
+  req.end();
 
-  console.log(`${colors.green("SUCCESS")}: SSL Certificate checked and notified admin.`);
-} catch (e) {
-  console.log(e);
-  console.log(`${colors.red("ERROR")}: Failed to check SSL Certificate and notify admin.`);
+  console.log(`${colors.green('SUCCESS')}: SSL Certificate checked and notified admin.`);
+} catch (err) {
+  console.log(err);
+  console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate and notify admin.`);
 }

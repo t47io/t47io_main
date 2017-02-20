@@ -9,8 +9,8 @@ import time
 
 TIME_ZONE = 'America/Los_Angeles'
 env_json = simplejson.load(open('config/env.json', 'r'))
-repos = env_json['git_repo']
-access_token = env_json['git_token']
+repos = env_json['gitRepo']
+access_token = env_json['gitToken']
 gh = Github(login_or_token=access_token)
 
 

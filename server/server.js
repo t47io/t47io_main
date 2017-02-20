@@ -1,12 +1,21 @@
-import {DEBUG, EMAIL_RECV, SMTP} from './config.js';
-import {concatIndexJSON} from './json.js';
-import {app, middleware} from './middleware.js';
-import {getResume} from './_util.js';
-
 import emailValidator from 'email-validator';
 import _ from 'lodash';
 import path from 'path';
 import sanitizer from 'sanitizer';
+
+import {
+  DEBUG,
+  EMAIL_RECV,
+  SMTP,
+} from './config.js';
+import {
+  concatIndexJSON,
+  getResume,
+} from './json.js';
+import {
+  app,
+  middleware,
+} from './middleware.js';
 
 
 const publicPath = path.join(__dirname, '../public');
@@ -14,55 +23,55 @@ concatIndexJSON(publicPath);
 
 
 app.get('/', (req, res) => {
-	if (DEBUG) {
-    res.type('html').send(middleware.fileSystem.readFileSync(path.join(publicPath, 'index.html')));
-	} else {
+  if (DEBUG) {
+    res.type('html').send(
+      middleware.fileSystem.readFileSync(path.join(publicPath, 'index.html'))
+    );
+  } else {
     res.sendFile(path.join(publicPath, 'index.html'));
-	}
+  }
 });
 
 app.get('/resume', (req, res) => {
   res.sendFile(getResume(publicPath), {
     root: path.join(publicPath, 'pdf'),
     headers: {
-      'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"'
+      'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"',
     },
-    maxAge: '60 days'
+    maxAge: '60 days',
   });
 });
 
 
 app.route('/send')
-.get((req, res, next) => {
-  res.sendStatus(201);
-})
-.post((req, res, next) => {
-  let form = _.map(req.body, (item) => sanitizer.escape(item));
+.get((req, res) => res.sendStatus(201))
+.post((req, res) => {
+  const form = _.map(req.body, item => sanitizer.escape(item));
   const [name, email, subject, message] = form;
 
-  if (_.filter(form, (item) => item.length).length !== 4) {
+  if (_.filter(form, item => item.length).length !== 4) {
     return res.sendStatus(400);
   }
   if (_.startsWith(subject, 'http') || !emailValidator.validate(email)) {
     return res.sendStatus(403);
   }
 
-  SMTP.sendMail({
+  return SMTP.sendMail({
     to: EMAIL_RECV,
     subject,
     text: `
-    ${new Date().toUTCString()}
-    ${name} <${email}>
+      ${new Date().toUTCString()}
+      ${name} <${email}>
 
-    ${message}
-    `
-  }, (err, info) => {
+      ${message}
+    `,
+  }, (err) => {
     if (err) {
       console.log(err);
       return res.sendStatus(500);
     }
     console.log('Message sent.');
-    res.sendStatus(201);
+    return res.sendStatus(201);
   });
 });
 
@@ -75,13 +84,13 @@ app.route('/send')
 
 
 app.get(/^\/error\/(400|401|403|404|405|500|502|503)\/?$/, (req, res, next) => {
-  let err = new Error();
-  err.status = parseInt(req.params[0]);
+  const err = new Error();
+  err.status = parseInt(req.params[0], 10);
   next(err);
 });
 app.all('*', (req, res, next) => {
   const code = req.method === 'GET' ? 404 : 405;
-  let err = new Error();
+  const err = new Error();
   err.status = code;
   next(err);
 });
@@ -95,11 +104,10 @@ app.all('*', (req, res, next) => {
 // });
 
 app.use((err, req, res, next) => {
-  if (!_.includes([400, 401, 403, 404, 405, 500, 502, 503], err.status)) {
-    console.log(err);
-    err.status = 503;
-  }
+  const code = _.includes([400, 401, 403, 404, 405, 500, 502, 503], err.status) ? err.status : 503;
 
-  res.status(err.status).sendFile(path.join(publicPath, `${err.status}.html`));
+  return res.status(code).sendFile(
+    path.join(publicPath, `${err.status}.html`)
+  );
 });
 
