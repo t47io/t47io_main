@@ -1,3 +1,4 @@
+import colors from 'colors';
 import emailValidator from 'email-validator';
 import express from 'express';
 import _ from 'lodash';
@@ -54,7 +55,7 @@ app.route('/send')
   if (_.filter(form, item => item.length).length !== 4) {
     return res.sendStatus(400);
   }
-  if (_.startsWith(subject, 'http') || !emailValidator.validate(email)) {
+  if (_.startsWith(subject.toLowerCase(), 'http') || !emailValidator.validate(email)) {
     return res.sendStatus(403);
   }
 
@@ -69,10 +70,11 @@ app.route('/send')
     `,
   }, (err) => {
     if (err) {
+      console.log(`${colors.red('ERROR')}: Failed to send email for client.`);
       console.log(err);
       return res.sendStatus(500);
     }
-    console.log('Message sent.');
+    console.log(`${colors.green('SUCCESS')}: Message sent on behalf of ${email}.`);
     return res.sendStatus(201);
   });
 });

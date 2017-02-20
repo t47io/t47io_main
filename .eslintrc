@@ -12,6 +12,7 @@
   "parser": "babel-eslint",
   "plugins": ["react"],
   "rules": {
+    "func-names": [0],
     "global-require": [0],
     "linebreak-style": [1, "unix"],
     "max-len": [1],
@@ -19,11 +20,13 @@
     "no-console": [0],
     "no-mixed-operators": [0],
     "no-nested-ternary": [1],
+    "no-unused-vars": [2, { "argsIgnorePattern": "next" }],
     "one-var": [0],
     "one-var-declaration-per-line": [0],
 
     "import/extensions": [0, { "extensions": [".js", ".jsx", ".json"] }],
     "import/no-extraneous-dependencies": [0],
+    "import/no-mutable-exports": [0],
     "import/prefer-default-export": [1],
 
     "jsx-a11y/href-no-hash": [0],

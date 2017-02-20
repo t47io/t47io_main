@@ -72,11 +72,19 @@ const modifyHTML = (body, combinedAcctStats, maxContrib) => {
 
 try {
   request(json.links.githubMinted, (error, response, body) => {
-    if (error) { console.log(error); }
+    if (error) {
+      console.log(`${colors.red('ERROR')}: Failed to retrieve ${json.links.githubMinted}`);
+      console.log(error);
+      return;
+    }
     const otherData = extractData(body);
 
     request(json.links.github, (error2, response2, body2) => {
-      if (error2) { console.log(error2); }
+      if (error2) {
+        console.log(`${colors.red('ERROR')}: Failed to retrieve ${json.links.github}`);
+        console.log(error2);
+        return;
+      }
       const thisData = extractData(body2);
       const [allData, maxContrib] = combineData(thisData, otherData);
 
@@ -87,6 +95,6 @@ try {
     });
   });
 } catch (err) {
-  console.log(err);
   console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+  console.log(err);
 }

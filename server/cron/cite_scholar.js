@@ -67,7 +67,11 @@ const matchRecords = (allRecords) => {
 
 try {
   request(json.links.googleScholar, (error, response, body) => {
-    if (error) { console.log(error); }
+    if (error) {
+      console.log(`${colors.red('ERROR')}: Failed to retrieve Google Scholar citation.`);
+      console.log(error);
+      return;
+    }
 
     const allRecords = extractHTML(body);
     const { newJson, restRecords } = matchRecords(allRecords);
@@ -80,6 +84,6 @@ try {
     console.log(`${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
   });
 } catch (err) {
-  console.log(err);
   console.log(`${colors.red('ERROR')}: Failed to update Google Scholar citation.`);
+  console.log(err);
 }

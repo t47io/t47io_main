@@ -56,6 +56,6 @@ try {
 
   console.log(`${colors.green('SUCCESS')}: SSL Certificate checked and notified admin.`);
 } catch (err) {
-  console.log(err);
   console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate and notify admin.`);
+  console.log(err);
 }
