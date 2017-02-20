@@ -6,7 +6,7 @@ class AsyncComponent extends React.Component {
     super(props);
     this.state = {
       component: null,
-      props: {}
+      props: {},
     };
   }
 
@@ -15,22 +15,22 @@ class AsyncComponent extends React.Component {
       const Component = component.default;
       this.setState({
         component: Component,
-        props
+        props,
       });
     });
   }
 
-  renderPlaceholder() {
-    return (<div>Loading ...</div>);
-  }
-
   render() {
     if (this.state.component) {
-      return (<this.state.component {...(this.state.props)} />);      
+      return (<this.state.component {...(this.state.props)} />);
     }
-    return (this.props.placeholder || this.renderPlaceholder());
+    return (this.props.placeholder || <div>Loading ...</div>);
   }
 }
+AsyncComponent.propTypes = {
+  loader: React.PropTypes.func.isRequired,
+  placeholder: React.PropTypes.string,
+};
 
 
 export default AsyncComponent;

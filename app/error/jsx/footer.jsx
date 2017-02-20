@@ -3,22 +3,34 @@ import React from 'react';
 
 const year = (new Date()).getFullYear();
 
-const Footer = ({logo, copy, cc}) => (
+const Footer = ({
+  logo,
+  copy,
+  cc,
+}) => (
   <footer>
     <p>
-      Copyright <i className="fa" dangerouslySetInnerHTML={{__html: copy}} ></i> <a>2015 - {year}</a>&nbsp;
-      Designed, built & managed by&nbsp;
-      <a href="https://t47.io/" rel="noopener" className="green-white" dangerouslySetInnerHTML={{__html: logo}} ></a>.&nbsp;
+      Copyright
+      <i className="fa" dangerouslySetInnerHTML={{ __html: copy }} />
+      <a>2015 - {year}</a>
+      Designed, built & managed by
+      <a href="https://t47.io/" rel="noopener" className="green-white" dangerouslySetInnerHTML={{ __html: logo }} />
       All rights reserverd.
     </p>
     <p>
-      Code and content on this site is licensed under&nbsp;
+      Code and content on this site is licensed under
       <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank" rel="noopener noreferrer external">
-        <i className="fa" dangerouslySetInnerHTML={{__html: cc}} ></i>&nbsp;BY-SA 4.0
+        <i className="fa" dangerouslySetInnerHTML={{ __html: cc }} />
+        BY-SA 4.0
       </a>.
     </p>
   </footer>
 );
+Footer.propTypes = {
+  logo: React.PropTypes.string.isRequired,
+  copy: React.PropTypes.string.isRequired,
+  cc: React.PropTypes.string.isRequired,
+};
 
 
 export default Footer;

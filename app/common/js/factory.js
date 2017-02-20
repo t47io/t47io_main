@@ -17,7 +17,7 @@ const factory = require('react-spark-scroll-rekapi')({
 const { SparkScroll, SparkProxy } = factory;
 
 
-export {
+export default {
   SparkScroll,
   SparkProxy,
 };

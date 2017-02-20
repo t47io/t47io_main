@@ -4,8 +4,8 @@ import path from 'path';
 
 import ErrorPage from '../error.jsx';
 
-
 const json = require('../../../config/error.json');
+
 const logo = fs.readFileSync(path.join(__dirname, '../../common/img/t47_logo.svg'), 'utf8');
 const images = [400, 401, 403, 404, 405, 500, 502, 503, 201].map((code) => {
   const png = fs.readFileSync(path.join(__dirname, `/../img/${code}.png`)).toString('base64');
@@ -42,4 +42,14 @@ const Created = () => (
 );
 
 
-export default {BadRequest, Unauthorized, Forbidden, NotFound, MethodNotAllowed, InternalServerError, BadGateway, ServiceUnavailable, Created};
+export default {
+  BadRequest,
+  Unauthorized,
+  Forbidden,
+  NotFound,
+  MethodNotAllowed,
+  InternalServerError,
+  BadGateway,
+  ServiceUnavailable,
+  Created,
+};

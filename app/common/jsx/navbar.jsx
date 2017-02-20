@@ -8,7 +8,7 @@ const NavbarItem = ({
   section,
 }) => (
   <li className={(item === section) ? 'active' : ''}>
-    <a className="COMMON__navbar_link" href="#" 
+    <a className="COMMON__navbar_link" href="#"
       onClick={() => smoothScroll(document.getElementById(`${item.toUpperCase()}__section`), 2000)}
     >
       {item}
