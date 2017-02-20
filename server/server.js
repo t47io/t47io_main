@@ -1,4 +1,5 @@
 import emailValidator from 'email-validator';
+import express from 'express';
 import _ from 'lodash';
 import path from 'path';
 import sanitizer from 'sanitizer';
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(publicPath, 'index.html'));
   }
 });
+app.use(express.static(publicPath, { maxAge: '30 days' }));
 
 app.get('/resume', (req, res) => {
   res.sendFile(getResume(publicPath), {

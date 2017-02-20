@@ -38,7 +38,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-2": "^6.17.0",
     "babili-webpack-plugin": "^0.0.7",
-    "bootstrap-loader": "^2.0.0-beta.20",
+    "bootstrap-loader": "^2.0.0-beta.21",
     "bootstrap-sass": "^3.3.7",
     "compression": "^1.6.2",
     "css-loader": "^0.25.0",

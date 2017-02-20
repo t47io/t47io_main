@@ -23,10 +23,8 @@ const publicPath = path.join(__dirname, '../public');
 const app = express();
 let middleware = null;
 
-
 if (DEBUG) { app.use(compression()); }
 app.use(favicon(path.join(publicPath, 't47_icon.png')));
-app.use(express.static(publicPath, { maxAge: '30 days' }));
 app.use(helmet());
 app.use(bodyParser.json());
 app.disable('x-powered-by');
