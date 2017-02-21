@@ -1,5 +1,5 @@
-const fadeStart = { opacity: 0 },
-  fadeEnd = { opacity: 1 };
+const fadeStart = { opacity: 0 };
+const fadeEnd = { opacity: 1 };
 
 
 const footer = {

@@ -1,7 +1,7 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 
-const Loaders = () => ([
+const loaders = () => ([
   {
     test: /\.js(x)?$/i,
     loader: 'eslint-loader',
@@ -70,4 +70,4 @@ const Loaders = () => ([
 ]);
 
 
-export default Loaders;
+export default loaders;

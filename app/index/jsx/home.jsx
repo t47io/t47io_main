@@ -7,6 +7,9 @@ import {
   func,
 } from '../js/tweens.js';
 
+const imgAvatar = require('../img/t47_avatar.jpg');
+const imgName = require('../img/t47_name.png');
+
 
 class HomeSection extends React.Component {
   constructor(props) {
@@ -20,7 +23,7 @@ class HomeSection extends React.Component {
       textColor: 'white',
       arrowColor: 'white',
     };
-    this.bgImage = require('../img/t47_avatar.jpg');
+    this.bgImage = imgAvatar;
 
     this.onLoad = this.onLoad.bind(this);
   }
@@ -65,7 +68,7 @@ class HomeSection extends React.Component {
           >
             <img alt="Siqi Tian" width="480"
               style={this.state.isName ? tween.name.end : tween.name.start}
-              src={require('../img/t47_name.png')}
+              src={imgName}
             />
             <p className="text-white"
               style={{ marginTop: '-10px' }}

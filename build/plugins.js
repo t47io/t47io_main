@@ -21,7 +21,7 @@ import {
 const rootPath = path.join(__dirname, '../');
 
 
-const Plugins = (DEBUG) => {
+const plugins = (DEBUG) => {
   let plugin = [
     new webpack.LoaderOptionsPlugin({
       minimize: !DEBUG,
@@ -122,4 +122,4 @@ const Plugins = (DEBUG) => {
 };
 
 
-export default Plugins;
+export default plugins;

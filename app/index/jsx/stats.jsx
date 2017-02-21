@@ -49,57 +49,67 @@ StatsItem.propTypes = {
 };
 
 
-const StatsSection = ({
-  items,
-  background,
-  links,
-  gitSvg,
-}) => (
-  <section id="STATS__section">
-    <Carousel extraClassName="STATS__area text-white"
-      items={background} interval={4000}
-    >
-      <div className="UTIL__spacer-lg STATS__trigger" />
-      <SectionHeader title="my stats" subtitle="what I achieved"
-        proxyId="STATS__header"
-        tween={tween.header}
-      />
-      <div className="UTIL__spacer-lg" />
+class StatsSection extends React.Component {
+  constructor(props) {
+    super(props);
 
-      <div className="container">
-        <SparkProxy.div className="row" proxyId="STATS__proxy">
-          {items.map(item => (<StatsItem {...item} />))}
-        </SparkProxy.div>
-      </div>
-      <div className="UTIL__spacer-lg" />
-    </Carousel>
+    this.onBindTooltip = this.onBindTooltip.bind(this);
+  }
 
-    <div className="UTIL__spacer-xl" />
-    <h3 className="text-center">
-      <i className="fa fa-fw fa-github-circled" />
-      Contributions
-      <small style={{ marginLeft: '0.5em' }}>
-        (
-        <a href={links.github} target="_blank" rel="noopener noreferrer external">
-          <i className="fa fa-fw fa-sm fa-link-ext" />
-        </a>
-        and
-        <a href={links.githubMinted} target="_blank" rel="noopener noreferrer external">
-          <i className="fa fa-fw fa-sm fa-link-ext" />
-        </a>
-        )
-      </small>
-    </h3>
+  onBindTooltip(ratio) {
+    if (ratio === 1) { ReactTooltip.rebuild(); }
+  }
 
-    <div className="UTIL__spacer-md" />
-    <SparkScroll.div className="text-center STATS__github"
-      timeline={tween.git}
-    >
-      <div dangerouslySetInnerHTML={{ __html: gitSvg }} />
-      <ReactTooltip effect="solid" place="top" id="STATS__tooltip" />
-    </SparkScroll.div>
-  </section>
-);
+  render() {
+    const { items, background, links, gitSvg } = this.props;
+    return (
+      <section id="STATS__section">
+        <Carousel extraClassName="STATS__area text-white"
+          items={background} interval={4000}
+        >
+          <div className="UTIL__spacer-lg STATS__trigger" />
+          <SectionHeader title="my stats" subtitle="what I achieved"
+            proxyId="STATS__header"
+            tween={tween.header}
+          />
+          <div className="UTIL__spacer-lg" />
+
+          <div className="container">
+            <SparkProxy.div className="row" proxyId="STATS__proxy">
+              {items.map(item => (<StatsItem {...item} />))}
+            </SparkProxy.div>
+          </div>
+          <div className="UTIL__spacer-lg" />
+        </Carousel>
+
+        <div className="UTIL__spacer-xl" />
+        <h3 className="text-center">
+          <i className="fa fa-fw fa-github-circled" />
+          Contributions
+          <small style={{ marginLeft: '0.5em' }}>
+            (
+            <a href={links.github} target="_blank" rel="noopener noreferrer external">
+              <i className="fa fa-fw fa-sm fa-link-ext" />
+            </a>
+            and
+            <a href={links.githubMinted} target="_blank" rel="noopener noreferrer external">
+              <i className="fa fa-fw fa-sm fa-link-ext" />
+            </a>
+            )
+          </small>
+        </h3>
+
+        <div className="UTIL__spacer-md" />
+        <SparkScroll.div className="text-center STATS__github"
+          timeline={tween.git}
+          callback={ratio => this.onBindTooltip(ratio)}
+          dangerouslySetInnerHTML={{ __html: gitSvg }}
+        />
+        <ReactTooltip effect="solid" place="top" id="STATS__tooltip" />
+      </section>
+    );
+  }
+}
 StatsSection.propTypes = {
   items: React.PropTypes.array.isRequired,
   background: React.PropTypes.array.isRequired,

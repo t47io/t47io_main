@@ -1,5 +1,5 @@
-import Plugins from './build/plugins.js';
-import Loaders from './build/loaders.js';
+import plugins from './build/plugins.js';
+import loaders from './build/loaders.js';
 
 
 const DEBUG = !((process.argv.indexOf('--production') > 0) || (process.argv.indexOf('-p') > 0) || (process.env.npm_lifecycle_event === 'build'));
@@ -34,8 +34,8 @@ const config = {
     },
   },
 
-  module: { rules: Loaders() },
-  plugins: Plugins(DEBUG),
+  module: { rules: loaders() },
+  plugins: plugins(DEBUG),
 
   // devServer: {
   //   inline: true,

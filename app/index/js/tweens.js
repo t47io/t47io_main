@@ -1,8 +1,10 @@
 const func = {
   countTo: (valFrom, valTo, duration, setState) => {
-    let valNow = valFrom, loopNow = 0;
+    let valNow = valFrom;
+    let loopNow = 0;
     const loops = Math.ceil(duration / 100);
     const increment = (valTo - valFrom) / loops;
+
     const interval = setInterval(() => {
       valNow += increment;
       loopNow += 1;
@@ -21,7 +23,8 @@ const func = {
     }, 100);
   },
   typeWrite: (valTo, state, setState) => (new Promise((resolve, reject) => {
-    let valNow = '', loopNow = 0;
+    let valNow = '';
+    let loopNow = 0;
     const loops = valTo.length;
 
     try {
@@ -57,10 +60,10 @@ const func = {
 };
 
 
-const fadeStart = { opacity: 0 },
-  fadeQuarter = { opacity: 0.25 },
-  fadeHalf = { opacity: 0.5 },
-  fadeEnd = { opacity: 1 };
+const fadeStart = { opacity: 0 };
+const fadeQuarter = { opacity: 0.25 };
+const fadeHalf = { opacity: 0.5 };
+const fadeEnd = { opacity: 1 };
 
 const header = {
   topBottom: {

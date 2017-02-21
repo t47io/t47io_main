@@ -7,8 +7,20 @@ import {
 
 import { footer as tween } from '../js/tweens.js';
 
-
+const imgSFO = {
+  '1x': require('../img/fg_city_sfo.gif'),
+  '1.5x': require('../img/fg_city_sfo@1.5x.gif'),
+  '2x': require('../img/fg_city_sfo@2x.gif'),
+  '3x': require('../img/fg_city_sfo@3x.gif'),
+};
+const imgSEA = {
+  '1x': require('../img/fg_city_sea.gif'),
+  '1.5x': require('../img/fg_city_sea@1.5x.gif'),
+  '2x': require('../img/fg_city_sea@2x.gif'),
+  '3x': require('../img/fg_city_sea@3x.gif'),
+};
 const year = (new Date()).getFullYear();
+
 
 const Footer = () => (
   <footer className="text-off-white">
@@ -21,8 +33,13 @@ const Footer = () => (
       >
         <a href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge" target="_blank" rel="noopener noreferrer external">
           <img alt="Minimal City SFO" width="128" height="96"
-            src={require('../img/fg_city_sfo.gif')}
-            srcSet={`${require('../img/fg_city_sfo.gif')} 1x, ${require('../img/fg_city_sfo@1.5x.gif')} 1.5x, ${require('../img/fg_city_sfo@2x.gif')} 2x, ${require('../img/fg_city_sfo@3x.gif')} 3x`}
+            src={imgSFO['1x']}
+            srcSet={`
+              ${imgSFO['1x']} 1x,
+              ${imgSFO['1.5x']} 1.5x,
+              ${imgSFO['2x']} 2x,
+              ${imgSFO['3x']} 3x
+            `}
           />
         </a>
       </SparkScroll.div>
@@ -57,8 +74,13 @@ const Footer = () => (
       >
         <a href="https://dribbble.com/shots/2037387-Seattle-FTW" target="_blank" rel="noopener noreferrer external">
           <img alt="Minimal City SEA" width="128" height="96"
-            src={require('../img/fg_city_sea.gif')}
-            srcSet={`${require('../img/fg_city_sea.gif')} 1x, ${require('../img/fg_city_sea@1.5x.gif')} 1.5x, ${require('../img/fg_city_sea@2x.gif')} 2x, ${require('../img/fg_city_sea@3x.gif')} 3x`}
+            src={imgSEA['1x']}
+            srcSet={`
+              ${imgSEA['1x']} 1x,
+              ${imgSEA['1.5x']} 1.5x,
+              ${imgSEA['2x']} 2x,
+              ${imgSEA['3x']} 3x
+            `}
           />
         </a>
       </SparkScroll.div>
