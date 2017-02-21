@@ -47,7 +47,14 @@ app.get('/resume', (req, res) => {
 
 
 app.route('/send')
-.get((req, res) => res.sendStatus(201))
+.get((req, res) => {
+  if ('success' in req.query && req.query.success === '1') {
+    return res.status(201).sendFile(
+      path.join(publicPath, '201.html')
+    );
+  }
+  return res.sendStatus(400);
+})
 .post((req, res) => {
   const form = _.map(req.body, item => sanitizer.escape(item));
   const [name, email, subject, message] = form;
@@ -60,6 +67,7 @@ app.route('/send')
   }
 
   return SMTP.sendMail({
+    from: EMAIL_RECV,
     to: EMAIL_RECV,
     subject,
     text: `

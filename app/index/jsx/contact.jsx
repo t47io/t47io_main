@@ -9,6 +9,8 @@ import SectionHeader from '../../common/jsx/header.jsx';
 import Carousel from '../../common/jsx/carousel.jsx';
 import { contact as tween } from '../js/tweens.js';
 
+const imgPhone = require('../img/t47_phone.png');
+
 
 const ContactItem = ({
   icon,
@@ -69,7 +71,7 @@ class ContactForm extends React.Component {
         isError: ([400, 403, 500].indexOf(response.status) !== -1),
         isSuccess: (response.status === 201),
       }, () => {
-        if (this.state.isSuccess) { window.location.href = '/send'; }
+        if (this.state.isSuccess) { window.location.href = '/send?success=1'; }
       });
       setTimeout(() => {
         this.setState({
@@ -192,7 +194,7 @@ const ContactSection = ({
                 <SparkScroll.li timeline={tween.listLeft}>
                   <i className="fa fa-phone fa-lg fa-fw" />
                   <img className="CONTACT__phone" alt="T47 phone no."
-                    src={require('../img/t47_phone.png')}
+                    src={imgPhone}
                   />
                 </SparkScroll.li>
                 <SparkScroll.li timeline={tween.listLeft}>
