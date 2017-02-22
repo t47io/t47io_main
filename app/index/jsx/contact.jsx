@@ -35,7 +35,7 @@ ContactItem.propTypes = {
 };
 
 
-class ContactForm extends React.Component {
+class ContactForm extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {

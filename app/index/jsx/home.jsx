@@ -11,7 +11,7 @@ const imgAvatar = require('../img/t47_avatar.jpg');
 const imgName = require('../img/t47_name.png');
 
 
-class HomeSection extends React.Component {
+class HomeSection extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {

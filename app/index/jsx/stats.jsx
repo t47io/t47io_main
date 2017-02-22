@@ -10,7 +10,7 @@ import Carousel from '../../common/jsx/carousel.jsx';
 import { stats as tween } from '../js/tweens.js';
 
 
-class StatsItem extends React.Component {
+class StatsItem extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { value: 0 };
@@ -49,7 +49,7 @@ StatsItem.propTypes = {
 };
 
 
-class StatsSection extends React.Component {
+class StatsSection extends React.PureComponent {
   constructor(props) {
     super(props);
 

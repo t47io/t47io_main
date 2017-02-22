@@ -20,7 +20,7 @@ NavbarItem.propTypes = {
   section: React.PropTypes.string.isRequired,
 };
 
-class Navbar extends React.Component {
+class Navbar extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { toggle: false };

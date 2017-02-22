@@ -100,7 +100,7 @@ AffiliationItem.propTypes = {
   onPositionChange: React.PropTypes.func.isRequired,
 };
 
-class AffiliationSection extends React.Component {
+class AffiliationSection extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {

@@ -18,7 +18,7 @@ IndicatorItem.propTypes = {
 };
 
 
-class Carousel extends React.Component {
+class Carousel extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { current: 0 };

@@ -68,7 +68,7 @@ PortfolioItem.propTypes = {
   index: React.PropTypes.number.isRequired,
 };
 
-class PortfolioSection extends React.Component {
+class PortfolioSection extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {

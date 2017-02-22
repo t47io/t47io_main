@@ -17,7 +17,7 @@ import ScrollTop from '../common/jsx/scrolltop.jsx';
 
 require('./index.scss');
 
-class Main extends React.Component {
+class Main extends React.PureComponent {
   constructor(props) {
     super(props);
     this.setState({

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class ImageLoader extends React.Component {
+class ImageLoader extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { isLoaded: false };
