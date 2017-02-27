@@ -197,14 +197,18 @@ const ContactSection = ({
                     src={imgPhone}
                   />
                 </SparkScroll.li>
-                <SparkScroll.li timeline={tween.listLeft}>
+                <SparkScroll.li style={{ paddingBottom: '0.8em' }}
+                  timeline={tween.listLeft}
+                >
                   <i className="fa fa-mail-alt fa-lg fa-fw" />
                   <b>
                     <a className="text-light-green" href="mailto:t47@alumni.stanford.edu" target="_blank" rel="noopener noreferrer external">
                       t47 @ alumni.stanford.edu
                     </a>
                   </b>
-                  {' | '}
+                </SparkScroll.li>
+                <SparkScroll.li timeline={tween.listLeft}>
+                  <i className="fa fa-mail-alt fa-lg fa-fw" style={{ visibility: 'hidden' }} />
                   <a className="text-light-gray" href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external">
                     contact @ t47.io
                   </a>

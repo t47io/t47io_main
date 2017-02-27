@@ -58,7 +58,7 @@ class HomeSection extends React.PureComponent {
            tinySrc={require('../img/t47_avatar@x.jpg')}
            fullSrc={require('../img/t47_avatar.jpg')} /> */}
         <div className="UTIL__cover HOME__shade"
-          style={{ backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.25 : 0})` }}
+          style={{ backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.5 : 0.25})` }}
         />
 
         <div className="container">
@@ -67,12 +67,13 @@ class HomeSection extends React.PureComponent {
             timeline={tween.fade}
           >
             <img alt="Siqi Tian" width="480"
+              className="HOME__title"
               style={this.state.isName ? tween.name.end : tween.name.start}
               src={imgName}
             />
-            <p className="text-white"
+            <p className="text-white HOME__placeholder"
               style={{ marginTop: '-10px' }}
-            >&nbsp;</p>
+            />
             <p className={`HOME__typewrite text-${this.state.textColor}`}>
               <span dangerouslySetInnerHTML={{ __html: this.state.title }} />
               <b className={`HOME__cursor ${this.state.isBlink ? 'blink' : ''}`}>
