@@ -3,6 +3,7 @@
   <head>
     <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="shortcut icon" href="/t47_icon.png" type="image/png" />
 
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,7 +20,7 @@
     <script type="application/javascript">
       window.GoogleAnalyticsObject='ga';window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
       ga('create','<%= htmlWebpackPlugin.options.googleAnalytics.trackingId %>','auto');
-      ga('send','pageview')
+      ga('set', 'transport','beacon');ga('send','pageview');
     </script>
     <script type="application/javascript" src="https://www.google-analytics.com/analytics.js" async defer ></script>
   </head>
