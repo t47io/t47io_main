@@ -1,19 +1,14 @@
 !.gitignore
 
 config/**/*.json
-public/config.json
-
-public/data/
-public/image/
-public/pdf/
-public/*.min.*
-public/*.html
-public/*.gz
+public/
+!public/t47_icon.png
+!public/robots.txt
+!public/sitemap.xml
+!public/img/
 
 node_modules/
 .sass-cache/
 
 yarn.lock
-
-!public/data/**/.gitignore
-!node_modules/**/.gitignore
+.DS_Store

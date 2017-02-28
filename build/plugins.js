@@ -54,18 +54,16 @@ const plugins = (DEBUG) => {
     }),
     new PurifyCSSPlugin({
       paths: [
-        ...(glob.sync(`${rootPath}/app/**/*.jsx`)),
-        ...(glob.sync(`${rootPath}/app/**/*.json`)),
-        ...(glob.sync(`${rootPath}/app/**/*.scss`)),
+        ...(glob.sync(`${rootPath}/app/**/*.{jsx,json,scss}`)),
         ...(glob.sync(`${rootPath}/public/**/*.html`)),
         `${rootPath}/public/config.json`,
       ],
       styleExtensions: ['.css', '.scss'],
-      moduleExtensions: [],
+      moduleExtensions: ['.html'],
       purifyOptions: {
         minify: !DEBUG,
         info: !DEBUG,
-        rejected: true,
+        rejected: DEBUG,
       },
     }),
     new LodashModuleReplacementPlugin(),
