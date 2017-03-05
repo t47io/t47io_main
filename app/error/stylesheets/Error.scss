@@ -1,10 +1,9 @@
-@import '../common/scss/util';
-@import '../common/scss/reset';
-@import '../common/scss/logo';
+@import '../../common/mixins/colors';
+@import '../../common/mixins/reset';
 
-@import './scss/bootstrap';
-@import '../loading/scss/layout';
-@import '../project/scss/palette';
+@import './bootstrap';
+@import '../../loading/scss/layout';
+@import '../../project/scss/palette';
 
 
 .LOAD__container {
@@ -60,29 +59,4 @@
     hr { width: 80%; }
     .green { text-align: center; }
   }
-}
-
-a { color: $clr-gl; }
-
-footer {
-  text-align: center;
-
-  .fa {
-    display: inline-block;
-
-    &.fa-fw {
-      width: 2em;
-      text-align: center;
-    }
-  }
-  .fa svg,
-  .green-white svg {
-    height: 1em;
-    width: auto;
-    margin: 0 0.5em;
-    vertical-align: text-top;
-  }
-}
-@media only screen and (max-width: 767px) {
-  p { margin-bottom: 0; }
 }

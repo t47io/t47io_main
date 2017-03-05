@@ -26,6 +26,7 @@ const Footer = ({
     </p>
   </footer>
 );
+
 Footer.propTypes = {
   logo: React.PropTypes.string.isRequired,
   copy: React.PropTypes.string.isRequired,

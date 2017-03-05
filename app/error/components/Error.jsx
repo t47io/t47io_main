@@ -37,6 +37,7 @@ const ErrorPage = ({
     </div>
   </div>
 );
+
 ErrorPage.propTypes = {
   logo: React.PropTypes.string.isRequired,
   code: React.PropTypes.number.isRequired,
