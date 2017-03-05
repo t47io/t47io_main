@@ -6,19 +6,10 @@ $list-clr: $clr-k, $clr-g, $clr-r, $clr-c, $clr-y, $clr-p, $clr-g, $clr-k, $clr-
 
 
 @mixin transform($val) {
-  -moz-transform: $val;
-  -ms-transform: $val;
   -webkit-transform: $val;
+  -ms-transform: $val;
   transform: $val;
 }
-@mixin border_radius($val) {
-  -webkit-border-radius: $val;
-  -moz-border-radius: $val;
-  -ms-border-radius: $val;
-  -o-border-radius: $val;
-  border-radius: $val;
-}
-
 
 @include keyframes(dna_rotate) {
   $i: 0;

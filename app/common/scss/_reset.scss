@@ -10,11 +10,11 @@ body {
 }
 
 * {
-  @include border_radius(0);
+  border-radius: 0;
 
   &:focus { 
     outline: none;
-    @include box_shadow(none);
+    box-shadow: none;
   }
 }
 

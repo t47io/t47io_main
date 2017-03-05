@@ -26,7 +26,7 @@
     height: 1em;
     background: #d9d9d9;
     position: absolute;
-    @include border_radius(0.5em);
+    border-radius: 0.5em;
   }
   &::before { top: 0; }
   &::after { bottom: 0; }
@@ -115,7 +115,7 @@
     background: $clr-g;
     position: absolute;
     z-index: 6;
-    @include border_radius(0.5em);
+    border-radius: 0.5em;
   }
 }
 .AFFILIATION__text {

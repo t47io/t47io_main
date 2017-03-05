@@ -14,35 +14,27 @@ $clr-kll: #f0f0f0;
 
 
 @mixin transition($val) {
-  -webkit-transition: all $val ease-in-out;
-  -moz-transition: all $val ease-in-out;
-  -o-transition: all $val ease-in-out;
-  -ms-transition: all $val ease-in-out;
   transition: all $val ease-in-out;   
 }
 @mixin transform($val) {
-  -moz-transform: $val;
-  -ms-transform: $val;
   -webkit-transform: $val;
+  -ms-transform: $val;
   transform: $val;
 }
-@mixin box_shadow($val) {
-  -webkit-box-shadow: $val;
-  -moz-box-shadow: $val;
-  box-shadow: $val;
+
+@mixin flex {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-@mixin border_radius($val) {
-  -webkit-border-radius: $val;
-  -moz-border-radius: $val;
-  -ms-border-radius: $val;
-  -o-border-radius: $val;
-  border-radius: $val;
+@mixin flex_direction($val) {
+  -webkit-flex-direction: $val;
+  flex-direction: $val;
 }
+
 @mixin filter($val) {
   -webkit-filter: $val;
-  -moz-filter: $val;
-  -o-filter: $val;
-  -ms-filter: $val;
   filter: $val;  
 }
 
@@ -71,20 +63,11 @@ $clr-kll: #f0f0f0;
 
 @mixin animation($val, $time, $ease, $loop) {
   -webkit-animation: $val $time $ease $loop;
-  -moz-animation: $val $time $ease $loop;
-  -ms-animation: $val $time $ease $loop;
-  -o-animation: $val $time $ease $loop;
   animation: $val $time $ease $loop;
 }
 
 @mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {
-    @content;
-  }
-  @-moz-keyframes #{$animation-name} {
-    @content;
-  }
-  @-o-keyframes #{$animation-name} {
     @content;
   }
   @keyframes #{$animation-name} {

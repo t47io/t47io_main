@@ -7,7 +7,7 @@
   border: 3px solid $clr-g;
   box-sizing: content-box;
   background-color: transparent;
-  @include box_shadow(none);
+  box-shadow: none;
 }
 .SKILLS__bar {
   background-color: $clr-gl;
@@ -15,7 +15,7 @@
   padding: 0.25em;
   text-align: center;
   font-weight: bold;
-  @include box_shadow(none);
+  box-shadow: none;
 
   &:hover {
     background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);

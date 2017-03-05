@@ -6,8 +6,8 @@
   max-width: 100%;
   position: fixed;
 
-  display: flex;
-  flex-direction: column;
+  @include flex;
+  @include flex_direction(column);
   justify-content: center;
   align-items: center;
 
