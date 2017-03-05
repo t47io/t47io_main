@@ -1,6 +1,8 @@
 import React from 'react';
 import smoothScroll from 'smoothscroll';
-import { Logo } from './logo.jsx';
+import { Logo } from './Logo.jsx';
+
+import '../stylesheets/Navbar.scss';
 
 
 const NavbarItem = ({
@@ -67,10 +69,12 @@ class Navbar extends React.PureComponent {
     );
   }
 }
+
 Navbar.propTypes = {
   items: React.PropTypes.array.isRequired,
   section: React.PropTypes.string.isRequired,
   top: React.PropTypes.bool.isRequired,
 };
+
 
 export default Navbar;

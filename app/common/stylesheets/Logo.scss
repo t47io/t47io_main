@@ -1,4 +1,5 @@
-@import './util';
+@import '../mixins/colors';
+
 
 .green .T47__logo path { fill: $clr-g; }
 .white .T47__logo path { fill: $clr-w; }

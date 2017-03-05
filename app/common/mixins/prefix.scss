@@ -1,18 +1,3 @@
-$clr-gdd: #385200;
-$clr-gd: #3e5b02;
-$clr-g: #72a603;
-$clr-gl: #9fc906;
-$clr-gl2: #cfe482;
-$clr-gll: #e6fcb7;
-$clr-go: #f8fee3;
-$clr-w: #fff;
-$clr-wo: #e7e7e7;
-$clr-k: #888;
-$clr-kl: #ccc;
-$clr-kl2: #eee;
-$clr-kll: #f0f0f0;
-
-
 @mixin transition($val) {
   transition: all $val ease-in-out;   
 }

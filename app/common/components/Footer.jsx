@@ -1,23 +1,24 @@
 import React from 'react';
-import { LogoAlt } from './logo.jsx';
+import { LogoAlt } from './Logo.jsx';
 import {
   SparkScroll,
   SparkProxy,
 } from '../js/factory.js';
-
 import { footer as tween } from '../js/tweens.js';
 
+import '../stylesheets/Footer.scss';
+
 const imgSFO = {
-  '1x': require('../img/fg_city_sfo.gif'),
-  '1.5x': require('../img/fg_city_sfo@1.5x.gif'),
-  '2x': require('../img/fg_city_sfo@2x.gif'),
-  '3x': require('../img/fg_city_sfo@3x.gif'),
+  '1x': require('../images/fg_city_sfo.gif'),
+  '1.5x': require('../images/fg_city_sfo@1.5x.gif'),
+  '2x': require('../images/fg_city_sfo@2x.gif'),
+  '3x': require('../images/fg_city_sfo@3x.gif'),
 };
 const imgSEA = {
-  '1x': require('../img/fg_city_sea.gif'),
-  '1.5x': require('../img/fg_city_sea@1.5x.gif'),
-  '2x': require('../img/fg_city_sea@2x.gif'),
-  '3x': require('../img/fg_city_sea@3x.gif'),
+  '1x': require('../images/fg_city_sea.gif'),
+  '1.5x': require('../images/fg_city_sea@1.5x.gif'),
+  '2x': require('../images/fg_city_sea@2x.gif'),
+  '3x': require('../images/fg_city_sea@3x.gif'),
 };
 const year = (new Date()).getFullYear();
 
@@ -87,7 +88,6 @@ const Footer = () => (
     </SparkProxy.div>
   </footer>
 );
-Footer.propTypes = {};
 
 
 export default Footer;

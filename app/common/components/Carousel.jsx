@@ -1,21 +1,7 @@
 import React from 'react';
+import CarouselIndicator from './CarouselIndicator.jsx';
 
-
-const IndicatorItem = ({
-  current,
-  onClick,
-  index,
-}) => (
-  <li className={current === index ? 'active' : ''}
-    data-slide={index}
-    onClick={onClick}
-  />
-);
-IndicatorItem.propTypes = {
-  current: React.PropTypes.number.isRequired,
-  index: React.PropTypes.number.isRequired,
-  onClick: React.PropTypes.func.isRequired,
-};
+import '../stylesheets/Carousel.scss';
 
 
 class Carousel extends React.PureComponent {
@@ -50,7 +36,7 @@ class Carousel extends React.PureComponent {
         <div className="COMMON__carousel fade">
           <ol className="COMMON__carousel_indicators carousel-indicators">
             {items.map((item, i) => (
-              <IndicatorItem current={current} index={i} onClick={this.onClick} />
+              <CarouselIndicator current={current} index={i} onClick={this.onClick} />
             ))}
           </ol>
         </div>
@@ -61,6 +47,7 @@ class Carousel extends React.PureComponent {
     );
   }
 }
+
 Carousel.propTypes = {
   items: React.PropTypes.array.isRequired,
   extraClassName: React.PropTypes.string.isRequired,

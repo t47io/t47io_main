@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../stylesheets/ScrollTop.scss';
+
 
 const ScrollTop = ({
   top,
@@ -14,6 +16,7 @@ const ScrollTop = ({
     <i className="fa fa-up-big fa-fwn fa-lg" />
   </a>
 );
+
 ScrollTop.propTypes = {
   top: React.PropTypes.bool.isRequired,
   bottom: React.PropTypes.bool.isRequired,

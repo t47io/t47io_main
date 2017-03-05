@@ -1,26 +1,32 @@
+@import '../mixins/colors';
+@import '../mixins/prefix';
+
+
 .scrollTop {
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
   bottom: 2em;
   right: 2.5em;
   width: 2.5em;
   height: 2.5em;
+
+  visibility: hidden;
+  opacity: 0;
   color: $clr-gl;
   border: 2px solid $clr-gl;
+
   line-height: 2.5em;
   text-align: center;
   text-decoration: none;
   z-index: 9999;
+
   @include transform(rotate(45deg));
   @include transition(0.5s);
 
   .fa {
     padding-left: 0.25em;
-    @include transition(0.5s);
-    @include transform(rotate(-45deg));
 
-    transform: rotate(-45deg) translate(-1px, -0.125em);
+    @include transition(0.5s);
+    @include transform(rotate(-45deg) translate(-1px, -0.125em));
   }
   &:hover { background-color: $clr-gl; }
   &:hover .fa { color: $clr-w; }

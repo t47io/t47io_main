@@ -1,5 +1,21 @@
-@import './util';
+@import './colors';
+@import '../vendor/font-awesome/fontello-fa';
+@import '../vendor/font-awesome/fa';
 
+
+@font-face {
+  font-family: "Tenor Sans";
+  font-weight: normal;
+  font-style: normal;
+
+  src: local("Tenor Sans"),
+    url("../common/font/tenor-sans.woff") format("woff");
+    // url("../common/font/tenor-sans.woff2") format("woff2"),
+    // url("../common/font/tenor-sans.ttf") format("truetype"),
+    // url("../common/font/tenor-sans.eot") format("embedded-opentype"),
+    // url("../common/font/tenor-sans.svg#tenor_sansregular") format("svg");
+}
+* { font-family: 'Tenor Sans', Helvetica, Arial, sans-serif; }
 
 .text-main { color: #363940; } /* Theme main color */
 .text-white { color: $clr-w; }
