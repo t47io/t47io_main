@@ -1,13 +1,7 @@
-@import '../common/scss/util';
-@import '../common/scss/reset';
-@import '../common/scss/font';
-@import '../common/scss/type';
-@import '../common/scss/logo';
-
-@import '../common/scss/navbar';
-@import '../common/scss/footer';
-@import '../common/scss/scrolltop';
-@import '../common/scss/carousel';
+@import '../common/mixins/colors';
+@import '../common/mixins/reset';
+@import '../common/mixins/typography';
+@import '../common/mixins/prefix';
 
 @import './scss/util';
 @import './scss/sprites';

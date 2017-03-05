@@ -1,8 +1,8 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
 
-import SectionHeader from '../../common/jsx/header.jsx';
-import Carousel from '../../common/jsx/carousel.jsx';
+import SectionHeader from '../../common/components/Header.jsx';
+import Carousel from '../../common/components/Carousel.jsx';
 import { affiliation as tween } from '../js/tweens.js';
 
 

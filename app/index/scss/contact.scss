@@ -1,5 +1,7 @@
-@import '../../common/scss/util';
+@import '../../common/mixins/colors';
+@import '../../common/mixins/prefix';
 @import './form';
+
 
 #CONTACT__section {
   position: relative;

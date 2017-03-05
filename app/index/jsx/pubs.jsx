@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import { SparkScroll } from '../../common/js/factory.js';
 
-import SectionHeader from '../../common/jsx/header.jsx';
+import SectionHeader from '../../common/components/Header.jsx';
 import { pubs as tween } from '../js/tweens.js';
 
 

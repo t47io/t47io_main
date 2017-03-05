@@ -7,8 +7,8 @@ import {
   func,
 } from '../js/tweens.js';
 
-const imgAvatar = require('../img/t47_avatar.jpg');
-const imgName = require('../img/t47_name.png');
+const imgAvatar = require('../images/t47_avatar.jpg');
+const imgName = require('../images/t47_name.png');
 
 
 class HomeSection extends React.PureComponent {
@@ -55,8 +55,8 @@ class HomeSection extends React.PureComponent {
         </div>
 
         {/* <ImageLoader extraClassName="UTIL__parallax"
-           tinySrc={require('../img/t47_avatar@x.jpg')}
-           fullSrc={require('../img/t47_avatar.jpg')} /> */}
+           tinySrc={require('../images/t47_avatar@x.jpg')}
+           fullSrc={require('../images/t47_avatar.jpg')} /> */}
         <div className="UTIL__cover HOME__shade"
           style={{ backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.5 : 0.25})` }}
         />

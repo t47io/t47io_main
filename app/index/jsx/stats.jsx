@@ -5,8 +5,8 @@ import {
   SparkProxy,
 } from '../../common/js/factory.js';
 
-import SectionHeader from '../../common/jsx/header.jsx';
-import Carousel from '../../common/jsx/carousel.jsx';
+import SectionHeader from '../../common/components/Header.jsx';
+import Carousel from '../../common/components/Carousel.jsx';
 import { stats as tween } from '../js/tweens.js';
 
 

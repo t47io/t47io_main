@@ -10,9 +10,9 @@ import StatsSection from './jsx/stats.jsx';
 import PubsSection from './jsx/pubs.jsx';
 import ContactSection from './jsx/contact.jsx';
 
-import Navbar from '../common/jsx/navbar.jsx';
-import Footer from '../common/jsx/footer.jsx';
-import ScrollTop from '../common/jsx/scrolltop.jsx';
+import Navbar from '../common/components/Navbar.jsx';
+import Footer from '../common/components/Footer.jsx';
+import ScrollTop from '../common/components/ScrollTop.jsx';
 
 
 require('./index.scss');

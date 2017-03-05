@@ -1,7 +1,7 @@
-@import '../../common/scss/sprite';
+@import '../../common/mixins/sprite';
 
 
-@include img_sprites('./img/sp_portfolio.jpg',
+@include img_sprites('./images/sp_portfolio.jpg',
   640px, 480px, (
     'SPRITE__portfolio-daslab',
     'SPRITE__portfolio-primerize',
@@ -16,7 +16,7 @@
     'SPRITE__portfolio-ribokit'
   ), true
 );
-@include img_sprites('./img/sp_publications.jpg',
+@include img_sprites('./images/sp_publications.jpg',
   432px, 216px, (
     'SPRITE__pubs-2013_Shi_NewPhytol',
     'SPRITE__pubs-2014_Kladwang_Biochemistry',
@@ -34,7 +34,7 @@
     'SPRITE__pubs-2017_Tian_eLife'
   ), true
 );
-@include img_sprites('./img/sp_affiliation.png',
+@include img_sprites('./images/sp_affiliation.png',
   512px, 224px, (
     'SPRITE__affiliation-CAU',
     'SPRITE__affiliation-Autodesk',
@@ -43,35 +43,35 @@
   ), true
 );
 
-@include img_sprites_bg('./img/bg_set_1.jpg',
+@include img_sprites_bg('./images/bg_set_1.jpg',
   1920px, 1280px, (
     'SPRITE__bg-hoover_tower',
     'SPRITE__bg-fish_necklace',
     'SPRITE__bg-campus_map'
   )
 );
-@include img_sprites_bg('./img/bg_set_2.jpg',
+@include img_sprites_bg('./images/bg_set_2.jpg',
   1920px, 1280px, (
     'SPRITE__bg-yosemite',
     'SPRITE__bg-lawn_bench',
     'SPRITE__bg-muir_trees'
   )
 );
-@include img_sprites_bg('./img/bg_set_3.jpg',
+@include img_sprites_bg('./images/bg_set_3.jpg',
   1920px, 1280px, (
     'SPRITE__bg-lksc_building',
     'SPRITE__bg-cliff_reed',
     'SPRITE__bg-red_papercut'
   )
 );
-@include img_sprites_bg('./img/bg_set_4.jpg',
+@include img_sprites_bg('./images/bg_set_4.jpg',
   1920px, 1280px, (
     'SPRITE__bg-big_sur',
     'SPRITE__bg-flower',
     'SPRITE__bg-succulent'
   )
 );
-@include img_sprites_bg('./img/bg_set_5.jpg',
+@include img_sprites_bg('./images/bg_set_5.jpg',
   1920px, 1280px, (
     'SPRITE__bg-golden_gate',
     'SPRITE__bg-tunnel',

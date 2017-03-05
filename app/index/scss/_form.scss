@@ -1,4 +1,6 @@
-@import '../../common/scss/util';
+@import '../../common/mixins/colors';
+@import '../../common/mixins/prefix';
+
 
 .form-control {
   background-color: rgba(0, 0, 0, 0.5);

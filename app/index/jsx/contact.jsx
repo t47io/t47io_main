@@ -5,11 +5,11 @@ import {
   SparkProxy,
 } from '../../common/js/factory.js';
 
-import SectionHeader from '../../common/jsx/header.jsx';
-import Carousel from '../../common/jsx/carousel.jsx';
+import SectionHeader from '../../common/components/Header.jsx';
+import Carousel from '../../common/components/Carousel.jsx';
 import { contact as tween } from '../js/tweens.js';
 
-const imgPhone = require('../img/t47_phone.png');
+const imgPhone = require('../images/t47_phone.png');
 
 
 const ContactItem = ({

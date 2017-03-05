@@ -1,4 +1,6 @@
-@import '../../common/scss/util';
+@import '../../common/mixins/colors';
+@import '../../common/mixins/prefix';
+
 
 .ABOUT__box {
   display: inline-block;
