@@ -22,7 +22,7 @@ const helixLoading = {
     <div class="LOAD__container UTIL__image-RNA">
       <div class="LOAD__content">
         <a href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" class="LOAD__logo green-white">
-          ${fs.readFileSync('./app/common/img/t47_logo_alt.svg')}
+          ${fs.readFileSync('./app/common/images/t47_logo_alt.svg')}
         </a>
     
         <div class="row">

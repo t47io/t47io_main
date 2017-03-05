@@ -10,30 +10,30 @@ div.carousel_sprite {
 }
 
 
-@include img_sprites('/img/portfolio/project_spindle_1.jpg', $w, $h, ('spindle_1_qrt', 'spindle_1_lst', 'spindle_1_bar'));
+@include img_sprites('/images/portfolio/project_spindle_1.jpg', $w, $h, ('spindle_1_qrt', 'spindle_1_lst', 'spindle_1_bar'));
 
-@include img_sprites('/img/portfolio/project_rmdb_1.jpg', $w, $h, ('rmdb_1_map', 'rmdb_1_bar', 'rmdb_1_sdp', 'rmdb_1_brw'));
-@include img_sprites('/img/portfolio/project_rmdb_3.jpg', $w, $h, ('rmdb_3_hub', 'rmdb_3_aws', 'rmdb_3_rna'));
+@include img_sprites('/images/portfolio/project_rmdb_1.jpg', $w, $h, ('rmdb_1_map', 'rmdb_1_bar', 'rmdb_1_sdp', 'rmdb_1_brw'));
+@include img_sprites('/images/portfolio/project_rmdb_3.jpg', $w, $h, ('rmdb_3_hub', 'rmdb_3_aws', 'rmdb_3_rna'));
 
-@include img_sprites('/img/portfolio/project_primerize_1.jpg', $w, $h, ('primerize_1_plt', 'primerize_1_asb', 'primerize_1_prm', 'primerize_1_inp'));
-@include img_sprites('/img/portfolio/project_primerize_2.jpg', $w, $h, ('primerize_2_que', 'primerize_2_tut', 'primerize_2_exp', 'primerize_2_pip', 'primerize_2_ptc'));
-@include img_sprites('/img/portfolio/project_primerize_3.jpg', $w, $h, ('primerize_3_ins', 'primerize_3_cls', 'primerize_3_met', 'primerize_3_atr'));
+@include img_sprites('/images/portfolio/project_primerize_1.jpg', $w, $h, ('primerize_1_plt', 'primerize_1_asb', 'primerize_1_prm', 'primerize_1_inp'));
+@include img_sprites('/images/portfolio/project_primerize_2.jpg', $w, $h, ('primerize_2_que', 'primerize_2_tut', 'primerize_2_exp', 'primerize_2_pip', 'primerize_2_ptc'));
+@include img_sprites('/images/portfolio/project_primerize_3.jpg', $w, $h, ('primerize_3_ins', 'primerize_3_cls', 'primerize_3_met', 'primerize_3_atr'));
 
-@include img_sprites('/img/portfolio/project_hitrace_1.jpg', $w, $h, ('hitrace_1_str', 'hitrace_1_clr', 'hitrace_1_box', 'hitrace_1_mtx'));
-@include img_sprites('/img/portfolio/project_hitrace_2.jpg', $w, $h, ('hitrace_2_bpp', 'hitrace_2_str', 'hitrace_2_mca', 'hitrace_2_gel'));
+@include img_sprites('/images/portfolio/project_hitrace_1.jpg', $w, $h, ('hitrace_1_str', 'hitrace_1_clr', 'hitrace_1_box', 'hitrace_1_mtx'));
+@include img_sprites('/images/portfolio/project_hitrace_2.jpg', $w, $h, ('hitrace_2_bpp', 'hitrace_2_str', 'hitrace_2_mca', 'hitrace_2_gel'));
 
-@include img_sprites('/img/portfolio/project_eterna_1.jpg', $w, $h, ('eterna_1_lab', 'eterna_1_col'));
-@include img_sprites('/img/portfolio/project_eterna_2.jpg', $w, $h, ('eterna_2_sec', 'eterna_2_gph'));
+@include img_sprites('/images/portfolio/project_eterna_1.jpg', $w, $h, ('eterna_1_lab', 'eterna_1_col'));
+@include img_sprites('/images/portfolio/project_eterna_2.jpg', $w, $h, ('eterna_2_sec', 'eterna_2_gph'));
 
-@include img_sprites('/img/portfolio/project_daslab_1.jpg', $w, $h, ('daslab_1_fs', 'daslab_1_jc', 'daslab_1_ppl', 'daslab_1_cal'));
-@include img_sprites('/img/portfolio/project_daslab_2.jpg', $w, $h, ('daslab_2_ga', 'daslab_2_aws', 'daslab_2_git', 'daslab_2_ver', 'daslab_2_slk'));
-@include img_sprites('/img/portfolio/project_daslab_3.jpg', $w, $h, ('daslab_3_bot', 'daslab_3_slk', 'daslab_3_cfg', 'daslab_3_bkp'));
-@include img_sprites('/img/portfolio/project_daslab_4.jpg', $w, $h, ('daslab_4_pub', 'daslab_4_exp', 'daslab_4_usr', 'daslab_4_wau', 'daslab_4_doc'));
-@include img_sprites('/img/portfolio/project_daslab_5.jpg', $w, $h, ('daslab_5_500', 'daslab_5_404', 'daslab_5_401', 'daslab_5_400'));
+@include img_sprites('/images/portfolio/project_daslab_1.jpg', $w, $h, ('daslab_1_fs', 'daslab_1_jc', 'daslab_1_ppl', 'daslab_1_cal'));
+@include img_sprites('/images/portfolio/project_daslab_2.jpg', $w, $h, ('daslab_2_ga', 'daslab_2_aws', 'daslab_2_git', 'daslab_2_ver', 'daslab_2_slk'));
+@include img_sprites('/images/portfolio/project_daslab_3.jpg', $w, $h, ('daslab_3_bot', 'daslab_3_slk', 'daslab_3_cfg', 'daslab_3_bkp'));
+@include img_sprites('/images/portfolio/project_daslab_4.jpg', $w, $h, ('daslab_4_pub', 'daslab_4_exp', 'daslab_4_usr', 'daslab_4_wau', 'daslab_4_doc'));
+@include img_sprites('/images/portfolio/project_daslab_5.jpg', $w, $h, ('daslab_5_500', 'daslab_5_404', 'daslab_5_401', 'daslab_5_400'));
 
-@include img_sprites('/img/portfolio/project_celica_1.jpg', $w, $h, ('celica_1_frm', 'celica_1_spr', 'celica_1_clp', 'celica_1_plt', 'celica_1_whl', 'celica_1_flr'));
-@include img_sprites('/img/portfolio/project_celica_2.jpg', $w, $h, ('celica_2_wng', 'celica_2_hub', 'celica_2_rad', 'celica_2_vnl', 'celica_2_tap', 'celica_2_led'));
-@include img_sprites('/img/portfolio/project_celica_3.jpg', $w, $h, ('celica_3_rer', 'celica_3_vis', 'celica_3_ihc', 'celica_3_sc2', 'celica_3_trk'));
+@include img_sprites('/images/portfolio/project_celica_1.jpg', $w, $h, ('celica_1_frm', 'celica_1_spr', 'celica_1_clp', 'celica_1_plt', 'celica_1_whl', 'celica_1_flr'));
+@include img_sprites('/images/portfolio/project_celica_2.jpg', $w, $h, ('celica_2_wng', 'celica_2_hub', 'celica_2_rad', 'celica_2_vnl', 'celica_2_tap', 'celica_2_led'));
+@include img_sprites('/images/portfolio/project_celica_3.jpg', $w, $h, ('celica_3_rer', 'celica_3_vis', 'celica_3_ihc', 'celica_3_sc2', 'celica_3_trk'));
 
-@include img_sprites('/img/portfolio/project_ribokit_1.jpg', $w, $h, ('ribokit_1_nav', 'ribokit_1_syx', 'ribokit_1_ref', 'ribokit_1_hgl', 'ribokit_1_err'));
-@include img_sprites('/img/portfolio/project_ribokit_2.jpg', $w, $h, ('ribokit_2_hit', 'ribokit_2_prm', 'ribokit_2_pkg', 'ribokit_2_vis', 'ribokit_2_ins'));
+@include img_sprites('/images/portfolio/project_ribokit_1.jpg', $w, $h, ('ribokit_1_nav', 'ribokit_1_syx', 'ribokit_1_ref', 'ribokit_1_hgl', 'ribokit_1_err'));
+@include img_sprites('/images/portfolio/project_ribokit_2.jpg', $w, $h, ('ribokit_2_hit', 'ribokit_2_prm', 'ribokit_2_pkg', 'ribokit_2_vis', 'ribokit_2_ins'));

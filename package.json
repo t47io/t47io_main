@@ -57,7 +57,7 @@
     "nodemon": "^1.11.0",
     "preact": "^7.1.0",
     "preact-compat": "^3.9.4",
-    "purifycss-webpack": "^0.4.2",
+    "purifycss-webpack": "^0.4.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-spark-scroll-rekapi": "^2.0.2",

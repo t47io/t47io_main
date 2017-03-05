@@ -8,8 +8,8 @@ import path from 'path';
 import purify from 'purify-css';
 import sass from 'node-sass';
 
-import Components from '../app/error/jsx/pages.jsx';
-import Footer from '../app/error/jsx/footer.jsx';
+import Components from '../app/error/containers/Pages.jsx';
+import Footer from '../app/error/components/Footer.jsx';
 
 
 const codes = {
@@ -28,13 +28,15 @@ const loadFileSync = filename => fs.readFileSync(path.join(__dirname, filename),
 
 try {
   const baseHTML = loadFileSync('../public/error.html');
-  const logoAltSVG = loadFileSync('../app/common/img/t47_logo_alt.svg');
-  const copySVG = loadFileSync('../app/error/img/copyright.svg');
-  const ccSVG = loadFileSync('../app/error/img/creative-commons.svg');
+  const logoAltSVG = loadFileSync('../app/common/images/t47_logo_alt.svg');
+  const copySVG = loadFileSync('../app/error/images/copyright.svg');
+  const ccSVG = loadFileSync('../app/error/images/creative-commons.svg');
   const footerHTML = renderToStaticMarkup(<Footer logo={logoAltSVG} copy={copySVG} cc={ccSVG} />);
-  const rawCSS = sass.renderSync({
-    file: path.join(__dirname, '../app/error/error.scss'),
-  }).css.toString();
+  const rawCSS = ['Error.scss', 'Footer.scss'].map(file => (
+    sass.renderSync({
+      file: path.join(__dirname, '../app/error/stylesheets/', file),
+    }).css.toString()
+  )).join();
 
 
   Object.keys(codes).forEach((code) => {
