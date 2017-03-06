@@ -2,14 +2,14 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
-const home = require('../config/index/home.json');
-const about = require('../config/index/about.json');
-const affiliation = require('../config/index/affiliation.json');
-const portfolio = require('../config/index/portfolio.json');
-const skills = require('../config/index/skills.json');
-const stats = require('../config/index/stats.json');
-const pubs = require('../config/index/pubs.json');
-const contact = require('../config/index/contact.json');
+const home = require('../config/main/home.json');
+const about = require('../config/main/about.json');
+const affiliation = require('../config/main/affiliation.json');
+const portfolio = require('../config/main/portfolio.json');
+const skills = require('../config/main/skills.json');
+const stats = require('../config/main/stats.json');
+const pubs = require('../config/main/pubs.json');
+const contact = require('../config/main/contact.json');
 
 
 const getResume = (rootPath) => {
