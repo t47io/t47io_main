@@ -16,7 +16,7 @@ import {
   helixLoading,
   googleAnalytics,
   htmlMinify,
-} from './render.js';
+} from './render.jsx';
 
 const rootPath = path.join(__dirname, '../');
 

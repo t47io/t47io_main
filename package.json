@@ -8,7 +8,7 @@
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -x babel-node -d 3 -V server/server.js",
     "prebuild": "npm run lint",
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
-    "postbuild": "babel-node ./build/error.js",
+    "postbuild": "babel-node ./build/error.jsx",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
     "cron:https": "babel-node ./server/cron/ssl_expire.js"

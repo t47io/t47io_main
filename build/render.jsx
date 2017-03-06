@@ -2,6 +2,11 @@ import fs from 'fs';
 import sass from 'node-sass';
 import path from 'path';
 
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+
+import HelixLoading from '../applications/loading/components/HelixLoading.jsx';
+
 const env = require('../config/server.json');
 
 const googleAnalytics = { trackingID: env.gaTracker };
@@ -18,28 +23,11 @@ const helixLoading = {
     file: path.join(__dirname, '../applications/loading/stylesheets/index.scss'),
     outputStyle: 'compressed',
   }).css.toString(),
-  HTML: `
-    <div class="LOAD__container UTIL__image-RNA">
-      <div class="LOAD__content">
-        <a href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" class="LOAD__logo green-white">
-          ${fs.readFileSync('./applications/common/images/t47_logo_alt.svg')}
-        </a>
-    
-        <div class="row">
-          <div class="LOAD__helix center-block" style="width:75%;">
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div>
-          </div>
-        </div>
-      </div>
-    </div>`,
+  HTML: renderToStaticMarkup(
+    <HelixLoading
+      logo={fs.readFileSync('./applications/common/images/t47_logo_alt.svg', 'utf8')}
+    />
+  ),
 };
 
 
