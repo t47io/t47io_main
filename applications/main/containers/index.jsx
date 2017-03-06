@@ -1,21 +1,21 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
 
-import HomeSection from './jsx/home.jsx';
-import AboutSection from './jsx/about.jsx';
-import AffiliationSection from './jsx/affiliation.jsx';
-import PortfolioSection from './jsx/portfolio.jsx';
-import SkillsSection from './jsx/skills.jsx';
-import StatsSection from './jsx/stats.jsx';
-import PubsSection from './jsx/pubs.jsx';
-import ContactSection from './jsx/contact.jsx';
+import HomeSection from './HomeSection.jsx';
+import AboutSection from './AboutSection.jsx';
+import AffiliationSection from './AffiliationSection.jsx';
+import PortfolioSection from './PortfolioSection.jsx';
+import SkillsSection from './SkillsSection.jsx';
+import StatsSection from './StatsSection.jsx';
+import PubsSection from './PubsSection.jsx';
+import ContactSection from './ContactSection.jsx';
 
-import Navbar from '../common/components/Navbar.jsx';
-import Footer from '../common/components/Footer.jsx';
-import ScrollTop from '../common/components/ScrollTop.jsx';
+import Navbar from '../../common/components/Navbar.jsx';
+import Footer from '../../common/components/Footer.jsx';
+import ScrollTop from '../../common/components/ScrollTop.jsx';
 
+import '../stylesheets/index.scss';
 
-require('./index.scss');
 
 class Main extends React.PureComponent {
   constructor(props) {

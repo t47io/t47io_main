@@ -6,6 +6,7 @@ import {
   home as tween,
   func,
 } from '../js/tweens.js';
+import '../stylesheets/HomeSection.scss';
 
 const imgAvatar = require('../images/t47_avatar.jpg');
 const imgName = require('../images/t47_name.png');
@@ -93,6 +94,7 @@ class HomeSection extends React.PureComponent {
     );
   }
 }
+
 HomeSection.propTypes = {
   title: React.PropTypes.string.isRequired,
 };

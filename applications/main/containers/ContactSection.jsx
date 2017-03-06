@@ -1,5 +1,4 @@
 import React from 'react';
-import 'whatwg-fetch';
 import {
   SparkScroll,
   SparkProxy,
@@ -7,140 +6,13 @@ import {
 
 import SectionHeader from '../../common/components/Header.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
+import ContactItem from '../components/ContactItem.jsx';
+import ContactForm from '../components/ContactForm.jsx';
+
 import { contact as tween } from '../js/tweens.js';
+import '../stylesheets/ContactSection.scss';
 
 const imgPhone = require('../images/t47_phone.png');
-
-
-const ContactItem = ({
-  icon,
-  url,
-}) => (
-  <li>
-    <a href={url} target="_blank" rel="noopener noreferrer external"
-      className="CONTACT__box text-center"
-    >
-      <SparkScroll.span className="CONTACT__icon"
-        proxy="CONTACT__proxy"
-        timeline={tween.icon}
-      >
-        <i className={`fa fa-${icon}`} />
-      </SparkScroll.span>
-    </a>
-  </li>
-);
-ContactItem.propTypes = {
-  icon: React.PropTypes.string.isRequired,
-  url: React.PropTypes.string.isRequired,
-};
-
-
-class ContactForm extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSending: false,
-      isError: false,
-      isSuccess: false,
-    };
-    this.input = {};
-
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onSubmit(event) {
-    event.preventDefault();
-    this.setState({
-      ...(this.state),
-      isSending: true,
-    });
-
-    fetch('/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: this.input.name.value,
-        email: this.input.email.value,
-        subject: this.input.subject.value,
-        message: this.input.message.value,
-      }),
-    })
-    .then((response) => {
-      this.setState({
-        isSending: false,
-        isError: ([400, 403, 500].indexOf(response.status) !== -1),
-        isSuccess: (response.status === 201),
-      }, () => {
-        if (this.state.isSuccess) { window.location.href = '/send?success=1'; }
-      });
-      setTimeout(() => {
-        this.setState({
-          ...(this.state),
-          isError: false,
-        });
-      }, 5000);
-    });
-  }
-
-  render() {
-    const { isSending, isError, isSuccess } = this.state;
-    const icon = isSending ? 'fa-cog fa-spin' : (
-      isError ? 'fa-cancel-circled' : (
-        isSuccess ? 'fa-ok-circled' : 'fa-mail'
-      )
-    );
-
-    return (
-      <form className="CONTACT__form"
-        onSubmit={this.onSubmit}
-      >
-        <SparkScroll.div className="form-group"
-          timeline={tween.formRight}
-        >
-          <input type="text" name="name" placeholder="Your Name" required
-            className="form-control input-lg"
-            ref={(input) => { this.input.name = input; }}
-          />
-        </SparkScroll.div>
-        <SparkScroll.div className="form-group"
-          timeline={tween.formRight}
-        >
-          <input type="email" name="email" placeholder="E-mail" required
-            className="form-control input-lg"
-            ref={(input) => { this.input.email = input; }}
-          />
-        </SparkScroll.div>
-        <SparkScroll.div className="form-group"
-          timeline={tween.formRight}
-        >
-          <input type="text" name="subject" placeholder="Subject" required
-            className="form-control input-lg"
-            ref={(input) => { this.input.subject = input; }}
-          />
-        </SparkScroll.div>
-        <SparkScroll.div className="form-group"
-          timeline={tween.formRight}
-        >
-          <textarea name="message"rows="5" placeholder="Message" required
-            className="form-control input-lg"
-            ref={(input) => { this.input.message = input; }}
-          />
-        </SparkScroll.div>
-        <SparkScroll.div className="form-group"
-          timeline={tween.formRight}
-        >
-          <button type="submit" disabled={isSending}
-            className={`btn btn-${isError ? 'danger' : 'default'} btn-block`}
-          >
-            <i className={`fa ${icon} fa-lg fa-fw`} />
-            SEND
-          </button>
-        </SparkScroll.div>
-      </form>
-    );
-  }
-}
-ContactForm.propTypes = {};
 
 
 const ContactSection = ({
@@ -245,10 +117,12 @@ const ContactSection = ({
     </section>
   );
 };
+
 ContactSection.propTypes = {
   items: React.PropTypes.array.isRequired,
   background: React.PropTypes.array.isRequired,
   resume: React.PropTypes.string.isRequired,
 };
+
 
 export default ContactSection;
