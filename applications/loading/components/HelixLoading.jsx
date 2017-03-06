@@ -1,8 +1,7 @@
 import React from 'react';
+import { LogoAlt } from '../../common/components/Logo.jsx';
 
-import { LogoAlt } from '../../common/jsx/logo.jsx';
-
-require('../scss/helix.scss');
+import '../stylesheets/HelixLoading.scss';
 
 
 const HelixLoading = () => (

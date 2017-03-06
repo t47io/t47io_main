@@ -27,6 +27,7 @@ class AsyncComponent extends React.PureComponent {
     return (this.props.placeholder || <div>Loading ...</div>);
   }
 }
+
 AsyncComponent.propTypes = {
   loader: React.PropTypes.func.isRequired,
   placeholder: React.PropTypes.string,
