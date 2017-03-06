@@ -13,7 +13,7 @@ const loaders = () => ([
   },
   {
     test: /\.js(x)?$/i,
-    include: /app/,
+    include: /applications/,
     use: {
       loader: 'babel-loader',
       options: {
@@ -27,7 +27,8 @@ const loaders = () => ([
       fallback: 'style-loader',
       use: [
         'css-loader',
-        'sass-loader',
+        'resolve-url-loader',
+        'sass-loader?sourceMap',
       ],
     }),
   },
