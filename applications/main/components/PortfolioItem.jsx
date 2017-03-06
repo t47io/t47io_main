@@ -15,10 +15,12 @@ const PortfolioItem = ({
   url,
   index,
 }) => (
-  <SparkProxy.div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry"
+  <SparkProxy.div
+    className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry"
     proxyId={`PORTFOLIO__proxy_${index}`}
   >
-    <SparkScroll.div className="PORTFOLIO__item"
+    <SparkScroll.div
+      className="PORTFOLIO__item"
       proxy={`PORTFOLIO__proxy_${index}`}
       data-category={category}
       timeline={tween.thumbnail}
@@ -27,7 +29,10 @@ const PortfolioItem = ({
         <div className={`SPRITE__portfolio-${name}`} />
       </div>
       <div className="PORTFOLIO__text">
-        <a href={url || `/project/${name}`} target="_blank" rel="noopener noreferrer">
+        <a
+          href={url || `/project/${name}`}
+          target="_blank" rel="noopener noreferrer"
+        >
           {title}
           <i className="fa fa-fw fa-md fa-link-ext" />
         </a>

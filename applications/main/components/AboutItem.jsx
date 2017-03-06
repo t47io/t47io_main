@@ -12,7 +12,8 @@ const AboutItem = ({
 }) => (
   <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
     <a className="ABOUT__box text-center">
-      <SparkScroll.span className="ABOUT__icon"
+      <SparkScroll.span
+        className="ABOUT__icon"
         proxy="ABOUT__proxy"
         timeline={tween.icon(index * 20)}
       >

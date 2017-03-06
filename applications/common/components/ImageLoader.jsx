@@ -30,7 +30,8 @@ class ImageLoader extends React.PureComponent {
 
     return (
       <div className={extraClassName} style={divStyle}>
-        <img style={{ display: 'none' }} role="presentation"
+        <img
+          style={{ display: 'none' }} role="presentation"
           src={fullSrc}
           onLoad={this.onLoad}
         />

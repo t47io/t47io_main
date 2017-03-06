@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SectionHeader from '../../common/components/Header.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
 import SkillsPanel from '../components/SkillsPanel.jsx';
 
 import { skills as tween } from '../js/tweens.js';
@@ -10,7 +10,8 @@ import '../stylesheets/SkillsSection.scss';
 const SkillsSection = ({ items }) => (
   <section id="SKILLS__section">
     <div className="UTIL__spacer-hg SKILLS__trigger" />
-    <SectionHeader title="my skills" subtitle="what I learned"
+    <SectionHeader
+      title="my skills" subtitle="what I learned"
       proxyId="SKLLLS__header"
       tween={tween.header}
     />

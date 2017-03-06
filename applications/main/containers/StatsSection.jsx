@@ -5,7 +5,7 @@ import {
   SparkProxy,
 } from '../../common/js/factory.js';
 
-import SectionHeader from '../../common/components/Header.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
 import StatsItem from '../components/StatsItem.jsx';
 
@@ -28,11 +28,13 @@ class StatsSection extends React.PureComponent {
     const { items, background, links, gitSvg } = this.props;
     return (
       <section id="STATS__section">
-        <Carousel extraClassName="STATS__area text-white"
+        <Carousel
+          extraClassName="STATS__area text-white"
           items={background} interval={4000}
         >
           <div className="UTIL__spacer-lg STATS__trigger" />
-          <SectionHeader title="my stats" subtitle="what I achieved"
+          <SectionHeader
+            title="my stats" subtitle="what I achieved"
             proxyId="STATS__header"
             tween={tween.header}
           />
@@ -64,7 +66,8 @@ class StatsSection extends React.PureComponent {
         </h3>
 
         <div className="UTIL__spacer-md" />
-        <SparkScroll.div className="text-center STATS__github"
+        <SparkScroll.div
+          className="text-center STATS__github"
           timeline={tween.git}
           callback={ratio => this.onBindTooltip(ratio)}
           dangerouslySetInnerHTML={{ __html: gitSvg }}

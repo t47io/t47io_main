@@ -10,8 +10,11 @@ const NavbarItem = ({
   section,
 }) => (
   <li className={(item === section) ? 'active' : ''}>
-    <a className="COMMON__navbar_link" href="#"
-      onClick={() => smoothScroll(document.getElementById(`${item.toUpperCase()}__section`), 2000)}
+    <a
+      className="COMMON__navbar_link"
+      onClick={() => smoothScroll(
+        document.getElementById(`${item.toUpperCase()}__section`), 2000
+      )}
     >
       {item}
     </a>
@@ -42,11 +45,18 @@ class Navbar extends React.PureComponent {
     const { items, section, top } = this.props;
     const { toggle } = this.state;
 
+    const navbarClassName = top ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
+    const buttonClassName = toggle ? 'collapsed' : '';
+    const logoClassName = top ? 'green' : 'white';
+    const collapseClassName = toggle ? 'display' : '';
+
     return (
-      <nav className={`COMMON__navbar navbar navbar-fixed-top ${top ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default'}`} role="navigation">
+      <nav className={`COMMON__navbar navbar navbar-fixed-top ${navbarClassName}`} role="navigation">
         <div className="container">
           <div className="COMMON__navbar_header navbar-header">
-            <button type="button" className={`COMMON__navbar_toggle navbar-toggle ${toggle ? 'collapsed' : ''}`}
+            <button
+              className={`COMMON__navbar_toggle navbar-toggle ${buttonClassName}`}
+              type="button"
               onClick={this.onMobileCollapse}
             >
               <span className="sr-only">Toggle navigation</span>
@@ -54,11 +64,14 @@ class Navbar extends React.PureComponent {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <Logo href="/" className={`COMMON__navbar_logo ${top ? 'green' : 'white'}`} />
+            <Logo href="/" className={`COMMON__navbar_logo ${logoClassName}`} />
           </div>
 
-          <div className={`COMMON__navbar-collapse navbar-collapse ${toggle ? 'display' : ''}`} >
-            <ul className="nav navbar-right" onClick={this.onScrollTo}>
+          <div className={`COMMON__navbar-collapse navbar-collapse ${collapseClassName}`} >
+            <ul
+              className="nav navbar-right"
+              onClick={this.onScrollTo}
+            >
               {items.map(item => (
                 <NavbarItem item={item} section={section} />
               ))}

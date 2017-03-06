@@ -14,15 +14,23 @@ const Footer = ({
       <i className="fa fa-fw" dangerouslySetInnerHTML={{ __html: copy }} />
       <a style={{ marginRight: '0.75em' }}>2015 - {year}</a>
       Designed, built & managed by
-      <a href="https://t47.io/" rel="noopener" className="green-white" dangerouslySetInnerHTML={{ __html: logo }} />
+      <a
+        href="https://t47.io/"
+        rel="noopener" className="green-white"
+        dangerouslySetInnerHTML={{ __html: logo }}
+      />
       . All rights reserverd.
     </p>
     <p>
       Code and content on this site is licensed under
-      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank" rel="noopener noreferrer external">
+      <a
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+        target="_blank" rel="noopener noreferrer external"
+      >
         <i className="fa fa-fw" dangerouslySetInnerHTML={{ __html: cc }} />
         BY-NC-SA 4.0
-      </a>.
+      </a>
+      .
     </p>
   </footer>
 );

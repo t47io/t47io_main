@@ -11,7 +11,8 @@ const PubsYearPanel = ({
   items,
 }) => (
   <div className="row PUBS__row">
-    <SparkScroll.div className="col-lg-1 col-md-1 col-sm-2 col-xs-3 PUBS__year"
+    <SparkScroll.div
+      className="col-lg-1 col-md-1 col-sm-2 col-xs-3 PUBS__year"
       timeline={tween.year}
     >
       {year}

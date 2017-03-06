@@ -54,6 +54,7 @@ class ContactForm extends React.PureComponent {
 
   render() {
     const { isSending, isError, isSuccess } = this.state;
+    const btnClassName = isError ? 'danger' : 'default';
     let icon = 'fa-mail';
     if (isSending) {
       icon = 'fa-cog fa-spin';
@@ -64,46 +65,57 @@ class ContactForm extends React.PureComponent {
     }
 
     return (
-      <form className="CONTACT__form"
+      <form
+        className="CONTACT__form"
         onSubmit={this.onSubmit}
       >
-        <SparkScroll.div className="form-group"
+        <SparkScroll.div
+          className="form-group"
           timeline={tween.formRight}
         >
-          <input type="text" name="name" placeholder="Your Name" required
+          <input
+            type="text" name="name" placeholder="Your Name" required
             className="form-control input-lg"
             ref={(input) => { this.input.name = input; }}
           />
         </SparkScroll.div>
-        <SparkScroll.div className="form-group"
+        <SparkScroll.div
+          className="form-group"
           timeline={tween.formRight}
         >
-          <input type="email" name="email" placeholder="E-mail" required
+          <input
+            type="email" name="email" placeholder="E-mail" required
             className="form-control input-lg"
             ref={(input) => { this.input.email = input; }}
           />
         </SparkScroll.div>
-        <SparkScroll.div className="form-group"
+        <SparkScroll.div
+          className="form-group"
           timeline={tween.formRight}
         >
-          <input type="text" name="subject" placeholder="Subject" required
+          <input
+            type="text" name="subject" placeholder="Subject" required
             className="form-control input-lg"
             ref={(input) => { this.input.subject = input; }}
           />
         </SparkScroll.div>
-        <SparkScroll.div className="form-group"
+        <SparkScroll.div
+          className="form-group"
           timeline={tween.formRight}
         >
-          <textarea name="message"rows="5" placeholder="Message" required
+          <textarea
+            name="message"rows="5" placeholder="Message" required
             className="form-control input-lg"
             ref={(input) => { this.input.message = input; }}
           />
         </SparkScroll.div>
-        <SparkScroll.div className="form-group"
+        <SparkScroll.div
+          className="form-group"
           timeline={tween.formRight}
         >
-          <button type="submit" disabled={isSending}
-            className={`btn btn-${isError ? 'danger' : 'default'} btn-block`}
+          <button
+            type="submit" disabled={isSending}
+            className={`btn btn-${btnClassName} btn-block`}
           >
             <i className={`fa ${icon} fa-lg fa-fw`} />
             SEND

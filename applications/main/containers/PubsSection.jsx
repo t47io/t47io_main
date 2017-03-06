@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 
-import SectionHeader from '../../common/components/Header.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PubsYearPanel from '../components/PubsYearPanel.jsx';
 
 import { pubs as tween } from '../js/tweens.js';
@@ -14,7 +14,8 @@ const PubsSection = ({
 }) => (
   <section id="PUBS__section">
     <div className="UTIL__spacer-md PUBS__trigger" />
-    <SectionHeader title="my research" subtitle="what I published"
+    <SectionHeader
+      title="my research" subtitle="what I published"
       proxyId="PUBS__header"
       tween={tween.header}
     />
@@ -33,14 +34,18 @@ const PubsSection = ({
               <i className="fa fa-fw fa-search fa-stack-1x text-white" />
             </span>
             Find more on
-            <a href={links.googleScholar} target="_blank" rel="noopener noreferrer external"
+            <a
+              href={links.googleScholar}
+              target="_blank" rel="noopener noreferrer external"
               className="PUBS__link"
             >
               Google Scholar
               <i className="fa fa-fw fa-sm fa-link-ext" />
             </a>
             and
-            <a href={links.pubmed} target="_blank" rel="noopener noreferrer external"
+            <a
+              href={links.pubmed}
+              target="_blank" rel="noopener noreferrer external"
               className="PUBS__link"
             >
               PubMed

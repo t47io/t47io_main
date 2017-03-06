@@ -1,7 +1,7 @@
 import React from 'react';
 import { SparkProxy } from '../../common/js/factory.js';
 
-import SectionHeader from '../../common/components/Header.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PortfolioFilterItem from '../components/PortfolioFilterItem.jsx';
 import PortfolioItem from '../components/PortfolioItem.jsx';
 
@@ -38,10 +38,12 @@ class PortfolioSection extends React.PureComponent {
     return (
       <section id="PORTFOLIO__section">
         <div className="PORTFOLIO__trigger">
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+          <div
+            className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
             style={{ padding: '0' }}
           >
-            <SectionHeader title="my works" subtitle="what I am proud of"
+            <SectionHeader
+              title="my works" subtitle="what I am proud of"
               proxyId="PORTFOLIO__header"
               tween={tween.header}
             />
@@ -58,7 +60,9 @@ class PortfolioSection extends React.PureComponent {
               <div className="PORTFOLIO__menu">
                 <SparkProxy.ul proxyId="PORTFOLIO__menu">
                   {category.map((name, i) => (
-                    <PortfolioFilterItem name={name} index={i} filter={filter}
+                    <PortfolioFilterItem
+                      name={name} index={i}
+                      filter={filter}
                       onClick={this.onFilter}
                     />
                   ))}

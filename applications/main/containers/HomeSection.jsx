@@ -43,13 +43,20 @@ class HomeSection extends React.PureComponent {
 
 
   render() {
+    const shadeAlpha = this.state.isShade ? 0.5 : 0.25;
+    const avatarStyle = this.state.isName ? tween.name.end : tween.name.start;
+    const blinkClassName = this.state.isBlink ? 'blink' : '';
+    const cursorChar = (this.state.isShade && this.state.isName) ? '|' : '';
+
     return (
       <section id="HOME__section">
-        <div className="UTIL__parallax"
+        <div
+          className="UTIL__parallax"
           style={{ backgroundImage: `url(${this.bgImage})` }}
         >
-          <img alt="T47 Avatar"
+          <img
             src={this.bgImage}
+            alt="T47 Avatar"
             style={{ display: 'none' }}
             onLoad={this.onLoad}
           />
@@ -58,31 +65,36 @@ class HomeSection extends React.PureComponent {
         {/* <ImageLoader extraClassName="UTIL__parallax"
            tinySrc={require('../images/t47_avatar@x.jpg')}
            fullSrc={require('../images/t47_avatar.jpg')} /> */}
-        <div className="UTIL__cover HOME__shade"
-          style={{ backgroundColor: `rgba(0, 7, 11, ${this.state.isShade ? 0.5 : 0.25})` }}
+        <div
+          className="UTIL__cover HOME__shade"
+          style={{ backgroundColor: `rgba(0, 7, 11, ${shadeAlpha})` }}
         />
 
         <div className="container">
-          <SparkScroll.div className="HOME__content text-white"
+          <SparkScroll.div
+            className="HOME__content text-white"
             proxy="ABOUT__header"
             timeline={tween.fade}
           >
-            <img alt="Siqi Tian" width="480"
-              className="HOME__title"
-              style={this.state.isName ? tween.name.end : tween.name.start}
+            <img
               src={imgName}
+              alt="Siqi Tian" width="480"
+              className="HOME__title"
+              style={avatarStyle}
             />
-            <p className="text-white HOME__placeholder"
+            <p
+              className="text-white HOME__placeholder"
               style={{ marginTop: '-10px' }}
             />
             <p className={`HOME__typewrite text-${this.state.textColor}`}>
               <span dangerouslySetInnerHTML={{ __html: this.state.title }} />
-              <b className={`HOME__cursor ${this.state.isBlink ? 'blink' : ''}`}>
-                {(this.state.isShade && this.state.isName) ? '|' : ''}
+              <b className={`HOME__cursor ${blinkClassName}`}>
+                {cursorChar}
               </b>
             </p>
           </SparkScroll.div>
-          <SparkScroll.div className="HOME__scroll_down"
+          <SparkScroll.div
+            className="HOME__scroll_down"
             proxy="ABOUT__header"
             timeline={tween.fade}
           >

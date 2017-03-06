@@ -6,7 +6,8 @@ const CarouselIndicator = ({
   onClick,
   index,
 }) => (
-  <li className={current === index ? 'active' : ''}
+  <li
+    className={current === index ? 'active' : ''}
     data-slide={index}
     onClick={onClick}
   />

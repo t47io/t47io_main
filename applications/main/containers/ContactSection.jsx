@@ -4,7 +4,7 @@ import {
   SparkProxy,
 } from '../../common/js/factory.js';
 
-import SectionHeader from '../../common/components/Header.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
 import ContactItem from '../components/ContactItem.jsx';
 import ContactForm from '../components/ContactForm.jsx';
@@ -25,16 +25,19 @@ const ContactSection = ({
 
   return (
     <section id="CONTACT__section" className="text-white">
-      <Carousel extraClassName="long"
+      <Carousel
+        extraClassName="long"
         items={background} interval={4000}
       >
         <div className="UTIL__spacer-lg" />
-        <SectionHeader title="contact me" subtitle="let's chat"
+        <SectionHeader
+          title="contact me" subtitle="let's chat"
           proxyId="CONTACT__header"
           tween={tween.header}
         />
 
-        <SparkProxy.div className="container"
+        <SparkProxy.div
+          className="container"
           proxyId="CONTACT__proxy"
         >
           <ul className="CONTACT__social">
@@ -46,14 +49,16 @@ const ContactSection = ({
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <SparkScroll.h4 className="CONTACT__title"
+              <SparkScroll.h4
+                className="CONTACT__title"
                 timeline={tween.listLeft}
               >
                 <i className="fa fa-street-view fa-lg fa-fw" />
                 Find Me
               </SparkScroll.h4>
               <ul className="CONTACT__address">
-                <SparkScroll.li style={{ paddingBottom: '0.8em' }}
+                <SparkScroll.li
+                  style={{ paddingBottom: '0.8em' }}
                   timeline={tween.listLeft}
                 >
                   <i className="fa fa-location fa-lg fa-fw" />
@@ -65,11 +70,14 @@ const ContactSection = ({
                 </SparkScroll.li>
                 <SparkScroll.li timeline={tween.listLeft}>
                   <i className="fa fa-phone fa-lg fa-fw" />
-                  <img className="CONTACT__phone" alt="T47 phone no."
+                  <img
+                    className="CONTACT__phone"
+                    alt="T47 phone no."
                     src={imgPhone}
                   />
                 </SparkScroll.li>
-                <SparkScroll.li style={{ paddingBottom: '0.8em' }}
+                <SparkScroll.li
+                  style={{ paddingBottom: '0.8em' }}
                   timeline={tween.listLeft}
                 >
                   <i className="fa fa-mail-alt fa-lg fa-fw" />
@@ -102,7 +110,8 @@ const ContactSection = ({
             </div>
 
             <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <SparkScroll.h4 className="CONTACT__title"
+              <SparkScroll.h4
+                className="CONTACT__title"
                 timeline={tween.formRight}
               >
                 <i className="fa fa-paper-plane-empty fa-lg fa-fw" />

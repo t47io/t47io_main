@@ -16,7 +16,8 @@ class StatsItem extends React.PureComponent {
 
     return (
       <div className="STATS__item text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
-        <SparkScroll.div className="STATS__counter"
+        <SparkScroll.div
+          className="STATS__counter"
           proxy="STATS__proxy"
           callback={ratio => this.setState({ value: Math.ceil(ratio * value) })}
           timeline={tween.counter(id * 10)}

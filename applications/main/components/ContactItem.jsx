@@ -9,10 +9,13 @@ const ContactItem = ({
   url,
 }) => (
   <li>
-    <a href={url} target="_blank" rel="noopener noreferrer external"
+    <a
+      href={url}
+      target="_blank" rel="noopener noreferrer external"
       className="CONTACT__box text-center"
     >
-      <SparkScroll.span className="CONTACT__icon"
+      <SparkScroll.span
+        className="CONTACT__icon"
         proxy="CONTACT__proxy"
         timeline={tween.icon}
       >

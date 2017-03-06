@@ -26,12 +26,16 @@ const PubsItem = ({
   const urlClass = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
 
   return (
-    <SparkScroll.div className="row PUBS__entry"
+    <SparkScroll.div
+      className="row PUBS__entry"
       timeline={tween.entry}
     >
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
-          <a href={urlExt} target="_blank" rel="noopener noreferrer external">
+          <a
+            href={urlExt}
+            target="_blank" rel="noopener noreferrer external"
+          >
             <div className="SPRITE" data-tip={tag} data-for="PUBS__tooltip">
               <div className={`SPRITE__pubs-${tag}`} />
             </div>
@@ -55,12 +59,16 @@ const PubsItem = ({
             page={page}
             isPreprint={isPreprint}
           />
-          <a {...urlExt} target="_blank" rel="noopener noreferrer external"
+          <a
+            {...urlExt}
+            target="_blank" rel="noopener noreferrer external"
             className={urlClass}
           >
             <i className="fa fa-fwn fa-file-word" />
           </a>
-          <a {...urlPDF} target="_blank" rel="noopener noreferrer external"
+          <a
+            {...urlPDF}
+            target="_blank" rel="noopener noreferrer external"
             className={urlClass}
           >
             <i className="fa fa-fwn fa-file-pdf" />

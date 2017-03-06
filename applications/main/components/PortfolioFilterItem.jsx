@@ -10,11 +10,12 @@ const PortfolioFilterItem = ({
   onClick,
   index,
 }) => (
-  <SparkScroll.li className={name === filter ? 'active' : ''}
+  <SparkScroll.li
+    className={(name === filter) ? 'active' : ''}
     proxy="PORTFOLIO__menu"
     timeline={tween.menu(index * 20)}
   >
-    <a href="#" data-filter={name} onClick={onClick}>
+    <a data-filter={name} onClick={onClick}>
       {name.replace(/-/g, ' ')}
     </a>
   </SparkScroll.li>

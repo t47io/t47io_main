@@ -6,16 +6,16 @@ import '../stylesheets/ScrollTop.scss';
 const ScrollTop = ({
   top,
   bottom,
-}) => (
-  <a href="#HOME__section" className="scrollTop"
-    style={{
-      opacity: top || bottom ? 0 : 1,
-      visibility: (top || bottom) ? 'hidden' : 'visible',
-    }}
-  >
-    <i className="fa fa-up-big fa-fwn fa-lg" />
-  </a>
-);
+}) => {
+  const opacity = (top || bottom) ? 0 : 1;
+  const visibility = (top || bottom) ? 'hidden' : 'visible';
+
+  return (
+    <a href="#HOME__section" className="scrollTop" style={{ opacity, visibility }}>
+      <i className="fa fa-up-big fa-fwn fa-lg" />
+    </a>
+  );
+};
 
 ScrollTop.propTypes = {
   top: React.PropTypes.bool.isRequired,
