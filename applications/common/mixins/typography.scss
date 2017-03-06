@@ -1,6 +1,6 @@
 @import './colors';
-@import '../vendor/font-awesome/fontello-fa';
-@import '../vendor/font-awesome/fa';
+@import '../../vendor/font-awesome/fontello-fa';
+@import '../../vendor/font-awesome/fa';
 
 
 @font-face {
@@ -9,17 +9,17 @@
   font-style: normal;
 
   src: local("Tenor Sans"),
-    url("../common/font/tenor-sans.woff") format("woff");
-    // url("../common/font/tenor-sans.woff2") format("woff2"),
-    // url("../common/font/tenor-sans.ttf") format("truetype"),
-    // url("../common/font/tenor-sans.eot") format("embedded-opentype"),
-    // url("../common/font/tenor-sans.svg#tenor_sansregular") format("svg");
+    url("../font/tenor-sans.woff") format("woff");
+    // url("../font/tenor-sans.woff2") format("woff2"),
+    // url("../font/tenor-sans.ttf") format("truetype"),
+    // url("../font/tenor-sans.eot") format("embedded-opentype"),
+    // url("../font/tenor-sans.svg#tenor_sansregular") format("svg");
 }
 * { font-family: 'Tenor Sans', Helvetica, Arial, sans-serif; }
 
 .text-main { color: #363940; } /* Theme main color */
 .text-white { color: $clr-w; }
-.text-off-white { color: $clr-wo;}
+.text-off-white { color: $clr-wo; }
 .text-dark { color: #000; }
 .text-dark-green { color: $clr-gd;}
 .text-green { color: $clr-g; }

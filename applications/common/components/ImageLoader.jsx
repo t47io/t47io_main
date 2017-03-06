@@ -38,6 +38,7 @@ class ImageLoader extends React.PureComponent {
     );
   }
 }
+
 ImageLoader.propTypes = {
   tinySrc: React.PropTypes.string.isRequired,
   fullSrc: React.PropTypes.string.isRequired,

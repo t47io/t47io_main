@@ -1,0 +1,58 @@
+@import '../mixins/colors';
+@import '../mixins/prefix';
+
+
+.LOAD__container {
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  position: fixed;
+
+  @include flex;
+  @include flex_direction(column);
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  z-index: 99999;
+  background-color: #fff;
+
+  @include transition(1s);
+
+  .LOAD__content {
+    display: inline-block;
+    max-width: 75%;
+    width: 50%;
+    margin-top: 14rem;
+  }
+
+  div.row { margin-top: 4rem; }
+}
+@media only screen and (max-height: 512px) {
+  .LOAD__container {
+    .LOAD__content { margin-top: 6rem; }
+    div.row { margin-top: 0; }
+  }
+}
+@media only screen and (max-width: 512px) {
+  .LOAD__container {
+    .LOAD__content { width: 75%; }
+  }
+}
+
+*, ::before, ::after { box-sizing: border-box; }
+.row {
+  margin: 0 -15px;
+
+  &::before, &::after {
+    display: table;
+    content: "";
+  }
+  &::after { clear: both; }
+}
+.center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+html { font-size: 14px; }
