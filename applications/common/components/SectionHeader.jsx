@@ -4,7 +4,7 @@ import React from 'react';
 //   SparkProxy,
 // } from '../../common/js/factory.js';
 import Scrollspy from './Scrollspy.jsx';
-import Animation from './Animation.jsx';
+// import Animation from './Animation.jsx';
 
 const beginStyle = {
   transform: 'translateY(-100%)',
@@ -20,33 +20,38 @@ class SectionHeader extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { hasAnimated: false };
-    this.onChangeAnimation = this.onChangeAnimation.bind(this);
+    this.onEnableAnimation = this.onEnableAnimation.bind(this);
+    this.onDisableAnimation = this.onDisableAnimation.bind(this);
   }
 
-  onChangeAnimation(bool) {
-    console.log(bool);
-    this.setState({ hasAnimated: bool });
+  onEnableAnimation() {
+    console.log('enable');
+    this.setState({ hasAnimated: true });
+  }
+  onDisableAnimation() {
+    console.log('disable');
+    this.setState({ hasAnimated: false });
   }
 
   render() {
-    const {
-      title,
-      subtitle,
-      // proxyId,
-      // tween,
-    } = this.props;
+    const { title, subtitle } = this.props;
     const { hasAnimated } = this.state;
+    const targetStyle = hasAnimated ? endStyle : beginStyle;
 
     return (
-      <Scrollspy onChangeAnimation={this.onChangeAnimation}>
-        <Animation beginStyle={beginStyle} endStyle={endStyle} hasAnimated={hasAnimated}>
+      <div className="UTIL__section_header">
+        <Scrollspy
+          onEnableAnimation={this.onEnableAnimation}
+          onDisableAnimation={this.onDisableAnimation}
+        />
+        <div style={{ ...targetStyle, transition: 'all 1s ease-in-out' }}>
           <h2>{title}</h2>
           <div className="UTIL__divider" />
           <p className="UTIL__section_subtitle">
             {subtitle}
           </p>
-        </Animation>
-      </Scrollspy>
+        </div>
+      </div>
     );
   }
 }

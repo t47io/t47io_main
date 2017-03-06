@@ -11,30 +11,28 @@ class Scrollspy extends React.PureComponent {
 
   onEnter({ previousPosition, currentPosition }) {
     if (previousPosition === Waypoint.below && currentPosition === Waypoint.inside) {
-      this.props.onChangeAnimation(true);
+      this.props.onEnableAnimation();
     }
   }
   onLeave({ previousPosition, currentPosition }) {
     if (previousPosition === Waypoint.inside && currentPosition === Waypoint.below) {
-      this.props.onChangeAnimation(false);
+      this.props.onDisableAnimation();
     }
   }
 
   render() {
-    console.log(this.props.children);
     return (
       <Waypoint
         onEnter={this.onEnter}
         onLeave={this.onLeave}
-      >
-        {this.props.children}
-      </Waypoint>
+      />
     );
   }
 }
 
 Scrollspy.propTypes = {
-  onChangeAnimation: React.PropTypes.func.isRequired,
+  onEnableAnimation: React.PropTypes.func.isRequired,
+  onDisableAnimation: React.PropTypes.func.isRequired,
 };
 
 
