@@ -11,9 +11,9 @@ const entry = {
     'bootstrap-loader',
     // 'bootstrap-sass-loader!./bootstrap-sass.config.js',
     // 'font-awesome-loader!./font-awesome.config.js',
-    './app/index.jsx',
+    './applications/main/index.jsx',
   ],
-  error: './app/error.jsx',
+  error: './applications/error/index.jsx',
 };
 if (DEBUG) { entry.main.unshift('webpack-hot-middleware/client?reload=true'); }
 

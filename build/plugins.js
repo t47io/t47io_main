@@ -29,7 +29,7 @@ const plugins = (DEBUG) => {
     }),
     new HtmlWebpackPlugin({
       chunks: ['main'],
-      template: `${rootPath}/app/index.html`,
+      template: `${rootPath}/applications/main/index.html`,
       filename: `${rootPath}/public/index.html`,
       inject: false,
       minify: htmlMinify,
@@ -40,7 +40,7 @@ const plugins = (DEBUG) => {
     }),
     new HtmlWebpackPlugin({
       chunks: ['error'],
-      template: `${rootPath}/app/error.html`,
+      template: `${rootPath}/applications/error/index.html`,
       filename: `${rootPath}/public/error.html`,
       inject: false,
       minify: htmlMinify,
@@ -54,7 +54,7 @@ const plugins = (DEBUG) => {
     }),
     new PurifyCSSPlugin({
       paths: [
-        ...(glob.sync(`${rootPath}/app/**/*.{jsx,json,scss}`)),
+        ...(glob.sync(`${rootPath}/applications/**/*.{jsx,json,scss}`)),
         ...(glob.sync(`${rootPath}/public/**/*.html`)),
         `${rootPath}/public/config.json`,
       ],

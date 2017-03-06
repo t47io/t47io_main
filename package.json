@@ -4,7 +4,7 @@
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/eslint/bin/eslint.js app build server webpack.*.js --ext [.jsx,.js]",
+    "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -x babel-node -d 3 -V server/server.js",
     "prebuild": "npm run lint",
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
