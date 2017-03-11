@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Waypoint from 'react-waypoint';
 
 import HomeSection from './HomeSection.jsx';
@@ -14,7 +16,41 @@ import Navbar from '../../common/components/Navbar.jsx';
 import Footer from '../../common/components/Footer.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
 
+import * as homeActions from '../actions/homeActions.js';
+import * as aboutActions from '../actions/aboutActions.js';
+import * as affiliationActions from '../actions/affiliationActions.js';
+import * as portfolioActions from '../actions/portfolioActions.js';
+import * as skillsActions from '../actions/skillsActions.js';
+import * as statsActions from '../actions/statsActions.js';
+import * as pubsActions from '../actions/pubsActions.js';
+import * as contactActions from '../actions/contactActions.js';
+
 import '../stylesheets/index.scss';
+
+
+const mapStateToProps = (state) => {
+  const props = {
+    data: {},
+    animation: {},
+  };
+  Object.keys(state).forEach((key) => {
+    props.data[key] = state[key].data;
+    props.animation[key] = state[key].animation;
+  });
+  return props;
+};
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    home: bindActionCreators(homeActions, dispatch),
+    about: bindActionCreators(aboutActions, dispatch),
+    affiliation: bindActionCreators(affiliationActions, dispatch),
+    portfolio: bindActionCreators(portfolioActions, dispatch),
+    skills: bindActionCreators(skillsActions, dispatch),
+    stats: bindActionCreators(statsActions, dispatch),
+    pubs: bindActionCreators(pubsActions, dispatch),
+    contact: bindActionCreators(contactActions, dispatch),
+  },
+});
 
 
 class Main extends React.PureComponent {
@@ -31,6 +67,10 @@ class Main extends React.PureComponent {
     this.onEnterSection = this.onEnterSection.bind(this);
     this.onScrollNavbar = this.onScrollNavbar.bind(this);
     this.onScrollFooter = this.onScrollFooter.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.actions.home.loadJsonData();
   }
 
   onEnterSection(section) {
@@ -59,7 +99,7 @@ class Main extends React.PureComponent {
   }
 
   render() {
-    const { home, about, affiliation, portfolio, skills, stats, pubs, contact } = this.props;
+    const { home, about, affiliation, portfolio, skills, stats, pubs, contact } = this.props.data;
     const { scroll } = this.state;
 
     return (
@@ -72,7 +112,7 @@ class Main extends React.PureComponent {
         <Waypoint onEnter={() => this.onEnterSection('about')} />
         <Waypoint topOffset="200px" onPositionChange={this.onScrollNavbar} />
         <AboutSection {...about} />
-        <AffiliationSection {...affiliation} />
+        {/*<AffiliationSection {...affiliation} />*/}
 
         <Waypoint onEnter={() => this.onEnterSection('portfolio')} />
         <PortfolioSection {...portfolio} />
@@ -91,15 +131,18 @@ class Main extends React.PureComponent {
   }
 }
 Main.propTypes = {
-  home: React.PropTypes.object.isRequired,
-  about: React.PropTypes.object.isRequired,
-  affiliation: React.PropTypes.object.isRequired,
-  portfolio: React.PropTypes.object.isRequired,
-  skills: React.PropTypes.object.isRequired,
-  stats: React.PropTypes.object.isRequired,
-  pubs: React.PropTypes.object.isRequired,
-  contact: React.PropTypes.object.isRequired,
+  home: React.PropTypes.object,
+  about: React.PropTypes.object,
+  affiliation: React.PropTypes.object,
+  portfolio: React.PropTypes.object,
+  skills: React.PropTypes.object,
+  stats: React.PropTypes.object,
+  pubs: React.PropTypes.object,
+  contact: React.PropTypes.object,
 };
 
 
-export default Main;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main);
