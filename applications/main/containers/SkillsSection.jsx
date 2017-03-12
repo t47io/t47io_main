@@ -35,7 +35,6 @@ const SkillsSection = ({
     <SectionHeader
       title="my skills"
       subtitle="what I learned"
-      proxyId="SKLLLS__header"
       shouldAniamte={header}
       onToggleAnimation={animateHeader}
     />
@@ -90,7 +89,6 @@ SkillsSection.propTypes = {
     animateLeftBars: React.PropTypes.func,
     animateRightBars: React.PropTypes.func,
   }),
-
 };
 
 

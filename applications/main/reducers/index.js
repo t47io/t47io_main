@@ -19,6 +19,15 @@ const crossReducer = (state, action) => {
   Object.keys(newState).forEach((key) => {
     newState[key].data = action.payload[key];
   });
+
+  newState.about.animations.icon = newState.about.data.items.length;
+  newState.portfolio.animations.filter = newState.portfolio.data.categories.length;
+  newState.portfolio.animations.thumbnail = newState.portfolio.data.items.length;
+  newState.skills.animations.left = newState.skills.data.lens.left;
+  newState.skills.animations.right = newState.skills.data.lens.right;
+  newState.pubs.animations.entry = newState.pubs.data.lens;
+
+
   return newState;
 };
 

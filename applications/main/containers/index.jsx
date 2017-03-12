@@ -101,7 +101,7 @@ class Main extends React.PureComponent {
 
   render() {
     const { data, animations, actions } = this.props;
-    const { home, skills, stats, pubs, contact } = data;
+    const { home, stats, contact } = data;
     const { scroll } = this.state;
 
     return (
@@ -137,7 +137,11 @@ class Main extends React.PureComponent {
           actions={actions.skills}
         />
         <StatsSection {...stats} />
-        <PubsSection {...pubs} />
+        <PubsSection
+          data={data.pubs}
+          animations={animations.pubs}
+          actions={actions.pubs}
+        />
 
         <Waypoint onEnter={() => this.onEnterSection('contact')} />
         <ContactSection {...contact} />

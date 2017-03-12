@@ -37,9 +37,14 @@ const concatIndexJSON = (rootPath) => {
     return panelWithOffset;
   });
 
-  let countPubs = 0;
-  Object.keys(pubs.items).forEach((key) => {
-    countPubs += pubs.items[key].items.filter(item => (!item.is_hidden)).length;
+  let pubsCounter = 0;
+  pubs.items = pubs.items.map((year) => {
+    const yearWithOffset = {
+      ...year,
+      offset: pubsCounter,
+    };
+    pubsCounter += year.items.filter(item => (!item.isHidden)).length;
+    return yearWithOffset;
   });
 
   const config = {
@@ -60,12 +65,15 @@ const concatIndexJSON = (rootPath) => {
         ...(stats.items.slice(0, 2)),
         {
           ...(stats.items[2]),
-          value: countPubs,
+          value: pubsCounter,
         },
         ...(stats.items.slice(3)),
       ],
     },
-    pubs,
+    pubs: {
+      ...pubs,
+      lens: pubsCounter,
+    },
     contact: {
       ...contact,
       resume: getResume(rootPath),

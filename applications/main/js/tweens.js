@@ -168,30 +168,6 @@ const stats = {
   },
 };
 
-const pubs = {
-  header,
-  year: {
-    bottomBottom: {
-      transform: 'rotateX(180deg)',
-      ...fadeQuarter,
-    },
-    'bottomPct+75': {
-      transform: 'rotateX(0deg)',
-      ...fadeEnd,
-    },
-  },
-  entry: {
-    topBottom: {
-      transform: 'rotateX(180deg)',
-      ...fadeQuarter,
-    },
-    'topPct+75': {
-      transform: 'rotateX(0deg)',
-      ...fadeEnd,
-    },
-  },
-};
-
 const contact = {
   header,
   icon: {
@@ -232,7 +208,6 @@ export {
   home,
   affiliation,
   stats,
-  pubs,
   contact,
   func,
 };
