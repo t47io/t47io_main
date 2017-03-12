@@ -99,7 +99,8 @@ class Main extends React.PureComponent {
   }
 
   render() {
-    const { home, about, affiliation, portfolio, skills, stats, pubs, contact } = this.props.data;
+    const { data, animation, actions } = this.props;
+    const { home, about, affiliation, portfolio, skills, stats, pubs, contact } = data;
     const { scroll } = this.state;
 
     return (
@@ -111,7 +112,11 @@ class Main extends React.PureComponent {
 
         <Waypoint onEnter={() => this.onEnterSection('about')} />
         <Waypoint topOffset="200px" onPositionChange={this.onScrollNavbar} />
-        <AboutSection {...about} />
+        <AboutSection
+          data={data.about}
+          animation={animation.about}
+          actions={actions.about}
+        />
         {/*<AffiliationSection {...affiliation} />*/}
 
         <Waypoint onEnter={() => this.onEnterSection('portfolio')} />
