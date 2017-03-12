@@ -5,7 +5,8 @@ import { PORTFOLIO } from '../constants/sectionTypes.js';
 const initialState = {
   data: {
     items: [],
-    category: [],
+    categories: [],
+    selectedCategory: 'all',
   },
   animations: {
     header: true,
@@ -43,6 +44,15 @@ const reducer = (state = initialState, { type, payload }) => {
         animations: {
           ...state.animations,
           thumbnail: payload.status,
+        },
+      };
+
+    case actionTypes.CHANGE_PORTFOLIO_FILTER:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          selectedCategory: payload.category,
         },
       };
 

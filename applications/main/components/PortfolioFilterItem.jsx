@@ -3,25 +3,30 @@ import Animation from '../../common/components/Animation.jsx';
 
 
 const PortfolioFilterItem = ({
-  name = '',
-  filter = '',
+  category = '',
+  selectedCategory = 'all',
   shouldAnimate = true,
   onClick = () => {},
-}) => (
-  <Animation
-    tagName="li"
-    className={`PORTFOLIO__filter ${(name === filter) ? 'active' : ''}`}
-    shouldAnimate={shouldAnimate}
-  >
-    <a data-filter={name} onClick={onClick}>
-      {name.replace(/-/g, ' ')}
-    </a>
-  </Animation>
-);
+}) => {
+  const activeClassName = (category === selectedCategory) ? 'active' : '';
+
+  return (
+    <Animation
+      tagName="li"
+      className={`PORTFOLIO__filter ${activeClassName}`}
+      shouldAnimate={shouldAnimate}
+      shouldForceUpdate
+    >
+      <a onClick={onClick}>
+        {category.replace(/-/g, ' ')}
+      </a>
+    </Animation>
+  );
+};
 
 PortfolioFilterItem.propTypes = {
-  name: React.PropTypes.string,
-  filter: React.PropTypes.string,
+  category: React.PropTypes.string,
+  selectedCategory: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,
   onClick: React.PropTypes.func,
 };

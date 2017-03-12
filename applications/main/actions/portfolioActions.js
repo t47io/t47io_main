@@ -31,13 +31,18 @@ const filterCounter = status => ({
 
 export const animateFilters = status => (
   (dispatch, getState) => {
-    const { portfolio: { data: { category } } } = getState();
+    const { portfolio: { data: { categories } } } = getState();
     if (!status) { return dispatch(filterCounter(0)); }
 
     return (() => {
-      for (let i = 0; i < category.length; i += 1) {
+      for (let i = 0; i < categories.length; i += 1) {
         setTimeout(() => dispatch(filterCounter(i + 1)), i * 125);
       }
     })();
   }
 );
+
+export const changeFilter = category => ({
+  type: actionTypes.CHANGE_PORTFOLIO_FILTER,
+  payload: { category },
+});

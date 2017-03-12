@@ -11,21 +11,22 @@ import '../stylesheets/PortfolioSection.scss';
 const PortfolioSection = ({
   data: {
     items = [],
-    category = [],
+    categories = [],
+    selectedCategory = 'all',
   },
   animations: {
     header = true,
-    filter = category.length,
+    filter = categories.length,
     thumbnail = items.length,
   },
   actions: {
     animateHeader = () => {},
     animateFilters = () => {},
     animateThumbnails = () => {},
+    changeFilter = () => {},
   },
 }) => (
   <section id="PORTFOLIO__section">
-    <div className="UTIL__spacer-lg ABOUT__trigger" />
     <SectionHeader
       title="my works"
       subtitle="what I am proud of"
@@ -48,12 +49,13 @@ const PortfolioSection = ({
         <div className="PORTFOLIO__menu">
           <Scrollspy onToggleAnimation={animateFilters} />
           <ul>
-            {category.map((name, i) => (
+            {categories.map((category, i) => (
               <PortfolioFilterItem
-                key={`PORTFOLIO__filter-${i}`}
-                name={name}
+                key={`PORTFOLIO__filter-${category}`}
+                category={category}
+                selectedCategory={selectedCategory}
                 shouldAnimate={i < filter}
-                onClick={() => {}}
+                onClick={() => changeFilter(category)}
               />
             ))}
           </ul>
@@ -65,13 +67,15 @@ const PortfolioSection = ({
             onToggleAnimation={animateThumbnails}
           />
           <div className="PORTFOLIO__div">
-            {items.map((item, i) => (
-              <PortfolioItem
-                key={`PORTFOLIO__item-${i}`}
-                shouldAnimate={i < thumbnail}
-                {...item}
-              />
-            ))}
+            {items.filter(item => (selectedCategory === 'all' || item.category === selectedCategory))
+              .map((item, i) => (
+                <PortfolioItem
+                  key={`PORTFOLIO__item-${item.name}`}
+                  shouldAnimate={i < thumbnail}
+                  {...item}
+                />
+              )
+            )}
           </div>
         </div>
       </div>
@@ -82,7 +86,8 @@ const PortfolioSection = ({
 PortfolioSection.propTypes = {
   data: React.PropTypes.shape({
     items: React.PropTypes.array,
-    category: React.PropTypes.array,
+    categories: React.PropTypes.array,
+    selectedCategory: React.PropTypes.string,
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
@@ -93,6 +98,7 @@ PortfolioSection.propTypes = {
     animateHeader: React.PropTypes.func,
     animateFilters: React.PropTypes.func,
     animateThumbnails: React.PropTypes.func,
+    changeFilter: React.PropTypes.func,
   }),
 };
 
