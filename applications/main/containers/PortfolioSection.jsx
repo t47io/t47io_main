@@ -1,92 +1,99 @@
 import React from 'react';
-import { SparkProxy } from '../../common/js/factory.js';
 
+import Scrollspy from '../../common/components/Scrollspy.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PortfolioFilterItem from '../components/PortfolioFilterItem.jsx';
 import PortfolioItem from '../components/PortfolioItem.jsx';
 
-import { portfolio as tween } from '../js/tweens.js';
-import '../stylesheets/sections/PortfolioSection.scss';
+import '../stylesheets/PortfolioSection.scss';
 
 
-class PortfolioSection extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: this.props.items,
-      filter: 'all',
-    };
+const PortfolioSection = ({
+  data: {
+    items = [],
+    category = [],
+  },
+  animations: {
+    header = true,
+    filter = category.length,
+    thumbnail = items.length,
+  },
+  actions: {
+    animateHeader = () => {},
+    animateFilters = () => {},
+    animateThumbnails = () => {},
+  },
+}) => (
+  <section id="PORTFOLIO__section">
+    <div className="UTIL__spacer-lg ABOUT__trigger" />
+    <SectionHeader
+      title="my works"
+      subtitle="what I am proud of"
+      shouldAniamte={header}
+      onToggleAnimation={animateHeader}
+    />
+    <div
+      className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+      style={{ padding: '0' }}
+    >
+      <p className="text-gray text-center">
+        <span className="fa-stack">
+          <i className="fa fa-fw fa-blank fa-stack-2x text-light-green" />
+          <i className="fa fa-fw fa-mouse-pointer fa-stack-1x text-white" />
+        </span>
+        Click for more details about each <span className="text-green">project</span>.
+      </p>
 
-    this.onFilter = this.onFilter.bind(this);
-  }
+      <div className="PORTFOLIO__area" >
+        <div className="PORTFOLIO__menu">
+          <Scrollspy onToggleAnimation={animateFilters} />
+          <ul>
+            {category.map((name, i) => (
+              <PortfolioFilterItem
+                key={`PORTFOLIO__filter-${i}`}
+                name={name}
+                shouldAnimate={i < filter}
+                onClick={() => {}}
+              />
+            ))}
+          </ul>
+        </div>
 
-  onFilter(e) {
-    e.preventDefault();
-    const filter = e.target.dataset.filter;
-    const items = (filter === 'all') ? this.props.items :
-      this.props.items.filter(item => (item.category === filter));
-    this.setState({
-      items,
-      filter,
-    });
-  }
-
-  render() {
-    const { category } = this.props;
-    const { filter, items } = this.state;
-
-    return (
-      <section id="PORTFOLIO__section">
-        <div className="PORTFOLIO__trigger">
-          <div
-            className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
-            style={{ padding: '0' }}
-          >
-            <SectionHeader
-              title="my works" subtitle="what I am proud of"
-              proxyId="PORTFOLIO__header"
-              tween={tween.header}
-            />
-
-            <p className="text-gray text-center">
-              <span className="fa-stack">
-                <i className="fa fa-fw fa-blank fa-stack-2x text-light-green" />
-                <i className="fa fa-fw fa-mouse-pointer fa-stack-1x text-white" />
-              </span>
-              Click for more details about each <span className="text-green">project</span>.
-            </p>
-
-            <div className="PORTFOLIO__area" >
-              <div className="PORTFOLIO__menu">
-                <SparkProxy.ul proxyId="PORTFOLIO__menu">
-                  {category.map((name, i) => (
-                    <PortfolioFilterItem
-                      name={name} index={i}
-                      filter={filter}
-                      onClick={this.onFilter}
-                    />
-                  ))}
-                </SparkProxy.ul>
-              </div>
-
-              <div className="PORTFOLIO__content">
-                <div className="PORTFOLIO__div">
-                  {items.map((item, i) => (
-                    <PortfolioItem {...item} index={i} key={item.name} />
-                  ))}
-                </div>
-              </div>
-            </div>
+        <div className="PORTFOLIO__content">
+          <Scrollspy
+            delay={500}
+            onToggleAnimation={animateThumbnails}
+          />
+          <div className="PORTFOLIO__div">
+            {items.map((item, i) => (
+              <PortfolioItem
+                key={`PORTFOLIO__item-${i}`}
+                shouldAnimate={i < thumbnail}
+                {...item}
+              />
+            ))}
           </div>
         </div>
-      </section>
-    );
-  }
-}
+      </div>
+    </div>
+  </section>
+);
 
 PortfolioSection.propTypes = {
-  category: React.PropTypes.array,
-  items: React.PropTypes.array,
+  data: React.PropTypes.shape({
+    items: React.PropTypes.array,
+    category: React.PropTypes.array,
+  }),
+  animations: React.PropTypes.shape({
+    header: React.PropTypes.bool,
+    filter: React.PropTypes.number,
+    thumbnail: React.PropTypes.number,
+  }),
+  actions: React.PropTypes.shape({
+    animateHeader: React.PropTypes.func,
+    animateFilters: React.PropTypes.func,
+    animateThumbnails: React.PropTypes.func,
+  }),
 };
 
 

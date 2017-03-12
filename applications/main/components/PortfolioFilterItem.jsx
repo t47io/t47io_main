@@ -1,31 +1,29 @@
 import React from 'react';
-import { SparkScroll } from '../../common/js/factory.js';
-
-import { portfolio as tween } from '../js/tweens.js';
+import Animation from '../../common/components/Animation.jsx';
 
 
 const PortfolioFilterItem = ({
-  name,
-  filter,
-  onClick,
-  index,
+  name = '',
+  filter = '',
+  shouldAnimate = true,
+  onClick = () => {},
 }) => (
-  <SparkScroll.li
-    className={(name === filter) ? 'active' : ''}
-    proxy="PORTFOLIO__menu"
-    timeline={tween.menu(index * 20)}
+  <Animation
+    tagName="li"
+    className={`PORTFOLIO__filter ${(name === filter) ? 'active' : ''}`}
+    shouldAnimate={shouldAnimate}
   >
     <a data-filter={name} onClick={onClick}>
       {name.replace(/-/g, ' ')}
     </a>
-  </SparkScroll.li>
+  </Animation>
 );
 
 PortfolioFilterItem.propTypes = {
   name: React.PropTypes.string,
   filter: React.PropTypes.string,
+  shouldAnimate: React.PropTypes.bool,
   onClick: React.PropTypes.func,
-  index: React.PropTypes.number,
 };
 
 

@@ -1,10 +1,43 @@
+import { toggleHeaderAnimation } from '../../common/actions/sectionHeaderActions.js';
+
 import * as actionTypes from '../constants/actionTypes.js';
+import { PORTFOLIO } from '../constants/sectionTypes.js';
 
 
-export const playHeaderAnimation = () => ({
-  type: actionTypes.PLAY_SCROLL_ANIMATION,
+export const animateHeader = toggleHeaderAnimation.bind(null, PORTFOLIO);
+
+const thumbnailCounter = status => ({
+  type: actionTypes.TOGGLE_PORTFOLIO_THUMBNAIL_ANIMATION,
+  payload: { status },
 });
 
-export const resetHeaderAnimation = () => ({
-  type: actionTypes.RESET_SCOLL_ANIMATION,
+export const animateThumbnails = status => (
+  (dispatch, getState) => {
+    const { portfolio: { data: { items } } } = getState();
+    if (!status) { return dispatch(thumbnailCounter(0)); }
+
+    return (() => {
+      for (let i = 0; i < items.length; i += 1) {
+        setTimeout(() => dispatch(thumbnailCounter(i + 1)), i * 250);
+      }
+    })();
+  }
+);
+
+const filterCounter = status => ({
+  type: actionTypes.TOGGLE_PORTFOLIO_FILTER_ANIMATION,
+  payload: { status },
 });
+
+export const animateFilters = status => (
+  (dispatch, getState) => {
+    const { portfolio: { data: { category } } } = getState();
+    if (!status) { return dispatch(filterCounter(0)); }
+
+    return (() => {
+      for (let i = 0; i < category.length; i += 1) {
+        setTimeout(() => dispatch(filterCounter(i + 1)), i * 125);
+      }
+    })();
+  }
+);

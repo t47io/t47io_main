@@ -9,7 +9,7 @@ import reducer from './reducers/index.js';
 
 const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
-  require('preact/devtools');
+  // require('preact/devtools');
 
   const createLogger = require('redux-logger');
   const logger = createLogger();

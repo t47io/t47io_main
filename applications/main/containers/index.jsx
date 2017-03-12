@@ -5,7 +5,7 @@ import Waypoint from 'react-waypoint';
 
 import HomeSection from './HomeSection.jsx';
 import AboutSection from './AboutSection.jsx';
-import AffiliationSection from './AffiliationSection.jsx';
+// import AffiliationSection from './AffiliationSection.jsx';
 import PortfolioSection from './PortfolioSection.jsx';
 import SkillsSection from './SkillsSection.jsx';
 import StatsSection from './StatsSection.jsx';
@@ -32,11 +32,11 @@ import '../stylesheets/animations.scss';
 const mapStateToProps = (state) => {
   const props = {
     data: {},
-    animation: {},
+    animations: {},
   };
   Object.keys(state).forEach((key) => {
     props.data[key] = state[key].data;
-    props.animation[key] = state[key].animation;
+    props.animations[key] = state[key].animations;
   });
   return props;
 };
@@ -100,8 +100,8 @@ class Main extends React.PureComponent {
   }
 
   render() {
-    const { data, animation, actions } = this.props;
-    const { home, about, affiliation, portfolio, skills, stats, pubs, contact } = data;
+    const { data, animations, actions } = this.props;
+    const { home, skills, stats, pubs, contact } = data;
     const { scroll } = this.state;
 
     return (
@@ -115,13 +115,22 @@ class Main extends React.PureComponent {
         <Waypoint topOffset="200px" onPositionChange={this.onScrollNavbar} />
         <AboutSection
           data={data.about}
-          animation={animation.about}
+          animations={animations.about}
           actions={actions.about}
         />
-        {/*<AffiliationSection {...affiliation} />*/}
+        {/*
+        <AffiliationSection
+          data={data.affiliation}
+          aniamtion={animations.affiliation}
+          acations={actions.affiliation}
+        />*/}
 
         <Waypoint onEnter={() => this.onEnterSection('portfolio')} />
-        <PortfolioSection {...portfolio} />
+        <PortfolioSection
+          data={data.portfolio}
+          animations={animations.portfolio}
+          actions={actions.portfolio}
+        />
         <SkillsSection {...skills} />
         <StatsSection {...stats} />
         <PubsSection {...pubs} />
@@ -136,15 +145,11 @@ class Main extends React.PureComponent {
     );
   }
 }
+
 Main.propTypes = {
-  home: React.PropTypes.object,
-  about: React.PropTypes.object,
-  affiliation: React.PropTypes.object,
-  portfolio: React.PropTypes.object,
-  skills: React.PropTypes.object,
-  stats: React.PropTypes.object,
-  pubs: React.PropTypes.object,
-  contact: React.PropTypes.object,
+  data: React.PropTypes.object,
+  animations: React.PropTypes.object,
+  actions: React.PropTypes.object,
 };
 
 

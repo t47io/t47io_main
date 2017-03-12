@@ -17,8 +17,8 @@ export const animateIcons = status => (
     if (!status) { return dispatch(iconCounter(0)); }
 
     return (() => {
-      for (let i = 1; i < items.length + 1; i += 1) {
-        setTimeout(() => dispatch(iconCounter(i)), i * 250);
+      for (let i = 0; i < items.length; i += 1) {
+        setTimeout(() => dispatch(iconCounter(i + 1)), i * 250);
       }
     })();
   }

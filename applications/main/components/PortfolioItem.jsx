@@ -1,29 +1,19 @@
 import React from 'react';
-import {
-  SparkScroll,
-  SparkProxy,
-} from '../../common/js/factory.js';
 
-import { portfolio as tween } from '../js/tweens.js';
+import Animation from '../../common/components/Animation.jsx';
 
 
 const PortfolioItem = ({
-  name,
-  category,
-  description,
-  title,
-  url,
-  index,
+  name = '',
+  description = '',
+  title = '',
+  url = '',
+  shouldAnimate = true,
 }) => (
-  <SparkProxy.div
-    className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry"
-    proxyId={`PORTFOLIO__proxy_${index}`}
-  >
-    <SparkScroll.div
+  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry">
+    <Animation
       className="PORTFOLIO__item"
-      proxy={`PORTFOLIO__proxy_${index}`}
-      data-category={category}
-      timeline={tween.thumbnail}
+      shouldAnimate={shouldAnimate}
     >
       <div className="SPRITE">
         <div className={`SPRITE__portfolio-${name}`} />
@@ -38,17 +28,16 @@ const PortfolioItem = ({
         </a>
         <span dangerouslySetInnerHTML={{ __html: description }} />
       </div>
-    </SparkScroll.div>
-  </SparkProxy.div>
+    </Animation>
+  </div>
 );
 
 PortfolioItem.propTypes = {
   name: React.PropTypes.string,
-  category: React.PropTypes.string,
   description: React.PropTypes.string,
   title: React.PropTypes.string,
   url: React.PropTypes.string,
-  index: React.PropTypes.number,
+  shouldAnimate: React.PropTypes.bool,
 };
 
 

@@ -9,9 +9,9 @@ import '../stylesheets/AboutSection.scss';
 
 const AboutSection = ({
   data: { items = [] },
-  animation: {
+  animations: {
     header = true,
-    icons = items.length,
+    icon = items.length,
   },
   actions: {
     animateHeader = () => {},
@@ -29,15 +29,12 @@ const AboutSection = ({
 
     <div className="ABOUT__content">
       <div className="container">
-        <Scrollspy
-          offset="50%"
-          onToggleAnimation={animateIcons}
-        />
+        <Scrollspy onToggleAnimation={animateIcons} />
         <div className="row">
           {items.map((item, i) => (
             <AboutItem
-              key={i}
-              shouldAnimate={i < icons}
+              key={`ABOUT__icon-${i}`}
+              shouldAnimate={i < icon}
               {...item}
             />
           ))}
@@ -51,11 +48,13 @@ AboutSection.propTypes = {
   data: React.PropTypes.shape({
     items: React.PropTypes.array,
   }),
-  animation: React.PropTypes.shape({
+  animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
+    icon: React.PropTypes.number,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
+    animateIcons: React.PropTypes.func,
   }),
 };
 
