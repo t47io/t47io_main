@@ -1,27 +1,25 @@
 import React from 'react';
-// import { Motion } from 'react-motion';
 
 
 const Animation = ({
-  beginStyle,
-  endStyle,
-  hasAnimated,
+  beginClassName = 'ANIMATION__begin',
+  endClassName = 'ANIMATION__end',
+  shouldAnimate = true,
   children,
 }) => {
-  const targetStyle = hasAnimated ? endStyle : beginStyle;
-  console.log(hasAnimated, targetStyle);
+  const targetClassName = shouldAnimate ? endClassName : beginClassName;
 
   return (
-    <div style={{ ...targetStyle, transition: 'all 2s ease' }}>
+    <div className={targetClassName}>
       {children}
     </div>
   );
 };
 
 Animation.propTypes = {
-  beginStyle: React.PropTypes.object.isRequired,
-  endStyle: React.PropTypes.object.isRequired,
-  hasAnimated: React.PropTypes.bool.isRequired,
+  beginClassName: React.PropTypes.string,
+  endClassName: React.PropTypes.string,
+  shouldAnimate: React.PropTypes.bool,
 };
 
 
