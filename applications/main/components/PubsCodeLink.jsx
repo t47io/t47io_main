@@ -1,7 +1,9 @@
 import React from 'react';
 
 
-const PubsCodeLink = ({ code }) => {
+const PubsCodeLink = ({
+  code = '',
+}) => {
   if (!code) { return null; }
 
   return (

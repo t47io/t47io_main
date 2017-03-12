@@ -1,7 +1,9 @@
 import React from 'react';
 
 
-const PubsCiteElement = ({ citation }) => {
+const PubsCiteElement = ({
+  citation = NaN,
+}) => {
   if (!citation) { return null; }
 
   return (

@@ -2,9 +2,9 @@ import React from 'react';
 
 
 const PubsIssuePage = ({
-  issue,
-  page,
-  isPreprint,
+  issue = '',
+  page = '',
+  isPreprint = false,
 }) => {
   if (isPreprint) {
     return (

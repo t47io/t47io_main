@@ -1,27 +1,48 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 
+import Scrollspy from '../../common/components/Scrollspy.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PubsYearPanel from '../components/PubsYearPanel.jsx';
 
-import { pubs as tween } from '../js/tweens.js';
-import '../stylesheets/sections/PubsSection.scss';
+import '../stylesheets/PubsSection.scss';
 
 
 const PubsSection = ({
-  items,
-  links,
+  data: {
+    items = [],
+    links: {
+      googleScholar = '',
+      pubmed = '',
+    },
+  },
+  animations: {
+    header = true,
+    entry = items.length,
+  },
+  actions: {
+    animateHeader = () => {},
+    animateEntries = () => {},
+  },
 }) => (
   <section id="PUBS__section">
     <div className="UTIL__spacer-md PUBS__trigger" />
     <SectionHeader
-      title="my research" subtitle="what I published"
-      proxyId="PUBS__header"
-      tween={tween.header}
+      title="my research"
+      subtitle="what I published"
+      shouldAniamte={header}
+      onToggleAnimation={animateHeader}
     />
 
     <div className="container">
-      {items.map(item => (<PubsYearPanel {...item} />))}
+      <Scrollspy onToggleAnimation={animateEntries} />
+      {items.map(item => (
+        <PubsYearPanel
+          key={`PUBS__panel-${item.year}`}
+          counter={entry}
+          {...item}
+        />
+      ))}
       <ReactTooltip effect="solid" place="bottom" id="PUBS__tooltip" />
 
       <div className="UTIL__spacer-lg" />
@@ -35,7 +56,7 @@ const PubsSection = ({
             </span>
             Find more on
             <a
-              href={links.googleScholar}
+              href={googleScholar}
               target="_blank" rel="noopener noreferrer external"
               className="PUBS__link"
             >
@@ -44,7 +65,7 @@ const PubsSection = ({
             </a>
             and
             <a
-              href={links.pubmed}
+              href={pubmed}
               target="_blank" rel="noopener noreferrer external"
               className="PUBS__link"
             >
@@ -61,10 +82,20 @@ const PubsSection = ({
 );
 
 PubsSection.propTypes = {
-  items: React.PropTypes.array,
-  links: React.PropTypes.shape({
-    googleScholar: React.PropTypes.string,
-    pubmed: React.PropTypes.string,
+  data: React.PropTypes.shape({
+    items: React.PropTypes.array,
+    links: React.PropTypes.shape({
+      googleScholar: React.PropTypes.string,
+      pubmed: React.PropTypes.string,
+    }),
+  }),
+  animations: React.PropTypes.shape({
+    header: React.PropTypes.bool,
+    entry: React.PropTypes.number,
+  }),
+  actions: React.PropTypes.shape({
+    animateHeader: React.PropTypes.func,
+    animateEntries: React.PropTypes.func,
   }),
 };
 

@@ -1,4 +1,5 @@
 import * as actionTypes from '../constants/actionTypes.js';
+import { PUBS } from '../constants/sectionTypes.js';
 
 
 const initialState = {
@@ -8,15 +9,36 @@ const initialState = {
       googleScholar: '',
       pubmed: '',
     },
+    lens: 0,
   },
-  animation: {
-
+  animations: {
+    header: true,
+    entry: NaN,
   },
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
+const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case actionTypes.TOGGLE_HEADER_ANIMATION:
+      if (payload.section === PUBS) {
+        return {
+          ...state,
+          animations: {
+            ...state.animations,
+            header: payload.status,
+          },
+        };
+      }
+      return state;
 
+    case actionTypes.TOGGLE_PUBS_ENTRY_ANIMATION:
+      return {
+        ...state,
+        animations: {
+          ...state.animations,
+          entry: payload.status,
+        },
+      };
 
     default:
       return state;

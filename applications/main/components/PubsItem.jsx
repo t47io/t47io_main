@@ -1,39 +1,38 @@
 import React from 'react';
-import { SparkScroll } from '../../common/js/factory.js';
 
+import Animation from '../../common/components/Animation.jsx';
 import PubsIssuePage from './PubsIssuePage.jsx';
 import PubsCodeLink from './PubsCodeLink.jsx';
 import PubsCiteElement from './PubsCiteElement.jsx';
 
-import { pubs as tween } from '../js/tweens.js';
-
 
 const PubsItem = ({
-  year,
-  author,
-  title,
-  journal,
-  issue,
-  page,
-  url,
-  code,
-  citation,
-  tag,
-  isPreprint,
+  year = NaN,
+  author = '',
+  title = '',
+  journal = '',
+  issue = '',
+  page = '',
+  url = '',
+  code = '',
+  citation = NaN,
+  tag = '',
+  isPreprint = false,
+  shouldAnimate = true,
 }) => {
   const urlExt = url ? { href: url } : {};
   const urlPDF = isPreprint ? {} : { href: `/pdf/${tag}.pdf` };
   const urlClass = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
 
   return (
-    <SparkScroll.div
+    <Animation
       className="row PUBS__entry"
-      timeline={tween.entry}
+      shouldAnimate={shouldAnimate}
     >
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
           <a
-            href={urlExt}
+            {...urlExt}
             target="_blank" rel="noopener noreferrer external"
           >
             <div className="SPRITE" data-tip={tag} data-for="PUBS__tooltip">
@@ -79,7 +78,7 @@ const PubsItem = ({
         <br className="hidden-lg hidden-md" />
         <hr className="hidden-lg hidden-md" />
       </div>
-    </SparkScroll.div>
+    </Animation>
   );
 };
 
@@ -95,6 +94,7 @@ PubsItem.propTypes = {
   citation: React.PropTypes.number,
   tag: React.PropTypes.string,
   isPreprint: React.PropTypes.bool,
+  shouldAnimate: React.PropTypes.bool,
 };
 
 

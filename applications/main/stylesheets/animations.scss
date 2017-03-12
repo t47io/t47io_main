@@ -50,3 +50,13 @@
     @include transition(1s, $easeInBack);
   }
 }
+
+.PUBS__year.ANIMATION__begin {
+  @include transform(rotateX(90deg) scale(3));
+  opacity: 0.25;
+}
+.PUBS__entry.ANIMATION__begin {
+  @include transform(rotateX(90deg));
+  @include transition(0.5s);
+  opacity: 0.25;
+}
