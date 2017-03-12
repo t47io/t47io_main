@@ -143,71 +143,7 @@ const home = {
   },
 };
 
-const about = {
-  header,
-  icon: offset => ({
-    ease: 'bouncePast',
-    topBottom: {
-      transform: 'rotate(720deg)',
-      ...fadeStart,
-    },
-    [`bottomBottom+${offset}`]: {
-      transform: 'rotate(45deg)',
-      ...fadeEnd,
-    },
-  }),
-};
-
 const affiliation = { header };
-
-const portfolio = {
-  header,
-  menu: offset => ({
-    centerBottom: {
-      transform: 'translateY(100%)',
-      ...fadeStart,
-    },
-    [`bottomBottom+${offset}`]: {
-      transform: 'translateY(0%)',
-      ...fadeEnd,
-    },
-  }),
-  thumbnail: {
-    ease: 'swingFromTo',
-    topBottom: {
-      transform: 'translateY(100%) scale(2)',
-    },
-    bottomBottom: {
-      transform: 'translateY(0%) scale(1)',
-    },
-  },
-};
-
-const skills = {
-  header,
-  progressLeft: {
-    ease: 'easeInBack',
-    topBottom: {
-      transform: 'translateX(-150%) scale(2)',
-      ...fadeQuarter,
-    },
-    'topPct+75': {
-      transform: 'translateX(0%) scale(1)',
-      ...fadeEnd,
-    },
-  },
-  progressRight: {
-    ease: 'easeInBack',
-    topBottom: {
-      transform: 'translateX(150%) scale(2)',
-      ...fadeQuarter,
-    },
-    'topPct+75': {
-      transform: 'translateX(0%) scale(1)',
-      ...fadeEnd,
-    },
-  },
-};
 
 const stats = {
   header,
@@ -294,10 +230,7 @@ const contact = {
 
 export {
   home,
-  about,
   affiliation,
-  portfolio,
-  skills,
   stats,
   pubs,
   contact,

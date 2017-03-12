@@ -1,5 +1,5 @@
-@mixin transition($val) {
-  transition: all $val ease-in-out;   
+@mixin transition($val, $ease: ease-in-out, $property: all) {
+  transition: $property $val $ease;   
 }
 @mixin transform($val) {
   -webkit-transform: $val;

@@ -1,4 +1,5 @@
 @import '../../common/mixins/prefix';
+@import '../../common/mixins/easing';
 
 .ANIMATION__begin { opacity: 0; }
 .ANIMATION__end {
@@ -21,14 +22,31 @@
     @include transform(rotate(360deg));
   }
   &.ANIMATION__end {
-    @include transition(0.5s);
+    @include transition(0.5s, $easeOutBack);
   }
 }
 
-.PORTFOLIO__item.ANIMATION__begin {
-  @include transform(translateY(100%) scale(2));
+.PORTFOLIO__item {
+  &.ANIMATION__begin {
+    @include transform(translateY(100%) scale(2));
+  }
+  &.ANIMATION__end {
+    @include transition(0.5s, $easeInOutBack);
+  }
 }
 .PORTFOLIO__filter.ANIMATION__begin {
   @include transform(translateY(100%));
 }
 
+.SKILLS__progress {
+  &.SKILLS_LEFT.ANIMATION__begin {
+    @include transform(translateX(-150%) scale(2));
+    opacity: 0.25;
+  }
+  &.SKILLS_RIGHT.ANIMATION__begin {
+    @include transform(translateX(150%) scale(2));
+  }
+  &.ANIMATION__end {
+    @include transition(1s, $easeInBack);
+  }
+}
