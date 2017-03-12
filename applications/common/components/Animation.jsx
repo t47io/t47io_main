@@ -2,6 +2,7 @@ import React from 'react';
 
 
 const Animation = ({
+  className = '',
   beginClassName = 'ANIMATION__begin',
   endClassName = 'ANIMATION__end',
   shouldAnimate = true,
@@ -10,13 +11,14 @@ const Animation = ({
   const targetClassName = shouldAnimate ? endClassName : beginClassName;
 
   return (
-    <div className={targetClassName}>
+    <div className={`${className} ${targetClassName}`}>
       {children}
     </div>
   );
 };
 
 Animation.propTypes = {
+  className: React.PropTypes.string,
   beginClassName: React.PropTypes.string,
   endClassName: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,

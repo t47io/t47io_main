@@ -2,8 +2,12 @@ import React from 'react';
 import Waypoint from 'react-waypoint';
 
 
-const Scrollspy = ({ onToggleAnimation }) => (
+const Scrollspy = ({
+  offset = 0,
+  onToggleAnimation = () => {},
+}) => (
   <Waypoint
+    topOffset={`-${offset}`}
     onEnter={({ previousPosition, currentPosition }) => {
       if (previousPosition === Waypoint.below &&
         currentPosition === Waypoint.inside) {
@@ -20,10 +24,11 @@ const Scrollspy = ({ onToggleAnimation }) => (
 );
 
 Scrollspy.propTypes = {
+  offset: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ]),
   onToggleAnimation: React.PropTypes.func,
-};
-Scrollspy.defaultProps = {
-  onToggleAnimation: () => {},
 };
 
 
