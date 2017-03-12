@@ -22,7 +22,7 @@ const PubsIssuePage = ({
 };
 
 PubsIssuePage.propTypes = {
-  issue: React.PropTypes.string.isRequired,
+  issue: React.PropTypes.string,
   page: React.PropTypes.string,
   isPreprint: React.PropTypes.bool,
 };

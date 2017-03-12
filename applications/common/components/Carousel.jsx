@@ -49,9 +49,9 @@ class Carousel extends React.PureComponent {
 }
 
 Carousel.propTypes = {
-  items: React.PropTypes.array.isRequired,
-  extraClassName: React.PropTypes.string.isRequired,
-  interval: React.PropTypes.number.isRequired,
+  items: React.PropTypes.array,
+  extraClassName: React.PropTypes.string,
+  interval: React.PropTypes.number,
 };
 
 

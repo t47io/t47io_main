@@ -5,7 +5,7 @@ import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PubsYearPanel from '../components/PubsYearPanel.jsx';
 
 import { pubs as tween } from '../js/tweens.js';
-import '../stylesheets/PubsSection.scss';
+import '../stylesheets/sections/PubsSection.scss';
 
 
 const PubsSection = ({
@@ -61,10 +61,10 @@ const PubsSection = ({
 );
 
 PubsSection.propTypes = {
-  items: React.PropTypes.array.isRequired,
+  items: React.PropTypes.array,
   links: React.PropTypes.shape({
-    googleScholar: React.PropTypes.string.isRequired,
-    pubmed: React.PropTypes.string.isRequired,
+    googleScholar: React.PropTypes.string,
+    pubmed: React.PropTypes.string,
   }),
 };
 

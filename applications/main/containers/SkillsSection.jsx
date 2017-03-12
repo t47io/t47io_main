@@ -4,7 +4,7 @@ import SectionHeader from '../../common/components/SectionHeader.jsx';
 import SkillsPanel from '../components/SkillsPanel.jsx';
 
 import { skills as tween } from '../js/tweens.js';
-import '../stylesheets/SkillsSection.scss';
+import '../stylesheets/sections/SkillsSection.scss';
 
 
 const SkillsSection = ({ items }) => (
@@ -39,8 +39,8 @@ const SkillsSection = ({ items }) => (
 
 SkillsSection.propTypes = {
   items: React.PropTypes.shape({
-    left: React.PropTypes.array.isRequired,
-    right: React.PropTypes.array.isRequired,
+    left: React.PropTypes.array,
+    right: React.PropTypes.array,
   }),
 };
 

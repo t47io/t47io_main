@@ -84,16 +84,16 @@ const PubsItem = ({
 };
 
 PubsItem.propTypes = {
-  year: React.PropTypes.number.isRequired,
-  author: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  journal: React.PropTypes.string.isRequired,
-  issue: React.PropTypes.string.isRequired,
+  year: React.PropTypes.number,
+  author: React.PropTypes.string,
+  title: React.PropTypes.string,
+  journal: React.PropTypes.string,
+  issue: React.PropTypes.string,
   page: React.PropTypes.string,
   url: React.PropTypes.string,
   code: React.PropTypes.string,
   citation: React.PropTypes.number,
-  tag: React.PropTypes.string.isRequired,
+  tag: React.PropTypes.string,
   isPreprint: React.PropTypes.bool,
 };
 

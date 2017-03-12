@@ -14,9 +14,9 @@ const CarouselIndicator = ({
 );
 
 CarouselIndicator.propTypes = {
-  current: React.PropTypes.number.isRequired,
-  index: React.PropTypes.number.isRequired,
-  onClick: React.PropTypes.func.isRequired,
+  current: React.PropTypes.number,
+  index: React.PropTypes.number,
+  onClick: React.PropTypes.func,
 };
 
 

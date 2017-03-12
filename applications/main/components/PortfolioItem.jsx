@@ -43,12 +43,12 @@ const PortfolioItem = ({
 );
 
 PortfolioItem.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  category: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
+  name: React.PropTypes.string,
+  category: React.PropTypes.string,
+  description: React.PropTypes.string,
+  title: React.PropTypes.string,
   url: React.PropTypes.string,
-  index: React.PropTypes.number.isRequired,
+  index: React.PropTypes.number,
 };
 
 

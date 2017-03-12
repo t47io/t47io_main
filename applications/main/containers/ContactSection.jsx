@@ -10,7 +10,7 @@ import ContactItem from '../components/ContactItem.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 
 import { contact as tween } from '../js/tweens.js';
-import '../stylesheets/ContactSection.scss';
+import '../stylesheets/sections/ContactSection.scss';
 
 const imgPhone = require('../images/t47_phone.png');
 
@@ -128,9 +128,9 @@ const ContactSection = ({
 };
 
 ContactSection.propTypes = {
-  items: React.PropTypes.array.isRequired,
-  background: React.PropTypes.array.isRequired,
-  resume: React.PropTypes.string.isRequired,
+  items: React.PropTypes.array,
+  background: React.PropTypes.array,
+  resume: React.PropTypes.string,
 };
 
 

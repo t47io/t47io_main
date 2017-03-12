@@ -38,10 +38,10 @@ class StatsItem extends React.PureComponent {
 }
 
 StatsItem.propTypes = {
-  id: React.PropTypes.number.isRequired,
-  icon: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  value: React.PropTypes.number.isRequired,
+  id: React.PropTypes.number,
+  icon: React.PropTypes.string,
+  title: React.PropTypes.string,
+  value: React.PropTypes.number,
 };
 
 

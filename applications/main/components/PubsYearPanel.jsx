@@ -26,8 +26,8 @@ const PubsYearPanel = ({
 );
 
 PubsYearPanel.propTypes = {
-  year: React.PropTypes.number.isRequired,
-  items: React.PropTypes.array.isRequired,
+  year: React.PropTypes.number,
+  items: React.PropTypes.array,
 };
 
 

@@ -36,9 +36,9 @@ const Footer = ({
 );
 
 Footer.propTypes = {
-  logo: React.PropTypes.string.isRequired,
-  copy: React.PropTypes.string.isRequired,
-  cc: React.PropTypes.string.isRequired,
+  logo: React.PropTypes.string,
+  copy: React.PropTypes.string,
+  cc: React.PropTypes.string,
 };
 
 

@@ -21,8 +21,8 @@ const NavbarItem = ({
   </li>
 );
 NavbarItem.propTypes = {
-  item: React.PropTypes.string.isRequired,
-  section: React.PropTypes.string.isRequired,
+  item: React.PropTypes.string,
+  section: React.PropTypes.string,
 };
 
 class Navbar extends React.PureComponent {
@@ -84,9 +84,9 @@ class Navbar extends React.PureComponent {
 }
 
 Navbar.propTypes = {
-  items: React.PropTypes.array.isRequired,
-  section: React.PropTypes.string.isRequired,
-  top: React.PropTypes.bool.isRequired,
+  items: React.PropTypes.array,
+  section: React.PropTypes.string,
+  top: React.PropTypes.bool,
 };
 
 

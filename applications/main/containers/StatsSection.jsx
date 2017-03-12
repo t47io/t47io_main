@@ -10,7 +10,7 @@ import Carousel from '../../common/components/Carousel.jsx';
 import StatsItem from '../components/StatsItem.jsx';
 
 import { stats as tween } from '../js/tweens.js';
-import '../stylesheets/StatsSection.scss';
+import '../stylesheets/sections/StatsSection.scss';
 
 
 class StatsSection extends React.PureComponent {
@@ -79,13 +79,13 @@ class StatsSection extends React.PureComponent {
 }
 
 StatsSection.propTypes = {
-  items: React.PropTypes.array.isRequired,
-  background: React.PropTypes.array.isRequired,
+  items: React.PropTypes.array,
+  background: React.PropTypes.array,
   links: React.PropTypes.shape({
-    github: React.PropTypes.string.isRequired,
-    githubMinted: React.PropTypes.string.isRequired,
+    github: React.PropTypes.string,
+    githubMinted: React.PropTypes.string,
   }),
-  gitSvg: React.PropTypes.string.isRequired,
+  gitSvg: React.PropTypes.string,
 };
 
 

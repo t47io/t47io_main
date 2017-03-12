@@ -28,10 +28,10 @@ const AboutItem = ({
 );
 
 AboutItem.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  icon: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string.isRequired,
-  index: React.PropTypes.number.isRequired,
+  title: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  description: React.PropTypes.string,
+  index: React.PropTypes.number,
 };
 
 

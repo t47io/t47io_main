@@ -29,7 +29,7 @@ class AsyncComponent extends React.PureComponent {
 }
 
 AsyncComponent.propTypes = {
-  loader: React.PropTypes.func.isRequired,
+  loader: React.PropTypes.func,
   placeholder: React.PropTypes.string,
 };
 

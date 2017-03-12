@@ -39,17 +39,17 @@ const ErrorPage = ({
 );
 
 ErrorPage.propTypes = {
-  logo: React.PropTypes.string.isRequired,
-  code: React.PropTypes.number.isRequired,
-  color: React.PropTypes.oneOf(['green', 'blue', 'yellow', 'purple', 'red']).isRequired,
-  img: React.PropTypes.string.isRequired,
+  logo: React.PropTypes.string,
+  code: React.PropTypes.number,
+  color: React.PropTypes.oneOf(['green', 'blue', 'yellow', 'purple', 'red']),
+  img: React.PropTypes.string,
   title: React.PropTypes.shape({
-    custom: React.PropTypes.string.isRequired,
-    standard: React.PropTypes.string.isRequired,
+    custom: React.PropTypes.string,
+    standard: React.PropTypes.string,
   }),
   text: React.PropTypes.shape({
-    custom: React.PropTypes.string.isRequired,
-    standard: React.PropTypes.string.isRequired,
+    custom: React.PropTypes.string,
+    standard: React.PropTypes.string,
   }),
 };
 

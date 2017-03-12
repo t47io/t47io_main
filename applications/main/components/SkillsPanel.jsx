@@ -24,11 +24,11 @@ const SkillsPanel = ({
 );
 
 SkillsPanel.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  icon: React.PropTypes.string.isRequired,
-  tag: React.PropTypes.string.isRequired,
-  items: React.PropTypes.array.isRequired,
-  index: React.PropTypes.number.isRequired,
+  title: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  tag: React.PropTypes.string,
+  items: React.PropTypes.array,
+  index: React.PropTypes.number,
 };
 
 

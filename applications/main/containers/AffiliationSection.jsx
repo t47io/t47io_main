@@ -5,7 +5,7 @@ import Carousel from '../../common/components/Carousel.jsx';
 import AffiliationItem from '../components/AffiliationItem.jsx';
 
 import { affiliation as tween } from '../js/tweens.js';
-import '../stylesheets/AffiliationSection.scss';
+import '../stylesheets/sections/AffiliationSection.scss';
 
 
 class AffiliationSection extends React.PureComponent {
@@ -69,8 +69,8 @@ class AffiliationSection extends React.PureComponent {
 }
 
 AffiliationSection.propTypes = {
-  items: React.PropTypes.array.isRequired,
-  background: React.PropTypes.array.isRequired,
+  items: React.PropTypes.array,
+  background: React.PropTypes.array,
 };
 
 

@@ -54,15 +54,15 @@ const AffiliationItem = ({
 };
 
 AffiliationItem.propTypes = {
-  year: React.PropTypes.number.isRequired,
-  title: React.PropTypes.string.isRequired,
-  url: React.PropTypes.string.isRequired,
-  geo: React.PropTypes.string.isRequired,
-  role: React.PropTypes.object.isRequired,
-  rewards: React.PropTypes.array.isRequired,
-  tag: React.PropTypes.string.isRequired,
-  scroll: React.PropTypes.number.isRequired,
-  onPositionChange: React.PropTypes.func.isRequired,
+  year: React.PropTypes.number,
+  title: React.PropTypes.string,
+  url: React.PropTypes.string,
+  geo: React.PropTypes.string,
+  role: React.PropTypes.object,
+  rewards: React.PropTypes.array,
+  tag: React.PropTypes.string,
+  scroll: React.PropTypes.number,
+  onPositionChange: React.PropTypes.func,
 };
 
 

@@ -18,8 +18,8 @@ const ScrollTop = ({
 };
 
 ScrollTop.propTypes = {
-  top: React.PropTypes.bool.isRequired,
-  bottom: React.PropTypes.bool.isRequired,
+  top: React.PropTypes.bool,
+  bottom: React.PropTypes.bool,
 };
 
 

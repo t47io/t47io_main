@@ -16,9 +16,9 @@ const AffiliationRole = ({
 );
 
 AffiliationRole.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  position: React.PropTypes.string.isRequired,
-  team: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string,
+  position: React.PropTypes.string,
+  team: React.PropTypes.string,
 };
 
 

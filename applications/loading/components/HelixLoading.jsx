@@ -25,7 +25,7 @@ const HelixLoading = ({ logo }) => (
 );
 
 HelixLoading.propTypes = {
-  logo: React.PropTypes.string.isRequired,
+  logo: React.PropTypes.string,
 };
 
 

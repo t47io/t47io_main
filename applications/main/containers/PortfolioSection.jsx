@@ -6,7 +6,7 @@ import PortfolioFilterItem from '../components/PortfolioFilterItem.jsx';
 import PortfolioItem from '../components/PortfolioItem.jsx';
 
 import { portfolio as tween } from '../js/tweens.js';
-import '../stylesheets/PortfolioSection.scss';
+import '../stylesheets/sections/PortfolioSection.scss';
 
 
 class PortfolioSection extends React.PureComponent {
@@ -85,8 +85,8 @@ class PortfolioSection extends React.PureComponent {
 }
 
 PortfolioSection.propTypes = {
-  category: React.PropTypes.array.isRequired,
-  items: React.PropTypes.array.isRequired,
+  category: React.PropTypes.array,
+  items: React.PropTypes.array,
 };
 
 

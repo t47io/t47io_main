@@ -22,10 +22,10 @@ const PortfolioFilterItem = ({
 );
 
 PortfolioFilterItem.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  filter: React.PropTypes.string.isRequired,
-  onClick: React.PropTypes.func.isRequired,
-  index: React.PropTypes.number.isRequired,
+  name: React.PropTypes.string,
+  filter: React.PropTypes.string,
+  onClick: React.PropTypes.func,
+  index: React.PropTypes.number,
 };
 
 

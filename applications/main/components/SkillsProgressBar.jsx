@@ -31,10 +31,10 @@ const SkillsProgressBar = ({
 );
 
 SkillsProgressBar.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  value: React.PropTypes.number.isRequired,
-  tag: React.PropTypes.string.isRequired,
-  index: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string,
+  value: React.PropTypes.number,
+  tag: React.PropTypes.string,
+  index: React.PropTypes.string,
 };
 
 

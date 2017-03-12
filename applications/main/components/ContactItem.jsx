@@ -26,8 +26,8 @@ const ContactItem = ({
 );
 
 ContactItem.propTypes = {
-  icon: React.PropTypes.string.isRequired,
-  url: React.PropTypes.string.isRequired,
+  icon: React.PropTypes.string,
+  url: React.PropTypes.string,
 };
 
 
