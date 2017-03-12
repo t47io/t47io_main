@@ -11,3 +11,7 @@ export const CONTACT = 'CONTACT';
 // skills panels
 export const SKILLS_LEFT = 'SKILLS_LEFT';
 export const SKILLS_RIGHT = 'SKILLS_RIGHT';
+
+// contact items
+export const CONTACT_LEFT = 'CONTACT_LEFT';
+export const CONTACT_RIGHT = 'CONTACT_RIGHT';

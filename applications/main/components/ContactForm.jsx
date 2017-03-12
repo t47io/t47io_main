@@ -65,63 +65,73 @@ class ContactForm extends React.PureComponent {
     }
 
     return (
-      <form
-        className="CONTACT__form"
-        onSubmit={this.onSubmit}
-      >
-        <SparkScroll.div
-          className="form-group"
+      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <SparkScroll.h4
+          className="CONTACT__title"
           timeline={tween.formRight}
         >
-          <input
-            type="text" name="name" placeholder="Your Name" required
-            className="form-control input-lg"
-            ref={(input) => { this.input.name = input; }}
-          />
-        </SparkScroll.div>
-        <SparkScroll.div
-          className="form-group"
-          timeline={tween.formRight}
+          <i className="fa fa-paper-plane-empty fa-lg fa-fw" />
+          Keep in Touch
+        </SparkScroll.h4>
+
+        <form
+          className="CONTACT__form"
+          onSubmit={this.onSubmit}
         >
-          <input
-            type="email" name="email" placeholder="E-mail" required
-            className="form-control input-lg"
-            ref={(input) => { this.input.email = input; }}
-          />
-        </SparkScroll.div>
-        <SparkScroll.div
-          className="form-group"
-          timeline={tween.formRight}
-        >
-          <input
-            type="text" name="subject" placeholder="Subject" required
-            className="form-control input-lg"
-            ref={(input) => { this.input.subject = input; }}
-          />
-        </SparkScroll.div>
-        <SparkScroll.div
-          className="form-group"
-          timeline={tween.formRight}
-        >
-          <textarea
-            name="message"rows="5" placeholder="Message" required
-            className="form-control input-lg"
-            ref={(input) => { this.input.message = input; }}
-          />
-        </SparkScroll.div>
-        <SparkScroll.div
-          className="form-group"
-          timeline={tween.formRight}
-        >
-          <button
-            type="submit" disabled={isSending}
-            className={`btn btn-${btnClassName} btn-block`}
+          <SparkScroll.div
+            className="form-group"
+            timeline={tween.formRight}
           >
-            <i className={`fa ${icon} fa-lg fa-fw`} />
-            SEND
-          </button>
-        </SparkScroll.div>
-      </form>
+            <input
+              type="text" name="name" placeholder="Your Name" required
+              className="form-control input-lg"
+              ref={(input) => { this.input.name = input; }}
+            />
+          </SparkScroll.div>
+          <SparkScroll.div
+            className="form-group"
+            timeline={tween.formRight}
+          >
+            <input
+              type="email" name="email" placeholder="E-mail" required
+              className="form-control input-lg"
+              ref={(input) => { this.input.email = input; }}
+            />
+          </SparkScroll.div>
+          <SparkScroll.div
+            className="form-group"
+            timeline={tween.formRight}
+          >
+            <input
+              type="text" name="subject" placeholder="Subject" required
+              className="form-control input-lg"
+              ref={(input) => { this.input.subject = input; }}
+            />
+          </SparkScroll.div>
+          <SparkScroll.div
+            className="form-group"
+            timeline={tween.formRight}
+          >
+            <textarea
+              name="message"rows="5" placeholder="Message" required
+              className="form-control input-lg"
+              ref={(input) => { this.input.message = input; }}
+            />
+          </SparkScroll.div>
+          <SparkScroll.div
+            className="form-group"
+            timeline={tween.formRight}
+          >
+            <button
+              type="submit" disabled={isSending}
+              className={`btn btn-${btnClassName} btn-block`}
+            >
+              <i className={`fa ${icon} fa-lg fa-fw`} />
+              SEND
+            </button>
+          </SparkScroll.div>
+        </form>
+      </div>
     );
   }
 }

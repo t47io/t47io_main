@@ -1,12 +1,12 @@
 import React from 'react';
-import { SparkScroll } from '../../common/js/factory.js';
 
-import { contact as tween } from '../js/tweens.js';
+import Animation from '../../common/components/Animation.jsx';
 
 
 const ContactItem = ({
-  icon,
-  url,
+  icon = '',
+  url = '',
+  shouldAnimate = true,
 }) => (
   <li>
     <a
@@ -14,13 +14,13 @@ const ContactItem = ({
       target="_blank" rel="noopener noreferrer external"
       className="CONTACT__box text-center"
     >
-      <SparkScroll.span
+      <Animation
+        tagName="span"
         className="CONTACT__icon"
-        proxy="CONTACT__proxy"
-        timeline={tween.icon}
+        shouldAnimate={shouldAnimate}
       >
         <i className={`fa fa-${icon}`} />
-      </SparkScroll.span>
+      </Animation>
     </a>
   </li>
 );
@@ -28,6 +28,7 @@ const ContactItem = ({
 ContactItem.propTypes = {
   icon: React.PropTypes.string,
   url: React.PropTypes.string,
+  shouldAnimate: React.PropTypes.bool,
 };
 
 
