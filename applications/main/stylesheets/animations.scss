@@ -1,0 +1,15 @@
+@import '../../common/mixins/prefix';
+
+
+.ABOUT__icon {
+  @include transition(2s);
+
+  &.ANIMATION__begin {
+    @include transform(rotate(360deg));
+    opacity: 0;
+  }
+  &.ANIMATION__end {
+    @include transform(rotate(45deg));
+    opacity: 1;
+  }
+}

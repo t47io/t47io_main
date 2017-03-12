@@ -1,5 +1,5 @@
-@import '../../../common/mixins/colors';
-@import '../../../common/mixins/prefix';
+@import '../../common/mixins/colors';
+@import '../../common/mixins/prefix';
 
 
 .ABOUT__box {
@@ -28,11 +28,11 @@
     margin-bottom: 1em;
 
     @include transform(rotate(45deg));
-    @include transition(0.2s);
+    @include transition(0.25s);
 
     .fa {
       @include transform(rotate(-45deg));
-      @include transition(0.2s);
+      @include transition(0.25s);
     }
 
     &::after {
@@ -50,7 +50,7 @@
 
     &:hover { color: $clr-gl; }
     a {
-      @include transition(0.2s);
+      @include transition(0.25s);
     }
     p {
       line-height: 1.5em;
@@ -62,8 +62,7 @@
     .ABOUT__icon {
       background-color: $clr-gl;
 
-      @include transform(rotate(0deg));
-      @include transition(0.2s);
+      @include transition(0.25s);
 
       .fa {
         -webkit-transform-origin: 50% 50%;
@@ -71,7 +70,7 @@
         -o-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
         @include transform(scale(2, 1.41) rotate(90deg) rotateX(225deg));
-        @include transition(0.2s);
+        @include transition(0.25s);
       }
     }
   }
