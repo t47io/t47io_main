@@ -3,7 +3,8 @@ import React from 'react';
 
 class Animation extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return (nextProps.shouldAnimate !== this.props.shouldAnimate);
+    return (this.props.shouldForceUpdate || nextProps.shouldForceUpdate ||
+      nextProps.shouldAnimate !== this.props.shouldAnimate);
   }
 
   render() {
@@ -31,6 +32,7 @@ Animation.propTypes = {
   beginClassName: React.PropTypes.string,
   endClassName: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,
+  shouldForceUpdate: React.PropTypes.bool,
 };
 
 
