@@ -2,24 +2,12 @@
 
 
 .UTIL__section_header {
+  text-align: center;
   margin: 0 0 4.25em 0;
   padding: 0;
   border: none;
 
   h2 { text-transform: uppercase; }
-
-  & > div {
-    @include transition(1s);
-
-    &.ANIMATION__begin {
-      @include transform(translateY(-100%));
-      opacity: 0;
-    }
-    &.ANIMATION__end {
-      @include transform(translateY(0));
-      opacity: 1;
-    }
-  }
 }
 p.UTIL__section_subtitle {
   letter-spacing: 0.15em;

@@ -12,10 +12,7 @@ const SectionHeader = ({
   onToggleAnimation = () => {},
 }) => (
   <div className="UTIL__section_header">
-    <Scrollspy
-      offset="100%"
-      onToggleAnimation={onToggleAnimation}
-    />
+    <Scrollspy onToggleAnimation={onToggleAnimation} />
     <Animation shouldAnimate={shouldAnimate}>
       <h2>{title}</h2>
       <div className="UTIL__divider" />
