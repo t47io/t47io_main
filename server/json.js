@@ -18,6 +18,25 @@ const getResume = (rootPath) => {
 };
 
 const concatIndexJSON = (rootPath) => {
+  let leftCounter = 0;
+  let rightCounter = 0;
+  skills.items.left = skills.items.left.map((panel) => {
+    const panelWithOffset = {
+      ...panel,
+      offset: leftCounter,
+    };
+    leftCounter += panel.items.length;
+    return panelWithOffset;
+  });
+  skills.items.right = skills.items.right.map((panel) => {
+    const panelWithOffset = {
+      ...panel,
+      offset: rightCounter,
+    };
+    rightCounter += panel.items.length;
+    return panelWithOffset;
+  });
+
   let countPubs = 0;
   Object.keys(pubs.items).forEach((key) => {
     countPubs += pubs.items[key].items.filter(item => (!item.is_hidden)).length;
@@ -28,7 +47,13 @@ const concatIndexJSON = (rootPath) => {
     about,
     affiliation,
     portfolio,
-    skills,
+    skills: {
+      ...skills,
+      lens: {
+        left: leftCounter,
+        right: rightCounter,
+      },
+    },
     stats: {
       ...stats,
       items: [
