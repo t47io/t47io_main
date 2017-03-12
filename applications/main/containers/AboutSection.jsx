@@ -33,7 +33,7 @@ const AboutSection = ({
         <div className="row">
           {items.map((item, i) => (
             <AboutItem
-              key={`ABOUT__icon-${i}`}
+              key={`ABOUT__icon-${item.title}`}
               shouldAnimate={i < icon}
               {...item}
             />

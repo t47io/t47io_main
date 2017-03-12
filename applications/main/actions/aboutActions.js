@@ -13,8 +13,8 @@ const iconCounter = status => ({
 
 export const animateIcons = status => (
   (dispatch, getState) => {
-    const { about: { data: { items } } } = getState();
     if (!status) { return dispatch(iconCounter(0)); }
+    const { about: { data: { items } } } = getState();
 
     return (() => {
       for (let i = 0; i < items.length; i += 1) {

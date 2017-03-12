@@ -6,9 +6,9 @@ const initialState = {
   data: {
     items: [],
   },
-  animation: {
-    header: false,
-    icons: 0,
+  animations: {
+    header: true,
+    icon: NaN,
   },
 };
 
@@ -18,19 +18,20 @@ const reducer = (state = initialState, { type, payload }) => {
       if (payload.section === ABOUT) {
         return {
           ...state,
-          animation: {
-            ...state.animation,
+          animations: {
+            ...state.animations,
             header: payload.status,
           },
         };
       }
+      return state;
 
     case actionTypes.TOGGLE_ABOUT_ICON_ANIMATION:
       return {
         ...state,
-        animation: {
-          ...state.animation,
-          icons: payload.status,
+        animations: {
+          ...state.animations,
+          icon: payload.status,
         },
       };
 
