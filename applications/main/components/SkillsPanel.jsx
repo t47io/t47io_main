@@ -2,13 +2,19 @@ import React from 'react';
 
 import SkillsProgressBar from './SkillsProgressBar.jsx';
 
+import {
+  SKILLS_LEFT,
+  SKILLS_RIGHT,
+} from '../constants/sectionTypes.js';
+
 
 const SkillsPanel = ({
-  title,
-  icon,
-  tag,
-  items,
-  index,
+  title = '',
+  icon = '',
+  items = [],
+  side = SKILLS_LEFT,
+  counter = items.length,
+  offset = 0,
 }) => (
   <div className="SKILLS__chapter">
     <div className="SKILLS__title">
@@ -18,7 +24,12 @@ const SkillsPanel = ({
       </h6>
     </div>
     {items.map((item, i) => (
-      <SkillsProgressBar {...item} tag={tag} index={`${index}-${i}`} />
+      <SkillsProgressBar
+        key={`SKILLS__progress-${side}-${i}`}
+        side={side}
+        shouldAnimate={i + offset < counter}
+        {...item}
+      />
     ))}
   </div>
 );
@@ -26,9 +37,10 @@ const SkillsPanel = ({
 SkillsPanel.propTypes = {
   title: React.PropTypes.string,
   icon: React.PropTypes.string,
-  tag: React.PropTypes.string,
   items: React.PropTypes.array,
-  index: React.PropTypes.number,
+  side: React.PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
+  counter: React.PropTypes.number,
+  offset: React.PropTypes.number,
 };
 
 

@@ -131,7 +131,11 @@ class Main extends React.PureComponent {
           animations={animations.portfolio}
           actions={actions.portfolio}
         />
-        <SkillsSection {...skills} />
+        <SkillsSection
+          data={data.skills}
+          animations={animations.skills}
+          actions={actions.skills}
+        />
         <StatsSection {...stats} />
         <PubsSection {...pubs} />
 
