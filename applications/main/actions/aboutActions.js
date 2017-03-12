@@ -6,15 +6,20 @@ import { ABOUT } from '../constants/sectionTypes.js';
 
 export const animateHeader = toggleHeaderAnimation.bind(null, ABOUT);
 
-export const animateIcons = status => ({
+const iconCounter = status => ({
   type: actionTypes.TOGGLE_ABOUT_ICON_ANIMATION,
   payload: { status },
 });
 
-export const playHeaderAnimation = () => ({
-  type: actionTypes.PLAY_SCROLL_ANIMATION,
-});
+export const animateIcons = status => (
+  (dispatch, getState) => {
+    const { about: { data: { items } } } = getState();
+    if (!status) { return dispatch(iconCounter(0)); }
 
-export const resetHeaderAnimation = () => ({
-  type: actionTypes.RESET_SCOLL_ANIMATION,
-});
+    return (() => {
+      for (let i = 1; i < items.length + 1; i += 1) {
+        setTimeout(() => dispatch(iconCounter(i)), i * 250);
+      }
+    })();
+  }
+);

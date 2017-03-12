@@ -26,6 +26,7 @@ import * as pubsActions from '../actions/pubsActions.js';
 import * as contactActions from '../actions/contactActions.js';
 
 import '../stylesheets/index.scss';
+import '../stylesheets/animations.scss';
 
 
 const mapStateToProps = (state) => {

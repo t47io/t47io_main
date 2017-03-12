@@ -1,16 +1,22 @@
 import React from 'react';
-import { SparkProxy } from '../../common/js/factory.js';
 
+import Scrollspy from '../../common/components/Scrollspy.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import AboutItem from '../components/AboutItem.jsx';
 
-import '../stylesheets/sections/AboutSection.scss';
+import '../stylesheets/AboutSection.scss';
 
 
 const AboutSection = ({
-  data: { items },
-  animation: { header },
-  actions: { animateHeader },
+  data: { items = [] },
+  animation: {
+    header = true,
+    icons = items.length,
+  },
+  actions: {
+    animateHeader = () => {},
+    animateIcons = () => {},
+  },
 }) => (
   <section id="ABOUT__section" className="text-center">
     <div className="UTIL__spacer-lg ABOUT__trigger" />
@@ -23,9 +29,19 @@ const AboutSection = ({
 
     <div className="ABOUT__content">
       <div className="container">
-        <SparkProxy.div className="row" proxyId="ABOUT__proxy">
-          {items.map((item, i) => (<AboutItem {...item} index={i} />))}
-        </SparkProxy.div>
+        <Scrollspy
+          offset="50%"
+          onToggleAnimation={animateIcons}
+        />
+        <div className="row">
+          {items.map((item, i) => (
+            <AboutItem
+              key={i}
+              shouldAnimate={i < icons}
+              {...item}
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -41,15 +57,6 @@ AboutSection.propTypes = {
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
   }),
-};
-AboutSection.defaultProps = {
-  data: { items: [] },
-  animation: {
-    header: true,
-  },
-  actions: {
-    animateHeader: () => {},
-  },
 };
 
 
