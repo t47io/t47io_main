@@ -19,7 +19,7 @@ const ContactList = ({
       <Scrollspy onToggleAnimation={onToggleAnimation} />
       <Animation
         tagName="h4"
-        className="CONTACT__title"
+        className="CONTACT__title CONTACT__list-item"
         shouldAnimate={counter > 0}
       >
         <i className="fa fa-street-view fa-lg fa-fw" />

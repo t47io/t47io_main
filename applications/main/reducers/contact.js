@@ -1,9 +1,5 @@
 import * as actionTypes from '../constants/actionTypes.js';
-import {
-  CONTACT,
-  CONTACT_LEFT,
-  CONTACT_RIGHT,
-} from '../constants/sectionTypes.js';
+import { CONTACT } from '../constants/sectionTypes.js';
 
 
 const initialState = {
@@ -15,6 +11,15 @@ const initialState = {
       left: 0,
       right: 0,
     },
+  },
+  form: {
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    isPending: false,
+    isSuccess: false,
+    isError: false,
   },
   animations: {
     header: true,
@@ -52,8 +57,60 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         animations: {
           ...state.animations,
-          left: (payload.side === CONTACT_LEFT) ? payload.status : state.animations.left,
-          right: (payload.side === CONTACT_RIGHT) ? payload.status : state.animations.right,
+          ...payload,
+        },
+      };
+
+    case actionTypes.CHANGE_CONTACT_FIELD:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          ...payload,
+        },
+      };
+
+    case actionTypes.SUBMIT_CONTACT_EMAIL_RESET:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          isPending: false,
+          isSuccess: false,
+          isError: false,
+        },
+      };
+
+    case actionTypes.SUBMIT_CONTACT_EMAIL_SUCCESS:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          isPending: false,
+          isSuccess: true,
+          isError: false,
+        },
+      };
+
+    case actionTypes.SUBMIT_CONTACT_EMAIL_ERROR:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          isPending: false,
+          isSuccess: false,
+          isError: true,
+        },
+      };
+
+    case actionTypes.SUBMIT_CONTACT_EMAIL_WAIT:
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          isPending: true,
+          isSuccess: false,
+          isError: false,
         },
       };
 

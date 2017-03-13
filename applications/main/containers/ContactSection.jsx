@@ -17,6 +17,15 @@ const ContactSection = ({
     resume = '',
     lens = {},
   },
+  form: {
+    name = '',
+    email = '',
+    subject = '',
+    message = '',
+    isPending = false,
+    isSuccess = false,
+    isError = false,
+  },
   animations: {
     header = true,
     icon = items.length,
@@ -28,6 +37,8 @@ const ContactSection = ({
     animateIcons = () => {},
     animateLeftItems = () => {},
     animateRightItems = () => {},
+    changeEmailField = () => {},
+    submitEmail = () => {},
   },
 }) => (
   <section id="CONTACT__section" className="text-white">
@@ -65,7 +76,19 @@ const ContactSection = ({
             counter={left}
             onToggleAnimation={animateLeftItems}
           />
-          <ContactForm />
+          <ContactForm
+            name={name}
+            email={email}
+            subject={subject}
+            message={message}
+            isPending={isPending}
+            isSuccess={isSuccess}
+            isError={isError}
+            counter={right}
+            onChangeField={changeEmailField}
+            onSubmitForm={submitEmail}
+            onToggleAnimation={animateRightItems}
+          />
         </div>
       </div>
     </Carousel>
@@ -82,6 +105,15 @@ ContactSection.propTypes = {
       right: React.PropTypes.number,
     }),
   }),
+  form: React.PropTypes.shape({
+    name: React.PropTypes.string,
+    email: React.PropTypes.string,
+    subject: React.PropTypes.string,
+    message: React.PropTypes.string,
+    isPending: React.PropTypes.bool,
+    isSuccess: React.PropTypes.bool,
+    isError: React.PropTypes.bool,
+  }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
     icon: React.PropTypes.number,
@@ -90,11 +122,12 @@ ContactSection.propTypes = {
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
-    aniamteIcons: React.PropTypes.func,
+    animateIcons: React.PropTypes.func,
     animateLeftItems: React.PropTypes.func,
     animateRightItems: React.PropTypes.func,
+    changeEmailField: React.PropTypes.func,
+    submitEmail: React.PropTypes.func,
   }),
-
 };
 
 

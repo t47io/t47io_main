@@ -1,140 +1,136 @@
-import 'whatwg-fetch';
 import React from 'react';
-import { SparkScroll } from '../../common/js/factory.js';
 
-import { contact as tween } from '../js/tweens.js';
+import Animation from '../../common/components/Animation.jsx';
+import Scrollspy from '../../common/components/Scrollspy.jsx';
 
 
-class ContactForm extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSending: false,
-      isError: false,
-      isSuccess: false,
-    };
-    this.input = {};
-
-    this.onSubmit = this.onSubmit.bind(this);
+const ContactForm = ({
+  name = '',
+  email = '',
+  subject = '',
+  message = '',
+  isPending = false,
+  isSuccess = false,
+  isError = false,
+  counter = 6,
+  onChangeField = () => {},
+  onSubmitForm = () => {},
+  onToggleAnimation = () => {},
+}) => {
+  const shouldDisableForm = isPending || isError;
+  const btnClassName = isError ? 'danger' : 'default';
+  let btnIconClassName = 'fa-mail';
+  if (isPending) {
+    btnIconClassName = 'fa-cog fa-spin';
+  } else if (isError) {
+    btnIconClassName = 'fa-cancel-circled';
+  } else if (isSuccess) {
+    btnIconClassName = 'fa-ok-circled';
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-    this.setState({
-      ...(this.state),
-      isSending: true,
-    });
+  return (
+    <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <Scrollspy onToggleAnimation={onToggleAnimation} />
+      <Animation
+        tagName="h4"
+        className="CONTACT__title CONTACT__form-item"
+        shouldAnimate={counter > 0}
+      >
+        <i className="fa fa-paper-plane-empty fa-lg fa-fw" />
+        Keep in Touch
+      </Animation>
 
-    fetch('/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: this.input.name.value,
-        email: this.input.email.value,
-        subject: this.input.subject.value,
-        message: this.input.message.value,
-      }),
-    })
-    .then((response) => {
-      this.setState({
-        isSending: false,
-        isError: ([400, 403, 500].indexOf(response.status) !== -1),
-        isSuccess: (response.status === 201),
-      }, () => {
-        if (this.state.isSuccess) { window.location.href = '/send?success=1'; }
-      });
-      setTimeout(() => {
-        this.setState({
-          ...(this.state),
-          isError: false,
-        });
-      }, 5000);
-    });
-  }
-
-  render() {
-    const { isSending, isError, isSuccess } = this.state;
-    const btnClassName = isError ? 'danger' : 'default';
-    let icon = 'fa-mail';
-    if (isSending) {
-      icon = 'fa-cog fa-spin';
-    } else if (isError) {
-      icon = 'fa-cancel-circled';
-    } else if (isSuccess) {
-      icon = 'fa-ok-circled';
-    }
-
-    return (
-      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <SparkScroll.h4
-          className="CONTACT__title"
-          timeline={tween.formRight}
+      <form
+        className="CONTACT__form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSubmitForm();
+        }}
+      >
+        <Animation
+          className="form-group"
+          shouldAnimate={counter > 1}
+          propsForceUpdate={shouldDisableForm}
         >
-          <i className="fa fa-paper-plane-empty fa-lg fa-fw" />
-          Keep in Touch
-        </SparkScroll.h4>
-
-        <form
-          className="CONTACT__form"
-          onSubmit={this.onSubmit}
+          <input
+            className="CONTACT__form-item form-control input-lg"
+            type="text" name="name" placeholder="Your Name"
+            value={name} required
+            disabled={shouldDisableForm}
+            onChange={event => onChangeField({ name: event.target.value })}
+          />
+        </Animation>
+        <Animation
+          className="CONTACT__form-item form-group"
+          shouldAnimate={counter > 2}
+          propsForceUpdate={shouldDisableForm}
         >
-          <SparkScroll.div
-            className="form-group"
-            timeline={tween.formRight}
+          <input
+            className="form-control input-lg"
+            type="email" name="email" placeholder="E-mail"
+            value={email} required
+            disabled={shouldDisableForm}
+            onChange={event => onChangeField({ email: event.target.value })}
+          />
+        </Animation>
+        <Animation
+          className="CONTACT__form-item form-group"
+          shouldAnimate={counter > 3}
+          propsForceUpdate={shouldDisableForm}
+        >
+          <input
+            className="form-control input-lg"
+            type="text" name="subject" placeholder="Subject"
+            value={subject} required
+            disabled={shouldDisableForm}
+            onChange={event => onChangeField({ subject: event.target.value })}
+          />
+        </Animation>
+        <Animation
+          className="CONTACT__form-item form-group"
+          shouldAnimate={counter > 4}
+          propsForceUpdate={shouldDisableForm}
+        >
+          <textarea
+            className="form-control input-lg"
+            name="message" rows="5" placeholder="Message"
+            value={message} required
+            disabled={shouldDisableForm}
+            onChange={event => onChangeField({ message: event.target.value })}
+          />
+        </Animation>
+        <Animation
+          className="CONTACT__form-item form-group"
+          shouldAnimate={counter > 5}
+          propsForceUpdate={`${shouldDisableForm} ${btnClassName} ${btnIconClassName}`}
+        >
+          <button
+            className={`btn btn-${btnClassName} btn-block`}
+            type="submit"
+            disabled={shouldDisableForm}
           >
-            <input
-              type="text" name="name" placeholder="Your Name" required
-              className="form-control input-lg"
-              ref={(input) => { this.input.name = input; }}
-            />
-          </SparkScroll.div>
-          <SparkScroll.div
-            className="form-group"
-            timeline={tween.formRight}
-          >
-            <input
-              type="email" name="email" placeholder="E-mail" required
-              className="form-control input-lg"
-              ref={(input) => { this.input.email = input; }}
-            />
-          </SparkScroll.div>
-          <SparkScroll.div
-            className="form-group"
-            timeline={tween.formRight}
-          >
-            <input
-              type="text" name="subject" placeholder="Subject" required
-              className="form-control input-lg"
-              ref={(input) => { this.input.subject = input; }}
-            />
-          </SparkScroll.div>
-          <SparkScroll.div
-            className="form-group"
-            timeline={tween.formRight}
-          >
-            <textarea
-              name="message"rows="5" placeholder="Message" required
-              className="form-control input-lg"
-              ref={(input) => { this.input.message = input; }}
-            />
-          </SparkScroll.div>
-          <SparkScroll.div
-            className="form-group"
-            timeline={tween.formRight}
-          >
-            <button
-              type="submit" disabled={isSending}
-              className={`btn btn-${btnClassName} btn-block`}
-            >
-              <i className={`fa ${icon} fa-lg fa-fw`} />
-              SEND
-            </button>
-          </SparkScroll.div>
-        </form>
-      </div>
-    );
-  }
-}
+            <i className={`fa ${btnIconClassName} fa-lg fa-fw`} />
+            SEND
+          </button>
+        </Animation>
+      </form>
+    </div>
+  );
+};
+
+ContactForm.propTypes = {
+  name: React.PropTypes.string,
+  email: React.PropTypes.string,
+  subject: React.PropTypes.string,
+  message: React.PropTypes.string,
+  isPending: React.PropTypes.bool,
+  isSuccess: React.PropTypes.bool,
+  isError: React.PropTypes.bool,
+  counter: React.PropTypes.number,
+  onChangeField: React.PropTypes.func,
+  onSubmitForm: React.PropTypes.func,
+  onToggleAnimation: React.PropTypes.func,
+};
 
 
 export default ContactForm;
