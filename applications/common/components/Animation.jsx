@@ -3,8 +3,11 @@ import React from 'react';
 
 class Animation extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return (this.props.shouldForceUpdate || nextProps.shouldForceUpdate ||
-      nextProps.shouldAnimate !== this.props.shouldAnimate);
+    const shouldAnimate = (nextProps.shouldAnimate !== this.props.shouldAnimate);
+    const shouldForceUpdate = this.props.shouldForceUpdate || nextProps.shouldForceUpdate;
+    const propsForceUpdate = (nextProps.propsForceUpdate !== this.props.propsForceUpdate);
+
+    return (shouldAnimate || shouldForceUpdate || propsForceUpdate);
   }
 
   render() {
@@ -33,6 +36,11 @@ Animation.propTypes = {
   endClassName: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,
   shouldForceUpdate: React.PropTypes.bool,
+  propsForceUpdate: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool,
+    React.PropTypes.number,
+  ]),
 };
 
 
