@@ -14,6 +14,11 @@
     border-color: $clr-gl;
     box-shadow: none;
   }
+  &:disabled {
+    background-color: $clr-k;
+    color: $clr-gdd;
+    opacity: 0.5;
+  }
 }
 @media only screen and (max-width : 767px) {
   .form-control { text-align: center; }

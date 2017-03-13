@@ -60,3 +60,28 @@
   @include transition(0.5s);
   opacity: 0.25;
 }
+
+.CONTACT__icon {
+  &.ANIMATION__begin {
+    @include transform(rotateX(180deg) rotate(360deg));
+  }
+  &.ANIMATION__end {
+    @include transition(0.5s, $easeOutBack);
+  }
+}
+.CONTACT__list-item {
+  &.ANIMATION__begin {
+    @include transform(translateX(-100%) translateY(100%));
+  }
+  &.ANIMATION__end {
+    @include transition(0.5s);
+  }
+}
+.CONTACT__form-item{
+  &.ANIMATION__begin {
+    @include transform(translateX(100%) translateY(100%));
+  }
+  &.ANIMATION__end {
+    @include transition(0.5s);
+  }
+}

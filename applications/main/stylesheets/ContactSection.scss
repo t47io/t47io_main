@@ -40,12 +40,12 @@ h4.CONTACT__title {
     margin-top: 0.75em;
     margin-bottom: 1em;
 
-    // @include transform(rotate(45deg));
-    @include transition(0.2s);
+    @include transform(rotate(45deg));
+    @include transition(0.25s);
 
     .fa {
       @include transform(rotate(-45deg));
-      @include transition(0.2s);
+      @include transition(0.25s);
     }
 
     &::after {
@@ -62,8 +62,8 @@ h4.CONTACT__title {
   &:hover {
     .CONTACT__icon {
       background-color: $clr-gl;
-      @include transform(rotate(0deg));
-      @include transition(0.2s);
+
+      @include transition(0.25s);
 
       .fa {
         -webkit-transform-origin: 50% 50%;
@@ -71,7 +71,7 @@ h4.CONTACT__title {
         -o-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
         @include transform(scale(2, 1.41) rotate(90deg) rotateX(225deg));
-        @include transition(0.2s);
+        @include transition(0.25s);
       }
     }
   }
@@ -125,7 +125,7 @@ ul.CONTACT__address {
       padding-top: 1em;
 
       a {
-        @include transition(0.2s);
+        @include transition(0.5s);
       }
 
       &:hover {
