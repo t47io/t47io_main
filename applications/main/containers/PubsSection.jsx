@@ -30,7 +30,7 @@ const PubsSection = ({
     <SectionHeader
       title="my research"
       subtitle="what I published"
-      shouldAniamte={header}
+      shouldAnimate={header}
       onToggleAnimation={animateHeader}
     />
 

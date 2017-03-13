@@ -32,12 +32,14 @@ import '../stylesheets/animations.scss';
 const mapStateToProps = (state) => {
   const props = {
     data: {},
+    form: {},
     animations: {},
   };
   Object.keys(state).forEach((key) => {
     props.data[key] = state[key].data;
     props.animations[key] = state[key].animations;
   });
+  props.form = state.contact.form;
   return props;
 };
 const mapDispatchToProps = dispatch => ({
@@ -100,8 +102,8 @@ class Main extends React.PureComponent {
   }
 
   render() {
-    const { data, animations, actions } = this.props;
-    const { home, stats, contact } = data;
+    const { data, form, animations, actions } = this.props;
+    const { home, stats } = data;
     const { scroll } = this.state;
 
     return (
@@ -144,7 +146,12 @@ class Main extends React.PureComponent {
         />
 
         <Waypoint onEnter={() => this.onEnterSection('contact')} />
-        <ContactSection {...contact} />
+        <ContactSection
+          data={data.contact}
+          form={form}
+          animations={animations.contact}
+          actions={actions.contact}
+        />
 
         <Waypoint onPositionChange={this.onScrollFooter} />
         <Footer />
@@ -156,6 +163,7 @@ class Main extends React.PureComponent {
 
 Main.propTypes = {
   data: React.PropTypes.object,
+  form: React.PropTypes.object,
   animations: React.PropTypes.object,
   actions: React.PropTypes.object,
 };

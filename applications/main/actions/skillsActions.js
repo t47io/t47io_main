@@ -12,10 +12,10 @@ export const animateHeader = toggleHeaderAnimation.bind(null, SKILLS);
 
 const progressBarCounter = (side, status) => ({
   type: actionTypes.TOGGLE_SKILLS_PROGRESSBAR_ANIMATION,
-  payload: { side, status },
+  payload: { [side.slice(7).toLowerCase()]: status },
 });
 
-const aniamteProgressBars = (side, status) => (
+const animateProgressBars = (side, status) => (
   (dispatch, getState) => {
     if (!status) { return dispatch(progressBarCounter(side, 0)); }
     const { skills: { data: { lens } } } = getState();
@@ -29,5 +29,5 @@ const aniamteProgressBars = (side, status) => (
   }
 );
 
-export const animateLeftBars = aniamteProgressBars.bind(null, SKILLS_LEFT);
-export const animateRightBars = aniamteProgressBars.bind(null, SKILLS_RIGHT);
+export const animateLeftBars = animateProgressBars.bind(null, SKILLS_LEFT);
+export const animateRightBars = animateProgressBars.bind(null, SKILLS_RIGHT);

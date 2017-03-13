@@ -30,7 +30,7 @@ const PortfolioSection = ({
     <SectionHeader
       title="my works"
       subtitle="what I am proud of"
-      shouldAniamte={header}
+      shouldAnimate={header}
       onToggleAnimation={animateHeader}
     />
     <div

@@ -168,46 +168,9 @@ const stats = {
   },
 };
 
-const contact = {
-  header,
-  icon: {
-    ease: 'easeInOutBack',
-    centerBottom: {
-      transform: 'rotateX(360deg) rotate(-45deg)',
-      ...fadeQuarter,
-    },
-    'bottomPct+75': {
-      transform: 'rotateX(0deg) rotate(45deg)',
-      ...fadeEnd,
-    },
-  },
-  listLeft: {
-    topBottom: {
-      transform: 'translateX(-100%) translateY(100%)',
-      ...fadeQuarter,
-    },
-    'topPct+75': {
-      transform: 'translateX(0%) translateY(0%)',
-      ...fadeEnd,
-    },
-  },
-  formRight: {
-    topBottom: {
-      transform: 'translateX(100%) translateY(100%)',
-      ...fadeQuarter,
-    },
-    'topPct+75': {
-      transform: 'translateX(0%) translateY(0%)',
-      ...fadeEnd,
-    },
-  },
-};
-
-
 export {
   home,
   affiliation,
   stats,
-  contact,
   func,
 };

@@ -1,9 +1,5 @@
 import * as actionTypes from '../constants/actionTypes.js';
-import {
-  SKILLS,
-  SKILLS_LEFT,
-  SKILLS_RIGHT,
-} from '../constants/sectionTypes.js';
+import { SKILLS } from '../constants/sectionTypes.js';
 
 
 const initialState = {
@@ -12,7 +8,7 @@ const initialState = {
       left: [],
       right: [],
     },
-    length: {
+    lens: {
       left: 0,
       right: 0,
     },
@@ -43,8 +39,7 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         animations: {
           ...state.animations,
-          left: (payload.side === SKILLS_LEFT) ? payload.status : state.animations.left,
-          right: (payload.side === SKILLS_RIGHT) ? payload.status : state.animations.right,
+          ...payload,
         },
       };
 

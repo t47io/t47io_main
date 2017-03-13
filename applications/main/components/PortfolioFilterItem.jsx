@@ -15,7 +15,7 @@ const PortfolioFilterItem = ({
       tagName="li"
       className={`PORTFOLIO__filter ${activeClassName}`}
       shouldAnimate={shouldAnimate}
-      shouldForceUpdate
+      propsForceUpdate={activeClassName}
     >
       <a onClick={onClick}>
         {category.replace(/-/g, ' ')}

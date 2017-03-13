@@ -35,7 +35,7 @@ const SkillsSection = ({
     <SectionHeader
       title="my skills"
       subtitle="what I learned"
-      shouldAniamte={header}
+      shouldAnimate={header}
       onToggleAnimation={animateHeader}
     />
 
