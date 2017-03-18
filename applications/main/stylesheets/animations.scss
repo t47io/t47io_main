@@ -95,3 +95,17 @@
     @include transition(0.5s);
   }
 }
+
+.FOOTER__header {
+  &.ANIMATION__begin {
+    @include transform(translateY(-100%));
+  }
+  &.ANIMATION__end {
+    @include transition(1.25s, $easeInOutCirc);
+  }
+}
+.FOOTTER__city_gif {
+  &.ANIMATION__end {
+    @include transition(0.5s $easeOutQuint);
+  }
+}

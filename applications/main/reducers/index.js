@@ -9,6 +9,7 @@ import skills from './skills.js';
 import stats from './stats.js';
 import pubs from './pubs.js';
 import contact from './contact.js';
+import footer from './footer.js';
 
 import { LOAD_JSON_DATA } from '../constants/actionTypes.js';
 
@@ -42,6 +43,7 @@ const mainReducer = combineReducers({
   stats,
   pubs,
   contact,
+  footer,
 });
 
 
