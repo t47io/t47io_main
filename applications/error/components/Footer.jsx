@@ -4,9 +4,9 @@ import React from 'react';
 const year = (new Date()).getFullYear();
 
 const Footer = ({
-  logo,
-  copy,
-  cc,
+  logo = '',
+  copy = '',
+  cc = '',
 }) => (
   <footer>
     <p>

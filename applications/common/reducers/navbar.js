@@ -10,7 +10,6 @@ const initialState = {
   },
   animations: {
     activeSection: 'home',
-    isTransparent: true,
     isMobileCollapsed: false,
   },
 };

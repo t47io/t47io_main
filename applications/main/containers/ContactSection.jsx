@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ScrollSpy from '../../common/components/ScrollSpy.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
@@ -40,8 +41,10 @@ const ContactSection = ({
     changeEmailField = () => {},
     submitEmail = () => {},
   },
+  onUpdateScroll = () => {},
 }) => (
   <section id="CONTACT__section" className="text-white">
+    <ScrollSpy section="contact" onUpdateScroll={onUpdateScroll} />
     <Carousel
       extraClassName="long"
       items={background}
@@ -128,6 +131,7 @@ ContactSection.propTypes = {
     changeEmailField: React.PropTypes.func,
     submitEmail: React.PropTypes.func,
   }),
+  onUpdateScroll: React.PropTypes.func,
 };
 
 

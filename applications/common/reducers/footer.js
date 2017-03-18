@@ -1,4 +1,4 @@
-import { TOGGLE_FOOTER_ANIMATION } from '../../main/constants/actionTypes.js';
+import { TOGGLE_FOOTER_ANIMATION } from '../constants/actionTypes.js';
 
 const initialState = {
   animations: {

@@ -2,12 +2,12 @@ import React from 'react';
 
 
 const ErrorPage = ({
-  logo,
-  code,
-  color,
-  img,
-  title,
-  text,
+  logo = '',
+  code = 500,
+  color = 'red',
+  img = '',
+  title = {},
+  text = {},
 }) => (
   <div className="LOAD__container">
     <div className="LOAD__content UTIL__image-RNA">

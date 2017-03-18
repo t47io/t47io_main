@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Waypoint from 'react-waypoint';
 
 import HomeSection from './HomeSection.jsx';
 import AboutSection from './AboutSection.jsx';
@@ -14,6 +13,7 @@ import ContactSection from './ContactSection.jsx';
 
 import Navbar from '../../common/components/Navbar.jsx';
 import Footer from '../../common/components/Footer.jsx';
+import ScrollSpy from '../../common/components/ScrollSpy.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
 
 import * as homeActions from '../actions/homeActions.js';
@@ -39,9 +39,7 @@ const mapStateToProps = (state) => {
     animations: {},
   };
   Object.keys(state).forEach((key) => {
-    if (key !== 'footer') {
-      props.data[key] = state[key].data;
-    }
+    props.data[key] = state[key].data;
     props.animations[key] = state[key].animations;
   });
   props.form = state.contact.form;
@@ -65,54 +63,15 @@ const mapDispatchToProps = dispatch => ({
 
 
 class Main extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.setState({
-      scroll: {
-        section: 'home',
-        top: true,
-        bottom: false,
-      },
-    });
-
-    this.onEnterSection = this.onEnterSection.bind(this);
-    this.onScrollNavbar = this.onScrollNavbar.bind(this);
-    this.onScrollFooter = this.onScrollFooter.bind(this);
-  }
-
   componentDidMount() {
     this.props.actions.home.loadJsonData();
-  }
-
-  onEnterSection(section) {
-    this.setState({
-      scroll: {
-        ...(this.state.scroll),
-        section,
-      },
-    });
-  }
-  onScrollNavbar({ currentPosition }) {
-    this.setState({
-      scroll: {
-        ...(this.state.scroll),
-        top: currentPosition === 'inside',
-      },
-    });
-  }
-  onScrollFooter({ currentPosition }) {
-    this.setState({
-      scroll: {
-        ...(this.state.scroll),
-        bottom: currentPosition === 'inside',
-      },
-    });
   }
 
   render() {
     const { data, form, animations, actions } = this.props;
     const { home, stats } = data;
-    const { scroll } = this.state;
+    const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
+    const hideScrollTop = (animations.navbar.activeSection === 'home' || animations.footer.footer);
 
     return (
       <div>
@@ -122,28 +81,35 @@ class Main extends React.PureComponent {
           actions={actions.navbar}
         />
 
-        <Waypoint onEnter={() => this.onEnterSection('home')} />
-        <HomeSection {...home} />
-
-        <Waypoint onEnter={() => this.onEnterSection('about')} />
-        <Waypoint topOffset="200px" onPositionChange={this.onScrollNavbar} />
-        <AboutSection
-          data={data.about}
-          animations={animations.about}
-          actions={actions.about}
+        <ScrollSpy section="home" onUpdateScroll={onUpdateScroll} />
+        <HomeSection
+          {...home}
+          onUpdateScroll={onUpdateScroll}
         />
-        {/*
-        <AffiliationSection
-          data={data.affiliation}
-          aniamtion={animations.affiliation}
-          acations={actions.affiliation}
-        />*/}
 
-        <Waypoint onEnter={() => this.onEnterSection('portfolio')} />
+        <ScrollSpy section="about" onUpdateScroll={onUpdateScroll}>
+          <div>
+            <AboutSection
+              data={data.about}
+              animations={animations.about}
+              actions={actions.about}
+              onUpdateScroll={onUpdateScroll}
+            />
+            {/*
+            <AffiliationSection
+              data={data.affiliation}
+              aniamtion={animations.affiliation}
+              acations={actions.affiliation}
+            />*/}
+          </div>
+        </ScrollSpy>
+
+        <ScrollSpy section="portfolio" onUpdateScroll={onUpdateScroll} />
         <PortfolioSection
           data={data.portfolio}
           animations={animations.portfolio}
           actions={actions.portfolio}
+          onUpdateScroll={onUpdateScroll}
         />
         <SkillsSection
           data={data.skills}
@@ -155,22 +121,25 @@ class Main extends React.PureComponent {
           data={data.pubs}
           animations={animations.pubs}
           actions={actions.pubs}
+          onUpdateScroll={onUpdateScroll}
         />
+        <ScrollSpy section="portfolio" onUpdateScroll={onUpdateScroll} />
 
-        <Waypoint onEnter={() => this.onEnterSection('contact')} />
+        <ScrollSpy section="contact" onUpdateScroll={onUpdateScroll} />
         <ContactSection
           data={data.contact}
           form={form}
           animations={animations.contact}
           actions={actions.contact}
+          onUpdateScroll={onUpdateScroll}
         />
 
-        <Waypoint onPositionChange={this.onScrollFooter} />
         <Footer
           animations={animations.footer}
           actions={actions.footer}
         />
-        <ScrollTop isHidden={scroll.top || scroll.bottom} />
+        <ScrollTop isHidden={hideScrollTop} />
+        <ScrollSpy section="contact" onUpdateScroll={onUpdateScroll} />
       </div>
     );
   }

@@ -1,10 +1,10 @@
 import React from 'react';
-// import { LogoAlt } from '../../common/components/Logo.jsx';
+// import LogoAlt from '../../common/components/LogoAlt.jsx';
 
 // import '../stylesheets/HelixLoading.scss';
 
 
-const HelixLoading = ({ logo }) => (
+const HelixLoading = ({ logo = '' }) => (
   <div className="LOAD__container UTIL__image-RNA">
     <div className="LOAD__content">
       {/* <LogoAlt href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" className="LOAD__logo green-white" /> */}
