@@ -58,7 +58,7 @@
   .AFFILIATION__panel {
     background: #e6e6e6;
     padding: 1.5em;
-    border-left: 5px solid $clr-gl;
+    border-left: 5px solid $colorGreen;
     text-align: left;
     opacity: 0;
     @include transform(matrix(1, 0, 0, 1, -200, 0));
@@ -70,9 +70,9 @@
       @include transform(matrix(1, 0, 0, 1, 0, 0));
     }
     .AFFILIATION__year {
-      color: $clr-gl;
+      color: $colorGreen;
 
-      &::after { background-color: $clr-gl; }
+      &::after { background-color: $colorGreen; }
     }
   }
 }
@@ -86,11 +86,11 @@
   text-align: center;
   padding-left: 4px;
 
-  a { color: $clr-g; }
+  a { color: $colorGreenDark; }
   span {
     font-variant: normal;
     font-size: 0.7em;
-    color: $clr-k;
+    color: $colorGrayDark;
   }
 
   div.SPRITE {
@@ -101,7 +101,7 @@
 .AFFILIATION__year {
   font-size: 2em;
   font-weight: 900;
-  color: $clr-w;
+  color: $colorWhite;
   text-align: right;
   position: absolute;
   width: 14em;
@@ -114,14 +114,14 @@
     height: 0.5em;
     left: 14.8em;
     top: 40%;
-    background: $clr-g;
+    background: $colorGreenDark;
     position: absolute;
     z-index: 6;
     border-radius: 0.5em;
   }
 }
 .AFFILIATION__text {
-  border-left: 2px dashed $clr-kl;
+  border-left: 2px dashed $colorGray;
   padding: 1em;
   /*margin: 10px -15px -15px;*/
   color: #000;

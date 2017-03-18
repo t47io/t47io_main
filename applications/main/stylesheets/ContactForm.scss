@@ -4,19 +4,19 @@
 
 .form-control {
   background-color: rgba(0, 0, 0, 0.5);
-  color: $clr-w;
+  color: $colorWhite;
   border-color: #2A2A2A;
 
   box-shadow: none;
   
   &:focus {
     background-color: rgba(0, 0, 0, 0.75);
-    border-color: $clr-gl;
+    border-color: $colorGreen;
     box-shadow: none;
   }
   &:disabled {
-    background-color: $clr-k;
-    color: $clr-gdd;
+    background-color: $colorGrayDark;
+    color: $colorGreenFull;
     opacity: 0.5;
   }
 }
@@ -37,21 +37,21 @@
 }
 .btn-default {
   &:hover, &:disabled:hover {
-    color: $clr-w;
-    background: $clr-gl;
+    color: $colorWhite;
+    background: $colorGreen;
   } 
   &,
   &:disabled, &.disabled,
   &:focus, &.focus,
   &:active, &.active {
-    background: $clr-g;
-    color: $clr-w;
+    background: $colorGreenDark;
+    color: $colorWhite;
     @include transition(0.6s);
   }
 }
 .btn-primary {
   &:hover, &:disabled:hover {
-    color: $clr-w;
+    color: $colorWhite;
     background: #1867a8;
   } 
   &,
@@ -59,13 +59,13 @@
   &:focus, &.focus,
   &:active, &.active {
     background: #3078b3;
-    color: $clr-w;
+    color: $colorWhite;
     @include transition(0.6s);
   }
 }
 .btn-danger {
   &:hover, &:disabled:hover {
-    color: $clr-w;
+    color: $colorWhite;
     background: #d81508;
   } 
   &,
@@ -73,7 +73,7 @@
   &:focus, &.focus,
   &:active, &.active {
     background: #e7392d;
-    color: $clr-w;
+    color: $colorWhite;
     @include transition(0.6s);
   }
 }

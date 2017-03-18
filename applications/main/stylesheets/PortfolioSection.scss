@@ -16,8 +16,8 @@
       display: inline-block;
 
       &.active a {
-        background: $clr-g;
-        color: $clr-w;
+        background: $colorGreenDark;
+        color: $colorWhite;
         font-weight: 900;
       }
 
@@ -31,8 +31,8 @@
         text-transform: uppercase;
 
         &:hover {
-          background: $clr-gl;
-          color: $clr-w;
+          background: $colorGreen;
+          color: $colorWhite;
         }
       }
     }
@@ -60,7 +60,7 @@
   overflow: hidden;
 
   div.SPRITE {
-    border: 1px solid $clr-kl;
+    border: 1px solid $colorGray;
     margin-left: -1px;
     margin-top: -1px;
     width: 100%;
@@ -96,7 +96,7 @@
       @include transform(scale(1));
 
       a {
-        color: $clr-w;
+        color: $colorWhite;
         display: block;
         font-size: 2em;
         font-weight: 900;
@@ -106,7 +106,7 @@
         font-variant: small-caps;
       }
       span {
-        color: $clr-w;
+        color: $colorWhite;
         font-size: 1.25em;
         font-weight: normal;
         line-height: 1.25em;

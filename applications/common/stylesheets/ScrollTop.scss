@@ -11,8 +11,8 @@
 
   visibility: hidden;
   opacity: 0;
-  color: $clr-gl;
-  border: 2px solid $clr-gl;
+  color: $colorGreen;
+  border: 2px solid $colorGreen;
 
   line-height: 2.5em;
   text-align: center;
@@ -28,6 +28,6 @@
     @include transition(0.5s);
     @include transform(rotate(-45deg) translate(-1px, -0.125em));
   }
-  &:hover { background-color: $clr-gl; }
-  &:hover .fa { color: $clr-w; }
+  &:hover { background-color: $colorGreen; }
+  &:hover .fa { color: $colorWhite; }
 }

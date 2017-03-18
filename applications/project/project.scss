@@ -17,13 +17,13 @@ body { padding: 50px 15px 0px 15px; }
     text-transform: uppercase;
 
     &:hover, &:focus {
-      color: $clr-gdd; 
+      color: $colorGreenFull; 
       text-decoration: none;
       background-color: transparent;
     }
   }
   .active a, .active a:hover, .active a:focus {
-    color: $clr-gdd; 
+    color: $colorGreenFull; 
     text-decoration: none;
     background-color: transparent;
   }
@@ -38,27 +38,27 @@ body { padding: 50px 15px 0px 15px; }
 
   .dropdown-menu {
     padding: 10px 0;
-    border: 1px solid $clr-gl;
-    border-top: 2px solid $clr-gl;
+    border: 1px solid $colorGreen;
+    border-top: 2px solid $colorGreen;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
 
     > li > a {
       padding: 8px 20px;
-      color: $clr-gdd;
+      color: $colorGreenFull;
       text-align: right;
       margin-left: 0px;
       border-radius: 0px;
 
       &:hover, &:focus {
-        background-color: $clr-gll !important; 
+        background-color: $colorGreenFaint !important; 
         font-weight: bold;
       }       
     }
     > li.active > a,
     > li.active > a:hover,
     > li.active > a:focus {
-      color: $clr-w !important;
-      background-color: $clr-gl !important; 
+      color: $colorWhite !important;
+      background-color: $colorGreen !important; 
       font-weight: bold;
     }
 @media only screen and (max-width : 767px) {
@@ -71,7 +71,7 @@ body { padding: 50px 15px 0px 15px; }
 .thumbnail {
   padding: 10px;
   margin-bottom: 20px;
-  background-color: $clr-w;
+  background-color: $colorWhite;
   border: 1px solid #ddd;
   @include transition(0.2s);
 }
@@ -98,15 +98,15 @@ body { padding: 50px 15px 0px 15px; }
   bottom: -25px;
 
   > li {
-    border-color: $clr-kl;
+    border-color: $colorGray;
     border-radius: 0px;
     border-width: 2px;
-    background-color: $clr-kl2;
+    background-color: $colorGrayLight;
     @include transform(rotate(45deg));
 
     &:hover, &.active {
-      border-color: $clr-gl;
-      background-color: $clr-gl2;
+      border-color: $colorGreen;
+      background-color: $$colorGreenFaintight;
     }
   }
 }

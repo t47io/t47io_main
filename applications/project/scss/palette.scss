@@ -2,13 +2,13 @@
 
 
 .label {
-  &.label-green { background-color: $clr-g; }
-  &.label-red { background-color: $clr-r; }
-  &.label-blue { background-color: $clr-c; }
-  &.label-yellow { background-color: $clr-y; }
-  &.label-purple { background-color: $clr-p; }
+  &.label-green { background-color: $colorGreenDark; }
+  &.label-red { background-color: $colorRed; }
+  &.label-blue { background-color: $colorCyan; }
+  &.label-yellow { background-color: $colorYellow; }
+  &.label-purple { background-color: $colorPurple; }
   &.label-gray { 
-    background-color: $clr-k; 
+    background-color: $colorGrayDark; 
     color: #000;
   }
 }

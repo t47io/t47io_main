@@ -1,9 +1,8 @@
-@import '../../common/mixins/colors';
 @import '../../common/mixins/palette';
 @import '../../common/mixins/prefix';
 
 
-$list-clr: $clr-k, $clr-g, $clr-r, $clr-c, $clr-y, $clr-p, $clr-g, $clr-k, $clr-c, $clr-r, $clr-p, $clr-y;
+$list-clr: $colorGray, $colorGreen, $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGreen, $colorGray, $colorCyan, $colorRed, $colorPurple, $colorYellow;
 
 
 @mixin transform($val) {

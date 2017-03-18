@@ -23,8 +23,8 @@
     line-height: 2.25em;
     text-align: center;
 
-    color: $clr-w;
-    background-color: $clr-g;
+    color: $colorWhite;
+    background-color: $colorGreenDark;
     margin-bottom: 1em;
 
     @include transform(rotate(45deg));
@@ -42,13 +42,13 @@
       right: 3px;
       bottom: 3px;
       left: 3px;
-      border: 2px solid $clr-w;
+      border: 2px solid $colorWhite;
     }
   }
   .ABOUT__text {
     margin-top: 2em;
 
-    &:hover { color: $clr-gl; }
+    &:hover { color: $colorGreen; }
     a {
       @include transition(0.25s);
     }
@@ -60,7 +60,7 @@
 
   &:hover {
     .ABOUT__icon {
-      background-color: $clr-gl;
+      background-color: $colorGreen;
 
       @include transition(0.25s);
 

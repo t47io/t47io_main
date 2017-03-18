@@ -20,7 +20,7 @@
   .COMMON__carousel_indicators {
     li {
       margin: 0 0.5rem;
-      border: 3px solid $clr-kl;
+      border: 3px solid $colorGray;
       border-radius: 0;
       width: 1rem;
       height: 1rem;
@@ -29,7 +29,7 @@
       @include transform(rotate(45deg));
 
       &.active {
-        border: 3px solid $clr-gl;
+        border: 3px solid $colorGreen;
         background-color: transparent;
         opacity: 0.75;
       }

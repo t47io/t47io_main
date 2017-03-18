@@ -40,23 +40,23 @@
 }
 
 .COMMON__navbar-default {
-  background-color: $clr-g;
+  background-color: $colorGreenDark;
   z-index: 9999;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 
   li {
     a.COMMON__navbar_link {
-      color: $clr-gll;
+      color: $colorGreenFaint;
       background-color: transparent;
 
       padding: 24px 0;
     }
     &.active a.COMMON__navbar_link {
-      color: $clr-w;
+      color: $colorWhite;
 
-      box-shadow: inset 0 3px $clr-w;
+      box-shadow: inset 0 3px $colorWhite;
     }
-    &:hover a.COMMON__navbar_link { color: $clr-w; }
+    &:hover a.COMMON__navbar_link { color: $colorWhite; }
   }
 }
 .COMMON__navbar-transparent {
@@ -67,14 +67,14 @@
 
   li {
     a.COMMON__navbar_link {
-      color: $clr-w;
+      color: $colorWhite;
       background-color: transparent;
     }
 
     &:hover {
       background-color: transparent;
 
-      a.COMMON__navbar_link { color: $clr-gl; }
+      a.COMMON__navbar_link { color: $colorGreen; }
     }
   }
 }
@@ -86,8 +86,8 @@
     float: right;
     text-align: center;
 
-    background-color: $clr-gl;
-    border-top: 2px solid $clr-w;
+    background-color: $colorGreen;
+    border-top: 2px solid $colorWhite;
     padding: 0;
     margin: 0 -15px;
 
@@ -120,8 +120,8 @@
   }
   .COMMON__navbar-transparent li { 
     &.active {
-      a { color: $clr-gdd; }
-      a:hover, a:focus { color: $clr-w; }
+      a { color: $colorGreenFull; }
+      a:hover, a:focus { color: $colorWhite; }
     }
     &:hover { background-color: rgba(0, 0, 0, 0.25); }
   }

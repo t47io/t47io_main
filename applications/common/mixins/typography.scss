@@ -18,14 +18,14 @@
 * { font-family: 'Tenor Sans', Helvetica, Arial, sans-serif; }
 
 .text-main { color: #363940; } /* Theme main color */
-.text-white { color: $clr-w; }
-.text-off-white { color: $clr-wo; }
+.text-white { color: $colorWhite; }
+.text-off-white { color: $colorGrayLight; }
 .text-dark { color: #000; }
-.text-dark-green { color: $clr-gd;}
-.text-green { color: $clr-g; }
-.text-light-green { color: $clr-gl; }
-.text-gray { color: $clr-k; }
-.text-light-gray { color: $clr-kl; }
+.text-dark-green { color: $colorGreenHeavy;}
+.text-green { color: $colorGreenDark; }
+.text-light-green { color: $colorGreen; }
+.text-gray { color: $colorGrayDark; }
+.text-light-gray { color: $colorGray; }
 
 .bg-light-green,
 .bg-light-gray,
@@ -33,16 +33,16 @@
   padding: 0;
   border-radius: 0.25em;
 }
-.bg-light-green { background-color: $clr-go; }
-.bg-light-gray { background-color: $clr-kll; }
+.bg-light-green { background-color: $colorGreenNone; }
+.bg-light-gray { background-color: $colorGrayLight; }
 .bg-black { background-color: rgba(0, 7, 11, 0.5); }
 
 
 a {
-  color: $clr-g;
+  color: $colorGreenDark;
 
   &:hover, &:focus {
-    color: $clr-gl;
+    color: $colorGreen;
     text-decoration: none;
   }
 }

@@ -6,20 +6,20 @@
   .STATS__counter {
     padding-bottom: 2.25em;
 
-    &:hover i.fa { color: $clr-gl; }
+    &:hover i.fa { color: $colorGreen; }
     .STATS__num { font-size: 4em; }
-    .STATS__text.done { color: $clr-g; }
+    .STATS__text.done { color: $colorGreenDark; }
   }
 }
 
 .STATS__github svg { overflow: visible; }
 text.month,
 text.wday {
-  fill: $clr-k;
+  fill: $colorGrayDark;
   font-size: 10px;
 }
 text.legend {
-  fill: $clr-k;
+  fill: $colorGrayDark;
   font-size: 11px;
 }
 rect.day {
