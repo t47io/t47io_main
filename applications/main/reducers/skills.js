@@ -1,4 +1,5 @@
-import * as actionTypes from '../constants/actionTypes.js';
+import { TOGGLE_HEADER_ANIMATION } from '../../common/constants/actionTypes.js';
+import { TOGGLE_SKILLS_PROGRESSBAR_ANIMATION } from '../constants/actionTypes.js';
 import { SKILLS } from '../constants/sectionTypes.js';
 
 
@@ -22,7 +23,7 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case actionTypes.TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION:
       if (payload.section === SKILLS) {
         return {
           ...state,
@@ -34,7 +35,7 @@ const reducer = (state = initialState, { type, payload }) => {
       }
       return state;
 
-    case actionTypes.TOGGLE_SKILLS_PROGRESSBAR_ANIMATION:
+    case TOGGLE_SKILLS_PROGRESSBAR_ANIMATION:
       return {
         ...state,
         animations: {

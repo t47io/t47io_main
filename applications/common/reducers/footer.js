@@ -1,4 +1,4 @@
-import * as actionTypes from '../constants/actionTypes.js';
+import { TOGGLE_FOOTER_ANIMATION } from '../../main/constants/actionTypes.js';
 
 const initialState = {
   animations: {
@@ -8,7 +8,7 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case actionTypes.TOGGLE_FOOTER_ANIMATION:
+    case TOGGLE_FOOTER_ANIMATION:
       return {
         ...state,
         animations: { footer: payload.status },

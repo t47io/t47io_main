@@ -11,7 +11,7 @@ const initialState = {
     },
     givSvg: '',
   },
-  animation: {
+  animations: {
 
   },
 };

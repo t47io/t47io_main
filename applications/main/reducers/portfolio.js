@@ -1,4 +1,9 @@
-import * as actionTypes from '../constants/actionTypes.js';
+import { TOGGLE_HEADER_ANIMATION } from '../../common/constants/actionTypes.js';
+import {
+  TOGGLE_PORTFOLIO_FILTER_ANIMATION,
+  TOGGLE_PORTFOLIO_THUMBNAIL_ANIMATION,
+  CHANGE_PORTFOLIO_FILTER,
+} from '../constants/actionTypes.js';
 import { PORTFOLIO } from '../constants/sectionTypes.js';
 
 
@@ -17,7 +22,7 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case actionTypes.TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION:
       if (payload.section === PORTFOLIO) {
         return {
           ...state,
@@ -29,7 +34,7 @@ const reducer = (state = initialState, { type, payload }) => {
       }
       return state;
 
-    case actionTypes.TOGGLE_PORTFOLIO_FILTER_ANIMATION:
+    case TOGGLE_PORTFOLIO_FILTER_ANIMATION:
       return {
         ...state,
         animations: {
@@ -38,7 +43,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
 
-    case actionTypes.TOGGLE_PORTFOLIO_THUMBNAIL_ANIMATION:
+    case TOGGLE_PORTFOLIO_THUMBNAIL_ANIMATION:
       return {
         ...state,
         animations: {
@@ -47,7 +52,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
 
-    case actionTypes.CHANGE_PORTFOLIO_FILTER:
+    case CHANGE_PORTFOLIO_FILTER:
       return {
         ...state,
         data: {

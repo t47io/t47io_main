@@ -9,7 +9,9 @@ import skills from './skills.js';
 import stats from './stats.js';
 import pubs from './pubs.js';
 import contact from './contact.js';
-import footer from './footer.js';
+
+import navbar from '../../common/reducers/navbar.js';
+import footer from '../../common/reducers/footer.js';
 
 import { LOAD_JSON_DATA } from '../constants/actionTypes.js';
 
@@ -21,6 +23,9 @@ const crossReducer = (state, action) => {
     newState[key].data = action.payload[key];
   });
 
+  newState.navbar.data = { items: newState.home.data.sections };
+  newState.home.data.sections = undefined;
+
   newState.about.animations.icon = newState.about.data.items.length;
   newState.portfolio.animations.filter = newState.portfolio.data.categories.length;
   newState.portfolio.animations.thumbnail = newState.portfolio.data.items.length;
@@ -30,6 +35,7 @@ const crossReducer = (state, action) => {
   newState.contact.animations.icon = newState.contact.data.items.length;
   newState.contact.animations.left = newState.contact.data.lens.left;
   newState.contact.animations.right = newState.contact.data.lens.right;
+
 
   return newState;
 };
@@ -43,6 +49,8 @@ const mainReducer = combineReducers({
   stats,
   pubs,
   contact,
+
+  navbar,
   footer,
 });
 

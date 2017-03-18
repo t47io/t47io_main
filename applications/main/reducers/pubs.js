@@ -1,4 +1,5 @@
-import * as actionTypes from '../constants/actionTypes.js';
+import { TOGGLE_HEADER_ANIMATION } from '../../common/constants/actionTypes.js';
+import { TOGGLE_PUBS_ENTRY_ANIMATION } from '../constants/actionTypes.js';
 import { PUBS } from '../constants/sectionTypes.js';
 
 
@@ -19,7 +20,7 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case actionTypes.TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION:
       if (payload.section === PUBS) {
         return {
           ...state,
@@ -31,7 +32,7 @@ const reducer = (state = initialState, { type, payload }) => {
       }
       return state;
 
-    case actionTypes.TOGGLE_PUBS_ENTRY_ANIMATION:
+    case TOGGLE_PUBS_ENTRY_ANIMATION:
       return {
         ...state,
         animations: {

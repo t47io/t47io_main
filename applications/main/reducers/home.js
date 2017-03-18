@@ -6,7 +6,7 @@ const initialState = {
     title: '',
     sections: [],
   },
-  animation: {
+  animations: {
 
   },
 };

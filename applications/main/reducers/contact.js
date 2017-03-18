@@ -1,4 +1,13 @@
-import * as actionTypes from '../constants/actionTypes.js';
+import { TOGGLE_HEADER_ANIMATION } from '../../common/constants/actionTypes.js';
+import {
+  TOGGLE_CONTACT_ICON_ANIMATION,
+  TOGGLE_CONTACT_ITEM_ANIMATION,
+  CHANGE_CONTACT_FIELD,
+  SUBMIT_CONTACT_EMAIL_RESET,
+  SUBMIT_CONTACT_EMAIL_SUCCESS,
+  SUBMIT_CONTACT_EMAIL_ERROR,
+  SUBMIT_CONTACT_EMAIL_WAIT,
+} from '../constants/actionTypes.js';
 import { CONTACT } from '../constants/sectionTypes.js';
 
 
@@ -31,7 +40,7 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case actionTypes.TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION:
       if (payload.section === CONTACT) {
         return {
           ...state,
@@ -43,7 +52,7 @@ const reducer = (state = initialState, { type, payload }) => {
       }
       return state;
 
-    case actionTypes.TOGGLE_CONTACT_ICON_ANIMATION:
+    case TOGGLE_CONTACT_ICON_ANIMATION:
       return {
         ...state,
         animations: {
@@ -52,7 +61,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
 
-    case actionTypes.TOGGLE_CONTACT_ITEM_ANIMATION:
+    case TOGGLE_CONTACT_ITEM_ANIMATION:
       return {
         ...state,
         animations: {
@@ -61,7 +70,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
 
-    case actionTypes.CHANGE_CONTACT_FIELD:
+    case CHANGE_CONTACT_FIELD:
       return {
         ...state,
         form: {
@@ -70,7 +79,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
 
-    case actionTypes.SUBMIT_CONTACT_EMAIL_RESET:
+    case SUBMIT_CONTACT_EMAIL_RESET:
       return {
         ...state,
         form: {
@@ -81,7 +90,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
 
-    case actionTypes.SUBMIT_CONTACT_EMAIL_SUCCESS:
+    case SUBMIT_CONTACT_EMAIL_SUCCESS:
       return {
         ...state,
         form: {
@@ -92,7 +101,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
 
-    case actionTypes.SUBMIT_CONTACT_EMAIL_ERROR:
+    case SUBMIT_CONTACT_EMAIL_ERROR:
       return {
         ...state,
         form: {
@@ -103,7 +112,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
 
-    case actionTypes.SUBMIT_CONTACT_EMAIL_WAIT:
+    case SUBMIT_CONTACT_EMAIL_WAIT:
       return {
         ...state,
         form: {

@@ -6,7 +6,7 @@ const initialState = {
     items: [],
     background: [],
   },
-  animation: {
+  animations: {
 
   },
 };
