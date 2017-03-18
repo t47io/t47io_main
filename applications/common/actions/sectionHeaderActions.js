@@ -1,4 +1,4 @@
-import { TOGGLE_HEADER_ANIMATION } from '../../main/constants/actionTypes.js';
+import { TOGGLE_HEADER_ANIMATION } from '../constants/actionTypes.js';
 
 
 export const toggleHeaderAnimation = (section, status) => ({
