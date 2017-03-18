@@ -11,15 +11,25 @@
 .UTIL__section_header > div {
   &.ANIMATION__begin {
     @include transform(translateY(-100%));
+
+    .UTIL__section_subtitle {
+      letter-spacing: -0.5em;
+    }
   }
   &.ANIMATION__end {
     @include transition(0.75s);
+
+    .UTIL__section_subtitle {
+      letter-spacing: 0.15em;
+
+      @include transition(0.75s, linear);
+    }
   }
 }
 
 .ABOUT__icon {
   &.ANIMATION__begin {
-    @include transform(rotate(360deg));
+    @include transform(rotateZ(360deg));
   }
   &.ANIMATION__end {
     @include transition(0.5s, $easeOutBack);
@@ -63,7 +73,7 @@
 
 .CONTACT__icon {
   &.ANIMATION__begin {
-    @include transform(rotateX(180deg) rotate(360deg));
+    @include transform(rotateX(180deg) rotateZ(360deg));
   }
   &.ANIMATION__end {
     @include transition(0.5s, $easeOutBack);
