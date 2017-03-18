@@ -6,7 +6,7 @@
 #CONTACT__section {
   position: relative;
   width: 100%;
-  background-color: $clr-g;
+  background-color: $colorGreenDark;
   overflow: hidden;
 }
 @media only screen and (max-width : 767px) {
@@ -34,8 +34,8 @@ h4.CONTACT__title {
     line-height: 3.25rem;
     text-align: center;
 
-    color: $clr-w;
-    background-color: $clr-g;
+    color: $colorWhite;
+    background-color: $colorGreenDark;
     margin-right: 1.75em;
     margin-top: 0.75em;
     margin-bottom: 1em;
@@ -55,13 +55,13 @@ h4.CONTACT__title {
       right: 3px;
       bottom: 3px;
       left: 3px;
-      border: 2px solid $clr-w;
+      border: 2px solid $colorWhite;
     }
   }
 
   &:hover {
     .CONTACT__icon {
-      background-color: $clr-gl;
+      background-color: $colorGreen;
 
       @include transition(0.25s);
 
@@ -99,7 +99,7 @@ ul.CONTACT__social {
     margin-right: 1.5em;
 
     .CONTACT__box { margin: 0; }
-    a i { color: $clr-w; }
+    a i { color: $colorWhite; }
   }
 }
 
@@ -119,23 +119,32 @@ ul.CONTACT__address {
 
     &:last-child { padding-bottom: 0; }
     &:hover {
-      i.fa { color: $clr-gl; }
+      i.fa { color: $colorGreen; }
     }
     &:last-of-type {
       padding-top: 1em;
 
-      a {
-        @include transition(0.5s);
-      }
+      a.btn {
+        width: 9em;
+        text-align: left;
 
-      &:hover {
-        span.CONTACT__resume { display: inline; }
-        i.fa { color: #363940; }
+        @include transition(0.5s);
+
+        &:hover {
+          width: 15em;
+
+          span.CONTACT__resume {
+            opacity: 1;
+
+            @include transition(0.5s);
+          }
+          i.fa { color: #363940; }
+        }
       }
     }
   }
 
-  span.CONTACT__resume { display: none; }
+  span.CONTACT__resume { opacity: 0 }
   img.CONTACT__phone {
     height: 1.1em;
     vertical-align: text-top;
@@ -148,7 +157,7 @@ ul.CONTACT__address {
   button {
     height: 3em;
 
-    &:hover { color: $clr-w; }
+    &:hover { color: $colorWhite; }
   }
   textarea { resize: vertical; }
   .input-lg {
