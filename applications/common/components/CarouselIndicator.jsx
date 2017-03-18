@@ -2,20 +2,19 @@ import React from 'react';
 
 
 const CarouselIndicator = ({
-  current,
-  onClick,
-  index,
+  index = NaN,
+  isActive = false,
+  onClick = () => {},
 }) => (
   <li
-    className={current === index ? 'active' : ''}
-    data-slide={index}
-    onClick={onClick}
+    className={isActive ? 'active' : ''}
+    onClick={() => onClick(index)}
   />
 );
 
 CarouselIndicator.propTypes = {
-  current: React.PropTypes.number,
   index: React.PropTypes.number,
+  isActive: React.PropTypes.bool,
   onClick: React.PropTypes.func,
 };
 

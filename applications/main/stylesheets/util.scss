@@ -25,11 +25,11 @@
   background-size: cover;
   @include transition(0.5s);
 
-  &.bg {
+  &.UTIL__background {
     padding-bottom: 5.5rem;
     height: 100%;
   }
-  &:not(.bg) { background-position: 50% 30%; }
+  &:not(.UTIL__background) { background-position: 50% 30%; }
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
   .UTIL__parallax { background-attachment: scroll; }
@@ -38,8 +38,8 @@
   .UTIL__parallax {
     background-attachment: scroll;
     
-    &:not(.bg) { background-position: 50% 50%; }
-    &.bg { background-size: initial; }
+    &:not(.UTIL__background) { background-position: 50% 50%; }
+    &.UTIL__background { background-size: initial; }
   }
 }
 

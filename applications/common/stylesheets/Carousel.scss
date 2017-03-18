@@ -10,7 +10,7 @@
   width: 100%;
   overflow:hidden;
 
-  &.fade .COMMON__carousel_item {
+  &.COMMON__carousel_fade {
     overflow: hidden;
     @include transition(0.5s);
 

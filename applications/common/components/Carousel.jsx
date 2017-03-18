@@ -15,9 +15,9 @@ class Carousel extends React.PureComponent {
     this.onLoop();
   }
 
-  onClick(e) {
+  onClick(index) {
     clearInterval(this.timer);
-    this.setState({ current: parseInt(e.target.dataset.slide, 10) });
+    this.setState({ current: index });
     this.onLoop();
   }
   onLoop() {
@@ -28,30 +28,40 @@ class Carousel extends React.PureComponent {
   }
 
   render() {
-    const { items, extraClassName, children } = this.props;
+    const { items, extraClassName } = this.props;
     const { current } = this.state;
 
     return (
-      <div className={`${extraClassName} SPRITE__bg-${items[current]} UTIL__parallax bg fade`}>
-        <div className="COMMON__carousel fade">
+      <div className={`${extraClassName} SPRITE__bg-${items[current]} UTIL__parallax UTIL__background`}>
+        <div className="COMMON__carousel COMMON__carousel_fade">
           <ol className="COMMON__carousel_indicators carousel-indicators">
             {items.map((item, i) => (
-              <CarouselIndicator current={current} index={i} onClick={this.onClick} />
+              <CarouselIndicator
+                key={`COMMON__carousel_indicator-${items[i]}`}
+                index={i}
+                isActive={i === current}
+                onClick={this.onClick}
+              />
             ))}
           </ol>
         </div>
         <div className="UTIL__cover" />
 
-        {children}
+        {this.props.children}
       </div>
     );
   }
 }
 
 Carousel.propTypes = {
-  items: React.PropTypes.array,
+  items: React.PropTypes.arrayOf(React.PropTypes.string),
   extraClassName: React.PropTypes.string,
   interval: React.PropTypes.number,
+};
+Carousel.defaultProps = {
+  items: [],
+  extraClassName: '',
+  interval: 2000,
 };
 
 
