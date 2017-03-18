@@ -24,6 +24,7 @@ import * as skillsActions from '../actions/skillsActions.js';
 import * as statsActions from '../actions/statsActions.js';
 import * as pubsActions from '../actions/pubsActions.js';
 import * as contactActions from '../actions/contactActions.js';
+import * as footerActions from '../../common/actions/footerActions.js';
 
 import '../stylesheets/index.scss';
 import '../stylesheets/animations.scss';
@@ -36,7 +37,9 @@ const mapStateToProps = (state) => {
     animations: {},
   };
   Object.keys(state).forEach((key) => {
-    props.data[key] = state[key].data;
+    if (key !== 'footer') {
+      props.data[key] = state[key].data;
+    }
     props.animations[key] = state[key].animations;
   });
   props.form = state.contact.form;
@@ -52,6 +55,7 @@ const mapDispatchToProps = dispatch => ({
     stats: bindActionCreators(statsActions, dispatch),
     pubs: bindActionCreators(pubsActions, dispatch),
     contact: bindActionCreators(contactActions, dispatch),
+    footer: bindActionCreators(footerActions, dispatch),
   },
 });
 
@@ -154,8 +158,11 @@ class Main extends React.PureComponent {
         />
 
         <Waypoint onPositionChange={this.onScrollFooter} />
-        <Footer />
-        <ScrollTop {...scroll} />
+        <Footer
+          animations={animations.footer}
+          actions={actions.footer}
+        />
+        <ScrollTop isHidden={scroll.top || scroll.bottom} />
       </div>
     );
   }

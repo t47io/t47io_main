@@ -42,7 +42,10 @@ const SkillsSection = ({
     <div className="container">
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <Scrollspy onToggleAnimation={animateLeftBars} />
+          <Scrollspy
+            delay={0}
+            onToggleAnimation={animateLeftBars}
+          />
           <div className="SKILLS__panel left">
             {items.left.map((panel, i) => (
               <SkillsPanel
@@ -55,7 +58,10 @@ const SkillsSection = ({
           </div>
         </div>
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <Scrollspy onToggleAnimation={animateRightBars} />
+          <Scrollspy
+            delay={0}
+            onToggleAnimation={animateRightBars}
+          />
           <div className="SKILLS__panel right">
             {items.right.map((panel, i) => (
               <SkillsPanel

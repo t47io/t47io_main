@@ -3,12 +3,9 @@ import React from 'react';
 import '../stylesheets/ScrollTop.scss';
 
 
-const ScrollTop = ({
-  top,
-  bottom,
-}) => {
-  const opacity = (top || bottom) ? 0 : 1;
-  const visibility = (top || bottom) ? 'hidden' : 'visible';
+const ScrollTop = ({ isHidden = false }) => {
+  const opacity = isHidden ? 0 : 1;
+  const visibility = isHidden ? 'hidden' : 'visible';
 
   return (
     <a href="#HOME__section" className="scrollTop" style={{ opacity, visibility }}>
@@ -18,8 +15,7 @@ const ScrollTop = ({
 };
 
 ScrollTop.propTypes = {
-  top: React.PropTypes.bool,
-  bottom: React.PropTypes.bool,
+  isHidden: React.PropTypes.bool,
 };
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Scrollspy from './Scrollspy.jsx';
 import Animation from './Animation.jsx';
+import Scrollspy from './Scrollspy.jsx';
 
 import '../stylesheets/SectionHeader.scss';
 
