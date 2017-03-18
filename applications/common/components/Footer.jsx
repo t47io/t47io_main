@@ -22,8 +22,12 @@ const year = (new Date()).getFullYear();
 
 
 const Footer = ({
-  animations: { footer = true },
-  actions: { animateFooter = () => {} },
+  animations: {
+    footer = true,
+  },
+  actions: {
+    animateFooter = () => {},
+  },
 }) => (
   <footer className="FOOTER text-off-white">
     <Scrollspy

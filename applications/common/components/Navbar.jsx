@@ -1,92 +1,76 @@
 import React from 'react';
-import smoothScroll from 'smoothscroll';
+import NavbarItem from './NavbarItem.jsx';
 import { Logo } from './Logo.jsx';
 
 import '../stylesheets/Navbar.scss';
 
 
-const NavbarItem = ({
-  item,
-  section,
-}) => (
-  <li className={(item === section) ? 'active' : ''}>
-    <a
-      className="COMMON__navbar_link"
-      onClick={() => smoothScroll(
-        document.getElementById(`${item.toUpperCase()}__section`), 2000
-      )}
-    >
-      {item}
-    </a>
-  </li>
-);
-NavbarItem.propTypes = {
-  item: React.PropTypes.string,
-  section: React.PropTypes.string,
+const Navbar = ({
+  data: {
+    items = [],
+  },
+  animations: {
+    activeSection = 'home',
+    isTransparent = true,
+    isMobileCollapsed = false,
+  },
+  actions: {
+    scrollToSection = () => {},
+    toggleMobileCollapse = () => {},
+  },
+}) => {
+  const navbarClassName = isTransparent ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
+  const buttonClassName = isMobileCollapsed ? 'collapsed' : '';
+  const logoClassName = isTransparent ? 'green' : 'white';
+  const collapseClassName = isMobileCollapsed ? 'display' : '';
+
+  return (
+    <nav className={`COMMON__navbar navbar navbar-fixed-top ${navbarClassName}`} role="navigation">
+      <div className="container">
+        <div className="COMMON__navbar_header navbar-header">
+          <button
+            className={`COMMON__navbar_toggle navbar-toggle ${buttonClassName}`}
+            type="button"
+            onClick={toggleMobileCollapse}
+          >
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar" />
+            <span className="icon-bar" />
+            <span className="icon-bar" />
+          </button>
+          <Logo href="/" className={`COMMON__navbar_logo ${logoClassName}`} />
+        </div>
+
+        <div className={`COMMON__navbar-collapse navbar-collapse ${collapseClassName}`} >
+          <ul className="nav navbar-right">
+            {items.map((item, i) => (
+              <NavbarItem
+                key={`COMMON__navbar-${i}`}
+                name={item}
+                isActive={item === activeSection}
+                onClick={() => scrollToSection(item)}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
-class Navbar extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { toggle: false };
-
-    this.onMobileCollapse = this.onMobileCollapse.bind(this);
-    this.onScrollTo = this.onScrollTo.bind(this);
-  }
-
-  onMobileCollapse() {
-    this.setState({ toggle: !(this.state.toggle) });
-  }
-  onScrollTo() {
-    this.setState({ toggle: false });
-  }
-
-  render() {
-    const { items, section, top } = this.props;
-    const { toggle } = this.state;
-
-    const navbarClassName = top ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
-    const buttonClassName = toggle ? 'collapsed' : '';
-    const logoClassName = top ? 'green' : 'white';
-    const collapseClassName = toggle ? 'display' : '';
-
-    return (
-      <nav className={`COMMON__navbar navbar navbar-fixed-top ${navbarClassName}`} role="navigation">
-        <div className="container">
-          <div className="COMMON__navbar_header navbar-header">
-            <button
-              className={`COMMON__navbar_toggle navbar-toggle ${buttonClassName}`}
-              type="button"
-              onClick={this.onMobileCollapse}
-            >
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-            </button>
-            <Logo href="/" className={`COMMON__navbar_logo ${logoClassName}`} />
-          </div>
-
-          <div className={`COMMON__navbar-collapse navbar-collapse ${collapseClassName}`} >
-            <ul
-              className="nav navbar-right"
-              onClick={this.onScrollTo}
-            >
-              {items.map(item => (
-                <NavbarItem item={item} section={section} />
-              ))}
-            </ul>
-          </div>
-        </div>
-      </nav>
-    );
-  }
-}
-
 Navbar.propTypes = {
-  items: React.PropTypes.array,
-  section: React.PropTypes.string,
-  top: React.PropTypes.bool,
+  data: React.PropTypes.shape({
+    items: React.PropTypes.arrayOf(React.PropTypes.string),
+  }),
+  animations: React.PropTypes.shape({
+    activeSection: React.PropTypes.string,
+    isTransparent: React.PropTypes.bool,
+    isMobileCollapsed: React.PropTypes.bool,
+  }),
+  actions: React.PropTypes.shape({
+    scrollToSection: React.PropTypes.func,
+    toggleMobileCollapse: React.PropTypes.func,
+  }),
 };
 
 
