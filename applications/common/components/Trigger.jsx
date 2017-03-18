@@ -2,7 +2,7 @@ import React from 'react';
 import Waypoint from 'react-waypoint';
 
 
-const Scrollspy = ({
+const Trigger = ({
   delay = 250,
   onToggleAnimation = () => {},
 }) => (
@@ -22,10 +22,10 @@ const Scrollspy = ({
   />
 );
 
-Scrollspy.propTypes = {
+Trigger.propTypes = {
   delay: React.PropTypes.number,
   onToggleAnimation: React.PropTypes.func,
 };
 
 
-export default Scrollspy;
+export default Trigger;

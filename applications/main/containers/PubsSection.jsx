@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 
-import Scrollspy from '../../common/components/Scrollspy.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PubsYearPanel from '../components/PubsYearPanel.jsx';
 
@@ -35,7 +35,7 @@ const PubsSection = ({
     />
 
     <div className="container">
-      <Scrollspy onToggleAnimation={animateEntries} />
+      <Trigger onToggleAnimation={animateEntries} />
       {items.map(item => (
         <PubsYearPanel
           key={`PUBS__panel-${item.year}`}

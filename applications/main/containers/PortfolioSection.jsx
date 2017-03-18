@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Scrollspy from '../../common/components/Scrollspy.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PortfolioFilterItem from '../components/PortfolioFilterItem.jsx';
 import PortfolioItem from '../components/PortfolioItem.jsx';
@@ -47,7 +47,7 @@ const PortfolioSection = ({
 
       <div className="PORTFOLIO__area" >
         <div className="PORTFOLIO__menu">
-          <Scrollspy onToggleAnimation={animateFilters} />
+          <Trigger onToggleAnimation={animateFilters} />
           <ul>
             {categories.map((category, i) => (
               <PortfolioFilterItem
@@ -62,7 +62,7 @@ const PortfolioSection = ({
         </div>
 
         <div className="PORTFOLIO__content">
-          <Scrollspy
+          <Trigger
             delay={500}
             onToggleAnimation={animateThumbnails}
           />

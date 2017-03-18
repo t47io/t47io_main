@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Animation from '../../common/components/Animation.jsx';
-import Scrollspy from '../../common/components/Scrollspy.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 import { LogoAlt } from './Logo.jsx';
 
 import '../stylesheets/Footer.scss';
@@ -30,7 +30,7 @@ const Footer = ({
   },
 }) => (
   <footer className="FOOTER text-off-white">
-    <Scrollspy
+    <Trigger
       delay={1000}
       onToggleAnimation={animateFooter}
     />

@@ -5,7 +5,7 @@ import Carousel from '../../common/components/Carousel.jsx';
 import AffiliationItem from '../components/AffiliationItem.jsx';
 
 import { affiliation as tween } from '../js/tweens.js';
-import '../stylesheets/sections/AffiliationSection.scss';
+import '../stylesheets/AffiliationSection.scss';
 
 
 class AffiliationSection extends React.PureComponent {

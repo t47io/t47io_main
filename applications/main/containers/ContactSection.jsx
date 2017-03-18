@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Scrollspy from '../../common/components/Scrollspy.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
 import ContactItem from '../components/ContactItem.jsx';
@@ -56,7 +56,7 @@ const ContactSection = ({
       />
 
       <div className="container">
-        <Scrollspy onToggleAnimation={animateIcons} />
+        <Trigger onToggleAnimation={animateIcons} />
         <ul className="CONTACT__social">
           {items.map((item, i) => (
             <ContactItem

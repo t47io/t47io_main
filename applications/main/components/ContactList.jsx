@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Animation from '../../common/components/Animation.jsx';
-import Scrollspy from '../../common/components/Scrollspy.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 const imgPhone = require('../images/t47_phone.png');
 
@@ -16,7 +16,7 @@ const ContactList = ({
 
   return (
     <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <Scrollspy onToggleAnimation={onToggleAnimation} />
+      <Trigger onToggleAnimation={onToggleAnimation} />
       <Animation
         tagName="h4"
         className="CONTACT__title CONTACT__list-item"

@@ -24,6 +24,8 @@ import * as skillsActions from '../actions/skillsActions.js';
 import * as statsActions from '../actions/statsActions.js';
 import * as pubsActions from '../actions/pubsActions.js';
 import * as contactActions from '../actions/contactActions.js';
+
+import * as navbarActions from '../../common/actions/navbarActions.js';
 import * as footerActions from '../../common/actions/footerActions.js';
 
 import '../stylesheets/index.scss';
@@ -55,6 +57,8 @@ const mapDispatchToProps = dispatch => ({
     stats: bindActionCreators(statsActions, dispatch),
     pubs: bindActionCreators(pubsActions, dispatch),
     contact: bindActionCreators(contactActions, dispatch),
+
+    navbar: bindActionCreators(navbarActions, dispatch),
     footer: bindActionCreators(footerActions, dispatch),
   },
 });
@@ -112,7 +116,11 @@ class Main extends React.PureComponent {
 
     return (
       <div>
-        <Navbar items={home.sections} {...scroll} />
+        <Navbar
+          data={data.navbar}
+          animations={animations.navbar}
+          actions={actions.navbar}
+        />
 
         <Waypoint onEnter={() => this.onEnterSection('home')} />
         <HomeSection {...home} />

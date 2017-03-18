@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Scrollspy from '../../common/components/Scrollspy.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import AboutItem from '../components/AboutItem.jsx';
 
@@ -29,7 +29,7 @@ const AboutSection = ({
 
     <div className="ABOUT__content">
       <div className="container">
-        <Scrollspy onToggleAnimation={animateIcons} />
+        <Trigger onToggleAnimation={animateIcons} />
         <div className="row">
           {items.map((item, i) => (
             <AboutItem

@@ -6,7 +6,7 @@ import {
   home as tween,
   func,
 } from '../js/tweens.js';
-import '../stylesheets/sections/HomeSection.scss';
+import '../stylesheets/HomeSection.scss';
 
 const imgAvatar = require('../images/t47_avatar.jpg');
 const imgName = require('../images/t47_name.png');

@@ -10,7 +10,7 @@ import Carousel from '../../common/components/Carousel.jsx';
 import StatsItem from '../components/StatsItem.jsx';
 
 import { stats as tween } from '../js/tweens.js';
-import '../stylesheets/sections/StatsSection.scss';
+import '../stylesheets/StatsSection.scss';
 
 
 class StatsSection extends React.PureComponent {

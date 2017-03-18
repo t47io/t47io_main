@@ -1,6 +1,6 @@
 import React from 'react';
 import Animation from './Animation.jsx';
-import Scrollspy from './Scrollspy.jsx';
+import Trigger from './Trigger.jsx';
 
 import '../stylesheets/SectionHeader.scss';
 
@@ -12,7 +12,7 @@ const SectionHeader = ({
   onToggleAnimation = () => {},
 }) => (
   <div className="UTIL__section_header">
-    <Scrollspy onToggleAnimation={onToggleAnimation} />
+    <Trigger onToggleAnimation={onToggleAnimation} />
     <Animation shouldAnimate={shouldAnimate}>
       <h2>{title}</h2>
       <div className="UTIL__divider" />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Scrollspy from '../../common/components/Scrollspy.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import SkillsPanel from '../components/SkillsPanel.jsx';
 
@@ -42,7 +42,7 @@ const SkillsSection = ({
     <div className="container">
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <Scrollspy
+          <Trigger
             delay={0}
             onToggleAnimation={animateLeftBars}
           />
@@ -58,7 +58,7 @@ const SkillsSection = ({
           </div>
         </div>
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <Scrollspy
+          <Trigger
             delay={0}
             onToggleAnimation={animateRightBars}
           />
