@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarItem from './NavbarItem.jsx';
-import { Logo } from './Logo.jsx';
+import Logo from './Logo.jsx';
 
 import '../stylesheets/Navbar.scss';
 
@@ -11,7 +11,6 @@ const Navbar = ({
   },
   animations: {
     activeSection = 'home',
-    isTransparent = true,
     isMobileCollapsed = false,
   },
   actions: {
@@ -19,9 +18,9 @@ const Navbar = ({
     toggleMobileCollapse = () => {},
   },
 }) => {
-  const navbarClassName = isTransparent ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
+  const navbarClassName = (activeSection === 'home') ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
   const buttonClassName = isMobileCollapsed ? 'collapsed' : '';
-  const logoClassName = isTransparent ? 'green' : 'white';
+  const logoClassName = (activeSection === 'home') ? 'green' : 'white';
   const collapseClassName = isMobileCollapsed ? 'display' : '';
 
   return (
@@ -64,7 +63,6 @@ Navbar.propTypes = {
   }),
   animations: React.PropTypes.shape({
     activeSection: React.PropTypes.string,
-    isTransparent: React.PropTypes.bool,
     isMobileCollapsed: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({

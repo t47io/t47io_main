@@ -28,7 +28,7 @@ class Carousel extends React.PureComponent {
   }
 
   render() {
-    const { items, extraClassName } = this.props;
+    const { items, extraClassName, children } = this.props;
     const { current } = this.state;
 
     return (
@@ -47,7 +47,7 @@ class Carousel extends React.PureComponent {
         </div>
         <div className="UTIL__cover" />
 
-        {this.props.children}
+        {children}
       </div>
     );
   }
@@ -57,6 +57,7 @@ Carousel.propTypes = {
   items: React.PropTypes.arrayOf(React.PropTypes.string),
   extraClassName: React.PropTypes.string,
   interval: React.PropTypes.number,
+  children: React.PropTypes.node,
 };
 Carousel.defaultProps = {
   items: [],

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Animation from '../../common/components/Animation.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
-import { LogoAlt } from './Logo.jsx';
+import LogoAlt from './LogoAlt.jsx';
 
 import '../stylesheets/Footer.scss';
 
