@@ -57,13 +57,15 @@ Carousel.propTypes = {
   items: React.PropTypes.arrayOf(React.PropTypes.string),
   className: React.PropTypes.string,
   interval: React.PropTypes.number,
-  children: React.PropTypes.node,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.node,
+    React.PropTypes.arrayOf(React.PropTypes.node),
+  ]).isRequired,
 };
 Carousel.defaultProps = {
   items: [],
   className: '',
   interval: 2000,
-  children: undefined,
 };
 
 

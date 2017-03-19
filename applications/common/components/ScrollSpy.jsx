@@ -17,12 +17,14 @@ const ScrollSpy = ({
 ScrollSpy.propTypes = {
   section: React.PropTypes.string,
   onUpdateScroll: React.PropTypes.func,
-  children: React.PropTypes.node,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.node,
+    React.PropTypes.arrayOf(React.PropTypes.node),
+  ]).isRequired,
 };
 ScrollSpy.defaultProps = {
   section: '',
   onUpdateScroll: () => {},
-  children: undefined,
 };
 
 

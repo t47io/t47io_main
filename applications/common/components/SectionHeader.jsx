@@ -1,6 +1,9 @@
 import React from 'react';
-import Animation from './Animation.jsx';
+
 import Trigger from './Trigger.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { sectionHeader } from '../animations/sectionHeader.js';
 
 import '../stylesheets/SectionHeader.scss';
 
@@ -13,13 +16,17 @@ const SectionHeader = ({
 }) => (
   <div className="UTIL__section_header">
     <Trigger onToggleAnimation={onToggleAnimation} />
-    <Animation shouldAnimate={shouldAnimate}>
+    <WebAnimation
+      keyframes={sectionHeader.keyframes}
+      timing={sectionHeader.timing}
+      shouldAnimate={shouldAnimate}
+    >
       <h2>{title}</h2>
       <div className="UTIL__divider" />
       <p className="UTIL__section_subtitle">
         {subtitle}
       </p>
-    </Animation>
+    </WebAnimation>
   </div>
 );
 
@@ -32,7 +39,7 @@ SectionHeader.propTypes = {
 SectionHeader.defaultProps = {
   title: '',
   subtitle: '',
-  shouldAnimate: true,
+  shouldAnimate: false,
   onToggleAnimation: () => {},
 };
 

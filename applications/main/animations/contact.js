@@ -1,4 +1,4 @@
-import { easeOutBack } from './easing.js';
+import { easeOutBack } from '../../common/animations/easing.js';
 
 
 export const contactItem = {

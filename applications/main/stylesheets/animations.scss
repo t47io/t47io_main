@@ -12,24 +12,6 @@
   @include transform(translate(0, 0) rotate(0deg) scale(1));
 }
 
-.UTIL__section_header > div {
-  &.ANIMATION__begin {
-    @include transform(translateY(-100%));
-
-    .UTIL__section_subtitle {
-      letter-spacing: -0.5em;
-    }
-  }
-  &.ANIMATION__end {
-    @include transition(0.75s);
-
-    .UTIL__section_subtitle {
-      letter-spacing: 0.15em;
-
-      @include transition(0.75s, linear);
-    }
-  }
-}
 
 .ABOUT__icon {
   &.ANIMATION__begin {
