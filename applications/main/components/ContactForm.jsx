@@ -1,9 +1,10 @@
 import React from 'react';
 
-import WebAnimation from '../../common/components/WebAnimation.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { contactForm } from '../animations/contact.js';
+import { contactPanel } from '../animations/contact.js';
+import { CONTACT_RIGHT } from '../constants/sectionTypes.js';
 
 
 const ContactForm = ({
@@ -36,8 +37,8 @@ const ContactForm = ({
       <WebAnimation
         tagName="h4"
         className="CONTACT__title CONTACT__form-item"
-        keyframes={contactForm.keyframes}
-        timing={contactForm.timing(0)}
+        keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
+        timing={contactPanel.timing(0)}
         shouldAnimate={counter}
       >
         <i className="fa fa-paper-plane-empty fa-lg fa-fw" />
@@ -53,8 +54,8 @@ const ContactForm = ({
       >
         <WebAnimation
           className="form-group"
-          keyframes={contactForm.keyframes}
-          timing={contactForm.timing(1)}
+          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
+          timing={contactPanel.timing(1)}
           shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
@@ -68,8 +69,8 @@ const ContactForm = ({
         </WebAnimation>
         <WebAnimation
           className="CONTACT__form-item form-group"
-          keyframes={contactForm.keyframes}
-          timing={contactForm.timing(2)}
+          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
+          timing={contactPanel.timing(2)}
           shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
@@ -83,8 +84,8 @@ const ContactForm = ({
         </WebAnimation>
         <WebAnimation
           className="CONTACT__form-item form-group"
-          keyframes={contactForm.keyframes}
-          timing={contactForm.timing(3)}
+          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
+          timing={contactPanel.timing(3)}
           shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
@@ -98,8 +99,8 @@ const ContactForm = ({
         </WebAnimation>
         <WebAnimation
           className="CONTACT__form-item form-group"
-          keyframes={contactForm.keyframes}
-          timing={contactForm.timing(4)}
+          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
+          timing={contactPanel.timing(4)}
           shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
@@ -113,8 +114,8 @@ const ContactForm = ({
         </WebAnimation>
         <WebAnimation
           className="CONTACT__form-item form-group"
-          keyframes={contactForm.keyframes}
-          timing={contactForm.timing(5)}
+          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
+          timing={contactPanel.timing(5)}
           shouldAnimate={counter}
           propsForceUpdate={`${shouldDisableForm} ${btnClassName} ${btnIconClassName}`}
         >

@@ -34,19 +34,6 @@
   @include transform(translateY(100%));
 }
 
-.SKILLS__progress {
-  &.SKILLS_LEFT.ANIMATION__begin {
-    @include transform(translateX(-150%) scale(2));
-    opacity: 0.25;
-  }
-  &.SKILLS_RIGHT.ANIMATION__begin {
-    @include transform(translateX(150%) scale(2));
-  }
-  &.ANIMATION__end {
-    @include transition(1s, $easeInBack);
-  }
-}
-
 .STATS__counter {
   &.ANIMATION__begin {
     @include transform(rotateY(180deg) scale(0.1));
@@ -63,19 +50,3 @@
     @include transition(0.75s, $easeInBack);
   }
 }
-
-.PUBS__year.ANIMATION__begin {
-  @include transform(rotateX(90deg) scale(3));
-  opacity: 0.25;
-}
-.PUBS__entry {
-  &.ANIMATION__begin {
-    @include transform(rotateX(90deg));
-    opacity: 0.25;
-  }
-  &.ANIMATION__end {
-    @include transition(0.5s);
-  }
-}
-
-

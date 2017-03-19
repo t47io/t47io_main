@@ -36,7 +36,7 @@ class AffiliationSection extends React.PureComponent {
     return (
       <section id="AFFILIATION__section" className="text-center">
         <Carousel
-          extraClassName="text-white"
+          className="text-white"
           items={background} interval={4000}
         >
           <div className="UTIL__spacer-lg AFFILIATION__trigger" />

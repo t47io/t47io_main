@@ -1,5 +1,4 @@
 import React from 'react';
-import { SparkScroll } from '../../common/js/factory.js';
 
 // import ImageLoader from '../../common/jsx/_image-loader.jsx';
 import {
@@ -62,7 +61,7 @@ class HomeSection extends React.PureComponent {
           />
         </div>
 
-        {/* <ImageLoader extraClassName="UTIL__parallax"
+        {/* <ImageLoader className="UTIL__parallax"
            tinySrc={require('../images/t47_avatar@x.jpg')}
            fullSrc={require('../images/t47_avatar.jpg')} /> */}
         <div
@@ -71,7 +70,7 @@ class HomeSection extends React.PureComponent {
         />
 
         <div className="container">
-          <SparkScroll.div
+          <div
             className="HOME__content text-white"
             proxy="ABOUT__header"
             timeline={tween.fade}
@@ -92,14 +91,14 @@ class HomeSection extends React.PureComponent {
                 {cursorChar}
               </b>
             </p>
-          </SparkScroll.div>
-          <SparkScroll.div
+          </div>
+          <div
             className="HOME__scroll_down"
             proxy="ABOUT__header"
             timeline={tween.fade}
           >
             <i className={`fa fa-3x fa-fw fa-down-circled text-${this.state.arrowColor}`} />
-          </SparkScroll.div>
+          </div>
 
         </div>
       </section>

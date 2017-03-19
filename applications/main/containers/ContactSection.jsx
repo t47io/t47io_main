@@ -60,8 +60,8 @@ const ContactSection = ({
           {items.map((item, i) => (
             <ContactItem
               key={`CONTACT__icon-${i}`}
-              index={i + 1}
               shouldAnimate={icon}
+              index={i}
               {...item}
             />
           ))}

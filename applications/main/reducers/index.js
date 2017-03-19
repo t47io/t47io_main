@@ -30,10 +30,7 @@ const crossReducer = (state, action) => {
   newState.about.animations.icon = newState.about.data.items.length;
   newState.portfolio.animations.filter = newState.portfolio.data.categories.length;
   newState.portfolio.animations.thumbnail = newState.portfolio.data.items.length;
-  newState.skills.animations.left = newState.skills.data.lens.left;
-  newState.skills.animations.right = newState.skills.data.lens.right;
   newState.stats.animations.counter = newState.stats.data.items.length;
-  newState.pubs.animations.entry = newState.pubs.data.lens;
 
 
   return newState;

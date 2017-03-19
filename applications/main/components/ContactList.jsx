@@ -1,9 +1,10 @@
 import React from 'react';
 
-import WebAnimation from '../../common/components/WebAnimation.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { contactList } from '../animations/contact.js';
+import { contactPanel } from '../animations/contact.js';
+import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 
 const imgPhone = require('../images/t47_phone.png');
 
@@ -22,8 +23,8 @@ const ContactList = ({
       <WebAnimation
         tagName="h4"
         className="CONTACT__title CONTACT__list-item"
-        keyframes={contactList.keyframes}
-        timing={contactList.timing(0)}
+        keyframes={contactPanel.keyframes(CONTACT_LEFT)}
+        timing={contactPanel.timing(0)}
         shouldAnimate={counter}
       >
         <i className="fa fa-street-view fa-lg fa-fw" />
@@ -33,8 +34,8 @@ const ContactList = ({
         <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          keyframes={contactList.keyframes}
-          timing={contactList.timing(1)}
+          keyframes={contactPanel.keyframes(CONTACT_LEFT)}
+          timing={contactPanel.timing(1)}
           shouldAnimate={counter}
           style={{ paddingBottom: '0.8em' }}
         >
@@ -44,8 +45,8 @@ const ContactList = ({
         <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          keyframes={contactList.keyframes}
-          timing={contactList.timing(2)}
+          keyframes={contactPanel.keyframes(CONTACT_LEFT)}
+          timing={contactPanel.timing(2)}
           shouldAnimate={counter}
         >
           <i className="fa fa-location fa-lg fa-fw" style={{ visibility: 'hidden' }} />
@@ -54,8 +55,8 @@ const ContactList = ({
         <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          keyframes={contactList.keyframes}
-          timing={contactList.timing(3)}
+          keyframes={contactPanel.keyframes(CONTACT_LEFT)}
+          timing={contactPanel.timing(3)}
           shouldAnimate={counter}
         >
           <i className="fa fa-phone fa-lg fa-fw" />
@@ -68,8 +69,8 @@ const ContactList = ({
         <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          keyframes={contactList.keyframes}
-          timing={contactList.timing(4)}
+          keyframes={contactPanel.keyframes(CONTACT_LEFT)}
+          timing={contactPanel.timing(4)}
           shouldAnimate={counter}
           style={{ paddingBottom: '0.8em' }}
         >
@@ -87,8 +88,8 @@ const ContactList = ({
         <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          keyframes={contactList.keyframes}
-          timing={contactList.timing(5)}
+          keyframes={contactPanel.keyframes(CONTACT_LEFT)}
+          timing={contactPanel.timing(5)}
           shouldAnimate={counter}
         >
           <i className="fa fa-mail-alt fa-lg fa-fw" style={{ visibility: 'hidden' }} />
@@ -103,8 +104,8 @@ const ContactList = ({
         <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          keyframes={contactList.keyframes}
-          timing={contactList.timing(6)}
+          keyframes={contactPanel.keyframes(CONTACT_LEFT)}
+          timing={contactPanel.timing(6)}
           shouldAnimate={counter}
         >
           <a

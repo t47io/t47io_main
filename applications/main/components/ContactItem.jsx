@@ -8,8 +8,8 @@ import { contactItem } from '../animations/contact.js';
 const ContactItem = ({
   icon,
   url,
-  index,
   shouldAnimate,
+  index,
 }) => (
   <WebAnimation
     tagName="li"
@@ -32,14 +32,14 @@ const ContactItem = ({
 ContactItem.propTypes = {
   icon: React.PropTypes.string,
   url: React.PropTypes.string,
-  index: React.PropTypes.number,
   shouldAnimate: React.PropTypes.bool,
+  index: React.PropTypes.number,
 };
 ContactItem.defaultProps = {
   icon: '',
   url: '',
-  index: 0,
   shouldAnimate: false,
+  index: 0,
 };
 
 
