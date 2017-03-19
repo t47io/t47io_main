@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Trigger from '../../common/components/Trigger.jsx';
-import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
+import ContactForm from '../components/ContactForm.jsx';
 import ContactItem from '../components/ContactItem.jsx';
 import ContactList from '../components/ContactList.jsx';
-import ContactForm from '../components/ContactForm.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 import '../stylesheets/ContactSection.scss';
 
@@ -60,7 +60,8 @@ const ContactSection = ({
           {items.map((item, i) => (
             <ContactItem
               key={`CONTACT__icon-${i}`}
-              shouldAnimate={i < icon}
+              index={i + 1}
+              shouldAnimate={icon}
               {...item}
             />
           ))}
@@ -111,9 +112,9 @@ ContactSection.propTypes = {
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
-    icon: React.PropTypes.number,
-    left: React.PropTypes.number,
-    right: React.PropTypes.number,
+    icon: React.PropTypes.bool,
+    left: React.PropTypes.bool,
+    right: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
@@ -140,10 +141,10 @@ ContactSection.defaultProps = {
     isError: false,
   },
   animations: {
-    header: true,
-    icon: NaN,
-    left: NaN,
-    right: NaN,
+    header: false,
+    icon: false,
+    left: false,
+    right: false,
   },
   actions: {
     animateHeader: () => {},

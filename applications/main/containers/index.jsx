@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import 'web-animations-js/web-animations.min.js';
 
 import HomeSection from './HomeSection.jsx';
 import AboutSection from './AboutSection.jsx';

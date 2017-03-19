@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+
+import { contactForm } from '../animations/contact.js';
 
 
 const ContactForm = ({
@@ -31,14 +33,16 @@ const ContactForm = ({
   return (
     <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <Trigger onToggleAnimation={onToggleAnimation} />
-      <Animation
+      <WebAnimation
         tagName="h4"
         className="CONTACT__title CONTACT__form-item"
-        shouldAnimate={counter > 0}
+        keyframes={contactForm.keyframes}
+        timing={contactForm.timing(0)}
+        shouldAnimate={counter}
       >
         <i className="fa fa-paper-plane-empty fa-lg fa-fw" />
         Keep in Touch
-      </Animation>
+      </WebAnimation>
 
       <form
         className="CONTACT__form"
@@ -47,9 +51,11 @@ const ContactForm = ({
           onSubmitForm();
         }}
       >
-        <Animation
+        <WebAnimation
           className="form-group"
-          shouldAnimate={counter > 1}
+          keyframes={contactForm.keyframes}
+          timing={contactForm.timing(1)}
+          shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
           <input
@@ -59,10 +65,12 @@ const ContactForm = ({
             disabled={shouldDisableForm}
             onChange={event => onChangeField({ name: event.target.value })}
           />
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           className="CONTACT__form-item form-group"
-          shouldAnimate={counter > 2}
+          keyframes={contactForm.keyframes}
+          timing={contactForm.timing(2)}
+          shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
           <input
@@ -72,10 +80,12 @@ const ContactForm = ({
             disabled={shouldDisableForm}
             onChange={event => onChangeField({ email: event.target.value })}
           />
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           className="CONTACT__form-item form-group"
-          shouldAnimate={counter > 3}
+          keyframes={contactForm.keyframes}
+          timing={contactForm.timing(3)}
+          shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
           <input
@@ -85,10 +95,12 @@ const ContactForm = ({
             disabled={shouldDisableForm}
             onChange={event => onChangeField({ subject: event.target.value })}
           />
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           className="CONTACT__form-item form-group"
-          shouldAnimate={counter > 4}
+          keyframes={contactForm.keyframes}
+          timing={contactForm.timing(4)}
+          shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
           <textarea
@@ -98,10 +110,12 @@ const ContactForm = ({
             disabled={shouldDisableForm}
             onChange={event => onChangeField({ message: event.target.value })}
           />
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           className="CONTACT__form-item form-group"
-          shouldAnimate={counter > 5}
+          keyframes={contactForm.keyframes}
+          timing={contactForm.timing(5)}
+          shouldAnimate={counter}
           propsForceUpdate={`${shouldDisableForm} ${btnClassName} ${btnIconClassName}`}
         >
           <button
@@ -112,7 +126,7 @@ const ContactForm = ({
             <i className={`fa ${btnIconClassName} fa-lg fa-fw`} />
             SEND
           </button>
-        </Animation>
+        </WebAnimation>
       </form>
     </div>
   );
@@ -126,7 +140,7 @@ ContactForm.propTypes = {
   isPending: React.PropTypes.bool,
   isSuccess: React.PropTypes.bool,
   isError: React.PropTypes.bool,
-  counter: React.PropTypes.number,
+  counter: React.PropTypes.bool,
   onChangeField: React.PropTypes.func,
   onSubmitForm: React.PropTypes.func,
   onToggleAnimation: React.PropTypes.func,
@@ -139,7 +153,7 @@ ContactForm.defaultProps = {
   isPending: false,
   isSuccess: false,
   isError: false,
-  counter: 6,
+  counter: false,
   onChangeField: () => {},
   onSubmitForm: () => {},
   onToggleAnimation: () => {},

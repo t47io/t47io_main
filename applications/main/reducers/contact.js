@@ -31,10 +31,10 @@ const initialState = {
     isError: false,
   },
   animations: {
-    header: true,
-    icon: NaN,
-    left: NaN,
-    right: NaN,
+    header: false,
+    icon: false,
+    left: false,
+    right: false,
   },
 };
 

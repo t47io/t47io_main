@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+
+import { contactList } from '../animations/contact.js';
 
 const imgPhone = require('../images/t47_phone.png');
 
@@ -17,36 +19,44 @@ const ContactList = ({
   return (
     <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <Trigger onToggleAnimation={onToggleAnimation} />
-      <Animation
+      <WebAnimation
         tagName="h4"
         className="CONTACT__title CONTACT__list-item"
-        shouldAnimate={counter > 0}
+        keyframes={contactList.keyframes}
+        timing={contactList.timing(0)}
+        shouldAnimate={counter}
       >
         <i className="fa fa-street-view fa-lg fa-fw" />
         Find Me
-      </Animation>
+      </WebAnimation>
       <ul className="CONTACT__address">
-        <Animation
+        <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          shouldAnimate={counter > 1}
+          keyframes={contactList.keyframes}
+          timing={contactList.timing(1)}
+          shouldAnimate={counter}
           style={{ paddingBottom: '0.8em' }}
         >
           <i className="fa fa-location fa-lg fa-fw" />
           279 Campus Drive West, Room B419
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          shouldAnimate={counter > 2}
+          keyframes={contactList.keyframes}
+          timing={contactList.timing(2)}
+          shouldAnimate={counter}
         >
           <i className="fa fa-location fa-lg fa-fw" style={{ visibility: 'hidden' }} />
           Stanford, CA 94305, USA
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          shouldAnimate={counter > 3}
+          keyframes={contactList.keyframes}
+          timing={contactList.timing(3)}
+          shouldAnimate={counter}
         >
           <i className="fa fa-phone fa-lg fa-fw" />
           <img
@@ -54,11 +64,13 @@ const ContactList = ({
             alt="T47 phone no."
             src={imgPhone}
           />
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          shouldAnimate={counter > 4}
+          keyframes={contactList.keyframes}
+          timing={contactList.timing(4)}
+          shouldAnimate={counter}
           style={{ paddingBottom: '0.8em' }}
         >
           <i className="fa fa-mail-alt fa-lg fa-fw" />
@@ -71,11 +83,13 @@ const ContactList = ({
               t47 @ alumni.stanford.edu
             </a>
           </b>
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          shouldAnimate={counter > 5}
+          keyframes={contactList.keyframes}
+          timing={contactList.timing(5)}
+          shouldAnimate={counter}
         >
           <i className="fa fa-mail-alt fa-lg fa-fw" style={{ visibility: 'hidden' }} />
           <a
@@ -85,11 +99,13 @@ const ContactList = ({
           >
             contact @ t47.io
           </a>
-        </Animation>
-        <Animation
+        </WebAnimation>
+        <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
-          shouldAnimate={counter > 6}
+          keyframes={contactList.keyframes}
+          timing={contactList.timing(6)}
+          shouldAnimate={counter}
         >
           <a
             className="btn btn-default"
@@ -105,7 +121,7 @@ const ContactList = ({
               </small>
             </span>
           </a>
-        </Animation>
+        </WebAnimation>
       </ul>
     </div>
   );
@@ -113,12 +129,12 @@ const ContactList = ({
 
 ContactList.propTypes = {
   resume: React.PropTypes.string,
-  counter: React.PropTypes.number,
+  counter: React.PropTypes.bool,
   onToggleAnimation: React.PropTypes.func,
 };
 ContactList.defaultProps = {
   resume: '',
-  counter: 7,
+  counter: false,
   onToggleAnimation: () => {},
 };
 

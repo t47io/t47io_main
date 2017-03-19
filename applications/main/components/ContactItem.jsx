@@ -1,39 +1,45 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { contactItem } from '../animations/contact.js';
 
 
 const ContactItem = ({
   icon,
   url,
+  index,
   shouldAnimate,
 }) => (
-  <li>
+  <WebAnimation
+    tagName="li"
+    keyframes={contactItem.keyframes}
+    timing={contactItem.timing(index)}
+    shouldAnimate={shouldAnimate}
+  >
     <a
       href={url}
       target="_blank" rel="noopener noreferrer external"
       className="CONTACT__box text-center"
     >
-      <Animation
-        tagName="span"
-        className="CONTACT__icon"
-        shouldAnimate={shouldAnimate}
-      >
+      <span className="CONTACT__icon">
         <i className={`fa fa-${icon}`} />
-      </Animation>
+      </span>
     </a>
-  </li>
+  </WebAnimation>
 );
 
 ContactItem.propTypes = {
   icon: React.PropTypes.string,
   url: React.PropTypes.string,
+  index: React.PropTypes.number,
   shouldAnimate: React.PropTypes.bool,
 };
 ContactItem.defaultProps = {
   icon: '',
   url: '',
-  shouldAnimate: true,
+  index: 0,
+  shouldAnimate: false,
 };
 
 

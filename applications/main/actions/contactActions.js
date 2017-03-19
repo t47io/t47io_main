@@ -9,42 +9,15 @@ import { CONTACT,
 
 export const animateHeader = toggleHeaderAnimation.bind(null, CONTACT);
 
-const iconCounter = status => ({
+export const animateIcons = status => ({
   type: actionTypes.TOGGLE_CONTACT_ICON_ANIMATION,
   payload: { status },
 });
 
-export const animateIcons = status => (
-  (dispatch, getState) => {
-    if (!status) { return dispatch(iconCounter(0)); }
-    const { contact: { data: { items } } } = getState();
-
-    return (() => {
-      for (let i = 0; i < items.length; i += 1) {
-        setTimeout(() => dispatch(iconCounter(i + 1)), i * 250);
-      }
-    })();
-  }
-);
-
-const contactItemCounter = (side, status) => ({
+const animateItems = (side, status) => ({
   type: actionTypes.TOGGLE_CONTACT_ITEM_ANIMATION,
   payload: { [side.slice(8).toLowerCase()]: status },
 });
-
-const animateItems = (side, status) => (
-  (dispatch, getState) => {
-    if (!status) { return dispatch(contactItemCounter(side, 0)); }
-    const { contact: { data: { lens } } } = getState();
-    const len = (side === CONTACT_LEFT) ? lens.left : lens.right;
-
-    return (() => {
-      for (let i = 0; i < len; i += 1) {
-        setTimeout(() => dispatch(contactItemCounter(side, i + 1)), i * 125);
-      }
-    })();
-  }
-);
 
 export const animateLeftItems = animateItems.bind(null, CONTACT_LEFT);
 export const animateRightItems = animateItems.bind(null, CONTACT_RIGHT);
