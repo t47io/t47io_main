@@ -21,9 +21,10 @@ const StatsGithub = ({
       <Waypoint
         topOffset="150px"
         bottomOffset="150px"
-        onEnter={({ currentPosition }) => {
+        onEnter={({ previousPosition, currentPosition }) => {
           if (currentPosition === Waypoint.inside) {
-            ReactTooltip.rebuild();
+            const delay = (previousPosition === Waypoint.below) ? 1250 : 250;
+            setTimeout(() => ReactTooltip.rebuild(), delay);
           }
         }}
       >
