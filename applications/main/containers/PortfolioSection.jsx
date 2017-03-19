@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Trigger from '../../common/components/Trigger.jsx';
-import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PortfolioFilterItem from '../components/PortfolioFilterItem.jsx';
 import PortfolioItem from '../components/PortfolioItem.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 import '../stylesheets/PortfolioSection.scss';
 
@@ -54,7 +54,8 @@ const PortfolioSection = ({
                 key={`PORTFOLIO__filter-${category}`}
                 category={category}
                 selectedCategory={selectedCategory}
-                shouldAnimate={i < filter}
+                shouldAnimate={filter}
+                index={i}
                 onClick={() => changeFilter(category)}
               />
             ))}
@@ -71,7 +72,8 @@ const PortfolioSection = ({
               .map((item, i) => (
                 <PortfolioItem
                   key={`PORTFOLIO__item-${item.name}`}
-                  shouldAnimate={i < thumbnail}
+                  shouldAnimate={thumbnail}
+                  index={i}
                   {...item}
                 />
               )
@@ -91,8 +93,8 @@ PortfolioSection.propTypes = {
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
-    filter: React.PropTypes.number,
-    thumbnail: React.PropTypes.number,
+    filter: React.PropTypes.bool,
+    thumbnail: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
@@ -108,9 +110,9 @@ PortfolioSection.defaultProps = {
     selectedCategory: 'all',
   },
   animations: {
-    header: true,
-    filter: NaN,
-    thumbnail: NaN,
+    header: false,
+    filter: false,
+    thumbnail: false,
   },
   actions: {
     animateHeader: () => {},

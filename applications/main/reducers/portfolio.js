@@ -14,9 +14,9 @@ const initialState = {
     selectedCategory: 'all',
   },
   animations: {
-    header: true,
-    filter: NaN,
-    thumbnail: NaN,
+    header: false,
+    filter: false,
+    thumbnail: false,
   },
 };
 

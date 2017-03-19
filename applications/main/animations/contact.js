@@ -1,6 +1,7 @@
 import { easeOutBack } from '../../common/animations/easing.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 
+
 export const contactItem = {
   keyframes: [
     { transform: 'rotateX(180deg) rotateZ(180deg)', opacity: 0 },

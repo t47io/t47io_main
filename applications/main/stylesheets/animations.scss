@@ -22,17 +22,6 @@
   }
 }
 
-.PORTFOLIO__item {
-  &.ANIMATION__begin {
-    @include transform(translateY(100%) scale(2));
-  }
-  &.ANIMATION__end {
-    @include transition(0.5s, $easeInOutBack);
-  }
-}
-.PORTFOLIO__filter.ANIMATION__begin {
-  @include transform(translateY(100%));
-}
 
 .STATS__counter {
   &.ANIMATION__begin {

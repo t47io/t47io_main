@@ -1,6 +1,8 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { portfolioItem } from '../animations/portfolio.js';
 
 
 const PortfolioItem = ({
@@ -9,10 +11,13 @@ const PortfolioItem = ({
   title,
   url,
   shouldAnimate,
+  index,
 }) => (
   <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry">
-    <Animation
+    <WebAnimation
       className="PORTFOLIO__item"
+      keyframes={portfolioItem.keyframes}
+      timing={portfolioItem.timing(index)}
       shouldAnimate={shouldAnimate}
     >
       <div className="SPRITE">
@@ -28,7 +33,7 @@ const PortfolioItem = ({
         </a>
         <span dangerouslySetInnerHTML={{ __html: description }} />
       </div>
-    </Animation>
+    </WebAnimation>
   </div>
 );
 
@@ -38,13 +43,15 @@ PortfolioItem.propTypes = {
   title: React.PropTypes.string,
   url: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,
+  index: React.PropTypes.number,
 };
 PortfolioItem.defaultProps = {
   name: '',
   description: '',
   title: '',
   url: '',
-  shouldAnimate: true,
+  shouldAnimate: false,
+  index: 0,
 };
 
 

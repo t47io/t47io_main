@@ -28,8 +28,6 @@ const crossReducer = (state, action) => {
   newState.portfolio.data.selectedCategory = 'all';
 
   newState.about.animations.icon = newState.about.data.items.length;
-  newState.portfolio.animations.filter = newState.portfolio.data.categories.length;
-  newState.portfolio.animations.thumbnail = newState.portfolio.data.items.length;
   newState.stats.animations.counter = newState.stats.data.items.length;
 
 

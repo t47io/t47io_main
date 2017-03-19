@@ -9,41 +9,15 @@ import { PORTFOLIO } from '../constants/sectionTypes.js';
 
 export const animateHeader = toggleHeaderAnimation.bind(null, PORTFOLIO);
 
-const thumbnailCounter = status => ({
+export const animateThumbnails = status => ({
   type: TOGGLE_PORTFOLIO_THUMBNAIL_ANIMATION,
   payload: { status },
 });
 
-export const animateThumbnails = status => (
-  (dispatch, getState) => {
-    if (!status) { return dispatch(thumbnailCounter(0)); }
-    const { portfolio: { data: { items } } } = getState();
-
-    return (() => {
-      for (let i = 0; i < items.length; i += 1) {
-        setTimeout(() => dispatch(thumbnailCounter(i + 1)), i * 125);
-      }
-    })();
-  }
-);
-
-const filterCounter = status => ({
+export const animateFilters = status => ({
   type: TOGGLE_PORTFOLIO_FILTER_ANIMATION,
   payload: { status },
 });
-
-export const animateFilters = status => (
-  (dispatch, getState) => {
-    if (!status) { return dispatch(filterCounter(0)); }
-    const { portfolio: { data: { categories } } } = getState();
-
-    return (() => {
-      for (let i = 0; i < categories.length; i += 1) {
-        setTimeout(() => dispatch(filterCounter(i + 1)), i * 125);
-      }
-    })();
-  }
-);
 
 export const changeFilter = category => ({
   type: CHANGE_PORTFOLIO_FILTER,
