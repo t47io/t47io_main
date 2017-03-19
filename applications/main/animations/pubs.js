@@ -9,6 +9,7 @@ export const pubsItem = {
     delay: index * 125,
     duration: 500,
     easing: 'linear',
+    fill: 'both',
   }),
 };
 
@@ -22,5 +23,6 @@ export const pubsYear = {
     delay: index * 125,
     duration: 500,
     easing: 'linear',
+    fill: 'both',
   }),
 };

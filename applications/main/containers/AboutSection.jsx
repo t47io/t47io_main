@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Trigger from '../../common/components/Trigger.jsx';
-import SectionHeader from '../../common/components/SectionHeader.jsx';
 import AboutItem from '../components/AboutItem.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 import '../stylesheets/AboutSection.scss';
 
@@ -33,8 +33,9 @@ const AboutSection = ({
         <div className="row">
           {items.map((item, i) => (
             <AboutItem
-              key={`ABOUT__icon-${item.title}`}
-              shouldAnimate={i < icon}
+              key={`ABOUT__icon-${i}`}
+              shouldAnimate={icon}
+              index={i}
               {...item}
             />
           ))}
@@ -50,7 +51,7 @@ AboutSection.propTypes = {
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
-    icon: React.PropTypes.number,
+    icon: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
@@ -62,8 +63,8 @@ AboutSection.defaultProps = {
     items: [],
   },
   animations: {
-    header: true,
-    icon: NaN,
+    header: false,
+    icon: false,
   },
   actions: {
     animateHeader: () => {},

@@ -10,6 +10,7 @@ export const portfolioItem = {
     delay: index * 125,
     duration: 500,
     easing: easeInOutBack,
+    fill: 'both',
   }),
 };
 
@@ -22,5 +23,6 @@ export const portfolioFilterItem = {
     delay: index * 125,
     duration: 250,
     easing: 'linear',
+    fill: 'both',
   }),
 };

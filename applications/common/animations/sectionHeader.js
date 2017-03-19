@@ -6,5 +6,6 @@ export const sectionHeader = {
   timing: {
     duration: 750,
     easing: 'linear',
+    fill: 'both',
   },
 };

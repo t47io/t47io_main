@@ -27,7 +27,6 @@ const crossReducer = (state, action) => {
   newState.home.data.sections = undefined;
   newState.portfolio.data.selectedCategory = 'all';
 
-  newState.about.animations.icon = newState.about.data.items.length;
   newState.stats.animations.counter = newState.stats.data.items.length;
 
 

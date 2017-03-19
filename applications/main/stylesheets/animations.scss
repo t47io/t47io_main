@@ -9,17 +9,7 @@
   will-change: transform, opacity;
   opacity: 1;
   @include transition(0.25s);
-  @include transform(translate(0, 0) rotate(0deg) scale(1));
-}
-
-
-.ABOUT__icon {
-  &.ANIMATION__begin {
-    @include transform(rotateZ(360deg));
-  }
-  &.ANIMATION__end {
-    @include transition(0.5s, $easeOutBack);
-  }
+  @include transform(translate(0, 0) rotate(0) scale(1));
 }
 
 

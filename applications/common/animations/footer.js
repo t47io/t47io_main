@@ -10,6 +10,7 @@ export const footerHeader = {
     delay: 750,
     duration: 1000,
     easing: easeInOutCirc,
+    fill: 'both',
   },
 };
 
@@ -22,5 +23,6 @@ export const footerGif = {
     delay: 500,
     duration: 1000,
     easing: easeInOutCirc,
+    fill: 'both',
   },
 };

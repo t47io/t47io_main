@@ -8,8 +8,8 @@ const initialState = {
     items: [],
   },
   animations: {
-    header: true,
-    icon: NaN,
+    header: false,
+    icon: false,
   },
 };
 

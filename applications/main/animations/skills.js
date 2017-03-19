@@ -11,5 +11,6 @@ export const skillsItem = {
     delay: index * 125,
     duration: 1000,
     easing: easeInBack,
+    fill: 'both',
   }),
 };
