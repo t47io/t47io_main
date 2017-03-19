@@ -1,11 +1,15 @@
 @import '../../common/mixins/prefix';
 @import '../../common/mixins/easing';
 
-.ANIMATION__begin { opacity: 0; }
+.ANIMATION__begin {
+  will-change: transform, opacity;
+  opacity: 0;
+}
 .ANIMATION__end {
+  will-change: transform, opacity;
+  opacity: 1;
   @include transition(0.25s);
   @include transform(translate(0, 0) rotate(0deg) scale(1));
-  opacity: 1;
 }
 
 .UTIL__section_header > div {
