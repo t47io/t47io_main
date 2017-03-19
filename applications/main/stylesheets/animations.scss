@@ -61,14 +61,35 @@
   }
 }
 
+.STATS__counter {
+  &.ANIMATION__begin {
+    @include transform(rotateY(180deg) scale(0.1));
+  }
+  &.ANIMATION__end {
+    @include transition(0.5s);
+  }
+}
+.STATS__github {
+  &.ANIMATION__begin {
+    @include transform(rotateY(180deg) scale(2));
+  }
+  &.ANIMATION__end {
+    @include transition(0.75s, $easeInBack);
+  }
+}
+
 .PUBS__year.ANIMATION__begin {
   @include transform(rotateX(90deg) scale(3));
   opacity: 0.25;
 }
-.PUBS__entry.ANIMATION__begin {
-  @include transform(rotateX(90deg));
-  @include transition(0.5s);
-  opacity: 0.25;
+.PUBS__entry {
+  &.ANIMATION__begin {
+    @include transform(rotateX(90deg));
+    opacity: 0.25;
+  }
+  &.ANIMATION__end {
+    @include transition(0.5s);
+  }
 }
 
 .CONTACT__icon {
@@ -104,8 +125,6 @@
     @include transition(1.25s, $easeInOutCirc);
   }
 }
-.FOOTTER__city_gif {
-  &.ANIMATION__end {
-    @include transition(0.5s $easeOutQuint);
-  }
+.FOOTTER__city_gif.ANIMATION__end {
+  @include transition(0.5s $easeOutQuint);
 }

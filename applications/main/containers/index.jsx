@@ -113,7 +113,7 @@ class Main extends React.PureComponent {
           />
           <StatsSection
             data={data.stats}
-            aniamtions={animations.stats}
+            animations={animations.stats}
             actions={actions.stats}
           />
           <PubsSection

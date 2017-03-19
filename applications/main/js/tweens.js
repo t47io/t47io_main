@@ -145,32 +145,8 @@ const home = {
 
 const affiliation = { header };
 
-const stats = {
-  header,
-  counter: offset => ({
-    centerBottom: {
-      transform: 'rotateY(360deg) scale(0)',
-    },
-    [`bottomBottom+${offset}`]: {
-      transform: 'rotateY(0deg) scale(1)',
-    },
-  }),
-  git: {
-    ease: 'easeInBack',
-    centerBottom: {
-      transform: 'rotateY(180deg)',
-      ...fadeQuarter,
-    },
-    'bottomPct+75': {
-      transform: 'rotateY(0deg)',
-      ...fadeEnd,
-    },
-  },
-};
-
 export {
   home,
   affiliation,
-  stats,
   func,
 };
