@@ -14,7 +14,7 @@ class ImageLoader extends React.PureComponent {
   }
 
   render() {
-    const { tinySrc, fullSrc, altText, extraClassName } = this.props;
+    const { tinySrc, fullSrc, altText, className } = this.props;
     const { isLoaded } = this.state;
     const isFilter = isLoaded ? 'none' : 'blur(20px)';
     const bgImage = isLoaded ? fullSrc : tinySrc;
@@ -29,7 +29,7 @@ class ImageLoader extends React.PureComponent {
     };
 
     return (
-      <div className={extraClassName} style={divStyle}>
+      <div className={className} style={divStyle}>
         <img
           style={{ display: 'none' }}
           src={fullSrc}
@@ -45,13 +45,13 @@ ImageLoader.propTypes = {
   tinySrc: React.PropTypes.string,
   fullSrc: React.PropTypes.string,
   altText: React.PropTypes.string,
-  extraClassName: React.PropTypes.string,
+  className: React.PropTypes.string,
 };
 ImageLoader.defaultProps = {
   tinySrc: '',
   fullSrc: '',
   altText: '',
-  extraClassName: '',
+  className: '',
 };
 
 

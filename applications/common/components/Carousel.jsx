@@ -28,11 +28,11 @@ class Carousel extends React.PureComponent {
   }
 
   render() {
-    const { items, extraClassName, children } = this.props;
+    const { items, className, children } = this.props;
     const { current } = this.state;
 
     return (
-      <div className={`${extraClassName} SPRITE__bg-${items[current]} UTIL__parallax UTIL__background`}>
+      <div className={`${className} SPRITE__bg-${items[current]} UTIL__parallax UTIL__background`}>
         <div className="COMMON__carousel COMMON__carousel_fade">
           <ol className="COMMON__carousel_indicators carousel-indicators">
             {items.map((item, i) => (
@@ -55,13 +55,13 @@ class Carousel extends React.PureComponent {
 
 Carousel.propTypes = {
   items: React.PropTypes.arrayOf(React.PropTypes.string),
-  extraClassName: React.PropTypes.string,
+  className: React.PropTypes.string,
   interval: React.PropTypes.number,
   children: React.PropTypes.node,
 };
 Carousel.defaultProps = {
   items: [],
-  extraClassName: '',
+  className: '',
   interval: 2000,
   children: undefined,
 };
