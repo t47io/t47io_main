@@ -10,9 +10,8 @@ export const contactItem = {
   ],
   timing: index => ({
     delay: index * 250,
-    duration: 750,
+    duration: 500,
     easing: easeOutBack,
-    fill: 'both',
   }),
 };
 
@@ -22,10 +21,9 @@ export const contactList = {
     { transform: 'translate(0)', opacity: 1 },
   ],
   timing: index => ({
-    delay: index * 125,
+    delay: 1250 + index * 125,
     duration: 500,
     easing: 'linear',
-    fill: 'both',
   }),
 };
 
@@ -35,9 +33,8 @@ export const contactForm = {
     { transform: 'translate(0)', opacity: 1 },
   ],
   timing: index => ({
-    delay: index * 125,
+    delay: 1250 + index * 125,
     duration: 500,
     easing: 'linear',
-    fill: 'both',
   }),
 };

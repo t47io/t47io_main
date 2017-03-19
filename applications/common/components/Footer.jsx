@@ -1,8 +1,10 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
-import Trigger from '../../common/components/Trigger.jsx';
 import LogoAlt from './LogoAlt.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { footerHeader, footerGif } from '../animations/footer.js';
 
 import '../stylesheets/Footer.scss';
 
@@ -26,12 +28,11 @@ const Footer = ({
   actions: { animateFooter },
 }) => (
   <footer className="FOOTER text-off-white">
-    <Trigger
-      delay={1000}
-      onToggleAnimation={animateFooter}
-    />
-    <Animation
+    <Trigger onToggleAnimation={animateFooter} />
+    <WebAnimation
       className="FOOTTER__city_gif hidden-sm hidden-xs"
+      keyframes={footerGif.keyframes}
+      timing={footerGif.timing}
       shouldAnimate={footer}
     >
       <a
@@ -50,9 +51,11 @@ const Footer = ({
           `}
         />
       </a>
-    </Animation>
-    <Animation
+    </WebAnimation>
+    <WebAnimation
       className="container text-center FOOTER__header"
+      keyframes={footerHeader.keyframes}
+      timing={footerHeader.timing}
       shouldAnimate={footer}
     >
       <div className="FOOTER__copyright text-center">
@@ -86,9 +89,11 @@ const Footer = ({
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>.
       </p>
-    </Animation>
-    <Animation
+    </WebAnimation>
+    <WebAnimation
       className="FOOTTER__city_gif hidden-sm hidden-xs"
+      keyframes={footerGif.keyframes}
+      timing={footerGif.timing}
       shouldAnimate={footer}
     >
       <a
@@ -107,7 +112,7 @@ const Footer = ({
           `}
         />
       </a>
-    </Animation>
+    </WebAnimation>
   </footer>
 );
 
@@ -121,7 +126,7 @@ Footer.propTypes = {
 };
 Footer.defaultProps = {
   animations: {
-    footer: true,
+    footer: false,
   },
   actions: {
     animateFooter: () => {},
