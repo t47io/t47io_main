@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
 import PubsItem from './PubsItem.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { pubsYear } from '../animations/pubs.js';
 
 
 const PubsYearPanel = ({
@@ -11,19 +13,22 @@ const PubsYearPanel = ({
   offset,
 }) => (
   <div className="row PUBS__row">
-    <Animation
+    <WebAnimation
       className="col-lg-1 col-md-1 col-sm-2 col-xs-3 PUBS__year"
-      shouldAnimate={offset < counter}
+      keyframes={pubsYear.keyframes}
+      timing={pubsYear.timing(offset)}
+      shouldAnimate={counter}
     >
       {year}
-    </Animation>
+    </WebAnimation>
     <div className="col-lg-11 col-md-11 col-sm-10 col-xs-9 PUBS__content">
       {items.filter(item => (!item.isHidden))
         .map((item, i) => (
           <PubsItem
             key={`PUBS__entry-${year}-${i}`}
             year={year}
-            shouldAnimate={i + offset < counter}
+            shouldAnimate={counter}
+            index={offset + i}
             {...item}
           />
         )
@@ -35,13 +40,13 @@ const PubsYearPanel = ({
 PubsYearPanel.propTypes = {
   year: React.PropTypes.number,
   items: React.PropTypes.arrayOf(React.PropTypes.object),
-  counter: React.PropTypes.number,
+  counter: React.PropTypes.bool,
   offset: React.PropTypes.number,
 };
 PubsYearPanel.defaultProps = {
   year: NaN,
   items: [],
-  counter: NaN,
+  counter: false,
   offset: 0,
 };
 

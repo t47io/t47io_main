@@ -13,8 +13,8 @@ const initialState = {
     lens: 0,
   },
   animations: {
-    header: true,
-    entry: NaN,
+    header: false,
+    entry: false,
   },
 };
 

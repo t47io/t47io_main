@@ -1,9 +1,11 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
-import PubsIssuePage from './PubsIssuePage.jsx';
-import PubsCodeLink from './PubsCodeLink.jsx';
 import PubsCiteElement from './PubsCiteElement.jsx';
+import PubsCodeLink from './PubsCodeLink.jsx';
+import PubsIssuePage from './PubsIssuePage.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { pubsItem } from '../animations/pubs.js';
 
 
 const PubsItem = ({
@@ -19,14 +21,17 @@ const PubsItem = ({
   tag,
   isPreprint,
   shouldAnimate,
+  index,
 }) => {
   const urlExt = url ? { href: url } : {};
   const urlPDF = isPreprint ? {} : { href: `/pdf/${tag}.pdf` };
   const urlClass = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
 
   return (
-    <Animation
+    <WebAnimation
       className="row PUBS__entry"
+      keyframes={pubsItem.keyframes}
+      timing={pubsItem.timing(index)}
       shouldAnimate={shouldAnimate}
     >
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -78,7 +83,7 @@ const PubsItem = ({
         <br className="hidden-lg hidden-md" />
         <hr className="hidden-lg hidden-md" />
       </div>
-    </Animation>
+    </WebAnimation>
   );
 };
 
@@ -95,6 +100,7 @@ PubsItem.propTypes = {
   tag: React.PropTypes.string,
   isPreprint: React.PropTypes.bool,
   shouldAnimate: React.PropTypes.bool,
+  index: React.PropTypes.number,
 };
 PubsItem.defaultProps = {
   year: NaN,
@@ -108,7 +114,8 @@ PubsItem.defaultProps = {
   citation: NaN,
   tag: '',
   isPreprint: false,
-  shouldAnimate: true,
+  shouldAnimate: false,
+  index: 0,
 };
 
 

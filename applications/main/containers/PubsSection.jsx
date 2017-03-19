@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 
-import Trigger from '../../common/components/Trigger.jsx';
-import SectionHeader from '../../common/components/SectionHeader.jsx';
 import PubsYearPanel from '../components/PubsYearPanel.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 import '../stylesheets/PubsSection.scss';
 
@@ -91,7 +91,7 @@ PubsSection.propTypes = {
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
-    entry: React.PropTypes.number,
+    entry: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
@@ -107,8 +107,8 @@ PubsSection.defaultProps = {
     },
   },
   animations: {
-    header: true,
-    entry: NaN,
+    header: false,
+    entry: false,
   },
   actions: {
     animateHeader: () => {},

@@ -8,7 +8,7 @@ export const footerHeader = {
   ],
   timing: {
     delay: 750,
-    duration: 1250,
+    duration: 1000,
     easing: easeInOutCirc,
   },
 };
