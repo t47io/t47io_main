@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Trigger from '../../common/components/Trigger.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import SkillsPanel from '../components/SkillsPanel.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 import {
   SKILLS_LEFT,
@@ -82,8 +82,8 @@ SkillsSection.propTypes = {
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
-    left: React.PropTypes.number,
-    right: React.PropTypes.number,
+    left: React.PropTypes.bool,
+    right: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
@@ -99,9 +99,9 @@ SkillsSection.defaultProps = {
     },
   },
   animations: {
-    header: true,
-    left: NaN,
-    right: NaN,
+    header: false,
+    left: false,
+    right: false,
   },
   actions: {
     animateHeader: () => {},

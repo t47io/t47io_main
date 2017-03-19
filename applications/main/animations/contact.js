@@ -1,5 +1,5 @@
 import { easeOutBack } from '../../common/animations/easing.js';
-
+import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 
 export const contactItem = {
   keyframes: [
@@ -9,31 +9,19 @@ export const contactItem = {
     { transform: 'rotate(0)', opacity: 1 },
   ],
   timing: index => ({
-    delay: index * 250,
+    delay: index * 125,
     duration: 500,
     easing: easeOutBack,
   }),
 };
 
-export const contactList = {
-  keyframes: [
-    { transform: 'translateX(-100%) translateY(100%)', opacity: 0 },
+export const contactPanel = {
+  keyframes: side => ([
+    { transform: `translateX(${(side === CONTACT_LEFT) ? '-' : ''}100%) translateY(100%)`, opacity: 0 },
     { transform: 'translate(0)', opacity: 1 },
-  ],
+  ]),
   timing: index => ({
-    delay: 1250 + index * 125,
-    duration: 500,
-    easing: 'linear',
-  }),
-};
-
-export const contactForm = {
-  keyframes: [
-    { transform: 'translateX(100%) translateY(100%)', opacity: 0 },
-    { transform: 'translate(0)', opacity: 1 },
-  ],
-  timing: index => ({
-    delay: 1250 + index * 125,
+    delay: 1000 + index * 125,
     duration: 500,
     easing: 'linear',
   }),

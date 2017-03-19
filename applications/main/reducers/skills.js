@@ -15,9 +15,9 @@ const initialState = {
     },
   },
   animations: {
-    header: true,
-    left: NaN,
-    right: NaN,
+    header: false,
+    left: false,
+    right: false,
   },
 };
 

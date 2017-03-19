@@ -27,7 +27,8 @@ const SkillsPanel = ({
       <SkillsProgressBar
         key={`SKILLS__progress-${side}-${i}`}
         side={side}
-        shouldAnimate={i + offset < counter}
+        shouldAnimate={counter}
+        index={offset + i}
         {...item}
       />
     ))}
@@ -39,7 +40,7 @@ SkillsPanel.propTypes = {
   icon: React.PropTypes.string,
   items: React.PropTypes.arrayOf(React.PropTypes.object),
   side: React.PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
-  counter: React.PropTypes.number,
+  counter: React.PropTypes.bool,
   offset: React.PropTypes.number,
 };
 SkillsPanel.defaultProps = {
@@ -47,7 +48,7 @@ SkillsPanel.defaultProps = {
   icon: '',
   items: [],
   side: SKILLS_LEFT,
-  counter: NaN,
+  counter: false,
   offset: 0,
 };
 

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
 
+import { skillsItem } from '../animations/skills.js';
 import {
   SKILLS_LEFT,
   SKILLS_RIGHT,
@@ -13,9 +14,12 @@ const SkillsProgressBar = ({
   value,
   side,
   shouldAnimate,
+  index,
 }) => (
-  <Animation
+  <WebAnimation
     className={`SKILLS__progress ${side}`}
+    keyframes={skillsItem.keyframes(side)}
+    timing={skillsItem.timing(index)}
     shouldAnimate={shouldAnimate}
   >
     <div
@@ -25,7 +29,7 @@ const SkillsProgressBar = ({
     >
       {title}
     </div>
-  </Animation>
+  </WebAnimation>
 );
 
 SkillsProgressBar.propTypes = {
@@ -33,12 +37,14 @@ SkillsProgressBar.propTypes = {
   value: React.PropTypes.number,
   side: React.PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
   shouldAnimate: React.PropTypes.bool,
+  index: React.PropTypes.number,
 };
 SkillsProgressBar.defaultProps = {
   title: '',
   value: 0,
   side: SKILLS_LEFT,
-  shouldAnimate: true,
+  shouldAnimate: false,
+  index: 0,
 };
 
 
