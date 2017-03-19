@@ -36,4 +36,5 @@ SectionHeader.defaultProps = {
   onToggleAnimation: () => {},
 };
 
+
 export default SectionHeader;

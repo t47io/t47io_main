@@ -8,7 +8,9 @@ const ScrollSpy = ({
   children,
 }) => (
   <Waypoint onEnter={() => onUpdateScroll(section)}>
-    {children}
+    <div>
+      {children}
+    </div>
   </Waypoint>
 );
 
@@ -22,5 +24,6 @@ ScrollSpy.defaultProps = {
   onUpdateScroll: () => {},
   children: undefined,
 };
+
 
 export default ScrollSpy;
