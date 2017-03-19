@@ -5,7 +5,7 @@ import _ from 'lodash/core';
 import path from 'path';
 import request from 'request';
 
-const json = require('../../config/index/stats.json');
+const json = require('../../config/main/stats.json');
 
 
 const extractData = (body) => {

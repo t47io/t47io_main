@@ -7,7 +7,7 @@ import {
   SMTP,
 } from '../config.js';
 
-const pubs = require('../../config/index/pubs.json');
+const pubs = require('../../config/main/pubs.json');
 
 
 const formatPubs = () => {

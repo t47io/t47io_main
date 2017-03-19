@@ -6,7 +6,7 @@ import path from 'path';
 import request from 'request';
 
 
-const json = require('../../config/index/pubs.json');
+const json = require('../../config/main/pubs.json');
 
 const filter = /[a-zA-Z]+/g;
 const filterWords = (input, minLen, exclude = [], subset = NaN) => {
