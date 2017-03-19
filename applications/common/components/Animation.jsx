@@ -17,13 +17,14 @@ class Animation extends React.Component {
       beginClassName,
       endClassName,
       shouldAnimate,
+      children,
     } = this.props;
     const targetClassName = shouldAnimate ? endClassName : beginClassName;
     const CustomTag = `${tagName}`;
 
     return (
       <CustomTag className={`${className} ${targetClassName}`}>
-        {this.props.children}
+        {children}
       </CustomTag>
     );
   }
@@ -41,6 +42,7 @@ Animation.propTypes = {
     React.PropTypes.bool,
     React.PropTypes.number,
   ]),
+  children: React.PropTypes.node,
 };
 Animation.defaultProps = {
   tagName: 'div',
@@ -50,6 +52,7 @@ Animation.defaultProps = {
   shouldAnimate: true,
   shouldForceUpdate: false,
   propsForceUpdate: '',
+  children: undefined,
 };
 
 

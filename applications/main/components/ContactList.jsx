@@ -63,7 +63,11 @@ const ContactList = ({
         >
           <i className="fa fa-mail-alt fa-lg fa-fw" />
           <b>
-            <a className="text-light-green" href="mailto:t47@alumni.stanford.edu" target="_blank" rel="noopener noreferrer external">
+            <a
+              className="text-light-green"
+              href="mailto:t47@alumni.stanford.edu"
+              target="_blank" rel="noopener noreferrer external"
+            >
               t47 @ alumni.stanford.edu
             </a>
           </b>
@@ -74,7 +78,11 @@ const ContactList = ({
           shouldAnimate={counter > 5}
         >
           <i className="fa fa-mail-alt fa-lg fa-fw" style={{ visibility: 'hidden' }} />
-          <a className="text-light-gray" href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external">
+          <a
+            className="text-light-gray"
+            href="mailto:contact@t47.io"
+            target="_blank" rel="noopener noreferrer external"
+          >
             contact @ t47.io
           </a>
         </Animation>
@@ -83,7 +91,11 @@ const ContactList = ({
           className="CONTACT__list-item"
           shouldAnimate={counter > 6}
         >
-          <a className="btn btn-default" href="/resume/" target="_blank" rel="noopener noreferrer">
+          <a
+            className="btn btn-default"
+            href="/resume/"
+            target="_blank" rel="noopener noreferrer"
+          >
             <i className="fa fa-download fa-fw" />
             Resume
             <span className="text-main CONTACT__resume">
