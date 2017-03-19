@@ -1,13 +1,12 @@
 import { toggleHeaderAnimation } from '../../common/actions/sectionHeaderActions.js';
-
-import * as actionTypes from '../constants/actionTypes.js';
+import { TOGGLE_PUBS_ENTRY_ANIMATION } from '../constants/actionTypes.js';
 import { PUBS } from '../constants/sectionTypes.js';
 
 
 export const animateHeader = toggleHeaderAnimation.bind(null, PUBS);
 
 const entryCounter = status => ({
-  type: actionTypes.TOGGLE_PUBS_ENTRY_ANIMATION,
+  type: TOGGLE_PUBS_ENTRY_ANIMATION,
   payload: { status },
 });
 

@@ -1,13 +1,12 @@
 import { toggleHeaderAnimation } from '../../common/actions/sectionHeaderActions.js';
-
-import * as actionTypes from '../constants/actionTypes.js';
+import { TOGGLE_ABOUT_ICON_ANIMATION } from '../constants/actionTypes.js';
 import { ABOUT } from '../constants/sectionTypes.js';
 
 
 export const animateHeader = toggleHeaderAnimation.bind(null, ABOUT);
 
 const iconCounter = status => ({
-  type: actionTypes.TOGGLE_ABOUT_ICON_ANIMATION,
+  type: TOGGLE_ABOUT_ICON_ANIMATION,
   payload: { status },
 });
 

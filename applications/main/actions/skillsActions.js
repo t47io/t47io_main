@@ -1,6 +1,5 @@
 import { toggleHeaderAnimation } from '../../common/actions/sectionHeaderActions.js';
-
-import * as actionTypes from '../constants/actionTypes.js';
+import { TOGGLE_SKILLS_PROGRESSBAR_ANIMATION } from '../constants/actionTypes.js';
 import {
   SKILLS,
   SKILLS_LEFT,
@@ -11,7 +10,7 @@ import {
 export const animateHeader = toggleHeaderAnimation.bind(null, SKILLS);
 
 const progressBarCounter = (side, status) => ({
-  type: actionTypes.TOGGLE_SKILLS_PROGRESSBAR_ANIMATION,
+  type: TOGGLE_SKILLS_PROGRESSBAR_ANIMATION,
   payload: { [side.slice(7).toLowerCase()]: status },
 });
 

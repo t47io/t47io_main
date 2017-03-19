@@ -69,7 +69,7 @@ class Main extends React.PureComponent {
 
   render() {
     const { data, form, animations, actions } = this.props;
-    const { home, stats } = data;
+    const { home } = data;
     const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
     const hideScrollTop = (data.navbar.activeSection === 'home' || animations.footer.footer);
 
@@ -111,7 +111,11 @@ class Main extends React.PureComponent {
             animations={animations.skills}
             actions={actions.skills}
           />
-          <StatsSection {...stats} />
+          <StatsSection
+            data={data.stats}
+            aniamtions={animations.stats}
+            actions={actions.stats}
+          />
           <PubsSection
             data={data.pubs}
             animations={animations.pubs}

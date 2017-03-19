@@ -1,13 +1,16 @@
 import { toggleHeaderAnimation } from '../../common/actions/sectionHeaderActions.js';
-
-import * as actionTypes from '../constants/actionTypes.js';
+import {
+  TOGGLE_PORTFOLIO_THUMBNAIL_ANIMATION,
+  TOGGLE_PORTFOLIO_FILTER_ANIMATION,
+  CHANGE_PORTFOLIO_FILTER,
+} from '../constants/actionTypes.js';
 import { PORTFOLIO } from '../constants/sectionTypes.js';
 
 
 export const animateHeader = toggleHeaderAnimation.bind(null, PORTFOLIO);
 
 const thumbnailCounter = status => ({
-  type: actionTypes.TOGGLE_PORTFOLIO_THUMBNAIL_ANIMATION,
+  type: TOGGLE_PORTFOLIO_THUMBNAIL_ANIMATION,
   payload: { status },
 });
 
@@ -25,7 +28,7 @@ export const animateThumbnails = status => (
 );
 
 const filterCounter = status => ({
-  type: actionTypes.TOGGLE_PORTFOLIO_FILTER_ANIMATION,
+  type: TOGGLE_PORTFOLIO_FILTER_ANIMATION,
   payload: { status },
 });
 
@@ -43,6 +46,6 @@ export const animateFilters = status => (
 );
 
 export const changeFilter = category => ({
-  type: actionTypes.CHANGE_PORTFOLIO_FILTER,
+  type: CHANGE_PORTFOLIO_FILTER,
   payload: { category },
 });
