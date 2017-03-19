@@ -30,6 +30,22 @@ class Animation extends React.Component {
   }
 }
 
+// const Animation = ({
+//   tagName,
+//   className,
+//   endClassName,
+//   children,
+// }) => {
+//   const CustomTag = `${tagName}`;
+
+//   return (
+//     <CustomTag className={`${className} ${endClassName}`}>
+//       {children}
+//     </CustomTag>
+//   );
+// };
+
+
 Animation.propTypes = {
   tagName: React.PropTypes.string,
   className: React.PropTypes.string,
@@ -42,7 +58,10 @@ Animation.propTypes = {
     React.PropTypes.bool,
     React.PropTypes.number,
   ]),
-  children: React.PropTypes.node,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.node,
+    React.PropTypes.arrayOf(React.PropTypes.node),
+  ]).isRequired,
 };
 Animation.defaultProps = {
   tagName: 'div',
@@ -52,7 +71,6 @@ Animation.defaultProps = {
   shouldAnimate: true,
   shouldForceUpdate: false,
   propsForceUpdate: '',
-  children: undefined,
 };
 
 
