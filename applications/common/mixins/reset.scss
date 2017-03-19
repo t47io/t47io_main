@@ -23,12 +23,9 @@ body {
 
 section {
   position: relative;
-
-  &:not(:last-of-type):not(:first-of-type) {
-    overflow: hidden;
-    background-color: $colorWhite;
-    padding: 3.5rem 0;
-  }
+  overflow: hidden;
+  padding: 3.5rem 0;
+  background-color: $colorWhite;
 }
 small { font-size: 0.8em; }
 h1 { font-size: 2.5em; }

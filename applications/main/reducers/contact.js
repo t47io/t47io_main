@@ -14,7 +14,7 @@ import { CONTACT } from '../constants/sectionTypes.js';
 const initialState = {
   data: {
     items: [],
-    background: [],
+    backgrounds: [],
     resume: '',
     lens: {
       left: 0,

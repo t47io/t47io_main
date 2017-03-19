@@ -25,6 +25,7 @@ const crossReducer = (state, action) => {
 
   newState.navbar.data = { items: newState.home.data.sections };
   newState.home.data.sections = undefined;
+  newState.portfolio.data.selectedCategory = 'all';
 
   newState.about.animations.icon = newState.about.data.items.length;
   newState.portfolio.animations.filter = newState.portfolio.data.categories.length;

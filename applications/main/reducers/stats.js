@@ -4,7 +4,7 @@ import * as actionTypes from '../constants/actionTypes.js';
 const initialState = {
   data: {
     items: [],
-    background: [],
+    backgrounds: [],
     links: {
       github: '',
       githubMitned: '',
