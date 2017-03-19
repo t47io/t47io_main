@@ -4,9 +4,9 @@ import React from 'react';
 const year = (new Date()).getFullYear();
 
 const Footer = ({
-  logo = '',
-  copy = '',
-  cc = '',
+  logo,
+  copy,
+  cc,
 }) => (
   <footer>
     <p>
@@ -39,6 +39,11 @@ Footer.propTypes = {
   logo: React.PropTypes.string,
   copy: React.PropTypes.string,
   cc: React.PropTypes.string,
+};
+Footer.defaultProps = {
+  logo: '',
+  copy: '',
+  cc: '',
 };
 
 

@@ -5,10 +5,10 @@ import PubsItem from './PubsItem.jsx';
 
 
 const PubsYearPanel = ({
-  year = NaN,
-  items = [],
-  counter = items.length,
-  offset = 0,
+  year,
+  items,
+  counter,
+  offset,
 }) => (
   <div className="row PUBS__row">
     <Animation
@@ -34,9 +34,15 @@ const PubsYearPanel = ({
 
 PubsYearPanel.propTypes = {
   year: React.PropTypes.number,
-  items: React.PropTypes.array,
+  items: React.PropTypes.arrayOf(React.PropTypes.object),
   counter: React.PropTypes.number,
   offset: React.PropTypes.number,
+};
+PubsYearPanel.defaultProps = {
+  year: NaN,
+  items: [],
+  counter: NaN,
+  offset: 0,
 };
 
 

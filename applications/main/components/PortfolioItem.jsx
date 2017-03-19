@@ -4,11 +4,11 @@ import Animation from '../../common/components/Animation.jsx';
 
 
 const PortfolioItem = ({
-  name = '',
-  description = '',
-  title = '',
-  url = '',
-  shouldAnimate = true,
+  name,
+  description,
+  title,
+  url,
+  shouldAnimate,
 }) => (
   <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry">
     <Animation
@@ -38,6 +38,13 @@ PortfolioItem.propTypes = {
   title: React.PropTypes.string,
   url: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,
+};
+PortfolioItem.defaultProps = {
+  name: '',
+  description: '',
+  title: '',
+  url: '',
+  shouldAnimate: true,
 };
 
 

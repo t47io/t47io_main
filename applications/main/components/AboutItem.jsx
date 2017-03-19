@@ -4,10 +4,10 @@ import Animation from '../../common/components/Animation.jsx';
 
 
 const AboutItem = ({
-  title = '',
-  icon = '',
-  description = '',
-  shouldAnimate = true,
+  title,
+  icon,
+  description,
+  shouldAnimate,
 }) => (
   <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
     <a className="ABOUT__box text-center">
@@ -30,6 +30,12 @@ AboutItem.propTypes = {
   icon: React.PropTypes.string,
   description: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,
+};
+AboutItem.defaultProps = {
+  title: '',
+  icon: '',
+  description: '',
+  shouldAnimate: true,
 };
 
 

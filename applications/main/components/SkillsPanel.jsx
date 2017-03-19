@@ -9,12 +9,12 @@ import {
 
 
 const SkillsPanel = ({
-  title = '',
-  icon = '',
-  items = [],
-  side = SKILLS_LEFT,
-  counter = items.length,
-  offset = 0,
+  title,
+  icon,
+  items,
+  side,
+  counter,
+  offset,
 }) => (
   <div className="SKILLS__chapter">
     <div className="SKILLS__title">
@@ -37,10 +37,18 @@ const SkillsPanel = ({
 SkillsPanel.propTypes = {
   title: React.PropTypes.string,
   icon: React.PropTypes.string,
-  items: React.PropTypes.array,
+  items: React.PropTypes.arrayOf(React.PropTypes.object),
   side: React.PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
   counter: React.PropTypes.number,
   offset: React.PropTypes.number,
+};
+SkillsPanel.defaultProps = {
+  title: '',
+  icon: '',
+  items: [],
+  side: SKILLS_LEFT,
+  counter: NaN,
+  offset: 0,
 };
 
 

@@ -5,17 +5,17 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 
 const ContactForm = ({
-  name = '',
-  email = '',
-  subject = '',
-  message = '',
-  isPending = false,
-  isSuccess = false,
-  isError = false,
-  counter = 6,
-  onChangeField = () => {},
-  onSubmitForm = () => {},
-  onToggleAnimation = () => {},
+  name,
+  email,
+  subject,
+  message,
+  isPending,
+  isSuccess,
+  isError,
+  counter,
+  onChangeField,
+  onSubmitForm,
+  onToggleAnimation,
 }) => {
   const shouldDisableForm = isPending || isError;
   const btnClassName = isError ? 'danger' : 'default';
@@ -130,6 +130,19 @@ ContactForm.propTypes = {
   onChangeField: React.PropTypes.func,
   onSubmitForm: React.PropTypes.func,
   onToggleAnimation: React.PropTypes.func,
+};
+ContactForm.defaultProps = {
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+  isPending: false,
+  isSuccess: false,
+  isError: false,
+  counter: 6,
+  onChangeField: () => {},
+  onSubmitForm: () => {},
+  onToggleAnimation: () => {},
 };
 
 

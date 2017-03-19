@@ -2,9 +2,9 @@ import React from 'react';
 
 
 const PubsIssuePage = ({
-  issue = '',
-  page = '',
-  isPreprint = false,
+  issue,
+  page,
+  isPreprint,
 }) => {
   if (isPreprint) {
     return (
@@ -25,6 +25,11 @@ PubsIssuePage.propTypes = {
   issue: React.PropTypes.string,
   page: React.PropTypes.string,
   isPreprint: React.PropTypes.bool,
+};
+PubsIssuePage.defaultProps = {
+  issue: '',
+  page: '',
+  isPreprint: false,
 };
 
 

@@ -43,6 +43,12 @@ StatsItem.propTypes = {
   title: React.PropTypes.string,
   value: React.PropTypes.number,
 };
+StatsItem.defaultProps = {
+  id: NaN,
+  icon: '',
+  title: '',
+  value: NaN,
+};
 
 
 export default StatsItem;

@@ -22,12 +22,8 @@ const year = (new Date()).getFullYear();
 
 
 const Footer = ({
-  animations: {
-    footer = true,
-  },
-  actions: {
-    animateFooter = () => {},
-  },
+  animations: { footer },
+  actions: { animateFooter },
 }) => (
   <footer className="FOOTER text-off-white">
     <Trigger
@@ -122,6 +118,14 @@ Footer.propTypes = {
   actions: React.PropTypes.shape({
     animateFooter: React.PropTypes.func,
   }),
+};
+Footer.defaultProps = {
+  animations: {
+    footer: true,
+  },
+  actions: {
+    animateFooter: () => {},
+  },
 };
 
 

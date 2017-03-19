@@ -10,20 +10,20 @@ import '../stylesheets/PortfolioSection.scss';
 
 const PortfolioSection = ({
   data: {
-    items = [],
-    categories = [],
-    selectedCategory = 'all',
+    items,
+    categories,
+    selectedCategory,
   },
   animations: {
-    header = true,
-    filter = categories.length,
-    thumbnail = items.length,
+    header,
+    filter,
+    thumbnail,
   },
   actions: {
-    animateHeader = () => {},
-    animateFilters = () => {},
-    animateThumbnails = () => {},
-    changeFilter = () => {},
+    animateHeader,
+    animateFilters,
+    animateThumbnails,
+    changeFilter,
   },
 }) => (
   <section id="PORTFOLIO__section">
@@ -85,8 +85,8 @@ const PortfolioSection = ({
 
 PortfolioSection.propTypes = {
   data: React.PropTypes.shape({
-    items: React.PropTypes.array,
-    categories: React.PropTypes.array,
+    items: React.PropTypes.arrayOf(React.PropTypes.object),
+    categories: React.PropTypes.arrayOf(React.PropTypes.string),
     selectedCategory: React.PropTypes.string,
   }),
   animations: React.PropTypes.shape({
@@ -100,6 +100,24 @@ PortfolioSection.propTypes = {
     animateThumbnails: React.PropTypes.func,
     changeFilter: React.PropTypes.func,
   }),
+};
+PortfolioSection.defaultProps = {
+  data: {
+    items: [],
+    categories: [],
+    selectedCategory: 'all',
+  },
+  animations: {
+    header: true,
+    filter: NaN,
+    thumbnail: NaN,
+  },
+  actions: {
+    animateHeader: () => {},
+    animateFilters: () => {},
+    animateThumbnails: () => {},
+    changeFilter: () => {},
+  },
 };
 
 

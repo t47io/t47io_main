@@ -13,21 +13,16 @@ import '../stylesheets/SkillsSection.scss';
 
 
 const SkillsSection = ({
-  data: {
-    items = {
-      left: [],
-      right: [],
-    },
-  },
+  data: { items },
   animations: {
-    header = true,
-    left = items.left.length,
-    right = items.right.length,
+    header,
+    left,
+    right,
   },
   actions: {
-    animateHeader = () => {},
-    animateLeftBars = () => {},
-    animateRightBars = () => {},
+    animateHeader,
+    animateLeftBars,
+    animateRightBars,
   },
 }) => (
   <section id="SKILLS__section">
@@ -81,8 +76,8 @@ const SkillsSection = ({
 SkillsSection.propTypes = {
   data: React.PropTypes.shape({
     items: React.PropTypes.shape({
-      left: React.PropTypes.array,
-      right: React.PropTypes.array,
+      left: React.PropTypes.arrayOf(React.PropTypes.object),
+      right: React.PropTypes.arrayOf(React.PropTypes.object),
     }),
   }),
   animations: React.PropTypes.shape({
@@ -95,6 +90,24 @@ SkillsSection.propTypes = {
     animateLeftBars: React.PropTypes.func,
     animateRightBars: React.PropTypes.func,
   }),
+};
+SkillsSection.defaultProps = {
+  data: {
+    items: {
+      left: [],
+      right: [],
+    },
+  },
+  animations: {
+    header: true,
+    left: NaN,
+    right: NaN,
+  },
+  actions: {
+    animateHeader: () => {},
+    animateLeftBars: () => {},
+    animateRightBars: () => {},
+  },
 };
 
 

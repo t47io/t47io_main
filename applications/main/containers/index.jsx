@@ -71,21 +71,22 @@ class Main extends React.PureComponent {
     const { data, form, animations, actions } = this.props;
     const { home, stats } = data;
     const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
-    const hideScrollTop = (animations.navbar.activeSection === 'home' || animations.footer.footer);
+    const hideScrollTop = (data.navbar.activeSection === 'home' || animations.footer.footer);
 
     return (
       <div>
         <Navbar
           data={data.navbar}
-          animations={animations.navbar}
           actions={actions.navbar}
         />
 
-        <ScrollSpy section="home" onUpdateScroll={onUpdateScroll} />
-        <HomeSection
-          {...home}
-          onUpdateScroll={onUpdateScroll}
-        />
+        <ScrollSpy section="home" onUpdateScroll={onUpdateScroll}>
+          <div>
+            <HomeSection
+              {...home}
+            />
+          </div>
+        </ScrollSpy>
 
         <ScrollSpy section="about" onUpdateScroll={onUpdateScroll}>
           <div>
@@ -93,7 +94,6 @@ class Main extends React.PureComponent {
               data={data.about}
               animations={animations.about}
               actions={actions.about}
-              onUpdateScroll={onUpdateScroll}
             />
             {/*
             <AffiliationSection
@@ -104,42 +104,43 @@ class Main extends React.PureComponent {
           </div>
         </ScrollSpy>
 
-        <ScrollSpy section="portfolio" onUpdateScroll={onUpdateScroll} />
-        <PortfolioSection
-          data={data.portfolio}
-          animations={animations.portfolio}
-          actions={actions.portfolio}
-          onUpdateScroll={onUpdateScroll}
-        />
-        <SkillsSection
-          data={data.skills}
-          animations={animations.skills}
-          actions={actions.skills}
-        />
-        <StatsSection {...stats} />
-        <PubsSection
-          data={data.pubs}
-          animations={animations.pubs}
-          actions={actions.pubs}
-          onUpdateScroll={onUpdateScroll}
-        />
-        <ScrollSpy section="portfolio" onUpdateScroll={onUpdateScroll} />
+        <ScrollSpy section="portfolio" onUpdateScroll={onUpdateScroll}>
+          <div>
+            <PortfolioSection
+              data={data.portfolio}
+              animations={animations.portfolio}
+              actions={actions.portfolio}
+            />
+            <SkillsSection
+              data={data.skills}
+              animations={animations.skills}
+              actions={actions.skills}
+            />
+            <StatsSection {...stats} />
+            <PubsSection
+              data={data.pubs}
+              animations={animations.pubs}
+              actions={actions.pubs}
+            />
+          </div>
+        </ScrollSpy>
 
-        <ScrollSpy section="contact" onUpdateScroll={onUpdateScroll} />
-        <ContactSection
-          data={data.contact}
-          form={form}
-          animations={animations.contact}
-          actions={actions.contact}
-          onUpdateScroll={onUpdateScroll}
-        />
+        <ScrollSpy section="contact" onUpdateScroll={onUpdateScroll}>
+          <div>
+            <ContactSection
+              data={data.contact}
+              form={form}
+              animations={animations.contact}
+              actions={actions.contact}
+            />
+            <Footer
+              animations={animations.footer}
+              actions={actions.footer}
+            />
+          </div>
+        </ScrollSpy>
 
-        <Footer
-          animations={animations.footer}
-          actions={actions.footer}
-        />
         <ScrollTop isHidden={hideScrollTop} />
-        <ScrollSpy section="contact" onUpdateScroll={onUpdateScroll} />
       </div>
     );
   }
@@ -150,6 +151,12 @@ Main.propTypes = {
   form: React.PropTypes.object,
   animations: React.PropTypes.object,
   actions: React.PropTypes.object,
+};
+Main.defaultProps = {
+  data: {},
+  form: {},
+  animations: {},
+  actions: {},
 };
 
 

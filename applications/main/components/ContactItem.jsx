@@ -4,9 +4,9 @@ import Animation from '../../common/components/Animation.jsx';
 
 
 const ContactItem = ({
-  icon = '',
-  url = '',
-  shouldAnimate = true,
+  icon,
+  url,
+  shouldAnimate,
 }) => (
   <li>
     <a
@@ -29,6 +29,11 @@ ContactItem.propTypes = {
   icon: React.PropTypes.string,
   url: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,
+};
+ContactItem.defaultProps = {
+  icon: '',
+  url: '',
+  shouldAnimate: true,
 };
 
 

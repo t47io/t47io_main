@@ -12,11 +12,11 @@ class Animation extends React.Component {
 
   render() {
     const {
-      tagName = 'div',
-      className = '',
-      beginClassName = 'ANIMATION__begin',
-      endClassName = 'ANIMATION__end',
-      shouldAnimate = true,
+      tagName,
+      className,
+      beginClassName,
+      endClassName,
+      shouldAnimate,
     } = this.props;
     const targetClassName = shouldAnimate ? endClassName : beginClassName;
     const CustomTag = `${tagName}`;
@@ -41,6 +41,15 @@ Animation.propTypes = {
     React.PropTypes.bool,
     React.PropTypes.number,
   ]),
+};
+Animation.defaultProps = {
+  tagName: 'div',
+  className: '',
+  beginClassName: 'ANIMATION__begin',
+  endClassName: 'ANIMATION__end',
+  shouldAnimate: true,
+  shouldForceUpdate: false,
+  propsForceUpdate: '',
 };
 
 

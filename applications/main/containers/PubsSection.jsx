@@ -10,19 +10,19 @@ import '../stylesheets/PubsSection.scss';
 
 const PubsSection = ({
   data: {
-    items = [],
+    items,
     links: {
-      googleScholar = '',
-      pubmed = '',
+      googleScholar,
+      pubmed,
     },
   },
   animations: {
-    header = true,
-    entry = items.length,
+    header,
+    entry,
   },
   actions: {
-    animateHeader = () => {},
-    animateEntries = () => {},
+    animateHeader,
+    animateEntries,
   },
 }) => (
   <section id="PUBS__section">
@@ -83,7 +83,7 @@ const PubsSection = ({
 
 PubsSection.propTypes = {
   data: React.PropTypes.shape({
-    items: React.PropTypes.array,
+    items: React.PropTypes.arrayOf(React.PropTypes.object),
     links: React.PropTypes.shape({
       googleScholar: React.PropTypes.string,
       pubmed: React.PropTypes.string,
@@ -97,6 +97,23 @@ PubsSection.propTypes = {
     animateHeader: React.PropTypes.func,
     animateEntries: React.PropTypes.func,
   }),
+};
+PubsSection.defaultProps = {
+  data: {
+    items: [],
+    links: {
+      googleScholar: '',
+      pubmed: '',
+    },
+  },
+  animations: {
+    header: true,
+    entry: NaN,
+  },
+  actions: {
+    animateHeader: () => {},
+    animateEntries: () => {},
+  },
 };
 
 

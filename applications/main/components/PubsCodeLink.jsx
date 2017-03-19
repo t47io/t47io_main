@@ -1,9 +1,7 @@
 import React from 'react';
 
 
-const PubsCodeLink = ({
-  code = '',
-}) => {
+const PubsCodeLink = ({ code }) => {
   if (!code) { return null; }
 
   return (
@@ -19,6 +17,9 @@ const PubsCodeLink = ({
 
 PubsCodeLink.propTypes = {
   code: React.PropTypes.string,
+};
+PubsCodeLink.defaultProps = {
+  code: '',
 };
 
 

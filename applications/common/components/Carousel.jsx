@@ -63,6 +63,7 @@ Carousel.defaultProps = {
   items: [],
   extraClassName: '',
   interval: 2000,
+  children: undefined,
 };
 
 

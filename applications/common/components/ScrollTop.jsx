@@ -3,7 +3,7 @@ import React from 'react';
 import '../stylesheets/ScrollTop.scss';
 
 
-const ScrollTop = ({ isHidden = false }) => {
+const ScrollTop = ({ isHidden }) => {
   const opacity = isHidden ? 0 : 1;
   const visibility = isHidden ? 'hidden' : 'visible';
 
@@ -16,6 +16,9 @@ const ScrollTop = ({ isHidden = false }) => {
 
 ScrollTop.propTypes = {
   isHidden: React.PropTypes.bool,
+};
+ScrollTop.defaultProps = {
+  isHidden: false,
 };
 
 

@@ -9,10 +9,10 @@ import {
 
 
 const SkillsProgressBar = ({
-  title = '',
-  value = 0,
-  side = SKILLS_LEFT,
-  shouldAnimate = true,
+  title,
+  value,
+  side,
+  shouldAnimate,
 }) => (
   <Animation
     className={`SKILLS__progress ${side}`}
@@ -33,6 +33,12 @@ SkillsProgressBar.propTypes = {
   value: React.PropTypes.number,
   side: React.PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
   shouldAnimate: React.PropTypes.bool,
+};
+SkillsProgressBar.defaultProps = {
+  title: '',
+  value: 0,
+  side: SKILLS_LEFT,
+  shouldAnimate: true,
 };
 
 

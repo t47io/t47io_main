@@ -2,9 +2,9 @@ import React from 'react';
 
 
 const NavbarItem = ({
-  name = '',
-  isActive = false,
-  onClick = () => {},
+  name,
+  isActive,
+  onClick,
 }) => (
   <li className={isActive ? 'active' : ''}>
     <a
@@ -21,6 +21,10 @@ NavbarItem.propTypes = {
   isActive: React.PropTypes.bool,
   onClick: React.PropTypes.func,
 };
-
+NavbarItem.defaultProps = {
+  name: '',
+  isActive: false,
+  onClick: () => {},
+};
 
 export default NavbarItem;

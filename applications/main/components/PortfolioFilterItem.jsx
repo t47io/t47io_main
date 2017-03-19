@@ -3,10 +3,10 @@ import Animation from '../../common/components/Animation.jsx';
 
 
 const PortfolioFilterItem = ({
-  category = '',
-  selectedCategory = 'all',
-  shouldAnimate = true,
-  onClick = () => {},
+  category,
+  selectedCategory,
+  shouldAnimate,
+  onClick,
 }) => {
   const activeClassName = (category === selectedCategory) ? 'active' : '';
 
@@ -29,6 +29,12 @@ PortfolioFilterItem.propTypes = {
   selectedCategory: React.PropTypes.string,
   shouldAnimate: React.PropTypes.bool,
   onClick: React.PropTypes.func,
+};
+PortfolioFilterItem.defaultProps = {
+  category: '',
+  selectedCategory: 'all',
+  shouldAnimate: true,
+  onClick: () => {},
 };
 
 

@@ -2,12 +2,12 @@ import React from 'react';
 
 
 const ErrorPage = ({
-  logo = '',
-  code = 500,
-  color = 'red',
-  img = '',
-  title = {},
-  text = {},
+  logo,
+  code,
+  color,
+  img,
+  title,
+  text,
 }) => (
   <div className="LOAD__container">
     <div className="LOAD__content UTIL__image-RNA">
@@ -51,6 +51,20 @@ ErrorPage.propTypes = {
     custom: React.PropTypes.string,
     standard: React.PropTypes.string,
   }),
+};
+ErrorPage.defaultProps = {
+  logo: '',
+  code: 500,
+  color: 'red',
+  img: '',
+  title: {
+    custom: '',
+    standard: '',
+  },
+  text: {
+    custom: '',
+    standard: '',
+  },
 };
 
 

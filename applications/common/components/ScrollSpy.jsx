@@ -3,9 +3,9 @@ import Waypoint from 'react-waypoint';
 
 
 const ScrollSpy = ({
-  section = '',
-  onUpdateScroll = () => {},
-  children = undefined,
+  section,
+  onUpdateScroll,
+  children,
 }) => (
   <Waypoint onEnter={() => onUpdateScroll(section)}>
     {children}
@@ -17,6 +17,10 @@ ScrollSpy.propTypes = {
   onUpdateScroll: React.PropTypes.func,
   children: React.PropTypes.node,
 };
-
+ScrollSpy.defaultProps = {
+  section: '',
+  onUpdateScroll: () => {},
+  children: undefined,
+};
 
 export default ScrollSpy;

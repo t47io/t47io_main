@@ -7,9 +7,9 @@ const imgPhone = require('../images/t47_phone.png');
 
 
 const ContactList = ({
-  resume = '',
-  counter = 7,
-  onToggleAnimation = () => {},
+  resume,
+  counter,
+  onToggleAnimation,
 }) => {
   const date = resume.slice(7, -4);
   const objDate = new Date(`${date.slice(4, 6)}/01/${date.slice(0, 4)}`);
@@ -103,6 +103,11 @@ ContactList.propTypes = {
   resume: React.PropTypes.string,
   counter: React.PropTypes.number,
   onToggleAnimation: React.PropTypes.func,
+};
+ContactList.defaultProps = {
+  resume: '',
+  counter: 7,
+  onToggleAnimation: () => {},
 };
 
 

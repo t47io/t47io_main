@@ -3,8 +3,8 @@ import Waypoint from 'react-waypoint';
 
 
 const Trigger = ({
-  delay = 250,
-  onToggleAnimation = () => {},
+  delay,
+  onToggleAnimation,
 }) => (
   <Waypoint
     onEnter={({ previousPosition, currentPosition }) => {
@@ -25,6 +25,10 @@ const Trigger = ({
 Trigger.propTypes = {
   delay: React.PropTypes.number,
   onToggleAnimation: React.PropTypes.func,
+};
+Trigger.defaultProps = {
+  delay: 250,
+  onToggleAnimation: () => {},
 };
 
 

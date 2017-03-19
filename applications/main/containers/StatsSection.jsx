@@ -25,12 +25,12 @@ class StatsSection extends React.PureComponent {
   }
 
   render() {
-    const { items, background, links, gitSvg } = this.props;
+    const { items, backgrounds, links, gitSvg } = this.props;
     return (
       <section id="STATS__section">
         <Carousel
           extraClassName="STATS__area text-white"
-          items={background} interval={4000}
+          items={backgrounds} interval={4000}
         >
           <div className="UTIL__spacer-lg STATS__trigger" />
           <SectionHeader
@@ -80,7 +80,7 @@ class StatsSection extends React.PureComponent {
 
 StatsSection.propTypes = {
   items: React.PropTypes.array,
-  background: React.PropTypes.array,
+  backgrounds: React.PropTypes.array,
   links: React.PropTypes.shape({
     github: React.PropTypes.string,
     githubMinted: React.PropTypes.string,

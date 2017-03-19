@@ -7,18 +7,18 @@ import PubsCiteElement from './PubsCiteElement.jsx';
 
 
 const PubsItem = ({
-  year = NaN,
-  author = '',
-  title = '',
-  journal = '',
-  issue = '',
-  page = '',
-  url = '',
-  code = '',
-  citation = NaN,
-  tag = '',
-  isPreprint = false,
-  shouldAnimate = true,
+  year,
+  author,
+  title,
+  journal,
+  issue,
+  page,
+  url,
+  code,
+  citation,
+  tag,
+  isPreprint,
+  shouldAnimate,
 }) => {
   const urlExt = url ? { href: url } : {};
   const urlPDF = isPreprint ? {} : { href: `/pdf/${tag}.pdf` };
@@ -95,6 +95,20 @@ PubsItem.propTypes = {
   tag: React.PropTypes.string,
   isPreprint: React.PropTypes.bool,
   shouldAnimate: React.PropTypes.bool,
+};
+PubsItem.defaultProps = {
+  year: NaN,
+  author: '',
+  title: '',
+  journal: '',
+  issue: '',
+  page: '',
+  url: '',
+  code: '',
+  citation: NaN,
+  tag: '',
+  isPreprint: false,
+  shouldAnimate: true,
 };
 
 

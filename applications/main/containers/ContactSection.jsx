@@ -1,6 +1,5 @@
 import React from 'react';
 
-import ScrollSpy from '../../common/components/ScrollSpy.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
@@ -13,41 +12,38 @@ import '../stylesheets/ContactSection.scss';
 
 const ContactSection = ({
   data: {
-    items = [],
-    background = [],
-    resume = '',
-    lens = {},
+    items,
+    backgrounds,
+    resume,
   },
   form: {
-    name = '',
-    email = '',
-    subject = '',
-    message = '',
-    isPending = false,
-    isSuccess = false,
-    isError = false,
+    name,
+    email,
+    subject,
+    message,
+    isPending,
+    isSuccess,
+    isError,
   },
   animations: {
-    header = true,
-    icon = items.length,
-    left = lens.left,
-    right = lens.right,
+    header,
+    icon,
+    left,
+    right,
   },
   actions: {
-    animateHeader = () => {},
-    animateIcons = () => {},
-    animateLeftItems = () => {},
-    animateRightItems = () => {},
-    changeEmailField = () => {},
-    submitEmail = () => {},
+    animateHeader,
+    animateIcons,
+    animateLeftItems,
+    animateRightItems,
+    changeEmailField,
+    submitEmail,
   },
-  onUpdateScroll = () => {},
 }) => (
   <section id="CONTACT__section" className="text-white">
-    <ScrollSpy section="contact" onUpdateScroll={onUpdateScroll} />
     <Carousel
       extraClassName="long"
-      items={background}
+      items={backgrounds}
       interval={4000}
     >
       <div className="UTIL__spacer-lg" />
@@ -100,13 +96,9 @@ const ContactSection = ({
 
 ContactSection.propTypes = {
   data: React.PropTypes.shape({
-    items: React.PropTypes.array,
-    background: React.PropTypes.array,
+    items: React.PropTypes.arrayOf(React.PropTypes.object),
+    backgrounds: React.PropTypes.arrayOf(React.PropTypes.string),
     resume: React.PropTypes.string,
-    lens: React.PropTypes.shape({
-      left: React.PropTypes.number,
-      right: React.PropTypes.number,
-    }),
   }),
   form: React.PropTypes.shape({
     name: React.PropTypes.string,
@@ -131,7 +123,36 @@ ContactSection.propTypes = {
     changeEmailField: React.PropTypes.func,
     submitEmail: React.PropTypes.func,
   }),
-  onUpdateScroll: React.PropTypes.func,
+};
+ContactSection.defaultProps = {
+  data: {
+    items: [],
+    backgrounds: [],
+    resume: '',
+  },
+  form: {
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    isPending: false,
+    isSuccess: false,
+    isError: false,
+  },
+  animations: {
+    header: true,
+    icon: NaN,
+    left: NaN,
+    right: NaN,
+  },
+  actions: {
+    animateHeader: () => {},
+    animateIcons: () => {},
+    animateLeftItems: () => {},
+    animateRightItems: () => {},
+    changeEmailField: () => {},
+    submitEmail: () => {},
+  },
 };
 
 

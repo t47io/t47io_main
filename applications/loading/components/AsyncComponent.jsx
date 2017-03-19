@@ -32,6 +32,10 @@ AsyncComponent.propTypes = {
   loader: React.PropTypes.func,
   placeholder: React.PropTypes.string,
 };
+AsyncComponent.defaultProps = {
+  loader: () => {},
+  placeholder: '',
+};
 
 
 export default AsyncComponent;

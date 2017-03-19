@@ -6,10 +6,10 @@ import '../stylesheets/SectionHeader.scss';
 
 
 const SectionHeader = ({
-  title = '',
-  subtitle = '',
-  shouldAnimate = true,
-  onToggleAnimation = () => {},
+  title,
+  subtitle,
+  shouldAnimate,
+  onToggleAnimation,
 }) => (
   <div className="UTIL__section_header">
     <Trigger onToggleAnimation={onToggleAnimation} />
@@ -29,6 +29,11 @@ SectionHeader.propTypes = {
   shouldAnimate: React.PropTypes.bool,
   onToggleAnimation: React.PropTypes.func,
 };
-
+SectionHeader.defaultProps = {
+  title: '',
+  subtitle: '',
+  shouldAnimate: true,
+  onToggleAnimation: () => {},
+};
 
 export default SectionHeader;

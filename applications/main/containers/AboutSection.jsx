@@ -8,14 +8,14 @@ import '../stylesheets/AboutSection.scss';
 
 
 const AboutSection = ({
-  data: { items = [] },
+  data: { items },
   animations: {
-    header = true,
-    icon = items.length,
+    header,
+    icon,
   },
   actions: {
-    animateHeader = () => {},
-    animateIcons = () => {},
+    animateHeader,
+    animateIcons,
   },
 }) => (
   <section id="ABOUT__section" className="text-center">
@@ -46,7 +46,7 @@ const AboutSection = ({
 
 AboutSection.propTypes = {
   data: React.PropTypes.shape({
-    items: React.PropTypes.array,
+    items: React.PropTypes.arrayOf(React.PropTypes.object),
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
@@ -56,6 +56,19 @@ AboutSection.propTypes = {
     animateHeader: React.PropTypes.func,
     animateIcons: React.PropTypes.func,
   }),
+};
+AboutSection.defaultProps = {
+  data: {
+    items: [],
+  },
+  animations: {
+    header: true,
+    icon: NaN,
+  },
+  actions: {
+    animateHeader: () => {},
+    animateIcons: () => {},
+  },
 };
 
 

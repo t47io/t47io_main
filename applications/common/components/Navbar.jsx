@@ -7,15 +7,13 @@ import '../stylesheets/Navbar.scss';
 
 const Navbar = ({
   data: {
-    items = [],
-  },
-  animations: {
-    activeSection = 'home',
-    isMobileCollapsed = false,
+    items,
+    activeSection,
+    isMobileCollapsed,
   },
   actions: {
-    scrollToSection = () => {},
-    toggleMobileCollapse = () => {},
+    scrollToSection,
+    toggleMobileCollapse,
   },
 }) => {
   const navbarClassName = (activeSection === 'home') ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
@@ -60,8 +58,6 @@ const Navbar = ({
 Navbar.propTypes = {
   data: React.PropTypes.shape({
     items: React.PropTypes.arrayOf(React.PropTypes.string),
-  }),
-  animations: React.PropTypes.shape({
     activeSection: React.PropTypes.string,
     isMobileCollapsed: React.PropTypes.bool,
   }),
@@ -69,6 +65,17 @@ Navbar.propTypes = {
     scrollToSection: React.PropTypes.func,
     toggleMobileCollapse: React.PropTypes.func,
   }),
+};
+Navbar.defaultProps = {
+  data: {
+    items: [],
+    activeSection: 'home',
+    isMobileCollapsed: false,
+  },
+  actions: {
+    scrollToSection: () => {},
+    toggleMobileCollapse: () => {},
+  },
 };
 
 
