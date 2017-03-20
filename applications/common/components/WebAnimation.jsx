@@ -22,7 +22,7 @@ class WebAnimation extends React.PureComponent {
   }
 
   render() {
-    const { tagName, className, style, keyframes, timing, children } = this.props;
+    const { tagName, className, keyframes, timing, style, onFinish, children } = this.props;
     const { playState } = this.state;
     const CustomTag = `${tagName}`;
 
@@ -31,7 +31,10 @@ class WebAnimation extends React.PureComponent {
         keyframes={keyframes}
         timing={timing}
         playState={playState}
-        onFinish={() => this.setState({ playState: 'finished' })}
+        onFinish={() => {
+          this.setState({ playState: 'finished' });
+          if (typeof onFinish === 'function') { onFinish(); }
+        }}
       >
         <CustomTag className={className} style={style}>
           {children}
@@ -54,6 +57,7 @@ WebAnimation.propTypes = {
     React.PropTypes.number,
   ]),
   style: React.PropTypes.object,
+  onFinish: React.PropTypes.func,
   children: React.PropTypes.oneOfType([
     React.PropTypes.node,
     React.PropTypes.arrayOf(React.PropTypes.node),
@@ -64,10 +68,11 @@ WebAnimation.defaultProps = {
   className: '',
   keyframes: [],
   timing: {},
-  style: {},
   shouldAnimate: false,
   shouldForceUpdate: false,
   propsForceUpdate: '',
+  style: {},
+  onFinish: undefined,
 };
 
 
