@@ -4,6 +4,7 @@
   width: 100%;
   margin: 0;
   display: table;
+  overflow: hidden;
 
   a { text-decoration: none; }
   > div { display: table-cell; }

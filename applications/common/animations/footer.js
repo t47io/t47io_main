@@ -1,4 +1,5 @@
 import { easeInOutCirc } from '../animations/easing.js';
+import { FOOTER_LEFT } from '../constants/sectionTypes.js';
 
 
 export const footerHeader = {
@@ -15,10 +16,10 @@ export const footerHeader = {
 };
 
 export const footerGif = {
-  keyframes: [
-    { opacity: 0 },
-    { opacity: 1 },
-  ],
+  keyframes: side => ([
+    { transform: `translateX(${(side === FOOTER_LEFT) ? '-' : ''}100%)`, opacity: 0 },
+    { transform: 'translate(0)', opacity: 1 },
+  ]),
   timing: {
     delay: 500,
     duration: 1000,

@@ -4,7 +4,14 @@ import LogoAlt from './LogoAlt.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { footerHeader, footerGif } from '../animations/footer.js';
+import {
+  FOOTER_LEFT,
+  FOOTER_RIGHT,
+} from '../constants/sectionTypes.js';
+import {
+  footerHeader,
+  footerGif,
+} from '../animations/footer.js';
 
 import '../stylesheets/Footer.scss';
 
@@ -31,7 +38,7 @@ const Footer = ({
     <Trigger onToggleAnimation={animateFooter} />
     <WebAnimation
       className="FOOTTER__city_gif hidden-sm hidden-xs"
-      keyframes={footerGif.keyframes}
+      keyframes={footerGif.keyframes(FOOTER_LEFT)}
       timing={footerGif.timing}
       shouldAnimate={footer}
     >
@@ -92,7 +99,7 @@ const Footer = ({
     </WebAnimation>
     <WebAnimation
       className="FOOTTER__city_gif hidden-sm hidden-xs"
-      keyframes={footerGif.keyframes}
+      keyframes={footerGif.keyframes(FOOTER_RIGHT)}
       timing={footerGif.timing}
       shouldAnimate={footer}
     >
