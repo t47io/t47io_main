@@ -18,6 +18,10 @@ AffiliationRewardItem.propTypes = {
   year: React.PropTypes.number,
   title: React.PropTypes.string,
 };
+AffiliationRewardItem.defaultProps = {
+  year: NaN,
+  title: '',
+};
 
 
 export default AffiliationRewardItem;

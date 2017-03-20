@@ -20,6 +20,11 @@ AffiliationRole.propTypes = {
   position: React.PropTypes.string,
   team: React.PropTypes.string,
 };
+AffiliationRole.defaultProps = {
+  title: '',
+  position: '',
+  team: '',
+};
 
 
 export default AffiliationRole;
