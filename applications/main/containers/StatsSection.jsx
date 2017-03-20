@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Trigger from '../../common/components/Trigger.jsx';
-import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
+import SectionHeader from '../../common/components/SectionHeader.jsx';
 import StatsItem from '../components/StatsItem.jsx';
 import StatsGithub from '../components/StatsGithub.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 import '../stylesheets/StatsSection.scss';
 
@@ -48,7 +48,8 @@ const StatsSection = ({
           {items.map((item, i) => (
             <StatsItem
               key={`STATS__counter-${i}`}
-              shouldAnimate={i < counter}
+              shouldAnimate={counter}
+              index={i}
               {...item}
             />
           ))}
@@ -101,7 +102,7 @@ StatsSection.propTypes = {
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
-    counter: React.PropTypes.number,
+    counter: React.PropTypes.bool,
     github: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
@@ -121,9 +122,9 @@ StatsSection.defaultProps = {
     gitSvg: '',
   },
   animations: {
-    header: true,
-    counter: NaN,
-    github: true,
+    header: false,
+    counter: false,
+    github: false,
   },
   actions: {
     animateHeader: () => {},

@@ -17,9 +17,9 @@ const initialState = {
     givSvg: '',
   },
   animations: {
-    header: true,
-    counter: NaN,
-    github: true,
+    header: false,
+    counter: false,
+    github: false,
   },
 };
 

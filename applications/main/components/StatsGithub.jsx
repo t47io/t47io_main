@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import Waypoint from 'react-waypoint';
 
-import Animation from '../../common/components/Animation.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { statsGithub } from '../animations/stats.js';
 
 
 const StatsGithub = ({
@@ -13,24 +14,15 @@ const StatsGithub = ({
 }) => (
   <div>
     <Trigger onToggleAnimation={onToggleAnimation} />
-    <Animation
+    <WebAnimation
       className="text-center STATS__github"
+      keyframes={statsGithub.keyframes}
+      timing={statsGithub.timing}
       shouldAnimate={shouldAnimate}
-      shouldForceUpdate
+      onFinish={ReactTooltip.rebuild}
     >
-      <Waypoint
-        topOffset="150px"
-        bottomOffset="150px"
-        onEnter={({ previousPosition, currentPosition }) => {
-          if (currentPosition === Waypoint.inside) {
-            const delay = (previousPosition === Waypoint.below) ? 1250 : 250;
-            setTimeout(() => ReactTooltip.rebuild(), delay);
-          }
-        }}
-      >
-        <div dangerouslySetInnerHTML={{ __html: gitSvg }} />
-      </Waypoint>
-    </Animation>
+      <div dangerouslySetInnerHTML={{ __html: gitSvg }} />
+    </WebAnimation>
     <ReactTooltip
       effect="solid" place="top"
       id="STATS__tooltip"
@@ -45,7 +37,7 @@ StatsGithub.propTypes = {
 };
 StatsGithub.defaultProps = {
   gitSvg: '',
-  shouldAnimate: true,
+  shouldAnimate: false,
   onToggleAnimation: () => {},
 };
 

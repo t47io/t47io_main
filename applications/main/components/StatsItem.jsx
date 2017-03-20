@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Animation from '../../common/components/Animation.jsx';
 import Counter from '../../common/components/Counter.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { statsItem } from '../animations/stats.js';
 
 
 const StatsItem = ({
@@ -9,10 +11,13 @@ const StatsItem = ({
   title,
   value,
   shouldAnimate,
+  index,
 }) => (
   <div className="STATS__item text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
-    <Animation
+    <WebAnimation
       className="STATS__counter"
+      keyframes={statsItem.keyframes}
+      timing={statsItem.timing(index)}
       shouldAnimate={shouldAnimate}
     >
       <i className={`fa fa-${icon} fa-3x fa-fw`} />
@@ -26,7 +31,7 @@ const StatsItem = ({
       <p className="lead STATS__text">
         <b>{title}</b>
       </p>
-    </Animation>
+    </WebAnimation>
   </div>
 );
 
@@ -35,12 +40,14 @@ StatsItem.propTypes = {
   title: React.PropTypes.string,
   value: React.PropTypes.number,
   shouldAnimate: React.PropTypes.bool,
+  index: React.PropTypes.number,
 };
 StatsItem.defaultProps = {
   icon: '',
   title: '',
   value: NaN,
-  shouldAnimate: true,
+  shouldAnimate: false,
+  index: 0,
 };
 
 

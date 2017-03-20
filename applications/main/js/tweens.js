@@ -1,27 +1,4 @@
 const func = {
-  countTo: (valFrom, valTo, duration, setState) => {
-    let valNow = valFrom;
-    let loopNow = 0;
-    const loops = Math.ceil(duration / 100);
-    const increment = (valTo - valFrom) / loops;
-
-    const interval = setInterval(() => {
-      valNow += increment;
-      loopNow += 1;
-      setState({
-        value: valNow,
-        status: 'counting',
-      });
-
-      if (loopNow === loops) {
-        clearInterval(interval);
-        setState({
-          value: valTo,
-          status: 'complete',
-        });
-      }
-    }, 100);
-  },
   typeWrite: (valTo, state, setState) => (new Promise((resolve, reject) => {
     let valNow = '';
     let loopNow = 0;
@@ -61,7 +38,6 @@ const func = {
 
 
 const fadeStart = { opacity: 0 };
-const fadeQuarter = { opacity: 0.25 };
 const fadeHalf = { opacity: 0.5 };
 const fadeEnd = { opacity: 1 };
 
