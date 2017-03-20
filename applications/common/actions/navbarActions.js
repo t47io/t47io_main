@@ -9,9 +9,15 @@ import {
 
 export const updateNavbarScrollspy = section => (
   (dispatch, getState) => {
-    const { navbar: { data: { items, activeSection } } } = getState();
+    const {
+      navbar: {
+        data: { items },
+        animations: { activeSection },
+      },
+    } = getState();
     const currentIndex = items.indexOf(activeSection);
     const nextIndex = Math.max(Math.min(section, items.length - 1), 0);
+
     if (currentIndex !== nextIndex) {
       dispatch({
         type: UPDATE_NAVBAR_SCROLLSPY,
@@ -25,11 +31,16 @@ export const toggleMobileCollapse = () => ({ type: TOGGLE_NAVBAR_COLLAPSE });
 
 export const scrollToSection = section => (
   (dispatch, getState) => {
-    const { navbar: { data: { items, activeSection } } } = getState();
+    const {
+      navbar: {
+        data: { items },
+        animations: { activeSection },
+      },
+    } = getState();
     const distance = Math.abs(items.indexOf(activeSection) - items.indexOf(section));
 
     smoothScroll(
-      document.getElementById(`${section.toUpperCase()}__section`),
+      document.getElementById(`${section}__section`),
       distance * 800
     );
 

@@ -3,11 +3,14 @@ import {
   SCROLL_NAVBAR_SECTION,
   TOGGLE_NAVBAR_COLLAPSE,
 } from '../constants/actionTypes.js';
+import { HOME } from '../../main/constants/sectionTypes.js';
 
 const initialState = {
   data: {
     items: [],
-    activeSection: 'home',
+  },
+  animations: {
+    activeSection: HOME,
     isMobileCollapsed: false,
   },
 };
@@ -16,24 +19,27 @@ const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case TOGGLE_NAVBAR_COLLAPSE:
       return {
-        data: {
-          ...state.data,
-          isMobileCollapsed: !state.data.isMobileCollapsed,
+        ...state,
+        animations: {
+          ...state.animations,
+          isMobileCollapsed: !state.animations.isMobileCollapsed,
         },
       };
 
     case SCROLL_NAVBAR_SECTION:
       return {
-        data: {
-          ...state.data,
+        ...state,
+        animations: {
+          ...state.animations,
           isMobileCollapsed: false,
         },
       };
 
     case UPDATE_NAVBAR_SCROLLSPY:
       return {
-        data: {
-          ...state.data,
+        ...state,
+        animations: {
+          ...state.animations,
           activeSection: payload.section,
         },
       };

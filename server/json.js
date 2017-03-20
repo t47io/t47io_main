@@ -48,7 +48,7 @@ const concatIndexJSON = (rootPath) => {
   });
 
   const config = {
-    navbar: { items: home.sections },
+    navbar: { items: home.sections.map(section => section.toUpperCase()) },
     home: { title: home.title },
     about,
     affiliation: {

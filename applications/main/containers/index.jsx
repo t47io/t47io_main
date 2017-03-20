@@ -29,6 +29,8 @@ import * as contactActions from '../actions/contactActions.js';
 import * as navbarActions from '../../common/actions/navbarActions.js';
 import * as footerActions from '../../common/actions/footerActions.js';
 
+import { HOME } from '../constants/sectionTypes.js';
+
 import '../stylesheets/index.scss';
 import '../stylesheets/animations.scss';
 
@@ -72,22 +74,30 @@ class Main extends React.PureComponent {
     const { data, form, animations, actions } = this.props;
     const { home } = data;
     const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
-    const hideScrollTop = (data.navbar.activeSection === 'home' || animations.footer.footer);
+    const hideScrollTop = (animations.navbar.activeSection === HOME || animations.footer.footer);
 
     return (
       <div>
         <Navbar
           data={data.navbar}
+          animations={animations.navbar}
           actions={actions.navbar}
         />
 
-        <ScrollSpy section={0} onUpdateScroll={onUpdateScroll}>
+        <ScrollSpy
+          section={0}
+          topOffset="108px"
+          onUpdateScroll={onUpdateScroll}
+        >
           <HomeSection
             {...home}
           />
         </ScrollSpy>
 
-        <ScrollSpy section={1} onUpdateScroll={onUpdateScroll}>
+        <ScrollSpy
+          section={1}
+          onUpdateScroll={onUpdateScroll}
+        >
           <AboutSection
             data={data.about}
             animations={animations.about}
@@ -100,7 +110,11 @@ class Main extends React.PureComponent {
           />
         </ScrollSpy>
 
-        <ScrollSpy section={2} onUpdateScroll={onUpdateScroll}>
+        <ScrollSpy
+          section={2}
+          topOffset="108px"
+          onUpdateScroll={onUpdateScroll}
+        >
           <PortfolioSection
             data={data.portfolio}
             animations={animations.portfolio}
@@ -123,7 +137,11 @@ class Main extends React.PureComponent {
           />
         </ScrollSpy>
 
-        <ScrollSpy section={3} onUpdateScroll={onUpdateScroll}>
+        <ScrollSpy
+          section={3}
+          topOffset="-108px"
+          onUpdateScroll={onUpdateScroll}
+        >
           <ContactSection
             data={data.contact}
             form={form}

@@ -14,6 +14,7 @@ import navbar from '../../common/reducers/navbar.js';
 import footer from '../../common/reducers/footer.js';
 
 import { LOAD_JSON_DATA } from '../constants/actionTypes.js';
+import { HOME } from '../constants/sectionTypes.js';
 
 
 const crossReducer = (state, action) => {
@@ -23,6 +24,7 @@ const crossReducer = (state, action) => {
     newState[key].data = action.payload[key];
   });
 
+  newState.navbar.animations.activeSection = HOME;
   newState.affiliation.animations.panel = newState.affiliation.data.items[0].year;
 
   return newState;

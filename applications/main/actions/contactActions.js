@@ -1,7 +1,15 @@
 import { toggleHeaderAnimation } from '../../common/actions/sectionHeaderActions.js';
-
-import * as actionTypes from '../constants/actionTypes.js';
-import { CONTACT,
+import {
+  TOGGLE_CONTACT_ICON_ANIMATION,
+  TOGGLE_CONTACT_ITEM_ANIMATION,
+  CHANGE_CONTACT_FIELD,
+  SUBMIT_CONTACT_EMAIL_RESET,
+  SUBMIT_CONTACT_EMAIL_SUCCESS,
+  SUBMIT_CONTACT_EMAIL_ERROR,
+  SUBMIT_CONTACT_EMAIL_WAIT,
+} from '../constants/actionTypes.js';
+import {
+  CONTACT,
   CONTACT_LEFT,
   CONTACT_RIGHT,
 } from '../constants/sectionTypes.js';
@@ -10,12 +18,12 @@ import { CONTACT,
 export const animateHeader = toggleHeaderAnimation.bind(null, CONTACT);
 
 export const animateIcons = status => ({
-  type: actionTypes.TOGGLE_CONTACT_ICON_ANIMATION,
+  type: TOGGLE_CONTACT_ICON_ANIMATION,
   payload: { status },
 });
 
 const animateItems = (side, status) => ({
-  type: actionTypes.TOGGLE_CONTACT_ITEM_ANIMATION,
+  type: TOGGLE_CONTACT_ITEM_ANIMATION,
   payload: { [side.slice(8).toLowerCase()]: status },
 });
 
@@ -23,24 +31,24 @@ export const animateLeftItems = animateItems.bind(null, CONTACT_LEFT);
 export const animateRightItems = animateItems.bind(null, CONTACT_RIGHT);
 
 export const changeEmailField = data => ({
-  type: actionTypes.CHANGE_CONTACT_FIELD,
+  type: CHANGE_CONTACT_FIELD,
   payload: { ...data },
 });
 
-export const submitEmailReset = () => ({ type: actionTypes.SUBMIT_CONTACT_EMAIL_RESET });
+export const submitEmailReset = () => ({ type: SUBMIT_CONTACT_EMAIL_RESET });
 
-export const submitEmailSuccess = () => ({ type: actionTypes.SUBMIT_CONTACT_EMAIL_SUCCESS });
+export const submitEmailSuccess = () => ({ type: SUBMIT_CONTACT_EMAIL_SUCCESS });
 
 export const submitEmailError = () => (
   (dispatch) => {
-    dispatch({ type: actionTypes.SUBMIT_CONTACT_EMAIL_ERROR });
+    dispatch({ type: SUBMIT_CONTACT_EMAIL_ERROR });
     setTimeout(() => dispatch(submitEmailReset()), 4000);
   }
 );
 
 export const submitEmail = () => (
   (dispatch, getState) => {
-    dispatch({ type: actionTypes.SUBMIT_CONTACT_EMAIL_WAIT });
+    dispatch({ type: SUBMIT_CONTACT_EMAIL_WAIT });
     const { contact: { form: { name, email, subject, message } } } = getState();
 
     return fetch('/send', {

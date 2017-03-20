@@ -2,12 +2,14 @@ import React from 'react';
 import NavbarItem from './NavbarItem.jsx';
 import Logo from './Logo.jsx';
 
+import { HOME } from '../../main/constants/sectionTypes.js';
+
 import '../stylesheets/Navbar.scss';
 
 
 const Navbar = ({
-  data: {
-    items,
+  data: { items },
+  animations: {
     activeSection,
     isMobileCollapsed,
   },
@@ -16,9 +18,9 @@ const Navbar = ({
     toggleMobileCollapse,
   },
 }) => {
-  const navbarClassName = (activeSection === 'home') ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
+  const navbarClassName = (activeSection === HOME) ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
   const buttonClassName = isMobileCollapsed ? 'collapsed' : '';
-  const logoClassName = (activeSection === 'home') ? 'green' : 'white';
+  const logoClassName = (activeSection === HOME) ? 'green' : 'white';
   const collapseClassName = isMobileCollapsed ? 'display' : '';
 
   return (
@@ -58,6 +60,8 @@ const Navbar = ({
 Navbar.propTypes = {
   data: React.PropTypes.shape({
     items: React.PropTypes.arrayOf(React.PropTypes.string),
+  }),
+  animations: React.PropTypes.shape({
     activeSection: React.PropTypes.string,
     isMobileCollapsed: React.PropTypes.bool,
   }),
@@ -69,7 +73,9 @@ Navbar.propTypes = {
 Navbar.defaultProps = {
   data: {
     items: [],
-    activeSection: 'home',
+  },
+  animations: {
+    activeSection: HOME,
     isMobileCollapsed: false,
   },
   actions: {
