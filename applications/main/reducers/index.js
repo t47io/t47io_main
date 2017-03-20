@@ -23,9 +23,7 @@ const crossReducer = (state, action) => {
     newState[key].data = action.payload[key];
   });
 
-  newState.navbar.data = { items: newState.home.data.sections };
-  newState.home.data.sections = undefined;
-  newState.portfolio.data.selectedCategory = 'all';
+  newState.affiliation.animations.panel = newState.affiliation.data.items[0].year;
 
   return newState;
 };

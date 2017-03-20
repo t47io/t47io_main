@@ -41,17 +41,6 @@ const fadeStart = { opacity: 0 };
 const fadeHalf = { opacity: 0.5 };
 const fadeEnd = { opacity: 1 };
 
-const header = {
-  topBottom: {
-    transform: 'translateY(-100%)',
-    ...fadeStart,
-  },
-  topCenter: {
-    transform: 'translateY(0)',
-    ...fadeEnd,
-  },
-};
-
 
 const home = {
   name: {
@@ -119,10 +108,8 @@ const home = {
   },
 };
 
-const affiliation = { header };
 
 export {
   home,
-  affiliation,
   func,
 };

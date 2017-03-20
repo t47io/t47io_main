@@ -7,10 +7,19 @@ import {
 } from '../constants/actionTypes.js';
 
 
-export const updateNavbarScrollspy = section => ({
-  type: UPDATE_NAVBAR_SCROLLSPY,
-  payload: { section },
-});
+export const updateNavbarScrollspy = section => (
+  (dispatch, getState) => {
+    const { navbar: { data: { items, activeSection } } } = getState();
+    const currentIndex = items.indexOf(activeSection);
+    const nextIndex = Math.max(Math.min(section, items.length - 1), 0);
+    if (currentIndex !== nextIndex) {
+      dispatch({
+        type: UPDATE_NAVBAR_SCROLLSPY,
+        payload: { section: items[nextIndex] },
+      });
+    }
+  }
+);
 
 export const toggleMobileCollapse = () => ({ type: TOGGLE_NAVBAR_COLLAPSE });
 

@@ -5,7 +5,7 @@ import 'web-animations-js/web-animations.min.js';
 
 import HomeSection from './HomeSection.jsx';
 import AboutSection from './AboutSection.jsx';
-// import AffiliationSection from './AffiliationSection.jsx';
+import AffiliationSection from './AffiliationSection.jsx';
 import PortfolioSection from './PortfolioSection.jsx';
 import SkillsSection from './SkillsSection.jsx';
 import StatsSection from './StatsSection.jsx';
@@ -81,27 +81,26 @@ class Main extends React.PureComponent {
           actions={actions.navbar}
         />
 
-        <ScrollSpy section="home" onUpdateScroll={onUpdateScroll}>
+        <ScrollSpy section={0} onUpdateScroll={onUpdateScroll}>
           <HomeSection
             {...home}
           />
         </ScrollSpy>
 
-        <ScrollSpy section="about" onUpdateScroll={onUpdateScroll}>
+        <ScrollSpy section={1} onUpdateScroll={onUpdateScroll}>
           <AboutSection
             data={data.about}
             animations={animations.about}
             actions={actions.about}
           />
-          {/*
           <AffiliationSection
             data={data.affiliation}
-            aniamtion={animations.affiliation}
-            acations={actions.affiliation}
-          />*/}
+            animations={animations.affiliation}
+            actions={actions.affiliation}
+          />
         </ScrollSpy>
 
-        <ScrollSpy section="portfolio" onUpdateScroll={onUpdateScroll}>
+        <ScrollSpy section={2} onUpdateScroll={onUpdateScroll}>
           <PortfolioSection
             data={data.portfolio}
             animations={animations.portfolio}
@@ -124,7 +123,7 @@ class Main extends React.PureComponent {
           />
         </ScrollSpy>
 
-        <ScrollSpy section="contact" onUpdateScroll={onUpdateScroll}>
+        <ScrollSpy section={3} onUpdateScroll={onUpdateScroll}>
           <ContactSection
             data={data.contact}
             form={form}

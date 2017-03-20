@@ -48,10 +48,17 @@ const concatIndexJSON = (rootPath) => {
   });
 
   const config = {
-    home,
+    navbar: { items: home.sections },
+    home: { title: home.title },
     about,
-    affiliation,
-    portfolio,
+    affiliation: {
+      ...affiliation,
+      years: affiliation.items.map(item => item.year),
+    },
+    portfolio: {
+      ...portfolio,
+      selectedCategory: 'all',
+    },
     skills: {
       ...skills,
       lens: {
