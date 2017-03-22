@@ -25,9 +25,10 @@ const PubsItem = ({
   shouldAnimate,
   index,
 }) => {
-  const urlExt = url ? { href: url } : {};
+  const urlJournal = !url ? {} : { href: url };
   const urlPDF = isPreprint ? {} : { href: `/pdf/${tag}.pdf` };
-  const urlClassName = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
+  const urlJournalClassName = !url ? 'text-light-gray' : 'text-dark-green bg-light-green';
+  const urlPDFClassName = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
 
   return (
     <WebAnimation
@@ -39,7 +40,7 @@ const PubsItem = ({
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
           <a
-            {...urlExt}
+            {...urlJournal}
             target="_blank" rel="noopener noreferrer external"
           >
             <div className="SPRITE" data-tip={tag} data-for="PUBS__tooltip">
@@ -68,16 +69,16 @@ const PubsItem = ({
             isPreprint={isPreprint}
           />
           <a
-            {...urlExt}
+            {...urlJournal}
             target="_blank" rel="noopener noreferrer external"
-            className={urlClassName}
+            className={urlJournalClassName}
           >
             <i className="fa fa-fwn fa-file-word" />
           </a>
           <a
             {...urlPDF}
             target="_blank" rel="noopener noreferrer external"
-            className={urlClassName}
+            className={urlPDFClassName}
           >
             <i className="fa fa-fwn fa-file-pdf" />
           </a>
