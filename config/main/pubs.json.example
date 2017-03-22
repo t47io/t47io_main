@@ -4,7 +4,9 @@
       "year": 2016,
       "items": [
         {
-          "author": "authors",
+          "authors": [
+            "Tian S."
+          ],
           "title": "title_html",
           "journal": "journal_fullname",
           "issue": "in preparation",
@@ -14,7 +16,10 @@
           "tag": "pubs_id"
         },
         {
-          "author": "authors",
+          "authors": [
+            "Tian S.",
+            "Das R."
+          ],
           "title": "title_html",
           "journal": "journal_fullname",
           "issue": "submitted",
@@ -28,7 +33,11 @@
       "year": 2015,
       "items": [
         {
-          "author": "authors",
+          "authors": [
+            "Tian S.",
+            "Kladwang W.",
+            "Das R."
+          ],
           "title": "title_html",
           "journal": "journal_fullname",
           "issue": "issue (volume)",

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PubsAuthor from './PubsAuthor.jsx';
 import PubsCiteElement from './PubsCiteElement.jsx';
 import PubsCodeLink from './PubsCodeLink.jsx';
 import PubsIssuePage from './PubsIssuePage.jsx';
@@ -10,7 +11,7 @@ import { pubsItem } from '../animations/pubs.js';
 
 const PubsItem = ({
   year,
-  author,
+  authors,
   title,
   journal,
   issue,
@@ -25,7 +26,7 @@ const PubsItem = ({
 }) => {
   const urlExt = url ? { href: url } : {};
   const urlPDF = isPreprint ? {} : { href: `/pdf/${tag}.pdf` };
-  const urlClass = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
+  const urlClassName = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
 
   return (
     <WebAnimation
@@ -48,7 +49,7 @@ const PubsItem = ({
       </div>
       <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12 PUBS__text">
         <p className="text-gray">
-          <span dangerouslySetInnerHTML={{ __html: author.replace('Tian, S.,', '<u class="text-main bg-light-gray">Tian, S.,</u>') }} />
+          <PubsAuthor authors={authors} />
           {' ('}
           <b className="text-light-green">{year}</b>
           )
@@ -66,14 +67,14 @@ const PubsItem = ({
           <a
             {...urlExt}
             target="_blank" rel="noopener noreferrer external"
-            className={urlClass}
+            className={urlClassName}
           >
             <i className="fa fa-fwn fa-file-word" />
           </a>
           <a
             {...urlPDF}
             target="_blank" rel="noopener noreferrer external"
-            className={urlClass}
+            className={urlClassName}
           >
             <i className="fa fa-fwn fa-file-pdf" />
           </a>
@@ -89,7 +90,7 @@ const PubsItem = ({
 
 PubsItem.propTypes = {
   year: React.PropTypes.number,
-  author: React.PropTypes.string,
+  authors: React.PropTypes.arrayOf(React.PropTypes.string),
   title: React.PropTypes.string,
   journal: React.PropTypes.string,
   issue: React.PropTypes.string,
@@ -104,7 +105,7 @@ PubsItem.propTypes = {
 };
 PubsItem.defaultProps = {
   year: NaN,
-  author: '',
+  authors: [],
   title: '',
   journal: '',
   issue: '',
