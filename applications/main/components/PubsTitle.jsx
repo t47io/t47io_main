@@ -1,9 +1,13 @@
 import React from 'react';
 
 
+const ITALIC_MARKUP = '_';
+const re = new RegExp(`${ITALIC_MARKUP}[a-zA-Z0-9]*${ITALIC_MARKUP}`, 'g');
+
+
 const PubsTitle = ({ title }) => {
-  const titleChunks = title.split('_');
-  const italicChunks = title.match(/_[a-zA-Z0-9]*_/g);
+  const titleChunks = title.split(ITALIC_MARKUP);
+  const italicChunks = title.match(re);
 
   if (italicChunks === null) {
     return (
@@ -15,7 +19,7 @@ const PubsTitle = ({ title }) => {
     <b className="PUBS__title">
       {
         titleChunks.map((chunk) => {
-          if (italicChunks.indexOf(`_${chunk}_`) !== -1) {
+          if (italicChunks.indexOf(`${ITALIC_MARKUP}${chunk}${ITALIC_MARKUP}`) !== -1) {
             return (
               <i>{chunk}</i>
             );

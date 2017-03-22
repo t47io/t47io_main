@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PortfolioDescription from './PortfolioDescription.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { portfolioItem } from '../animations/portfolio.js';
@@ -31,7 +32,7 @@ const PortfolioItem = ({
           {title}
           <i className="fa fa-fw fa-md fa-link-ext" />
         </a>
-        <span dangerouslySetInnerHTML={{ __html: description }} />
+        <PortfolioDescription description={description} />
       </div>
     </WebAnimation>
   </div>
