@@ -1,0 +1,23 @@
+.UTIL__section_header > div {
+  will-change: transform, opacity, letter-spacing;
+}
+
+.COMMON__navbar {
+  will-change: background-color;
+}
+
+.ABOUT__icon,
+.PORTFOLIO__filter,
+.PORTFOLIO__item,
+.SKILLS__bar,
+.STATS__counter,
+.STATS__github,
+.PUBS__year,
+.PUBS__entry,
+.CONTACT__social li,
+.CONTACT__list-item,
+.CONTACT__form-item,
+.FOOTER__header,
+.FOOTTER__city_gif {
+  will-change: transform, opacity;
+}

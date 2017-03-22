@@ -32,7 +32,6 @@ import * as footerActions from '../../common/actions/footerActions.js';
 import { HOME } from '../constants/sectionTypes.js';
 
 import '../stylesheets/index.scss';
-import '../stylesheets/animations.scss';
 
 
 const mapStateToProps = (state) => {
