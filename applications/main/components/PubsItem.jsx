@@ -4,6 +4,7 @@ import PubsAuthor from './PubsAuthor.jsx';
 import PubsCiteElement from './PubsCiteElement.jsx';
 import PubsCodeLink from './PubsCodeLink.jsx';
 import PubsIssuePage from './PubsIssuePage.jsx';
+import PubsTitle from './PubsTitle.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { pubsItem } from '../animations/pubs.js';
@@ -55,7 +56,9 @@ const PubsItem = ({
           )
         </p>
         <p>
-          <b className="PUBS__title" dangerouslySetInnerHTML={{ __html: `"${title}"` }} />
+          <b>{'"'}</b>
+          <PubsTitle title={title} />
+          <b>{'"'}</b>
         </p>
         <p>
           <i className="text-green">{journal}</i>

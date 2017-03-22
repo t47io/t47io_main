@@ -7,7 +7,7 @@
           "authors": [
             "Tian S."
           ],
-          "title": "title_html",
+          "title": "title text",
           "journal": "journal_fullname",
           "issue": "in preparation",
           "isPreprint": true,
@@ -20,7 +20,7 @@
             "Tian S.",
             "Das R."
           ],
-          "title": "title_html",
+          "title": "title _italic_ text",
           "journal": "journal_fullname",
           "issue": "submitted",
           "isPreprint": true,
@@ -38,7 +38,7 @@
             "Kladwang W.",
             "Das R."
           ],
-          "title": "title_html",
+          "title": "title text",
           "journal": "journal_fullname",
           "issue": "issue (volume)",
           "page": "page_start - page_end",
