@@ -39,12 +39,14 @@ const concatIndexJSON = (rootPath) => {
 
   let pubsCounter = 0;
   pubs.items = pubs.items.map((year) => {
-    const yearWithOffset = {
+    const visibleEntries = year.items.filter(item => (!item.isHidden));
+    const filteredYear = {
       ...year,
+      items: visibleEntries,
       offset: pubsCounter,
     };
-    pubsCounter += year.items.filter(item => (!item.isHidden)).length;
-    return yearWithOffset;
+    pubsCounter += visibleEntries.length;
+    return filteredYear;
   });
 
   const config = {
