@@ -8,9 +8,9 @@
 
     &:hover i.fa { color: $colorGreen; }
     .STATS__num { font-size: 4em; }
-    .STATS__text.done { color: $colorGreenDark; }
   }
 }
+.STATS__num.done ~ .STATS__text { color: $colorGreenDark; }
 
 .STATS__github svg { overflow: visible; }
 text.month,

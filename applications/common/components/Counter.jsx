@@ -53,9 +53,10 @@ class Counter extends React.PureComponent {
     const { className, endValue } = this.props;
     const { isActive, currentValue } = this.state;
     const displayValue = isActive ? currentValue : endValue;
+    const doneClassName = isActive ? '' : 'done';
 
     return (
-      <span className={className}>
+      <span className={`${className} ${doneClassName}`}>
         {displayValue}
       </span>
     );
