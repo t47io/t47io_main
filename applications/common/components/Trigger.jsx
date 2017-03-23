@@ -24,6 +24,7 @@ const Trigger = ({
         onToggleAnimation(false);
       }
     }}
+    debug={debug}
   />
 );
 

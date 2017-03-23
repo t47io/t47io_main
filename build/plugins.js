@@ -69,11 +69,11 @@ const plugins = (DEBUG) => {
     new LodashModuleReplacementPlugin(),
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: 'common',
-    //   filename: `[name]-[hash:8].${DEBUG ? "" : "min."}js`,
+    //   filename: `[name]-[hash:8].${DEBUG ? '' : 'min.'}js`,
     //   // chunks: ['main'],
     //   // async: true,
     //   children: true,
-    //   minChunks: 2
+    //   minChunks: 2,
     // }),
   ];
   if (!DEBUG) {

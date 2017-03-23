@@ -20,8 +20,8 @@ if (DEBUG) { entry.main.unshift('webpack-hot-middleware/client?reload=true'); }
 const config = {
   entry,
   output: {
-    filename: `${DEBUG ? '[name]-[hash:8]' : '[chunkhash:8].min'}.js`,
-    chunkFilename: `[chunkhash:8].${DEBUG ? '' : 'min.'}js`,
+    filename: DEBUG ? '[name]-[hash:8].js' : '[chunkhash:8].min.js',
+    chunkFilename: DEBUG ? '[name]-[chunkhash:8].js' : '[chunkhash:8].min.js',
     path: `${__dirname}/public`,
     publicPath: '/',
   },

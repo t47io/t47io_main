@@ -2,15 +2,15 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 
 const loaders = () => ([
-  {
-    test: /\.js(x)?$/i,
-    loader: 'eslint-loader',
-    enforce: 'pre',
-    exclude: [
-      /node_modules/,
-      /public/,
-    ],
-  },
+  // {
+  //   test: /\.js(x)?$/i,
+  //   loader: 'eslint-loader',
+  //   enforce: 'pre',
+  //   exclude: [
+  //     /node_modules/,
+  //     /public/,
+  //   ],
+  // },
   {
     test: /\.js(x)?$/i,
     include: /applications/,
@@ -66,8 +66,8 @@ const loaders = () => ([
   // {
   //   test: /\.json$/i,
   //   loader: 'json-loader',
-  //   exclude: /public\/data/
-  // }
+  //   exclude: /public\/data/,
+  // },
 ]);
 
 
