@@ -50,7 +50,9 @@ try {
     `;
     const cleanCSS = purify(bodyHTML, rawCSS, { minify: true });
     const finalHTML = htmlMinifier.minify(
-      baseHTML.replace('<div class="body" id="app"></div>', bodyHTML).replace('html{}', cleanCSS), {
+      baseHTML
+      .replace('<div class="body" id="app"></div>', bodyHTML)
+      .replace('html{}', cleanCSS), {
         collapseWhitespace: true,
         minifyCSS: true,
         minifyJS: true,

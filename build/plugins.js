@@ -28,10 +28,10 @@ const plugins = (DEBUG) => {
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
-      chunks: ['main'],
+      chunks: ['main', 'manifest'],
       template: `${rootPath}/applications/main/index.html`,
       filename: `${rootPath}/public/index.html`,
-      inject: false,
+      inject: 'body',
       minify: htmlMinify,
 
       ...indexPage,
@@ -67,14 +67,14 @@ const plugins = (DEBUG) => {
       },
     }),
     new LodashModuleReplacementPlugin(),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'common',
-    //   filename: `[name]-[hash:8].${DEBUG ? '' : 'min.'}js`,
-    //   // chunks: ['main'],
-    //   // async: true,
-    //   children: true,
-    //   minChunks: 2,
-    // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      filename: '[name]-[hash:8].js',
+      // chunks: ['main'],
+      // async: true,
+      // children: true,
+      minChunks: Infinity,
+    }),
   ];
   if (!DEBUG) {
     plugin = [

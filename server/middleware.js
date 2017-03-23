@@ -54,7 +54,7 @@ if (DEBUG) {
       middleware.fileSystem.readFileSync(path.join(publicPath, 'error.html')),
       'utf8'
     );
-    childProcess.execSync('npm run postbuild');
+    childProcess.execSync('npm run process:error');
   });
 
   app.use(middleware);
