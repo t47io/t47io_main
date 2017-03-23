@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 
 import Main from './containers/index.jsx';
 import reducer from './reducers/index.js';
+import { LOAD_JSON_DATA } from './constants/actionTypes.js';
 
 const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
@@ -16,17 +17,26 @@ if (process.env.NODE_ENV !== 'production') {
   middleware.push(logger);
 }
 
-const store = createStore(
-  reducer,
-  applyMiddleware(...middleware)
-);
+require.ensure([], (require) => {
+  const json = require('../../public/config.json');
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Main />
-  </Provider>,
-  document.getElementById('app')
-);
+  const store = createStore(
+    reducer,
+    applyMiddleware(...middleware)
+  );
+  store.dispatch({
+    type: LOAD_JSON_DATA,
+    payload: { ...json },
+  });
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <Main />
+    </Provider>,
+    document.getElementById('app')
+  );
+}, 'config');
+
 
 // import AsyncComponent from './components/loading/jsx/async.jsx';
 // import HelixLoading from './components/loading/jsx/helix.jsx';

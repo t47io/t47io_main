@@ -45,6 +45,7 @@ const mapStateToProps = (state) => {
     props.animations[key] = state[key].animations;
   });
   props.form = state.contact.form;
+
   return props;
 };
 const mapDispatchToProps = dispatch => ({
@@ -64,100 +65,98 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-class Main extends React.PureComponent {
-  componentDidMount() {
-    this.props.actions.home.loadJsonData();
-  }
+const Main = ({
+  actions,
+  animations,
+  data,
+  form,
+}) => {
+  const { home } = data;
+  const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
+  const hideScrollTop = (animations.navbar.activeSection === HOME || animations.footer.footer);
 
-  render() {
-    const { data, form, animations, actions } = this.props;
-    const { home } = data;
-    const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
-    const hideScrollTop = (animations.navbar.activeSection === HOME || animations.footer.footer);
+  return (
+    <div>
+      <Navbar
+        data={data.navbar}
+        animations={animations.navbar}
+        actions={actions.navbar}
+      />
 
-    return (
-      <div>
-        <Navbar
-          data={data.navbar}
-          animations={animations.navbar}
-          actions={actions.navbar}
+      <ScrollSpy
+        section={0}
+        topOffset="108px"
+        onUpdateScroll={onUpdateScroll}
+      >
+        <HomeSection
+          {...home}
         />
+      </ScrollSpy>
 
-        <ScrollSpy
-          section={0}
-          topOffset="108px"
-          onUpdateScroll={onUpdateScroll}
-        >
-          <HomeSection
-            {...home}
-          />
-        </ScrollSpy>
+      <ScrollSpy
+        section={1}
+        onUpdateScroll={onUpdateScroll}
+      >
+        <AboutSection
+          data={data.about}
+          animations={animations.about}
+          actions={actions.about}
+        />
+        <AffiliationSection
+          data={data.affiliation}
+          animations={animations.affiliation}
+          actions={actions.affiliation}
+        />
+      </ScrollSpy>
 
-        <ScrollSpy
-          section={1}
-          onUpdateScroll={onUpdateScroll}
-        >
-          <AboutSection
-            data={data.about}
-            animations={animations.about}
-            actions={actions.about}
-          />
-          <AffiliationSection
-            data={data.affiliation}
-            animations={animations.affiliation}
-            actions={actions.affiliation}
-          />
-        </ScrollSpy>
+      <ScrollSpy
+        section={2}
+        topOffset="108px"
+        onUpdateScroll={onUpdateScroll}
+      >
+        <PortfolioSection
+          data={data.portfolio}
+          animations={animations.portfolio}
+          actions={actions.portfolio}
+        />
+        <SkillsSection
+          data={data.skills}
+          animations={animations.skills}
+          actions={actions.skills}
+        />
+        <StatsSection
+          data={data.stats}
+          animations={animations.stats}
+          actions={actions.stats}
+        />
+        <PubsSection
+          data={data.pubs}
+          animations={animations.pubs}
+          actions={actions.pubs}
+        />
+      </ScrollSpy>
 
-        <ScrollSpy
-          section={2}
-          topOffset="108px"
-          onUpdateScroll={onUpdateScroll}
-        >
-          <PortfolioSection
-            data={data.portfolio}
-            animations={animations.portfolio}
-            actions={actions.portfolio}
-          />
-          <SkillsSection
-            data={data.skills}
-            animations={animations.skills}
-            actions={actions.skills}
-          />
-          <StatsSection
-            data={data.stats}
-            animations={animations.stats}
-            actions={actions.stats}
-          />
-          <PubsSection
-            data={data.pubs}
-            animations={animations.pubs}
-            actions={actions.pubs}
-          />
-        </ScrollSpy>
+      <ScrollSpy
+        section={3}
+        topOffset="-108px"
+        onUpdateScroll={onUpdateScroll}
+      >
+        <ContactSection
+          data={data.contact}
+          form={form}
+          animations={animations.contact}
+          actions={actions.contact}
+        />
+        <Footer
+          animations={animations.footer}
+          actions={actions.footer}
+        />
+      </ScrollSpy>
 
-        <ScrollSpy
-          section={3}
-          topOffset="-108px"
-          onUpdateScroll={onUpdateScroll}
-        >
-          <ContactSection
-            data={data.contact}
-            form={form}
-            animations={animations.contact}
-            actions={actions.contact}
-          />
-          <Footer
-            animations={animations.footer}
-            actions={actions.footer}
-          />
-        </ScrollSpy>
-
-        <ScrollTop isHidden={hideScrollTop} />
-      </div>
-    );
-  }
-}
+      <ScrollTop isHidden={hideScrollTop} />
+    </div>
+  );
+};
 
 Main.propTypes = {
   data: React.PropTypes.object,

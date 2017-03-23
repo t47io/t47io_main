@@ -19,6 +19,7 @@ import { HOME } from '../constants/sectionTypes.js';
 
 const crossReducer = (state, action) => {
   if (action.type !== LOAD_JSON_DATA) { return state; }
+
   const newState = { ...state };
   Object.keys(newState).forEach((key) => {
     newState[key].data = action.payload[key];
