@@ -71,6 +71,6 @@ try {
     console.log(`${colors.red('ERROR')}: Failed to retrieve GitHub contribution records.`);
   });
 } catch (err) {
-  console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
   console.log(err);
+  console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
 }
