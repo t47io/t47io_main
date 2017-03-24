@@ -6,13 +6,10 @@
   "scripts": {
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -x babel-node -d 3 -V server/server.js",
     "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
-
     "process:main": "babel-node ./build/main.js",
     "process:error": "babel-node ./build/error.jsx",
-
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
     "postbuild": "npm run process:main && npm run process:error",
-
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
     "cron:https": "babel-node ./server/cron/ssl_expire.js"
@@ -87,6 +84,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-cli": "^6.24.0",
     "body-parser": "^1.17.1",
     "cheerio": "^0.22.0",
