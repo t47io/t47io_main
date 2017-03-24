@@ -1,13 +1,13 @@
 import colors from 'colors';
 import emailValidator from 'email-validator';
 import express from 'express';
-import _ from 'lodash';
 import path from 'path';
 import sanitizer from 'sanitizer';
 
 import {
   DEBUG,
   EMAIL_RECV,
+  HTTP_CODE,
   SMTP,
 } from './config.js';
 import {
@@ -20,6 +20,7 @@ import {
 } from './middleware.js';
 
 
+const errorPathRegex = new RegExp(`^/error/(${HTTP_CODE.join('|')})/?$/`);
 const publicPath = path.join(__dirname, '../public');
 concatIndexJSON(publicPath);
 
@@ -30,7 +31,9 @@ app.get('/', (req, res) => {
       middleware.fileSystem.readFileSync(path.join(publicPath, 'index.html'))
     );
   } else {
-    res.sendFile(path.join(publicPath, 'index.html'));
+    res.sendFile(path.join(publicPath, 'index.html'), {
+      maxAge: '7 days',
+    });
   }
 });
 app.use(express.static(publicPath, { maxAge: '30 days' }));
@@ -56,13 +59,14 @@ app.route('/send')
   return res.sendStatus(400);
 })
 .post((req, res) => {
-  const form = _.map(req.body, item => sanitizer.escape(item));
+  const form = req.body.map(item => sanitizer.escape(item));
   const [name, email, subject, message] = form;
 
-  if (_.filter(form, item => item.length).length !== 4) {
+  if (form.filter(item => item.length).length !== 4) {
     return res.sendStatus(400);
   }
-  if (_.startsWith(subject.toLowerCase(), 'http') || !emailValidator.validate(email)) {
+  if ((subject.toLowerCase().slice(0, 4) === 'http') ||
+    !emailValidator.validate(email)) {
     return res.sendStatus(403);
   }
 
@@ -95,13 +99,13 @@ app.route('/send')
 // process.on('uncaughtException', (e) => { server.close(); process.exit(1); });
 
 
-app.get(/^\/error\/(400|401|403|404|405|500|502|503)\/?$/, (req, res, next) => {
+app.get(errorPathRegex, (req, res, next) => {
   const err = new Error();
   err.status = parseInt(req.params[0], 10);
   next(err);
 });
 app.all('*', (req, res, next) => {
-  const code = req.method === 'GET' ? 404 : 405;
+  const code = (req.method === 'GET') ? 404 : 405;
   const err = new Error();
   err.status = code;
   next(err);
@@ -116,7 +120,7 @@ app.all('*', (req, res, next) => {
 // });
 
 app.use((err, req, res, next) => {
-  const code = _.includes([400, 401, 403, 404, 405, 500, 502, 503], err.status) ? err.status : 503;
+  const code = (HTTP_CODE.indexOf(err.status) !== -1) ? err.status : 503;
 
   return res.status(code).sendFile(
     path.join(publicPath, `${err.status}.html`)
