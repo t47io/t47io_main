@@ -67,14 +67,6 @@ const plugins = (DEBUG) => {
       },
     }),
     new LodashModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      filename: '[name]-[hash:8].js',
-      // chunks: ['main'],
-      // async: true,
-      // children: true,
-      minChunks: Infinity,
-    }),
   ];
   if (!DEBUG) {
     plugin = [
@@ -85,6 +77,14 @@ const plugins = (DEBUG) => {
         },
       }),
       ...plugin,
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'manifest',
+        filename: '[name]-[hash:8].js',
+        // chunks: ['main'],
+        // async: true,
+        // children: true,
+        minChunks: Infinity,
+      }),
       new BabiliPlugin({
         comments: false,
       }),
