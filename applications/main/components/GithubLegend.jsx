@@ -19,7 +19,7 @@ const GithubLegend = () => (
       ))}
 
       <text x="-35" y="10" className="legend">Less</text>
-      <text x="83" y="10" className="legend">More</text>
+      <text x="73" y="10" className="legend">More</text>
     </g>
   </g>
 );

@@ -15,7 +15,7 @@ const GithubCalendar = ({
   startDate,
   monthText,
 }) => {
-  const firstDate = (new Date(startDate)).valueOf();
+  const firstDate = (new Date(startDate)).getTime();
 
   return (
     <svg

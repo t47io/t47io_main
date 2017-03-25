@@ -23,8 +23,7 @@ const filterWords = (input, minLen, exclude = [], subset = NaN) => {
 };
 
 const extractHTML = (body) => {
-  let $html = cheerio.load(body);
-  $html = $html.html('#gsc_a_b');
+  const $html = cheerio.load(body).html('#gsc_a_b');
   const $ = cheerio.load($html);
 
   return $('tr').map((i, tr) => ({
@@ -75,7 +74,8 @@ try {
     }
 
     newJson.items.forEach((obj) => {
-      obj.items.filter(item => (item.citation === null)).forEach(item => (
+      obj.items.filter(item => (item.citation === null))
+      .forEach(item => (
         console.log(`${colors.blue('NOTICE')}: entry ${item.tag} did not match any citation record.`)
       ));
     });

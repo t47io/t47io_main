@@ -8,10 +8,12 @@ const GithubRect = ({
   count,
   date,
 }) => {
+  if (new Date(date) > new Date()) { return null; }
+
   const dateString = (new Date(date)).toISOString().slice(0, 10);
   const tooltip = !count ? {} : {
-    dataTip: `${count} contribution${count > 1 && 's'} on ${dateString}`,
-    dataFor: 'STATS__tooltip',
+    'data-tip': `${count} contribution${count > 1 && 's'} on ${dateString}`,
+    'data-for': 'STATS__tooltip',
   };
 
   return (

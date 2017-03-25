@@ -12,13 +12,14 @@ const extractData = (body) => {
   const $ = cheerio.load($html);
 
   return {
-    startDate: $('rect').first().attr('data-date'),
-    countArray: $('rect').map((i, rect) => (
+    startDate: $('rect.day').first().attr('data-date'),
+    countArray: $('rect.day').map((i, rect) => (
       parseInt($(rect).attr('data-count'), 10)
     )).get(),
     monthText: $('text.month').map((i, month) => ({
       [$(month).text()]: parseInt($(month).attr('x'), 10),
-    })).get().reduce((obj, item) => ({
+    })).get()
+    .reduce((obj, item) => ({
       ...obj,
       ...item,
     }), {}),
@@ -36,15 +37,14 @@ const combineData = (data1, data2) => {
 
   const combinedData = {
     startDate: data1.startDate,
-    countArray: [],
+    countArray: data1.countArray.map((count, i) => (
+      count + data2.countArray[i]
+    )),
     indexArray: [],
     maxCount: 0,
     monthText: data1.monthText,
   };
 
-  combinedData.countArray = data1.countArray.map((count, i) => (
-    count + data2.countArray[i]
-  ));
   const maxCount = Math.max(...combinedData.countArray);
   combinedData.indexArray = combinedData.countArray.map(count => (
     (count === 0) ? 0 : Math.min(Math.floor(count / maxCount * 5 + 1), 4)
