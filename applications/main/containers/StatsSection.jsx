@@ -14,7 +14,7 @@ const StatsSection = ({
     items,
     backgrounds,
     links,
-    gitSvg,
+    gitContrib,
   },
   animations: {
     header,
@@ -83,7 +83,7 @@ const StatsSection = ({
 
     <div className="UTIL__spacer-md" />
     <StatsGithub
-      gitSvg={gitSvg}
+      gitContrib={gitContrib}
       shouldAnimate={github}
       onToggleAnimation={animateGithub}
     />
@@ -98,7 +98,13 @@ StatsSection.propTypes = {
       github: React.PropTypes.string,
       githubMinted: React.PropTypes.string,
     }),
-    gitSvg: React.PropTypes.string,
+    gitContrib: React.PropTypes.shape({
+      startDate: React.PropTypes.string,
+      countArray: React.PropTypes.arrayOf(React.PropTypes.number),
+      indexArray: React.PropTypes.arrayOf(React.PropTypes.number),
+      maxCount: React.PropTypes.number,
+      monthText: React.PropTypes.object,
+    }),
   }),
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
@@ -119,7 +125,13 @@ StatsSection.defaultProps = {
       github: '',
       githubMinted: '',
     },
-    gitSvg: '',
+    gitContrib: {
+      startDate: '',
+      countArray: [],
+      indexArray: [],
+      maxCount: 0,
+      monthText: {},
+    },
   },
   animations: {
     header: false,

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 
+import GithubCalendar from './GithubCalendar.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -8,7 +9,7 @@ import { statsGithub } from '../animations/stats.js';
 
 
 const StatsGithub = ({
-  gitSvg,
+  gitContrib,
   shouldAnimate,
   onToggleAnimation,
 }) => (
@@ -21,7 +22,7 @@ const StatsGithub = ({
       shouldAnimate={shouldAnimate}
       onFinish={ReactTooltip.rebuild}
     >
-      <div dangerouslySetInnerHTML={{ __html: gitSvg }} />
+      <GithubCalendar {...gitContrib} />
     </WebAnimation>
     <ReactTooltip
       effect="solid" place="top"
@@ -31,12 +32,24 @@ const StatsGithub = ({
 );
 
 StatsGithub.propTypes = {
-  gitSvg: React.PropTypes.string,
+  gitContrib: React.PropTypes.shape({
+    startDate: React.PropTypes.string,
+    countArray: React.PropTypes.arrayOf(React.PropTypes.number),
+    indexArray: React.PropTypes.arrayOf(React.PropTypes.number),
+    maxCount: React.PropTypes.number,
+    monthText: React.PropTypes.object,
+  }),
   shouldAnimate: React.PropTypes.bool,
   onToggleAnimation: React.PropTypes.func,
 };
 StatsGithub.defaultProps = {
-  gitSvg: '',
+  gitContrib: {
+    startDate: '',
+    countArray: [],
+    indexArray: [],
+    maxCount: 0,
+    monthText: {},
+  },
   shouldAnimate: false,
   onToggleAnimation: () => {},
 };

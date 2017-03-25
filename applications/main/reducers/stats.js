@@ -14,7 +14,13 @@ const initialState = {
       github: '',
       githubMitned: '',
     },
-    givSvg: '',
+    gitContrib: {
+      startDate: '',
+      countArray: [],
+      indexArray: [],
+      maxCount: 0,
+      monthText: {},
+    },
   },
   animations: {
     header: false,

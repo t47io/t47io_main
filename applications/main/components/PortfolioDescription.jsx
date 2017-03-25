@@ -3,12 +3,12 @@ import React from 'react';
 
 const SPACER_MARKUP = '_';
 const FIELD_MARKUP = `${SPACER_MARKUP}1st${SPACER_MARKUP}`;
-const re = new RegExp(FIELD_MARKUP, 'g');
+const fieldRegex = new RegExp(FIELD_MARKUP, 'g');
 
 
 const PortfolioDescription = ({ description }) => {
   const despChunks = description.split(SPACER_MARKUP);
-  const replaceChunks = description.match(re);
+  const replaceChunks = description.match(fieldRegex);
 
   if (replaceChunks === null) {
     return (

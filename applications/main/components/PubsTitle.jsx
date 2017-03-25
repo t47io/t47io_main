@@ -2,12 +2,12 @@ import React from 'react';
 
 
 const ITALIC_MARKUP = '_';
-const re = new RegExp(`${ITALIC_MARKUP}[a-zA-Z0-9]*${ITALIC_MARKUP}`, 'g');
+const italicRegex = new RegExp(`${ITALIC_MARKUP}[a-zA-Z0-9]*${ITALIC_MARKUP}`, 'g');
 
 
 const PubsTitle = ({ title }) => {
   const titleChunks = title.split(ITALIC_MARKUP);
-  const italicChunks = title.match(re);
+  const italicChunks = title.match(italicRegex);
 
   if (italicChunks === null) {
     return (
