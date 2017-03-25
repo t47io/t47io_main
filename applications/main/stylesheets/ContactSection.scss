@@ -23,7 +23,7 @@ h4.CONTACT__title {
 .CONTACT__box {
   display: inline-block;
   text-decoration: none;
-  color: #363940;
+  color: $colorBlack;
 
   .CONTACT__icon {
     width: 3.25rem;
@@ -139,7 +139,7 @@ ul.CONTACT__address {
 
             @include transition(0.5s);
           }
-          i.fa { color: #363940; }
+          i.fa { color: $colorBlack; }
         }
       }
     }

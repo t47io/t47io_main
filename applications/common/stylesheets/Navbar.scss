@@ -103,7 +103,7 @@
       &:hover, &:focus { background-color: rgba(0, 0, 0, 0); }
 
       .icon-bar { 
-        background-color: #FFF;
+        background-color: $colorWhite;
         height: 3px;
       }
     }

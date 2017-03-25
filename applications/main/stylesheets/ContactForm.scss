@@ -1,11 +1,12 @@
 @import '../../common/mixins/colors';
+@import '../../common/mixins/palette';
 @import '../../common/mixins/prefix';
 
 
 .form-control {
   background-color: rgba(0, 0, 0, 0.5);
   color: $colorWhite;
-  border-color: #2A2A2A;
+  border-color: $colorBlack;
 
   box-shadow: none;
   
@@ -52,13 +53,13 @@
 .btn-primary {
   &:hover, &:disabled:hover {
     color: $colorWhite;
-    background: #1867a8;
+    background: $colorCyan;
   } 
   &,
   &:disabled, &.disabled,
   &:focus, &.focus,
   &:active, &.active {
-    background: #3078b3;
+    background: $colorCyan;
     color: $colorWhite;
     @include transition(0.6s);
   }
@@ -66,13 +67,13 @@
 .btn-danger {
   &:hover, &:disabled:hover {
     color: $colorWhite;
-    background: #d81508;
+    background: $colorRed;
   } 
   &,
   &:disabled, &.disabled,
   &:focus, &.focus,
   &:active, &.active {
-    background: #e7392d;
+    background: $colorRed;
     color: $colorWhite;
     @include transition(0.6s);
   }

@@ -15,7 +15,7 @@
 
   text-align: center;
   z-index: 99999;
-  background-color: #fff;
+  background-color: $colorWhite;
 
   @include transition(1s);
 

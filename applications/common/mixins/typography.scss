@@ -17,10 +17,9 @@
 }
 * { font-family: 'Tenor Sans', Helvetica, Arial, sans-serif; }
 
-.text-main { color: #363940; } /* Theme main color */
+.text-main { color: $colorBlack; } /* Theme main color */
 .text-white { color: $colorWhite; }
 .text-off-white { color: $colorGrayLight; }
-.text-dark { color: #000; }
 .text-dark-green { color: $colorGreenHeavy;}
 .text-green { color: $colorGreenDark; }
 .text-light-green { color: $colorGreen; }
