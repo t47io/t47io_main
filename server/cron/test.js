@@ -21,6 +21,12 @@ const extractData = (body) => {
     countArray: $('rect').map((i, rect) => (
       parseInt($(rect).attr('data-count'), 10)
     )).get(),
+    monthText: $('text.month').map((i, month) => ({
+      [$(month).text()]: parseInt($(month).attr('x'), 10),
+    })).get().reduce((obj, item) => ({
+      ...obj,
+      ...item,
+    }), {}),
   };
 };
 
@@ -38,6 +44,7 @@ const combineData = (data1, data2) => {
     countArray: [],
     indexArray: [],
     maxCount: 0,
+    monthText: data1.monthText,
   };
 
   combinedData.countArray = data1.countArray.map((count, i) => (
