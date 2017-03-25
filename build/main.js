@@ -4,12 +4,12 @@ import htmlMinifier from 'html-minifier';
 import path from 'path';
 
 
-const re = /manifest-[0-9a-f]{8}/;
+const manifestRegex = /manifest-[0-9a-f]{8}/;
 const loadFileSync = filename => fs.readFileSync(path.join(__dirname, filename), 'utf8');
 
 try {
   const baseHTML = loadFileSync('../public/index.html');
-  const manifestHash = baseHTML.match(re)[0];
+  const manifestHash = baseHTML.match(manifestRegex)[0];
   const manifestJS = loadFileSync(`../public/${manifestHash}.js`);
 
   const finalHTML = htmlMinifier.minify(

@@ -6,13 +6,15 @@ import path from 'path';
 
 const json = require('../../config/main/pubs.json');
 
-const filter = /[a-zA-Z]+/g;
+
+const wordRegex = /[a-zA-Z]+/g;
 const isEqual = (array1, array2) => (
+  array1.length === array2.length &&
   array1.toString() === array2.toString()
 );
 
 const filterWords = (input, minLen, exclude = [], subset = NaN) => {
-  let output = input.match(filter)
+  let output = input.match(wordRegex)
     .map(word => word.toLowerCase())
     .filter(word => (word.length > minLen && exclude.indexOf(word) === -1));
   if (!isNaN(subset)) { output = output.slice(0, subset); }
@@ -39,7 +41,7 @@ const matchRecords = allRecords => ({
     ...obj,
     items: obj.items.map((item) => {
       const title = filterWords(item.title, 4);
-      const author = filterWords(item.author, 2, ['and'], 6);
+      const author = filterWords(item.authors.join(' '), 2, ['and'], 6);
       let citation = null;
 
       for (let i = 0; i < allRecords.length; i += 1) {
@@ -67,9 +69,18 @@ try {
 
     if (allRecords.length) {
       console.log(`${colors.yellow('WARNING')}: ${allRecords.length} record(s) from Google Scholar was not matched.`);
-      allRecords.map(item => console.log(`${colors.yellow('WARNING')}: entry ${item.year} / ${item.author.join()} / ${item.title.join(' ')}`));
+      allRecords.forEach(item => (
+        console.log(`${colors.yellow('WARNING')}: entry ${item.year} / ${item.author.join()} / ${item.title.join(' ')}`)
+      ));
     }
-    fs.writeJsonSync(path.join(__dirname, '../../config/index/pubs.json'), newJson);
+
+    newJson.items.forEach((obj) => {
+      obj.items.filter(item => (item.citation === null)).forEach(item => (
+        console.log(`${colors.blue('NOTICE')}: entry ${item.tag} did not match any citation record.`)
+      ));
+    });
+
+    fs.writeJsonSync(path.join(__dirname, '../../config/main/pubs.json'), newJson);
     console.log(`${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
   })
   .catch((error) => {

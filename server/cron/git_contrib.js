@@ -1,100 +1,82 @@
+import axios from 'axios';
 import cheerio from 'cheerio';
 import colors from 'colors';
 import fs from 'fs-extra';
-import _ from 'lodash/core';
 import path from 'path';
-import request from 'request';
 
 const json = require('../../config/main/stats.json');
 
 
 const extractData = (body) => {
-  let $html = cheerio.load(body);
-  $html = $html.html('.js-calendar-graph-svg');
+  const $html = cheerio.load(body).html('.js-calendar-graph-svg');
   const $ = cheerio.load($html);
 
-  const data = {};
-  $('rect').each(function () {
-    data[$(this).attr('data-date')] = parseInt($(this).attr('data-count'), 10);
-  });
-  return data;
+  return {
+    startDate: $('rect').first().attr('data-date'),
+    countArray: $('rect').map((i, rect) => (
+      parseInt($(rect).attr('data-count'), 10)
+    )).get(),
+    monthText: $('text.month').map((i, month) => ({
+      [$(month).text()]: parseInt($(month).attr('x'), 10),
+    })).get().reduce((obj, item) => ({
+      ...obj,
+      ...item,
+    }), {}),
+  };
 };
+
 const combineData = (data1, data2) => {
-  const combined = {};
-  let maxVal = 0;
-  Object.keys(data1).forEach((key) => {
-    combined[key] = data1[key] + data2[key];
-    maxVal = Math.max(maxVal, combined[key]);
-  });
-  return [combined, maxVal];
-};
+  if (data1.startDate !== data2.startDate) {
+    console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+    throw new Error('Date mismatch on GitHub contribution data.');
+  } else if (data1.countArray.length !== data2.countArray.length) {
+    console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+    throw new Error('countArray length mismatch on GitHub contribution data.');
+  }
 
-const modifyHTML = (body, combinedAcctStats, maxContrib) => {
-  let $html = cheerio.load(body);
-  $html = $html.html('.js-calendar-graph-svg');
-  const $ = cheerio.load($html);
+  const combinedData = {
+    startDate: data1.startDate,
+    countArray: [],
+    indexArray: [],
+    maxCount: 0,
+    monthText: data1.monthText,
+  };
 
-  $('svg').attr('height', 150)
-    .removeAttr('class');
-  $('rect').each(function () {
-    const dateKey = $(this).attr('data-date');
-    const dataCount = combinedAcctStats[dateKey];
-    const dayIdx = (dataCount === 0) ? 0 : Math.floor(dataCount / maxContrib * 5 + 1);
+  combinedData.countArray = data1.countArray.map((count, i) => (
+    count + data2.countArray[i]
+  ));
+  const maxCount = Math.max(...combinedData.countArray);
+  combinedData.indexArray = combinedData.countArray.map(count => (
+    (count === 0) ? 0 : Math.min(Math.floor(count / maxCount * 5 + 1), 4)
+  ));
+  combinedData.maxCount = maxCount;
 
-    $(this).addClass(`day day_${Math.min(dayIdx, 4)}`);
-    if (dataCount) {
-      $(this).attr('data-for', 'STATS__tooltip');
-      $(this).attr('data-tip', `${dataCount} contribution${dataCount === 1 ? '' : 's'} on ${dateKey}`);
-    }
-    $(this).removeAttr('height')
-      .removeAttr('width')
-      .removeAttr('fill')
-      .removeAttr('data-count')
-      .removeAttr('data-date');
-  });
-
-  $('svg > g').append(`
-    <text x="0" y="120" ># Includes contributions from <tspan style="font-style:italic;">private</tspan> repositories</text>
-    <g transform="translate(572, 108)" id="legend">
-      <rect class="day day_0" x="0" />
-      <rect class="day day_1" x="13" />
-      <rect class="day day_2" x="26" />
-      <rect class="day day_3" x="39" />
-      <rect class="day day_4" x="52" />
-    </g>
-    <text x="534" y="118" class="legend">Less</text>
-    <text x="646" y="118" class="legend">More</text>
-  `);
-
-  return $.html();
+  return combinedData;
 };
 
 
 try {
-  request(json.links.githubMinted, (error, response, body) => {
-    if (error) {
-      console.log(`${colors.red('ERROR')}: Failed to retrieve ${json.links.githubMinted}`);
-      console.log(error);
-      return;
-    }
-    const otherData = extractData(body);
+  axios.all([
+    axios.get(json.links.github),
+    axios.get(json.links.githubMinted),
+  ])
+  .then(axios.spread((response1, response2) => {
+    const data1 = extractData(response1.data);
+    const data2 = extractData(response2.data);
+    const combinedData = combineData(data1, data2);
 
-    request(json.links.github, (error2, response2, body2) => {
-      if (error2) {
-        console.log(`${colors.red('ERROR')}: Failed to retrieve ${json.links.github}`);
-        console.log(error2);
-        return;
-      }
-      const thisData = extractData(body2);
-      const [allData, maxContrib] = combineData(thisData, otherData);
-
-      const newJson = _.clone(json);
-      newJson.gitSvg = modifyHTML(body2, allData, maxContrib).replace(/\n[ ]+/g, '');
-      fs.writeJsonSync(path.join(__dirname, '../../config/index/stats.json'), newJson);
-      console.log(`${colors.green('SUCCESS')}: GitHub contribution records updated.`);
-    });
+    const newJson = {
+      ...json,
+      gitContrib: combinedData,
+    };
+    fs.writeJsonSync(path.join(__dirname, '../../config/main/stats.json'), newJson);
+    console.log(`${colors.green('SUCCESS')}: GitHub contribution records updated.`);
+  }))
+  .catch((error) => {
+    console.log(error);
+    console.log(`${colors.red('ERROR')}: Failed to retrieve GitHub contribution records.`);
   });
 } catch (err) {
-  console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
   console.log(err);
+  console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
 }
