@@ -4,7 +4,10 @@ import GithubAxes from './GithubAxes.jsx';
 import GithubColumn from './GithubColumn.jsx';
 import GithubLegend from './GithubLegend.jsx';
 
-import { DAY_MILLISECONDS } from '../../common/constants/util.js';
+import {
+  DAY_MILLISECONDS,
+  WEEK_DAYS,
+} from '../../common/constants/util.js';
 
 
 const GithubCalendar = ({
@@ -32,7 +35,10 @@ const GithubCalendar = ({
         />
       ))}
 
-      <GithubAxes monthText={monthText} />
+      <GithubAxes
+        monthText={monthText}
+        weekdayText={WEEK_DAYS.filter((day, i) => (i % 2))}
+      />
       <GithubLegend />
     </svg>
   );

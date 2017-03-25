@@ -36,7 +36,7 @@ GithubAxes.propTypes = {
 };
 GithubAxes.defaultProps = {
   monthText: {},
-  weekdayText: ['Mon', 'Wed', 'Fri'],
+  weekdayText: [],
 };
 
 
