@@ -21,7 +21,8 @@ class TypeWriter extends React.PureComponent {
     }
   }
   componentDidUpdate(prevProps) {
-    if (this.props.fullText !== prevProps.fullText) {
+    if ((this.props.shouldAnimate && !prevProps.shouldAnimate) ||
+      this.props.fullText !== prevProps.fullText) {
       this.onTypeWrite();
     }
   }
@@ -48,12 +49,6 @@ class TypeWriter extends React.PureComponent {
   }
 
   render() {
-    if (!this.props.fullText) {
-      return (
-        <p className={this.props.className} />
-      );
-    }
-
     const { className, cursorCharacter, cursorClassName } = this.props;
     const { isActive, currentText } = this.state;
     const cursor = isActive ? cursorCharacter : '';

@@ -69,13 +69,16 @@ const HomeSection = ({
           />
         </WebAnimation>
         <p className="text-white HOME__placeholder" />
-        <TypeWriter
-          className={`HOME__typewrite text-${'textColor'}`}
-          cursorClassName="HOME__cursor"
-          fullText={title}
-          delay={1250}
-          shouldAnimate={intro && !!title.length}
-        />
+        {title.length > 0 ?
+          <TypeWriter
+            className={`HOME__typewrite text-${'textColor'}`}
+            cursorClassName="HOME__cursor"
+            fullText={title}
+            delay={1250}
+            shouldAnimate={intro}
+          /> :
+          <p className="HOME__typewrite text-white" />
+        }
       </div>
       <div
         className="HOME__scroll_down"

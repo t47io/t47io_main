@@ -20,7 +20,6 @@ class HomeTrigger extends React.PureComponent {
       <Waypoint
         onEnter={() => {
           onToggleAnimation();
-          console.error('home trigger');
           this.setState({ isTriggered: true });
         }}
         debug={debug}

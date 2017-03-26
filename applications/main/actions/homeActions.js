@@ -19,8 +19,7 @@ import {
 export const animateReady = () => (
   (dispatch) => {
     document.querySelector('.LOAD__container').className += ' ready';
-
-    dispatch({ type: TOGGLE_HOME_READY });
+    setTimeout(() => dispatch({ type: TOGGLE_HOME_READY }), 250);
   }
 );
 
