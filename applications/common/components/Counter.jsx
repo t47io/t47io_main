@@ -21,8 +21,8 @@ class Counter extends React.PureComponent {
     }
   }
   componentDidUpdate(prevProps) {
-    if ((!prevProps.shouldAnimate && this.props.shouldAnimate) ||
-      prevProps.endValue !== this.props.endValue) {
+    if ((this.props.shouldAnimate && !prevProps.shouldAnimate) ||
+      this.props.endValue !== prevProps.endValue) {
       this.onCountUp();
     }
   }
