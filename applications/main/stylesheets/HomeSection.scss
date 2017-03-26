@@ -1,5 +1,6 @@
-@import '../../common/mixins/prefix';
 @import '../../common/mixins/colors';
+@import '../../common/mixins/palette';
+@import '../../common/mixins/prefix';
 
 
 #HOME__section {
@@ -18,14 +19,13 @@
   img.HOME__title {
     margin-left: 1em;
     max-width: 50%;
-    @include transition(1s);
+    width: 480px;
   }
   p {
     font-size: 2rem;
     letter-spacing: 2px;
     margin-top: 0.8em;
     margin-left: 1.5em;
-    @include transition(1s);
   }
 }
 @media only screen and (min-width : 767px) {
@@ -46,20 +46,19 @@
       text-align: center;
       margin-left: 0; 
     }
-    p.HOME__placeholder { height: 10vh; }
+    p.HOME__placeholder {
+      height: 10vh;
+      margin-top: -10px;
+    }
   }
 }
 
-.HOME__shade {
-  background-color: rgba(0, 7, 11, 0.75);
-  @include transition(1s);
-}
 .HOME__typewrite {
   line-height: 2.5rem;
   height: 5rem;
 }
 .HOME__cursor {
-  color: #f44336;
+  color: $colorRed;
   font-weight: bold;
 
   &.blink {

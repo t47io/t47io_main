@@ -1,113 +1,125 @@
 import React from 'react';
 
-// import ImageLoader from '../../common/jsx/_image-loader.jsx';
+import TypeWriter from '../../common/components/TypeWriter.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 import {
-  home as tween,
-  func,
-} from '../js/tweens.js';
+  homeName,
+  homeShade,
+} from '../animations/home.js';
+
 import '../stylesheets/HomeSection.scss';
 
 const imgAvatar = require('../images/t47_avatar.jpg');
 const imgName = require('../images/t47_name.png');
 
-
-class HomeSection extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPlayed: false,
-      isBlink: true,
-      isShade: true,
-      isName: false,
-      title: '',
-      textColor: 'white',
-      arrowColor: 'white',
-    };
-    this.bgImage = imgAvatar;
-
-    this.onLoad = this.onLoad.bind(this);
-  }
-
-  onLoad() {
-    func.delay(1000, () => {
-      document.querySelector('.LOAD__container').style.opacity = 0;
-      return func.delay(1000, () => {
-        document.querySelector('.LOAD__container').style.zIndex = -1;
-      });
-    })
-    .then(() => this.setState({ ...(this.state), isName: true }))
-    .then(() => tween.title(this.state, this.props.title, this.setState.bind(this)))
-    .then(() => tween.color(this.state, this.setState.bind(this)));
-  }
+const avatarStyle = { backgroundImage: `url(${imgAvatar})` };
+const imgLoaderStyle = { display: 'none' };
 
 
-  render() {
-    const shadeAlpha = this.state.isShade ? 0.5 : 0.25;
-    const avatarStyle = this.state.isName ? tween.name.end : tween.name.start;
-    const blinkClassName = this.state.isBlink ? 'blink' : '';
-    const cursorChar = (this.state.isShade && this.state.isName) ? '|' : '';
+const HomeSection = ({
+  data: { title },
+  animations: {
+    name,
+    type,
+    shade,
+    color,
+  },
+  actions: {
+    animateName,
+    animateTitle,
+    animateShade,
+  },
+}) => (
+  <section id="HOME__section">
+    <div
+      className="UTIL__parallax"
+      style={avatarStyle}
+    >
+      <img
+        src={imgAvatar}
+        alt="T47 Avatar"
+        style={imgLoaderStyle}
+        onLoad={() => {
+          document.querySelector('.LOAD__container').className += ' ready';
+          animateName(true);
+          animateTitle(true);
+          animateShade(true);
+        }}
+      />
+    </div>
 
-    return (
-      <section id="HOME__section">
-        <div
-          className="UTIL__parallax"
-          style={{ backgroundImage: `url(${this.bgImage})` }}
+    <WebAnimation
+      className="UTIL__cover HOME__shade"
+      keyframes={homeShade.keyframes}
+      timing={homeShade.timing}
+      shouldAnimate={shade}
+    />
+
+    <div className="container">
+      <div className="HOME__content text-white">
+        <WebAnimation
+          keyframes={homeName.keyframes}
+          timing={homeName.timing}
+          shouldAnimate={name}
         >
           <img
-            src={this.bgImage}
-            alt="T47 Avatar"
-            style={{ display: 'none' }}
-            onLoad={this.onLoad}
+            src={imgName}
+            alt="Siqi Tian"
+            className="HOME__title"
           />
-        </div>
-
-        {/* <ImageLoader className="UTIL__parallax"
-           tinySrc={require('../images/t47_avatar@x.jpg')}
-           fullSrc={require('../images/t47_avatar.jpg')} /> */}
-        <div
-          className="UTIL__cover HOME__shade"
-          style={{ backgroundColor: `rgba(0, 7, 11, ${shadeAlpha})` }}
+        </WebAnimation>
+        <p className="text-white HOME__placeholder" />
+        <TypeWriter
+          className={`HOME__typewrite text-${'textColor'}`}
+          cursorClassName="HOME__cursor"
+          fullText={title}
+          delay={1250}
+          shouldAnimate={type && !!title.length}
         />
+      </div>
+      <div
+        className="HOME__scroll_down"
+      >
+        <i className={`fa fa-3x fa-fw fa-down-circled text-${'arrowColor'}`} />
+      </div>
 
-        <div className="container">
-          <div
-            className="HOME__content text-white"
-            proxy="ABOUT__header"
-            timeline={tween.fade}
-          >
-            <img
-              src={imgName}
-              alt="Siqi Tian" width="480"
-              className="HOME__title"
-              style={avatarStyle}
-            />
-            <p
-              className="text-white HOME__placeholder"
-              style={{ marginTop: '-10px' }}
-            />
-            <p className={`HOME__typewrite text-${this.state.textColor}`}>
-              <span dangerouslySetInnerHTML={{ __html: this.state.title }} />
-              <b className={`HOME__cursor ${blinkClassName}`}>
-                {cursorChar}
-              </b>
-            </p>
-          </div>
-          <div
-            className="HOME__scroll_down"
-            proxy="ABOUT__header"
-            timeline={tween.fade}
-          >
-            <i className={`fa fa-3x fa-fw fa-down-circled text-${this.state.arrowColor}`} />
-          </div>
-
-        </div>
-      </section>
-    );
-  }
-}
+    </div>
+  </section>
+);
 
 HomeSection.propTypes = {
-  title: React.PropTypes.string,
+  data: React.PropTypes.shape({
+    title: React.PropTypes.string,
+  }),
+  animations: React.PropTypes.shape({
+    name: React.PropTypes.bool,
+    type: React.PropTypes.bool,
+    shade: React.PropTypes.bool,
+    color: React.PropTypes.number,
+  }),
+  actions: React.PropTypes.shape({
+    animateName: React.PropTypes.func,
+    animateTitle: React.PropTypes.func,
+    animateShade: React.PropTypes.func,
+  }),
+};
+HomeSection.defaultProps = {
+  data: {
+    title: '',
+  },
+  animations: {
+    name: false,
+    type: false,
+    shade: false,
+    color: 0,
+  },
+  actions: {
+    animateName: () => {},
+    animateTitle: () => {},
+    animateShade: () => {},
+  },
 };
 
 

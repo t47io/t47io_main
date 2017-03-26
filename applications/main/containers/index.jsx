@@ -71,7 +71,6 @@ const Main = ({
   data,
   form,
 }) => {
-  const { home } = data;
   const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
   const hideScrollTop = (animations.navbar.activeSection === HOME || animations.footer.footer);
 
@@ -89,7 +88,9 @@ const Main = ({
         onUpdateScroll={onUpdateScroll}
       >
         <HomeSection
-          {...home}
+          data={data.home}
+          animations={animations.home}
+          actions={actions.home}
         />
       </ScrollSpy>
 

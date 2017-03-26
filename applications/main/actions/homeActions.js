@@ -1,6 +1,8 @@
-// import 'whatwg-fetch';
-
-// import { LOAD_JSON_DATA } from '../constants/actionTypes.js';
+import {
+  TOGGLE_HOME_NAME_ANIMATION,
+  TOGGLE_HOME_TITLE_ANIMATION,
+  TOGGLE_HOME_SHADE_ANIMATION,
+} from '../constants/actionTypes.js';
 
 
 // export const loadJsonData = () => (
@@ -14,3 +16,18 @@
 //     .catch(() => console.error('Failed to fetch config.json.'))
 //   )
 // );
+
+export const animateName = status => ({
+  type: TOGGLE_HOME_NAME_ANIMATION,
+  payload: { status },
+});
+
+export const animateTitle = status => ({
+  type: TOGGLE_HOME_TITLE_ANIMATION,
+  payload: { status },
+});
+
+export const animateShade = status => ({
+  type: TOGGLE_HOME_SHADE_ANIMATION,
+  payload: { status },
+});
