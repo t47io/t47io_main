@@ -122,6 +122,8 @@
   line-height: 150%;
 
   p { font-size: 1.1em; }
+
+  td:first-of-type { padding-right: 2em; }
 }
 
 @media only screen and (max-width : 991px) {

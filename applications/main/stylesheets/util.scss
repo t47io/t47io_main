@@ -43,7 +43,8 @@
   }
 }
 
-.UTIL__spacer-md, .UTIL__spacer-lg, .UTIL__spacer-xl, .UTIL__spacer-hg { width: 100%; }
+.UTIL__spacer-sm, .UTIL__spacer-md, .UTIL__spacer-lg, .UTIL__spacer-xl, .UTIL__spacer-hg { width: 100%; }
+.UTIL__spacer-sm { height: 1rem; }
 .UTIL__spacer-md { height: 1.45rem; }
 .UTIL__spacer-lg { height: 2.85rem; }
 .UTIL__spacer-xl { height: 4.30rem; }
