@@ -35,6 +35,7 @@ const ScrollSpy = ({
       }
     }}
     scrollableAncestor={window}
+    fireOnRapidScroll={false}
     debug={debug}
   >
     <div className={className}>

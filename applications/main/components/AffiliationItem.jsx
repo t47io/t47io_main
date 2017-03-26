@@ -39,6 +39,7 @@ const AffiliationItem = ({
               onToggleAnimation(index + 1);
             }
           }}
+          fireOnRapidScroll={false}
         />
 
         <span className="AFFILIATION__year">{year}</span>
@@ -74,6 +75,7 @@ const AffiliationItem = ({
               onToggleAnimation(index - 1);
             }
           }}
+          fireOnRapidScroll={false}
         />
       </div>
     </div>

@@ -24,6 +24,7 @@ const Trigger = ({
         onToggleAnimation(false);
       }
     }}
+    fireOnRapidScroll={false}
     debug={debug}
   />
 );
