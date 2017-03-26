@@ -31,7 +31,7 @@ const plugins = (DEBUG) => {
       chunks: ['main', 'manifest'],
       template: `${rootPath}/applications/main/index.html`,
       filename: `${rootPath}/public/index.html`,
-      inject: 'body',
+      inject: false,
       minify: htmlMinify,
 
       ...indexPage,

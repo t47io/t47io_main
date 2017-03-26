@@ -14,8 +14,8 @@ try {
 
   const finalHTML = htmlMinifier.minify(
     baseHTML
-    .replace(/<link href="\/[0-9a-f]{8}\.min\.css" rel="stylesheet"><\/head>/g, '')
-    .replace(/<script type="text\/javascript" src="\/(manifest-)?[0-9a-f]{8}\.(min\.)?js"><\/script>/g, '')
+    // .replace(/<link href="\/[0-9a-f]{8}\.min\.css" rel="stylesheet"><\/head>/g, '')
+    // .replace(/<script type="text\/javascript" src="\/(manifest-)?[0-9a-f]{8}\.(min\.)?js"><\/script>/g, '')
     .replace(/src="\/manifest-[0-9a-f]{8}\.js">/, `>${manifestJS}`), {
       collapseWhitespace: true,
       minifyCSS: true,
