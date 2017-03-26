@@ -15,11 +15,9 @@ class Counter extends React.PureComponent {
     if (this.state.isActive) { this.onCountUp(); }
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.shouldAnimate) {
-      this.setState({
-        ...this.state,
-        isActive: nextProps.shouldAnimate,
-      });
+    if (nextProps.shouldAnimate ||
+      nextProps.endValue !== this.props.endValue) {
+      this.setState({ isActive: nextProps.shouldAnimate });
       this.onCountUp();
     }
   }
@@ -34,17 +32,11 @@ class Counter extends React.PureComponent {
     const handle = setInterval(() => {
       currentValue += increment;
       currentStep += 1;
-      this.setState({
-        ...this.state,
-        currentValue: parseInt(currentValue, 10),
-      });
+      this.setState({ currentValue: parseInt(currentValue, 10) });
 
-      if (currentStep === steps) {
+      if (currentStep >= steps) {
         clearInterval(handle);
-        this.setState({
-          isActive: false,
-          currentValue: endValue,
-        });
+        this.setState({ isActive: false });
       }
     }, interval);
   }
