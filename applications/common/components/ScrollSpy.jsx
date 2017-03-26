@@ -15,11 +15,13 @@ const ScrollSpy = ({
     topOffset={topOffset}
     bottomOffset={bottomOffset}
     onEnter={({ currentPosition }) => {
+      // console.error('onEnter', section, currentPosition);
       if (currentPosition === Waypoint.inside) {
         onUpdateScroll(section);
       }
     }}
     onLeave={({ currentPosition }) => {
+      // console.error('onLeave', section, currentPosition);
       if (currentPosition === Waypoint.below) {
         onUpdateScroll(section - 1);
       } else if (currentPosition === Waypoint.above) {
@@ -27,10 +29,12 @@ const ScrollSpy = ({
       }
     }}
     onPositionChange={({ currentPosition }) => {
+      // console.error('onChange', section, currentPosition);
       if (currentPosition === Waypoint.inside) {
         onUpdateScroll(section);
       }
     }}
+    scrollableAncestor={window}
     debug={debug}
   >
     <div className={className}>

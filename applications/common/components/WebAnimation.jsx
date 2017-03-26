@@ -16,9 +16,10 @@ class WebAnimation extends React.PureComponent {
   }
   shouldComponentUpdate(nextProps, nextState) {
     const shouldAnimate = (nextProps.shouldAnimate !== this.props.shouldAnimate);
+    const shouldReverse = (nextProps.shouldReverse !== this.props.shouldReverse);
     const shouldForceUpdate = this.props.shouldForceUpdate || nextProps.shouldForceUpdate;
     const propsForceUpdate = (nextProps.propsForceUpdate !== this.props.propsForceUpdate);
-    return (shouldAnimate || shouldForceUpdate || propsForceUpdate);
+    return (shouldAnimate || shouldReverse || shouldForceUpdate || propsForceUpdate);
   }
 
   render() {
@@ -50,6 +51,7 @@ WebAnimation.propTypes = {
   keyframes: React.PropTypes.arrayOf(React.PropTypes.object),
   timing: React.PropTypes.object,
   shouldAnimate: React.PropTypes.bool,
+  shouldReverse: React.PropTypes.bool,
   shouldForceUpdate: React.PropTypes.bool,
   propsForceUpdate: React.PropTypes.oneOfType([
     React.PropTypes.string,
@@ -69,6 +71,7 @@ WebAnimation.defaultProps = {
   keyframes: [],
   timing: {},
   shouldAnimate: false,
+  shouldReverse: false,
   shouldForceUpdate: false,
   propsForceUpdate: '',
   style: {},
