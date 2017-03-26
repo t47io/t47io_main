@@ -15,9 +15,14 @@ class Counter extends React.PureComponent {
     if (this.state.isActive) { this.onCountUp(); }
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.shouldAnimate ||
+    if ((nextProps.shouldAnimate && !this.props.shouldAnimate) ||
       nextProps.endValue !== this.props.endValue) {
       this.setState({ isActive: nextProps.shouldAnimate });
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if ((!prevProps.shouldAnimate && this.props.shouldAnimate) ||
+      prevProps.endValue !== this.props.endValue) {
       this.onCountUp();
     }
   }

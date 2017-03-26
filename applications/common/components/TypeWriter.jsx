@@ -14,30 +14,38 @@ class TypeWriter extends React.PureComponent {
   componentDidMount() {
     if (this.state.isActive) { this.onTypeWrite(); }
   }
-  componentWillUpdate(nextProps, nextState) {
-    if (nextProps.fullText !== this.props.fullText) {
+  componentWillReceiveProps(nextProps) {
+    if ((nextProps.shouldAnimate && !this.props.shouldAnimate) ||
+      nextProps.fullText !== this.props.fullText) {
       this.setState({ isActive: nextProps.shouldAnimate });
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if ((!prevProps.shouldAnimate && this.props.shouldAnimate) ||
+      prevProps.fullText !== this.props.fullText) {
       this.onTypeWrite();
     }
   }
 
   onTypeWrite() {
-    const { fullText, interval } = this.props;
+    const { fullText, interval, delay } = this.props;
     const steps = fullText.length;
 
-    let currentStep = 0;
-    let currentText = '';
-    const handle = setInterval(() => {
-      currentText = fullText.slice(0, currentStep)
-        .replace(/!/g, '').replace(/@/g, '<br/>');
-      currentStep += 1;
-      this.setState({ currentText });
+    setTimeout(() => {
+      let currentStep = 0;
+      let currentText = '';
+      const handle = setInterval(() => {
+        currentText = fullText.slice(0, currentStep)
+          .replace(/!/g, '').replace(/@/g, '<br/>');
+        currentStep += 1;
+        this.setState({ currentText });
 
-      if (currentStep > steps) {
-        clearInterval(handle);
-        this.setState({ isActive: false });
-      }
-    }, interval);
+        if (currentStep > steps) {
+          clearInterval(handle);
+          this.setState({ isActive: false });
+        }
+      }, interval);
+    }, delay);
   }
 
   render() {
@@ -48,7 +56,7 @@ class TypeWriter extends React.PureComponent {
     return (
       <p className={className}>
         <span dangerouslySetInnerHTML={{ __html: currentText }} />
-        <b className={cursorClassName}>
+        <b className={`${cursorClassName} blink`}>
           {cursor}
         </b>
       </p>
@@ -62,6 +70,7 @@ TypeWriter.propTypes = {
   cursorCharacter: React.PropTypes.string,
   cursorClassName: React.PropTypes.string,
   interval: React.PropTypes.number,
+  delay: React.PropTypes.number,
   shouldAnimate: React.PropTypes.bool,
 };
 TypeWriter.defaultProps = {
@@ -70,6 +79,7 @@ TypeWriter.defaultProps = {
   cursorCharacter: '|',
   cursorClassName: 'blink',
   interval: 125,
+  delay: 0,
   shouldAnimate: false,
 };
 

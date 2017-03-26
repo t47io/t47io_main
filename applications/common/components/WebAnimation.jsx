@@ -63,7 +63,7 @@ WebAnimation.propTypes = {
   children: React.PropTypes.oneOfType([
     React.PropTypes.node,
     React.PropTypes.arrayOf(React.PropTypes.node),
-  ]).isRequired,
+  ]),
 };
 WebAnimation.defaultProps = {
   tagName: 'div',
@@ -76,6 +76,7 @@ WebAnimation.defaultProps = {
   propsForceUpdate: '',
   style: {},
   onFinish: undefined,
+  children: null,
 };
 
 
