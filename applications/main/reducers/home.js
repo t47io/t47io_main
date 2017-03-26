@@ -1,7 +1,6 @@
 import {
-  TOGGLE_HOME_NAME_ANIMATION,
-  TOGGLE_HOME_TITLE_ANIMATION,
-  TOGGLE_HOME_SHADE_ANIMATION,
+  TOGGLE_HOME_READY,
+  TOGGLE_HOME_INTRO_ANIMATION,
   CYCLE_HOME_TEXT_COLOR,
 } from '../constants/actionTypes.js';
 
@@ -11,39 +10,29 @@ const initialState = {
     title: '',
   },
   animations: {
-    name: false,
-    type: false,
-    shade: false,
+    ready: false,
+    intro: false,
     color: 0,
   },
 };
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_HOME_NAME_ANIMATION:
+    case TOGGLE_HOME_READY:
       return {
         ...state,
         animations: {
           ...state.animations,
-          name: payload.status,
+          ready: true,
         },
       };
 
-    case TOGGLE_HOME_TITLE_ANIMATION:
+    case TOGGLE_HOME_INTRO_ANIMATION:
       return {
         ...state,
         animations: {
           ...state.animations,
-          type: payload.status,
-        },
-      };
-
-    case TOGGLE_HOME_SHADE_ANIMATION:
-      return {
-        ...state,
-        animations: {
-          ...state.animations,
-          shade: payload.status,
+          intro: true,
         },
       };
 

@@ -1,7 +1,6 @@
 import {
-  TOGGLE_HOME_NAME_ANIMATION,
-  TOGGLE_HOME_TITLE_ANIMATION,
-  TOGGLE_HOME_SHADE_ANIMATION,
+  TOGGLE_HOME_READY,
+  TOGGLE_HOME_INTRO_ANIMATION,
 } from '../constants/actionTypes.js';
 
 
@@ -17,17 +16,12 @@ import {
 //   )
 // );
 
-export const animateName = status => ({
-  type: TOGGLE_HOME_NAME_ANIMATION,
-  payload: { status },
-});
+export const animateReady = () => (
+  (dispatch) => {
+    document.querySelector('.LOAD__container').className += ' ready';
 
-export const animateTitle = status => ({
-  type: TOGGLE_HOME_TITLE_ANIMATION,
-  payload: { status },
-});
+    dispatch({ type: TOGGLE_HOME_READY });
+  }
+);
 
-export const animateShade = status => ({
-  type: TOGGLE_HOME_SHADE_ANIMATION,
-  payload: { status },
-});
+export const animateIntro = () => ({ type: TOGGLE_HOME_INTRO_ANIMATION });
