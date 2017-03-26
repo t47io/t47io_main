@@ -1,5 +1,6 @@
 import React from 'react';
 
+import HomeTrigger from '../components/HomeTrigger.jsx';
 import TypeWriter from '../../common/components/TypeWriter.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -21,18 +22,20 @@ const imgLoaderStyle = { display: 'none' };
 const HomeSection = ({
   data: { title },
   animations: {
-    name,
-    type,
-    shade,
+    ready,
+    intro,
     color,
   },
   actions: {
-    animateName,
-    animateTitle,
-    animateShade,
+    animateReady,
+    animateIntro,
   },
 }) => (
   <section id="HOME__section">
+    <HomeTrigger
+      disabled={!ready}
+      onToggleAnimation={animateIntro}
+    />
     <div
       className="UTIL__parallax"
       style={avatarStyle}
@@ -41,12 +44,7 @@ const HomeSection = ({
         src={imgAvatar}
         alt="T47 Avatar"
         style={imgLoaderStyle}
-        onLoad={() => {
-          document.querySelector('.LOAD__container').className += ' ready';
-          animateName(true);
-          animateTitle(true);
-          animateShade(true);
-        }}
+        onLoad={animateReady}
       />
     </div>
 
@@ -54,7 +52,7 @@ const HomeSection = ({
       className="UTIL__cover HOME__shade"
       keyframes={homeShade.keyframes}
       timing={homeShade.timing}
-      shouldAnimate={shade}
+      shouldAnimate={intro}
     />
 
     <div className="container">
@@ -62,7 +60,7 @@ const HomeSection = ({
         <WebAnimation
           keyframes={homeName.keyframes}
           timing={homeName.timing}
-          shouldAnimate={name}
+          shouldAnimate={intro}
         >
           <img
             src={imgName}
@@ -76,7 +74,7 @@ const HomeSection = ({
           cursorClassName="HOME__cursor"
           fullText={title}
           delay={1250}
-          shouldAnimate={type && !!title.length}
+          shouldAnimate={intro && !!title.length}
         />
       </div>
       <div
@@ -94,15 +92,13 @@ HomeSection.propTypes = {
     title: React.PropTypes.string,
   }),
   animations: React.PropTypes.shape({
-    name: React.PropTypes.bool,
-    type: React.PropTypes.bool,
-    shade: React.PropTypes.bool,
+    ready: React.PropTypes.bool,
+    intro: React.PropTypes.bool,
     color: React.PropTypes.number,
   }),
   actions: React.PropTypes.shape({
-    animateName: React.PropTypes.func,
-    animateTitle: React.PropTypes.func,
-    animateShade: React.PropTypes.func,
+    animateReady: React.PropTypes.func,
+    animateIntro: React.PropTypes.func,
   }),
 };
 HomeSection.defaultProps = {
@@ -110,15 +106,13 @@ HomeSection.defaultProps = {
     title: '',
   },
   animations: {
-    name: false,
-    type: false,
-    shade: false,
+    ready: false,
+    intro: false,
     color: 0,
   },
   actions: {
-    animateName: () => {},
-    animateTitle: () => {},
-    animateShade: () => {},
+    animateReady: () => {},
+    animateIntro: () => {},
   },
 };
 
