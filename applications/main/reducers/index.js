@@ -26,7 +26,6 @@ const crossReducer = (state, action) => {
   });
 
   newState.navbar.animations.activeSection = HOME;
-  newState.affiliation.animations.panel = newState.affiliation.data.items[0].year;
 
   return newState;
 };

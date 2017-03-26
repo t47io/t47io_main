@@ -6,12 +6,11 @@ import { AFFILIATION } from '../constants/sectionTypes.js';
 const initialState = {
   data: {
     items: [],
-    years: [],
     backgrounds: [],
   },
   animations: {
     header: false,
-    panel: (new Date()).getFullYear(),
+    panel: 0,
   },
 };
 

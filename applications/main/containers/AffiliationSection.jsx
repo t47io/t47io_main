@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AffiliationItem from '../components/AffiliationItem.jsx';
-import AffiliationScrollSpy from '../components/AffiliationScrollSpy.jsx';
+// import AffiliationScrollSpy from '../components/AffiliationScrollSpy.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 
@@ -11,7 +11,6 @@ import '../stylesheets/AffiliationSection.scss';
 const AffiliationSection = ({
   data: {
     items,
-    years,
     backgrounds,
   },
   animations: {
@@ -40,17 +39,15 @@ const AffiliationSection = ({
       <div className="row">
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div className="AFFILIATION__story">
-            <AffiliationScrollSpy
-              className="AFFILIATION__timeline"
-              years={years}
-              onToggleAnimation={animatePanels}
-            />
+            <div className="AFFILIATION__timeline" />
 
             {items.map((item, i) => (
               <AffiliationItem
                 key={`AFFILIATION__item-${i}`}
+                shouldAnimate={panel === i}
+                onToggleAnimation={animatePanels}
+                index={i}
                 {...item}
-                shouldAnimate={panel === item.year}
               />
             ))}
           </div>
@@ -64,7 +61,6 @@ const AffiliationSection = ({
 AffiliationSection.propTypes = {
   data: React.PropTypes.shape({
     items: React.PropTypes.arrayOf(React.PropTypes.object),
-    years: React.PropTypes.arrayOf(React.PropTypes.number),
     backgrounds: React.PropTypes.arrayOf(React.PropTypes.string),
   }),
   animations: React.PropTypes.shape({
@@ -79,12 +75,11 @@ AffiliationSection.propTypes = {
 AffiliationSection.defaultProps = {
   data: {
     items: [],
-    years: [],
     backgrounds: [],
   },
   animations: {
     header: false,
-    panel: (new Date()).getFullYear(),
+    panel: 0,
   },
   actions: {
     animateHeader: () => {},

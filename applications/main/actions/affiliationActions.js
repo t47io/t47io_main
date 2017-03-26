@@ -7,12 +7,15 @@ export const animateHeader = toggleHeaderAnimation.bind(null, AFFILIATION);
 
 export const animatePanels = status => (
   (dispatch, getState) => {
-    const { affiliation: { animations: { panel } } } = getState();
-    if (status !== panel) {
-      console.log('change-to:', status);
+    const { affiliation: {
+      animations: { panel },
+      data: { items },
+    } } = getState();
+    const newPanel = Math.min(Math.max(status, 0), items.length);
+    if (newPanel !== panel) {
       dispatch({
         type: UPDATE_AFFILIATION_SCROLLSPY,
-        payload: { status },
+        payload: { status: newPanel },
       });
     }
   }

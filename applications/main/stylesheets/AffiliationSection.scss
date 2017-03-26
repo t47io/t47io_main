@@ -18,15 +18,15 @@
   height: 100%; 
   left: 14em; 
   top: 0;
-  border-right: 2px solid #d9d9d9; 
+  border-right: 2px solid $colorGray; 
   z-index: 5; 
 
   &::before, &::after {
     content: "";
-    left: -0.4em;
+    left: -0.5em;
     width: 1em;
     height: 1em;
-    background: #d9d9d9;
+    background: $colorGray;
     position: absolute;
     border-radius: 0.5em;
   }
@@ -56,19 +56,13 @@
   position: relative;
 
   .AFFILIATION__panel {
-    background: #e6e6e6;
+    background: $colorGrayLight;
     padding: 1.5em;
     border-left: 5px solid $colorGreen;
     text-align: left;
-    opacity: 0;
-    @include transform(matrix(1, 0, 0, 1, -200, 0));
-    @include transition(0.25s);
   }
+
   &.active {
-    .AFFILIATION__panel {
-      opacity: 1;
-      @include transform(matrix(1, 0, 0, 1, 0, 0));
-    }
     .AFFILIATION__year {
       color: $colorGreen;
 
@@ -78,7 +72,7 @@
 }
 
 .AFFILIATION__title {
-  color: #191919;
+  color: $colorBlack;
   font-size: 1.6em;
   /*text-transform: uppercase;*/
   font-weight: bold;
@@ -124,7 +118,7 @@
   border-left: 2px dashed $colorGray;
   padding: 1em;
   /*margin: 10px -15px -15px;*/
-  color: #000;
+  color: $colorBlack;
   line-height: 150%;
 
   p { font-size: 1.1em; }
