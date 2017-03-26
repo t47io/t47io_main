@@ -53,10 +53,7 @@ const concatIndexJSON = (rootPath) => {
     navbar: { items: home.sections.map(section => section.toUpperCase()) },
     home: { title: home.title },
     about,
-    affiliation: {
-      ...affiliation,
-      years: affiliation.items.map(item => item.year),
-    },
+    affiliation,
     portfolio: {
       ...portfolio,
       selectedCategory: 'all',
