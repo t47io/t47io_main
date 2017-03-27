@@ -55,7 +55,7 @@ const HomeSection = ({
       shouldAnimate={intro}
     />
 
-    <div className="container">
+    <div className="container" style={{height:'100vh'}}>
       <div className="HOME__content text-white">
         <WebAnimation
           keyframes={homeName.keyframes}
@@ -69,16 +69,13 @@ const HomeSection = ({
           />
         </WebAnimation>
         <p className="text-white HOME__placeholder" />
-        {title.length > 0 ?
-          <TypeWriter
-            className={`HOME__typewrite text-${'textColor'}`}
-            cursorClassName="HOME__cursor"
-            fullText={title}
-            delay={1250}
-            shouldAnimate={intro}
-          /> :
-          <p className="HOME__typewrite text-white" />
-        }
+        <TypeWriter
+          className={`HOME__typewrite text-${'textColor'}`}
+          cursorClassName="HOME__cursor"
+          fullText={title}
+          delay={1250}
+          shouldAnimate={intro}
+        />
       </div>
       <div
         className="HOME__scroll_down"

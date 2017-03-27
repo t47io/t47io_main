@@ -71,6 +71,8 @@ const Main = ({
   data,
   form,
 }) => {
+  if (!data.home.loaded) { return null; }
+
   const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
   const hideScrollTop = (animations.navbar.activeSection === HOME || animations.footer.footer);
 
@@ -84,7 +86,7 @@ const Main = ({
 
       <ScrollSpy
         section={0}
-        topOffset="108px"
+        topOffset="68px"
         onUpdateScroll={onUpdateScroll}
       >
         <HomeSection
@@ -93,6 +95,7 @@ const Main = ({
           actions={actions.home}
         />
       </ScrollSpy>
+      <div className="UTIL__spacer-sm" style={{border:'1px solid red'}}/>
 
       <ScrollSpy
         section={1}
@@ -112,7 +115,6 @@ const Main = ({
 
       <ScrollSpy
         section={2}
-        topOffset="108px"
         onUpdateScroll={onUpdateScroll}
       >
         <PortfolioSection
@@ -139,7 +141,6 @@ const Main = ({
 
       <ScrollSpy
         section={3}
-        topOffset="-108px"
         onUpdateScroll={onUpdateScroll}
       >
         <ContactSection

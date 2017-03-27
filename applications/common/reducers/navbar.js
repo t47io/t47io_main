@@ -32,6 +32,7 @@ const reducer = (state = initialState, { type, payload }) => {
         animations: {
           ...state.animations,
           isMobileCollapsed: false,
+          activeSection: payload.section,
         },
       };
 

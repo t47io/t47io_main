@@ -19,7 +19,7 @@ const AboutSection = ({
   },
 }) => (
   <section id="ABOUT__section" className="text-center">
-    <div className="UTIL__spacer-lg ABOUT__trigger" />
+    <div className="UTIL__spacer-md ABOUT__trigger" />
     <SectionHeader
       title="what i do"
       subtitle="what I enjoy & good at"

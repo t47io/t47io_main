@@ -25,6 +25,7 @@ const crossReducer = (state, action) => {
     newState[key].data = action.payload[key];
   });
 
+  newState.home.data.loaded = true;
   newState.navbar.animations.activeSection = HOME;
   return newState;
 };

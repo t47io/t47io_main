@@ -8,6 +8,7 @@ import {
 const initialState = {
   data: {
     title: '',
+    loaded: false,
   },
   animations: {
     ready: false,

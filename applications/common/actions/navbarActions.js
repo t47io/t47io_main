@@ -19,6 +19,7 @@ export const updateNavbarScrollspy = section => (
     const nextIndex = Math.max(Math.min(section, items.length - 1), 0);
 
     if (currentIndex !== nextIndex) {
+      console.error('change from ', activeSection, ' to ', items[nextIndex]);
       dispatch({
         type: UPDATE_NAVBAR_SCROLLSPY,
         payload: { section: items[nextIndex] },
@@ -41,12 +42,13 @@ export const scrollToSection = section => (
 
     smoothScroll(
       document.getElementById(`${section}__section`),
-      distance * 800
+      distance * 500,
+      () => {
+        dispatch({
+          type: SCROLL_NAVBAR_SECTION,
+          payload: { section },
+        });
+      }
     );
-
-    dispatch({
-      type: SCROLL_NAVBAR_SECTION,
-      payload: { section },
-    });
   }
 );
