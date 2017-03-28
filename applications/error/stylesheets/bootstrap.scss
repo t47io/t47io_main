@@ -6,7 +6,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: $colorGray;
+  color: $colorBlack;
   background-color: $colorWhite;
 }
 h2, h3 { margin: 20px 0 10px 0; }
@@ -16,14 +16,14 @@ a { text-decoration: none; }
 code {
   padding: 2px 4px;
   color: $colorRed;
-  background-color: $colorGrayLight;
+  background-color: #fdecea;
   border-radius: 4px;
 }
 kbd {
   padding: 2px 4px;
   font-size: 90%;
   color: $colorWhite;
-  background-color: $colorGray;
+  background-color: $colorBlack;
   border-radius: 3px;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
 }
