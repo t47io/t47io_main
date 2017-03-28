@@ -23,7 +23,7 @@
       text-transform: uppercase;
     }
 
-    &:hover { background-color: rgba(0, 0, 0, 0.25); }
+    &:hover { background-color: rgba(0, 7, 11, 0.25); }
   }
 
   &::after { clear: both; }
@@ -42,7 +42,7 @@
 .COMMON__navbar-default {
   background-color: $colorGreenDark;
   z-index: 9999;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 7, 11, 0.15);
 
   li {
     a.COMMON__navbar_link {
@@ -100,7 +100,7 @@
       margin-top: 18px;
       border: none;
 
-      &:hover, &:focus { background-color: rgba(0, 0, 0, 0); }
+      &:hover, &:focus { background-color: rgba(0, 7, 11, 0); }
 
       .icon-bar { 
         background-color: $colorWhite;
@@ -123,7 +123,7 @@
       a { color: $colorGreenFull; }
       a:hover, a:focus { color: $colorWhite; }
     }
-    &:hover { background-color: rgba(0, 0, 0, 0.25); }
+    &:hover { background-color: rgba(0, 7, 11, 0.25); }
   }
 }
 
