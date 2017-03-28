@@ -1,7 +1,7 @@
 @import '../../common/mixins/reset';
 @import './bootstrap';
 
-@import '../../common/stylesheets/LoadingLayout';
-@import '../../common/stylesheets/LoadingBackground';
+@import '../../loading/stylesheets/LoadingLayout';
+@import '../../loading/stylesheets/LoadingBackground';
 @import './Error';
 @import './Footer';

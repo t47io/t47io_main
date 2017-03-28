@@ -1,6 +1,6 @@
 @import './HelixLoading';
-@import '../../common/stylesheets/LoadingLayout';
-@import '../../common/stylesheets/LoadingBackground';
+@import './LoadingLayout';
+@import './LoadingBackground';
 
 
 .green-white .T47__logo_alt path { fill: $colorGreen; }
