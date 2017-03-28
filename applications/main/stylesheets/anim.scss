@@ -4,6 +4,11 @@
 .UTIL__section_header > div { will-change: transform, opacity, letter-spacing; }
 
 .HOME__shade { will-change: background-color; }
+.HOME__cursor { will-change: opacity; }
+.HOME__scroll_down,
+.HOME__typewrite {
+  will-change: color;
+}
 .HOME__title,
 .ABOUT__icon,
 .AFFILIATION__panel,

@@ -30,62 +30,64 @@ const HomeSection = ({
     animateReady,
     animateIntro,
   },
-}) => (
-  <section id="HOME__section">
-    <HomeTrigger
-      disabled={!ready}
-      onToggleAnimation={animateIntro}
-    />
-    <div
-      className="UTIL__parallax"
-      style={avatarStyle}
-    >
-      <img
-        src={imgAvatar}
-        alt="T47 Avatar"
-        style={imgLoaderStyle}
-        onLoad={animateReady}
+}) => {
+  const textColorClass = `text-${TEXT_COLOR_CYCLE[color]}`;
+  const arrowColorClass = `text-${TEXT_COLOR_CYCLE[color % 2]}`;
+
+  return (
+    <section id="HOME__section">
+      <HomeTrigger
+        disabled={!ready}
+        onToggleAnimation={animateIntro}
       />
-    </div>
-
-    <WebAnimation
-      className="UTIL__cover HOME__shade"
-      keyframes={homeShade.keyframes}
-      timing={homeShade.timing}
-      shouldAnimate={intro}
-    />
-
-    <div className="container" >
-      <div className="HOME__content text-white">
-        <WebAnimation
-          keyframes={homeName.keyframes}
-          timing={homeName.timing}
-          shouldAnimate={intro}
-        >
-          <img
-            src={imgName}
-            alt="Siqi Tian"
-            className="HOME__title"
-          />
-        </WebAnimation>
-        <p className="text-white HOME__placeholder" />
-        <TypeWriter
-          className={`HOME__typewrite text-${'textColor'}`}
-          cursorClassName="HOME__cursor"
-          fullText={title}
-          delay={1250}
-          shouldAnimate={intro}
+      <div
+        className="UTIL__parallax"
+        style={avatarStyle}
+      >
+        <img
+          src={imgAvatar}
+          alt="T47 Avatar"
+          style={imgLoaderStyle}
+          onLoad={animateReady}
         />
       </div>
-      <div
-        className="HOME__scroll_down"
-      >
-        <i className={`fa fa-3x fa-fw fa-down-circled text-${'arrowColor'}`} />
-      </div>
 
-    </div>
-  </section>
-);
+      <WebAnimation
+        className="UTIL__cover HOME__shade"
+        keyframes={homeShade.keyframes}
+        timing={homeShade.timing}
+        shouldAnimate={intro}
+      />
+
+      <div className="container" >
+        <div className="HOME__content text-white">
+          <WebAnimation
+            keyframes={homeName.keyframes}
+            timing={homeName.timing}
+            shouldAnimate={intro}
+          >
+            <img
+              src={imgName}
+              alt="Siqi Tian"
+              className="HOME__title"
+            />
+          </WebAnimation>
+          <p className="text-white HOME__placeholder" />
+          <TypeWriter
+            className={`HOME__typewrite ${textColorClass}`}
+            cursorClassName="HOME__cursor"
+            fullText={title}
+            delay={1250}
+            shouldAnimate={intro}
+          />
+        </div>
+        <div className="HOME__scroll_down">
+          <i className={`fa fa-3x fa-fw fa-down-circled ${arrowColorClass}`} />
+        </div>
+      </div>
+    </section>
+  );
+};
 
 HomeSection.propTypes = {
   data: React.PropTypes.shape({

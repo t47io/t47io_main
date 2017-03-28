@@ -38,7 +38,13 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case CYCLE_HOME_TEXT_COLOR:
-      return state;
+      return {
+        ...state,
+        animations: {
+          ...state.animations,
+          color: payload.status,
+        },
+      };
 
     default:
       return state;

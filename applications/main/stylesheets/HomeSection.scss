@@ -56,6 +56,8 @@
 .HOME__typewrite {
   line-height: 2.5rem;
   height: 5rem;
+
+  @include transition(0.5s, linear, color);
 }
 .HOME__cursor {
   color: $colorRed;
