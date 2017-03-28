@@ -4,6 +4,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import bodyParser from 'body-parser';
 import childProcess from 'child_process';
+import colors from 'colors';
 import compression from 'compression';
 import express from 'express';
 import favicon from 'serve-favicon';
@@ -40,13 +41,11 @@ if (DEBUG) {
     quiet: false,
     lazy: false,
     watchOptions: {
-      aggregateTimeout: 300,
+      aggregateTimeout: 2500,
       poll: true,
     },
     serverSideRender: false,
-    stats: {
-      colors: true,
-    },
+    stats: { colors: true },
   });
   middleware.waitUntilValid(() => {
     fs.writeFileSync(
@@ -67,7 +66,7 @@ if (DEBUG) {
   // fs.removeSync(path.join(publicPath, 'font'));
 }
 
-app.listen(PORT, () => console.log(`t47io Main Site listening on port: ${PORT} ...`));
+app.listen(PORT, () => console.log(`${colors.rainbow('t47io Main Site')} listening on port: ${colors.red(PORT)} ...`));
 
 export {
   app,
