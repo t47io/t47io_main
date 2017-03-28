@@ -55,7 +55,7 @@ const HomeSection = ({
       shouldAnimate={intro}
     />
 
-    <div className="container" style={{height:'100vh'}}>
+    <div className="container" >
       <div className="HOME__content text-white">
         <WebAnimation
           keyframes={homeName.keyframes}

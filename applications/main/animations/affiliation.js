@@ -1,9 +1,8 @@
 import { easeInOutBack } from '../../common/animations/easing.js';
-import { AFFILIATION } from '../constants/sectionTypes.js';
 
 
 export const affiliationPanel = {
-  keyframes: (reversed) => (reversed ? [
+  keyframes: reversed => (reversed ? [
     { transform: 'translateX(-100%)', opacity: 0 },
     { transform: 'translate(0)', opacity: 1 },
   ] : [

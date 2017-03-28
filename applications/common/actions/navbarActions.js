@@ -19,7 +19,7 @@ export const updateNavbarScrollspy = section => (
     const nextIndex = Math.max(Math.min(section, items.length - 1), 0);
 
     if (currentIndex !== nextIndex) {
-      console.error('change from ', activeSection, ' to ', items[nextIndex]);
+      // console.error('change from ', activeSection, ' to ', items[nextIndex]);
       dispatch({
         type: UPDATE_NAVBAR_SCROLLSPY,
         payload: { section: items[nextIndex] },

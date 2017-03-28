@@ -95,7 +95,7 @@ const Main = ({
           actions={actions.home}
         />
       </ScrollSpy>
-      <div className="UTIL__spacer-sm" style={{border:'1px solid red'}}/>
+      <div className="UTIL__spacer-sm" />
 
       <ScrollSpy
         section={1}

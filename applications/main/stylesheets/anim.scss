@@ -1,12 +1,12 @@
-.UTIL__section_header > div {
-  will-change: transform, opacity, letter-spacing;
-}
+.LOAD__container { will-change: opacity, z-index; }
 
-.COMMON__navbar {
-  will-change: background-color;
-}
+.COMMON__navbar { will-change: background-color, z-index, box-shadow; }
+.UTIL__section_header > div { will-change: transform, opacity, letter-spacing; }
 
+.HOME__shade { will-change: background-color; }
+.HOME__title,
 .ABOUT__icon,
+.AFFILIATION__panel,
 .PORTFOLIO__filter,
 .PORTFOLIO__item,
 .SKILLS__bar,
@@ -21,3 +21,5 @@
 .FOOTTER__city_gif {
   will-change: transform, opacity;
 }
+
+.scrollTop { will-change: visibility, opacity; }
