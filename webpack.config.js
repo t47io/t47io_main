@@ -9,11 +9,22 @@ console.log(`DEBUG mode ? ${DEBUG}`);
 const entry = {
   main: [
     'bootstrap-loader',
-    // 'bootstrap-sass-loader!./bootstrap-sass.config.js',
-    // 'font-awesome-loader!./font-awesome.config.js',
     './applications/main/index.jsx',
   ],
   error: './applications/error/index.jsx',
+  vendor: [
+    'react',
+    'react-redux',
+    'react-tooltip',
+    'react-waypoint',
+    'react-web-animation',
+    'reduce-reducers',
+    'redux',
+    'redux-thunk',
+    'smoothscroll',
+    'web-animations-js',
+    'whatwg-fetch',
+  ],
 };
 if (DEBUG) { entry.main.unshift('webpack-hot-middleware/client?reload=true'); }
 
@@ -36,12 +47,6 @@ const config = {
 
   module: { rules: loaders() },
   plugins: plugins(DEBUG),
-
-  // devServer: {
-  //   inline: true,
-  //   port: 9000,
-  //   historyApiFallback: true
-  // }
 };
 
 

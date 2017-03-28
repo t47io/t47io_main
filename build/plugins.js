@@ -28,7 +28,7 @@ const plugins = (DEBUG) => {
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
-      chunks: ['main', 'manifest'],
+      chunks: ['main', 'vendor', 'manifest'],
       template: `${rootPath}/applications/main/index.html`,
       filename: `${rootPath}/public/index.html`,
       inject: false,
@@ -49,7 +49,7 @@ const plugins = (DEBUG) => {
       googleAnalytics,
     }),
     new ExtractTextPlugin({
-      filename: `${DEBUG ? '[name]-[hash:8]' : '[chunkhash:8].min'}.css`,
+      filename: DEBUG ? '[name]-[hash:8].css' : '[chunkhash:8].min.css',
       allChunks: true,
     }),
     new PurifyCSSPlugin({
@@ -67,6 +67,10 @@ const plugins = (DEBUG) => {
       },
     }),
     new LodashModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: DEBUG ? '[name]-[hash:8].js' : '[chunkhash:8].min.js',
+    }),
   ];
   if (!DEBUG) {
     plugin = [
@@ -80,10 +84,6 @@ const plugins = (DEBUG) => {
       new webpack.optimize.CommonsChunkPlugin({
         name: 'manifest',
         filename: '[name]-[hash:8].js',
-        // chunks: ['main'],
-        // async: true,
-        // children: true,
-        minChunks: Infinity,
       }),
       new BabiliPlugin({
         comments: false,
