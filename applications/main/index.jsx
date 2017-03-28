@@ -22,7 +22,7 @@ const store = createStore(
 );
 
 require.ensure([], (require) => {
-  const json = require('../../public/config.json');
+  const json = require('../../config/main.json');
   store.dispatch({
     type: LOAD_JSON_DATA,
     payload: { ...json },

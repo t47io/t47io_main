@@ -86,7 +86,7 @@ const concatIndexJSON = (rootPath) => {
     },
   };
 
-  fs.writeJsonSync(path.join(rootPath, 'config.json'), config);
+  fs.writeJsonSync(path.join(__dirname, '../config/main.json'), config);
 };
 
 
