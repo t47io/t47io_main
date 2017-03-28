@@ -62,6 +62,7 @@ const HomeSection = ({
       <div className="container" >
         <div className="HOME__content text-white">
           <WebAnimation
+            className="HOME__title"
             keyframes={homeName.keyframes}
             timing={homeName.timing}
             shouldAnimate={intro}
@@ -69,7 +70,6 @@ const HomeSection = ({
             <img
               src={imgName}
               alt="Siqi Tian"
-              className="HOME__title"
             />
           </WebAnimation>
           <p className="text-white HOME__placeholder" />

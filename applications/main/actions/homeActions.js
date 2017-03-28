@@ -19,8 +19,13 @@ import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 
 export const animateReady = () => (
   (dispatch) => {
-    document.querySelector('.LOAD__container').className += ' ready';
-    setTimeout(() => dispatch({ type: TOGGLE_HOME_READY }), 250);
+    const loadingContainer = document.querySelector('.LOAD__container');
+    loadingContainer.style.opacity = 0;
+    setTimeout(() => {
+      dispatch({ type: TOGGLE_HOME_READY });
+      // z-index does not obey transition
+      loadingContainer.style.zIndex = -1;
+    }, 1000);
 
     setTimeout(() => {
       let status = 0;
@@ -31,7 +36,7 @@ export const animateReady = () => (
           type: CYCLE_HOME_TEXT_COLOR,
           payload: { status },
         });
-      }, 2000);
+      }, 2500);
     }, 76 * 125 + 1250 + 750);
   }
 );

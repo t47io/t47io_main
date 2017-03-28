@@ -16,10 +16,15 @@
   position: absolute;
   bottom: 20vh;
 
-  img.HOME__title {
-    margin-left: 1em;
-    max-width: 50%;
-    width: 480px;
+  .HOME__title {
+    width: 100%;
+    opacity: 0;
+
+    img {
+      margin-left: 1em;
+      max-width: 50%;
+      width: 480px;
+    }
   }
   p {
     font-size: 2rem;
@@ -30,7 +35,7 @@
 }
 @media only screen and (min-width : 767px) {
   .HOME__content {
-    img.HOME__title { max-width: 75%; }
+    .HOME__title img { max-width: 75%; }
   }
 }
 @media only screen and (max-width : 768px) and (min-width : 511px) {
@@ -38,7 +43,7 @@
 }
 @media only screen and (max-width : 512px) {
   .HOME__content {
-    img.HOME__title {
+    .HOME__title img {
       max-width: 80vw;
       margin-left: 0;
     }
@@ -57,7 +62,7 @@
   line-height: 2.5rem;
   height: 5rem;
 
-  @include transition(0.5s, linear, color);
+  @include transition(1s);
 }
 .HOME__cursor {
   color: $colorRed;
@@ -81,7 +86,7 @@
 
   .fa {
     opacity: 0.4;
-    @include transition(0.5s);
+    @include transition(1s);
   }
   &:hover .fa { opacity: 0.75; }
 }
