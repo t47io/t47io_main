@@ -14,7 +14,7 @@ const contact = require('../config/main/contact.json');
 
 const getResume = (rootPath) => {
   const resumeFiles = glob.sync(path.join(rootPath, 'pdf/Resume*.pdf'));
-  return path.basename(resumeFiles[resumeFiles.length - 1]);
+  return path.basename(resumeFiles[resumeFiles.length - 1] || '');
 };
 
 const concatIndexJSON = (rootPath) => {

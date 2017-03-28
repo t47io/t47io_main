@@ -56,7 +56,7 @@ const plugins = (DEBUG) => {
       paths: [
         ...(glob.sync(`${rootPath}/applications/**/*.{jsx,json,scss}`)),
         ...(glob.sync(`${rootPath}/public/**/*.html`)),
-        `${rootPath}/public/config.json`,
+        `${rootPath}/config/main.json`,
       ],
       styleExtensions: ['.css', '.scss'],
       moduleExtensions: ['.html'],
