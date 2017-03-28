@@ -26,6 +26,12 @@ export const animateReady = () => (
       // z-index does not obey transition
       loadingContainer.style.zIndex = -1;
     }, 1000);
+  }
+);
+
+export const animateIntro = () => (
+  (dispatch) => {
+    dispatch({ type: TOGGLE_HOME_INTRO_ANIMATION });
 
     setTimeout(() => {
       let status = 0;
@@ -40,5 +46,3 @@ export const animateReady = () => (
     }, 76 * 125 + 1250 + 750);
   }
 );
-
-export const animateIntro = () => ({ type: TOGGLE_HOME_INTRO_ANIMATION });

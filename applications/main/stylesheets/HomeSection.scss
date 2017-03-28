@@ -31,6 +31,7 @@
     letter-spacing: 2px;
     margin-top: 0.8em;
     margin-left: 1.5em;
+    width: 34rem;
   }
 }
 @media only screen and (min-width : 767px) {
@@ -48,11 +49,13 @@
       margin-left: 0;
     }
     p.HOME__typewrite {
+      width: initial;
       text-align: center;
-      margin-left: 0; 
+      margin-left: 0;
     }
     p.HOME__placeholder {
       height: 10vh;
+      width: initial;
       margin-top: -10px;
     }
   }
