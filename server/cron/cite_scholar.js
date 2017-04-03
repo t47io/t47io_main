@@ -18,8 +18,7 @@ const filterWords = (input, minLen, exclude = [], subset = NaN) => {
     .map(word => word.toLowerCase())
     .filter(word => (word.length > minLen && exclude.indexOf(word) === -1));
   if (!isNaN(subset)) { output = output.slice(0, subset); }
-  output.sort();
-  return output;
+  return output.sort();
 };
 
 const extractHTML = (body) => {
