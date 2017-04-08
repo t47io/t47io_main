@@ -29,7 +29,9 @@ const backupMisc = () => {
 };
 
 const createTgz = () => {
-  shell.exec(`tar -zvcf ${backupPath}.tgz ${backupPath}`);
+  shell.cd(backupPath);
+  shell.cd('..');
+  shell.exec('tar -zvcf backup.tgz backup/');
 };
 
 

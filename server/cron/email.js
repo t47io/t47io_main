@@ -1,4 +1,5 @@
 import colors from 'colors';
+import path from 'path';
 
 import {
   DEBUG,
@@ -22,12 +23,13 @@ const emailAdmin = (content) => {
   const dateString = new Date().toISOString().slice(0, 10).replace(/-/g, '');
 
   SMTP.sendMail({
+    from: EMAIL_RECV,
     to: EMAIL_RECV,
     subject: '[t47io] Google Scholar Citation Update',
     text: content,
     attachments: [{
       filename: `t47io_backup_${dateString}.tgz`,
-      path: '../backup.tgz',
+      path: path.join(__dirname, '../backup.tgz'),
     }],
   }, (err) => {
     if (err) {
