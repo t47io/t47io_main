@@ -1,9 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import PortfolioFilterItem from '../components/PortfolioFilterItem.jsx';
 import PortfolioItem from '../components/PortfolioItem.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+
+import * as portfolioActions from '../actions/portfolioActions.js';
 
 import '../stylesheets/PortfolioSection.scss';
 
@@ -123,4 +127,13 @@ PortfolioSection.defaultProps = {
 };
 
 
-export default PortfolioSection;
+const mapStateToProps = state => (state.portfolio);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(portfolioActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PortfolioSection);

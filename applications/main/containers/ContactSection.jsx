@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Carousel from '../../common/components/Carousel.jsx';
 import ContactForm from '../components/ContactForm.jsx';
@@ -6,6 +8,8 @@ import ContactItem from '../components/ContactItem.jsx';
 import ContactList from '../components/ContactList.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+
+import * as contactActions from '../actions/contactActions.js';
 
 import '../stylesheets/ContactSection.scss';
 
@@ -157,4 +161,13 @@ ContactSection.defaultProps = {
 };
 
 
-export default ContactSection;
+const mapStateToProps = state => (state.contact);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(contactActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContactSection);

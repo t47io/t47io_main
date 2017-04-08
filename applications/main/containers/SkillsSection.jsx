@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import SkillsPanel from '../components/SkillsPanel.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
+import * as skillsActions from '../actions/skillsActions.js';
 import {
   SKILLS_LEFT,
   SKILLS_RIGHT,
@@ -111,4 +114,13 @@ SkillsSection.defaultProps = {
 };
 
 
-export default SkillsSection;
+const mapStateToProps = state => (state.skills);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(skillsActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SkillsSection);

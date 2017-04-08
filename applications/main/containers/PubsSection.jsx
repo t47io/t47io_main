@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import PubsYearPanel from '../components/PubsYearPanel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+
+import * as pubsActions from '../actions/pubsActions.js';
 
 import '../stylesheets/PubsSection.scss';
 
@@ -117,4 +121,13 @@ PubsSection.defaultProps = {
 };
 
 
-export default PubsSection;
+const mapStateToProps = state => (state.pubs);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(pubsActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PubsSection);

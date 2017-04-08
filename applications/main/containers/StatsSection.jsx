@@ -1,10 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Carousel from '../../common/components/Carousel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import StatsItem from '../components/StatsItem.jsx';
 import StatsGithub from '../components/StatsGithub.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+
+import * as statsActions from '../actions/statsActions.js';
 
 import '../stylesheets/StatsSection.scss';
 
@@ -146,4 +150,13 @@ StatsSection.defaultProps = {
 };
 
 
-export default StatsSection;
+const mapStateToProps = state => (state.stats);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(statsActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StatsSection);

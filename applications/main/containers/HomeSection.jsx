@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import HomeTrigger from '../components/HomeTrigger.jsx';
 import TypeWriter from '../../common/components/TypeWriter.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
+import * as homeActions from '../actions/homeActions.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 import {
   homeName,
@@ -119,4 +122,13 @@ HomeSection.defaultProps = {
 };
 
 
-export default HomeSection;
+const mapStateToProps = state => (state.home);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(homeActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeSection);

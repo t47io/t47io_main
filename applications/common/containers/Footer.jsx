@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import LogoAlt from './LogoAlt.jsx';
-import Trigger from '../../common/components/Trigger.jsx';
-import WebAnimation from '../../common/components/WebAnimation.jsx';
+import LogoAlt from '../components/LogoAlt.jsx';
+import Trigger from '../components/Trigger.jsx';
+import WebAnimation from '../components/WebAnimation.jsx';
 
+import * as footerActions from '../../common/actions/footerActions.js';
 import {
   FOOTER_LEFT,
   FOOTER_RIGHT,
@@ -141,4 +144,13 @@ Footer.defaultProps = {
 };
 
 
-export default Footer;
+const mapStateToProps = state => (state.footer);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(footerActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Footer);

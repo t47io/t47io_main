@@ -12,88 +12,34 @@ import StatsSection from './StatsSection.jsx';
 import PubsSection from './PubsSection.jsx';
 import ContactSection from './ContactSection.jsx';
 
-import Navbar from '../../common/components/Navbar.jsx';
-import Footer from '../../common/components/Footer.jsx';
+import Navbar from '../../common/containers/Navbar.jsx';
+import Footer from '../../common/containers/Footer.jsx';
 import ScrollSpy from '../../common/components/ScrollSpy.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
 
-import * as homeActions from '../actions/homeActions.js';
-import * as aboutActions from '../actions/aboutActions.js';
-import * as affiliationActions from '../actions/affiliationActions.js';
-import * as portfolioActions from '../actions/portfolioActions.js';
-import * as skillsActions from '../actions/skillsActions.js';
-import * as statsActions from '../actions/statsActions.js';
-import * as pubsActions from '../actions/pubsActions.js';
-import * as contactActions from '../actions/contactActions.js';
-
-import * as navbarActions from '../../common/actions/navbarActions.js';
-import * as footerActions from '../../common/actions/footerActions.js';
-
+import { updateNavbarScrollspy } from '../../common/actions/navbarActions.js';
 import { HOME } from '../constants/sectionTypes.js';
 
 import '../stylesheets/index.scss';
 
 
-const mapStateToProps = (state) => {
-  const props = {
-    data: {},
-    form: {},
-    animations: {},
-  };
-  Object.keys(state).forEach((key) => {
-    props.data[key] = state[key].data;
-    props.animations[key] = state[key].animations;
-  });
-  props.form = state.contact.form;
-
-  return props;
-};
-const mapDispatchToProps = dispatch => ({
-  actions: {
-    home: bindActionCreators(homeActions, dispatch),
-    about: bindActionCreators(aboutActions, dispatch),
-    affiliation: bindActionCreators(affiliationActions, dispatch),
-    portfolio: bindActionCreators(portfolioActions, dispatch),
-    skills: bindActionCreators(skillsActions, dispatch),
-    stats: bindActionCreators(statsActions, dispatch),
-    pubs: bindActionCreators(pubsActions, dispatch),
-    contact: bindActionCreators(contactActions, dispatch),
-
-    navbar: bindActionCreators(navbarActions, dispatch),
-    footer: bindActionCreators(footerActions, dispatch),
-  },
-});
-
-
 const Main = ({
-  actions,
-  animations,
-  data,
-  form,
+  isLoaded,
+  hideScrollTop,
+  onUpdateScroll,
 }) => {
-  if (!data.home.loaded) { return null; }
-
-  const onUpdateScroll = actions.navbar.updateNavbarScrollspy;
-  const hideScrollTop = (animations.navbar.activeSection === HOME || animations.footer.footer);
+  if (!isLoaded) { return null; }
 
   return (
     <div>
-      <Navbar
-        data={data.navbar}
-        animations={animations.navbar}
-        actions={actions.navbar}
-      />
+      <Navbar />
 
       <ScrollSpy
         section={0}
         topOffset="68px"
         onUpdateScroll={onUpdateScroll}
       >
-        <HomeSection
-          data={data.home}
-          animations={animations.home}
-          actions={actions.home}
-        />
+        <HomeSection />
       </ScrollSpy>
       <div className="UTIL__spacer-sm" />
 
@@ -101,58 +47,26 @@ const Main = ({
         section={1}
         onUpdateScroll={onUpdateScroll}
       >
-        <AboutSection
-          data={data.about}
-          animations={animations.about}
-          actions={actions.about}
-        />
-        <AffiliationSection
-          data={data.affiliation}
-          animations={animations.affiliation}
-          actions={actions.affiliation}
-        />
+        <AboutSection />
+        <AffiliationSection />
       </ScrollSpy>
 
       <ScrollSpy
         section={2}
         onUpdateScroll={onUpdateScroll}
       >
-        <PortfolioSection
-          data={data.portfolio}
-          animations={animations.portfolio}
-          actions={actions.portfolio}
-        />
-        <SkillsSection
-          data={data.skills}
-          animations={animations.skills}
-          actions={actions.skills}
-        />
-        <StatsSection
-          data={data.stats}
-          animations={animations.stats}
-          actions={actions.stats}
-        />
-        <PubsSection
-          data={data.pubs}
-          animations={animations.pubs}
-          actions={actions.pubs}
-        />
+        <PortfolioSection />
+        <SkillsSection />
+        <StatsSection />
+        <PubsSection />
       </ScrollSpy>
 
       <ScrollSpy
         section={3}
         onUpdateScroll={onUpdateScroll}
       >
-        <ContactSection
-          data={data.contact}
-          form={form}
-          animations={animations.contact}
-          actions={actions.contact}
-        />
-        <Footer
-          animations={animations.footer}
-          actions={actions.footer}
-        />
+        <ContactSection />
+        <Footer />
       </ScrollSpy>
 
       <ScrollTop isHidden={hideScrollTop} />
@@ -161,17 +75,25 @@ const Main = ({
 };
 
 Main.propTypes = {
-  data: React.PropTypes.object,
-  form: React.PropTypes.object,
-  animations: React.PropTypes.object,
-  actions: React.PropTypes.object,
+  isLoaded: React.PropTypes.bool,
+  hideScrollTop: React.PropTypes.bool,
+  onUpdateScroll: React.PropTypes.func,
 };
 Main.defaultProps = {
-  data: {},
-  form: {},
-  animations: {},
-  actions: {},
+  isLoaded: false,
+  hideScrollTop: true,
+  onUpdateScroll: () => {},
 };
+
+
+const mapStateToProps = state => ({
+  isLoaded: state.home.data.loaded,
+  hideScrollTop: (state.navbar.animations.activeSection === HOME ||
+    state.footer.animations.footer),
+});
+const mapDispatchToProps = dispatch => ({
+  onUpdateScroll: bindActionCreators(updateNavbarScrollspy, dispatch),
+});
 
 
 export default connect(

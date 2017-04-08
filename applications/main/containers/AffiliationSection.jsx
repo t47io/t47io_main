@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import AffiliationItem from '../components/AffiliationItem.jsx';
-// import AffiliationScrollSpy from '../components/AffiliationScrollSpy.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
+
+import * as affiliationActions from '../actions/affiliationActions.js';
 
 import '../stylesheets/AffiliationSection.scss';
 
@@ -88,4 +91,13 @@ AffiliationSection.defaultProps = {
 };
 
 
-export default AffiliationSection;
+const mapStateToProps = state => (state.affiliation);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(affiliationActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AffiliationSection);

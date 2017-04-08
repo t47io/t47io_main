@@ -1,8 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import AboutItem from '../components/AboutItem.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
+
+import * as aboutActions from '../actions/aboutActions.js';
 
 import '../stylesheets/AboutSection.scss';
 
@@ -73,4 +77,13 @@ AboutSection.defaultProps = {
 };
 
 
-export default AboutSection;
+const mapStateToProps = state => (state.about);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(aboutActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AboutSection);

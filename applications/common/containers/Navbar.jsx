@@ -1,7 +1,11 @@
 import React from 'react';
-import NavbarItem from './NavbarItem.jsx';
-import Logo from './Logo.jsx';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import NavbarItem from '../components/NavbarItem.jsx';
+import Logo from '../components/Logo.jsx';
+
+import * as navbarActions from '../actions/navbarActions.js';
 import { HOME } from '../../main/constants/sectionTypes.js';
 
 import '../stylesheets/Navbar.scss';
@@ -85,4 +89,13 @@ Navbar.defaultProps = {
 };
 
 
-export default Navbar;
+const mapStateToProps = state => (state.navbar);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(navbarActions, dispatch),
+});
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);
