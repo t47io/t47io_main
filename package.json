@@ -12,10 +12,11 @@
     "process": "npm run process:main && npm run process:error",
     "process:main": "babel-node ./build/main.js",
     "process:error": "babel-node ./build/error.jsx",
-    "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https",
+    "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:report",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
-    "cron:https": "babel-node ./server/cron/ssl_expire.js"
+    "cron:https": "babel-node ./server/cron/ssl_expire.js",
+    "cron:report": "babel-node ./server/cron/data_report.js"
   },
   "repository": {
     "type": "git",
