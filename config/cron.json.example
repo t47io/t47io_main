@@ -1,0 +1,15 @@
+{
+  "citations": {
+    "pubs_id_1": null,
+    "pubs_id_2": "100",
+    "pubs_id_3": "50 (+20)"
+  },
+  "gitContrib": {
+    "total": "100 (-20)",
+    "lastWeek": []
+  },
+  "https": {
+    "t47.io": "",
+    "test.t47.io": "",
+  }
+}

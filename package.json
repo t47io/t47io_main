@@ -6,11 +6,13 @@
   "scripts": {
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -i config/main.json -x babel-node -d 3 -V server/server.js",
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
-    "postbuild": "npm run process:main && npm run process:error",
+    "postbuild": "npm run process",
     "update": "npm-check-updates -u -a",
     "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
+    "process": "npm run process:main && npm run process:error",
     "process:main": "babel-node ./build/main.js",
     "process:error": "babel-node ./build/error.jsx",
+    "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
     "cron:https": "babel-node ./server/cron/ssl_expire.js"
