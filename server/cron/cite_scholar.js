@@ -5,6 +5,7 @@ import fs from 'fs-extra';
 import path from 'path';
 
 const json = require('../../config/main/pubs.json');
+const cron = require('../../config/cron.json');
 
 
 const wordRegex = /[a-zA-Z]+/g;
@@ -29,7 +30,7 @@ const extractHTML = (body) => {
     title: filterWords($(tr).find('td.gsc_a_t a').text(), 4),
     author: filterWords($(tr).find('td.gsc_a_t div.gs_gray').first().text(), 2, ['and'], 6),
     year: parseInt($(tr).find('span.gsc_a_h').text(), 10),
-    cite: parseInt($(tr).find('td.gsc_a_c a.gsc_a_ac').text(), 10),
+    cite: parseInt($(tr).find('td.gsc_a_c a.gsc_a_ac').text(), 10) || null,
   })).get();
 };
 
@@ -58,6 +59,21 @@ const matchRecords = allRecords => ({
   })),
 });
 
+const diffCitations = (oldCitations, newCitations) => {
+  const citations = {};
+
+  Object.keys(newCitations).forEach((tag) => {
+    if (newCitations[tag] !== null) {
+      const diffNum = newCitations[tag] - (parseInt(oldCitations[tag], 10) || 0);
+      const diffStr = (diffNum > 0) ? ` (+${diffNum})` : '';
+      citations[tag] = `${newCitations[tag]}${diffStr}`;
+    } else {
+      citations[tag] = null;
+    }
+  });
+  return citations;
+};
+
 
 try {
   axios.get(json.links.googleScholar)
@@ -80,6 +96,30 @@ try {
     });
 
     fs.writeJsonSync(path.join(__dirname, '../../config/main/pubs.json'), newJson);
+    return Promise.resolve(newJson.items);
+  })
+  .then((items) => {
+    const oldCitations = cron.citations;
+    const newCitations = items.map(obj => (
+      obj.items.map(item => ({
+        [item.tag]: item.citation,
+      }))
+      .reduce((dict, item) => ({
+        ...dict,
+        ...item,
+      }), {})
+    ))
+    .reduce((dict, item) => ({
+      ...dict,
+      ...item,
+    }), {});
+
+    const newJson = {
+      ...cron,
+      citations: diffCitations(oldCitations, newCitations),
+    };
+    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson);
+
     console.log(`${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
   })
   .catch((error) => {

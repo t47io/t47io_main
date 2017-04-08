@@ -5,6 +5,7 @@ import fs from 'fs-extra';
 import path from 'path';
 
 const json = require('../../config/main/stats.json');
+const cron = require('../../config/cron.json');
 
 
 const extractData = (body) => {
@@ -70,8 +71,25 @@ try {
       gitContrib: combinedData,
     };
     fs.writeJsonSync(path.join(__dirname, '../../config/main/stats.json'), newJson);
-    console.log(`${colors.green('SUCCESS')}: GitHub contribution records updated.`);
+    return Promise.resolve(combinedData);
   }))
+  .then((data) => {
+    const oldTotal = parseInt(cron.gitContrib.total, 10) || 0;
+    const newTotal = data.countArray.reduce((x, y) => (x + y), 0);
+    const diffNum = newTotal - oldTotal;
+    const diffStr = `(${(diffNum > 0) ? '+' : ''}${diffNum})`;
+
+    const newJson = {
+      ...cron,
+      gitContrib: {
+        total: `${newTotal} ${diffStr}`,
+        lastWeek: data.countArray.slice(data.countArray.length - 7),
+      },
+    };
+    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson);
+
+    console.log(`${colors.green('SUCCESS')}: GitHub contribution records updated.`);
+  })
   .catch((error) => {
     console.log(error);
     console.log(`${colors.red('ERROR')}: Failed to retrieve GitHub contribution records.`);

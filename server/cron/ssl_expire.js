@@ -1,65 +1,47 @@
 import colors from 'colors';
+import fs from 'fs-extra';
 import https from 'https';
+import path from 'path';
 
-import {
-  DEBUG,
-  EMAIL_RECV,
-  SMTP,
-} from '../config.js';
-
-const pubs = require('../../config/main/pubs.json');
+const cron = require('../../config/cron.json');
 
 
-const formatPubs = () => {
-  const newPubs = {};
-  let sumCitation = 0;
-
-  pubs.items.forEach((item) => {
-    item.items.forEach((pub) => {
-      newPubs[pub.tag] = pub.citation;
-      if (pub.citation !== null) { sumCitation += pub.citation; }
+const checkCertificate = host => (
+  new Promise((resolve, reject) => {
+    const req = https.request({ host }, (res) => {
+      const cert = res.socket.getPeerCertificate();
+      resolve((new Date(cert.valid_to)).toISOString());
     });
-  });
-  return {
-    newPubs,
-    sumCitation,
-  };
-};
 
-const emailAdmin = content => (
-  SMTP.sendMail({
-    to: EMAIL_RECV,
-    subject: '[t47io] Google Scholar Citation Update',
-    text: content,
-  }, (err) => {
-    if (err) { console.log(err); }
+    req.on('error', (error) => {
+      console.error(error);
+      console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
+      reject();
+    });
+    req.end();
   })
 );
 
 
 try {
-  const req = https.request({
-    host: 't47.io',
-    method: 'get',
-    path: '/',
-  }, (res) => {
-    const cert = res.socket.getPeerCertificate();
-    const { newPubs, sumCitation } = formatPubs();
-    const content = `
-      ${new Date().toUTCString()}
+  const newJson = { ...cron };
+  const hostList = Object.keys(cron.https);
 
-      ${JSON.stringify(newPubs, null, 2)}
+  Promise.all(hostList.map(host => checkCertificate(host)))
+  .then((values) => {
+    hostList.forEach((host, i) => {
+      newJson.https[host] = values[i];
+    });
 
-      Sum: ${sumCitation}
+    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson);
 
-      SSL Certificate: ${cert.valid_to}
-    `;
-    if (!DEBUG) { emailAdmin(content); }
+    console.log(`${colors.green('SUCCESS')}: SSL Certificate expiration checked.`);
+  })
+  .catch((error) => {
+    console.log(error);
+    console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
   });
-  req.end();
-
-  console.log(`${colors.green('SUCCESS')}: SSL Certificate checked and notified admin.`);
 } catch (err) {
-  console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate and notify admin.`);
+  console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
   console.log(err);
 }
