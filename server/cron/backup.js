@@ -1,8 +1,9 @@
 import colors from 'colors';
+import path from 'path';
 import shell from 'shelljs';
 
 
-const backupPath = 'server/backup';
+const backupPath = path.join(__dirname, '../backup');
 
 const prepareFolder = () => {
   shell.rm('-rf', backupPath);
