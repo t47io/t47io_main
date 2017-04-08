@@ -59,6 +59,22 @@ const matchRecords = allRecords => ({
   })),
 });
 
+const flattenCitations = items => (
+  items.map(obj => (
+    obj.items.map(item => ({
+      [item.tag]: item.citation,
+    }))
+    .reduce((dict, item) => ({
+      ...dict,
+      ...item,
+    }), {})
+  ))
+  .reduce((dict, item) => ({
+    ...dict,
+    ...item,
+  }), {})
+);
+
 const diffCitations = (oldCitations, newCitations) => {
   const citations = {};
 
@@ -100,19 +116,7 @@ try {
   })
   .then((items) => {
     const oldCitations = cron.citations;
-    const newCitations = items.map(obj => (
-      obj.items.map(item => ({
-        [item.tag]: item.citation,
-      }))
-      .reduce((dict, item) => ({
-        ...dict,
-        ...item,
-      }), {})
-    ))
-    .reduce((dict, item) => ({
-      ...dict,
-      ...item,
-    }), {});
+    const newCitations = flattenCitations(items);
 
     const newJson = {
       ...cron,

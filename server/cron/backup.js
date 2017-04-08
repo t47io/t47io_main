@@ -7,11 +7,12 @@ const backupPath = path.join(__dirname, '../backup');
 
 const prepareFolder = () => {
   shell.rm('-rf', backupPath);
-  shell.mkdir(backupPath, `${backupPath}/json`, `${backupPath}/nginx`);
+  shell.mkdir('-p', `${backupPath}/json`, `${backupPath}/nginx`);
 };
 
 const backupJson = () => {
-  shell.cp('-R', 'config/*.json', `${backupPath}/json`);
+  shell.cp('config/server.json', `${backupPath}/json`);
+  shell.cp('-R', 'config/main/*.json', `${backupPath}/json`);
 };
 
 const backupNginx = () => {
