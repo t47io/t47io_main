@@ -41,6 +41,6 @@ try {
 
   console.log(`${colors.green('SUCCESS')}: System settings and data backed up.`);
 } catch (err) {
-  console.log(`${colors.red('ERROR')}: Failed to backup System settings and data.`);
   console.log(err);
+  console.log(`${colors.red('ERROR')}: Failed to backup System settings and data.`);
 }

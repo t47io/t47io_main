@@ -64,9 +64,9 @@ const diffCitations = (oldCitations, newCitations) => {
 
   Object.keys(newCitations).forEach((tag) => {
     if (newCitations[tag] !== null) {
-      const diffNum = newCitations[tag] - (parseInt(oldCitations[tag], 10) || 0);
-      const diffStr = (diffNum > 0) ? ` (+${diffNum})` : '';
-      citations[tag] = `${newCitations[tag]}${diffStr}`;
+      const diffNumber = newCitations[tag] - (parseInt(oldCitations[tag], 10) || 0);
+      const diffString = (diffNumber > 0) ? ` (+${diffNumber})` : '';
+      citations[tag] = `${newCitations[tag]}${diffString}`;
     } else {
       citations[tag] = null;
     }

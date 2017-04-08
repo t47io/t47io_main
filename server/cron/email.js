@@ -18,15 +18,24 @@ const formatPubs = () => {
   return sumCitation;
 };
 
-const emailAdmin = content => (
+const emailAdmin = (content) => {
+  const dateString = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+
   SMTP.sendMail({
     to: EMAIL_RECV,
     subject: '[t47io] Google Scholar Citation Update',
     text: content,
+    attachments: [{
+      filename: `t47io_backup_${dateString}.tgz`,
+      path: '../backup.tgz',
+    }],
   }, (err) => {
-    if (err) { console.log(err); }
-  })
-);
+    if (err) {
+      console.error(err);
+      throw new Error();
+    }
+  });
+};
 
 
 try {
@@ -43,10 +52,11 @@ ${JSON.stringify(cron.gitContrib, null, 2)}
 SSL Certificates:
 ${JSON.stringify(cron.https, null, 2)}
   `;
-  if (!DEBUG) { emailAdmin(content); }
-
-  console.log(`${colors.green('SUCCESS')}: Notified admin on cron data results.`);
+  if (!DEBUG) {
+    emailAdmin(content);
+    console.log(`${colors.green('SUCCESS')}: Notified admin on cron data results.`);
+  }
 } catch (err) {
-  console.log(`${colors.red('ERROR')}: Failed to notify admin on cron data results.`);
   console.log(err);
+  console.log(`${colors.red('ERROR')}: Failed to notify admin on cron data results.`);
 }

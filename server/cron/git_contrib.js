@@ -76,13 +76,13 @@ try {
   .then((data) => {
     const oldTotal = parseInt(cron.gitContrib.total, 10) || 0;
     const newTotal = data.countArray.reduce((x, y) => (x + y), 0);
-    const diffNum = newTotal - oldTotal;
-    const diffStr = `(${(diffNum > 0) ? '+' : ''}${diffNum})`;
+    const diffNumber = newTotal - oldTotal;
+    const diffString = `(${(diffNumber > 0) ? '+' : ''}${diffNumber})`;
 
     const newJson = {
       ...cron,
       gitContrib: {
-        total: `${newTotal} ${diffStr}`,
+        total: `${newTotal} ${diffString}`,
         lastWeek: data.countArray.slice(data.countArray.length - 7),
       },
     };
