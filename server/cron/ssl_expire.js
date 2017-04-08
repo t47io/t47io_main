@@ -10,7 +10,7 @@ const checkCertificate = host => (
   new Promise((resolve, reject) => {
     const req = https.request({ host }, (res) => {
       const cert = res.socket.getPeerCertificate();
-      resolve((new Date(cert.valid_to)).toISOString());
+      resolve(new Date(cert.valid_to).toISOString());
     });
 
     req.on('error', (error) => {

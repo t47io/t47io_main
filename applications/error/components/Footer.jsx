@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const year = (new Date()).getFullYear();
+const year = new Date().getFullYear();
 
 const Footer = ({
   logo,

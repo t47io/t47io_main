@@ -30,7 +30,7 @@ const imgSEA = {
   '2x': require('../images/fg_city_sea@2x.gif'),
   '3x': require('../images/fg_city_sea@3x.gif'),
 };
-const year = (new Date()).getFullYear();
+const year = new Date().getFullYear();
 
 
 const Footer = ({
