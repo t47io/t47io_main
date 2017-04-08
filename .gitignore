@@ -1,6 +1,8 @@
 !.gitignore
 
 config/**/*.json
+server/backup/
+server/backup.tgz
 public/
 !public/t47_icon.png
 !public/robots.txt

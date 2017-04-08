@@ -7,16 +7,17 @@
     "start": "nodemon -e js,jsx,json,css,scss,html -i public/ -i config/main.json -x babel-node -d 3 -V server/server.js",
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
     "postbuild": "npm run process",
-    "update": "npm-check-updates -u -a",
     "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
     "process": "npm run process:main && npm run process:error",
     "process:main": "babel-node ./build/main.js",
     "process:error": "babel-node ./build/error.jsx",
-    "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:report",
+    "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
     "cron:https": "babel-node ./server/cron/ssl_expire.js",
-    "cron:report": "babel-node ./server/cron/data_report.js"
+    "cron:backup": "babel-node ./server/cron/backup.js",
+    "cron:email": "babel-node ./server/cron/email.js",
+    "update": "npm-check-updates -u -a"
   },
   "repository": {
     "type": "git",
@@ -76,6 +77,7 @@
     "redux-thunk": "^2.2.0",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
+    "shelljs": "^0.7.7",
     "smoothscroll": "^0.3.0",
     "style-loader": "^0.16.1",
     "svg-inline-loader": "^0.7.1",
