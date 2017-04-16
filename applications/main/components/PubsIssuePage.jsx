@@ -8,14 +8,14 @@ const PubsIssuePage = ({
 }) => {
   if (isPreprint) {
     return (
-      <span style={{ marginLeft: '0.5em' }}>
+      <span className="PUBS__issue">
         , <span className="text-gray">{issue}</span>.
       </span>
     );
   }
 
   return (
-    <span style={{ marginLeft: '0.5em' }}>
+    <span className="PUBS__issue">
       <b>{issue}</b>: {page}.
     </span>
   );

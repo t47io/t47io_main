@@ -6,13 +6,17 @@
   .STATS__counter {
     padding-bottom: 2.25em;
 
-    &:hover i.fa { color: $colorGreen; }
+    &:hover .fa { color: $colorGreen; }
     .STATS__num { font-size: 4em; }
   }
 }
 .STATS__num.done ~ .STATS__text { color: $colorGreenDark; }
+.STATS__note {
+  small { margin-left: 0.5em; }
+}
 
 .STATS__github svg { overflow: visible; }
+tspan { font-style: italic; }
 text.month,
 text.wday {
   fill: $colorGrayDark;
@@ -34,4 +38,3 @@ rect.day {
   &.day_3 { fill: $colorGreenDark; }
   &.day_4 { fill: $colorGreenHeavy; }
 }
-

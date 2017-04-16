@@ -33,5 +33,10 @@
   &:hover a div { opacity: 1; }
 }
 
-.PUBS__cite { padding-right: 0.5em; }
+.PUBS__cite {
+  padding-right: 0.5em;
+
+  u { padding: 0 0.5em; }
+}
+.PUBS__issue { margin-left: 0.5em; }
 .PUBS__link { margin-left: 0.5em; }

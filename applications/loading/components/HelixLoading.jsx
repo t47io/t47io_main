@@ -16,8 +16,10 @@ const HelixLoading = ({ logo }) => (
       />
 
       <div className="row">
-        <div className="LOAD__helix center-block" style={{ width: '75%' }}>
-          {Array(...Array(26)).map(() => (<div />))}
+        <div className="LOAD__helix center-block">
+          {Array(...Array(26)).map(() => (
+            <div className="LOAD__helix-dot" />
+          ))}
         </div>
       </div>
     </div>

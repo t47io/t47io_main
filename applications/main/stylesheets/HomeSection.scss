@@ -12,6 +12,8 @@
   background-color: $colorBlack;
 
   .container { height: 100vh; }
+
+  .UTIL__parallax img { display: none; }
 }
 .HOME__content {
   position: absolute;
@@ -21,7 +23,7 @@
     width: 100%;
     opacity: 0;
 
-    img {
+    .HOME__name {
       margin-left: 1em;
       max-width: 50%;
       width: 480px;
@@ -37,7 +39,7 @@
 }
 @include media_width_gt(768px) {
   .HOME__content {
-    .HOME__title img { max-width: 75%; }
+    .HOME__title .HOME__name { max-width: 75%; }
   }
 }
 @include media_width_bt(512px, 767px) {
@@ -45,16 +47,16 @@
 }
 @include media_width_lt(511px) {
   .HOME__content {
-    .HOME__title img {
+    .HOME__title .HOME__name {
       max-width: 80vw;
       margin-left: 0;
     }
-    p.HOME__typewrite {
+    .HOME__typewrite {
       width: initial;
       text-align: center;
       margin-left: 0;
     }
-    p.HOME__placeholder {
+    .HOME__placeholder {
       height: 10vh;
       width: initial;
       margin-top: -0.75rem;

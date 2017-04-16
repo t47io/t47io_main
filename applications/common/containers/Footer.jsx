@@ -71,7 +71,7 @@ const Footer = ({
       <div className="FOOTER__copyright text-center">
         Copyright
         <i className="fa fa-fw fa-copyright" />
-        <a style={{ marginRight: '0.75em' }}>2015 - {year}</a>
+        <a className="FOOTER__year">2015 - {year}</a>
         Designed, built & managed by
         <LogoAlt
           href="mailto:contact@t47.io"

@@ -12,7 +12,7 @@
   max-width: 75%;
   @include transform(scaleX(-1));
 
-  div {
+  .LOAD__helix-dot {
     position: absolute;
     // top: 0;
     width: 1.5rem;
@@ -26,14 +26,16 @@
   .LOAD__helix {
     height: 15rem;
 
-    div {
+    .LOAD__helix-dot {
       width: 1rem;
       height: 1rem;
       border-radius: 1rem;
     }
   }
 }
-
+@include media_width_gt(992px) {
+  .LOAD__helix { width: 36rem; }
+}
 
 $time: 2s;
 $delay: 0.1s;

@@ -4,11 +4,10 @@ import '../stylesheets/ScrollTop.scss';
 
 
 const ScrollTop = ({ isHidden }) => {
-  const opacity = isHidden ? 0 : 1;
-  const visibility = isHidden ? 'hidden' : 'visible';
+  const hiddenClassName = isHidden ? 'invisible' : '';
 
   return (
-    <a href="#HOME__section" className="scrollTop" style={{ opacity, visibility }}>
+    <a href="#HOME__section" className={`scrollTop ${hiddenClassName}`}>
       <i className="fa fa-up-big fa-fwn fa-lg" />
     </a>
   );

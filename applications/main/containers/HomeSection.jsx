@@ -19,7 +19,6 @@ const imgAvatar = require('../images/t47_avatar.jpg');
 const imgName = require('../images/t47_name.png');
 
 const avatarStyle = { backgroundImage: `url(${imgAvatar})` };
-const imgLoaderStyle = { display: 'none' };
 
 
 const HomeSection = ({
@@ -50,7 +49,6 @@ const HomeSection = ({
         <img
           src={imgAvatar}
           alt="T47 Avatar"
-          style={imgLoaderStyle}
           onLoad={animateReady}
         />
       </div>
@@ -71,6 +69,7 @@ const HomeSection = ({
             shouldAnimate={intro}
           >
             <img
+              className="HOME__name"
               src={imgName}
               alt="Siqi Tian"
             />

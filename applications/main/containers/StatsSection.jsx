@@ -63,10 +63,10 @@ const StatsSection = ({
     </Carousel>
 
     <div className="UTIL__spacer-xl" />
-    <h3 className="text-center">
+    <h3 className="STATS__note text-center">
       <i className="fa fa-fw fa-github-circled" />
       Contributions
-      <small style={{ marginLeft: '0.5em' }}>
+      <small>
         (
         <a
           href={links.github}

@@ -33,11 +33,10 @@ const ContactList = ({
       <ul className="CONTACT__address">
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item"
+          className="CONTACT__list-item padding"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(1)}
           shouldAnimate={counter}
-          style={{ paddingBottom: '0.8em' }}
         >
           <i className="fa fa-location fa-lg fa-fw" />
           279 Campus Drive West, Room B419
@@ -49,7 +48,7 @@ const ContactList = ({
           timing={contactPanel.timing(2)}
           shouldAnimate={counter}
         >
-          <i className="fa fa-location fa-lg fa-fw" style={{ visibility: 'hidden' }} />
+          <i className="fa fa-location fa-lg fa-fw invisible" />
           Stanford, CA 94305, USA
         </WebAnimation>
         <WebAnimation
@@ -68,11 +67,10 @@ const ContactList = ({
         </WebAnimation>
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item"
+          className="CONTACT__list-item padding"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(4)}
           shouldAnimate={counter}
-          style={{ paddingBottom: '0.8em' }}
         >
           <i className="fa fa-mail-alt fa-lg fa-fw" />
           <b>
@@ -92,7 +90,7 @@ const ContactList = ({
           timing={contactPanel.timing(5)}
           shouldAnimate={counter}
         >
-          <i className="fa fa-mail-alt fa-lg fa-fw" style={{ visibility: 'hidden' }} />
+          <i className="fa fa-mail-alt fa-lg fa-fw invisible" />
           <a
             className="text-light-gray"
             href="mailto:contact@t47.io"
@@ -109,14 +107,14 @@ const ContactList = ({
           shouldAnimate={counter}
         >
           <a
-            className="btn btn-default"
+            className="CONTACT__button btn btn-default"
             href="/resume/"
             target="_blank" rel="noopener noreferrer"
           >
             <i className="fa fa-download fa-fw" />
             Resume
             <span className="text-main CONTACT__resume">
-              <i className="fa fa-clock fa-fw" style={{ marginRight: 0 }} />
+              <i className="fa fa-clock fa-fw" />
               <small>
                 {objDate.toLocaleString('en-us', { month: 'short', year: 'numeric' })}
               </small>

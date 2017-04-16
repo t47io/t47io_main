@@ -10,7 +10,7 @@ const PubsCiteElement = ({ citation }) => {
       <i>
         <small>Cited by :</small>
       </i>
-      <u className="text-main" style={{ paddingLeft: '0.5em' }}>{citation}</u>
+      <u className="text-main">{citation}</u>
     </span>
   );
 };

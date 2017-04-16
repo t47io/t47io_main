@@ -12,7 +12,7 @@ const Footer = ({
     <p>
       Copyright
       <i className="fa fa-fw" dangerouslySetInnerHTML={{ __html: copy }} />
-      <a style={{ marginRight: '0.75em' }}>2015 - {year}</a>
+      <a className="year">2015 - {year}</a>
       Designed, built & managed by
       <a
         href="https://t47.io/"

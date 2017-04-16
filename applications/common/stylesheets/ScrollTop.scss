@@ -9,11 +9,8 @@
   width: 2.5em;
   height: 2.5em;
 
-  visibility: hidden;
-  opacity: 0;
   color: $colorGreen;
   border: 2px solid $colorGreen;
-
   line-height: 2.5em;
   text-align: center;
   text-decoration: none;
@@ -30,4 +27,9 @@
   }
   &:hover { background-color: $colorGreen; }
   &:hover .fa { color: $colorWhite; }
+
+  &.invisible {
+    opacity: 0;
+    visibility: hidden;
+  }
 }

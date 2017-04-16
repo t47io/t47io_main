@@ -16,7 +16,7 @@
 }
 
 
-h4.CONTACT__title {
+.CONTACT__title {
   font-weight: 900;
   margin-bottom: 1.75em;
 }
@@ -92,41 +92,46 @@ h4.CONTACT__title {
 }
 
 
-ul.CONTACT__social {
+.CONTACT__social {
   text-align: center;
   margin: 0 auto;
 
-  li {
+  .CONTACT__item {
     display: inline-block;
     margin-right: 1.5em;
 
     .CONTACT__box { margin: 0; }
-    a i { color: $colorWhite; }
+    .fa { color: $colorWhite; }
   }
 }
 
-ul.CONTACT__address {
+.CONTACT__address {
   float: left;
   width: 100%;
   padding: 0;
   margin: 1em 0;
   font-size: 1.125em;
 
-  li {
+  .CONTACT__list-item {
     padding: 0 0 1.45em;
     margin: 0;
     list-style: none;
 
-    i { margin-right: 0.5em; }
+    .fa {
+      margin-right: 0.5em;
 
-    &:last-child { padding-bottom: 0; }
-    &:hover {
-      i.fa { color: $colorGreen; }
+      &.invisible { visibility: hidden; }
     }
+
+    &.padding { padding-bottom: 0.8em; }
+    &:hover {
+      .fa { color: $colorGreen; }
+    }
+    &:last-child { padding-bottom: 0; }
     &:last-of-type {
       padding-top: 1em;
 
-      a.btn {
+      .CONTACT__button {
         width: 9em;
         text-align: left;
 
@@ -135,19 +140,23 @@ ul.CONTACT__address {
         &:hover {
           width: 15em;
 
-          span.CONTACT__resume {
+          .CONTACT__resume {
             opacity: 1;
 
             @include transition(0.5s);
           }
-          i.fa { color: $colorBlack; }
+          .fa { color: $colorBlack; }
         }
       }
     }
   }
 
-  span.CONTACT__resume { opacity: 0 }
-  img.CONTACT__phone {
+  .CONTACT__resume {
+    opacity: 0;
+
+    .fa { margin-right: 0; }
+  }
+  .CONTACT__phone {
     height: 1.1em;
     vertical-align: text-top;
   }

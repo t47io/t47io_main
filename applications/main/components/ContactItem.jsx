@@ -13,6 +13,7 @@ const ContactItem = ({
 }) => (
   <WebAnimation
     tagName="li"
+    className="CONTACT__item"
     keyframes={contactItem.keyframes}
     timing={contactItem.timing(index)}
     shouldAnimate={shouldAnimate}
