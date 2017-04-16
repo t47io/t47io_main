@@ -39,6 +39,16 @@ const plugins = (DEBUG) => {
       googleAnalytics,
     }),
     new HtmlWebpackPlugin({
+      chunks: ['project', 'vendor', 'manifest'],
+      template: `${rootPath}/applications/project/index.html`,
+      filename: `${rootPath}/public/project.html`,
+      inject: false,
+      minify: htmlMinify,
+
+      ...indexPage,
+      googleAnalytics,
+    }),
+    new HtmlWebpackPlugin({
       chunks: ['error'],
       template: `${rootPath}/applications/error/index.html`,
       filename: `${rootPath}/public/error.html`,

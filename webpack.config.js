@@ -15,6 +15,10 @@ const entry = {
     'bootstrap-loader',
     './applications/main/index.jsx',
   ],
+  project: [
+    'bootstrap-loader',
+    './applications/project/index.jsx',
+  ],
   error: './applications/error/index.jsx',
   vendor: [
     'react',
