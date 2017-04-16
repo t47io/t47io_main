@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
-const indexJSON = {
+const mainJson = {
   home: require('../config/main/home.json'),
   about: require('../config/main/about.json'),
   affiliation: require('../config/main/affiliation.json'),
@@ -13,8 +13,15 @@ const indexJSON = {
   pubs: require('../config/main/pubs.json'),
   contact: require('../config/main/contact.json'),
 };
-const projectJSON = {
+const projectJson = {
+  daslab: require('../config/project/daslab.json'),
+  primerize: require('../config/project/primerize.json'),
+  rmdb: require('../config/project/rmdb.json'),
+  eterna: require('../config/project/eterna.json'),
+  hitrace: require('../config/project/hitrace.json'),
+  ribokit: require('../config/project/ribokit.json'),
   celica: require('../config/project/celica.json'),
+  _subtitles: require('../config/project/_subtitles.json'),
 };
 
 const publicPath = path.join(__dirname, '../public');
@@ -24,28 +31,28 @@ const getResume = () => {
 };
 
 
-const concatIndexJSON = () => {
+const concatMainJSON = () => {
   const config = {
-    ...indexJSON,
-    navbar: { items: indexJSON.home.sections.map(section => section.toUpperCase()) },
-    home: { title: indexJSON.home.title },
+    ...mainJson,
+    navbar: { items: mainJson.home.sections.map(section => section.toUpperCase()) },
+    home: { title: mainJson.home.title },
     portfolio: {
-      ...indexJSON.portfolio,
+      ...mainJson.portfolio,
       selectedCategory: 'all',
     },
     stats: {
-      ...indexJSON.stats,
+      ...mainJson.stats,
       items: [
-        ...(indexJSON.stats.items.slice(0, 2)),
+        ...(mainJson.stats.items.slice(0, 2)),
         {
-          ...(indexJSON.stats.items[2]),
-          value: indexJSON,
+          ...(mainJson.stats.items[2]),
+          value: mainJson,
         },
-        ...(indexJSON.stats.items.slice(3)),
+        ...(mainJson.stats.items.slice(3)),
       ],
     },
     contact: {
-      ...indexJSON.contact,
+      ...mainJson.contact,
       resume: getResume(),
     },
   };
@@ -90,16 +97,12 @@ const concatIndexJSON = () => {
 };
 
 const concatProjectJSON = () => {
-  const config = {
-    ...projectJSON,
-  };
-
-  fs.writeJsonSync(path.join(__dirname, '../config/project.json'), config);
+  fs.writeJsonSync(path.join(__dirname, '../config/project.json'), projectJson);
 };
 
 
 try {
-  concatIndexJSON();
+  concatMainJSON();
   concatProjectJSON();
   console.log(`${colors.green('SUCCESS')}: Main and project JSON compiled.`);
 } catch (err) {

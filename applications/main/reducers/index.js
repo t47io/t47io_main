@@ -17,12 +17,12 @@ import { LOAD_JSON_DATA } from '../constants/actionTypes.js';
 import { HOME } from '../constants/sectionTypes.js';
 
 
-const crossReducer = (state, action) => {
-  if (action.type !== LOAD_JSON_DATA) { return state; }
+const crossReducer = (state, { type, payload }) => {
+  if (type !== LOAD_JSON_DATA) { return state; }
 
   const newState = { ...state };
   Object.keys(newState).forEach((key) => {
-    newState[key].data = action.payload[key];
+    newState[key].data = payload[key];
   });
 
   newState.home.data.loaded = true;

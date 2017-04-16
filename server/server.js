@@ -15,9 +15,12 @@ import {
   middleware,
 } from './middleware.js';
 
-const json = require('../config/main.json');
+const indexJson = require('../config/main.json');
+const projectJson = require('../config/project.json');
 
-const errorPathRegex = new RegExp(`^/error/(${HTTP_CODE.join('|')})/?$/`);
+const projectPages = Object.keys(projectJson).filter(project => !project.startsWith('_'));
+const projectPathRegex = new RegExp(`^/project/(${projectPages.join('|')})/?$`);
+const errorPathRegex = new RegExp(`^/error/(${HTTP_CODE.join('|')})/?$`);
 const publicPath = path.join(__dirname, '../public');
 
 
@@ -32,7 +35,7 @@ app.get('/', (req, res) => {
     });
   }
 });
-app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica|ribokit)\/?$/, (req, res) => {
+app.get(projectPathRegex, (req, res) => {
   if (DEBUG) {
     res.type('html').send(
       middleware.fileSystem.readFileSync(path.join(publicPath, 'project.html'))
@@ -46,7 +49,7 @@ app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica|riboki
 app.use(express.static(publicPath, { maxAge: '30 days' }));
 
 app.get('/resume', (req, res) => {
-  res.sendFile(json.contact.resume, {
+  res.sendFile(indexJson.contact.resume, {
     root: path.join(publicPath, 'pdf'),
     headers: {
       'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"',
@@ -71,7 +74,7 @@ app.route('/send')
   if (form.filter(item => item.length).length !== 4) {
     return res.sendStatus(400);
   }
-  if ((subject.toLowerCase().slice(0, 4) === 'http') ||
+  if (subject.toLowerCase().startsWith('http') ||
     !emailValidator.validate(email)) {
     return res.sendStatus(403);
   }
