@@ -1,14 +1,15 @@
+@import '../../common/mixins/media';
 @import './util';
 
-.LOAD__logo svg { max-width: 50%; }
-@media only screen and (max-width : 767px) {
-  .LOAD__logo svg { max-width: 75%; }
+.LOAD__logo svg {
+  width: 25rem;
+  max-width: 75%;
 }
 
 .LOAD__helix {
-  max-width: 70%;
-  // max-width: 600px;
   height: 20rem;
+  width: 30rem;
+  max-width: 75%;
   @include transform(scaleX(-1));
 
   div {
@@ -21,7 +22,7 @@
     border-radius: 1.5rem;
   }
 }
-@media only screen and (max-width : 767px) {
+@include media_width_lt(991px) {
   .LOAD__helix {
     height: 15rem;
 

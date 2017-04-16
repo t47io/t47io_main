@@ -1,0 +1,32 @@
+@mixin media_width_lt($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+@mixin media_width_gt($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+@mixin media_width_bt($size1, $size2) {
+  @media only screen and (min-width: $size1) and (max-width: $size2) {
+    @content;
+  }
+}
+
+
+@mixin media_height_lt($size) {
+  @media only screen and (max-height: $size) {
+    @content;
+  }
+}
+@mixin media_height_gt($size) {
+  @media only screen and (min-height: $size) {
+    @content;
+  }
+}
+@mixin media_height_bt($size1, $size2) {
+  @media only screen and (min-height: $size1) and (max-height: $size2) {
+    @content;
+  }
+}

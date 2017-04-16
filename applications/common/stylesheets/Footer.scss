@@ -1,4 +1,5 @@
 @import '../mixins/colors';
+@import '../mixins/media';
 
 
 .FOOTER { 
@@ -26,11 +27,9 @@
 
   .FOOTER__copyright:last-of-type { padding-top: 0.8em; }
 }
-.FOOTER__header { padding-top: 1em; }
-
-@media only screen and (max-width : 767px) {
-  footer { text-align: center; }
-  .footer { height: auto; }
+.FOOTER__header {
+  padding-top: 1em;
+  width: auto;
 }
 
 .COMMON__footer_logo {

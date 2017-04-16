@@ -1,3 +1,4 @@
+@import '../../common/mixins/media';
 @import '../../project/scss/palette';
 
 
@@ -6,17 +7,14 @@
 
   .LOAD__content {
     margin-top: 0;
-    width: 60%;
+    width: 992px;
 
     p:first-of-type {
       font-size: 1.15rem;
       margin-bottom: 3rem;
     }
   }
-  .UTIL__image-RNA {
-    background-position: center center;
-    background-size: 100%;
-  }
+  .UTIL__image-RNA { background-position: center center; }
 
   h2 { margin-bottom: 20px; }
   img { max-width: 100%; }
@@ -31,8 +29,9 @@
       .T47__logo path { fill: $colorGreen; }
     }
   }
-} 
-@media only screen and (max-width: 767px) {
+}
+
+@include media_width_lt(767px) {
   .LOAD__container {
     height: auto;
     position: static;
@@ -40,14 +39,11 @@
     text-align: center;
 
     .LOAD__content {
-      width: auto;
+      width: 100%;
 
       p:first-of-type { margin-bottom: 1rem; }
     }
-    .UTIL__image-RNA {
-      background-position: center center;
-      background-size: 100%;
-    }
+    .UTIL__image-RNA { background-size: 100%; }
 
     img { max-width: 75%; }
     h2 { margin-bottom: 10px; }

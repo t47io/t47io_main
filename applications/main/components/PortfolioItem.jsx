@@ -30,7 +30,7 @@ const PortfolioItem = ({
           target="_blank" rel="noopener noreferrer"
         >
           {title}
-          <i className="fa fa-fw fa-md fa-link-ext" />
+          <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
         <PortfolioDescription description={description} />
       </div>
