@@ -11,18 +11,14 @@ import {
   SMTP,
 } from './config.js';
 import {
-  concatIndexJSON,
-  getResume,
-} from './json.js';
-import {
   app,
   middleware,
 } from './middleware.js';
 
+const json = require('../config/main.json');
 
 const errorPathRegex = new RegExp(`^/error/(${HTTP_CODE.join('|')})/?$/`);
 const publicPath = path.join(__dirname, '../public');
-concatIndexJSON(publicPath);
 
 
 app.get('/', (req, res) => {
@@ -36,10 +32,21 @@ app.get('/', (req, res) => {
     });
   }
 });
+app.get(/^\/project\/(daslab|rmdb|primerize|eterna|spindle|hitrace|celica|ribokit)\/?$/, (req, res) => {
+  if (DEBUG) {
+    res.type('html').send(
+      middleware.fileSystem.readFileSync(path.join(publicPath, 'project.html'))
+    );
+  } else {
+    res.sendFile(path.join(publicPath, 'project.html'), {
+      maxAge: '7 days',
+    });
+  }
+});
 app.use(express.static(publicPath, { maxAge: '30 days' }));
 
 app.get('/resume', (req, res) => {
-  res.sendFile(getResume(publicPath), {
+  res.sendFile(json.contact.resume, {
     root: path.join(publicPath, 'pdf'),
     headers: {
       'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"',
@@ -47,7 +54,6 @@ app.get('/resume', (req, res) => {
     maxAge: '60 days',
   });
 });
-
 
 app.route('/send')
 .get((req, res) => {
