@@ -19,6 +19,7 @@ const projectJson = {
   rmdb: require('../config/project/rmdb.json'),
   eterna: require('../config/project/eterna.json'),
   hitrace: require('../config/project/hitrace.json'),
+  spindle: require('../config/project/spindle.json'),
   ribokit: require('../config/project/ribokit.json'),
   celica: require('../config/project/celica.json'),
   _subtitles: require('../config/project/_subtitles.json'),

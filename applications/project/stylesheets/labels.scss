@@ -1,0 +1,14 @@
+@import '../../common/mixins/palette';
+
+
+.label {
+  &.label-green { background-color: $colorGreenDark; }
+  &.label-red { background-color: $colorRed; }
+  &.label-blue { background-color: $colorCyan; }
+  &.label-yellow { background-color: $colorYellow; }
+  &.label-purple { background-color: $colorPurple; }
+  &.label-gray { 
+    background-color: $colorGrayDark; 
+    color: #000;
+  }
+}

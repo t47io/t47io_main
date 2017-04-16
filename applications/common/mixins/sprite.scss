@@ -41,15 +41,22 @@
 
     @if $retina == true {
       @include retina_image($img);
-    } else {
+    }
+    @else {
       background-image: url($img);
     }
-
   }
 
-  @for $i from 1 through length($cls_after) {
-    #{nth($cls_after, $i)} {
-      background-position: 0 percentage(($i - 1) / (length($cls_after) - 1));
+  @if length($cls_after) == 1 {
+    #{nth($cls_after, 1)} {
+      background-position: 0 percentage(1);
+    }
+  }
+  @else {
+    @for $i from 1 through length($cls_after) {
+      #{nth($cls_after, $i)} {
+        background-position: 0 percentage(($i - 1) / (length($cls_after) - 1));
+      }
     }
   }
 }

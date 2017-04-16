@@ -13,7 +13,7 @@
     "SPRITE__portfolio-ires",
     "SPRITE__portfolio-flu",
     "SPRITE__portfolio-celica",
-    "SPRITE__portfolio-ribokit"
+    "SPRITE__portfolio-ribokit",
   ), true
 );
 @include img_sprites("./images/sp_publications.jpg",
@@ -31,7 +31,7 @@
     "SPRITE__pubs-2017_Miao_RNA",
     "SPRITE__pubs-2017_Hagey_NatMed",
     "SPRITE__pubs-2017_Chen_Science",
-    "SPRITE__pubs-2017_Tian_eLife"
+    "SPRITE__pubs-2017_Tian_eLife",
   ), true
 );
 @include img_sprites("./images/sp_affiliation.png",
@@ -39,7 +39,7 @@
     "SPRITE__affiliation-CAU",
     "SPRITE__affiliation-Autodesk",
     "SPRITE__affiliation-Stanford",
-    "SPRITE__affiliation-Minted"
+    "SPRITE__affiliation-Minted",
   ), true
 );
 
@@ -47,34 +47,34 @@
   1920px, 1280px, (
     "SPRITE__bg-hoover_tower",
     "SPRITE__bg-fish_necklace",
-    "SPRITE__bg-campus_map"
+    "SPRITE__bg-campus_map",
   )
 );
 @include img_sprites_bg("./images/bg_set_2.jpg",
   1920px, 1280px, (
     "SPRITE__bg-yosemite",
     "SPRITE__bg-lawn_bench",
-    "SPRITE__bg-muir_trees"
+    "SPRITE__bg-muir_trees",
   )
 );
 @include img_sprites_bg("./images/bg_set_3.jpg",
   1920px, 1280px, (
     "SPRITE__bg-lksc_building",
     "SPRITE__bg-cliff_reed",
-    "SPRITE__bg-red_papercut"
+    "SPRITE__bg-red_papercut",
   )
 );
 @include img_sprites_bg("./images/bg_set_4.jpg",
   1920px, 1280px, (
     "SPRITE__bg-big_sur",
     "SPRITE__bg-flower",
-    "SPRITE__bg-succulent"
+    "SPRITE__bg-succulent",
   )
 );
 @include img_sprites_bg("./images/bg_set_5.jpg",
   1920px, 1280px, (
     "SPRITE__bg-golden_gate",
     "SPRITE__bg-tunnel",
-    "SPRITE__bg-nano_dna"
+    "SPRITE__bg-nano_dna",
   )
 );
