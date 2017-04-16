@@ -10,6 +10,7 @@ const initialState = {
   spindle: {},
   ribokit: {},
   celica: {},
+  _subtitles: {},
 };
 
 const crossReducer = (state = initialState, { type, payload }) => {
