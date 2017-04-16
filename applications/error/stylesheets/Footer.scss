@@ -3,12 +3,12 @@
 @import '../../common/stylesheets/Logo';
 
 
-footer {
+.FOOTER {
   text-align: center;
   padding: 0 2em;
 
   a { color: $colorGreen; }
-  .year { margin-right: 0.75em; }
+  .FOOTER__year { margin-right: 0.75em; }
 
   .fa {
     display: inline-block;
@@ -27,6 +27,6 @@ footer {
   }
 
   @include media_width_lt(767px) {
-    p { margin-bottom: 0; }
+    .FOOTER__line { margin-bottom: 0; }
   }
 }

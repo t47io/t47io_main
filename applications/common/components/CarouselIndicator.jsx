@@ -5,12 +5,16 @@ const CarouselIndicator = ({
   index,
   isActive,
   onClick,
-}) => (
-  <li
-    className={`COMMON__carousel-indicator ${isActive ? 'active' : ''}`}
-    onClick={() => onClick(index)}
-  />
-);
+}) => {
+  const activeClassName = isActive ? 'active' : '';
+
+  return (
+    <li
+      className={`COMMON__carousel-indicator ${activeClassName}`}
+      onClick={() => onClick(index)}
+    />
+  );
+};
 
 CarouselIndicator.propTypes = {
   index: React.PropTypes.number,

@@ -8,11 +8,11 @@ const Footer = ({
   copy,
   cc,
 }) => (
-  <footer>
-    <p>
+  <footer className="FOOTER">
+    <p className="FOOTER__line">
       Copyright
       <i className="fa fa-fw" dangerouslySetInnerHTML={{ __html: copy }} />
-      <a className="year">2015 - {year}</a>
+      <a className="FOOTER__year">2015 - {year}</a>
       Designed, built & managed by
       <a
         href="https://t47.io/"
@@ -21,7 +21,7 @@ const Footer = ({
       />
       . All rights reserverd.
     </p>
-    <p>
+    <p className="FOOTER__line">
       Code and content on this site is licensed under
       <a
         href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"

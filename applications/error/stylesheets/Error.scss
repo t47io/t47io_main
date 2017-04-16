@@ -8,11 +8,6 @@
   .LOAD__content {
     margin-top: 0;
     width: 992px;
-
-    p:first-of-type {
-      font-size: 1.15rem;
-      margin-bottom: 3rem;
-    }
   }
   .UTIL__image-RNA { background-position: center center; }
 
@@ -38,11 +33,7 @@
     padding: 2rem 0;
     text-align: center;
 
-    .LOAD__content {
-      width: 100%;
-
-      p:first-of-type { margin-bottom: 1rem; }
-    }
+    .LOAD__content { width: 100%; }
     .UTIL__image-RNA { background-size: 100%; }
 
     .ERROR__title { margin-bottom: 10px; }

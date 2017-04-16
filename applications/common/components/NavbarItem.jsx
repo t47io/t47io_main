@@ -5,16 +5,20 @@ const NavbarItem = ({
   name,
   isActive,
   onClick,
-}) => (
-  <li className={`COMMON__navbar-item ${isActive ? 'active' : ''}`}>
-    <a
-      className="COMMON__navbar_link"
-      onClick={onClick}
-    >
-      {name}
-    </a>
-  </li>
-);
+}) => {
+  const activeClassName = isActive ? 'active' : '';
+
+  return (
+    <li className={`COMMON__navbar-item ${activeClassName}`}>
+      <a
+        className="COMMON__navbar-link"
+        onClick={onClick}
+      >
+        {name}
+      </a>
+    </li>
+  );
+};
 
 NavbarItem.propTypes = {
   name: React.PropTypes.string,

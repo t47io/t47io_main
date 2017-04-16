@@ -83,7 +83,7 @@ const HomeSection = ({
             shouldAnimate={intro}
           />
         </div>
-        <div className="HOME__scroll_down">
+        <div className="HOME__scroll-down">
           <i className={`fa fa-3x fa-fw fa-down-circled ${arrowColorClass}`} />
         </div>
       </div>

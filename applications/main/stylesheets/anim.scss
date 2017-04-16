@@ -1,11 +1,11 @@
 .LOAD__container { will-change: opacity, z-index; }
 
 .COMMON__navbar { will-change: background-color, z-index, box-shadow; }
-.UTIL__section_header > div { will-change: transform, opacity, letter-spacing; }
+.UTIL__section-header > div { will-change: transform, opacity, letter-spacing; }
 
 .HOME__shade { will-change: background-color; }
 .HOME__cursor { will-change: opacity; }
-.HOME__scroll_down,
+.HOME__scroll-down,
 .HOME__typewrite {
   will-change: color;
 }
@@ -19,7 +19,7 @@
 .STATS__github,
 .PUBS__year,
 .PUBS__entry,
-.CONTACT__social li,
+.CONTACT__item,
 .CONTACT__list-item,
 .CONTACT__form-item,
 .FOOTER__header,

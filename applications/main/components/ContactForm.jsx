@@ -105,7 +105,7 @@ const ContactForm = ({
           propsForceUpdate={shouldDisableForm}
         >
           <textarea
-            className="form-control input-lg"
+            className="CONTACT__form-textarea form-control input-lg"
             name="message" rows="5" placeholder="Message"
             value={message} required
             disabled={shouldDisableForm}
@@ -120,7 +120,7 @@ const ContactForm = ({
           propsForceUpdate={`${shouldDisableForm} ${btnClassName} ${btnIconClassName}`}
         >
           <button
-            className={`btn btn-${btnClassName} btn-block`}
+            className={`CONTACT__form-button btn btn-${btnClassName} btn-block`}
             type="submit"
             disabled={shouldDisableForm}
           >

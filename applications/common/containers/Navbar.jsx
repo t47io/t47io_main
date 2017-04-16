@@ -22,7 +22,7 @@ const Navbar = ({
     toggleMobileCollapse,
   },
 }) => {
-  const navbarClassName = (activeSection === HOME) ? 'COMMON__navbar-transparent' : 'navbar-shrink COMMON__navbar-default';
+  const navbarClassName = (activeSection === HOME) ? 'COMMON__navbar--transparent' : 'navbar-shrink COMMON__navbar--default';
   const buttonClassName = isMobileCollapsed ? 'collapsed' : '';
   const logoClassName = (activeSection === HOME) ? 'green' : 'white';
   const collapseClassName = isMobileCollapsed ? 'display' : '';
@@ -30,9 +30,9 @@ const Navbar = ({
   return (
     <nav className={`COMMON__navbar navbar navbar-fixed-top ${navbarClassName}`} role="navigation">
       <div className="container">
-        <div className="COMMON__navbar_header navbar-header">
+        <div className="COMMON__navbar-header navbar-header">
           <button
-            className={`COMMON__navbar_toggle navbar-toggle ${buttonClassName}`}
+            className={`COMMON__navbar-toggle navbar-toggle ${buttonClassName}`}
             type="button"
             onClick={toggleMobileCollapse}
           >
@@ -41,10 +41,10 @@ const Navbar = ({
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Logo href="/" className={`COMMON__navbar_logo ${logoClassName}`} />
+          <Logo href="/" className={`COMMON__navbar-logo ${logoClassName}`} />
         </div>
 
-        <div className={`COMMON__navbar-collapse navbar-collapse ${collapseClassName}`} >
+        <div className={`COMMON__navbar--collapse navbar-collapse ${collapseClassName}`} >
           <ul className="nav navbar-right">
             {items.map((item, i) => (
               <NavbarItem

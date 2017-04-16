@@ -12,7 +12,6 @@
   background-color: $colorBlack;
 
   .container { height: 100vh; }
-
   .UTIL__parallax img { display: none; }
 }
 .HOME__content {
@@ -86,7 +85,7 @@
   }
 }
 
-.HOME__scroll_down {
+.HOME__scroll-down {
   position: absolute;
   top: 90%;
   right: 2em;
