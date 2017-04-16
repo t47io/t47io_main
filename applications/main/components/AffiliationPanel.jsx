@@ -32,7 +32,7 @@ const AffiliationPanel = ({
         <i className="fa fa-fw fa-sm fa-link-ext" />
       </a>
       <br />
-      <span>{geo}</span>
+      <span className="AFFILIATION__geo">{geo}</span>
     </div>
     <div className="AFFILIATION__text col-lg-6 col-md-6 col-sm-12 col-xs-12">
       <AffiliationRole {...role} />

@@ -27,12 +27,12 @@
     margin-top: 14rem;
   }
 
-  div.row { margin-top: 4rem; }
+  .row { margin-top: 4rem; }
 }
 @include media_height_lt(511px) {
   .LOAD__container {
     .LOAD__content { margin-top: 6rem; }
-    div.row { margin-top: 0; }
+    .row { margin-top: 0; }
   }
 }
 @include media_width_lt(511px) {
@@ -41,11 +41,14 @@
   }
 }
 
-*, ::before, ::after { box-sizing: border-box; }
+*,
+::before,
+::after { box-sizing: border-box; }
 .row {
   margin: 0 -15px;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     display: table;
     content: "";
   }

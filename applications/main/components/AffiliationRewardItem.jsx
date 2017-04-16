@@ -13,7 +13,7 @@ const AffiliationRewardItem = ({
 
   return (
     <tr>
-      <td>
+      <td className="AFFILIATION__reward">
         <i className="text-gray">{year}</i>
       </td>
       <td dangerouslySetInnerHTML={{ __html: title }} />

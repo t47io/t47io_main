@@ -8,7 +8,7 @@
   text-decoration: none;
   color: $colorBlack;
 
-  h4 {
+  .ABOUT__title {
     font-size: 1.75em;
     font-weight: 900;
     margin-bottom: 1em;
@@ -49,10 +49,7 @@
     margin-top: 2em;
 
     &:hover { color: $colorGreen; }
-    a {
-      @include transition(0.25s);
-    }
-    p {
+    .ABOUT__detail {
       line-height: 1.5em;
       margin-bottom: 0;
     }

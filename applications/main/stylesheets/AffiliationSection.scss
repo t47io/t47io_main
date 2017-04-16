@@ -82,14 +82,14 @@
   font-variant: small-caps;
   text-align: center;
 
-  a { color: $colorGreenDark; }
-  span {
+  // a { color: $colorGreenDark; }
+  .AFFILIATION__geo {
     font-variant: normal;
     font-size: 0.7em;
     color: $colorGrayDark;
   }
 
-  div.SPRITE {
+  .SPRITE {
     width: 100%;
     max-width: 224px;
   }
@@ -122,9 +122,8 @@
   color: $colorBlack;
   line-height: 150%;
 
-  p { font-size: 1.1em; }
-
-  td:first-of-type { padding-right: 2em; }
+  .AFFILIATION__role { font-size: 1.1em; }
+  .AFFILIATION__reward:first-of-type { padding-right: 2em; }
 }
 
 @include media_width_lt(991px) {
@@ -132,6 +131,7 @@
   .AFFILIATION__timeline { left: 7.5em; }
   .AFFILIATION__text {
     text-align: center;
-    p { margin-bottom: 0; }
+    
+    .AFFILIATION__role { margin-bottom: 0; }
   }
 }

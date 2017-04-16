@@ -17,12 +17,11 @@ const SkillsPanel = ({
   offset,
 }) => (
   <div className="SKILLS__chapter">
-    <div className="SKILLS__title">
-      <h6>
-        <i className={`fa fa-fw fa-lg fa-${icon}`} />
-        {title}
-      </h6>
-    </div>
+    <h6 className="SKILLS__title">
+      <i className={`fa fa-fw fa-lg fa-${icon}`} />
+      {title}
+    </h6>
+
     {items.map((item, i) => (
       <SkillsProgressBar
         key={`SKILLS__progress-${side}-${i}`}

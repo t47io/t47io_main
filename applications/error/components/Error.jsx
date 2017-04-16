@@ -13,10 +13,15 @@ const ErrorPage = ({
     <div className="LOAD__content UTIL__image-RNA">
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div className="green" dangerouslySetInnerHTML={{ __html: logo }} />
-        <img src={img} alt={`HTTP Error ${code}`} height="auto" />
+        <img
+          className="ERROR__image"
+          src={img}
+          alt={`HTTP Error ${code}`}
+          height="auto"
+        />
       </div>
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h2>
+        <h2 className="ERROR__title">
           <span className={`label label-${color}`} >
             {title.custom}
           </span>

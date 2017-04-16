@@ -6,7 +6,7 @@ const AffiliationRole = ({
   position,
   team,
 }) => (
-  <p>
+  <p className="AFFILIATION__role">
     <b>{position}</b>
     {` ${title}`}
     <br className="hidden-lg hidden-md" />

@@ -14,16 +14,16 @@ const SectionHeader = ({
   shouldAnimate,
   onToggleAnimation,
 }) => (
-  <div className="UTIL__section_header">
+  <div className="UTIL__section-header">
     <Trigger onToggleAnimation={onToggleAnimation} />
     <WebAnimation
       keyframes={sectionHeader.keyframes}
       timing={sectionHeader.timing}
       shouldAnimate={shouldAnimate}
     >
-      <h2>{title}</h2>
+      <h2 className="UTIL__section-title">{title}</h2>
       <div className="UTIL__divider" />
-      <p className="UTIL__section_subtitle">
+      <p className="UTIL__section-subtitle">
         {subtitle}
       </p>
     </WebAnimation>

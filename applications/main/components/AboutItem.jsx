@@ -23,8 +23,11 @@ const AboutItem = ({
         <i className={`fa fa-fw fa-${icon}`} />
       </WebAnimation>
       <div className="ABOUT__text">
-        <h4>{title}</h4>
-        <p dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br/>') }} />
+        <h4 className="ABOUT__title">{title}</h4>
+        <p
+          className="ABOUT__detail"
+          dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br/>') }}
+        />
       </div>
     </a>
   </div>
