@@ -32,6 +32,8 @@ app.disable('x-powered-by');
 
 
 if (DEBUG) {
+  childProcess.execSync('npm run json');
+
   const compiler = webpack(webpackConfig);
   middleware = webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,

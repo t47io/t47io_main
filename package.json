@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "json": "babel-node ./server/json.js",
-    "nodemon": "nodemon -e js,jsx,json,css,scss,html -i public/ -i config/main.json -x babel-node -d 3 -V server/server.js",
+    "nodemon": "nodemon -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
     "start": "npm run json && npm run nodemon",
 
     "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
