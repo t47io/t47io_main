@@ -7,22 +7,18 @@
     "json": "babel-node ./server/json.js",
     "nodemon": "nodemon -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
     "start": "npm run json && npm run nodemon",
-
     "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
     "webpack": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
     "build": "npm run json && npm run webpack && npm run process",
-
     "process": "npm run process:main && npm run process:error",
     "process:main": "babel-node ./build/main.js",
     "process:error": "babel-node ./build/error.jsx",
-
     "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
     "cron:https": "babel-node ./server/cron/ssl_expire.js",
     "cron:backup": "babel-node ./server/cron/backup.js",
     "cron:email": "babel-node ./server/cron/email.js",
-
     "update": "npm-check-updates -u -a"
   },
   "repository": {
@@ -74,6 +70,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
+    "react-router-component": "^0.36.5",
     "react-tooltip": "^3.3.0",
     "react-waypoint": "^6.0.0",
     "react-web-animation": "^0.3.4",

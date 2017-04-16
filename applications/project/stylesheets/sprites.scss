@@ -1,0 +1,42 @@
+@import "../../common/mixins/sprite";
+
+
+$w: 1200px;
+$h: 675px;
+
+.SPRITE__carousel {
+  width: 100%;
+  height: 0;
+  padding-bottom: percentage($h / $w);
+}
+
+
+@include img_sprites("./images/sp_celica-1.jpg",
+  $w, $h, (
+    "SPRITE__celica-1_frame",
+    "SPRITE__celica-1_spring",
+    "SPRITE__celica-1_caliper",
+    "SPRITE__celica-1_palette",
+    "SPRITE__celica-1_wheel",
+    "SPRITE__celica-1_wire"
+  ), false
+);
+@include img_sprites("./images/sp_celica-2.jpg",
+  $w, $h, (
+    "SPRITE__celica-2_bodykit",
+    "SPRITE__celica-2_drum",
+    "SPRITE__celica-2_radio",
+    "SPRITE__celica-2_vinyl",
+    "SPRITE__celica-2_tape",
+    "SPRITE__celica-2_led"
+  ), false
+);
+@include img_sprites("./images/sp_celica-3.jpg",
+  $w, $h, (
+    "SPRITE__celica-3_spoiler",
+    "SPRITE__celica-3_banner",
+    "SPRITE__celica-3_decal",
+    "SPRITE__celica-3_starcraft",
+    "SPRITE__celica-3_trunk"
+  ), false
+);

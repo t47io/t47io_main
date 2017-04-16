@@ -1,9 +1,25 @@
 import React from 'react';
+import { Locations, Location } from 'react-router-component';
+import { connect } from 'react-redux';
+
+import CelicaPage from './CelicaPage.jsx';
+
+import '../stylesheets/index.scss';
 
 
-const Project = () => {
+const Project = (props) => {
+  console.error(props);
+
   return (
-    <h1>hei</h1>
+    <Locations>
+      <Location
+        path="/project/celica"
+        handler={CelicaPage}
+        {...props.celica}
+        subtitles={props._subtitles}
+        project="celica"
+      />
+    </Locations>
   );
 };
 
@@ -13,4 +29,11 @@ Project.defaultProps = {
 };
 
 
-export default Project;
+const mapStateToProps = state => state;
+const mapDispatchToProps = null;
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Project);

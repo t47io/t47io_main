@@ -40,17 +40,6 @@ const concatMainJSON = () => {
       ...mainJson.portfolio,
       selectedCategory: 'all',
     },
-    stats: {
-      ...mainJson.stats,
-      items: [
-        ...(mainJson.stats.items.slice(0, 2)),
-        {
-          ...(mainJson.stats.items[2]),
-          value: mainJson,
-        },
-        ...(mainJson.stats.items.slice(3)),
-      ],
-    },
     contact: {
       ...mainJson.contact,
       resume: getResume(),
@@ -92,6 +81,7 @@ const concatMainJSON = () => {
     return filteredYear;
   });
   config.pubs.lens = pubsCounter;
+  config.stats.items[2].value = pubsCounter;
 
   fs.writeJsonSync(path.join(__dirname, '../config/main.json'), config);
 };
