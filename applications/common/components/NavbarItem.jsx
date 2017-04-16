@@ -6,7 +6,7 @@ const NavbarItem = ({
   isActive,
   onClick,
 }) => (
-  <li className={isActive ? 'active' : ''}>
+  <li className={`COMMON__navbar-item ${isActive ? 'active' : ''}`}>
     <a
       className="COMMON__navbar_link"
       onClick={onClick}

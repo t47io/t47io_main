@@ -23,7 +23,10 @@ const PortfolioFilterItem = ({
       shouldAnimate={shouldAnimate}
       propsForceUpdate={activeClassName}
     >
-      <a onClick={onClick}>
+      <a
+        className="PORTFOLIO__filter-link"
+        onClick={onClick}
+      >
         {category.replace(/-/g, ' ')}
       </a>
     </WebAnimation>

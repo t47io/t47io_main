@@ -11,16 +11,17 @@
   overflow: hidden;
 
   a { text-decoration: none; }
-  > div { display: table-cell; }
+  .FOOTTER__city,
+  .FOOTER__header { display: table-cell; }
 
-  .FOOTTER__city_gif {
+  .FOOTTER__city {
     height: 96px;
     width: 128px;
     padding: 0;
 
     &:last-child { text-align: right; }
-    a img {
-      @extend .FOOTTER__city_gif;
+    .FOOTER__city-gif {
+      @extend .FOOTTER__city;
       vertical-align: text-bottom;
     }
   }

@@ -12,12 +12,12 @@ const PortfolioDescription = ({ description }) => {
 
   if (replaceChunks === null) {
     return (
-      <span>{description}</span>
+      <span className="PORTFILIO__text-description">{description}</span>
     );
   }
 
   return (
-    <span>
+    <span className="PORTFILIO__text-description">
       {
         despChunks.map((chunk) => {
           if (`${SPACER_MARKUP}${chunk}${SPACER_MARKUP}` === FIELD_MARKUP) {

@@ -9,20 +9,20 @@
   margin-top: 1.5em;
   margin-bottom: 3em;
 
-  ul {
+  .PORTFOLIO__filters {
     list-style: none outside none;
     text-align: center;
 
-    li.PORTFOLIO__filter {
+    .PORTFOLIO__filter {
       display: inline-block;
 
-      &.active a {
+      &.active .PORTFOLIO__filter-link {
         background: $colorGreenDark;
         color: $colorWhite;
         font-weight: 900;
       }
 
-      a {
+      .PORTFOLIO__filter-link {
         color: $colorBlack;
         background: transparent;
         display: inline-block;
@@ -41,11 +41,9 @@
 }
 
 .PORTFOLIO__content { overflow: hidden; }
-.PORTFOLIO__div {
-  div {
-    padding: 0;
-    margin: 0 auto;
-  }
+.PORTFOLIO__div div {
+  padding: 0;
+  margin: 0 auto;
 }
 .PORTFOLIO__entry {
   @include transition(0.5s);
@@ -59,7 +57,7 @@
   z-index: 5;
   overflow: hidden;
 
-  div.SPRITE {
+  .SPRITE {
     border: 1px solid $colorGray;
     margin-left: -1px;
     margin-top: -1px;
@@ -71,7 +69,7 @@
     cursor:pointer;
     @include transition(1s);
   } 
-  div.PORTFOLIO__text {
+  .PORTFOLIO__text {
     position: absolute;
     top: 0;
     left: 0;
@@ -87,16 +85,17 @@
   }
 
   &:hover {
-    div.SPRITE {
+    .SPRITE {
       @include transform(scale(1.5));
     }
-    div.PORTFOLIO__text {
+    .PORTFOLIO__text {
       opacity: 1;
       padding: 0 2em;
+      color: $colorWhite;
       @include transform(scale(1));
 
-      a {
-        color: $colorWhite;
+      .PORTFILIO__text-link {
+        color: inherit;
         display: block;
         font-size: 2em;
         font-weight: 900;
@@ -105,8 +104,7 @@
         text-decoration: none;
         font-variant: small-caps;
       }
-      span {
-        color: $colorWhite;
+      .PORTFILIO__text-description {
         font-size: 1.25em;
         font-weight: normal;
         line-height: 1.25em;

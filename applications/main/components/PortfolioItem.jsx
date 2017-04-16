@@ -26,6 +26,7 @@ const PortfolioItem = ({
       </div>
       <div className="PORTFOLIO__text">
         <a
+          className="PORTFILIO__text-link"
           href={url || `/project/${name}`}
           target="_blank" rel="noopener noreferrer"
         >

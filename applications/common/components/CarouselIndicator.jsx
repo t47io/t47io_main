@@ -7,7 +7,7 @@ const CarouselIndicator = ({
   onClick,
 }) => (
   <li
-    className={isActive ? 'active' : ''}
+    className={`COMMON__carousel-indicator ${isActive ? 'active' : ''}`}
     onClick={() => onClick(index)}
   />
 );

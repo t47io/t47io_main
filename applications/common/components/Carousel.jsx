@@ -33,11 +33,11 @@ class Carousel extends React.PureComponent {
 
     return (
       <div className={`${className} SPRITE__bg-${items[current]} UTIL__parallax UTIL__background`}>
-        <div className="COMMON__carousel COMMON__carousel_fade">
-          <ol className="COMMON__carousel_indicators carousel-indicators">
+        <div className="COMMON__carousel COMMON__carousel--fade">
+          <ol className="COMMON__carousel-indicators carousel-indicators">
             {items.map((item, i) => (
               <CarouselIndicator
-                key={`COMMON__carousel_indicator-${items[i]}`}
+                key={`COMMON__carousel-indicator-${items[i]}`}
                 index={i}
                 isActive={i === current}
                 onClick={this.onClick}

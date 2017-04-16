@@ -49,7 +49,7 @@ const PortfolioSection = ({
       <div className="PORTFOLIO__area" >
         <div className="PORTFOLIO__menu">
           <Trigger onToggleAnimation={animateFilters} />
-          <ul>
+          <ul className="PORTFOLIO__filters">
             {categories.map((category, i) => (
               <PortfolioFilterItem
                 key={`PORTFOLIO__filter-${category}`}

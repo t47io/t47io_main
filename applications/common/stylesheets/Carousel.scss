@@ -10,15 +10,15 @@
   width: 100%;
   overflow:hidden;
 
-  &.COMMON__carousel_fade {
+  &.COMMON__carousel--fade {
     overflow: hidden;
     @include transition(0.5s);
 
     img { max-width: none; }
   }
 
-  .COMMON__carousel_indicators {
-    li {
+  .COMMON__carousel-indicators {
+    .COMMON__carousel-indicator {
       margin: 0 0.5rem;
       border: 3px solid $colorGray;
       border-radius: 0;

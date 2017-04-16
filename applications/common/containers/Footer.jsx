@@ -40,7 +40,7 @@ const Footer = ({
   <footer className="FOOTER text-off-white">
     <Trigger onToggleAnimation={animateFooter} />
     <WebAnimation
-      className="FOOTTER__city_gif hidden-sm hidden-xs"
+      className="FOOTTER__city hidden-sm hidden-xs"
       keyframes={footerGif.keyframes(FOOTER_LEFT)}
       timing={footerGif.timing}
       shouldAnimate={footer}
@@ -50,6 +50,7 @@ const Footer = ({
         target="_blank" rel="noopener noreferrer external"
       >
         <img
+          className="FOOTER__city-gif"
           alt="Minimal City SFO"
           width="128" height="96"
           src={imgSFO['1x']}
@@ -101,7 +102,7 @@ const Footer = ({
       </p>
     </WebAnimation>
     <WebAnimation
-      className="FOOTTER__city_gif hidden-sm hidden-xs"
+      className="FOOTTER__city hidden-sm hidden-xs"
       keyframes={footerGif.keyframes(FOOTER_RIGHT)}
       timing={footerGif.timing}
       shouldAnimate={footer}
@@ -111,6 +112,7 @@ const Footer = ({
         target="_blank" rel="noopener noreferrer external"
       >
         <img
+          className="FOOTER__city-gif"
           alt="Minimal City SEA"
           width="128" height="96"
           src={imgSEA['1x']}
