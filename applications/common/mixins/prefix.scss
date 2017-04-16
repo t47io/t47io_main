@@ -1,3 +1,6 @@
+@import './media';
+
+
 @mixin transition($val, $ease: ease-in-out, $property: all) {
   transition: $property $val $ease;   
 }
@@ -32,15 +35,15 @@
   /* @include filter(blur(5px)); */
   @include transition(1s);
 
-  @media only screen and (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  @include media_pixel_ratio(1.5) {
     background-image: url("#{$path}@1.5x.#{$ext}"); 
     /* @include filter(none); */
   }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  @include media_pixel_ratio(2) {
     background-image: url("#{$path}@2x.#{$ext}"); 
     /* @include filter(none); */
   }
-  @media only screen and (-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx) {
+   @include media_pixel_ratio(3) {
     background-image: url("#{$path}@3x.#{$ext}"); 
     /* @include filter(none); */
   }

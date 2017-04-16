@@ -1,3 +1,6 @@
+@import '../../common/mixins/media';
+
+
 .UTIL__cover {
   position: absolute;
   width: 100%;
@@ -31,10 +34,10 @@
   }
   &:not(.UTIL__background) { background-position: 50% 30%; }
 }
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { 
   .UTIL__parallax { background-attachment: scroll; }
 }
-@media only screen and (max-width : 992px) {
+@include media_width_lt(991px) {
   .UTIL__parallax {
     background-attachment: scroll;
     
@@ -43,7 +46,11 @@
   }
 }
 
-.UTIL__spacer-sm, .UTIL__spacer-md, .UTIL__spacer-lg, .UTIL__spacer-xl, .UTIL__spacer-hg { width: 100%; }
+.UTIL__spacer-sm,
+.UTIL__spacer-md,
+.UTIL__spacer-lg,
+.UTIL__spacer-xl,
+.UTIL__spacer-hg { width: 100%; }
 .UTIL__spacer-sm { height: 1rem; }
 .UTIL__spacer-md { height: 1.45rem; }
 .UTIL__spacer-lg { height: 2.85rem; }

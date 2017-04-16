@@ -1,4 +1,5 @@
 @import '../../common/mixins/colors';
+@import '../../common/mixins/media';
 @import '../../common/stylesheets/Logo';
 
 
@@ -24,6 +25,6 @@ footer {
     vertical-align: text-top;
   }
 }
-@media only screen and (max-width: 767px) {
+@include media_width_lt(767px) {
   p { margin-bottom: 0; }
 }

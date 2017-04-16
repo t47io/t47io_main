@@ -1,4 +1,5 @@
 @import '../../common/mixins/colors';
+@import '../../common/mixins/media';
 @import '../../common/mixins/palette';
 @import '../../common/mixins/prefix';
 
@@ -34,15 +35,15 @@
     width: 34rem;
   }
 }
-@media only screen and (min-width : 767px) {
+@include media_width_gt(768px) {
   .HOME__content {
     .HOME__title img { max-width: 75%; }
   }
 }
-@media only screen and (max-width : 768px) and (min-width : 511px) {
+@include media_width_bt(512px, 767px) {
   .HOME__content { bottom: 10vh; }
 }
-@media only screen and (max-width : 512px) {
+@include media_width_lt(511px) {
   .HOME__content {
     .HOME__title img {
       max-width: 80vw;

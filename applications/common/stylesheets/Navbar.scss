@@ -1,4 +1,5 @@
 @import '../mixins/colors';
+@import '../mixins/media';
 @import '../mixins/prefix';
 
 
@@ -80,7 +81,7 @@
 }
 
 
-@media only screen and (max-width : 767px) {
+@include media_width_lt(767px) {
   .COMMON__navbar-collapse {
     display: none;
     float: right;
@@ -127,6 +128,6 @@
   }
 }
 
-@media (min-width : 768px) {
+@include media_width_gt(768px) {
   .COMMON__navbar-collapse li { float: left; }
 }

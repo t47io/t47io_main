@@ -1,4 +1,5 @@
 @import '../../common/mixins/colors';
+@import '../../common/mixins/media';
 @import '../../common/mixins/prefix';
 
 
@@ -6,7 +7,8 @@
   position: relative;
   padding: 3.5em 7em 3.5em 14em;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: "";
     display: table;
     clear: both;
@@ -21,7 +23,8 @@
   border-right: 2px solid $colorGray; 
   z-index: 5; 
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: "";
     left: -0.5em;
     width: 1em;
@@ -124,7 +127,7 @@
   td:first-of-type { padding-right: 2em; }
 }
 
-@media only screen and (max-width : 991px) {
+@include media_width_lt(991px) {
   .AFFILIATION__story { padding: 3.5em 3.5em 3.5em 7.5em; }
   .AFFILIATION__timeline { left: 7.5em; }
   .AFFILIATION__text {

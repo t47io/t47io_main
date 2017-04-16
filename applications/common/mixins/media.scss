@@ -30,3 +30,10 @@
     @content;
   }
 }
+
+
+@mixin media_pixel_ratio($dppx) {
+  @media only screen and (-webkit-min-device-pixel-ratio: $dppx), (min-resolution: $dppx + 'dppx') {
+    @content;
+  }
+}
