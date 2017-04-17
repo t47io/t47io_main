@@ -16,21 +16,13 @@ import '../stylesheets/index.scss';
 
 
 const Project = ({
-  celica,
-  _subtitles,
   onScrollTop,
 }) => (
-  <div>
+  <div id="HOME__section">
     <Navbar />
 
-    <Locations>
-      <Location
-        path="/project/celica"
-        handler={CelicaPage}
-        {...celica}
-        subtitles={_subtitles}
-        project="celica"
-      />
+    <Locations className="container">
+      <Location path="/project/celica" handler={CelicaPage} />
     </Locations>
 
     <ReactTooltip effect="solid" place="top" id="PROJECT__tooltip" />
@@ -38,13 +30,16 @@ const Project = ({
       isHidden={false}
       onScrollTop={onScrollTop}
     />
+    <hr />
     <Footer />
   </div>
 );
 
 Project.propTypes = {
+  onScrollTop: React.PropTypes.func,
 };
 Project.defaultProps = {
+  onScrollTop: () => {},
 };
 
 

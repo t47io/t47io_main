@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
+
 import CarouselIndicator from './CarouselIndicator.jsx';
 
-// import '../stylesheets/Carousel.scss';
+import '../stylesheets/Carousel.scss';
 
 
 class Carousel extends React.PureComponent {
@@ -24,16 +26,18 @@ class Carousel extends React.PureComponent {
     this.timer = setInterval(() => {
       const next = (this.state.current + 1) % this.props.items.length;
       this.setState({ current: next });
+      ReactTooltip.rebuild();
     }, this.props.interval);
   }
 
   render() {
     const { project, items, className, index } = this.props;
     const { current } = this.state;
+    const spriteName = `SPRITE__${project}-${index}_${items[current].tag}`;
 
     return (
       <div className={className}>
-        <div className="PROJECT__carousel PROJECT__carousel--fade">
+        <div className="PROJECT__carousel">
           <ol className="PROJECT__carousel-indicators carousel-indicators">
             {items.map((item, i) => (
               <CarouselIndicator
@@ -44,13 +48,13 @@ class Carousel extends React.PureComponent {
               />
             ))}
           </ol>
-          <div class="carousel-inner" role="listbox">
-            <div class="item thumbnail carousel_sprite active">
-              <div
-                className={`SPRITE__${project}-${index}_${items[current].tag}`}
-                data-tip={items[current].label}
-                data-for="PROJECT__tooltip"
-              />
+          <div
+            className="carousel-inner"
+            data-for="PROJECT__tooltip"
+            data-tip={items[current].label}
+          >
+            <div className="thumbnail PROJECT__thumbnail">
+              <div className={`${spriteName} PROJECT__carousel-item`} />
             </div>
           </div>
         </div>
@@ -72,7 +76,7 @@ Carousel.propTypes = {
 Carousel.defaultProps = {
   project: '',
   items: [],
-  className: 'col-lg-7 col-md-7 col-sm-12 col-xs-12 carousel-parent',
+  className: 'col-lg-7 col-md-7 col-sm-12 col-xs-12',
   interval: 2500,
   index: 0,
 };
