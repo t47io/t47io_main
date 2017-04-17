@@ -43,7 +43,7 @@ Project.defaultProps = {
 };
 
 
-const mapStateToProps = state => state;
+const mapStateToProps = null;
 const mapDispatchToProps = dispatch => ({
   onScrollTop: bindActionCreators(scrollToSection, dispatch),
 });

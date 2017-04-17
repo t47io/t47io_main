@@ -97,9 +97,10 @@ const mapStateToProps = state => ({
   ...state.celica,
   subtitles: state.subtitles,
 });
+const mapDispatchToProps = null;
 
 
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(CelicaPage);
