@@ -17,7 +17,10 @@ import Footer from '../../common/containers/Footer.jsx';
 import ScrollSpy from '../../common/components/ScrollSpy.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
 
-import { updateNavbarScrollspy } from '../../common/actions/navbarActions.js';
+import {
+  scrollToSection,
+  updateNavbarScrollspy,
+} from '../../common/actions/navbarActions.js';
 import { HOME } from '../constants/sectionTypes.js';
 
 import '../stylesheets/index.scss';
@@ -27,6 +30,7 @@ const Main = ({
   isLoaded,
   hideScrollTop,
   onUpdateScroll,
+  onScrollTop,
 }) => {
   if (!isLoaded) { return null; }
 
@@ -69,7 +73,10 @@ const Main = ({
         <Footer />
       </ScrollSpy>
 
-      <ScrollTop isHidden={hideScrollTop} />
+      <ScrollTop
+        isHidden={hideScrollTop}
+        onScrollTop={onScrollTop}
+      />
     </div>
   );
 };
@@ -78,11 +85,13 @@ Main.propTypes = {
   isLoaded: React.PropTypes.bool,
   hideScrollTop: React.PropTypes.bool,
   onUpdateScroll: React.PropTypes.func,
+  onScrollTop: React.PropTypes.func,
 };
 Main.defaultProps = {
   isLoaded: false,
   hideScrollTop: true,
   onUpdateScroll: () => {},
+  onScrollTop: () => {},
 };
 
 
@@ -93,6 +102,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   onUpdateScroll: bindActionCreators(updateNavbarScrollspy, dispatch),
+  onScrollTop: bindActionCreators(scrollToSection, dispatch),
 });
 
 

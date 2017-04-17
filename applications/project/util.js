@@ -26,21 +26,8 @@ $(window).on('scroll', function() {
   }
 });
 
-$(window).on('load', function() {
-  $(".page-loader").fadeOut(250);
-});
-$(window).on('beforeunload', function() {
-  $(".page-loader").fadeIn(250);
-});
-
 
 $(document).ready(function() {
-  $('.carousel').carousel({'interval': 2500});
-  $('[data-toggle="tooltip"]').tooltip({'container': 'body'});
-
-  var today = new Date();
-  $("#cp_year").text(today.getFullYear());
-
   if ($(window).width() <= 768) {
     $("ul.ul_desp").removeClass("lead");
   } else {
