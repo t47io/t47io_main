@@ -1,16 +1,3 @@
-@import 'share';
-
-html { overflow-y: scroll; }
-body { padding: 50px 15px 0px 15px; }
-.starter-template {
-  padding: 40px 15px 15px 15px;
-  height: auto;
-  width: auto;
-  position:	relative;
-  text-align: left;
-}
-
-
 .dropdown-menu {
   li a {
     padding: 4px 20px;
@@ -34,7 +21,6 @@ body { padding: 50px 15px 0px 15px; }
     display: block;
   }
 }
-
 
   .dropdown-menu {
     padding: 10px 0;
@@ -68,15 +54,6 @@ body { padding: 50px 15px 0px 15px; }
 }
 
     
-.thumbnail {
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: $colorWhite;
-  border: 1px solid #ddd;
-  @include transition(0.2s);
-}
-
-.ul_desp.lead > li { padding-top: 10px; }
 .place_holder {
   height: 175px;
   opacity: 0.5;
@@ -91,22 +68,4 @@ body { padding: 50px 15px 0px 15px; }
 .copyright { 
 	margin: 0px; 
 	line-height: 1;
-}
-
-
-.carousel-indicators {
-  bottom: -25px;
-
-  > li {
-    border-color: $colorGray;
-    border-radius: 0px;
-    border-width: 2px;
-    background-color: $colorGrayLight;
-    @include transform(rotate(45deg));
-
-    &:hover, &.active {
-      border-color: $colorGreen;
-      background-color: $$colorGreenFaintight;
-    }
-  }
 }

@@ -1,0 +1,14 @@
+@import '../../common/mixins/palette';
+
+
+.label {
+  &.PROJECT__label--green { background-color: $colorGreenDark; }
+  &.PROJECT__label--red { background-color: $colorRed; }
+  &.PROJECT__label--blue { background-color: $colorCyan; }
+  &.PROJECT__label--yellow { background-color: $colorYellow; }
+  &.PROJECT__label--purple { background-color: $colorPurple; }
+  &.PROJECT__label--gray { 
+    background-color: $colorGrayDark; 
+    color: #000;
+  }
+}

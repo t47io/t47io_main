@@ -33,7 +33,7 @@ const ErrorPage = ({
           <i>In other words,</i>
         </p>
         <h3>
-          <span className={`label label-${color}`}>
+          <span className={`label PROJECT__label--${color}`}>
             {code}: {title.standard}
           </span>
         </h3>

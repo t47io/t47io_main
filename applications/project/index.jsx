@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 
 import Project from './containers/index.jsx';
 import reducer from './reducers/index.js';
 import { LOAD_JSON_DATA } from './constants/actionTypes.js';
 
-const middleware = [];
+const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
   // require('preact/devtools');
 

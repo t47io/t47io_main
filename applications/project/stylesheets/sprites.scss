@@ -1,15 +1,8 @@
-@import "../../common/mixins/sprite";
+@import '../../common/mixins/sprite';
 
 
 $w: 1200px;
 $h: 675px;
-
-.SPRITE__carousel {
-  width: 100%;
-  height: 0;
-  padding-bottom: percentage($h / $w);
-}
-
 
 @include img_sprites("./images/sp_daslab-1.jpg",
   $w, $h, (

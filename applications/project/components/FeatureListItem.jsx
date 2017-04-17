@@ -1,4 +1,6 @@
-import React  from 'react';
+import React from 'react';
+
+import '../stylesheets/FeatureList.scss';
 
 
 const FeatureListItem = ({
@@ -7,12 +9,12 @@ const FeatureListItem = ({
 }) => {
   if (!link.length) {
     return (
-      <li>{text}</li>
+      <li className="PROJECT__feature-item">{text}</li>
     );
   }
 
   return (
-    <li>
+    <li className="PROJECT__feature-item">
       <a
         href={link}
         target="_blank" rel="noopener noreferrer external"
