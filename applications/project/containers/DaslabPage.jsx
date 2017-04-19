@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import FeatureSection from '../components/FeatureSection.jsx';
+import Headline from '../components/Headline.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-const imgCelica = require('../images/pm_celica.jpg');
+const imgDaslab = require('../images/pm_daslab.jpg');
 
 
-const CelicaPage = ({
+const DaslabPage = ({
   project,
   title,
   description,
@@ -15,7 +16,7 @@ const CelicaPage = ({
   lists,
   subtitles,
 }) => {
-  if (!title || carousels.length !== 3 || lists.length !== 3) {
+  if (!title || carousels.length !== 5 || lists.length !== 5) {
     return null;
   }
 
@@ -24,20 +25,25 @@ const CelicaPage = ({
       <TitleSection
         title={title}
         description={description}
-        image={imgCelica}
+        image={imgDaslab}
       />
       <FeatureSection
         project={project}
-        title={subtitles.story.title}
-        icon={subtitles.story.icon}
+        title={subtitles.feature.title}
+        icon={subtitles.feature.icon}
         carousels={carousels}
         lists={lists}
       />
+      {/* <Headline
+            title={subtitles.access.title}
+            icon={subtitles.access.icon}
+          />
+      */}
     </div>
   );
 };
 
-CelicaPage.propTypes = {
+DaslabPage.propTypes = {
   project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
@@ -50,7 +56,7 @@ CelicaPage.propTypes = {
     }),
   }),
 };
-CelicaPage.defaultProps = {
+DaslabPage.defaultProps = {
   project: '',
   title: '',
   description: '',
@@ -66,7 +72,7 @@ CelicaPage.defaultProps = {
 
 
 const mapStateToProps = state => ({
-  ...state.celica,
+  ...state.daslab,
   subtitles: state.subtitles,
 });
 const mapDispatchToProps = null;
@@ -75,4 +81,4 @@ const mapDispatchToProps = null;
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CelicaPage);
+)(DaslabPage);

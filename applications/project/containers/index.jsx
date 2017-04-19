@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Locations, Location } from 'react-router-component';
 import ReactTooltip from 'react-tooltip';
 
+import DaslabPage from './DaslabPage.jsx';
 import CelicaPage from './CelicaPage.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
 
@@ -22,6 +23,7 @@ const Project = ({
     <Navbar />
 
     <Locations className="container">
+      <Location path="/project/daslab" handler={DaslabPage} />
       <Location path="/project/celica" handler={CelicaPage} />
     </Locations>
 

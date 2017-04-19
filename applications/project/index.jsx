@@ -12,8 +12,7 @@ const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
   // require('preact/devtools');
 
-  const createLogger = require('redux-logger');
-  const logger = createLogger();
+  const { logger } = require('redux-logger');
   middleware.push(logger);
 }
 const store = createStore(
