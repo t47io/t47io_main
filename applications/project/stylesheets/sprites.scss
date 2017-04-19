@@ -6,15 +6,15 @@ $h: 675px;
 
 @include img_sprites("./images/sp_daslab-1.jpg",
   $w, $h, (
-    "SPRITE__daslab-1_flashslide",
+    "SPRITE__daslab-1_slide",
     "SPRITE__daslab-1_journal",
-    "SPRITE__daslab-1_people",
+    "SPRITE__daslab-1_contact",
     "SPRITE__daslab-1_calendar",
   ), false
 );
 @include img_sprites("./images/sp_daslab-2.jpg",
   $w, $h, (
-    "SPRITE__daslab-2_analytics",
+    "SPRITE__daslab-2_analytic",
     "SPRITE__daslab-2_aws",
     "SPRITE__daslab-2_github",
     "SPRITE__daslab-2_version",

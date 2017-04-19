@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../stylesheets/FeatureList.scss';
-
 
 const FeatureListItem = ({
   text,

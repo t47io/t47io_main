@@ -1,24 +1,24 @@
 import React from 'react';
 
 
-const SectionTitle = ({
+const Headline = ({
   title,
   icon,
 }) => (
-  <h2 className="text-center">
+  <h2 className="PROJECT__headline text-center">
     <i className={`fa fa-fw fa-${icon}`} />
     {title}
   </h2>
 );
 
-SectionTitle.propTypes = {
+Headline.propTypes = {
   title: React.PropTypes.string,
   icon: React.PropTypes.string,
 };
-SectionTitle.defaultProps = {
+Headline.defaultProps = {
   title: '',
   icon: '',
 };
 
 
-export default SectionTitle;
+export default Headline;
