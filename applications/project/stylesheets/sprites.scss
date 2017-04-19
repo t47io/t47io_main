@@ -40,10 +40,10 @@ $h: 675px;
 );
 @include img_sprites("./images/sp_daslab-5.jpg",
   $w, $h, (
-    "SPRITE__daslab-5-500",
-    "SPRITE__daslab-5-404",
-    "SPRITE__daslab-5-401",
-    "SPRITE__daslab-5-400",
+    "SPRITE__daslab-5_500",
+    "SPRITE__daslab-5_404",
+    "SPRITE__daslab-5_401",
+    "SPRITE__daslab-5_400",
   ), false
 );
 

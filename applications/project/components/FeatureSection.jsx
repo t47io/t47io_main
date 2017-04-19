@@ -25,13 +25,13 @@ const FeatureSection = ({
     </div>
     {Array(...Array(carousels.length)).map((_, i) => (
       <div className="row">
-        {(i % 2 === 0) && <FeatureList {...lists[i]} />}
+        {(i % 2 === 1) && <FeatureList {...lists[i]} />}
         <Carousel
           items={carousels[i]}
           index={i + 1}
           project={project}
         />
-        {(i % 2 !== 0) && <FeatureList {...lists[i]} />}
+        {(i % 2 === 0) && <FeatureList {...lists[i]} />}
       </div>
     ))}
   </div>

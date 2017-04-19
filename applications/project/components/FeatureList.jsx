@@ -11,12 +11,12 @@ const FeatureList = ({
   className,
 }) => (
   <div className={className}>
-    <h3>
+    <h3 className="PROJECT__features-title">
       <i className={`fa fa-fw fa-${icon}`} />
       {title}
     </h3>
     <br />
-    <ul className="PROJECT__features lead">
+    <ul className="PROJECT__features">
       {items.map((item, i) => (
         <FeatureListItem
           key={`PROJECT__feature-${icon}-${i}`}

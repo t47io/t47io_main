@@ -29,8 +29,8 @@ const DaslabPage = ({
       />
       <FeatureSection
         project={project}
-        title={subtitles.feature.title}
-        icon={subtitles.feature.icon}
+        title={subtitles.features.title}
+        icon={subtitles.features.icon}
         carousels={carousels}
         lists={lists}
       />
