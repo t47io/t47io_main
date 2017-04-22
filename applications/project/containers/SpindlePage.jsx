@@ -9,7 +9,6 @@ const imgSpindle = require('../images/pm_spindle.jpg');
 
 
 const SpindlePage = ({
-  project,
   title,
   description,
   urls,
@@ -30,7 +29,7 @@ const SpindlePage = ({
         repoUrl={urls.repo}
       />
       <FeatureSection
-        project={project}
+        project="spindle"
         carousels={carousels}
         lists={lists}
       />
@@ -43,7 +42,6 @@ const SpindlePage = ({
 };
 
 SpindlePage.propTypes = {
-  project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   urls: React.PropTypes.shape({
@@ -53,7 +51,6 @@ SpindlePage.propTypes = {
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 SpindlePage.defaultProps = {
-  project: '',
   title: '',
   description: '',
   urls: {

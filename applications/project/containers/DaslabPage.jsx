@@ -27,7 +27,6 @@ const demoNote = (
 
 
 const DaslabPage = ({
-  project,
   title,
   description,
   urls,
@@ -53,7 +52,7 @@ const DaslabPage = ({
         demoNote={demoNote}
       />
       <FeatureSection
-        project={project}
+        project="daslab"
         carousels={carousels}
         lists={lists}
       />
@@ -76,7 +75,6 @@ const DaslabPage = ({
 };
 
 DaslabPage.propTypes = {
-  project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   urls: React.PropTypes.shape({
@@ -89,7 +87,6 @@ DaslabPage.propTypes = {
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 DaslabPage.defaultProps = {
-  project: '',
   title: '',
   description: '',
   urls: {

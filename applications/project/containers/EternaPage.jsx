@@ -25,7 +25,6 @@ const demoNote = (
 
 
 const EternaPage = ({
-  project,
   title,
   description,
   urls,
@@ -49,7 +48,7 @@ const EternaPage = ({
         demoNote={demoNote}
       />
       <FeatureSection
-        project={project}
+        project="eterna"
         carousels={carousels}
         lists={lists}
       />
@@ -65,7 +64,6 @@ const EternaPage = ({
 };
 
 EternaPage.propTypes = {
-  project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   urls: React.PropTypes.shape({
@@ -76,7 +74,6 @@ EternaPage.propTypes = {
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 EternaPage.defaultProps = {
-  project: '',
   title: '',
   description: '',
   urls: {

@@ -8,7 +8,6 @@ const imgCelica = require('../images/pm_celica.jpg');
 
 
 const CelicaPage = ({
-  project,
   title,
   description,
   carousels,
@@ -24,7 +23,7 @@ const CelicaPage = ({
         image={imgCelica}
       />
       <FeatureSection
-        project={project}
+        project="celica"
         carousels={carousels}
         lists={lists}
         isStory
@@ -34,14 +33,12 @@ const CelicaPage = ({
 };
 
 CelicaPage.propTypes = {
-  project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 CelicaPage.defaultProps = {
-  project: '',
   title: '',
   description: '',
   carousels: [],

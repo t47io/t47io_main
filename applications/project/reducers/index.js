@@ -36,15 +36,9 @@ const initialState = {
 
 const crossReducer = (state = initialState, { type, payload }) => {
   if (type !== LOAD_JSON_DATA) { return state; }
-
-  const json = payload;
-  Object.keys(json).forEach((key) => {
-    json[key].project = key;
-  });
-
   return {
     ...state,
-    ...json,
+    ...payload,
   };
 };
 

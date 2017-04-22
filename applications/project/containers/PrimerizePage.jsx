@@ -11,7 +11,6 @@ const imgPrimerize = require('../images/pm_primerize.jpg');
 
 
 const PrimerizePage = ({
-  project,
   title,
   description,
   urls,
@@ -34,7 +33,7 @@ const PrimerizePage = ({
         serverUrl={urls.server}
       />
       <FeatureSection
-        project={project}
+        project="primerize"
         carousels={carousels}
         lists={lists}
       />
@@ -53,7 +52,6 @@ const PrimerizePage = ({
 };
 
 PrimerizePage.propTypes = {
-  project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   urls: React.PropTypes.shape({
@@ -66,7 +64,6 @@ PrimerizePage.propTypes = {
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 PrimerizePage.defaultProps = {
-  project: '',
   title: '',
   description: '',
   urls: {

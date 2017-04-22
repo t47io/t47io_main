@@ -11,7 +11,6 @@ const imgRmdb = require('../images/pm_rmdb.jpg');
 
 
 const RmdbPage = ({
-  project,
   title,
   description,
   urls,
@@ -34,7 +33,7 @@ const RmdbPage = ({
         serverUrl={urls.server}
       />
       <FeatureSection
-        project={project}
+        project="rmdb"
         carousels={carousels}
         lists={lists}
       />
@@ -53,7 +52,6 @@ const RmdbPage = ({
 };
 
 RmdbPage.propTypes = {
-  project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   urls: React.PropTypes.shape({
@@ -66,7 +64,6 @@ RmdbPage.propTypes = {
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 RmdbPage.defaultProps = {
-  project: '',
   title: '',
   description: '',
   urls: {
