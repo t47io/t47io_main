@@ -18,8 +18,7 @@ import {
 const indexJson = require('../config/main.json');
 const projectJson = require('../config/project.json');
 
-const projectPages = Object.keys(projectJson).filter(project => (project !== 'subtitles'));
-const projectPathRegex = new RegExp(`^/project/(${projectPages.join('|')})/?$`);
+const projectPathRegex = new RegExp(`^/project/(${Object.keys(projectJson).join('|')})/?$`);
 const errorPathRegex = new RegExp(`^/error/(${HTTP_CODE.join('|')})/?$`);
 const publicPath = path.join(__dirname, '../public');
 

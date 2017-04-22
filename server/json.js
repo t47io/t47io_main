@@ -22,7 +22,6 @@ const projectJson = {
   spindle: require('../config/project/spindle.json'),
   ribokit: require('../config/project/ribokit.json'),
   celica: require('../config/project/celica.json'),
-  subtitles: require('../config/project/_subtitles.json'),
 };
 
 const publicPath = path.join(__dirname, '../public');
