@@ -1,22 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import AccessSection from '../components/AccessSection.jsx';
+import DocsSection from '../components/DocsSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
-import Headline from '../components/Headline.jsx';
+import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
+import Headline from '../components/Headline.jsx';
 
 const imgDaslab = require('../images/pm_daslab.jpg');
+
+const featureLength = 5;
+const serverNote = (
+  <p>
+    Internal Site
+    <span className="label PROJECT__label--red">not</span>
+    accessible to <u>public</u>
+    (<span className="label PROJECT__label--blue">WebAuth</span> gated).
+  </p>
+);
+const demoNote = (
+  <p>
+    Internal Site with
+    <span className="label PROJECT__label--green">mock-up</span>
+    data for <u>public</u> view.
+  </p>
+);
 
 
 const DaslabPage = ({
   project,
   title,
   description,
+  urls,
+  docs,
   carousels,
   lists,
-  subtitles,
 }) => {
-  if (!title || carousels.length !== 5 || lists.length !== 5) {
+  if (!title || carousels.length !== featureLength || lists.length !== featureLength) {
     return null;
   }
 
@@ -27,18 +48,33 @@ const DaslabPage = ({
         description={description}
         image={imgDaslab}
       />
+      <AccessSection
+        key="top"
+        repoUrl={urls.repo}
+        serverUrl={urls.server}
+        demoUrl={urls.demo}
+        serverNote={serverNote}
+        demoNote={demoNote}
+      />
       <FeatureSection
         project={project}
-        title={subtitles.features.title}
-        icon={subtitles.features.icon}
         carousels={carousels}
         lists={lists}
       />
-      {/* <Headline
-            title={subtitles.access.title}
-            icon={subtitles.access.icon}
-          />
-      */}
+      <GithubSection />
+      <DocsSection
+        labels={docs}
+        urls={[`${urls.repo}wiki/`, `${urls.demo}admin/ref/`]}
+        joinWord=", or inside "
+      />
+      <AccessSection
+        key="bottom"
+        repoUrl={urls.repo}
+        serverUrl={urls.server}
+        demoUrl={urls.demo}
+        serverNote={serverNote}
+        demoNote={demoNote}
+      />
     </div>
   );
 };
@@ -47,34 +83,31 @@ DaslabPage.propTypes = {
   project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
+  urls: React.PropTypes.shape({
+    repo: React.PropTypes.string,
+    server: React.PropTypes.string,
+    demo: React.PropTypes.string,
+  }),
+  docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
-  subtitles: React.PropTypes.shape({
-    story: React.PropTypes.shape({
-      title: React.PropTypes.string,
-      icon: React.PropTypes.string,
-    }),
-  }),
 };
 DaslabPage.defaultProps = {
   project: '',
   title: '',
   description: '',
+  urls: {
+    repo: '',
+    server: '',
+    demo: '',
+  },
+  docs: [],
   carousels: [],
   lists: [],
-  subtitles: {
-    story: {
-      title: '',
-      icon: '',
-    },
-  },
 };
 
 
-const mapStateToProps = state => ({
-  ...state.daslab,
-  subtitles: state.subtitles,
-});
+const mapStateToProps = state => (state.daslab);
 const mapDispatchToProps = null;
 
 

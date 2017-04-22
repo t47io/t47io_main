@@ -6,6 +6,8 @@ import TitleSection from '../components/TitleSection.jsx';
 
 const imgCelica = require('../images/pm_celica.jpg');
 
+const featureLength = 3;
+
 
 const CelicaPage = ({
   project,
@@ -13,9 +15,8 @@ const CelicaPage = ({
   description,
   carousels,
   lists,
-  subtitles,
 }) => {
-  if (!title || carousels.length !== 3 || lists.length !== 3) {
+  if (!title || carousels.length !== featureLength || lists.length !== featureLength) {
     return null;
   }
 
@@ -28,10 +29,9 @@ const CelicaPage = ({
       />
       <FeatureSection
         project={project}
-        title={subtitles.story.title}
-        icon={subtitles.story.icon}
         carousels={carousels}
         lists={lists}
+        isStory
       />
     </div>
   );
@@ -43,12 +43,6 @@ CelicaPage.propTypes = {
   description: React.PropTypes.string,
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
-  subtitles: React.PropTypes.shape({
-    story: React.PropTypes.shape({
-      title: React.PropTypes.string,
-      icon: React.PropTypes.string,
-    }),
-  }),
 };
 CelicaPage.defaultProps = {
   project: '',
@@ -56,19 +50,10 @@ CelicaPage.defaultProps = {
   description: '',
   carousels: [],
   lists: [],
-  subtitles: {
-    story: {
-      title: '',
-      icon: '',
-    },
-  },
 };
 
 
-const mapStateToProps = state => ({
-  ...state.celica,
-  subtitles: state.subtitles,
-});
+const mapStateToProps = state => (state.celica);
 const mapDispatchToProps = null;
 
 
