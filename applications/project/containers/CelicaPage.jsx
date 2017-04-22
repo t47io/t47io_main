@@ -6,8 +6,6 @@ import TitleSection from '../components/TitleSection.jsx';
 
 const imgCelica = require('../images/pm_celica.jpg');
 
-const featureLength = 3;
-
 
 const CelicaPage = ({
   project,
@@ -16,9 +14,7 @@ const CelicaPage = ({
   carousels,
   lists,
 }) => {
-  if (!title || carousels.length !== featureLength || lists.length !== featureLength) {
-    return null;
-  }
+  if (!title) { return null; }
 
   return (
     <div className="PROJECT__body">

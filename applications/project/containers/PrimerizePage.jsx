@@ -9,8 +9,6 @@ import TitleSection from '../components/TitleSection.jsx';
 
 const imgPrimerize = require('../images/pm_primerize.jpg');
 
-const featureLength = 3;
-
 
 const PrimerizePage = ({
   project,
@@ -21,9 +19,7 @@ const PrimerizePage = ({
   carousels,
   lists,
 }) => {
-  if (!title || carousels.length !== featureLength || lists.length !== featureLength) {
-    return null;
-  }
+  if (!title) { return null; }
 
   return (
     <div className="PROJECT__body">

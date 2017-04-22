@@ -20,8 +20,8 @@ const AccessSection = ({
         />
       </div>
     </div>
-    <div className="row">
-      {repoUrl && (
+    {repoUrl && (
+      <div className="row">
         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <UrlLabel
             url={repoUrl}
@@ -29,9 +29,9 @@ const AccessSection = ({
             className="purple"
           />
         </div>
-      )}
-    </div>
-    {demoUrl ? (
+      </div>
+    )}
+    {demoUrl && (
       <div className="row">
         <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <UrlLabel
@@ -52,7 +52,8 @@ const AccessSection = ({
           {demoNote}
         </div>
       </div>
-    ) : (
+    )}
+    {serverUrl && (
       <div className="row">
         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <UrlLabel

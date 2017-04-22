@@ -2,20 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AccessSection from '../components/AccessSection.jsx';
-import DocsSection from '../components/DocsSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
-import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-const imgRmdb = require('../images/pm_rmdb.jpg');
+const imgSpindle = require('../images/pm_spindle.jpg');
 
 
-const RmdbPage = ({
+const SpindlePage = ({
   project,
   title,
   description,
   urls,
-  docs,
   carousels,
   lists,
 }) => {
@@ -26,65 +23,52 @@ const RmdbPage = ({
       <TitleSection
         title={title}
         description={description}
-        image={imgRmdb}
+        image={imgSpindle}
       />
       <AccessSection
         key="top"
         repoUrl={urls.repo}
-        serverUrl={urls.server}
       />
       <FeatureSection
         project={project}
         carousels={carousels}
         lists={lists}
       />
-      <GithubSection />
-      <DocsSection
-        labels={docs}
-        urls={[urls.manual, `${urls.repo}wiki/`]}
-      />
       <AccessSection
         key="bottom"
         repoUrl={urls.repo}
-        serverUrl={urls.server}
       />
     </div>
   );
 };
 
-RmdbPage.propTypes = {
+SpindlePage.propTypes = {
   project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   urls: React.PropTypes.shape({
     repo: React.PropTypes.string,
-    server: React.PropTypes.string,
-    manual: React.PropTypes.string,
   }),
-  docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
 };
-RmdbPage.defaultProps = {
+SpindlePage.defaultProps = {
   project: '',
   title: '',
   description: '',
   urls: {
     repo: '',
-    server: '',
-    manual: '',
   },
-  docs: [],
   carousels: [],
   lists: [],
 };
 
 
-const mapStateToProps = state => (state.rmdb);
+const mapStateToProps = state => (state.spindle);
 const mapDispatchToProps = null;
 
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(RmdbPage);
+)(SpindlePage);

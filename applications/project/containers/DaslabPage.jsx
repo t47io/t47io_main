@@ -9,7 +9,6 @@ import TitleSection from '../components/TitleSection.jsx';
 
 const imgDaslab = require('../images/pm_daslab.jpg');
 
-const featureLength = 5;
 const serverNote = (
   <p>
     Internal Site
@@ -36,9 +35,7 @@ const DaslabPage = ({
   carousels,
   lists,
 }) => {
-  if (!title || carousels.length !== featureLength || lists.length !== featureLength) {
-    return null;
-  }
+  if (!title) { return null; }
 
   return (
     <div className="PROJECT__body">

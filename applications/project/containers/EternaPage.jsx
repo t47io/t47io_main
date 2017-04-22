@@ -7,7 +7,6 @@ import TitleSection from '../components/TitleSection.jsx';
 
 const imgEterna = require('../images/pm_eterna.jpg');
 
-const featureLength = 2;
 const serverNote = (
   <p>
     Brower page
@@ -33,9 +32,7 @@ const EternaPage = ({
   carousels,
   lists,
 }) => {
-  if (!title || carousels.length !== featureLength || lists.length !== featureLength) {
-    return null;
-  }
+  if (!title) { return null; }
 
   return (
     <div className="PROJECT__body">
@@ -73,7 +70,7 @@ EternaPage.propTypes = {
   description: React.PropTypes.string,
   urls: React.PropTypes.shape({
     server: React.PropTypes.string,
-    manual: React.PropTypes.string,
+    demo: React.PropTypes.string,
   }),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
@@ -84,7 +81,7 @@ EternaPage.defaultProps = {
   description: '',
   urls: {
     server: '',
-    manual: '',
+    demo: '',
   },
   carousels: [],
   lists: [],
