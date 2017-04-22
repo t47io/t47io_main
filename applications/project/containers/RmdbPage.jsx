@@ -6,9 +6,8 @@ import DocsSection from '../components/DocsSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
-import Headline from '../components/Headline.jsx';
 
-const imgPrimerize = require('../images/pm_rmdb.jpg');
+const imgRmdb = require('../images/pm_rmdb.jpg');
 
 const featureLength = 3;
 
@@ -31,7 +30,7 @@ const RmdbPage = ({
       <TitleSection
         title={title}
         description={description}
-        image={imgPrimerize}
+        image={imgRmdb}
       />
       <AccessSection
         key="top"

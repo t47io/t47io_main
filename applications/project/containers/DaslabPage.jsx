@@ -6,7 +6,6 @@ import DocsSection from '../components/DocsSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
-import Headline from '../components/Headline.jsx';
 
 const imgDaslab = require('../images/pm_daslab.jpg');
 

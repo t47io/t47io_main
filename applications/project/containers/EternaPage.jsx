@@ -2,22 +2,34 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AccessSection from '../components/AccessSection.jsx';
-import DocsSection from '../components/DocsSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
-import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-const imgPrimerize = require('../images/pm_primerize.jpg');
+const imgEterna = require('../images/pm_eterna.jpg');
 
-const featureLength = 3;
+const featureLength = 2;
+const serverNote = (
+  <p>
+    Brower page
+    <span className="label PROJECT__label--red">only</span>
+    accessible to <u>community</u>
+    (requires <span className="label PROJECT__label--blue">login</span>).
+  </p>
+);
+const demoNote = (
+  <p>
+    Prototype with
+    <span className="label PROJECT__label--green">static</span>
+    data for <u>public</u> view.
+  </p>
+);
 
 
-const PrimerizePage = ({
+const EternaPage = ({
   project,
   title,
   description,
   urls,
-  docs,
   carousels,
   lists,
 }) => {
@@ -30,65 +42,60 @@ const PrimerizePage = ({
       <TitleSection
         title={title}
         description={description}
-        image={imgPrimerize}
+        image={imgEterna}
       />
       <AccessSection
         key="top"
-        repoUrl={urls.repo}
         serverUrl={urls.server}
+        demoUrl={urls.demo}
+        serverNote={serverNote}
+        demoNote={demoNote}
       />
       <FeatureSection
         project={project}
         carousels={carousels}
         lists={lists}
       />
-      <GithubSection />
-      <DocsSection
-        labels={docs}
-        urls={[urls.manual, `${urls.repo}wiki/`]}
-      />
       <AccessSection
         key="bottom"
-        repoUrl={urls.repo}
         serverUrl={urls.server}
+        demoUrl={urls.demo}
+        serverNote={serverNote}
+        demoNote={demoNote}
       />
     </div>
   );
 };
 
-PrimerizePage.propTypes = {
+EternaPage.propTypes = {
   project: React.PropTypes.string,
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   urls: React.PropTypes.shape({
-    repo: React.PropTypes.string,
     server: React.PropTypes.string,
     manual: React.PropTypes.string,
   }),
-  docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
 };
-PrimerizePage.defaultProps = {
+EternaPage.defaultProps = {
   project: '',
   title: '',
   description: '',
   urls: {
-    repo: '',
     server: '',
     manual: '',
   },
-  docs: [],
   carousels: [],
   lists: [],
 };
 
 
-const mapStateToProps = state => (state.primerize);
+const mapStateToProps = state => (state.eterna);
 const mapDispatchToProps = null;
 
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PrimerizePage);
+)(EternaPage);
