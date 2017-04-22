@@ -29,8 +29,7 @@ const PrimerizePage = ({
       />
       <AccessSection
         key="top"
-        repoUrl={urls.repo}
-        serverUrl={urls.server}
+        urls={urls}
       />
       <FeatureSection
         project="primerize"
@@ -44,8 +43,7 @@ const PrimerizePage = ({
       />
       <AccessSection
         key="bottom"
-        repoUrl={urls.repo}
-        serverUrl={urls.server}
+        urls={urls}
       />
     </div>
   );

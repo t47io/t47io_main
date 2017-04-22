@@ -7,21 +7,23 @@ import TitleSection from '../components/TitleSection.jsx';
 
 const imgEterna = require('../images/pm_eterna.jpg');
 
-const serverNote = (
-  <p>
-    Brower page
-    <span className="label PROJECT__label--red">only</span>
-    accessible to <u>community</u>
-    (requires <span className="label PROJECT__label--blue">login</span>).
-  </p>
-);
-const demoNote = (
-  <p>
-    Prototype with
-    <span className="label PROJECT__label--green">static</span>
-    data for <u>public</u> view.
-  </p>
-);
+const notes = {
+  server: (
+    <p>
+      Brower page
+      <span className="label PROJECT__label--red">only</span>
+      accessible to <u>community</u>
+      (requires <span className="label PROJECT__label--blue">login</span>).
+    </p>
+  ),
+  demo: (
+    <p>
+      Prototype with
+      <span className="label PROJECT__label--green">static</span>
+      data for <u>public</u> view.
+    </p>
+  ),
+};
 
 
 const EternaPage = ({
@@ -42,10 +44,8 @@ const EternaPage = ({
       />
       <AccessSection
         key="top"
-        serverUrl={urls.server}
-        demoUrl={urls.demo}
-        serverNote={serverNote}
-        demoNote={demoNote}
+        urls={urls}
+        notes={notes}
       />
       <FeatureSection
         project="eterna"
@@ -54,10 +54,8 @@ const EternaPage = ({
       />
       <AccessSection
         key="bottom"
-        serverUrl={urls.server}
-        demoUrl={urls.demo}
-        serverNote={serverNote}
-        demoNote={demoNote}
+        urls={urls}
+        notes={notes}
       />
     </div>
   );

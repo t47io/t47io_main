@@ -26,7 +26,7 @@ const SpindlePage = ({
       />
       <AccessSection
         key="top"
-        repoUrl={urls.repo}
+        urls={urls}
       />
       <FeatureSection
         project="spindle"
@@ -35,7 +35,7 @@ const SpindlePage = ({
       />
       <AccessSection
         key="bottom"
-        repoUrl={urls.repo}
+        urls={urls}
       />
     </div>
   );

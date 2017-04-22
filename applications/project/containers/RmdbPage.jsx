@@ -29,8 +29,7 @@ const RmdbPage = ({
       />
       <AccessSection
         key="top"
-        repoUrl={urls.repo}
-        serverUrl={urls.server}
+        urls={urls}
       />
       <FeatureSection
         project="rmdb"
@@ -44,8 +43,7 @@ const RmdbPage = ({
       />
       <AccessSection
         key="bottom"
-        repoUrl={urls.repo}
-        serverUrl={urls.server}
+        urls={urls}
       />
     </div>
   );

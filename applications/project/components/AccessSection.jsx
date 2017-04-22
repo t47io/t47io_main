@@ -1,14 +1,14 @@
 import React from 'react';
 
+import AccessLinks from './AccessLinks.jsx';
 import Headline from './Headline.jsx';
 import UrlLabel from './UrlLabel.jsx';
 
+
 const AccessSection = ({
-  repoUrl,
-  serverUrl,
-  demoUrl,
-  serverNote,
-  demoNote,
+  urls,
+  notes,
+  isUrlList,
 }) => (
   <div className="text-center">
     <div className="row">
@@ -20,67 +20,53 @@ const AccessSection = ({
         />
       </div>
     </div>
-    {repoUrl && (
+    {urls.repo && (
       <div className="row">
         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <UrlLabel
-            url={repoUrl}
+            url={urls.repo}
             label="Repository"
             className="purple"
           />
         </div>
       </div>
     )}
-    {demoUrl && (
-      <div className="row">
-        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <UrlLabel
-            url={serverUrl}
-            label="Production"
-            isOneLine={false}
-            className="yellow"
-          />
-          {serverNote}
-        </div>
-        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <UrlLabel
-            url={demoUrl}
-            label="Demonstration"
-            isOneLine={false}
-            className="gray"
-          />
-          {demoNote}
-        </div>
-      </div>
-    )}
-    {serverUrl && (
-      <div className="row">
-        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <UrlLabel
-            url={serverUrl}
-            label="Production"
-            className="yellow"
-          />
-          {serverNote}
-        </div>
-      </div>
-    )}
+    <AccessLinks
+      urls={urls}
+      notes={notes}
+      isUrlList={isUrlList}
+    />
   </div>
 );
 
 AccessSection.propTypes = {
-  repoUrl: React.PropTypes.string,
-  serverUrl: React.PropTypes.string,
-  demoUrl: React.PropTypes.string,
-  serverNote: React.PropTypes.node,
-  demoNote: React.PropTypes.node,
+  urls: React.PropTypes.shape({
+    repo: React.PropTypes.string,
+    server: React.PropTypes.oneOfType([
+      React.PropTypes.arrayOf(React.PropTypes.string),
+      React.PropTypes.string,
+    ]),
+    demo: React.PropTypes.string,
+    theme: React.PropTypes.arrayOf(React.PropTypes.string),
+  }),
+  notes: React.PropTypes.shape({
+    server: React.PropTypes.node,
+    demo: React.PropTypes.node,
+  }),
+  isUrlList: React.PropTypes.bool,
 };
 AccessSection.defaultProps = {
-  repoUrl: '',
-  serverUrl: '',
-  demoUrl: '',
-  serverNote: '',
-  demoNote: '',
+  urls: {
+    repo: '',
+    server: '',
+    demo: '',
+    theme: [],
+  },
+  notes: {
+    server: '',
+    demo: '',
+  },
+  isUrlList: false,
 };
 
 

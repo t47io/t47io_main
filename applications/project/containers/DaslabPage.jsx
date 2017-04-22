@@ -9,21 +9,23 @@ import TitleSection from '../components/TitleSection.jsx';
 
 const imgDaslab = require('../images/pm_daslab.jpg');
 
-const serverNote = (
-  <p>
-    Internal Site
-    <span className="label PROJECT__label--red">not</span>
-    accessible to <u>public</u>
-    (<span className="label PROJECT__label--blue">WebAuth</span> gated).
-  </p>
-);
-const demoNote = (
-  <p>
-    Internal Site with
-    <span className="label PROJECT__label--green">mock-up</span>
-    data for <u>public</u> view.
-  </p>
-);
+const notes = {
+  server: (
+    <p>
+      Internal Site
+      <span className="label PROJECT__label--red">not</span>
+      accessible to <u>public</u>
+      (<span className="label PROJECT__label--blue">WebAuth</span> gated).
+    </p>
+  ),
+  demo: (
+    <p>
+      Internal Site with
+      <span className="label PROJECT__label--green">mock-up</span>
+      data for <u>public</u> view.
+    </p>
+  ),
+};
 
 
 const DaslabPage = ({
@@ -45,11 +47,8 @@ const DaslabPage = ({
       />
       <AccessSection
         key="top"
-        repoUrl={urls.repo}
-        serverUrl={urls.server}
-        demoUrl={urls.demo}
-        serverNote={serverNote}
-        demoNote={demoNote}
+        urls={urls}
+        notes={notes}
       />
       <FeatureSection
         project="daslab"
@@ -64,11 +63,8 @@ const DaslabPage = ({
       />
       <AccessSection
         key="bottom"
-        repoUrl={urls.repo}
-        serverUrl={urls.server}
-        demoUrl={urls.demo}
-        serverNote={serverNote}
-        demoNote={demoNote}
+        urls={urls}
+        notes={notes}
       />
     </div>
   );
