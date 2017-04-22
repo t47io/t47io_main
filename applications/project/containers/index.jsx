@@ -9,6 +9,7 @@ import PrimerizePage from './PrimerizePage.jsx';
 import RmdbPage from './RmdbPage.jsx';
 import EternaPage from './EternaPage.jsx';
 import SpindlePage from './SpindlePage.jsx';
+import RibokitPage from './RibokitPage.jsx';
 import CelicaPage from './CelicaPage.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
 
@@ -32,6 +33,7 @@ const Project = ({
       <Location path="/project/rmdb" handler={RmdbPage} />
       <Location path="/project/eterna" handler={EternaPage} />
       <Location path="/project/spindle" handler={SpindlePage} />
+      <Location path="/project/ribokit" handler={RibokitPage} />
       <Location path="/project/celica" handler={CelicaPage} />
     </Locations>
 
