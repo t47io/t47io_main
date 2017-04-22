@@ -3,18 +3,11 @@ import React from 'react';
 import UrlLabel from './UrlLabel.jsx';
 import UrlLabelList from './UrlLabelList.jsx';
 
-
-const labels = {
-  server: 'Production',
-  demo: 'Demonstration',
-  theme: 'Theme',
-};
-const colors = {
-  server: 'yellow',
-  demo: 'gray',
-  theme: 'purple',
-};
-const keys = ['server', 'demo', 'theme'];
+import {
+  LABELS,
+  COLORS,
+  KEYS,
+} from '../constants/labelTypes.js';
 
 
 const AccessLinks = ({
@@ -28,7 +21,7 @@ const AccessLinks = ({
 
   return (
     <div className="row">
-      {keys.map((key) => {
+      {KEYS.map((key) => {
         if (!urls[key]) { return null; }
 
         return (
@@ -36,16 +29,17 @@ const AccessLinks = ({
             {isUrlList ? (
               <UrlLabelList
                 urls={urls[key]}
-                label={labels[key]}
-                className={colors[key]}
+                label={LABELS[key]}
+                className={COLORS[key]}
+                isShortName={key === 'theme'}
               />
             ) : (
               <div>
                 <UrlLabel
                   url={urls[key]}
-                  label={labels[key]}
+                  label={LABELS[key]}
                   isOneLine={!urls.demo}
-                  className={colors[key]}
+                  className={COLORS[key]}
                 />
                 {notes[key]}
               </div>
