@@ -6,6 +6,7 @@ import ReactTooltip from 'react-tooltip';
 
 import DaslabPage from './DaslabPage.jsx';
 import PrimerizePage from './PrimerizePage.jsx';
+import RmdbPage from './RmdbPage.jsx';
 import CelicaPage from './CelicaPage.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
 
@@ -26,6 +27,7 @@ const Project = ({
     <Locations className="container">
       <Location path="/project/daslab" handler={DaslabPage} />
       <Location path="/project/primerize" handler={PrimerizePage} />
+      <Location path="/project/rmdb" handler={RmdbPage} />
       <Location path="/project/celica" handler={CelicaPage} />
     </Locations>
 
