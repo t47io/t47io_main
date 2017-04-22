@@ -22,7 +22,6 @@ const TitleSection = ({
           />
         </a>
       </p>
-      <hr />
     </div>
   </div>
 );
