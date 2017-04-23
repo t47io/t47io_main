@@ -7,7 +7,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-const imgPrimerize = require('../images/pm_primerize.jpg');
+import { imgPrimerize } from '../components/TitleImages.js';
 
 
 const PrimerizePage = ({

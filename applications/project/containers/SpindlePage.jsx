@@ -5,7 +5,7 @@ import AccessSection from '../components/AccessSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-const imgSpindle = require('../images/pm_spindle.jpg');
+import { imgSpindle } from '../components/TitleImages.js';
 
 
 const SpindlePage = ({

@@ -7,7 +7,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-const imgRibokit = require('../images/pm_ribokit.jpg');
+import { imgRibokit } from '../components/TitleImages.js';
 
 
 const RibokitPage = ({

@@ -6,7 +6,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { eternaNotes } from '../components/AccessNotes.jsx';
-const imgEterna = require('../images/pm_eterna.jpg');
+import { imgEterna } from '../components/TitleImages.js';
 
 
 const EternaPage = ({

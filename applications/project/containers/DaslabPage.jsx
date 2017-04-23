@@ -8,7 +8,7 @@ import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { daslabNotes } from '../components/AccessNotes.jsx';
-const imgDaslab = require('../images/pm_daslab.jpg');
+import { imgDaslab } from '../components/TitleImages.js';
 
 
 const DaslabPage = ({

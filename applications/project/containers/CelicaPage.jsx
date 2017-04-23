@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-const imgCelica = require('../images/pm_celica.jpg');
+import { imgCelica } from '../components/TitleImages.js';
 
 
 const CelicaPage = ({
