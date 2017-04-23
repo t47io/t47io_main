@@ -1,6 +1,7 @@
 import React from 'react';
 
 import DropdownItem from './DropdownItem.jsx';
+import { PORTFOLIO } from '../../main/constants/sectionTypes.js';
 
 
 const NavbarItem = ({
@@ -9,16 +10,15 @@ const NavbarItem = ({
   isActive,
   onClick,
 }) => {
-  const isDropdown = (dropdown.length);
+  const isDropdown = (dropdown.length > 0);
+  const dropdownClassName = isDropdown ? 'dropdown' : '';
   const activeClassName = isActive ? 'active' : '';
-  const hrefObj = isDropdown ? {
-    href: isActive ? '#' : '/',
-  } : {
-    onClick,
+  const hrefObj = !isDropdown ? { onClick } : {
+    href: (isActive ? `/#${PORTFOLIO}__section` : '/'),
   };
 
   return (
-    <li className={`COMMON__navbar-item ${activeClassName}`}>
+    <li className={`COMMON__navbar-item ${activeClassName} ${dropdownClassName}`}>
       <a
         className="COMMON__navbar-link"
         {...hrefObj}

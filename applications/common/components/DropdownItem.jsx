@@ -1,25 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-component';
+import { Link } from 'preact-router';
 
 
-const DropdownItem = ({
-  item,
-}) => (
+const DropdownItem = ({ title }) => (
   <li className="">
     <Link
-      href={`/project/${item}`}
+      href={`/project/${title}`}
       activeClassName="active"
     >
-      {item}
+      {title}
     </Link>
   </li>
 );
 
 DropdownItem.propTypes = {
-  item: React.PropTypes.string,
+  title: React.PropTypes.string,
 };
 DropdownItem.defaultProps = {
-  item: '',
+  title: '',
 };
 
 

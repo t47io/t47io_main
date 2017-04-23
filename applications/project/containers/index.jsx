@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {
-  Location,
-  Locations,
-} from 'react-router-component';
 import ReactTooltip from 'react-tooltip';
+import {
+  Route,
+  Router,
+} from 'preact-router';
 
 import DaslabPage from './DaslabPage.jsx';
 import PrimerizePage from './PrimerizePage.jsx';
@@ -31,25 +31,18 @@ const Project = ({
   <div id="HOME__section">
     <Navbar />
 
-    <Locations
-      className="container"
-      onBeforeNavigation={(path, navigation, match) => {
-        console.error(path, navigation, match);
-        return true;
-      }}
-      onNavigation={(path, navigation, match) => {
-        console.error(path, navigation, match);
-      }}
-    >
-      <Location path="/project/daslab" handler={DaslabPage} />
-      <Location path="/project/primerize" handler={PrimerizePage} />
-      <Location path="/project/rmdb" handler={RmdbPage} />
-      <Location path="/project/eterna" handler={EternaPage} />
-      <Location path="/project/hitrace" handler={HitracePage} />
-      <Location path="/project/spindle" handler={SpindlePage} />
-      <Location path="/project/ribokit" handler={RibokitPage} />
-      <Location path="/project/celica" handler={CelicaPage} />
-    </Locations>
+    <div className="container">
+      <Router>
+        <Route component={DaslabPage} path="/project/daslab" />
+        <Route component={PrimerizePage} path="/project/primerize" />
+        <Route component={RmdbPage} path="/project/rmdb" />
+        <Route component={EternaPage} path="/project/eterna" />
+        <Route component={HitracePage} path="/project/hitrace" />
+        <Route component={SpindlePage} path="/project/spindle" />
+        <Route component={RibokitPage} path="/project/ribokit" />
+        <Route component={CelicaPage} path="/project/celica" />
+      </Router>
+    </div>
 
     <ReactTooltip effect="solid" place="top" id="PROJECT__tooltip" />
     <ScrollTop
