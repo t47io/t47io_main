@@ -1,15 +1,35 @@
 {
   "citations": {
-    "pubs_id_1": null,
-    "pubs_id_2": "100",
-    "pubs_id_3": "50 (+20)"
+    "2017_Tian_eLife": null,
+    "2017_Chen_Science": null,
+    "2017_Hagey_NatMed": null,
+    "2017_Miao_RNA": "2",
+    "2017_Tian_Bioinformatics": null,
+    "2016_Tian_QRB": "5",
+    "2015_Cheng_eLife": "18",
+    "2015_Tian_NAR": "4",
+    "2015_Lee_Bioinfomatics": "1",
+    "2015_Miao_RNA": "47 (+1)",
+    "2015_Xue_Nature": "64",
+    "2014_Tian_RNA": "17",
+    "2014_Kladwang_Biochemistry": "23",
+    "2013_Shi_NewPhytol": "15"
   },
   "gitContrib": {
-    "total": "100 (-20)",
-    "lastWeek": []
+    "total": "2117 (+102)",
+    "lastWeek": [
+      6,
+      15,
+      14,
+      19,
+      22,
+      24,
+      6
+    ]
   },
   "https": {
-    "t47.io": "",
-    "test.t47.io": ""
+    "t47.io": "2017-01-01T00:00:00.000Z",
+    "demo.t47.io": "2017-01-01T00:00:00.000Z",
+    "data.t47.io": "2017-01-01T00:00:00.000Z"
   }
 }

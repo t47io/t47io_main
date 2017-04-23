@@ -1,20 +1,13 @@
 {
-    "email": {
-        "host":      "host.domain",
-        "protocol":  "smtp",
-        "port":      "587",
-        "login":     "user@domain",
-        "password":  "secret"
-
-    "gaTracker":  "UA-uid-n",
-    "gitToken":   "access_token",
-
-    "gitRepo": {
-        "alias1":     "org1/repo1",
-        "alias2":     "org1/repo2",
-        "alias3":     "org2/repo1"
-    },
-
-    "port":        8000,
-    "DEBUG":       false
+  "email": {
+    "host": "smtp.gmail.com",
+    "protocol": "smtps",
+    "port": "465",
+    "login": "contact@t47.io",
+    "password": "root"
+  },
+  "gaTracker": "UA-12345678-9",
+  "gitToken": "1234567890abcdef1234567890abcdef12345678",
+  "port": 8000,
+  "DEBUG": true
 }
