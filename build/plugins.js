@@ -13,6 +13,7 @@ import path from 'path';
 import {
   indexPage,
   errorPage,
+  cubeLoading,
   helixLoading,
   googleAnalytics,
   htmlMinify,
@@ -46,6 +47,7 @@ const plugins = (DEBUG) => {
       minify: htmlMinify,
 
       ...indexPage,
+      cubeLoading,
       googleAnalytics,
     }),
     new HtmlWebpackPlugin({

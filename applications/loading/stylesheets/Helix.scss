@@ -1,5 +1,7 @@
 @import '../../common/mixins/media';
-@import './util';
+@import '../../common/mixins/palette';
+@import '../../common/mixins/prefix';
+
 
 .LOAD__logo svg {
   width: 25rem;
@@ -37,9 +39,40 @@
   .LOAD__helix { width: 36rem; }
 }
 
+
+@include keyframes(dna_rotate) {
+  $i: 0;
+  @while $i <= 100 {
+    #{$i}% {
+      opacity: 1;
+      @if $i % 100 == 0 {
+        top: 20%;
+        z-index: 0;
+        @include transform(scale(1));
+      }
+      @else if $i % 50 == 0 {
+        top: 60%;
+        z-index: 1;
+        @include transform(scale(1));
+      }
+      @else if $i == 25 {
+        @include transform(scale(1.8));
+      }
+      @else {
+        @include transform(scale(0.5));
+      }
+    }
+    $i: $i + 25;
+  }
+}
+
+
+$list-clr: $colorGray, $colorGreen, $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGreen, $colorGray, $colorCyan, $colorRed, $colorPurple, $colorYellow;
+
 $time: 2s;
 $delay: 0.1s;
 $padding: 4%;
+
 @mixin animation($val, $off) {
   -webkit-animation: dna_rotate #{$time $val * $delay + $off + 1s} infinite ease-in-out;
   animation: dna_rotate $time #{$val * $delay + $off} infinite ease-in-out;

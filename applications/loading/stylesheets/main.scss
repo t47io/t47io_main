@@ -1,4 +1,7 @@
-@import './HelixLoading';
+@import '../../common/mixins/palette';
+@import '../../common/mixins/prefix';
+
+@import './Helix';
 @import './LoadingLayout';
 @import './LoadingBackground';
 

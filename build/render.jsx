@@ -1,11 +1,11 @@
-import fs from 'fs';
 import sass from 'node-sass';
 import path from 'path';
 
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import HelixLoading from '../applications/loading/components/HelixLoading.jsx';
+import Cube from '../applications/loading/components/Cube.jsx';
+import Helix from '../applications/loading/components/Helix.jsx';
 
 const env = require('../config/server.json');
 
@@ -18,16 +18,19 @@ const htmlMinify = {
   useShortDoctype: true,
 };
 
-const helixLoading = {
+const cubeLoading = {
   CSS: sass.renderSync({
-    file: path.join(__dirname, '../applications/loading/stylesheets/index.scss'),
+    file: path.join(__dirname, '../applications/loading/stylesheets/project.scss'),
     outputStyle: 'compressed',
   }).css.toString(),
-  HTML: renderToStaticMarkup(
-    <HelixLoading
-      logo={fs.readFileSync('./applications/common/images/t47_logo_alt.svg', 'utf8')}
-    />
-  ),
+  HTML: renderToStaticMarkup(<Cube />),
+};
+const helixLoading = {
+  CSS: sass.renderSync({
+    file: path.join(__dirname, '../applications/loading/stylesheets/main.scss'),
+    outputStyle: 'compressed',
+  }).css.toString(),
+  HTML: renderToStaticMarkup(<Helix />),
 };
 
 
@@ -78,6 +81,7 @@ const errorPage = {
 export {
   indexPage,
   errorPage,
+  cubeLoading,
   helixLoading,
   googleAnalytics,
   htmlMinify,

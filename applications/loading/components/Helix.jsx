@@ -1,10 +1,11 @@
 import React from 'react';
+
 import LogoAlt from '../../common/components/LogoAlt.jsx';
 
-// import '../stylesheets/HelixLoading.scss';
+// import '../stylesheets/Helix.scss';
 
 
-const HelixLoading = () => (
+const Helix = () => (
   <div className="LOAD__container UTIL__image-RNA">
     <div className="LOAD__content">
       <LogoAlt
@@ -24,4 +25,4 @@ const HelixLoading = () => (
 );
 
 
-export default HelixLoading;
+export default Helix;

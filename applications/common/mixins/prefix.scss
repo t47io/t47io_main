@@ -10,6 +10,11 @@
   transform: $val;
 }
 
+@mixin transform_style($val) {
+  -webkit-transform-style: $val;
+  transform-style: $val;
+}
+
 @mixin flex {
   display: -webkit-flex;
   display: -webkit-box;

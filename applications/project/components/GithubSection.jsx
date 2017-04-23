@@ -4,7 +4,7 @@ import Headline from './Headline.jsx';
 
 
 const GithubSection = ({
-  
+  title,
 }) => (
   <div className="row">
     <hr />
@@ -13,16 +13,17 @@ const GithubSection = ({
         title="Repository"
         icon="fork"
       />
+      {title}
     </div>
   </div>
 
 );
 
 GithubSection.propTypes = {
-  
+  title: React.PropTypes.string,
 };
 GithubSection.defaultProps = {
-  
+  title: '',
 };
 
 
