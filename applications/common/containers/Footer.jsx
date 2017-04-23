@@ -6,6 +6,12 @@ import LogoAlt from '../components/LogoAlt.jsx';
 import Trigger from '../components/Trigger.jsx';
 import WebAnimation from '../components/WebAnimation.jsx';
 
+import {
+  imgSFO,
+  imgSEA,
+  imgSrcSetSFO,
+  imgSrcSetSEA,
+} from '../components/FooterImages.js';
 import * as footerActions from '../../common/actions/footerActions.js';
 import {
   FOOTER_LEFT,
@@ -18,18 +24,6 @@ import {
 
 import '../stylesheets/Footer.scss';
 
-const imgSFO = {
-  '1x': require('../images/fg_city_sfo.gif'),
-  '1.5x': require('../images/fg_city_sfo@1.5x.gif'),
-  '2x': require('../images/fg_city_sfo@2x.gif'),
-  '3x': require('../images/fg_city_sfo@3x.gif'),
-};
-const imgSEA = {
-  '1x': require('../images/fg_city_sea.gif'),
-  '1.5x': require('../images/fg_city_sea@1.5x.gif'),
-  '2x': require('../images/fg_city_sea@2x.gif'),
-  '3x': require('../images/fg_city_sea@3x.gif'),
-};
 const year = new Date().getFullYear();
 
 
@@ -53,13 +47,8 @@ const Footer = ({
           className="FOOTER__city-gif"
           alt="Minimal City SFO"
           width="128" height="96"
-          src={imgSFO['1x']}
-          srcSet={`
-            ${imgSFO['1x']} 1x,
-            ${imgSFO['1.5x']} 1.5x,
-            ${imgSFO['2x']} 2x,
-            ${imgSFO['3x']} 3x
-          `}
+          src={imgSFO}
+          srcSet={imgSrcSetSFO}
         />
       </a>
     </WebAnimation>
@@ -76,7 +65,6 @@ const Footer = ({
         Designed, built & managed by
         <LogoAlt
           href="mailto:contact@t47.io"
-          target="_blank" rel="noopener noreferrer external"
           className="COMMON__footer_logo green-transparent"
         />
         . All rights reserverd.
@@ -115,13 +103,8 @@ const Footer = ({
           className="FOOTER__city-gif"
           alt="Minimal City SEA"
           width="128" height="96"
-          src={imgSEA['1x']}
-          srcSet={`
-            ${imgSEA['1x']} 1x,
-            ${imgSEA['1.5x']} 1.5x,
-            ${imgSEA['2x']} 2x,
-            ${imgSEA['3x']} 3x
-          `}
+          src={imgSEA}
+          srcSet={imgSrcSetSEA}
         />
       </a>
     </WebAnimation>

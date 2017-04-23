@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import NavbarItem from '../components/NavbarItem.jsx';
 import Logo from '../components/Logo.jsx';
+import NavbarItem from '../components/NavbarItem.jsx';
 
 import * as navbarActions from '../actions/navbarActions.js';
 import { HOME } from '../../main/constants/sectionTypes.js';
@@ -41,7 +41,11 @@ const Navbar = ({
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Logo href="/" className={`COMMON__navbar-logo ${logoClassName}`} />
+          <Logo
+            href="/"
+            isTargetBlank={false}
+            className={`COMMON__navbar-logo ${logoClassName}`}
+          />
         </div>
 
         <div className={`COMMON__navbar--collapse navbar-collapse ${collapseClassName}`} >
