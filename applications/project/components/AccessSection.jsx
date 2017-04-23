@@ -9,6 +9,7 @@ const AccessSection = ({
   urls,
   notes,
   isUrlList,
+  isRow,
 }) => (
   <div className="text-center">
     <div className="row">
@@ -35,6 +36,7 @@ const AccessSection = ({
       urls={urls}
       notes={notes}
       isUrlList={isUrlList}
+      isRow={isRow}
     />
   </div>
 );
@@ -54,6 +56,7 @@ AccessSection.propTypes = {
     demo: React.PropTypes.node,
   }),
   isUrlList: React.PropTypes.bool,
+  isRow: React.PropTypes.bool,
 };
 AccessSection.defaultProps = {
   urls: {
@@ -67,6 +70,7 @@ AccessSection.defaultProps = {
     demo: '',
   },
   isUrlList: false,
+  isRow: true,
 };
 
 
