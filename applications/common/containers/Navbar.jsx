@@ -12,7 +12,10 @@ import '../stylesheets/Navbar.scss';
 
 
 const Navbar = ({
-  data: { items },
+  data: {
+    items,
+    dropdown,
+  },
   animations: {
     activeSection,
     isMobileCollapsed,
@@ -54,6 +57,7 @@ const Navbar = ({
               <NavbarItem
                 key={`COMMON__navbar-${i}`}
                 name={item}
+                dropdown={dropdown}
                 isActive={item === activeSection}
                 onClick={() => scrollToSection(item)}
               />
@@ -68,6 +72,7 @@ const Navbar = ({
 Navbar.propTypes = {
   data: React.PropTypes.shape({
     items: React.PropTypes.arrayOf(React.PropTypes.string),
+    dropdown: React.PropTypes.arrayOf(React.PropTypes.string),
   }),
   animations: React.PropTypes.shape({
     activeSection: React.PropTypes.string,
@@ -81,6 +86,7 @@ Navbar.propTypes = {
 Navbar.defaultProps = {
   data: {
     items: [],
+    dropdown: [],
   },
   animations: {
     activeSection: HOME,

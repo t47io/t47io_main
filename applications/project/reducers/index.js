@@ -23,6 +23,16 @@ const initialState = {
         HOME,
         PORTFOLIO,
       ],
+      dropdown: [
+        'daslab',
+        'primerize',
+        'rmdb',
+        'eterna',
+        'hitrace',
+        'spindle',
+        'ribokit',
+        'celica',
+      ],
     },
     animations: {
       activeSection: PORTFOLIO,

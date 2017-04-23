@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Locations, Location } from 'react-router-component';
+import {
+  Location,
+  Locations,
+} from 'react-router-component';
 import ReactTooltip from 'react-tooltip';
 
 import DaslabPage from './DaslabPage.jsx';
@@ -28,7 +31,16 @@ const Project = ({
   <div id="HOME__section">
     <Navbar />
 
-    <Locations className="container">
+    <Locations
+      className="container"
+      onBeforeNavigation={(path, navigation, match) => {
+        console.error(path, navigation, match);
+        return true;
+      }}
+      onNavigation={(path, navigation, match) => {
+        console.error(path, navigation, match);
+      }}
+    >
       <Location path="/project/daslab" handler={DaslabPage} />
       <Location path="/project/primerize" handler={PrimerizePage} />
       <Location path="/project/rmdb" handler={RmdbPage} />
@@ -45,7 +57,7 @@ const Project = ({
       onScrollTop={onScrollTop}
     />
     <hr />
-    <Footer />
+    <Footer disabled />
   </div>
 );
 
