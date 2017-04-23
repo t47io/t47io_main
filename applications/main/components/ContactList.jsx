@@ -3,10 +3,9 @@ import React from 'react';
 import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
+import { imgPhone } from '../components/HomeImages.js';
 import { contactPanel } from '../animations/contact.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
-
-const imgPhone = require('../images/t47_phone.png');
 
 
 const ContactList = ({

@@ -1,18 +1,15 @@
 import React from 'react';
-// import LogoAlt from '../../common/components/LogoAlt.jsx';
+import LogoAlt from '../../common/components/LogoAlt.jsx';
 
 // import '../stylesheets/HelixLoading.scss';
 
 
-const HelixLoading = ({ logo }) => (
+const HelixLoading = () => (
   <div className="LOAD__container UTIL__image-RNA">
     <div className="LOAD__content">
-      {/* <LogoAlt href="mailto:contact@t47.io" target="_blank" rel="noopener noreferrer external" className="LOAD__logo green-white" /> */}
-      <a
+      <LogoAlt
         href="mailto:contact@t47.io"
-        target="_blank" rel="noopener noreferrer external"
         className="LOAD__logo green-white"
-        dangerouslySetInnerHTML={{ __html: logo }}
       />
 
       <div className="row">
@@ -25,13 +22,6 @@ const HelixLoading = ({ logo }) => (
     </div>
   </div>
 );
-
-HelixLoading.propTypes = {
-  logo: React.PropTypes.string,
-};
-HelixLoading.defaultProps = {
-  logo: '',
-};
 
 
 export default HelixLoading;

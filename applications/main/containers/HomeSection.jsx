@@ -6,6 +6,10 @@ import HomeTrigger from '../components/HomeTrigger.jsx';
 import TypeWriter from '../../common/components/TypeWriter.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
+import {
+  imgAvatar,
+  imgName,
+} from '../components/HomeImages.js';
 import * as homeActions from '../actions/homeActions.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 import {
@@ -14,9 +18,6 @@ import {
 } from '../animations/home.js';
 
 import '../stylesheets/HomeSection.scss';
-
-const imgAvatar = require('../images/t47_avatar.jpg');
-const imgName = require('../images/t47_name.png');
 
 const avatarStyle = { backgroundImage: `url(${imgAvatar})` };
 
