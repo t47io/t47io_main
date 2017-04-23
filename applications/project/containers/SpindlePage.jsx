@@ -6,6 +6,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgSpindle } from '../components/TitleImages.js';
+import { SPINDLE } from '../constants/projectTypes.js';
 
 
 const SpindlePage = ({
@@ -29,7 +30,7 @@ const SpindlePage = ({
         urls={urls}
       />
       <FeatureSection
-        project="spindle"
+        project={SPINDLE}
         carousels={carousels}
         lists={lists}
       />
@@ -61,7 +62,7 @@ SpindlePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.spindle);
+const mapStateToProps = state => (state[SPINDLE]);
 const mapDispatchToProps = null;
 
 

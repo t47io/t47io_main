@@ -7,6 +7,7 @@ import TitleSection from '../components/TitleSection.jsx';
 
 import { eternaNotes } from '../components/AccessNotes.jsx';
 import { imgEterna } from '../components/TitleImages.js';
+import { ETERNA } from '../constants/projectTypes.js';
 
 
 const EternaPage = ({
@@ -31,7 +32,7 @@ const EternaPage = ({
         notes={eternaNotes}
       />
       <FeatureSection
-        project="eterna"
+        project={ETERNA}
         carousels={carousels}
         lists={lists}
       />
@@ -66,7 +67,7 @@ EternaPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.eterna);
+const mapStateToProps = state => (state[ETERNA]);
 const mapDispatchToProps = null;
 
 

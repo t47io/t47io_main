@@ -3,17 +3,19 @@ import {
   HOME,
   PORTFOLIO,
 } from '../../main/constants/sectionTypes.js';
+import { PROJECT_LIST } from '../constants/projectTypes.js';
 
 
 const initialState = {
-  daslab: {},
-  primerize: {},
-  rmdb: {},
-  eterna: {},
-  hitrace: {},
-  spindle: {},
-  ribokit: {},
-  celica: {},
+  ...(
+    PROJECT_LIST.map(project => ({
+      [project]: {},
+    }))
+    .reduce((obj, item) => ({
+      ...obj,
+      ...item,
+    }), {})
+  ),
 
   navbar: {
     data: {
@@ -21,16 +23,7 @@ const initialState = {
         HOME,
         PORTFOLIO,
       ],
-      dropdown: [
-        'daslab',
-        'primerize',
-        'rmdb',
-        'eterna',
-        'hitrace',
-        'spindle',
-        'ribokit',
-        'celica',
-      ],
+      dropdown: PROJECT_LIST,
     },
     animations: {
       activeSection: PORTFOLIO,

@@ -5,6 +5,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgCelica } from '../components/TitleImages.js';
+import { CELICA } from '../constants/projectTypes.js';
 
 
 const CelicaPage = ({
@@ -23,7 +24,7 @@ const CelicaPage = ({
         image={imgCelica}
       />
       <FeatureSection
-        project="celica"
+        project={CELICA}
         carousels={carousels}
         lists={lists}
         isStory
@@ -46,7 +47,7 @@ CelicaPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.celica);
+const mapStateToProps = state => (state[CELICA]);
 const mapDispatchToProps = null;
 
 

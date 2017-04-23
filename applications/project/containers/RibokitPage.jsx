@@ -8,6 +8,7 @@ import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgRibokit } from '../components/TitleImages.js';
+import { RIBOKIT } from '../constants/projectTypes.js';
 
 
 const RibokitPage = ({
@@ -77,7 +78,7 @@ RibokitPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.ribokit);
+const mapStateToProps = state => (state[RIBOKIT]);
 const mapDispatchToProps = null;
 
 

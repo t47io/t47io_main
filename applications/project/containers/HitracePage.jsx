@@ -7,8 +7,8 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-import Headline from '../components/Headline.jsx';
 import { imgHitrace } from '../components/TitleImages.js';
+import { HITRACE } from '../constants/projectTypes.js';
 
 
 const HitracePage = ({
@@ -35,7 +35,7 @@ const HitracePage = ({
           isRow={false}
         />
         <FeatureSection
-          project="hitrace"
+          project={HITRACE}
           carousels={carousels}
           lists={lists}
           isRow={false}
@@ -80,7 +80,7 @@ HitracePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.hitrace);
+const mapStateToProps = state => (state[HITRACE]);
 const mapDispatchToProps = null;
 
 

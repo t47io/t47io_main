@@ -8,6 +8,7 @@ import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgRmdb } from '../components/TitleImages.js';
+import { RMDB } from '../constants/projectTypes.js';
 
 
 const RmdbPage = ({
@@ -32,7 +33,7 @@ const RmdbPage = ({
         urls={urls}
       />
       <FeatureSection
-        project="rmdb"
+        project={RMDB}
         carousels={carousels}
         lists={lists}
       />
@@ -75,7 +76,7 @@ RmdbPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.rmdb);
+const mapStateToProps = state => (state[RMDB]);
 const mapDispatchToProps = null;
 
 

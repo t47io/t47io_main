@@ -9,6 +9,7 @@ import TitleSection from '../components/TitleSection.jsx';
 
 import { daslabNotes } from '../components/AccessNotes.jsx';
 import { imgDaslab } from '../components/TitleImages.js';
+import { DASLAB } from '../constants/projectTypes.js';
 
 
 const DaslabPage = ({
@@ -34,7 +35,7 @@ const DaslabPage = ({
         notes={daslabNotes}
       />
       <FeatureSection
-        project="daslab"
+        project={DASLAB}
         carousels={carousels}
         lists={lists}
       />
@@ -79,7 +80,7 @@ DaslabPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.daslab);
+const mapStateToProps = state => (state[DASLAB]);
 const mapDispatchToProps = null;
 
 

@@ -8,6 +8,7 @@ import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgPrimerize } from '../components/TitleImages.js';
+import { PRIMERIZE } from '../constants/projectTypes.js';
 
 
 const PrimerizePage = ({
@@ -32,7 +33,7 @@ const PrimerizePage = ({
         urls={urls}
       />
       <FeatureSection
-        project="primerize"
+        project={PRIMERIZE}
         carousels={carousels}
         lists={lists}
       />
@@ -75,7 +76,7 @@ PrimerizePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.primerize);
+const mapStateToProps = state => (state[PRIMERIZE]);
 const mapDispatchToProps = null;
 
 
