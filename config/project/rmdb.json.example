@@ -1,0 +1,86 @@
+{
+  "title": "RNA Mapping Database",
+  "description": "Academic Data Sharing and Visualization",
+  "urls": {
+    "repo": "https://github.com/t47io/Django-Server-RMDB/",
+    "server": "https://rmdb.stanford.edu/",
+    "manual": "https://hitrace.github.io/RDATKit/"
+  },
+  "docs": [
+    "Package Reference",
+    "Server Admin Manual"
+  ],
+  "carousels": [
+    [
+      {
+        "tag": "heatmap",
+        "label": "D3 Heatmap"
+      },
+      {
+        "tag": "barplot",
+        "label": "D3 Bar Plot"
+      },
+      {
+        "tag": "panel",
+        "label": "Side Panels"
+      },
+      {
+        "tag": "browse",
+        "label": "Browse View"
+      }
+    ],
+    [
+      {
+        "tag": "predict",
+        "label": "Prediction Service"
+      }
+    ],
+    [
+      {
+        "tag": "tool",
+        "label": "RNA Tools Hub"
+      },
+      {
+        "tag": "aws",
+        "label": "AWS Deployment"
+      },
+      {
+        "tag": "logo",
+        "label": "RMDB Logo"
+      }
+    ]
+  ],
+  "lists": [
+    {
+      "title": "Data Visualization",
+      "icon": "chart-bar",
+      "items": [
+        "Inteactive reactivity heatmap using D3.js",
+        "Sliding side panels for clean layout",
+        "Browse by category with view switching"
+      ]
+    },
+    {
+      "title": "Online Tools",
+      "icon": "rocket",
+      "items": [
+        "Prediction server of secondary structure (underway)",
+        "Data sharing API (underway)",
+        "Advanced search for data filtering (underway)"
+      ]
+    },
+    {
+      "title": "Everything Else",
+      "icon": "coffee",
+      "items": [
+        "Central hub for RNA tools",
+        "AWS deployment: EC2 + ELB",
+        "RMDB logo inspired by RNA structure"
+      ]
+    }
+  ],
+  "repos": [
+    "rmdb",
+    "rdatkit"
+  ]
+}

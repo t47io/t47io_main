@@ -1,0 +1,49 @@
+{
+  "title": "Spindle Utility",
+  "description": "Automated Image Selection and Quantitation",
+  "urls": {
+    "repo": "https://github.com/t47io/SpindleUtil"
+  },
+  "carousels": [
+    [
+      {
+        "tag": "manipulate",
+        "label": "Image Manipulation"
+      },
+      {
+        "tag": "browse",
+        "label": "Image Browse"
+      },
+      {
+        "tag": "quantitate",
+        "label": "Data Quantitation"
+      }
+    ],
+    [
+      {
+        "tag": "tracks",
+        "label": "MT Tracks Colored"
+      }
+    ]
+  ],
+  "lists": [
+    {
+      "title": "Spindle Shape Quantitation",
+      "icon": "crop",
+      "items": [
+        "Interactive image selector and rotation, 10x faster than Fiji manually",
+        "Automated fluorescence intensity quantitation and comparison"
+      ]
+    },
+    {
+      "title": "Tracks Classification",
+      "icon": "road",
+      "items": [
+        "Tip-tracking visualizer with classification and color highlighting"
+      ]
+    }
+  ],
+  "repos": [
+    "spindle"
+  ]
+}

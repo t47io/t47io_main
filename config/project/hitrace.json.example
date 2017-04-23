@@ -1,0 +1,81 @@
+{
+  "title": "HiTRACE Graphics",
+  "description": "High-Throughput Data Processing Pipeline and Standardized Graphical Archiving",
+  "urls": {
+    "repo": "https://github.com/hitrace/HiTRACE/",
+    "server": "http://hitrace.org/",
+    "manual": "https://hitrace.github.io/HiTRACE/tutorial/"
+  },
+  "docs": [
+    "Step-by-Step Tutorial"
+  ],
+  "carousels": [
+    [
+      {
+        "tag": "diagram",
+        "label": "Colored Diagram"
+      },
+      {
+        "tag": "color",
+        "label": "Coloring Legend Palette"
+      },
+      {
+        "tag": "box",
+        "label": "Coloring Box Positions"
+      },
+      {
+        "tag": "matrix",
+        "label": "Scoring Matrix"
+      }
+    ],
+    [
+      {
+        "tag": "bootstrap",
+        "label": "Base-pairing Matrix"
+      },
+      {
+        "tag": "varna",
+        "label": "VARNA Structure"
+      },
+      {
+        "tag": "mohca",
+        "label": "MOHCA Proximity Plot"
+      },
+      {
+        "tag": "titration",
+        "label": "Titration Gel"
+      }
+    ]
+  ],
+  "lists": [
+    {
+      "title": "In-House Print-Outs",
+      "icon": "print",
+      "items": [
+        "Multi-page print-out for data analysis",
+        "Smart layout and resizing"
+      ]
+    },
+    {
+      "title": "Secondary Structure Diagram",
+      "icon": "magic",
+      "items": [
+        "Interactive specification of color range and scheme",
+        "Automatic painting based on positional boxes"
+      ]
+    },
+    {
+      "title": "Publication Figures",
+      "icon": "doc-text-inv",
+      "items": [
+        "Vectorized secondary structure with coloring",
+        "Matrix heatmap with highlighting"
+      ]
+    }
+  ],
+  "repos": [
+    "hitrace",
+    "biers",
+    "ribopaint"
+  ]
+}

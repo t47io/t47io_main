@@ -1,0 +1,162 @@
+{
+  "title": "Das Lab Website",
+  "description": "Intricate System for Automated Scheduling and Secure Content Management",
+  "urls": {
+    "repo": "https://github.com/t47io/Django-Server-Daslab/",
+    "prod": "https://daslab.stanford.edu/",
+    "demo": "https://demo.t47.io/"
+  },
+  "docs": [
+    "Server Admin Manual",
+    "Demo"
+  ],
+  "carousels": [
+    [
+      {
+        "tag": "slide",
+        "label": "Meeting Archive"
+      },
+      {
+        "tag": "journal",
+        "label": "Resource Timeline"
+      },
+      {
+        "tag": "contact",
+        "label": "Member Contacts"
+      },
+      {
+        "tag": "calendar",
+        "label": "Shared Calendar"
+      }
+    ],
+    [
+      {
+        "tag": "analytic",
+        "label": "Google Analytics"
+      },
+      {
+        "tag": "aws",
+        "label": "AWS CloudWatch"
+      },
+      {
+        "tag": "github",
+        "label": "GitHub Repository"
+      },
+      {
+        "tag": "version",
+        "label": "Version Console"
+      },
+      {
+        "tag": "slack",
+        "label": "Slack Activity"
+      }
+    ],
+    [
+      {
+        "tag": "meeting",
+        "label": "Meeting Scheduler"
+      },
+      {
+        "tag": "reminder",
+        "label": "Bot Reminders"
+      },
+      {
+        "tag": "config",
+        "label": "Bot Configuration"
+      },
+      {
+        "tag": "backup",
+        "label": "Backup Configuration"
+      }
+    ],
+    [
+      {
+        "tag": "publication",
+        "label": "Publication Database"
+      },
+      {
+        "tag": "export",
+        "label": "Publication Export"
+      },
+      {
+        "tag": "profile",
+        "label": "Profile Database"
+      },
+      {
+        "tag": "webauth",
+        "label": "WebAuth Access"
+      },
+      {
+        "tag": "admin",
+        "label": "Admin Documentation"
+      }
+    ],
+    [
+      {
+        "tag": "500",
+        "label": "Internal Server Error"
+      },
+      {
+        "tag": "404",
+        "label": "Not Found"
+      },
+      {
+        "tag": "401",
+        "label": "Unauthorized"
+      },
+      {
+        "tag": "400",
+        "label": "Bad Request"
+      }
+    ]
+  ],
+  "lists": [
+    {
+      "title": "Group Resources Management",
+      "icon": "box",
+      "items": [
+        "Weekly meeting archive organized in tab-views",
+        "Timeline of events (Journal Club, Rotation Student, etc.)",
+        "Group contact book in name cards",
+        "Shared calendar of scheduling"
+      ]
+    },
+    {
+      "title": "Analytics Dashbord",
+      "icon": "chart-area",
+      "items": [
+        "Group dashboard of vendor services, including GitHub, Slack and Dropbox",
+        "Admin dashboard of server status, including Apache, AWS CloudWatch and Google Analytics",
+        "Admin console of system packge version control"
+      ]
+    },
+    {
+      "title": "Bot Automation",
+      "icon": "sliders",
+      "items": [
+        "Bot for automated weekly meeting setup and Slack notifications",
+        "Full configuration of bot and backup daemon"
+      ]
+    },
+    {
+      "title": "Security & Database",
+      "icon": "lock",
+      "items": [
+        "Bibliography management and easy export",
+        "Access control via WebAuth",
+        "Detailed server admin manual and reference"
+      ]
+    },
+    {
+      "title": "Error Pages",
+      "icon": "fort-awesome",
+      "items": [
+        "Custom HTTP Errors with a mix of RNA puns",
+        "Single page app"
+      ]
+    }
+  ],
+  "repos": [
+    "daslab"
+  ]
+}

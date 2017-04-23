@@ -1,0 +1,117 @@
+{
+  "title": "Project Celica",
+  "description": "DIY Customization Unleashed on My First Car",
+  "subtitles": [
+    "journey"
+  ],
+  "carousels": [
+    [
+      {
+        "tag": "frame",
+        "label": "Strip Interior before Work"
+      },
+      {
+        "tag": "spring",
+        "label": "Lower Shock Struts"
+      },
+      {
+        "tag": "caliper",
+        "label": "DIY Paint Calipers"
+      },
+      {
+        "tag": "palette",
+        "label": "Color Scheme Design"
+      },
+      {
+        "tag": "wheel",
+        "label": "Aftermarket Wide Rims"
+      },
+      {
+        "tag": "wire",
+        "label": "Interior Light Wiring"
+      }
+    ],
+    [
+      {
+        "tag": "bodykit",
+        "label": "Bodykit Wrapped with Vinyl"
+      },
+      {
+        "tag": "drum",
+        "label": "Rear Drum-to-Disc Conversion"
+      },
+      {
+        "tag": "radio",
+        "label": "Aftermarket Radio Headunit"
+      },
+      {
+        "tag": "vinyl",
+        "label": "Vinyl Wrap of Choice"
+      },
+      {
+        "tag": "tape",
+        "label": "Tape Adhesive Accessories"
+      },
+      {
+        "tag": "led",
+        "label": "LED Accessories"
+      }
+    ],
+    [
+      {
+        "tag": "spoiler",
+        "label": "Finished Rear Spoiler"
+      },
+      {
+        "tag": "banner",
+        "label": "Windshield Banner: Most Wanted"
+      },
+      {
+        "tag": "decal",
+        "label": "I Love My Celica"
+      },
+      {
+        "tag": "starcraft",
+        "label": "Rear Window Banner: Starcraft II"
+      },
+      {
+        "tag": "trunk",
+        "label": "Trunk Toolsets"
+      }
+    ]
+  ],
+  "lists": [
+    {
+      "title": "Mechanical Hands-on",
+      "icon": "wrench",
+      "items": [
+        "Get hands dirty: DIY and explore!",
+        "K&N short-ram intake, Tanabe concept G cat-back exhaust",
+        "KYB AGX struts, TEIN S lowered springs, Goodridge SS brakelines",
+        "XXR 17x7 rims, Falken Azenis 225/45R17",
+        "Ream brake drum-to-disc conversion"
+      ]
+    },
+    {
+      "title": "One-of-a-Kind Design",
+      "icon": "object-group",
+      "items": [
+        "3-tone color scheme using vinyl wrap",
+        "Custom B2 body kit, X2 fenders, elevated hood scoop",
+        "Carbon fiber wrap of interior, racing brand stickers",
+        "JDM tail light, angel-eye HID headlight",
+        "Black-out window, blue-accent interior"
+      ]
+    },
+    {
+      "title": "Dazzling Electronics",
+      "icon": "gauge",
+      "items": [
+        "Viper alarm system, hands-free entry, infrared sensors",
+        "Rear & side-view cameras, Sony touch-screen headunit, bluetooth hands-free",
+        "LED ambient light, climate center, radar detector, wire-free GPS all in dash. Music-activated equalizer ceiling",
+        "Diehard deep-cycle battery, kill switch"
+      ]
+    }
+  ]
+}

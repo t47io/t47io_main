@@ -1,0 +1,49 @@
+{
+  "title": "Eterna Data Browser",
+  "description": "Interactive App for Multidimensional Data Visualization and Analysis",
+  "urls": {
+    "prod": "https://www.eternagame.org/web/",
+    "demo": "https://data.t47.io/new"
+  },
+  "carousels": [
+    [
+      {
+        "tag": "lab",
+        "label": "Lab Selection"
+      },
+      {
+        "tag": "column",
+        "label": "Column Options"
+      }
+    ],
+    [
+      {
+        "tag": "secstr",
+        "label": "Secondary Structure"
+      },
+      {
+        "tag": "graph",
+        "label": "Switch Graph"
+      }
+    ]
+  ],
+  "lists": [
+    {
+      "title": "Dynamic Table",
+      "icon": "table",
+      "items": [
+        "Interactive table with sorting, reordering, subsetting using DataTables",
+        "Dynamic pagination and rendering on scroll, 20x faster than before",
+        "Structured data query for labs"
+      ]
+    },
+    {
+      "title": "Structure View",
+      "icon": "object-group",
+      "items": [
+        "OS-styled multiselection using DataTables",
+        "Secondary structure diagram in SVG"
+      ]
+    }
+  ]
+}

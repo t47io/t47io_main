@@ -1,0 +1,105 @@
+{
+  "title": "Primerize Server",
+  "description": "PCR Assembly Primer Design and Service",
+  "urls": {
+    "repo": "https://github.com/t47io/Django-Server-Primerize/",
+    "server": "https://primerize.stanford.edu/",
+    "manual": "https://daslab.github.io/Primerize/"
+  },
+  "docs": [
+    "Package Reference",
+    "Server Admin Manual"
+  ],
+  "carousels": [
+    [
+      {
+        "tag": "plate",
+        "label": "D3 Plate Layout"
+      },
+      {
+        "tag": "assembly",
+        "label": "Assembly Scheme"
+      },
+      {
+        "tag": "table",
+        "label": "Output Table"
+      },
+      {
+        "tag": "input",
+        "label": "Input Options"
+      }
+    ],
+    [
+      {
+        "tag": "queue",
+        "label": "Job Queue"
+      },
+      {
+        "tag": "tutorial",
+        "label": "Interface Tutorial"
+      },
+      {
+        "tag": "experiment",
+        "label": "Experiment Strategy"
+      },
+      {
+        "tag": "pipeline",
+        "label": "Experiment Pipeline"
+      },
+      {
+        "tag": "protocol",
+        "label": "Experiment Protocol"
+      }
+    ],
+    [
+      {
+        "tag": "package",
+        "label": "Package Installation"
+      },
+      {
+        "tag": "class",
+        "label": "Class Definitions"
+      },
+      {
+        "tag": "method",
+        "label": "Class Methods"
+      },
+      {
+        "tag": "attribute",
+        "label": "Instance Attributes"
+      }
+    ]
+  ],
+  "lists": [
+    {
+      "title": "Result Visualization",
+      "icon": "indent-right",
+      "items": [
+        "Inteactive 96-well plate view using D3.js, 2-way illustration of sequence",
+        "Text representation of assembly scheme",
+        "Responsive input and full demo",
+        "Single page app"
+      ]
+    },
+    {
+      "title": "Tutorial & Protocol",
+      "icon": "bookmark",
+      "items": [
+        "Illustration of job queue and interface",
+        "Full experimental protocol of pipeline and strategy"
+      ]
+    },
+    {
+      "title": "Python Package",
+      "icon": "cube",
+      "items": [
+        "Stand-alone Python package for academic use",
+        "Highlighted class references"
+      ]
+    }
+  ],
+  "repos": [
+    "primerize",
+    "nathermo"
+  ]
+}

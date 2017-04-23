@@ -1,0 +1,97 @@
+{
+  "title": "RiboKit Docs",
+  "description": "Centralized Documentation of Packages Hosted by GitHub Pages",
+  "urls": {
+    "prod": [
+      "https://ribokit.github.io/",
+      "https://daslab.github.io/",
+      "https://hitrace.github.io/"
+    ],
+    "theme": [
+      "https://github.com/t47io/ribokit-Jekyll-theme/",
+      "https://github.com/t47io/ribokit-Sphinx-theme/"
+    ],
+    "manual": "http://ribokit.github.io/docs/"
+  },
+  "docs": [
+    "Format and Integration"
+  ],
+  "carousels": [
+    [
+      {
+        "tag": "navigation",
+        "label": "Multi-level Navigation"
+      },
+      {
+        "tag": "syntax",
+        "label": "Python Doc Theme"
+      },
+      {
+        "tag": "reference",
+        "label": "Reference Format"
+      },
+      {
+        "tag": "highlight",
+        "label": "Syntax Highlighting"
+      },
+      {
+        "tag": "404",
+        "label": "Custom 404 Page"
+      }
+    ],
+    [
+      {
+        "tag": "hitrace",
+        "label": "HiTRACE Tutorial"
+      },
+      {
+        "tag": "primerize",
+        "label": "Primerize Documentation"
+      },
+      {
+        "tag": "catalog",
+        "label": "RiboKit Package Catalog"
+      },
+      {
+        "tag": "ribovis",
+        "label": "RiboVis Tutorial"
+      },
+      {
+        "tag": "install",
+        "label": "Primerize Installation Guide"
+      }
+    ]
+  ],
+  "lists": [
+    {
+      "title": "Framework & Theme",
+      "icon": "camera-alt",
+      "items": [
+        "Automated integration with Sphinx to gh-pages branch",
+        "Jekyll front-matter customized template",
+        "Developed theme with navigation levels, syntax highlighting, 404 / 301 pages"
+      ]
+    },
+    {
+      "title": "Code Documentations",
+      "icon": "wpforms",
+      "items": [
+        "HiTRACE MATLAB Tutorial",
+        "Primerize Python Reference",
+        "RiboVis PyMOL Tutorial",
+        "RiboKit Package List"
+      ],
+      "links": [
+        "https://hitrace.github.io/HiTRACE/tutorial/",
+        "https://daslab.github.io/Primerize/",
+        "https://ribokit.github.io/RiboVis/",
+        "https://ribokit.github.io/package/"
+      ]
+    }
+  ],
+  "repos": [
+    "ribokit",
+    "jekyll",
+    "sphinx"
+  ]
+}
