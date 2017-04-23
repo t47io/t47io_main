@@ -3,6 +3,7 @@ import Waypoint from 'react-waypoint';
 
 
 const Trigger = ({
+  disabled,
   delay,
   topOffset,
   bottomOffset,
@@ -13,13 +14,15 @@ const Trigger = ({
     topOffset={topOffset}
     bottomOffset={bottomOffset}
     onEnter={({ previousPosition, currentPosition }) => {
-      if (previousPosition === Waypoint.below &&
+      if (!disabled &&
+        previousPosition === Waypoint.below &&
         currentPosition === Waypoint.inside) {
         setTimeout(() => onToggleAnimation(true), delay);
       }
     }}
     onLeave={({ previousPosition, currentPosition }) => {
-      if (previousPosition === Waypoint.inside &&
+      if (!disabled &&
+        previousPosition === Waypoint.inside &&
         currentPosition === Waypoint.below) {
         onToggleAnimation(false);
       }
@@ -30,6 +33,7 @@ const Trigger = ({
 );
 
 Trigger.propTypes = {
+  disabled: React.PropTypes.bool,
   delay: React.PropTypes.number,
   topOffset: React.PropTypes.oneOfType([
     React.PropTypes.string,
@@ -43,6 +47,7 @@ Trigger.propTypes = {
   debug: React.PropTypes.bool,
 };
 Trigger.defaultProps = {
+  disabled: false,
   delay: 250,
   topOffset: 0,
   bottomOffset: 0,

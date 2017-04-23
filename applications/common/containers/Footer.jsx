@@ -30,9 +30,13 @@ const year = new Date().getFullYear();
 const Footer = ({
   animations: { footer },
   actions: { animateFooter },
+  disabled,
 }) => (
   <footer className="FOOTER text-off-white">
-    <Trigger onToggleAnimation={animateFooter} />
+    <Trigger
+      disabled={disabled}
+      onToggleAnimation={animateFooter}
+    />
     <WebAnimation
       className="FOOTTER__city hidden-sm hidden-xs"
       keyframes={footerGif.keyframes(FOOTER_LEFT)}
@@ -118,6 +122,7 @@ Footer.propTypes = {
   actions: React.PropTypes.shape({
     animateFooter: React.PropTypes.func,
   }),
+  disabled: React.PropTypes.bool,
 };
 Footer.defaultProps = {
   animations: {
@@ -126,6 +131,7 @@ Footer.defaultProps = {
   actions: {
     animateFooter: () => {},
   },
+  disabled: false,
 };
 
 
