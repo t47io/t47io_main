@@ -49,6 +49,7 @@
 .fa-cog:before { content: '\e815'; }
 .fa-ok-circled:before { content: '\e816'; }
 .fa-cancel-circled:before { content: '\e817'; }
+.fa-camera-alt:before { content: '\e818'; }
 .fa-link-ext:before { content: '\f08e'; }
 .fa-twitter:before { content: '\f099'; }
 .fa-facebook:before { content: '\f09a'; }
@@ -97,3 +98,4 @@
 .fa-hand-pointer-o:before { content: '\f25a'; }
 .fa-creative-commons:before { content: '\f25e'; }
 .fa-fort-awesome:before { content: '\f286'; }
+.fa-wpforms:before { content: '\f298'; }

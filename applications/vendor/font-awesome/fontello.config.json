@@ -437,6 +437,18 @@
       "css": "cancel-circled",
       "code": 59415,
       "src": "fontawesome"
+    },
+    {
+      "uid": "9d3d9d6ce1ec63eaa26281e6162853c9",
+      "css": "camera-alt",
+      "code": 59416,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a41cabcd11152063a37f2407048c5494",
+      "css": "wpforms",
+      "code": 62104,
+      "src": "fontawesome"
     }
   ]
 }
