@@ -41,6 +41,7 @@
 }
 
 .COMMON__navbar--default {
+  height: 67px;
   background-color: $colorGreenDark;
   z-index: 9999;
   box-shadow: 0 1px 3px rgba(0, 7, 11, 0.15);
@@ -61,6 +62,7 @@
   }
 }
 .COMMON__navbar--transparent {
+  height: 97px;
   background-color: transparent;
 
   .COMMON__navbar-logo { opacity: 0.5; }
@@ -90,15 +92,21 @@
     background-color: $colorGreen;
     border-top: 2px solid $colorWhite;
     padding: 0;
-    margin: 0 -15px;
 
-    &.display { display: block; }
+    &.display {
+      display: block;
+      margin: 0;
+      margin-right: 1em;
+    }
   }
 
   .COMMON__navbar-header {
+    &.navbar-header { margin: 0; }
+
     .COMMON__navbar-logo { margin-left: 10px; }
     .COMMON__navbar-toggle {
-      margin-top: 18px;
+      margin-top: 1.25em;
+      margin-right: 0.5em;
       border: none;
 
       &:hover, &:focus { background-color: rgba(0, 7, 11, 0); }

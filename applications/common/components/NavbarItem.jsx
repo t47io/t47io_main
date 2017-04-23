@@ -11,7 +11,7 @@ const NavbarItem = ({
   onClick,
 }) => {
   const isDropdown = (dropdown.length > 0);
-  const dropdownClassName = isDropdown ? 'dropdown' : '';
+  const dropdownClassName = isDropdown ? 'dropdown COMMON__dropdown' : '';
   const activeClassName = isActive ? 'active' : '';
   const hrefObj = !isDropdown ? { onClick } : {
     href: (isActive ? `/#${PORTFOLIO}__section` : '/'),
@@ -29,9 +29,9 @@ const NavbarItem = ({
         )}
       </a>
       {isDropdown && isActive && (
-        <ul className="dropdown-menu nav nav-pills nav-stacked">
-          {dropdown.map(item => (
-            <DropdownItem item={item} />
+        <ul className="dropdown-menu COMMON__dropdown-menu nav nav-pills nav-stacked">
+          {dropdown.map(title => (
+            <DropdownItem title={title} />
           ))}
         </ul>
       )}

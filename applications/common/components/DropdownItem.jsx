@@ -3,9 +3,10 @@ import { Link } from 'preact-router';
 
 
 const DropdownItem = ({ title }) => (
-  <li className="">
+  <li className="COMMON__dropdown-item">
     <Link
       href={`/project/${title}`}
+      className="COMMON__dropdown-link"
       activeClassName="active"
     >
       {title}

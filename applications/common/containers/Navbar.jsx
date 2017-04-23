@@ -52,7 +52,7 @@ const Navbar = ({
         </div>
 
         <div className={`COMMON__navbar--collapse navbar-collapse ${collapseClassName}`} >
-          <ul className="nav navbar-right">
+          <ul className="nav navbar-right COMMON__navbar-dropdown">
             {items.map((item, i) => (
               <NavbarItem
                 key={`COMMON__navbar-${i}`}

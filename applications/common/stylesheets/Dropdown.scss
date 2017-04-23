@@ -1,59 +1,51 @@
 @import '../../common/mixins/colors';
 
 
-.dropdown-menu {
-  li a {
-    padding: 4px 20px;
-    text-transform: uppercase;
+.COMMON__dropdown {
+  &:hover {
+    .COMMON__dropdown-menu { display: block; }  
+  }
+}
 
-    &:hover, &:focus {
-      color: $colorGreenFull; 
-      text-decoration: none;
-      background-color: transparent;
+.COMMON__dropdown-menu {
+  padding: 0.75em 0;
+  margin-top: 0;
+  border: 2px solid $colorGreen;
+  border-radius: 0;
+  box-shadow: none;
+
+  .COMMON__dropdown-item {
+    .COMMON__dropdown-link {
+      padding: 8px 20px;
+      margin-left: 0;
+      border-radius: 0;
+      // padding: 4px 20px;
+      color: $colorGreenFull;
+      text-align: right;
+      text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+        background-color: $colorGreenFaint;
+        color: $colorGreenFull; 
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      &.active,
+      &.active:hover,
+      &.active:focus {
+        background-color: $colorGreen; 
+        color: $colorWhite;
+        font-weight: bold;
+      }
     }
   }
-  .active a, .active a:hover, .active a:focus {
-    color: $colorGreenFull; 
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-@media only screen and (min-width : 768px) {
-  /* Make Navigation Toggle on Desktop Hover (use class: dropdown-hover) */
-  .dropdown:hover > .dropdown-menu {
-    display: block;
-  }
 }
 
-.dropdown-menu {
-  padding: 10px 0;
-  border: 1px solid $colorGreen;
-  border-top: 2px solid $colorGreen;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
-
-  > li > a {
-    padding: 8px 20px;
-    color: $colorGreenFull;
-    text-align: right;
-    margin-left: 0px;
-    border-radius: 0px;
-
-    &:hover, &:focus {
-      background-color: $colorGreenFaint !important; 
-      font-weight: bold;
-    }       
-  }
-  > li.active > a,
-  > li.active > a:hover,
-  > li.active > a:focus {
-    color: $colorWhite !important;
-    background-color: $colorGreen !important; 
-    font-weight: bold;
-  }
+@include media_width_lt(767px) {
+  .COMMON__navbar-toggle { display: none; }
 }
 
-@media only screen and (max-width : 767px) {
-  .navbar-nav {
-    .open .dropdown-menu > li > a { padding: 10px 10px 10px 45px !important; }
-  }
-}
+
+.caret { margin-left: 0.5em; }

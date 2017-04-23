@@ -1,59 +1,4 @@
-.dropdown-menu {
-  li a {
-    padding: 4px 20px;
-    text-transform: uppercase;
-
-    &:hover, &:focus {
-      color: $colorGreenFull; 
-      text-decoration: none;
-      background-color: transparent;
-    }
-  }
-  .active a, .active a:hover, .active a:focus {
-    color: $colorGreenFull; 
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-@media only screen and (min-width : 768px) {
-  /* Make Navigation Toggle on Desktop Hover (use class: dropdown-hover) */
-  .dropdown-hover:hover > .dropdown-menu {
-    display: block;
-  }
-}
-
-  .dropdown-menu {
-    padding: 10px 0;
-    border: 1px solid $colorGreen;
-    border-top: 2px solid $colorGreen;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
-
-    > li > a {
-      padding: 8px 20px;
-      color: $colorGreenFull;
-      text-align: right;
-      margin-left: 0px;
-      border-radius: 0px;
-
-      &:hover, &:focus {
-        background-color: $colorGreenFaint !important; 
-        font-weight: bold;
-      }       
-    }
-    > li.active > a,
-    > li.active > a:hover,
-    > li.active > a:focus {
-      color: $colorWhite !important;
-      background-color: $colorGreen !important; 
-      font-weight: bold;
-    }
-@media only screen and (max-width : 767px) {
-  .navbar-nav {
-    .open .dropdown-menu > li > a { padding: 10px 10px 10px 45px !important; }
-  }
-}
-
-    
+   
 .place_holder {
   height: 175px;
   opacity: 0.5;
@@ -64,8 +9,3 @@
 	}
 }
 .git { height: 175px; }
-
-.copyright { 
-	margin: 0px; 
-	line-height: 1;
-}

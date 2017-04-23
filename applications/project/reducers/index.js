@@ -15,8 +15,6 @@ const initialState = {
   ribokit: {},
   celica: {},
 
-  _subtitles: {},
-
   navbar: {
     data: {
       items: [
