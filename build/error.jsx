@@ -8,42 +8,46 @@ import sass from 'node-sass';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import Components from '../applications/error/containers/Pages.jsx';
+import ErrorPage from '../applications/error/components/Error.jsx';
 import Footer from '../applications/error/components/Footer.jsx';
 
+const json = require('../config/error.json');
 
-const codes = {
-  400: 'BadRequest',
-  401: 'Unauthorized',
-  403: 'Forbidden',
-  404: 'NotFound',
-  405: 'MethodNotAllowed',
-  500: 'InternalServerError',
-  502: 'BadGateway',
-  503: 'ServiceUnavailable',
-  201: 'Created',
-};
-
+const codes = [400, 401, 403, 404, 405, 500, 502, 503, 201];
+const images = codes.map((code) => {
+  const png = fs.readFileSync(
+    path.join(__dirname, '../applications/error/images/', `${code}.png`)
+  ).toString('base64');
+  return `data:image/png;base64,${png}`;
+});
 const loadFileSync = filename => fs.readFileSync(path.join(__dirname, filename), 'utf8');
+
 
 try {
   const baseHTML = loadFileSync('../public/error.html');
-  const logoAltSVG = loadFileSync('../applications/common/images/t47_logo_alt.svg');
   const copySVG = loadFileSync('../applications/error/images/copyright.svg');
   const ccSVG = loadFileSync('../applications/error/images/creative-commons.svg');
 
   const footerHTML = renderToStaticMarkup(
-    <Footer logo={logoAltSVG} copy={copySVG} cc={ccSVG} />
+    <Footer
+      copy={copySVG}
+      cc={ccSVG}
+    />
   );
   const rawCSS = sass.renderSync({
     file: path.join(__dirname, '../applications/error/stylesheets/index.scss'),
   }).css.toString();
 
 
-  Object.keys(codes).forEach((code) => {
-    const Component = Components[codes[code]];
+  codes.forEach((code, i) => {
     const bodyHTML = `
-      ${renderToStaticMarkup(<Component />).slice(0, -6)}
+      ${renderToStaticMarkup(
+        <ErrorPage
+          code={code}
+          img={images[i]}
+          {...(json[code])}
+        />
+      ).slice(0, -6)}
       <hr/>
       ${footerHTML}
       </div>

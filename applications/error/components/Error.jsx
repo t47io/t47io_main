@@ -1,8 +1,9 @@
 import React from 'react';
 
+import Logo from '../../common/components/Logo.jsx';
+
 
 const ErrorPage = ({
-  logo,
   code,
   color,
   img,
@@ -12,7 +13,7 @@ const ErrorPage = ({
   <div className="LOAD__container">
     <div className="LOAD__content UTIL__image-RNA">
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div className="green" dangerouslySetInnerHTML={{ __html: logo }} />
+        <Logo className="green" />
         <img
           className="ERROR__image"
           src={img}
@@ -22,7 +23,7 @@ const ErrorPage = ({
       </div>
       <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <h2 className="ERROR__title">
-          <span className={`label label-${color}`} >
+          <span className={`label PROJECT__label--${color}`} >
             {title.custom}
           </span>
         </h2>
@@ -44,7 +45,6 @@ const ErrorPage = ({
 );
 
 ErrorPage.propTypes = {
-  logo: React.PropTypes.string,
   code: React.PropTypes.number,
   color: React.PropTypes.oneOf(['green', 'blue', 'yellow', 'purple', 'red']),
   img: React.PropTypes.string,
@@ -58,7 +58,6 @@ ErrorPage.propTypes = {
   }),
 };
 ErrorPage.defaultProps = {
-  logo: '',
   code: 500,
   color: 'red',
   img: '',

@@ -1,10 +1,11 @@
 import React from 'react';
 
+import LogoAlt from '../../common/components/LogoAlt.jsx';
 
 const year = new Date().getFullYear();
 
+
 const Footer = ({
-  logo,
   copy,
   cc,
 }) => (
@@ -14,10 +15,9 @@ const Footer = ({
       <i className="fa fa-fw" dangerouslySetInnerHTML={{ __html: copy }} />
       <a className="FOOTER__year">2015 - {year}</a>
       Designed, built & managed by
-      <a
-        href="https://t47.io/"
-        rel="noopener" className="green-white"
-        dangerouslySetInnerHTML={{ __html: logo }}
+      <LogoAlt
+        isTargetBlank={false}
+        className="green-white"
       />
       . All rights reserverd.
     </p>
@@ -36,12 +36,10 @@ const Footer = ({
 );
 
 Footer.propTypes = {
-  logo: React.PropTypes.string,
   copy: React.PropTypes.string,
   cc: React.PropTypes.string,
 };
 Footer.defaultProps = {
-  logo: '',
   copy: '',
   cc: '',
 };
