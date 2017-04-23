@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "start": "npm run json && npm run nodemon",
     "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
     "webpack": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
-    "build": "npm run json && npm run webpack && npm run process",
+    "build": "npm run lint && npm run json && npm run webpack && npm run process",
     "process": "npm run process:main && npm run process:error",
     "process:main": "babel-node ./build/main.js",
     "process:error": "babel-node ./build/error.jsx",
@@ -19,7 +19,7 @@
     "cron:https": "babel-node ./server/cron/ssl_expire.js",
     "cron:backup": "babel-node ./server/cron/backup.js",
     "cron:email": "babel-node ./server/cron/email.js",
-    "update": "npm-check-updates -u -a"
+    "update": "npm-check-updates -u -a && npm update"
   },
   "repository": {
     "type": "git",
@@ -64,6 +64,7 @@
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
     "npm-check-updates": "^2.11.0",
+    "optimize-js-plugin": "^0.0.4",
     "preact": "^8.1.0",
     "preact-compat": "^3.15.0",
     "preact-router": "^2.5.1",
@@ -105,7 +106,6 @@
     "helmet": "^3.5.0",
     "https": "^1.0.0",
     "nodemailer": "^4.0.1",
-    "optimize-js-plugin": "^0.0.4",
     "pm2": "^2.4.5",
     "sanitizer": "^0.1.3",
     "serve-favicon": "^2.4.2",
