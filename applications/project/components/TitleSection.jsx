@@ -2,6 +2,8 @@ import React from 'react';
 
 import TitleImage from './TitleImage.jsx';
 
+import '../stylesheets/TitleSection.scss';
+
 
 const TitleSection = ({
   title,

@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const DaslabServerNote = () => (
-  <p>
+  <p className="PROJECT__access-note">
     Internal Site
     <span className="label PROJECT__label--red">not</span>
     accessible to <u>public</u>
@@ -11,7 +11,7 @@ const DaslabServerNote = () => (
 );
 
 const DaslabDemoNote = () => (
-  <p>
+  <p className="PROJECT__access-note">
     Internal Site with
     <span className="label PROJECT__label--green">mock-up</span>
     data for <u>public</u> view.
@@ -19,7 +19,7 @@ const DaslabDemoNote = () => (
 );
 
 const EternaServerNote = () => (
-  <p>
+  <p className="PROJECT__access-note">
     Brower page
     <span className="label PROJECT__label--red">only</span>
     accessible to <u>community</u>
@@ -28,7 +28,7 @@ const EternaServerNote = () => (
 );
 
 const EternaDemoNote = () => (
-  <p>
+  <p className="PROJECT__access-note">
     Prototype with
     <span className="label PROJECT__label--green">static</span>
     data for <u>public</u> view.
@@ -37,11 +37,11 @@ const EternaDemoNote = () => (
 
 
 export const daslabNotes = {
-  server: (<DaslabServerNote />),
+  prod: (<DaslabServerNote />),
   demo: (<DaslabDemoNote />),
 };
 
 export const eternaNotes = {
-  server: (<EternaServerNote />),
+  prod: (<EternaServerNote />),
   demo: (<EternaDemoNote />),
 };

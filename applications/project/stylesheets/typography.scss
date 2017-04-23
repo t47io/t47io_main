@@ -2,6 +2,8 @@
 
 
 .label {
+  margin: 0 0.25em;
+
   &.PROJECT__label--green { background-color: $colorGreenDark; }
   &.PROJECT__label--red { background-color: $colorRed; }
   &.PROJECT__label--blue { background-color: $colorCyan; }
@@ -12,3 +14,5 @@
     color: #000;
   }
 }
+
+.lead { margin: 0 0.5rem; }

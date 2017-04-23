@@ -8,7 +8,9 @@ const UrlLabelList = ({
   isShortName,
 }) => (
   <div>
-    <h3 className={`label PROJECT__label--${className}`}>{label}</h3>
+    <h3>
+      <span className={`label PROJECT__label--${className}`}>{label}</span>
+    </h3>
     {urls.map(url => (
       <p className="text-center lead">
         <a

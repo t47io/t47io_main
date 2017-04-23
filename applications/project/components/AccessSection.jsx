@@ -4,6 +4,8 @@ import AccessLinks from './AccessLinks.jsx';
 import Headline from './Headline.jsx';
 import UrlLabel from './UrlLabel.jsx';
 
+import '../stylesheets/AccessSection.scss';
+
 
 const AccessSection = ({
   urls,
@@ -38,21 +40,23 @@ const AccessSection = ({
       isUrlList={isUrlList}
       isRow={isRow}
     />
+    <br />
   </div>
 );
 
 AccessSection.propTypes = {
   urls: React.PropTypes.shape({
     repo: React.PropTypes.string,
-    server: React.PropTypes.oneOfType([
+    prod: React.PropTypes.oneOfType([
       React.PropTypes.arrayOf(React.PropTypes.string),
       React.PropTypes.string,
     ]),
     demo: React.PropTypes.string,
+    server: React.PropTypes.string,
     theme: React.PropTypes.arrayOf(React.PropTypes.string),
   }),
   notes: React.PropTypes.shape({
-    server: React.PropTypes.node,
+    prod: React.PropTypes.node,
     demo: React.PropTypes.node,
   }),
   isUrlList: React.PropTypes.bool,
@@ -61,12 +65,13 @@ AccessSection.propTypes = {
 AccessSection.defaultProps = {
   urls: {
     repo: '',
-    server: '',
+    prod: '',
     demo: '',
+    server: '',
     theme: [],
   },
   notes: {
-    server: '',
+    prod: '',
     demo: '',
   },
   isUrlList: false,

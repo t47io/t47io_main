@@ -16,7 +16,7 @@ const DocsSection = ({
         icon="book"
       />
       <p className="lead text-center">
-        Complete
+        {'Complete '}
         {labels.map((label, i) => (
           <span>
             <a
@@ -30,6 +30,7 @@ const DocsSection = ({
           </span>
         ))}
       </p>
+      <br />
     </div>
   </div>
 );

@@ -5,7 +5,7 @@ const TitleImage = ({
   title,
   image,
 }) => (
-  <p className="thumbnail text-center">
+  <p className="PROJECT__title-image thumbnail text-center">
     <a
       href={image}
       target="_blank" rel="noopener noreferrer"

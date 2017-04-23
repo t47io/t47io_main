@@ -15,7 +15,7 @@ const AccessLinks = ({
   notes,
   isUrlList,
 }) => {
-  if (!urls.server) { return null; }
+  if (!urls.prod && !urls.server) { return null; }
 
   const wrapperColumn = (urls.demo || urls.theme) ? 6 : 12;
 
@@ -34,11 +34,12 @@ const AccessLinks = ({
                 isShortName={key === 'theme'}
               />
             ) : (
-              <div>
+              <div className="PROJECT__access-link">
                 <UrlLabel
                   url={urls[key]}
                   label={LABELS[key]}
                   isOneLine={!urls.demo}
+                  isLead
                   className={COLORS[key]}
                 />
                 {notes[key]}
@@ -53,27 +54,29 @@ const AccessLinks = ({
 
 AccessLinks.propTypes = {
   urls: React.PropTypes.shape({
-    server: React.PropTypes.oneOfType([
+    prod: React.PropTypes.oneOfType([
       React.PropTypes.arrayOf(React.PropTypes.string),
       React.PropTypes.string,
     ]),
     demo: React.PropTypes.string,
+    server: React.PropTypes.string,
     theme: React.PropTypes.arrayOf(React.PropTypes.string),
   }),
   notes: React.PropTypes.shape({
-    server: React.PropTypes.node,
+    prod: React.PropTypes.node,
     demo: React.PropTypes.node,
   }),
   isUrlList: React.PropTypes.bool,
 };
 AccessLinks.defaultProps = {
   urls: {
-    server: '',
+    prod: '',
     demo: '',
+    server: '',
     theme: [],
   },
   notes: {
-    server: '',
+    prod: '',
     demo: '',
   },
   isUrlList: false,

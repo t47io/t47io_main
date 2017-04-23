@@ -3,8 +3,6 @@ import ReactTooltip from 'react-tooltip';
 
 import CarouselIndicator from './CarouselIndicator.jsx';
 
-import '../stylesheets/Carousel.scss';
-
 
 class Carousel extends React.PureComponent {
   constructor(props) {
