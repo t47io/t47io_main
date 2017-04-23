@@ -5,25 +5,8 @@ import AccessSection from '../components/AccessSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
+import { eternaNotes } from '../components/AccessNotes.jsx';
 const imgEterna = require('../images/pm_eterna.jpg');
-
-const notes = {
-  server: (
-    <p>
-      Brower page
-      <span className="label PROJECT__label--red">only</span>
-      accessible to <u>community</u>
-      (requires <span className="label PROJECT__label--blue">login</span>).
-    </p>
-  ),
-  demo: (
-    <p>
-      Prototype with
-      <span className="label PROJECT__label--green">static</span>
-      data for <u>public</u> view.
-    </p>
-  ),
-};
 
 
 const EternaPage = ({
@@ -45,7 +28,7 @@ const EternaPage = ({
       <AccessSection
         key="top"
         urls={urls}
-        notes={notes}
+        notes={eternaNotes}
       />
       <FeatureSection
         project="eterna"
@@ -55,7 +38,7 @@ const EternaPage = ({
       <AccessSection
         key="bottom"
         urls={urls}
-        notes={notes}
+        notes={eternaNotes}
       />
     </div>
   );

@@ -7,25 +7,8 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
+import { daslabNotes } from '../components/AccessNotes.jsx';
 const imgDaslab = require('../images/pm_daslab.jpg');
-
-const notes = {
-  server: (
-    <p>
-      Internal Site
-      <span className="label PROJECT__label--red">not</span>
-      accessible to <u>public</u>
-      (<span className="label PROJECT__label--blue">WebAuth</span> gated).
-    </p>
-  ),
-  demo: (
-    <p>
-      Internal Site with
-      <span className="label PROJECT__label--green">mock-up</span>
-      data for <u>public</u> view.
-    </p>
-  ),
-};
 
 
 const DaslabPage = ({
@@ -48,7 +31,7 @@ const DaslabPage = ({
       <AccessSection
         key="top"
         urls={urls}
-        notes={notes}
+        notes={daslabNotes}
       />
       <FeatureSection
         project="daslab"
@@ -64,7 +47,7 @@ const DaslabPage = ({
       <AccessSection
         key="bottom"
         urls={urls}
-        notes={notes}
+        notes={daslabNotes}
       />
     </div>
   );
