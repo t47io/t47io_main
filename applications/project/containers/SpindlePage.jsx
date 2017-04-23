@@ -5,7 +5,7 @@ import AccessSection from '../components/AccessSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-import { imgSpindle } from '../components/TitleImages.js';
+import { imgSpindle } from '../components/Images.js';
 import { SPINDLE } from '../constants/projectTypes.js';
 
 

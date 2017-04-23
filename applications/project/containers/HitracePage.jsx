@@ -7,7 +7,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-import { imgHitrace } from '../components/TitleImages.js';
+import { imgHitrace } from '../components/Images.js';
 import { HITRACE } from '../constants/projectTypes.js';
 
 

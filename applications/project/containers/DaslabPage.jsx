@@ -8,7 +8,7 @@ import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { daslabNotes } from '../components/AccessNotes.jsx';
-import { imgDaslab } from '../components/TitleImages.js';
+import { imgDaslab } from '../components/Images.js';
 import { DASLAB } from '../constants/projectTypes.js';
 
 

@@ -7,7 +7,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-import { imgRibokit } from '../components/TitleImages.js';
+import { imgRibokit } from '../components/Images.js';
 import { RIBOKIT } from '../constants/projectTypes.js';
 
 

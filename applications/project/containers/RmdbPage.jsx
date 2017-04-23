@@ -7,7 +7,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-import { imgRmdb } from '../components/TitleImages.js';
+import { imgRmdb } from '../components/Images.js';
 import { RMDB } from '../constants/projectTypes.js';
 
 

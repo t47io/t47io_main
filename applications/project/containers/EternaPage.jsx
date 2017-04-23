@@ -6,7 +6,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { eternaNotes } from '../components/AccessNotes.jsx';
-import { imgEterna } from '../components/TitleImages.js';
+import { imgEterna } from '../components/Images.js';
 import { ETERNA } from '../constants/projectTypes.js';
 
 

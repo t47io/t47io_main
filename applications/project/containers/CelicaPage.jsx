@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import FeatureSection from '../components/FeatureSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-import { imgCelica } from '../components/TitleImages.js';
+import { imgCelica } from '../components/Images.js';
 import { CELICA } from '../constants/projectTypes.js';
 
 

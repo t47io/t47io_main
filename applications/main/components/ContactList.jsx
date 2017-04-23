@@ -3,7 +3,7 @@ import React from 'react';
 import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { imgPhone } from '../components/HomeImages.js';
+import { imgPhone } from '../components/Images.js';
 import { contactPanel } from '../animations/contact.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 

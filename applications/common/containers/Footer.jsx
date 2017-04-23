@@ -11,7 +11,7 @@ import {
   imgSEA,
   imgSrcSetSFO,
   imgSrcSetSEA,
-} from '../components/FooterImages.js';
+} from '../components/Images.js';
 import * as footerActions from '../../common/actions/footerActions.js';
 import {
   FOOTER_LEFT,

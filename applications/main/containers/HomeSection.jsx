@@ -9,7 +9,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import {
   imgAvatar,
   imgName,
-} from '../components/HomeImages.js';
+} from '../components/Images.js';
 import * as homeActions from '../actions/homeActions.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 import {

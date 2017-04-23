@@ -7,7 +7,7 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
-import { imgPrimerize } from '../components/TitleImages.js';
+import { imgPrimerize } from '../components/Images.js';
 import { PRIMERIZE } from '../constants/projectTypes.js';
 
 
