@@ -8,6 +8,7 @@ import DaslabPage from './DaslabPage.jsx';
 import PrimerizePage from './PrimerizePage.jsx';
 import RmdbPage from './RmdbPage.jsx';
 import EternaPage from './EternaPage.jsx';
+import HitracePage from './HitracePage.jsx';
 import SpindlePage from './SpindlePage.jsx';
 import RibokitPage from './RibokitPage.jsx';
 import CelicaPage from './CelicaPage.jsx';
@@ -32,6 +33,7 @@ const Project = ({
       <Location path="/project/primerize" handler={PrimerizePage} />
       <Location path="/project/rmdb" handler={RmdbPage} />
       <Location path="/project/eterna" handler={EternaPage} />
+      <Location path="/project/hitrace" handler={HitracePage} />
       <Location path="/project/spindle" handler={SpindlePage} />
       <Location path="/project/ribokit" handler={RibokitPage} />
       <Location path="/project/celica" handler={CelicaPage} />
