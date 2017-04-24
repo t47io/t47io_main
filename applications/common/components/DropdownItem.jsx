@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'preact-router';
+import { Link } from 'preact-router/match';
 
 
 const DropdownItem = ({ title }) => (
