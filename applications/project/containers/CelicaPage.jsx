@@ -47,7 +47,7 @@ CelicaPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state[CELICA]);
+const mapStateToProps = state => (state.project[CELICA]);
 const mapDispatchToProps = null;
 
 

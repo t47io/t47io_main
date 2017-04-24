@@ -80,7 +80,7 @@ DaslabPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state[DASLAB]);
+const mapStateToProps = state => (state.project[DASLAB]);
 const mapDispatchToProps = null;
 
 

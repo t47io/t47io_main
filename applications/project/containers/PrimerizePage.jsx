@@ -76,7 +76,7 @@ PrimerizePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state[PRIMERIZE]);
+const mapStateToProps = state => (state.project[PRIMERIZE]);
 const mapDispatchToProps = null;
 
 

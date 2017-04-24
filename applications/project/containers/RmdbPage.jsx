@@ -76,7 +76,7 @@ RmdbPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state[RMDB]);
+const mapStateToProps = state => (state.project[RMDB]);
 const mapDispatchToProps = null;
 
 

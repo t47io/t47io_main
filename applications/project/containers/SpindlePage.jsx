@@ -62,7 +62,7 @@ SpindlePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state[SPINDLE]);
+const mapStateToProps = state => (state.project[SPINDLE]);
 const mapDispatchToProps = null;
 
 

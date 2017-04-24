@@ -80,7 +80,7 @@ HitracePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state[HITRACE]);
+const mapStateToProps = state => (state.project[HITRACE]);
 const mapDispatchToProps = null;
 
 

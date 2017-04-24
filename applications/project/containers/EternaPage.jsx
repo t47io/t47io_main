@@ -67,7 +67,7 @@ EternaPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state[ETERNA]);
+const mapStateToProps = state => (state.project[ETERNA]);
 const mapDispatchToProps = null;
 
 

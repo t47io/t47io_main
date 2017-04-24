@@ -78,7 +78,7 @@ RibokitPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state[RIBOKIT]);
+const mapStateToProps = state => (state.project[RIBOKIT]);
 const mapDispatchToProps = null;
 
 

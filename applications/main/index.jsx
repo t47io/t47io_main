@@ -20,6 +20,7 @@ const store = createStore(
   applyMiddleware(...middleware)
 );
 
+
 require.ensure([], (require) => {
   const json = require('../../config/main.json');
   store.dispatch({

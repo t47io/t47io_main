@@ -21,50 +21,82 @@ import Navbar from '../../common/containers/Navbar.jsx';
 import Footer from '../../common/containers/Footer.jsx';
 
 import { scrollToSection } from '../../common/actions/navbarActions.js';
+import { animateReady } from '../actions/dataActions.js';
 
 import '../stylesheets/index.scss';
 
 
 const Project = ({
-  onScrollTop,
-}) => (
-  <div id="HOME__section">
-    <Navbar />
+  data: {
+    project,
+    repository,
+    ready,
+  },
+  actions: {
+    onReady,
+    onScrollTop,
+  },
+}) => {
+  if (project && repository && !ready) { onReady(); }
 
-    <div className="container">
-      <Router>
-        <Route component={DaslabPage} path="/project/daslab" />
-        <Route component={PrimerizePage} path="/project/primerize" />
-        <Route component={RmdbPage} path="/project/rmdb" />
-        <Route component={EternaPage} path="/project/eterna" />
-        <Route component={HitracePage} path="/project/hitrace" />
-        <Route component={SpindlePage} path="/project/spindle" />
-        <Route component={RibokitPage} path="/project/ribokit" />
-        <Route component={CelicaPage} path="/project/celica" />
-      </Router>
+  return (
+    <div id="HOME__section">
+      <Navbar />
+
+      <div className="container">
+        <Router>
+          <Route component={DaslabPage} path="/project/daslab" />
+          <Route component={PrimerizePage} path="/project/primerize" />
+          <Route component={RmdbPage} path="/project/rmdb" />
+          <Route component={EternaPage} path="/project/eterna" />
+          <Route component={HitracePage} path="/project/hitrace" />
+          <Route component={SpindlePage} path="/project/spindle" />
+          <Route component={RibokitPage} path="/project/ribokit" />
+          <Route component={CelicaPage} path="/project/celica" />
+        </Router>
+      </div>
+
+      <ReactTooltip effect="solid" place="top" id="PROJECT__tooltip" />
+      <ScrollTop
+        isHidden={false}
+        onScrollTop={onScrollTop}
+      />
+      <hr />
+      <Footer disabled />
     </div>
-
-    <ReactTooltip effect="solid" place="top" id="PROJECT__tooltip" />
-    <ScrollTop
-      isHidden={false}
-      onScrollTop={onScrollTop}
-    />
-    <hr />
-    <Footer disabled />
-  </div>
-);
+  );
+};
 
 Project.propTypes = {
-  onScrollTop: React.PropTypes.func,
+  data: React.PropTypes.shape({
+    project: React.PropTypes.bool,
+    repository: React.PropTypes.bool,
+    ready: React.PropTypes.bool,
+  }),
+  actions: React.PropTypes.shape({
+    onReady: React.PropTypes.func,
+    onScrollTop: React.PropTypes.func,
+  }),
 };
 Project.defaultProps = {
-  onScrollTop: () => {},
+  data: {
+    project: false,
+    repository: false,
+    ready: false,
+  },
+  actions: {
+    onReady: () => {},
+    onScrollTop: () => {},
+  },
 };
 
 
-const mapStateToProps = null;
+const mapStateToProps = state => ({ data: state.data });
 const mapDispatchToProps = dispatch => ({
-  onScrollTop: bindActionCreators(scrollToSection, dispatch),
+  actions: {
+    onReady: bindActionCreators(animateReady, dispatch),
+    onScrollTop: bindActionCreators(scrollToSection, dispatch),
+  },
 });
 
 export default connect(
