@@ -9,6 +9,7 @@ import StatsGithub from '../components/StatsGithub.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
 import * as statsActions from '../actions/statsActions.js';
+import { initialState as statsProps } from '../reducers/stats.js';
 
 import '../stylesheets/StatsSection.scss';
 
@@ -122,26 +123,7 @@ StatsSection.propTypes = {
   }),
 };
 StatsSection.defaultProps = {
-  data: {
-    items: [],
-    backgrounds: [],
-    links: {
-      github: '',
-      githubMinted: '',
-    },
-    gitContrib: {
-      startDate: '',
-      countArray: [],
-      indexArray: [],
-      maxCount: 0,
-      monthText: {},
-    },
-  },
-  animations: {
-    header: false,
-    counter: false,
-    github: false,
-  },
+  ...statsProps,
   actions: {
     animateHeader: () => {},
     animateCounters: () => {},

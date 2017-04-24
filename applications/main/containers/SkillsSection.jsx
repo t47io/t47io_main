@@ -7,6 +7,7 @@ import SkillsPanel from '../components/SkillsPanel.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
 import * as skillsActions from '../actions/skillsActions.js';
+import { initialState as skillsProps } from '../reducers/skills.js';
 import {
   SKILLS_LEFT,
   SKILLS_RIGHT,
@@ -95,17 +96,7 @@ SkillsSection.propTypes = {
   }),
 };
 SkillsSection.defaultProps = {
-  data: {
-    items: {
-      left: [],
-      right: [],
-    },
-  },
-  animations: {
-    header: false,
-    left: false,
-    right: false,
-  },
+  ...skillsProps,
   actions: {
     animateHeader: () => {},
     animateLeftBars: () => {},

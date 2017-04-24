@@ -8,6 +8,7 @@ import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
 import * as pubsActions from '../actions/pubsActions.js';
+import { initialState as pubsProps } from '../reducers/pubs.js';
 
 import '../stylesheets/PubsSection.scss';
 
@@ -103,17 +104,7 @@ PubsSection.propTypes = {
   }),
 };
 PubsSection.defaultProps = {
-  data: {
-    items: [],
-    links: {
-      googleScholar: '',
-      pubmed: '',
-    },
-  },
-  animations: {
-    header: false,
-    entry: false,
-  },
+  ...pubsProps,
   actions: {
     animateHeader: () => {},
     animateEntries: () => {},

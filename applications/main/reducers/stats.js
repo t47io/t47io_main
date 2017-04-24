@@ -6,7 +6,7 @@ import {
 import { STATS } from '../constants/sectionTypes.js';
 
 
-const initialState = {
+export const initialState = {
   data: {
     items: [],
     backgrounds: [],

@@ -3,7 +3,7 @@ import { TOGGLE_SKILLS_PROGRESSBAR_ANIMATION } from '../constants/actionTypes.js
 import { SKILLS } from '../constants/sectionTypes.js';
 
 
-const initialState = {
+export const initialState = {
   data: {
     items: {
       left: [],

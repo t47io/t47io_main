@@ -8,7 +8,7 @@ import navbar from './navbar.js';
 import footer from './footer.js';
 
 
-const mainReducer = combineReducers({
+const reducer = combineReducers({
   data,
   project,
   repository,
@@ -18,4 +18,4 @@ const mainReducer = combineReducers({
 });
 
 
-export default mainReducer;
+export default reducer;

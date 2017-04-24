@@ -8,6 +8,7 @@ import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
 import * as portfolioActions from '../actions/portfolioActions.js';
+import { initialState as portfolioProps } from '../reducers/portfolio.js';
 
 import '../stylesheets/PortfolioSection.scss';
 
@@ -105,16 +106,7 @@ PortfolioSection.propTypes = {
   }),
 };
 PortfolioSection.defaultProps = {
-  data: {
-    items: [],
-    categories: [],
-    selectedCategory: 'all',
-  },
-  animations: {
-    header: false,
-    filter: false,
-    thumbnail: false,
-  },
+  ...portfolioProps,
   actions: {
     animateHeader: () => {},
     animateFilters: () => {},

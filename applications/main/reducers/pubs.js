@@ -3,7 +3,7 @@ import { TOGGLE_PUBS_ENTRY_ANIMATION } from '../constants/actionTypes.js';
 import { PUBS } from '../constants/sectionTypes.js';
 
 
-const initialState = {
+export const initialState = {
   data: {
     items: [],
     links: {

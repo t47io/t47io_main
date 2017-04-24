@@ -7,7 +7,7 @@ import {
 import { PORTFOLIO } from '../constants/sectionTypes.js';
 
 
-const initialState = {
+export const initialState = {
   data: {
     items: [],
     categories: [],

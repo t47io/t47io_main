@@ -7,6 +7,7 @@ import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
 import * as aboutActions from '../actions/aboutActions.js';
+import { initialState as aboutProps } from '../reducers/about.js';
 
 import '../stylesheets/AboutSection.scss';
 
@@ -63,13 +64,7 @@ AboutSection.propTypes = {
   }),
 };
 AboutSection.defaultProps = {
-  data: {
-    items: [],
-  },
-  animations: {
-    header: false,
-    icon: false,
-  },
+  ...aboutProps,
   actions: {
     animateHeader: () => {},
     animateIcons: () => {},

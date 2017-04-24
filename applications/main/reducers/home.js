@@ -5,7 +5,7 @@ import {
 } from '../constants/actionTypes.js';
 
 
-const initialState = {
+export const initialState = {
   data: {
     title: '',
     loaded: false,

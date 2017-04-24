@@ -3,7 +3,7 @@ import { TOGGLE_ABOUT_ICON_ANIMATION } from '../constants/actionTypes.js';
 import { ABOUT } from '../constants/sectionTypes.js';
 
 
-const initialState = {
+export const initialState = {
   data: {
     items: [],
   },

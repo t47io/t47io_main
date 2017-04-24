@@ -5,12 +5,13 @@ import { bindActionCreators } from 'redux';
 import HomeTrigger from '../components/HomeTrigger.jsx';
 import TypeWriter from '../../common/components/TypeWriter.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
-
 import {
   imgAvatar,
   imgName,
 } from '../components/Images.js';
+
 import * as homeActions from '../actions/homeActions.js';
+import { initialState as homeProps } from '../reducers/home.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 import {
   homeName,
@@ -107,14 +108,7 @@ HomeSection.propTypes = {
   }),
 };
 HomeSection.defaultProps = {
-  data: {
-    title: '',
-  },
-  animations: {
-    ready: false,
-    intro: false,
-    color: 0,
-  },
+  ...homeProps,
   actions: {
     animateReady: () => {},
     animateIntro: () => {},

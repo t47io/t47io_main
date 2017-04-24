@@ -10,6 +10,7 @@ import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
 import * as contactActions from '../actions/contactActions.js';
+import { initialState as contactProps } from '../reducers/contact.js';
 
 import '../stylesheets/ContactSection.scss';
 
@@ -130,26 +131,7 @@ ContactSection.propTypes = {
   }),
 };
 ContactSection.defaultProps = {
-  data: {
-    items: [],
-    backgrounds: [],
-    resume: '',
-  },
-  form: {
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    isPending: false,
-    isSuccess: false,
-    isError: false,
-  },
-  animations: {
-    header: false,
-    icon: false,
-    left: false,
-    right: false,
-  },
+  ...contactProps,
   actions: {
     animateHeader: () => {},
     animateIcons: () => {},
