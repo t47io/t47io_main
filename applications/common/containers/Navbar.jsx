@@ -6,6 +6,8 @@ import Logo from '../components/Logo.jsx';
 import NavbarItem from '../components/NavbarItem.jsx';
 
 import * as navbarActions from '../actions/navbarActions.js';
+import { initialState as navbarProps } from '../reducers/navbar.js';
+import { NAVBAR } from '../constants/sectionTypes.js';
 import { HOME } from '../../main/constants/sectionTypes.js';
 
 import '../stylesheets/Navbar.scss';
@@ -84,14 +86,7 @@ Navbar.propTypes = {
   }),
 };
 Navbar.defaultProps = {
-  data: {
-    items: [],
-    dropdown: [],
-  },
-  animations: {
-    activeSection: HOME,
-    isMobileCollapsed: false,
-  },
+  ...navbarProps,
   actions: {
     scrollToSection: () => {},
     toggleMobileCollapse: () => {},
@@ -99,7 +94,7 @@ Navbar.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.navbar);
+const mapStateToProps = state => (state[NAVBAR]);
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(navbarActions, dispatch),
 });

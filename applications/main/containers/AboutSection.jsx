@@ -8,6 +8,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as aboutActions from '../actions/aboutActions.js';
 import { initialState as aboutProps } from '../reducers/about.js';
+import { ABOUT } from '../constants/sectionTypes.js';
 
 import '../stylesheets/AboutSection.scss';
 
@@ -72,7 +73,7 @@ AboutSection.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.about);
+const mapStateToProps = state => (state[ABOUT]);
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(aboutActions, dispatch),
 });

@@ -5,7 +5,7 @@ import {
 } from '../constants/actionTypes.js';
 import { HOME } from '../../main/constants/sectionTypes.js';
 
-const initialState = {
+export const initialState = {
   data: {
     items: [],
   },

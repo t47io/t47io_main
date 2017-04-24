@@ -10,6 +10,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as statsActions from '../actions/statsActions.js';
 import { initialState as statsProps } from '../reducers/stats.js';
+import { STATS } from '../constants/sectionTypes.js';
 
 import '../stylesheets/StatsSection.scss';
 
@@ -132,7 +133,7 @@ StatsSection.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.stats);
+const mapStateToProps = state => (state[STATS]);
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(statsActions, dispatch),
 });

@@ -1,6 +1,6 @@
 import { TOGGLE_FOOTER_ANIMATION } from '../constants/actionTypes.js';
 
-const initialState = {
+export const initialState = {
   animations: {
     footer: false,
   },

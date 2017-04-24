@@ -5,15 +5,17 @@ import { bindActionCreators } from 'redux';
 import LogoAlt from '../components/LogoAlt.jsx';
 import Trigger from '../components/Trigger.jsx';
 import WebAnimation from '../components/WebAnimation.jsx';
-
 import {
   imgSFO,
   imgSEA,
   imgSrcSetSFO,
   imgSrcSetSEA,
 } from '../components/Images.js';
+
 import * as footerActions from '../../common/actions/footerActions.js';
+import { initialState as footerProps } from '../reducers/footer.js';
 import {
+  FOOTER,
   FOOTER_LEFT,
   FOOTER_RIGHT,
 } from '../constants/sectionTypes.js';
@@ -125,9 +127,7 @@ Footer.propTypes = {
   disabled: React.PropTypes.bool,
 };
 Footer.defaultProps = {
-  animations: {
-    footer: false,
-  },
+  ...footerProps,
   actions: {
     animateFooter: () => {},
   },
@@ -135,7 +135,7 @@ Footer.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.footer);
+const mapStateToProps = state => (state[FOOTER]);
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(footerActions, dispatch),
 });

@@ -21,6 +21,10 @@ import {
   scrollToSection,
   updateNavbarScrollspy,
 } from '../../common/actions/navbarActions.js';
+import {
+  NAVBAR,
+  FOOTER,
+} from '../../common/constants/sectionTypes.js';
 import { HOME } from '../constants/sectionTypes.js';
 
 import '../stylesheets/index.scss';
@@ -96,9 +100,9 @@ Main.defaultProps = {
 
 
 const mapStateToProps = state => ({
-  isLoaded: state.home.data.loaded,
-  hideScrollTop: (state.navbar.animations.activeSection === HOME ||
-    state.footer.animations.footer),
+  isLoaded: state[HOME].data.loaded,
+  hideScrollTop: (state[NAVBAR].animations.activeSection === HOME ||
+    state[FOOTER].animations.footer),
 });
 const mapDispatchToProps = dispatch => ({
   onUpdateScroll: bindActionCreators(updateNavbarScrollspy, dispatch),

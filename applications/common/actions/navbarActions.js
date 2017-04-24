@@ -41,7 +41,7 @@ export const scrollToSection = section => (
     const distance = Math.abs(items.indexOf(activeSection) - items.indexOf(section));
 
     smoothScroll(
-      document.getElementById(`${section}__section`),
+      document.getElementById(`${section.toUpperCase()}__section`),
       distance * 500,
       () => {
         dispatch({

@@ -11,6 +11,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as contactActions from '../actions/contactActions.js';
 import { initialState as contactProps } from '../reducers/contact.js';
+import { CONTACT } from '../constants/sectionTypes.js';
 
 import '../stylesheets/ContactSection.scss';
 
@@ -143,7 +144,7 @@ ContactSection.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.contact);
+const mapStateToProps = state => (state[CONTACT]);
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(contactActions, dispatch),
 });

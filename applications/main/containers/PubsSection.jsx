@@ -9,6 +9,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as pubsActions from '../actions/pubsActions.js';
 import { initialState as pubsProps } from '../reducers/pubs.js';
+import { PUBS } from '../constants/sectionTypes.js';
 
 import '../stylesheets/PubsSection.scss';
 
@@ -112,7 +113,7 @@ PubsSection.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.pubs);
+const mapStateToProps = state => (state[PUBS]);
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(pubsActions, dispatch),
 });

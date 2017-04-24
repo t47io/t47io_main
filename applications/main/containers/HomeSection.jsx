@@ -12,6 +12,7 @@ import {
 
 import * as homeActions from '../actions/homeActions.js';
 import { initialState as homeProps } from '../reducers/home.js';
+import { HOME } from '../constants/sectionTypes.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 import {
   homeName,
@@ -116,7 +117,7 @@ HomeSection.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.home);
+const mapStateToProps = state => (state[HOME]);
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(homeActions, dispatch),
 });

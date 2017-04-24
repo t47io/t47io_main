@@ -9,6 +9,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as portfolioActions from '../actions/portfolioActions.js';
 import { initialState as portfolioProps } from '../reducers/portfolio.js';
+import { PORTFOLIO } from '../constants/sectionTypes.js';
 
 import '../stylesheets/PortfolioSection.scss';
 
@@ -116,7 +117,7 @@ PortfolioSection.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.portfolio);
+const mapStateToProps = state => (state[PORTFOLIO]);
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(portfolioActions, dispatch),
 });

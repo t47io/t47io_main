@@ -34,7 +34,7 @@ const getResume = () => {
 const concatMainJSON = () => {
   const config = {
     ...mainJson,
-    navbar: { items: mainJson.home.sections.map(section => section.toUpperCase()) },
+    navbar: { items: mainJson.home.sections },
     home: { title: mainJson.home.title },
     portfolio: {
       ...mainJson.portfolio,
