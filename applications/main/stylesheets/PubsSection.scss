@@ -16,7 +16,11 @@
   font-size: 1.2em;
   line-height: 1.5em;
 }
-.PUBS__text { line-height: 1.5em; }
+.PUBS__text {
+  line-height: 1.5em;
+
+  .PUBS__hr { margin-bottom: 0; }
+}
 
 .PUBS__image {
   .SPRITE {
@@ -39,3 +43,5 @@
 }
 .PUBS__issue { margin-left: 0.5em; }
 .PUBS__link { margin-left: 0.5em; }
+
+.PUBS__find-more { line-height: 1.5em; }

@@ -83,10 +83,11 @@ const PubsItem = ({
             <i className="fa fa-fwn fa-file-pdf" />
           </a>
           <PubsCodeLink code={code} />
+          <br className="hidden-lg hidden-md" />
           <PubsCiteElement citation={citation} />
         </p>
         <br className="hidden-lg hidden-md" />
-        <hr className="hidden-lg hidden-md" />
+        <hr className="hidden-lg hidden-md PUBS__hr" />
       </div>
     </WebAnimation>
   );
