@@ -4,8 +4,8 @@ import path from 'path';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import Cube from '../applications/loading/components/Cube.jsx';
 import Helix from '../applications/loading/components/Helix.jsx';
+import Hexagon from '../applications/loading/components/Hexagon.jsx';
 
 const env = require('../config/server.json');
 
@@ -23,7 +23,7 @@ const cubeLoading = {
     file: path.join(__dirname, '../applications/loading/stylesheets/project.scss'),
     outputStyle: 'compressed',
   }).css.toString(),
-  HTML: renderToStaticMarkup(<Cube />),
+  HTML: renderToStaticMarkup(<Hexagon />),
 };
 const helixLoading = {
   CSS: sass.renderSync({

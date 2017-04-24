@@ -22,6 +22,8 @@
     background: $colorGray;
     opacity: 0;
     border-radius: 1.5rem;
+
+    will-change: top, right, opacity, z-index;
   }
 }
 @include media_width_lt(991px) {
@@ -78,7 +80,7 @@ $padding: 4%;
   animation: dna_rotate $time #{$val * $delay + $off} infinite ease-in-out;
 }
 @for $i from 0 through 25 {
-  .LOAD__helix div:nth-child( #{$i + 1} ){
+  .LOAD__helix .LOAD__helix-dot:nth-child(#{$i + 1}) {
     right: $i * $padding;
     @if $i % 2 == 0 {
       background: nth($list-clr, $i % 12 + 1); 
