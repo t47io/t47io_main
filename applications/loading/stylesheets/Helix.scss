@@ -83,11 +83,11 @@ $padding: 4%;
   .LOAD__helix .LOAD__helix-dot:nth-child(#{$i + 1}) {
     right: $i * $padding;
     @if $i % 2 == 0 {
-      background: nth($list-clr, $i % 12 + 1); 
+      background-color: nth($list-clr, $i % 12 + 1); 
       @include animation($i, 0s);
     }
     @else {
-      background: nth($list-clr, $i % 12 + 1); 
+      background-color: nth($list-clr, $i % 12 + 1); 
       @include animation($i, 1s);
     }
   }
