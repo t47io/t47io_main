@@ -9,10 +9,16 @@ const SMTP = emailer.createTransport(`${env.email.protocol}://${EMAIL_RECV.repla
 
 const HTTP_CODE = [400, 401, 403, 404, 405, 500, 502, 503];
 
+const HTML_HEADER = {
+  'Content-Type': 'text/html; charset=UTF-8',
+  'X-UA-Compatible': 'IE=edge',
+};
+
 export {
   DEBUG,
   PORT,
   EMAIL_RECV,
   SMTP,
   HTTP_CODE,
+  HTML_HEADER,
 };

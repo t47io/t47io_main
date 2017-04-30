@@ -8,6 +8,7 @@ import {
   DEBUG,
   EMAIL_RECV,
   HTTP_CODE,
+  HTML_HEADER,
   SMTP,
 } from './config.js';
 import {
@@ -25,22 +26,24 @@ const publicPath = path.join(__dirname, '../public');
 
 app.get('/', (req, res) => {
   if (DEBUG) {
-    res.type('html').send(
+    res.set(HTML_HEADER).send(
       middleware.fileSystem.readFileSync(path.join(publicPath, 'index.html'))
     );
   } else {
     res.sendFile(path.join(publicPath, 'index.html'), {
+      headers: HTML_HEADER,
       maxAge: '7 days',
     });
   }
 });
 app.get(projectPathRegex, (req, res) => {
   if (DEBUG) {
-    res.type('html').send(
+    res.set(HTML_HEADER).send(
       middleware.fileSystem.readFileSync(path.join(publicPath, 'project.html'))
     );
   } else {
     res.sendFile(path.join(publicPath, 'project.html'), {
+      headers: HTML_HEADER,
       maxAge: '7 days',
     });
   }
@@ -48,11 +51,8 @@ app.get(projectPathRegex, (req, res) => {
 app.use(express.static(publicPath, { maxAge: '30 days' }));
 
 app.get('/resume', (req, res) => {
-  res.sendFile(indexJson.contact.resume, {
-    root: path.join(publicPath, 'pdf'),
-    headers: {
-      'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"',
-    },
+  res.sendFile(path.join(publicPath, 'pdf/', indexJson.contact.resume), {
+    headers: { 'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"' },
     maxAge: '60 days',
   });
 });
@@ -130,8 +130,9 @@ app.all('*', (req, res, next) => {
 app.use((err, req, res, next) => {
   const code = (HTTP_CODE.indexOf(err.status) !== -1) ? err.status : 503;
 
-  return res.status(code).sendFile(
-    path.join(publicPath, `${err.status}.html`)
-  );
+  return res.status(code).sendFile(path.join(publicPath, `${err.status}.html`), {
+    headers: HTML_HEADER,
+    maxAge: '60 days',
+  });
 });
 
