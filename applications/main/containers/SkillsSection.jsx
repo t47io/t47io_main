@@ -8,8 +8,8 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as skillsActions from '../actions/skillsActions.js';
 import { initialState as skillsProps } from '../reducers/skills.js';
-import { SKILLS } from '../constants/sectionTypes.js';
 import {
+  SKILLS,
   SKILLS_LEFT,
   SKILLS_RIGHT,
 } from '../constants/sectionTypes.js';

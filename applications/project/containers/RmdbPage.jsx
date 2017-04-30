@@ -5,6 +5,7 @@ import AccessSection from '../components/AccessSection.jsx';
 import DocsSection from '../components/DocsSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
+import MetaSection from '../components/MetaSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgRmdb } from '../components/Images.js';
@@ -23,6 +24,11 @@ const RmdbPage = ({
 
   return (
     <div className="PROJECT__body">
+      <MetaSection
+        title={title}
+        description={description}
+        project={RMDB}
+      />
       <TitleSection
         title={title}
         description={description}

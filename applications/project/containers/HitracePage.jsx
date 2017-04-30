@@ -5,6 +5,7 @@ import AccessSection from '../components/AccessSection.jsx';
 import DocsSection from '../components/DocsSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
+import MetaSection from '../components/MetaSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgHitrace } from '../components/Images.js';
@@ -23,6 +24,11 @@ const HitracePage = ({
 
   return (
     <div className="PROJECT__body">
+      <MetaSection
+        title={title}
+        description={description}
+        project={HITRACE}
+      />
       <TitleSection
         title={title}
         description={description}

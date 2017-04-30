@@ -17,6 +17,7 @@ import RibokitPage from './RibokitPage.jsx';
 import CelicaPage from './CelicaPage.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
 
+import Meta from '../components/Meta.jsx';
 import Navbar from '../../common/containers/Navbar.jsx';
 import Footer from '../../common/containers/Footer.jsx';
 
@@ -41,6 +42,7 @@ const Project = ({
 
   return (
     <div id="HOME__section">
+      <Meta />
       <Navbar />
 
       <div className="container">

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import FeatureSection from '../components/FeatureSection.jsx';
+import MetaSection from '../components/MetaSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgCelica } from '../components/Images.js';
@@ -18,6 +19,11 @@ const CelicaPage = ({
 
   return (
     <div className="PROJECT__body">
+      <MetaSection
+        title={title}
+        description={description}
+        project={CELICA}
+      />
       <TitleSection
         title={title}
         description={description}

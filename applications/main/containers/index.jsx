@@ -12,6 +12,7 @@ import StatsSection from './StatsSection.jsx';
 import PubsSection from './PubsSection.jsx';
 import ContactSection from './ContactSection.jsx';
 
+import Meta from '../components/Meta.jsx';
 import Navbar from '../../common/containers/Navbar.jsx';
 import Footer from '../../common/containers/Footer.jsx';
 import ScrollSpy from '../../common/components/ScrollSpy.jsx';
@@ -40,6 +41,7 @@ const Main = ({
 
   return (
     <div>
+      <Meta />
       <Navbar />
 
       <ScrollSpy

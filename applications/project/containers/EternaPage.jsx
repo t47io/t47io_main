@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import AccessSection from '../components/AccessSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
+import MetaSection from '../components/MetaSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { eternaNotes } from '../components/AccessNotes.jsx';
@@ -21,6 +22,11 @@ const EternaPage = ({
 
   return (
     <div className="PROJECT__body">
+      <MetaSection
+        title={title}
+        description={description}
+        project={ETERNA}
+      />
       <TitleSection
         title={title}
         description={description}
