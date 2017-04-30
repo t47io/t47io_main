@@ -11,8 +11,6 @@ import glob from 'glob';
 import path from 'path';
 
 import {
-  indexPage,
-  errorPage,
   cubeLoading,
   helixLoading,
   googleAnalytics,
@@ -35,7 +33,6 @@ const plugins = (DEBUG) => {
       inject: false,
       minify: htmlMinify,
 
-      ...indexPage,
       helixLoading,
       googleAnalytics,
     }),
@@ -46,7 +43,6 @@ const plugins = (DEBUG) => {
       inject: false,
       minify: htmlMinify,
 
-      ...indexPage,
       cubeLoading,
       googleAnalytics,
     }),
@@ -57,7 +53,6 @@ const plugins = (DEBUG) => {
       inject: false,
       minify: htmlMinify,
 
-      ...errorPage,
       googleAnalytics,
     }),
     new ExtractTextPlugin({
