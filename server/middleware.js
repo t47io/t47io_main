@@ -37,7 +37,7 @@ if (DEBUG) {
   const compiler = webpack(webpackConfig);
   middleware = webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
-    index: 'index.html',
+    index: '/',
 
     noInfo: false,
     quiet: false,
@@ -50,12 +50,12 @@ if (DEBUG) {
     stats: { colors: true },
   });
   middleware.waitUntilValid(() => {
+    const errorHTML = middleware.fileSystem.readFileSync(path.join(publicPath, 'error.html'));
     fs.writeFileSync(
       path.join(__dirname, '../public/error.html'),
-      middleware.fileSystem.readFileSync(path.join(publicPath, 'error.html')),
-      'utf8'
+      errorHTML, 'utf8'
     );
-    childProcess.execSync('npm run process:error');
+    childProcess.execSync('npm run process');
   });
 
   app.use(middleware);

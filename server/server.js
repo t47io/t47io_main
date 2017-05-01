@@ -15,6 +15,10 @@ import {
   app,
   middleware,
 } from './middleware.js';
+import {
+  renderMainHTML,
+  renderProjectHTML,
+} from '../build/render/render.jsx';
 
 const indexJson = require('../config/main.json');
 const projectJson = require('../config/project.json');
@@ -26,11 +30,12 @@ const publicPath = path.join(__dirname, '../public');
 
 app.get('/', (req, res) => {
   if (DEBUG) {
-    res.set(HTML_HEADER).send(
-      middleware.fileSystem.readFileSync(path.join(publicPath, 'index.html'))
+    const mainHTML = middleware.fileSystem.readFileSync(
+      path.join(publicPath, 'main.html'), 'utf8'
     );
+    res.set(HTML_HEADER).send(renderMainHTML(mainHTML));
   } else {
-    res.sendFile(path.join(publicPath, 'index.html'), {
+    res.sendFile(path.join(publicPath, 'main.html'), {
       headers: HTML_HEADER,
       maxAge: '7 days',
     });
@@ -38,9 +43,10 @@ app.get('/', (req, res) => {
 });
 app.get(projectPathRegex, (req, res) => {
   if (DEBUG) {
-    res.set(HTML_HEADER).send(
-      middleware.fileSystem.readFileSync(path.join(publicPath, 'project.html'))
+    const projectHTML = middleware.fileSystem.readFileSync(
+      path.join(publicPath, 'project.html'), 'utf8'
     );
+    res.set(HTML_HEADER).send(renderProjectHTML(projectHTML));
   } else {
     res.sendFile(path.join(publicPath, 'project.html'), {
       headers: HTML_HEADER,
