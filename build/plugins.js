@@ -10,13 +10,6 @@ import PurifyCSSPlugin from 'purifycss-webpack';
 import glob from 'glob';
 import path from 'path';
 
-import {
-  cubeLoading,
-  helixLoading,
-  googleAnalytics,
-  htmlMinify,
-} from './render.jsx';
-
 const rootPath = path.join(__dirname, '../');
 
 
@@ -28,32 +21,21 @@ const plugins = (DEBUG) => {
     }),
     new HtmlWebpackPlugin({
       chunks: ['main', 'vendor', 'manifest'],
-      template: `${rootPath}/applications/main/index.html`,
-      filename: `${rootPath}/public/index.html`,
+      template: `${rootPath}/applications/index.html`,
+      filename: `${rootPath}/public/main.html`,
       inject: false,
-      minify: htmlMinify,
-
-      helixLoading,
-      googleAnalytics,
     }),
     new HtmlWebpackPlugin({
       chunks: ['project', 'vendor', 'manifest'],
-      template: `${rootPath}/applications/project/index.html`,
+      template: `${rootPath}/applications/index.html`,
       filename: `${rootPath}/public/project.html`,
       inject: false,
-      minify: htmlMinify,
-
-      cubeLoading,
-      googleAnalytics,
     }),
     new HtmlWebpackPlugin({
       chunks: ['error'],
-      template: `${rootPath}/applications/error/index.html`,
+      template: `${rootPath}/applications/index.html`,
       filename: `${rootPath}/public/error.html`,
       inject: false,
-      minify: htmlMinify,
-
-      googleAnalytics,
     }),
     new ExtractTextPlugin({
       filename: DEBUG ? '[name]-[hash:8].css' : '[chunkhash:8].min.css',
@@ -90,11 +72,9 @@ const plugins = (DEBUG) => {
       ...plugin,
       new webpack.optimize.CommonsChunkPlugin({
         name: 'manifest',
-        filename: '[name]-[hash:8].js',
+        filename: DEBUG ? '[name]-012345678.js' : '012345678.min.js',
       }),
-      new BabiliPlugin({
-        comments: false,
-      }),
+      new BabiliPlugin({ comments: false }),
       new UglifyJsPlugin({
         beautify: false,
         comments: false,
@@ -109,12 +89,8 @@ const plugins = (DEBUG) => {
           keep_fnames: false,
         },
       }),
-      new OptimizeJsPlugin({
-        sourceMap: false,
-      }),
-      // new webpack.optimize.AggressiveMergingPlugin({
-      //   minSizeReduce: 1.2
-      // }),
+      new OptimizeJsPlugin({ sourceMap: false }),
+      // new webpack.optimize.AggressiveMergingPlugin({ minSizeReduce: 1.2 }),
     ];
   } else {
     plugin = [
