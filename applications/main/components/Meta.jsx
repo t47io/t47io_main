@@ -8,7 +8,7 @@ import {
 } from '../../common/constants/util.js';
 
 
-const mainMeta = {
+export const mainMeta = {
   ...META,
   name: {
     ...META.name,

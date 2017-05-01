@@ -5,9 +5,9 @@ import loaders from './build/loaders.js';
 
 
 const DEBUG = !((process.argv.indexOf('--production') > 0) || (process.argv.indexOf('-p') > 0) || (process.env.npm_lifecycle_event === 'webpack'));
-console.log(colors.magenta('***************************'));
-console.log(`${colors.blue('DEBUG')} mode applied: ${DEBUG ? colors.green(DEBUG) : colors.red(DEBUG)}`);
-console.log(colors.magenta('***************************'));
+console.log(colors.magenta('********************************'));
+console.log(`${colors.blue('DEBUG')} mode applied: ${DEBUG ? colors.green(DEBUG) : colors.red(DEBUG)} => ${colors.yellow(DEBUG ? 'DEV' : 'PROD')}`);
+console.log(colors.magenta('********************************'));
 
 
 const entry = {

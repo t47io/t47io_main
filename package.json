@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,7 @@
     "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
     "webpack": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
     "build": "npm run lint && npm run json && npm run webpack && npm run process",
-    "process": "npm run process:main && npm run process:error",
-    "process:main": "babel-node ./build/main.js",
-    "process:error": "babel-node ./build/error.jsx",
+    "process": "babel-node ./build/process.jsx",
     "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
