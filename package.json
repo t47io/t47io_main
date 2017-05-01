@@ -58,6 +58,7 @@
     "file-loader": "^0.11.1",
     "html-minifier": "^3.4.3",
     "html-webpack-plugin": "^2.28.0",
+    "linkstate": "^1.0.1",
     "lodash-webpack-plugin": "^0.11.3",
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",

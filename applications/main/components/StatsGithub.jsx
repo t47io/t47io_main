@@ -25,8 +25,9 @@ const StatsGithub = ({
       <GithubCalendar {...gitContrib} />
     </WebAnimation>
     <ReactTooltip
-      effect="solid" place="top"
       id="STATS__tooltip"
+      effect="solid" place="top"
+      insecure={false}
     />
   </div>
 );

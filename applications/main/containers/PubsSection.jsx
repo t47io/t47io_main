@@ -49,7 +49,11 @@ const PubsSection = ({
           {...item}
         />
       ))}
-      <ReactTooltip effect="solid" place="bottom" id="PUBS__tooltip" />
+      <ReactTooltip
+        id="PUBS__tooltip"
+        effect="solid" place="bottom"
+        insecure={false}
+      />
 
       <div className="UTIL__spacer-lg" />
       <div className="row">
