@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import AccessSection from '../components/AccessSection.jsx';
 import DocsSection from '../components/DocsSection.jsx';
@@ -10,6 +11,7 @@ import TitleSection from '../components/TitleSection.jsx';
 
 import { daslabNotes } from '../components/AccessNotes.jsx';
 import { imgDaslab } from '../components/Images.js';
+import { aniamteScrollTop } from '../actions/dataActions.js';
 import { DASLAB } from '../constants/projectTypes.js';
 
 
@@ -20,6 +22,7 @@ const DaslabPage = ({
   docs,
   carousels,
   lists,
+  onScroll,
 }) => {
   if (!title) { return null; }
 
@@ -44,6 +47,7 @@ const DaslabPage = ({
         project={DASLAB}
         carousels={carousels}
         lists={lists}
+        onScroll={onScroll}
       />
       <GithubSection />
       <DocsSection
@@ -71,6 +75,7 @@ DaslabPage.propTypes = {
   docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  onScroll: React.PropTypes.func,
 };
 DaslabPage.defaultProps = {
   title: '',
@@ -83,11 +88,14 @@ DaslabPage.defaultProps = {
   docs: [],
   carousels: [],
   lists: [],
+  onScroll: () => {},
 };
 
 
 const mapStateToProps = state => (state.project[DASLAB]);
-const mapDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  onScroll: bindActionCreators(aniamteScrollTop, dispatch),
+});
 
 
 export default connect(

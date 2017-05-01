@@ -1,4 +1,7 @@
-import { TOGGLE_PAGE_READY } from '../constants/actionTypes.js';
+import {
+  TOGGLE_PAGE_READY,
+  TOGGLE_SCROLLTOP_ANIMATION,
+} from '../constants/actionTypes.js';
 
 
 export const animateReady = () => (
@@ -12,3 +15,8 @@ export const animateReady = () => (
     }, 1000);
   }
 );
+
+export const aniamteScrollTop = status => ({
+  type: TOGGLE_SCROLLTOP_ANIMATION,
+  payload: { status },
+});

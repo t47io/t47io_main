@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import FeatureSection from '../components/FeatureSection.jsx';
 import MetaSection from '../components/MetaSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgCelica } from '../components/Images.js';
+import { aniamteScrollTop } from '../actions/dataActions.js';
 import { CELICA } from '../constants/projectTypes.js';
 
 
@@ -14,6 +16,7 @@ const CelicaPage = ({
   description,
   carousels,
   lists,
+  onScroll,
 }) => {
   if (!title) { return null; }
 
@@ -34,6 +37,7 @@ const CelicaPage = ({
         carousels={carousels}
         lists={lists}
         isStory
+        onScroll={onScroll}
       />
     </div>
   );
@@ -44,17 +48,21 @@ CelicaPage.propTypes = {
   description: React.PropTypes.string,
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  onScroll: React.PropTypes.func,
 };
 CelicaPage.defaultProps = {
   title: '',
   description: '',
   carousels: [],
   lists: [],
+  onScroll: () => {},
 };
 
 
 const mapStateToProps = state => (state.project[CELICA]);
-const mapDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  onScroll: bindActionCreators(aniamteScrollTop, dispatch),
+});
 
 
 export default connect(

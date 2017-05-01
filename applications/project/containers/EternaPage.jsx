@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import AccessSection from '../components/AccessSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
@@ -8,6 +9,7 @@ import TitleSection from '../components/TitleSection.jsx';
 
 import { eternaNotes } from '../components/AccessNotes.jsx';
 import { imgEterna } from '../components/Images.js';
+import { aniamteScrollTop } from '../actions/dataActions.js';
 import { ETERNA } from '../constants/projectTypes.js';
 
 
@@ -17,6 +19,7 @@ const EternaPage = ({
   urls,
   carousels,
   lists,
+  onScroll,
 }) => {
   if (!title) { return null; }
 
@@ -41,6 +44,7 @@ const EternaPage = ({
         project={ETERNA}
         carousels={carousels}
         lists={lists}
+        onScroll={onScroll}
       />
       <AccessSection
         key="bottom"
@@ -60,6 +64,7 @@ EternaPage.propTypes = {
   }),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  onScroll: React.PropTypes.func,
 };
 EternaPage.defaultProps = {
   title: '',
@@ -70,11 +75,14 @@ EternaPage.defaultProps = {
   },
   carousels: [],
   lists: [],
+  onScroll: () => {},
 };
 
 
 const mapStateToProps = state => (state.project[ETERNA]);
-const mapDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  onScroll: bindActionCreators(aniamteScrollTop, dispatch),
+});
 
 
 export default connect(

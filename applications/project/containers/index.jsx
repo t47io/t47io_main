@@ -15,12 +15,13 @@ import HitracePage from './HitracePage.jsx';
 import SpindlePage from './SpindlePage.jsx';
 import RibokitPage from './RibokitPage.jsx';
 import CelicaPage from './CelicaPage.jsx';
-import ScrollTop from '../../common/components/ScrollTop.jsx';
 
 import Meta from '../components/Meta.jsx';
 import Navbar from '../../common/containers/Navbar.jsx';
 import Footer from '../../common/containers/Footer.jsx';
+import ScrollTop from '../../common/components/ScrollTop.jsx';
 
+import { initialState as dataProps } from '../reducers/data.js';
 import { scrollToSection } from '../../common/actions/navbarActions.js';
 import { animateReady } from '../actions/dataActions.js';
 
@@ -32,6 +33,7 @@ const Project = ({
     project,
     repository,
     ready,
+    scroll,
   },
   actions: {
     onReady,
@@ -58,9 +60,13 @@ const Project = ({
         </Router>
       </div>
 
-      <ReactTooltip effect="solid" place="top" id="PROJECT__tooltip" />
+      <ReactTooltip
+        id="PROJECT__tooltip"
+        effect="solid" place="top"
+        insecure={false}
+      />
       <ScrollTop
-        isHidden={false}
+        isHidden={!scroll}
         onScrollTop={onScrollTop}
       />
       <hr />
@@ -74,6 +80,7 @@ Project.propTypes = {
     project: React.PropTypes.bool,
     repository: React.PropTypes.bool,
     ready: React.PropTypes.bool,
+    scroll: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     onReady: React.PropTypes.func,
@@ -81,11 +88,7 @@ Project.propTypes = {
   }),
 };
 Project.defaultProps = {
-  data: {
-    project: false,
-    repository: false,
-    ready: false,
-  },
+  data: dataProps,
   actions: {
     onReady: () => {},
     onScrollTop: () => {},

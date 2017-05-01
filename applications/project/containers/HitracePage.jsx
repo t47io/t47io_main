@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import AccessSection from '../components/AccessSection.jsx';
 import DocsSection from '../components/DocsSection.jsx';
@@ -7,8 +8,10 @@ import FeatureSection from '../components/FeatureSection.jsx';
 import GithubSection from '../components/GithubSection.jsx';
 import MetaSection from '../components/MetaSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 import { imgHitrace } from '../components/Images.js';
+import { aniamteScrollTop } from '../actions/dataActions.js';
 import { HITRACE } from '../constants/projectTypes.js';
 
 
@@ -19,6 +22,7 @@ const HitracePage = ({
   docs,
   carousels,
   lists,
+  onScroll,
 }) => {
   if (!title) { return null; }
 
@@ -45,8 +49,14 @@ const HitracePage = ({
           carousels={carousels}
           lists={lists}
           isRow={false}
+          onScroll={onScroll}
         />
       </TitleSection>
+
+      <Trigger
+        delay={0}
+        onToggleAnimation={onScroll}
+      />
       <GithubSection />
       <DocsSection
         labels={docs}
@@ -71,6 +81,7 @@ HitracePage.propTypes = {
   docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  onScroll: React.PropTypes.func,
 };
 HitracePage.defaultProps = {
   title: '',
@@ -83,11 +94,14 @@ HitracePage.defaultProps = {
   docs: [],
   carousels: [],
   lists: [],
+  onScroll: () => {},
 };
 
 
 const mapStateToProps = state => (state.project[HITRACE]);
-const mapDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  onScroll: bindActionCreators(aniamteScrollTop, dispatch),
+});
 
 
 export default connect(

@@ -3,6 +3,7 @@ import React from 'react';
 import Carousel from './Carousel.jsx';
 import FeatureList from './FeatureList.jsx';
 import Headline from './Headline.jsx';
+import Trigger from '../../common/components/Trigger.jsx';
 
 import '../stylesheets/FeatureSection.scss';
 
@@ -13,6 +14,7 @@ const FeatureSection = ({
   lists,
   isStory,
   isRow,
+  onScroll,
 }) => {
   const title = isStory ? 'Journey & Story' : 'Features';
   const icon = isStory ? 'newspaper' : 'right-hand';
@@ -28,6 +30,10 @@ const FeatureSection = ({
           <Headline
             title={title}
             icon={icon}
+          />
+          <Trigger
+            delay={0}
+            onToggleAnimation={onScroll}
           />
         </div>
       </div>
@@ -69,6 +75,7 @@ FeatureSection.propTypes = {
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
   isStory: React.PropTypes.bool,
   isRow: React.PropTypes.bool,
+  onScroll: React.PropTypes.func,
 };
 FeatureSection.defaultProps = {
   project: '',
@@ -76,6 +83,7 @@ FeatureSection.defaultProps = {
   lists: [],
   isStory: false,
   isRow: true,
+  onScroll: () => {},
 };
 
 

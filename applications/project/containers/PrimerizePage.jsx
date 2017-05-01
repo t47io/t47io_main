@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import AccessSection from '../components/AccessSection.jsx';
 import DocsSection from '../components/DocsSection.jsx';
@@ -9,6 +10,7 @@ import MetaSection from '../components/MetaSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgPrimerize } from '../components/Images.js';
+import { aniamteScrollTop } from '../actions/dataActions.js';
 import { PRIMERIZE } from '../constants/projectTypes.js';
 
 
@@ -19,6 +21,7 @@ const PrimerizePage = ({
   docs,
   carousels,
   lists,
+  onScroll,
 }) => {
   if (!title) { return null; }
 
@@ -42,6 +45,7 @@ const PrimerizePage = ({
         project={PRIMERIZE}
         carousels={carousels}
         lists={lists}
+        onScroll={onScroll}
       />
       <GithubSection />
       <DocsSection
@@ -67,6 +71,7 @@ PrimerizePage.propTypes = {
   docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  onScroll: React.PropTypes.func,
 };
 PrimerizePage.defaultProps = {
   title: '',
@@ -79,11 +84,14 @@ PrimerizePage.defaultProps = {
   docs: [],
   carousels: [],
   lists: [],
+  onScroll: () => {},
 };
 
 
 const mapStateToProps = state => (state.project[PRIMERIZE]);
-const mapDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  onScroll: bindActionCreators(aniamteScrollTop, dispatch),
+});
 
 
 export default connect(

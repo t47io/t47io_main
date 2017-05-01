@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import AccessSection from '../components/AccessSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
@@ -7,6 +8,7 @@ import MetaSection from '../components/MetaSection.jsx';
 import TitleSection from '../components/TitleSection.jsx';
 
 import { imgSpindle } from '../components/Images.js';
+import { aniamteScrollTop } from '../actions/dataActions.js';
 import { SPINDLE } from '../constants/projectTypes.js';
 
 
@@ -16,6 +18,7 @@ const SpindlePage = ({
   urls,
   carousels,
   lists,
+  onScroll,
 }) => {
   if (!title) { return null; }
 
@@ -39,6 +42,7 @@ const SpindlePage = ({
         project={SPINDLE}
         carousels={carousels}
         lists={lists}
+        onScroll={onScroll}
       />
       <AccessSection
         key="bottom"
@@ -56,6 +60,7 @@ SpindlePage.propTypes = {
   }),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  onScroll: React.PropTypes.func,
 };
 SpindlePage.defaultProps = {
   title: '',
@@ -65,11 +70,14 @@ SpindlePage.defaultProps = {
   },
   carousels: [],
   lists: [],
+  onScroll: () => {},
 };
 
 
 const mapStateToProps = state => (state.project[SPINDLE]);
-const mapDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  onScroll: bindActionCreators(aniamteScrollTop, dispatch),
+});
 
 
 export default connect(
