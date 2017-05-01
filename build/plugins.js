@@ -72,7 +72,7 @@ const plugins = (DEBUG) => {
       ...plugin,
       new webpack.optimize.CommonsChunkPlugin({
         name: 'manifest',
-        filename: DEBUG ? '[name]-012345678.js' : '012345678.min.js',
+        filename: DEBUG ? '[name]-01234567.js' : '01234567.min.js',
       }),
       new BabiliPlugin({ comments: false }),
       new UglifyJsPlugin({
