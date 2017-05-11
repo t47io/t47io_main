@@ -5,15 +5,15 @@ const TitleImage = ({
   title,
   image,
 }) => (
-  <p className="PROJECT__title-image thumbnail text-center">
+  <p className="PROJECT__title thumbnail text-center">
     <a
       href={image}
       target="_blank" rel="noopener noreferrer"
     >
       <img
-        src={image}
+        className="PROJECT__title-image"
         alt={title}
-        style={{ maxWidth: '100%' }}
+        src={image}
       />
     </a>
   </p>

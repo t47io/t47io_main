@@ -8,7 +8,7 @@ class TypeWriter extends React.PureComponent {
       isActive: props.shouldAnimate,
       currentText: '',
     };
-    
+
     this.onTypeWrite = this.onTypeWrite.bind(this);
   }
 
