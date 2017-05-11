@@ -8,6 +8,7 @@ class TypeWriter extends React.PureComponent {
       isActive: props.shouldAnimate,
       currentText: '',
     };
+    
     this.onTypeWrite = this.onTypeWrite.bind(this);
   }
 
@@ -26,6 +27,9 @@ class TypeWriter extends React.PureComponent {
       this.onTypeWrite();
     }
   }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
 
   onTypeWrite() {
     const { fullText, interval, delay } = this.props;
@@ -34,14 +38,14 @@ class TypeWriter extends React.PureComponent {
     setTimeout(() => {
       let currentStep = 0;
       let currentText = '';
-      const handle = setInterval(() => {
+      this.timer = setInterval(() => {
         currentText = fullText.slice(0, currentStep)
           .replace(/!/g, '').replace(/@/g, '<br/>');
         currentStep += 1;
         this.setState({ currentText });
 
         if (currentStep > steps) {
-          clearInterval(handle);
+          clearInterval(this.timer);
           this.setState({ isActive: false });
         }
       }, interval);

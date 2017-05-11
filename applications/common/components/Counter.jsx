@@ -8,6 +8,7 @@ class Counter extends React.PureComponent {
       isActive: props.shouldAnimate,
       currentValue: props.beginValue,
     };
+
     this.onCountUp = this.onCountUp.bind(this);
   }
 
@@ -26,6 +27,9 @@ class Counter extends React.PureComponent {
       this.onCountUp();
     }
   }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
 
   onCountUp() {
     const { beginValue, endValue, duration, interval } = this.props;
@@ -34,13 +38,13 @@ class Counter extends React.PureComponent {
 
     let currentValue = beginValue;
     let currentStep = 0;
-    const handle = setInterval(() => {
+    this.timer = setInterval(() => {
       currentValue += increment;
       currentStep += 1;
       this.setState({ currentValue: parseInt(currentValue, 10) });
 
       if (currentStep >= steps) {
-        clearInterval(handle);
+        clearInterval(this.timer);
         this.setState({ isActive: false });
       }
     }, interval);

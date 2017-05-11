@@ -14,6 +14,9 @@ class Carousel extends React.PureComponent {
   componentDidMount() {
     this.onLoop();
   }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
 
   onClick(index) {
     clearInterval(this.timer);
