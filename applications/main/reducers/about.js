@@ -15,7 +15,7 @@ export const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION: {
       if (payload.section === ABOUT) {
         return {
           ...state,
@@ -26,8 +26,8 @@ const reducer = (state = initialState, { type, payload }) => {
         };
       }
       return state;
-
-    case TOGGLE_ABOUT_ICON_ANIMATION:
+    }
+    case TOGGLE_ABOUT_ICON_ANIMATION: {
       return {
         ...state,
         animations: {
@@ -35,9 +35,10 @@ const reducer = (state = initialState, { type, payload }) => {
           icon: payload.status,
         },
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

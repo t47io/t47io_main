@@ -8,14 +8,15 @@ export const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_FOOTER_ANIMATION:
+    case TOGGLE_FOOTER_ANIMATION: {
       return {
         ...state,
         animations: { footer: payload.status },
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

@@ -12,11 +12,12 @@ const initialState = PROJECT_LIST.map(proj => ({
 
 const projectReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case LOAD_PROJECT_JSON_DATA:
+    case LOAD_PROJECT_JSON_DATA: {
       return payload;
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

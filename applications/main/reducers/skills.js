@@ -23,7 +23,7 @@ export const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION: {
       if (payload.section === SKILLS) {
         return {
           ...state,
@@ -34,8 +34,8 @@ const reducer = (state = initialState, { type, payload }) => {
         };
       }
       return state;
-
-    case TOGGLE_SKILLS_PROGRESSBAR_ANIMATION:
+    }
+    case TOGGLE_SKILLS_PROGRESSBAR_ANIMATION: {
       return {
         ...state,
         animations: {
@@ -43,9 +43,10 @@ const reducer = (state = initialState, { type, payload }) => {
           ...payload,
         },
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

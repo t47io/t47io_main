@@ -19,7 +19,7 @@ export const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_HOME_READY:
+    case TOGGLE_HOME_READY: {
       return {
         ...state,
         animations: {
@@ -27,8 +27,8 @@ const reducer = (state = initialState, { type, payload }) => {
           ready: true,
         },
       };
-
-    case TOGGLE_HOME_INTRO_ANIMATION:
+    }
+    case TOGGLE_HOME_INTRO_ANIMATION: {
       return {
         ...state,
         animations: {
@@ -36,8 +36,8 @@ const reducer = (state = initialState, { type, payload }) => {
           intro: true,
         },
       };
-
-    case CYCLE_HOME_TEXT_COLOR:
+    }
+    case CYCLE_HOME_TEXT_COLOR: {
       return {
         ...state,
         animations: {
@@ -45,9 +45,10 @@ const reducer = (state = initialState, { type, payload }) => {
           color: payload.status,
         },
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

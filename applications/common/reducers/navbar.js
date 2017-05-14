@@ -17,7 +17,7 @@ export const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_NAVBAR_COLLAPSE:
+    case TOGGLE_NAVBAR_COLLAPSE: {
       return {
         ...state,
         animations: {
@@ -25,8 +25,8 @@ const reducer = (state = initialState, { type, payload }) => {
           isMobileCollapsed: !state.animations.isMobileCollapsed,
         },
       };
-
-    case SCROLL_NAVBAR_SECTION:
+    }
+    case SCROLL_NAVBAR_SECTION: {
       return {
         ...state,
         animations: {
@@ -35,8 +35,8 @@ const reducer = (state = initialState, { type, payload }) => {
           activeSection: payload.section,
         },
       };
-
-    case UPDATE_NAVBAR_SCROLLSPY:
+    }
+    case UPDATE_NAVBAR_SCROLLSPY: {
       return {
         ...state,
         animations: {
@@ -44,9 +44,10 @@ const reducer = (state = initialState, { type, payload }) => {
           activeSection: payload.section,
         },
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

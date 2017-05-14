@@ -15,29 +15,33 @@ export const initialState = {
 
 const dataReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_PAGE_READY:
+    case TOGGLE_PAGE_READY: {
       return {
         ...state,
         ready: true,
       };
-    case TOGGLE_SCROLLTOP_ANIMATION:
+    }
+    case TOGGLE_SCROLLTOP_ANIMATION: {
       return {
         ...state,
         scroll: payload.status,
       };
-    case LOAD_PROJECT_JSON_DATA:
+    }
+    case LOAD_PROJECT_JSON_DATA: {
       return {
         ...state,
         project: true,
       };
-    case LOAD_REPOSITORY_JSON_DATA:
+    }
+    case LOAD_REPOSITORY_JSON_DATA: {
       return {
         ...state,
         repository: true,
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

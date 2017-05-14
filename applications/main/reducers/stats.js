@@ -31,7 +31,7 @@ export const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION: {
       if (payload.section === STATS) {
         return {
           ...state,
@@ -42,8 +42,8 @@ const reducer = (state = initialState, { type, payload }) => {
         };
       }
       return state;
-
-    case TOGGLE_STATS_COUNTER_ANIMATION:
+    }
+    case TOGGLE_STATS_COUNTER_ANIMATION: {
       return {
         ...state,
         animations: {
@@ -51,8 +51,8 @@ const reducer = (state = initialState, { type, payload }) => {
           counter: payload.status,
         },
       };
-
-    case TOGGLE_STATS_GITHUB_ANIMATION:
+    }
+    case TOGGLE_STATS_GITHUB_ANIMATION: {
       return {
         ...state,
         animations: {
@@ -60,9 +60,10 @@ const reducer = (state = initialState, { type, payload }) => {
           github: payload.status,
         },
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

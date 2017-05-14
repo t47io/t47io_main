@@ -12,11 +12,12 @@ const initialState = REPOSITORY_LIST.map(repo => ({
 
 const repositoryReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case LOAD_REPOSITORY_JSON_DATA:
+    case LOAD_REPOSITORY_JSON_DATA: {
       return payload;
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

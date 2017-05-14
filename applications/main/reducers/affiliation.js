@@ -16,7 +16,7 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION: {
       if (payload.section === AFFILIATION) {
         return {
           ...state,
@@ -27,8 +27,8 @@ const reducer = (state = initialState, { type, payload }) => {
         };
       }
       return state;
-
-    case UPDATE_AFFILIATION_SCROLLSPY:
+    }
+    case UPDATE_AFFILIATION_SCROLLSPY: {
       return {
         ...state,
         animations: {
@@ -36,9 +36,10 @@ const reducer = (state = initialState, { type, payload }) => {
           panel: payload.status,
         },
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 

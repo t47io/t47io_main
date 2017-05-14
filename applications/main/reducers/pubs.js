@@ -20,7 +20,7 @@ export const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case TOGGLE_HEADER_ANIMATION:
+    case TOGGLE_HEADER_ANIMATION: {
       if (payload.section === PUBS) {
         return {
           ...state,
@@ -31,8 +31,8 @@ const reducer = (state = initialState, { type, payload }) => {
         };
       }
       return state;
-
-    case TOGGLE_PUBS_ENTRY_ANIMATION:
+    }
+    case TOGGLE_PUBS_ENTRY_ANIMATION: {
       return {
         ...state,
         animations: {
@@ -40,9 +40,10 @@ const reducer = (state = initialState, { type, payload }) => {
           entry: payload.status,
         },
       };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 
