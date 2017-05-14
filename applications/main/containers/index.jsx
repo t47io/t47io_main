@@ -76,9 +76,9 @@ const Main = ({
         onUpdateScroll={onUpdateScroll}
       >
         <ContactSection />
-        <Footer />
       </ScrollSpy>
 
+      <Footer />
       <ScrollTop
         isHidden={hideScrollTop}
         onScrollTop={onScrollTop}

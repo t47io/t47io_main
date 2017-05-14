@@ -1,5 +1,9 @@
 @import '../../common/mixins/media';
 
+section:not(#HOME__section) {
+  max-width: 1920px;
+  margin: 0 auto;
+}
 
 .UTIL__cover {
   position: absolute;
