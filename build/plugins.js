@@ -93,7 +93,7 @@ const plugins = (DEBUG = true) => {
       new OptimizeJsPlugin({ sourceMap: false }),
       // new webpack.optimize.AggressiveMergingPlugin({ minSizeReduce: 1.2 }),
       new CompressionPlugin({
-        test: /\.(js|css|html)$/i,
+        test: /\.(html|js|css)$/i,
         asset: '[path].gz',
         deleteOriginalAssets: true,
       }),
