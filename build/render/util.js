@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import sass from 'node-sass';
+import zlib from 'zlib';
 
 import {
   GA_TRACKER,
@@ -20,9 +21,12 @@ export const loadFileSync = filename => (
   fs.readFileSync(path.join(__dirname, '../../', filename), 'utf8')
 );
 
-export const saveFileSync = (filename, content) => (
-  fs.writeFileSync(path.join(__dirname, '../../', filename), content, 'utf8')
-);
+export const saveFileSync = (filename, content) => {
+  const filePath = path.join(__dirname, '../../', `${filename}.gz`);
+  zlib.gzip(new Buffer(content, 'utf-8'), (_, result) => {
+    fs.writeFileSync(filePath, result, 'utf8');
+  });
+};
 
 export const renderSassSync = filename => (
   sass.renderSync({

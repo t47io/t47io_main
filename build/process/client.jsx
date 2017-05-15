@@ -1,4 +1,7 @@
 import colors from 'colors';
+import fs from 'fs-extra';
+import glob from 'glob-promise';
+import path from 'path';
 
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -71,4 +74,17 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.red('ERROR')}: Failed to create Custom Error Pages.`);
+}
+
+try {
+  const tmpFiles = [
+    ...glob.sync(path.join(__dirname, '../../', 'public/*.map')),
+    ...glob.sync(path.join(__dirname, '../../', 'public/*.js')),
+    ...glob.sync(path.join(__dirname, '../../', 'public/*.html')),
+  ];
+  tmpFiles.forEach(file => fs.removeSync(file));
+  console.log(`${colors.green('SUCCESS')}: Build temporary files deleted.`);
+} catch (err) {
+  console.log(err);
+  console.log(`${colors.red('ERROR')}: Failed to delete Build temporary files.`);
 }

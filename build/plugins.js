@@ -3,6 +3,7 @@ import path from 'path';
 import webpack from 'webpack';
 
 import BabiliPlugin from 'babili-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
@@ -91,6 +92,11 @@ const plugins = (DEBUG = true) => {
       }),
       new OptimizeJsPlugin({ sourceMap: false }),
       // new webpack.optimize.AggressiveMergingPlugin({ minSizeReduce: 1.2 }),
+      new CompressionPlugin({
+        test: /\.(js|css|html)$/i,
+        asset: '[path].gz',
+        deleteOriginalAssets: true,
+      }),
     ];
   } else {
     plugin = [
