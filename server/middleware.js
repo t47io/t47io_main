@@ -11,6 +11,7 @@ import favicon from 'serve-favicon';
 import fs from 'fs-extra';
 // import glob from 'glob-promise';
 import helmet from 'helmet';
+import staticGzip from 'http-static-gzip-regexp';
 import path from 'path';
 
 import webpackConfig from '../webpack.config.client.js';
@@ -24,7 +25,11 @@ const publicPath = path.join(__dirname, '../public');
 const app = express();
 let middleware = null;
 
-if (DEBUG) { app.use(compression()); }
+if (DEBUG) {
+  app.use(compression());
+} else {
+  app.use(staticGzip(/\.(html|js|css)$/i));
+}
 app.use(favicon(path.join(publicPath, 't47_icon.png')));
 app.use(helmet());
 app.use(bodyParser.json());
@@ -55,7 +60,7 @@ if (DEBUG) {
       path.join(__dirname, '../public/error.html'),
       errorHTML, 'utf8'
     );
-    childProcess.execSync('npm run process:client');
+    childProcess.execSync('npm run process:error');
   });
 
   app.use(middleware);

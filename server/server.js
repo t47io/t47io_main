@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
     );
     res.set(HTML_HEADER).send(renderMainHTML(mainHTML));
   } else {
-    res.sendFile(path.join(publicPath, 'main.html'), {
+    res.sendFile(path.join(publicPath, 'main.html.gz'), {
       headers: HTML_HEADER,
       maxAge: '7 days',
     });
@@ -48,7 +48,7 @@ app.get(projectPathRegex, (req, res) => {
     );
     res.set(HTML_HEADER).send(renderProjectHTML(projectHTML));
   } else {
-    res.sendFile(path.join(publicPath, 'project.html'), {
+    res.sendFile(path.join(publicPath, 'project.html.gz'), {
       headers: HTML_HEADER,
       maxAge: '7 days',
     });
@@ -135,8 +135,9 @@ app.all('*', (req, res, next) => {
 
 app.use((err, req, res, next) => {
   const code = (HTTP_CODE.indexOf(err.status) !== -1) ? err.status : 503;
+  const gzExt = DEBUG ? '' : '.gz';
 
-  return res.status(code).sendFile(path.join(publicPath, `${err.status}.html`), {
+  return res.status(code).sendFile(path.join(publicPath, `${err.status}.html${gzExt}`), {
     headers: HTML_HEADER,
     maxAge: '60 days',
   });
