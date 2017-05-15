@@ -10,12 +10,11 @@ import Hexagon from '../../applications/loading/components/Hexagon.jsx';
 import MainMeta from '../../applications/main/components/Meta.jsx';
 import ProjectMeta from '../../applications/project/components/Meta.jsx';
 
+import { HTML_MINIFIER } from './config.js';
 import {
-  GA_TRACKER,
-  IE9_SHIM,
-  HTML_MINIFIER,
-} from './config.js';
-import { renderSassSync } from './util.js';
+  replaceHTML,
+  renderSassSync,
+} from './util.js';
 
 
 const helixHTML = renderToStaticMarkup(<Helix />);
@@ -32,13 +31,6 @@ const projectCSS = purify(
   { minify: true }
 );
 
-
-const replaceHTML = inputHTML => (
-  inputHTML
-    .replace('<meta data-rdm/>', '<meta charset="utf-8" data-rdm />')
-    .replace('<ga />', `${GA_TRACKER}${IE9_SHIM}`)
-    .replace('[object Object]', '')
-);
 
 export const renderMainHTML = (baseHTML) => {
   let mainMETA = renderToStaticMarkup(<MainMeta />);

@@ -1,19 +1,19 @@
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
-import BabiliPlugin from 'babili-webpack-plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import OptimizeJsPlugin from 'optimize-js-plugin';
-import PurifyCSSPlugin from 'purifycss-webpack';
-
 import glob from 'glob';
 import path from 'path';
+import webpack from 'webpack';
+
+import BabiliPlugin from 'babili-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
+import OptimizeJsPlugin from 'optimize-js-plugin';
+import PurifyCSSPlugin from 'purifycss-webpack';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 const rootPath = path.join(__dirname, '../');
 
 
-const plugins = (DEBUG) => {
+const plugins = (DEBUG = true) => {
   let plugin = [
     new webpack.LoaderOptionsPlugin({
       minimize: !DEBUG,

@@ -3,21 +3,21 @@ import colors from 'colors';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import ErrorPage from '../applications/error/containers/ErrorPage.jsx';
+import ErrorPage from '../../applications/error/containers/ErrorPage.jsx';
 
 import {
   renderMainHTML,
   renderProjectHTML,
   renderErrorHTML,
-} from './render/render.jsx';
+} from '../render/client.jsx';
 import {
   loadFileSync,
   saveFileSync,
   renderSassSync,
   loadImageSync,
-} from './render/util.js';
+} from '../render/util.js';
 
-const json = require('../config/error.json');
+const json = require('../../config/error.json');
 
 
 try {

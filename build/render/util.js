@@ -2,6 +2,19 @@ import fs from 'fs';
 import path from 'path';
 import sass from 'node-sass';
 
+import {
+  GA_TRACKER,
+  IE9_SHIM,
+} from './config.js';
+
+
+export const replaceHTML = inputHTML => (
+  inputHTML
+    .replace('<meta data-rdm/>', '<meta charset="utf-8" data-rdm />')
+    .replace('<ga />', `${GA_TRACKER}${IE9_SHIM}`)
+    .replace('[object Object]', '')
+);
+
 
 export const loadFileSync = filename => (
   fs.readFileSync(path.join(__dirname, '../../', filename), 'utf8')
