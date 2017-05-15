@@ -18,7 +18,7 @@ import {
 import {
   renderMainHTML,
   renderProjectHTML,
-} from '../build/render/render.jsx';
+} from '../build/render/client.jsx';
 
 const indexJson = require('../config/main.json');
 const projectJson = require('../config/project.json');

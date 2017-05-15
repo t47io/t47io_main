@@ -13,7 +13,7 @@ import fs from 'fs-extra';
 import helmet from 'helmet';
 import path from 'path';
 
-import webpackConfig from '../webpack.config.js';
+import webpackConfig from '../webpack.config.client.js';
 import {
   DEBUG,
   PORT,
