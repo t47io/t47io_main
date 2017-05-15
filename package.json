@@ -18,7 +18,7 @@
     "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
 
     "process:client": "babel-node ./build/process/client.jsx",
-    "process:server": "babel-node ./build/process/server.js",
+    "process:server": "babel-node ./build/process/server.jsx",
 
     "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
