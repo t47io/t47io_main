@@ -10,7 +10,7 @@ const NavbarItem = ({
   isActive,
   onClick,
 }) => {
-  const isDropdown = (dropdown.length > 0);
+  const isDropdown = (dropdown && dropdown.length > 0);
   const dropdownClassName = isDropdown ? 'dropdown COMMON__dropdown' : '';
   const activeClassName = isActive ? 'active' : '';
   const hrefObj = !isDropdown ? { onClick } : {

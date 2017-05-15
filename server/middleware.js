@@ -55,7 +55,7 @@ if (DEBUG) {
       path.join(__dirname, '../public/error.html'),
       errorHTML, 'utf8'
     );
-    childProcess.execSync('npm run process');
+    childProcess.execSync('npm run process:client');
   });
 
   app.use(middleware);
