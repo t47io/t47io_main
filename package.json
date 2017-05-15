@@ -1,22 +1,32 @@
 {
   "name": "t47io_main",
-  "version": "2.1.10",
+  "version": "2.2.0",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
     "json": "babel-node ./server/json.js",
+    "build": "npm run lint && npm run json && npm run build:server && npm run build:client",
+
     "nodemon": "nodemon -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
     "start": "npm run json && npm run nodemon",
-    "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
-    "webpack": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --verbose",
-    "build": "npm run lint && npm run json && npm run webpack && npm run process",
-    "process": "babel-node ./build/process.jsx",
+
+    "build:client": "npm run webpack:client && npm run process:client",
+    "build:server": "npm run webpack:server && npm run process:server",
+
+    "webpack:client": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.client.js --verbose",
+    "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
+
+    "process:client": "babel-node ./build/process/client.jsx",
+    "process:server": "babel-node ./build/process/server.js",
+
     "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
     "cron:https": "babel-node ./server/cron/ssl_expire.js",
     "cron:backup": "babel-node ./server/cron/backup.js",
     "cron:email": "babel-node ./server/cron/email.js",
+
     "update": "npm-check-updates -u -a && npm update"
   },
   "repository": {
@@ -58,6 +68,7 @@
     "file-loader": "^0.11.1",
     "html-minifier": "^3.4.4",
     "html-webpack-plugin": "^2.28.0",
+    "ignore-loader": "^0.1.2",
     "linkstate": "^1.0.1",
     "lodash-webpack-plugin": "^0.11.3",
     "node-sass": "^4.5.2",
@@ -82,6 +93,7 @@
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.5",
     "smoothscroll": "^0.3.0",
+    "static-site-generator-webpack-plugin": "^3.4.1",
     "style-loader": "^0.17.0",
     "svg-inline-loader": "^0.7.1",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
