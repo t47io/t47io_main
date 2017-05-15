@@ -9,10 +9,9 @@ import compression from 'compression';
 import express from 'express';
 import favicon from 'serve-favicon';
 import fs from 'fs-extra';
-// import glob from 'glob-promise';
 import helmet from 'helmet';
-import staticGzip from 'http-static-gzip-regexp';
 import path from 'path';
+import staticGzip from 'http-static-gzip-regexp';
 
 import webpackConfig from '../webpack.config.client.js';
 import {
@@ -65,12 +64,6 @@ if (DEBUG) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
-
-  // remove public/ files for DEBUG
-  // glob.sync(path.join(publicPath, '*.html')).forEach((path) => fs.removeSync(path));
-  // glob.sync(path.join(publicPath, '*.min.+(js|css)*')).forEach((path) => fs.removeSync(path));
-  // fs.removeSync(path.join(publicPath, 'image'));
-  // fs.removeSync(path.join(publicPath, 'font'));
 }
 
 app.listen(PORT, () => console.log(`${colors.rainbow('t47io Main Site')} listening on port: ${colors.red(PORT)} ...`));
