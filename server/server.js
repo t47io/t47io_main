@@ -35,7 +35,8 @@ app.get('/', (req, res) => {
     );
     res.set(HTML_HEADER(DEBUG)).send(renderMainHTML(mainHTML));
   } else {
-    res.sendFile(path.join(publicPath, 'main.html.gz'), {
+    const htmlFile = req.query.static ? 'index' : 'main';
+    res.sendFile(path.join(publicPath, `${htmlFile}.html.gz`), {
       headers: HTML_HEADER(DEBUG),
       maxAge: '7 days',
     });
