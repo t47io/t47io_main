@@ -11,11 +11,8 @@ export const SMTP = emailer.createTransport(`${env.email.protocol}://${EMAIL_REC
 
 export const HTTP_CODE = [400, 401, 403, 404, 405, 500, 502, 503];
 
-const HTML_HEADER = {
+export const HTML_HEADER = (DEBUG = false) => ({
   'Content-Type': 'text/html; charset=UTF-8',
+  ...(DEBUG ? {} : { 'Content-Encoding': 'gzip' }),
   'X-UA-Compatible': 'IE=edge',
-};
-if (!DEBUG) {
-  HTML_HEADER['Content-Encoding'] = 'gzip';
-}
-export { HTML_HEADER };
+});

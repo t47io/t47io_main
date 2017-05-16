@@ -33,10 +33,10 @@ app.get('/', (req, res) => {
     const mainHTML = middleware.fileSystem.readFileSync(
       path.join(publicPath, 'main.html'), 'utf8'
     );
-    res.set(HTML_HEADER).send(renderMainHTML(mainHTML));
+    res.set(HTML_HEADER(DEBUG)).send(renderMainHTML(mainHTML));
   } else {
     res.sendFile(path.join(publicPath, 'main.html.gz'), {
-      headers: HTML_HEADER,
+      headers: HTML_HEADER(DEBUG),
       maxAge: '7 days',
     });
   }
@@ -46,10 +46,10 @@ app.get(projectPathRegex, (req, res) => {
     const projectHTML = middleware.fileSystem.readFileSync(
       path.join(publicPath, 'project.html'), 'utf8'
     );
-    res.set(HTML_HEADER).send(renderProjectHTML(projectHTML));
+    res.set(HTML_HEADER(DEBUG)).send(renderProjectHTML(projectHTML));
   } else {
     res.sendFile(path.join(publicPath, 'project.html.gz'), {
-      headers: HTML_HEADER,
+      headers: HTML_HEADER(DEBUG),
       maxAge: '7 days',
     });
   }
@@ -135,10 +135,9 @@ app.all('*', (req, res, next) => {
 
 app.use((err, req, res, next) => {
   const code = (HTTP_CODE.indexOf(err.status) !== -1) ? err.status : 503;
-  const gzExt = DEBUG ? '' : '.gz';
 
-  return res.status(code).sendFile(path.join(publicPath, `${err.status}.html${gzExt}`), {
-    headers: HTML_HEADER,
+  return res.status(code).sendFile(path.join(publicPath, `e.${err.status}.html.gz`), {
+    headers: HTML_HEADER(false),
     maxAge: '60 days',
   });
 });
