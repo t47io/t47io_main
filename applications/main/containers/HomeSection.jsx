@@ -2,22 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import HomeDescription from '../components/HomeDescription.jsx';
+import HomeName from '../components/HomeName.jsx';
 import HomeTrigger from '../components/HomeTrigger.jsx';
-import TypeWriter from '../../common/components/TypeWriter.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
-import {
-  imgAvatar,
-  imgName,
-} from '../components/Images.js';
+import { imgAvatar } from '../components/Images.js';
 
 import * as homeActions from '../actions/homeActions.js';
 import { initialState as homeProps } from '../reducers/home.js';
 import { HOME } from '../constants/sectionTypes.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
-import {
-  homeName,
-  homeShade,
-} from '../animations/home.js';
+import { homeShade } from '../animations/home.js';
 
 import '../stylesheets/HomeSection.scss';
 
@@ -39,7 +34,6 @@ const HomeSection = ({
     animateIntro,
   },
 }) => {
-  const textColorClass = `text-${TEXT_COLOR_CYCLE[color]}`;
   const arrowColorClass = `text-${TEXT_COLOR_CYCLE[color % 2]}`;
 
   return (
@@ -68,41 +62,17 @@ const HomeSection = ({
 
       <div className="container" >
         <div className="HOME__content text-white">
-          {server ? (
-            <img
-              className="HOME__name"
-              src={imgName}
-              alt="Siqi Tian"
-            />
-          ) : (
-            <WebAnimation
-              className="HOME__title"
-              keyframes={homeName.keyframes}
-              timing={homeName.timing}
-              shouldAnimate={intro}
-            >
-              <img
-                className="HOME__name"
-                src={imgName}
-                alt="Siqi Tian"
-              />
-            </WebAnimation>
-          )}
+          <HomeName
+            intro={intro}
+            server={server}
+          />
           <p className="text-white HOME__placeholder" />
-          {server ? (
-            <p
-              className="HOME__typewrite text-light-green"
-              dangerouslySetInnerHTML={{ __html: title.replace(/!/g, '').replace(/@/g, '<br/>') }}
-            />
-          ) : (
-            <TypeWriter
-              className={`HOME__typewrite ${textColorClass}`}
-              cursorClassName="HOME__cursor"
-              fullText={title}
-              delay={1250}
-              shouldAnimate={intro}
-            />
-          )}
+          <HomeDescription
+            title={title}
+            intro={intro}
+            color={color}
+            server={server}
+          />
         </div>
         <div className="HOME__scroll-down">
           <i className={`fa fa-3x fa-fw fa-down-circled ${arrowColorClass}`} />
