@@ -25,7 +25,10 @@ const avatarStyle = { backgroundImage: `url(${imgAvatar})` };
 
 
 const HomeSection = ({
-  data: { title },
+  data: {
+    title,
+    server,
+  },
   animations: {
     ready,
     intro,
@@ -65,26 +68,41 @@ const HomeSection = ({
 
       <div className="container" >
         <div className="HOME__content text-white">
-          <WebAnimation
-            className="HOME__title"
-            keyframes={homeName.keyframes}
-            timing={homeName.timing}
-            shouldAnimate={intro}
-          >
+          {server ? (
             <img
               className="HOME__name"
               src={imgName}
               alt="Siqi Tian"
             />
-          </WebAnimation>
+          ) : (
+            <WebAnimation
+              className="HOME__title"
+              keyframes={homeName.keyframes}
+              timing={homeName.timing}
+              shouldAnimate={intro}
+            >
+              <img
+                className="HOME__name"
+                src={imgName}
+                alt="Siqi Tian"
+              />
+            </WebAnimation>
+          )}
           <p className="text-white HOME__placeholder" />
-          <TypeWriter
-            className={`HOME__typewrite ${textColorClass}`}
-            cursorClassName="HOME__cursor"
-            fullText={title}
-            delay={1250}
-            shouldAnimate={intro}
-          />
+          {server ? (
+            <p
+              className="HOME__typewrite text-light-green"
+              dangerouslySetInnerHTML={{ __html: title.replace(/!/g, '').replace(/@/g, '<br/>') }}
+            />
+          ) : (
+            <TypeWriter
+              className={`HOME__typewrite ${textColorClass}`}
+              cursorClassName="HOME__cursor"
+              fullText={title}
+              delay={1250}
+              shouldAnimate={intro}
+            />
+          )}
         </div>
         <div className="HOME__scroll-down">
           <i className={`fa fa-3x fa-fw fa-down-circled ${arrowColorClass}`} />
@@ -97,6 +115,7 @@ const HomeSection = ({
 HomeSection.propTypes = {
   data: React.PropTypes.shape({
     title: React.PropTypes.string,
+    server: React.PropTypes.bool,
   }),
   animations: React.PropTypes.shape({
     ready: React.PropTypes.bool,

@@ -9,6 +9,7 @@ export const initialState = {
   data: {
     title: '',
     loaded: false,
+    server: false,
   },
   animations: {
     ready: false,

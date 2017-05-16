@@ -28,6 +28,7 @@ export const crossReducer = (state, { type, payload }) => {
   newState.home.data.loaded = true;
   newState.navbar.animations.activeSection = HOME;
   if (payload.server) {
+    newState.home.data.server = true;
     newState.home.animations.ready = true;
     newState.home.animations.intro = true;
   }

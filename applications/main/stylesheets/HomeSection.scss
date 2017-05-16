@@ -21,13 +21,13 @@
   .HOME__title {
     width: 100%;
     opacity: 0;
-
-    .HOME__name {
-      margin-left: 1em;
-      max-width: 50%;
-      width: 480px;
-    }
   }
+  .HOME__name {
+    margin-left: 1em;
+    max-width: 50%;
+    width: 480px;
+  }
+
   .HOME__typewrite,
   .HOME__placeholder {
     font-size: 2rem;
