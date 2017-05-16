@@ -31,7 +31,7 @@ const loaders = (SSR = false) => {
         options: {
           limit: 25600,
           mimetype: 'application/x-font-woff',
-          name: 'font/[hash:8].[ext]',
+          name: 'font/[hash:6].[ext]',
         },
       },
     },
@@ -41,7 +41,7 @@ const loaders = (SSR = false) => {
         loader: 'url-loader',
         options: {
           limit: 25600,
-          name: 'image/[hash:8].[ext]',
+          name: 'image/[hash:6].[ext]',
         },
       },
     },
