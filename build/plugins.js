@@ -11,35 +11,39 @@ import OptimizeJsPlugin from 'optimize-js-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
+import { getChunkNames } from './entries.js';
+
 const rootPath = path.join(__dirname, '../');
 
 
 const plugins = (DEBUG = true) => {
-  let plugin = [
+  const chunkNames = getChunkNames(DEBUG);
+
+  const plugin = [
     new webpack.LoaderOptionsPlugin({
       minimize: !DEBUG,
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
-      chunks: ['main', 'vendor', 'manifest'],
+      chunks: [chunkNames.main, chunkNames.vendor, chunkNames.manifest],
       template: `${rootPath}/applications/index.html`,
       filename: `${rootPath}/public/main.html`,
       inject: false,
     }),
     new HtmlWebpackPlugin({
-      chunks: ['project', 'vendor', 'manifest'],
+      chunks: [chunkNames.project, chunkNames.vendor, chunkNames.manifest],
       template: `${rootPath}/applications/index.html`,
       filename: `${rootPath}/public/project.html`,
       inject: false,
     }),
     new HtmlWebpackPlugin({
-      chunks: ['error'],
+      chunks: [chunkNames.error],
       template: `${rootPath}/applications/index.html`,
       filename: `${rootPath}/public/error.html`,
       inject: false,
     }),
     new ExtractTextPlugin({
-      filename: DEBUG ? '[name]-[hash:8].css' : '[chunkhash:8].min.css',
+      filename: DEBUG ? '[name].css' : '[name].[chunkhash].min.css',
       allChunks: true,
     }),
     new PurifyCSSPlugin({
@@ -58,54 +62,51 @@ const plugins = (DEBUG = true) => {
     }),
     new LodashModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: DEBUG ? '[name]-[hash:8].js' : '[chunkhash:8].min.js',
+      name: chunkNames.vendor,
+      filename: DEBUG ? '[name].js' : '[name].[chunkhash].min.js',
     }),
   ];
-  if (!DEBUG) {
-    plugin = [
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('production'),
-          BABEL_ENV: JSON.stringify('production'),
-        },
-      }),
-      ...plugin,
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest',
-        filename: DEBUG ? '[name]-01234567.js' : '01234567.min.js',
-      }),
-      new BabiliPlugin({ comments: false }),
-      new UglifyJsPlugin({
-        beautify: false,
-        comments: false,
-        sourceMap: false,
-        compress: {
-          warnings: false,
-          drop_console: true,
-        },
-        mangle: {
-          except: ['$'],
-          screw_ie8: true,
-          keep_fnames: false,
-        },
-      }),
-      new OptimizeJsPlugin({ sourceMap: false }),
-      // new webpack.optimize.AggressiveMergingPlugin({ minSizeReduce: 1.2 }),
-      new CompressionPlugin({
-        test: /\.(html|js|css)$/i,
-        asset: '[path].gz',
-        deleteOriginalAssets: true,
-      }),
-    ];
-  } else {
-    plugin = [
+
+  if (DEBUG) {
+    return [
       new webpack.HotModuleReplacementPlugin(),
       ...plugin,
     ];
   }
-
-  return plugin;
+  return [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"',
+        BABEL_ENV: '"production"',
+      },
+    }),
+    ...plugin,
+    new webpack.optimize.CommonsChunkPlugin({
+      name: chunkNames.manifest,
+      filename: DEBUG ? '[name].js' : '[name].012345.min.js',
+    }),
+    new BabiliPlugin({ comments: false }),
+    new UglifyJsPlugin({
+      beautify: false,
+      comments: false,
+      sourceMap: false,
+      compress: {
+        warnings: false,
+        drop_console: true,
+      },
+      mangle: {
+        except: ['$'],
+        screw_ie8: true,
+        keep_fnames: false,
+      },
+    }),
+    new OptimizeJsPlugin({ sourceMap: false }),
+    new CompressionPlugin({
+      test: /\.(html|js|css)$/i,
+      asset: '[path].gz',
+      deleteOriginalAssets: true,
+    }),
+  ];
 };
 
 

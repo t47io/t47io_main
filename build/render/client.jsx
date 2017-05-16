@@ -70,7 +70,7 @@ export const renderErrorHTML = (baseHTML, bodyHTML, rawCSS) => {
       .replace('html{}', cleanCSS)
     )
     .replace(/data-rdm/g, '')
-    .replace(/<script type="application\/javascript" src="\/(manifest|error)?(-)?[0-9a-f]{8}\.(min\.)?js"><\/script>/g, ''),
+    .replace(/<script type="application\/javascript" src="\/(manifest|f|error|e)?(\.|-)?([0-9a-f]{6})?\.(min\.)?js"><\/script>/g, ''),
     HTML_MINIFIER
   );
 };
