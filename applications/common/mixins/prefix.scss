@@ -15,6 +15,11 @@
   transform-style: $val;
 }
 
+@mixin transform_origin($val) {
+  -webkit-transform-origin: $val;
+  transform-origin: $val;
+}
+
 @mixin flex {
   display: -webkit-flex;
   display: -webkit-box;
