@@ -39,7 +39,8 @@ const renderMainHTML = () => {
       .replace('html{}', mainCSS)
     ), HTML_MINIFIER
   )
-  .replace(/<% for.*%>/g, '');
+  .replace(/<% for.*%>/g, '')
+  .replace(/<% if.*%>/g, '');
 };
 
 
