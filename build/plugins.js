@@ -7,6 +7,7 @@ import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
+import ManifestPlugin from 'webpack-manifest-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
@@ -29,18 +30,24 @@ const plugins = (DEBUG = true) => {
       template: `${rootPath}/applications/index.html`,
       filename: `${rootPath}/public/main.html`,
       inject: false,
+      chunk: chunkNames.main,
+      debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
       chunks: [chunkNames.project, chunkNames.vendor, chunkNames.manifest],
       template: `${rootPath}/applications/index.html`,
       filename: `${rootPath}/public/project.html`,
       inject: false,
+      chunk: chunkNames.project,
+      debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
       chunks: [chunkNames.error],
       template: `${rootPath}/applications/index.html`,
       filename: `${rootPath}/public/error.html`,
       inject: false,
+      chunk: chunkNames.error,
+      debug: DEBUG,
     }),
     new ExtractTextPlugin({
       filename: DEBUG ? '[name].css' : '[name].[chunkhash].min.css',
@@ -87,6 +94,7 @@ const plugins = (DEBUG = true) => {
       name: chunkNames.manifest,
       filename: DEBUG ? '[name].js' : '[name].012345.min.js',
     }),
+    new ManifestPlugin(),
     new BabiliPlugin({ comments: false }),
     new UglifyJsPlugin({
       beautify: false,
