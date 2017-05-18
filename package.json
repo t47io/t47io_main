@@ -12,13 +12,14 @@
     "start": "npm run json && npm run nodemon",
 
     "build:server": "npm run webpack:server && npm run process:server",
-    "build:client": "npm run webpack:client && npm run process:error && npm run process:client",
+    "build:client": "npm run webpack:client && npm run process:error && npm run process:client && npm run process:manifest",
 
     "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
     "webpack:client": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.client.js --verbose",
 
     "process:server": "babel-node ./build/process/server.jsx",
     "process:client": "babel-node ./build/process/client.js",
+    "process:manifest": "babel-node ./build/process/manifest.js",
     "process:error": "babel-node ./build/process/error.jsx",
 
     "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
@@ -107,6 +108,7 @@
     "webpack": "2.5.1",
     "webpack-dev-middleware": "1.10.2",
     "webpack-hot-middleware": "2.18.0",
+    "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.3"
   },
   "dependencies": {
