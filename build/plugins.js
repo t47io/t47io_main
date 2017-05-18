@@ -71,6 +71,7 @@ const plugins = (DEBUG = true) => {
     return [
       new webpack.HotModuleReplacementPlugin(),
       ...plugin,
+      new webpack.NamedModulesPlugin(),
     ];
   }
   return [
@@ -81,6 +82,7 @@ const plugins = (DEBUG = true) => {
       },
     }),
     ...plugin,
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: chunkNames.manifest,
       filename: DEBUG ? '[name].js' : '[name].012345.min.js',
