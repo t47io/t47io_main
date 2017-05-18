@@ -28,3 +28,5 @@ export const HTML_MINIFIER = {
   removeRedundantAttributes: true,
   useShortDoctype: true,
 };
+
+export const MANIFEST_JS = 'f.012345.min.js';

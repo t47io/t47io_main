@@ -7,13 +7,18 @@ import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
+import { MANIFEST_JS } from '../render/config.js';
 
-const manifest = require('../../public/manifest.json');
-
-const MANIFEST_JS_FILE_NAME = 'f.012345.min.js';
 let chunkManifest;
 
 try {
+  fs.moveSync(
+    path.join(__dirname, '../../', 'public/manifest.json'),
+    path.join(__dirname, '../../', 'config/manifest.json'),
+    { overwrite: true }
+  );
+  const manifest = JSON.parse(loadFileSync('config/manifest.json'));
+
   const chunkKeys = Object.keys(manifest).filter(key => key.indexOf('.js') !== -1);
   chunkManifest = chunkKeys.map((key) => {
     const chunk = key.replace('.js', '');
@@ -32,13 +37,13 @@ try {
 }
 
 try {
-  shell.exec(`gzip -df ${path.join(__dirname, '../../public', `${MANIFEST_JS_FILE_NAME}.gz`)}`);
+  shell.exec(`gzip -df ${path.join(__dirname, '../../public', `${MANIFEST_JS}.gz`)}`);
 
-  const manifestJs = loadFileSync(`public/${MANIFEST_JS_FILE_NAME}`);
+  const manifestJs = loadFileSync(`public/${MANIFEST_JS}`);
   const fullManifestJs = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJs}`;
 
-  saveFileSync(`public/${MANIFEST_JS_FILE_NAME}`, fullManifestJs);
-  fs.removeSync(path.join(__dirname, '../../', 'public/manifest.json'));
+  saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
+  fs.writeJsonSync(path.join(__dirname, '../../config/manifest.json'), chunkManifest);
   console.log(`${colors.green('SUCCESS')}: Manifest JSON injected.`);
 } catch (err) {
   console.log(err);

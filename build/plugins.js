@@ -13,6 +13,7 @@ import PurifyCSSPlugin from 'purifycss-webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 import { getChunkNames } from './entries.js';
+import { MANIFEST_JS } from './render/config.js';
 
 const rootPath = path.join(__dirname, '../');
 
@@ -31,6 +32,7 @@ const plugins = (DEBUG = true) => {
       filename: `${rootPath}/public/main.html`,
       inject: false,
       chunk: chunkNames.main,
+      manifest: MANIFEST_JS,
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
@@ -39,6 +41,7 @@ const plugins = (DEBUG = true) => {
       filename: `${rootPath}/public/project.html`,
       inject: false,
       chunk: chunkNames.project,
+      manifest: MANIFEST_JS,
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
@@ -47,6 +50,7 @@ const plugins = (DEBUG = true) => {
       filename: `${rootPath}/public/error.html`,
       inject: false,
       chunk: chunkNames.error,
+      manifest: MANIFEST_JS,
       debug: DEBUG,
     }),
     new ExtractTextPlugin({
@@ -110,7 +114,9 @@ const plugins = (DEBUG = true) => {
         keep_fnames: false,
       },
     }),
-    new OptimizeJsPlugin({ sourceMap: false }),
+    new OptimizeJsPlugin({
+      sourceMap: false,
+    }),
     new CompressionPlugin({
       test: /\.(html|js|css)$/i,
       asset: '[path].gz',
