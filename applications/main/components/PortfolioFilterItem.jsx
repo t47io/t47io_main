@@ -26,6 +26,7 @@ const PortfolioFilterItem = ({
       <a
         className="PORTFOLIO__filter-link"
         onClick={onClick}
+        role="presentation"
       >
         {category.replace(/-/g, ' ')}
       </a>

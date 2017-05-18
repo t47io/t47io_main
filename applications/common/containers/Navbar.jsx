@@ -33,7 +33,7 @@ const Navbar = ({
   const collapseClassName = isMobileCollapsed ? 'display' : '';
 
   return (
-    <nav className={`COMMON__navbar navbar navbar-fixed-top ${navbarClassName}`} role="navigation">
+    <nav className={`COMMON__navbar navbar navbar-fixed-top ${navbarClassName}`}>
       <div className="container">
         <div className="COMMON__navbar-header navbar-header">
           <button

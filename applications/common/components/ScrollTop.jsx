@@ -15,6 +15,7 @@ const ScrollTop = ({
     <a
       className={`scrollTop ${hiddenClassName}`}
       onClick={() => onScrollTop(HOME)}
+      role="presentation"
     >
       <i className="fa fa-up-big fa-fwn fa-lg" />
     </a>
