@@ -35,10 +35,8 @@
     "import/no-mutable-exports": [0],
     "import/prefer-default-export": [0],
 
-    "jsx-a11y/img-has-alt": [0],
-    "jsx-a11y/no-static-element-interactions": [0],
-
     "react/forbid-prop-types": [1, { "forbid": ["any"] }],
+    "react/jsx-max-props-per-line": [0],
     "react/no-array-index-key": [0],
     "react/no-danger": [0],
     "react/no-danger-with-children": [0],
