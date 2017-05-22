@@ -46,33 +46,31 @@ export const submitEmailError = () => (
   }
 );
 
-export const submitEmail = () => (
-  (dispatch, getState) => {
-    dispatch({ type: SUBMIT_CONTACT_EMAIL_WAIT });
-    const { contact: { form: { name, email, subject, message } } } = getState();
+export const submitEmail = () => (dispatch, getState) => {
+  dispatch({ type: SUBMIT_CONTACT_EMAIL_WAIT });
+  const { contact: { form: { name, email, subject, message } } } = getState();
 
-    return fetch('/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name,
-        email,
-        subject,
-        message,
-      }),
-    })
-    .then((response) => {
-      if (response.status === 201) {
-        setTimeout(() => {
-          window.location.href = '/send?success=1';
-        }, 1500);
-        return dispatch(submitEmailSuccess());
-      }
-      return dispatch(submitEmailError());
-    })
-    .catch((error) => {
-      console.error(error);
-      return dispatch(submitEmailError());
-    });
-  }
-);
+  return fetch('/send', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name,
+      email,
+      subject,
+      message,
+    }),
+  })
+  .then((response) => {
+    if (response.status === 201) {
+      setTimeout(() => {
+        window.location.href = '/send?success=1';
+      }, 1500);
+      return dispatch(submitEmailSuccess());
+    }
+    return dispatch(submitEmailError());
+  })
+  .catch((error) => {
+    console.error(error);
+    return dispatch(submitEmailError());
+  });
+};

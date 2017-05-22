@@ -7,48 +7,44 @@ import {
 } from '../constants/actionTypes.js';
 
 
-export const updateNavbarScrollspy = section => (
-  (dispatch, getState) => {
-    const {
-      navbar: {
-        data: { items },
-        animations: { activeSection },
-      },
-    } = getState();
-    const currentIndex = items.indexOf(activeSection);
-    const nextIndex = Math.max(Math.min(section, items.length - 1), 0);
+export const updateNavbarScrollspy = section => (dispatch, getState) => {
+  const {
+    navbar: {
+      data: { items },
+      animations: { activeSection },
+    },
+  } = getState();
+  const currentIndex = items.indexOf(activeSection);
+  const nextIndex = Math.max(Math.min(section, items.length - 1), 0);
 
-    if (currentIndex !== nextIndex) {
-      // console.error('change from ', activeSection, ' to ', items[nextIndex]);
-      dispatch({
-        type: UPDATE_NAVBAR_SCROLLSPY,
-        payload: { section: items[nextIndex] },
-      });
-    }
+  if (currentIndex !== nextIndex) {
+    // console.error('change from ', activeSection, ' to ', items[nextIndex]);
+    dispatch({
+      type: UPDATE_NAVBAR_SCROLLSPY,
+      payload: { section: items[nextIndex] },
+    });
   }
-);
+};
 
 export const toggleMobileCollapse = () => ({ type: TOGGLE_NAVBAR_COLLAPSE });
 
-export const scrollToSection = section => (
-  (dispatch, getState) => {
-    const {
-      navbar: {
-        data: { items },
-        animations: { activeSection },
-      },
-    } = getState();
-    const distance = Math.abs(items.indexOf(activeSection) - items.indexOf(section));
+export const scrollToSection = section => (dispatch, getState) => {
+  const {
+    navbar: {
+      data: { items },
+      animations: { activeSection },
+    },
+  } = getState();
+  const distance = Math.abs(items.indexOf(activeSection) - items.indexOf(section));
 
-    smoothScroll(
-      document.getElementById(`${section.toUpperCase()}__section`),
-      distance * 500,
-      () => {
-        dispatch({
-          type: SCROLL_NAVBAR_SECTION,
-          payload: { section },
-        });
-      }
-    );
-  }
-);
+  smoothScroll(
+    document.getElementById(`${section.toUpperCase()}__section`),
+    distance * 500,
+    () => {
+      dispatch({
+        type: SCROLL_NAVBAR_SECTION,
+        payload: { section },
+      });
+    }
+  );
+};

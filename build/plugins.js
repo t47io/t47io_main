@@ -114,9 +114,7 @@ const plugins = (DEBUG = true) => {
         keep_fnames: false,
       },
     }),
-    new OptimizeJsPlugin({
-      sourceMap: false,
-    }),
+    new OptimizeJsPlugin({ sourceMap: false }),
     new CompressionPlugin({
       test: /\.(html|js|css)$/i,
       asset: '[path].gz',

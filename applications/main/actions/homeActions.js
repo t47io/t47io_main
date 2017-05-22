@@ -17,32 +17,28 @@ import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 //   )
 // );
 
-export const animateReady = () => (
-  (dispatch) => {
-    const loadingContainer = document.querySelector('.LOAD__container');
-    loadingContainer.style.opacity = 0;
-    setTimeout(() => {
-      dispatch({ type: TOGGLE_HOME_READY });
-      // z-index does not obey transition
-      loadingContainer.style.zIndex = -1;
-    }, 1000);
-  }
-);
+export const animateReady = () => (dispatch) => {
+  const loadingContainer = document.querySelector('.LOAD__container');
+  loadingContainer.style.opacity = 0;
+  setTimeout(() => {
+    dispatch({ type: TOGGLE_HOME_READY });
+    // z-index does not obey transition
+    loadingContainer.style.zIndex = -1;
+  }, 1000);
+};
 
-export const animateIntro = () => (
-  (dispatch) => {
-    dispatch({ type: TOGGLE_HOME_INTRO_ANIMATION });
+export const animateIntro = () => (dispatch) => {
+  dispatch({ type: TOGGLE_HOME_INTRO_ANIMATION });
 
-    setTimeout(() => {
-      let status = 0;
+  setTimeout(() => {
+    let status = 0;
 
-      setInterval(() => {
-        status = (status + 1) % TEXT_COLOR_CYCLE.length;
-        dispatch({
-          type: CYCLE_HOME_TEXT_COLOR,
-          payload: { status },
-        });
-      }, 2500);
-    }, 76 * 125 + 1250 + 750);
-  }
-);
+    setInterval(() => {
+      status = (status + 1) % TEXT_COLOR_CYCLE.length;
+      dispatch({
+        type: CYCLE_HOME_TEXT_COLOR,
+        payload: { status },
+      });
+    }, 2500);
+  }, 76 * 125 + 1250 + 750);
+};
