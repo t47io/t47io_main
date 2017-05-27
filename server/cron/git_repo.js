@@ -83,7 +83,7 @@ const formatCalendar = (data, result) => {
       year: 'numeric',
     })
   ));
-  const months = weeks.filter((week, i, self) => (self.indexOf(week) === i));
+  let months = weeks.filter((week, i, self) => (self.indexOf(week) === i));
 
   const aggregatedData = {};
   data.forEach((week) => {
@@ -104,6 +104,26 @@ const formatCalendar = (data, result) => {
       aggregatedData[month].commits += week.c;
     }
   });
+
+  let beginIdx = 0;
+  let endIdx = months.length;
+  while (beginIdx < endIdx) {
+    const monthData = aggregatedData[months[beginIdx]];
+    if (monthData.additions === 0 && monthData.deletions === 0) {
+      beginIdx += 1;
+    } else {
+      break;
+    }
+  }
+  while (beginIdx < endIdx) {
+    const monthData = aggregatedData[months[endIdx - 1]];
+    if (monthData.additions === 0 && monthData.deletions === 0) {
+      endIdx -= 1;
+    } else {
+      break;
+    }
+  }
+  months = months.slice(beginIdx, endIdx);
 
   return {
     ...result,

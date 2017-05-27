@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
@@ -88,6 +88,7 @@
     "react": "15.5.4",
     "react-document-meta": "2.1.2",
     "react-dom": "15.5.4",
+    "react-google-charts": "1.5.5",
     "react-redux": "5.0.5",
     "react-tooltip": "3.3.0",
     "react-waypoint": "7.0.3",
