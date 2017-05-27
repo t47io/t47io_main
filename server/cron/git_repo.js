@@ -79,7 +79,7 @@ const formatTable = (data, result) => {
 const formatCalendar = (data, result) => {
   const weeks = data.map(week => (
     new Date(week.w * 1000).toLocaleString('en-us', {
-      month: 'short',
+      month: 'numeric',
       year: 'numeric',
     })
   ));
@@ -88,7 +88,7 @@ const formatCalendar = (data, result) => {
   const aggregatedData = {};
   data.forEach((week) => {
     const month = new Date(week.w * 1000).toLocaleString('en-us', {
-      month: 'short',
+      month: 'numeric',
       year: 'numeric',
     });
 
