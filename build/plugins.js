@@ -99,7 +99,7 @@ const plugins = (DEBUG = true) => {
       filename: DEBUG ? '[name].js' : '[name].012345.min.js',
     }),
     new ManifestPlugin(),
-    new BabiliPlugin({ comments: false }),
+    new BabiliPlugin(),
     new UglifyJsPlugin({
       beautify: false,
       comments: false,
