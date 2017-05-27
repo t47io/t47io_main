@@ -1,6 +1,7 @@
 !.gitignore
 
 config/**/*.json
+!config/**/*.example.json
 server/backup/
 server/backup.tgz
 public/

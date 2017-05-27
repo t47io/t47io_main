@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "year": 2017,
+      "title": "Minted LLC",
+      "url": "https://www.minted.com/",
+      "geo": "San Francisco, CA, USA",
+      "role": {
+        "position": "Full-Stack",
+        "title": "Software Engineer",
+        "team": "E-Commerce"
+      },
+      "rewards": [],
+      "tag": "Minted"
+    },
+    {
+      "year": 2016,
+      "title": "Stanford University",
+      "url": "https://www.stanford.edu/",
+      "geo": "Palo Alto, CA, USA",
+      "role": {
+        "position": "Ph.D.",
+        "title": "Biochemistry",
+        "team": "School of Medicine"
+      },
+      "rewards": [
+        {
+          "year": 2011,
+          "title": "Stanford Graduate Fellowship"
+        },
+        {},
+        {
+          "year": 2015,
+          "title": "Student Website Editor"
+        },
+        {
+          "year": 2014,
+          "title": "Graduate Teaching Assistant"
+        }
+      ],
+      "tag": "Stanford"
+    },
+    {
+      "year": 2015,
+      "title": "AUTODESK Inc. ",
+      "url": "http://www.autodesk.com/",
+      "geo": "San Francisco, CA, USA",
+      "role": {
+        "position": "Intern",
+        "title": "Analyst Data Scientist",
+        "team": "IPG Product Intelligence"
+      },
+      "rewards": [],
+      "tag": "Autodesk"
+    },
+    {
+      "year": 2011,
+      "title": "China Agricultural University",
+      "url": "https://english.cau.edu.cn/",
+      "geo": "Beijing, China",
+      "role": {
+        "position": "B.S.",
+        "title": "Biochemistry and Molecular Biology",
+        "team": "College of Biological Sciences"
+      },
+      "rewards": [
+        {
+          "year": 2010,
+          "title": "Chancellor Scholarship and National Scholarship"
+        },
+        {
+          "year": 2009,
+          "title": "\"Triple Excellent\" Student of University"
+        },
+        {
+          "year": 2009,
+          "title": "Scholarship for <i>magna cum laude</i> Performance"
+        },
+        {
+          "year": 2008,
+          "title": "\"Xizhi\" Education Foundation Scholarship"
+        }
+      ],
+      "tag": "CAU"
+    }
+  ],
+  "backgrounds": [
+    "hoover_tower",
+    "yosemite",
+    "lksc_building",
+    "big_sur",
+    "golden_gate"
+  ]
+}

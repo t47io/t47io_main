@@ -1,0 +1,64 @@
+{
+  "basics": {
+    "name": "t47io/ribokit-Sphinx-theme",
+    "url": "https://github.com/t47io/ribokit-Sphinx-theme",
+    "isPrivate": false,
+    "createdAt": "2016-05-05 16:54:32",
+    "pushedAt": "2016-12-04 00:13:06",
+    "issues": 0,
+    "downloads": 0,
+    "forks": 0,
+    "pulls": 0,
+    "branches": 1,
+    "stars": 0,
+    "watchers": 0
+  },
+  "contributors": [
+    {
+      "author": "t47io",
+      "commits": 36,
+      "additions": 4302,
+      "deletions": 314
+    }
+  ],
+  "additions": [
+    3951,
+    203,
+    46,
+    85,
+    3,
+    12,
+    1,
+    1
+  ],
+  "deletions": [
+    269,
+    27,
+    2,
+    0,
+    3,
+    12,
+    1,
+    0
+  ],
+  "commits": [
+    18,
+    10,
+    3,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "months": [
+    "4/2016",
+    "5/2016",
+    "6/2016",
+    "7/2016",
+    "8/2016",
+    "9/2016",
+    "10/2016",
+    "11/2016"
+  ]
+}

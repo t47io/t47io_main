@@ -1,0 +1,86 @@
+{
+  "basics": {
+    "name": "t47io/ribokit-Jekyll-theme",
+    "url": "https://github.com/t47io/ribokit-Jekyll-theme",
+    "isPrivate": false,
+    "createdAt": "2016-05-07 04:55:11",
+    "pushedAt": "2016-12-12 00:37:10",
+    "issues": 0,
+    "downloads": 0,
+    "forks": 0,
+    "pulls": 0,
+    "branches": 1,
+    "stars": 0,
+    "watchers": 0
+  },
+  "contributors": [
+    {
+      "author": "t47io",
+      "commits": 30,
+      "additions": 3679,
+      "deletions": 2572
+    },
+    {
+      "author": "mattgraham",
+      "commits": 10,
+      "additions": 2190,
+      "deletions": 3675
+    },
+    {
+      "author": "paulmillr",
+      "commits": 3,
+      "additions": 9,
+      "deletions": 8
+    },
+    {
+      "author": "lmarkus",
+      "commits": 2,
+      "additions": 6,
+      "deletions": 6
+    }
+  ],
+  "additions": [
+    3350,
+    254,
+    46,
+    0,
+    4,
+    14,
+    8,
+    0,
+    3
+  ],
+  "deletions": [
+    2497,
+    44,
+    2,
+    0,
+    4,
+    14,
+    8,
+    0,
+    3
+  ],
+  "commits": [
+    16,
+    8,
+    2,
+    0,
+    1,
+    1,
+    1,
+    0,
+    1
+  ],
+  "months": [
+    "4/2016",
+    "5/2016",
+    "6/2016",
+    "7/2016",
+    "8/2016",
+    "9/2016",
+    "10/2016",
+    "11/2016",
+    "12/2016"
+  ]
+}

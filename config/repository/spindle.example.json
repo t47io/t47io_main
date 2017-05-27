@@ -1,0 +1,44 @@
+{
+  "basics": {
+    "name": "t47io/SpindleUtil",
+    "url": "https://github.com/t47io/SpindleUtil",
+    "isPrivate": false,
+    "createdAt": "2014-11-04 21:26:09",
+    "pushedAt": "2015-01-07 00:15:43",
+    "issues": 0,
+    "downloads": 0,
+    "forks": 0,
+    "pulls": 0,
+    "branches": 1,
+    "stars": 0,
+    "watchers": 0
+  },
+  "contributors": [
+    {
+      "author": "t47io",
+      "commits": 17,
+      "additions": 5681,
+      "deletions": 3546
+    }
+  ],
+  "additions": [
+    1411,
+    4160,
+    110
+  ],
+  "deletions": [
+    90,
+    3422,
+    34
+  ],
+  "commits": [
+    2,
+    14,
+    1
+  ],
+  "months": [
+    "11/2014",
+    "12/2014",
+    "1/2015"
+  ]
+}
