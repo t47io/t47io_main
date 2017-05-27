@@ -19,7 +19,7 @@ try {
   );
   const manifest = JSON.parse(loadFileSync('config/manifest.json'));
 
-  const chunkKeys = Object.keys(manifest).filter(key => key.indexOf('.js') !== -1);
+  const chunkKeys = Object.keys(manifest).filter(key => key.includes('.js'));
   chunkManifest = chunkKeys.map((key) => {
     const chunk = key.replace('.js', '');
     return {

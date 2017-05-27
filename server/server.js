@@ -135,7 +135,7 @@ app.all('*', (req, res, next) => {
 // });
 
 app.use((err, req, res, next) => {
-  const code = (HTTP_CODE.indexOf(err.status) !== -1) ? err.status : 503;
+  const code = HTTP_CODE.includes(err.status) ? err.status : 503;
 
   return res.status(code).sendFile(path.join(publicPath, `e.${err.status}.html.gz`), {
     headers: HTML_HEADER(false),

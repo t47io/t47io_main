@@ -16,7 +16,7 @@ const isEqual = (array1, array2) => (
 const filterWords = (input, minLen, exclude = [], subset = NaN) => {
   let output = input.match(wordRegex)
     .map(word => word.toLowerCase())
-    .filter(word => (word.length > minLen && exclude.indexOf(word) === -1));
+    .filter(word => (word.length > minLen && !exclude.includes(word)));
   if (!isNaN(subset)) { output = output.slice(0, subset); }
   return output.sort();
 };

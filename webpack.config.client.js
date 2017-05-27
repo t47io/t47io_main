@@ -5,8 +5,8 @@ import loaders from './build/loaders.js';
 import plugins from './build/plugins.js';
 
 
-const DEBUG = !((process.argv.indexOf('--production') > 0) ||
-  (process.argv.indexOf('-p') > 0) ||
+const DEBUG = !(process.argv.includes('--production') ||
+  process.argv.includes('-p') ||
   (process.env.BABEL_ENV === 'production'));
 console.log(colors.magenta('*********************************'));
 console.log(`${DEBUG ? ' ' : ''}${colors.blue('DEBUG')} mode applied: ${DEBUG ? colors.green(DEBUG) : colors.red(DEBUG)} => ${colors.yellow(DEBUG ? 'DEV' : 'PROD')}`);

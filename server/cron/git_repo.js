@@ -46,8 +46,9 @@ const formatBasics = (data, result) => ({
   basics: {
     name: data.full_name,
     url: data.html_url,
-    created: formatDateTime(data.created_at),
-    pushed: formatDateTime(data.pushed_at),
+    isPrivate: data.private,
+    createdAt: formatDateTime(data.created_at),
+    pushedAt: formatDateTime(data.pushed_at),
     issues: data.open_issues_count,
     forks: data.forks_count,
     stars: data.stargazers_count,

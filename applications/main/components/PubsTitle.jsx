@@ -19,7 +19,7 @@ const PubsTitle = ({ title }) => {
     <b className="PUBS__title">
       {
         titleChunks.map((chunk) => {
-          if (italicChunks.indexOf(`${ITALIC_MARKUP}${chunk}${ITALIC_MARKUP}`) !== -1) {
+          if (italicChunks.includes(`${ITALIC_MARKUP}${chunk}${ITALIC_MARKUP}`)) {
             return (
               <i>{chunk}</i>
             );
