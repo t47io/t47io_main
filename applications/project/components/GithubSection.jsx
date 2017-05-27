@@ -1,16 +1,15 @@
 import React from 'react';
-import {
-  VictoryArea,
-  VictoryAxis,
-  VictoryChart,
-} from 'victory';
+// import {
+//   VictoryArea,
+//   VictoryAxis,
+//   VictoryChart,
+// } from 'victory';
 
 import Headline from './Headline.jsx';
+import Repository from './Repository.jsx';
 
 
-const GithubSection = ({
-  title,
-}) => (
+const GithubSection = ({ repos }) => (
   <div className="row">
     <hr />
     <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
@@ -18,7 +17,13 @@ const GithubSection = ({
         title="Repository"
         icon="fork"
       />
-      {title}
+      {repos.map(repo => (
+        <Repository
+          {...repo}
+          key={repo.basics.name}
+        />
+      ))}
+      {/*
       <VictoryChart>
         <VictoryAxis
           dependentAxis
@@ -35,16 +40,17 @@ const GithubSection = ({
           y={(datum) => datum.profit - datum.loss}
         />
       </VictoryChart>
+      */}
     </div>
   </div>
 
 );
 
 GithubSection.propTypes = {
-  title: React.PropTypes.string,
+  repos: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 GithubSection.defaultProps = {
-  title: '',
+  repos: [],
 };
 
 
