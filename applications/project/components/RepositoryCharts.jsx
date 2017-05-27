@@ -25,6 +25,7 @@ const RepositoryCharts = ({
           options={COMMIT_CHART_OPTIONS}
           width="100%"
           height="175px"
+          loader={<span />}
         />
       </div>
       <div className="thumbnail">
@@ -34,6 +35,7 @@ const RepositoryCharts = ({
           options={ADD_DEL_CHART_OPTIONS}
           width="100%"
           height="175px"
+          loader={<span />}
         />
       </div>
     </div>

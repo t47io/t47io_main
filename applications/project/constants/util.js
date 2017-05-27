@@ -1,5 +1,8 @@
 export const COMMIT_CHART_OPTIONS = {
-  chartArea: { width: '90%', left: '10%' },
+  chartArea: {
+    width: '85%',
+    left: '10%',
+  },
   legend: { position: 'none' },
   title: 'Commit Activity',
   titleTextStyle: {
@@ -30,7 +33,7 @@ export const COMMIT_CHART_OPTIONS = {
 
 export const ADD_DEL_CHART_OPTIONS = {
   chartArea: {
-    width: '90%',
+    width: '85%',
     left: '10%',
   },
   legend: { position: 'bottom' },
