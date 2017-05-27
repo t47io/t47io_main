@@ -1,3 +1,4 @@
+import axios from 'axios';
 import colors from 'colors';
 import fs from 'fs-extra';
 import Github from 'github-api';
@@ -41,7 +42,7 @@ const getContribRetry = (repo, retry, interval) => (
 );
 
 const formatDateTime = utc => (utc.replace('T', ' ').replace('Z', ''));
-const formatBasics = (data, result) => ({
+const formatBasics = ({ data, pulls, branches, downloads }, result) => ({
   ...result,
   basics: {
     name: data.full_name,
@@ -50,7 +51,10 @@ const formatBasics = (data, result) => ({
     createdAt: formatDateTime(data.created_at),
     pushedAt: formatDateTime(data.pushed_at),
     issues: data.open_issues_count,
+    downloads,
     forks: data.forks_count,
+    pulls,
+    branches,
     stars: data.stargazers_count,
     watchers: data.watchers_count,
   },
@@ -148,8 +152,19 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     const repo = gh.getRepo(...repoName.split('/'));
     let result = {};
 
-    repo.getDetails()
-    .then(({ data }) => { result = formatBasics(data, result); })
+    axios.all([
+      repo.getDetails(),
+      axios.get(`https://api.github.com/repos/${repoName}/pulls?access_token=${token}`),
+      axios.get(`https://api.github.com/repos/${repoName}/branches?access_token=${token}`),
+      axios.get(`https://api.github.com/repos/${repoName}/downloads?access_token=${token}`),
+    ])
+    .then(axios.spread((details, pulls, branches, downloads) => ({
+      data: details.data,
+      pulls: pulls.data.length,
+      branches: branches.data.length,
+      downloads: downloads.data.length,
+    })))
+    .then((data) => { result = formatBasics(data, result); })
     .then(() => getContribRetry(repo, GITHUB_RETRY, GITHUB_INTERVAL))
     .catch(() => { console.error(`${colors.red('ERROR')}: Failed to fetch Github records for repository ${colors.blue(repoName)} after ${GITHUB_RETRY} attempts.`); })
     .then(({ data }) => {

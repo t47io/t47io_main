@@ -9,8 +9,11 @@
     font-weight: bold;
     text-decoration: underline;
   }
-  .PROECT__repo-link,
-  .PROECT__repo-stats { padding-bottom: 0.5em; }
+  .PROECT__repo-link { padding-bottom: 0.5em; }
+  .PROECT__repo-stats {
+    word-break: break-word;
+    line-height: 1.5;
+  }
 
   .PROJECT__repo-stats-number {
     padding: 0 0.5em 0 0.25em;
