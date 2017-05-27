@@ -8,6 +8,17 @@ export const STATS = 'stats';
 export const PUBS = 'pubs';
 export const CONTACT = 'contact';
 
+export const SECTION_LIST = [
+  HOME,
+  ABOUT,
+  AFFILIATION,
+  PORTFOLIO,
+  SKILLS,
+  STATS,
+  PUBS,
+  CONTACT,
+];
+
 // skills panels
 export const SKILLS_LEFT = 'skills_left';
 export const SKILLS_RIGHT = 'skilss_right';
