@@ -1,10 +1,10 @@
-const env = require('../../config/server.json');
+const { ga } = require('../../config/server.json');
 
 
 export const GA_TRACKER = `
   <script type="application/javascript">
     window.GoogleAnalyticsObject='ga';window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-    ga('create','${env.gaTracker}','auto');
+    ga('create','${ga}','auto');
     ga('set', 'transport','beacon');ga('send','pageview');
   </script>
   <script type="application/javascript"
