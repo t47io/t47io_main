@@ -22,8 +22,9 @@
     "process:manifest": "babel-node ./build/process/manifest.js",
     "process:error": "babel-node ./build/process/error.jsx",
 
-    "cron": "npm run cron:contrib && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
+    "cron": "npm run cron:contrib && npm run cron:repo && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
+    "cron:repo": "babel-node ./server/cron/git_repo.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
     "cron:https": "babel-node ./server/cron/ssl_expire.js",
     "cron:backup": "babel-node ./server/cron/backup.js",

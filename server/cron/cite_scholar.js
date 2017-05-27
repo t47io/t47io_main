@@ -10,8 +10,7 @@ const cron = require('../../config/cron.json');
 
 const wordRegex = /[a-zA-Z]+/g;
 const isEqual = (array1, array2) => (
-  array1.length === array2.length &&
-  array1.toString() === array2.toString()
+  array1.length === array2.length && array1.toString() === array2.toString()
 );
 
 const filterWords = (input, minLen, exclude = [], subset = NaN) => {
@@ -44,8 +43,7 @@ const matchRecords = allRecords => ({
       let citation = null;
 
       for (let i = 0; i < allRecords.length; i += 1) {
-        if (isEqual(allRecords[i].title, title) &&
-          isEqual(allRecords[i].author, author)) {
+        if (isEqual(allRecords[i].title, title) && isEqual(allRecords[i].author, author)) {
           citation = allRecords[i].cite;
           allRecords.splice(i, 1);
           break;
@@ -106,13 +104,13 @@ try {
 
     newJson.items.forEach((obj) => {
       obj.items.filter(item => (item.citation === null))
-      .forEach(item => (
-        console.log(`${colors.blue('NOTICE')}: entry ${item.tag} did not match any citation record.`)
-      ));
+      .forEach((item) => {
+        console.log(`${colors.blue('NOTICE')}: entry ${colors.yellow(item.tag)} did not match any citation record.`);
+      });
     });
 
-    fs.writeJsonSync(path.join(__dirname, '../../config/main/pubs.json'), newJson);
-    return Promise.resolve(newJson.items);
+    fs.writeJsonSync(path.join(__dirname, '../../config/main/pubs.json'), newJson, { spaces: 2 });
+    return newJson.items;
   })
   .then((items) => {
     const oldCitations = cron.citations;
@@ -122,7 +120,7 @@ try {
       ...cron,
       citations: diffCitations(oldCitations, newCitations),
     };
-    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson);
+    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson, { spaces: 2 });
 
     console.log(`${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
   })

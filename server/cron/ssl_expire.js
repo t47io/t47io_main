@@ -33,7 +33,7 @@ try {
       newJson.https[host] = values[i];
     });
 
-    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson);
+    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson, { spaces: 2 });
 
     console.log(`${colors.green('SUCCESS')}: SSL Certificate expiration checked.`);
   })

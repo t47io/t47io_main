@@ -70,8 +70,8 @@ try {
       ...json,
       gitContrib: combinedData,
     };
-    fs.writeJsonSync(path.join(__dirname, '../../config/main/stats.json'), newJson);
-    return Promise.resolve(combinedData);
+    fs.writeJsonSync(path.join(__dirname, '../../config/main/stats.json'), newJson, { spaces: 2 });
+    return combinedData;
   }))
   .then((data) => {
     const oldTotal = parseInt(cron.gitContrib.total, 10) || 0;
@@ -86,7 +86,7 @@ try {
         lastWeek: data.countArray.slice(data.countArray.length - 7),
       },
     };
-    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson);
+    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson, { spaces: 2 });
 
     console.log(`${colors.green('SUCCESS')}: GitHub contribution records updated.`);
   })

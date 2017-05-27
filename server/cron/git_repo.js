@@ -109,7 +109,7 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     })
     .then((data) => { result = formatCalendar(data, result); })
     .then(() => {
-      fs.writeJsonSync(path.join(__dirname, '../../config/repository', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result);
+      fs.writeJsonSync(path.join(__dirname, '../../config/repository', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, { spaces: 2 });
       console.log(`${colors.green('SUCCESS')}: GitHub records updated for repository ${colors.blue(repoName)}.`);
     })
     .catch((error) => {
