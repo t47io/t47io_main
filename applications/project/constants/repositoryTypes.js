@@ -25,3 +25,18 @@ export const REPOSITORY_LIST = [
   JEKYLL,
   SPHINX,
 ];
+
+export const REPOSITORY_INTERNAL_NAMES = [
+  'daslab',
+  'primerize',
+  'nathermo',
+  'rmdb',
+  'rdatkit',
+  'hitrace',
+  'biers',
+  'ribopaint',
+  'spindle',
+  'ribokit',
+  'jekyll',
+  'sphinx',
+];

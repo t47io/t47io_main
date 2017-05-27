@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
@@ -120,6 +120,7 @@
     "email-validator": "1.0.7",
     "express": "4.15.3",
     "fs-extra": "3.0.1",
+    "github-api": "3.0.0",
     "glob-promise": "3.1.0",
     "helmet": "3.6.1",
     "https": "1.0.0",
