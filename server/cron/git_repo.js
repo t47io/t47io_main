@@ -55,7 +55,7 @@ const formatBasics = (data, result) => ({
     watchers: data.watchers_count,
   },
 });
-const formatContribs = (data, result) => {
+const formatTable = (data, result) => {
   const combinedResult = {
     ...result,
     contributors: data.map(contrib => ({
@@ -73,6 +73,7 @@ const formatContribs = (data, result) => {
     })),
   };
   combinedResult.contributors.sort((a, b) => (b.commits - a.commits));
+  combinedResult.contributors.splice(4);
   return combinedResult;
 };
 const formatCalendar = (data, result) => ({
@@ -105,7 +106,7 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     .then(() => getContribRetry(repo, GITHUB_RETRY, GITHUB_INTERVAL))
     .catch(() => { console.error(`${colors.red('ERROR')}: Failed to fetch Github records for repository ${colors.blue(repoName)} after ${GITHUB_RETRY} attempts.`); })
     .then(({ data }) => {
-      result = formatContribs(data, result);
+      result = formatTable(data, result);
       return data.filter(contrib => contrib.author.login === login)[0].weeks;
     })
     .then((data) => { result = formatCalendar(data, result); })
