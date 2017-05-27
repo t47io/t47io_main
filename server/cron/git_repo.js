@@ -76,16 +76,43 @@ const formatTable = (data, result) => {
   combinedResult.contributors.splice(4);
   return combinedResult;
 };
-const formatCalendar = (data, result) => ({
-  ...result,
-  additions: data.map(week => (week.a)),
-  deletions: data.map(week => (week.d)),
-  commits: data.map(week => (week.c)),
-  weekRange: [
-    data[0].w,
-    data[data.length - 1].w,
-  ],
-});
+const formatCalendar = (data, result) => {
+  const weeks = data.map(week => (
+    new Date(week.w * 1000).toLocaleString('en-us', {
+      month: 'short',
+      year: 'numeric',
+    })
+  ));
+  const months = weeks.filter((week, i, self) => (self.indexOf(week) === i));
+
+  const aggregatedData = {};
+  data.forEach((week) => {
+    const month = new Date(week.w * 1000).toLocaleString('en-us', {
+      month: 'short',
+      year: 'numeric',
+    });
+
+    if (!(month in aggregatedData)) {
+      aggregatedData[month] = {
+        additions: week.a,
+        deletions: week.d,
+        commits: week.c,
+      };
+    } else {
+      aggregatedData[month].additions += week.a;
+      aggregatedData[month].deletions += week.d;
+      aggregatedData[month].commits += week.c;
+    }
+  });
+
+  return {
+    ...result,
+    additions: months.map(month => aggregatedData[month].additions),
+    deletions: months.map(month => aggregatedData[month].deletions),
+    commits: months.map(month => aggregatedData[month].commits),
+    months,
+  };
+};
 
 
 let gh = null;
@@ -123,5 +150,3 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     console.log(`${colors.red('ERROR')}: Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
   }
 });
-
-//new Date(x * 1000).toLocaleString('ko-kr', { month: 'numeric', year: 'numeric' }).replace(/\./g, '').replace(' ', '-')

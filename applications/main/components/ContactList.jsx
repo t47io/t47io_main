@@ -115,7 +115,10 @@ const ContactList = ({
             <span className="text-main CONTACT__resume">
               <i className="fa fa-clock fa-fw" />
               <small>
-                {objDate.toLocaleString('en-us', { month: 'short', year: 'numeric' })}
+                {objDate.toLocaleString('en-us', {
+                  month: 'short',
+                  year: 'numeric',
+                })}
               </small>
             </span>
           </a>
