@@ -16,3 +16,27 @@ export const getPageProps = (state, project) => {
     repos: repositoryData,
   };
 };
+
+export const getChartData = (months, commits, additions, deletions) => {
+  const commitData = [];
+  const addDelData = [];
+  months.forEach((month, i) => {
+    const date = month.split('/').reverse().map(num => parseInt(num, 10));
+    commitData.push([
+      new Date(date[0], date[1] - 1),
+      commits[i],
+    ]);
+    addDelData.push([
+      new Date(date[0], date[1] - 1),
+      additions[i],
+      -deletions[i],
+    ]);
+  });
+  commitData.unshift(['month', 'commits']);
+  addDelData.unshift(['month', 'additions', 'deletions']);
+
+  return {
+    commitData,
+    addDelData,
+  };
+};
