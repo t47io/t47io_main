@@ -38,10 +38,10 @@ try {
     console.log(`${colors.green('SUCCESS')}: SSL Certificate expiration checked.`);
   })
   .catch((error) => {
-    console.log(error);
+    console.error(error);
     console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
   });
 } catch (err) {
-  console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
+  console.error(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
   console.log(err);
 }

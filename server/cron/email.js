@@ -59,6 +59,6 @@ ${JSON.stringify(cron.https, null, 2)}
     console.log(`${colors.green('SUCCESS')}: Notified admin on cron data results.`);
   }
 } catch (err) {
-  console.log(err);
+  console.error(err);
   console.log(`${colors.red('ERROR')}: Failed to notify admin on cron data results.`);
 }

@@ -91,10 +91,10 @@ try {
     console.log(`${colors.green('SUCCESS')}: GitHub contribution records updated.`);
   })
   .catch((error) => {
-    console.log(error);
+    console.error(error);
     console.log(`${colors.red('ERROR')}: Failed to retrieve GitHub contribution records.`);
   });
 } catch (err) {
-  console.log(err);
+  console.error(err);
   console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
 }

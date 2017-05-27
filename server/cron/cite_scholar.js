@@ -127,10 +127,10 @@ try {
     console.log(`${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
   })
   .catch((error) => {
-    console.log(error);
+    console.error(error);
     console.log(`${colors.red('ERROR')}: Failed to retrieve Google Scholar citation.`);
   });
 } catch (err) {
-  console.log(err);
+  console.error(err);
   console.log(`${colors.red('ERROR')}: Failed to update Google Scholar citation.`);
 }
