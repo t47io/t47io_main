@@ -4,7 +4,7 @@ import RepositoryTableItem from './RepositoryTableItem.jsx';
 
 
 const RepositoryTable = ({ items }) => (
-  <table className="table table-hover">
+  <table className="PROJECT__repo-table table table-hover">
     <thead>
       <tr className="active">
         <th className="col-lg-3 col-md-3 col-sm-3 col-xs-3">

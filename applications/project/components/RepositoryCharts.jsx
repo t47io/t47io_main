@@ -18,7 +18,7 @@ const RepositoryCharts = ({
 
   return (
     <div>
-      <div className="thumbnail">
+      <div className="PROJECT__thumbnail">
         <Chart
           chartType="AreaChart"
           data={commitData}
@@ -28,7 +28,7 @@ const RepositoryCharts = ({
           loader={<span />}
         />
       </div>
-      <div className="thumbnail">
+      <div className="PROJECT__thumbnail">
         <Chart
           chartType="AreaChart"
           data={addDelData}

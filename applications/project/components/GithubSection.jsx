@@ -3,6 +3,8 @@ import React from 'react';
 import Headline from './Headline.jsx';
 import Repository from './Repository.jsx';
 
+import '../stylesheets/GitHubSection.scss';
+
 
 const GithubSection = ({ repos }) => (
   <div className="row">

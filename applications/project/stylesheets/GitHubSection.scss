@@ -1,0 +1,32 @@
+@import '../../common/mixins/palette';
+
+
+.PROJECT__repo-basics {
+  text-align: left;
+
+  .PROJECT__repo-name {
+    margin-left: 0;
+    text-decoration: underline;
+  }
+  .PROECT__repo-link,
+  .PROECT__repo-stats { padding-bottom: 0.5em; }
+
+  .PROJECT__repo-stats-number {
+    padding: 0 0.5em 0 0.25em;
+    vertical-align: sub;
+  }
+}
+
+.PROJECT__repo-table {
+  .PROECT__repo-table-author {
+    font-weight: bold;
+    font-style: italic;
+  }
+  .PROJECT__repo-table-number {
+    padding-right: 2em;
+
+    &.PROJECT__number--cyan { color: $colorCyan; }
+    &.PROJECT__number--green { color: $colorGreen; }
+    &.PROJECT__number--red { color: $colorRed; }
+  }
+}
