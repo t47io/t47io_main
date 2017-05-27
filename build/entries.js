@@ -43,6 +43,7 @@ const entries = (DEBUG = true) => {
 
   if (DEBUG) {
     entry.main.unshift('webpack-hot-middleware/client?reload=true');
+    entry.project.unshift('webpack-hot-middleware/client?reload=true');
   }
   return entry;
 };

@@ -18,7 +18,7 @@ const RepositoryBasic = ({
     <div className="PROJECT__repo-basics">
       <p>
         <mark className="lead PROJECT__repo-name">{name}</mark>
-        <span className="label PROJECT__label--gray">{privateLabel}</span>
+        <span className="label PROJECT__label--red">{privateLabel}</span>
       </p>
       <p className="PROECT__repo-link">
         <a
@@ -31,12 +31,12 @@ const RepositoryBasic = ({
       </p>
       <p className="PROECT__repo-stats">
         <span className="label PROJECT__label--green">created</span>
-        <span className="label PROJECT__label--yellow">{createdAt}</span>
+        <span className="label PROJECT__label--gray">{createdAt}</span>
         <span className="label PROJECT__label--green">last pushed</span>
-        <span className="label PROJECT__label--yellow">{pushedAt}</span>
+        <span className="label PROJECT__label--gray">{pushedAt}</span>
       </p>
       <p className="PROECT__repo-stats">
-        <span className="label PROJECT__label--red">issue</span>
+        <span className="label PROJECT__label--yellow">issue</span>
         <span className="PROJECT__repo-stats-number">{issues}</span>
         <span className="label PROJECT__label--blue">fork</span>
         <span className="PROJECT__repo-stats-number">{forks}</span>
