@@ -29,6 +29,7 @@
     "navs": true,
     "navbar": true,
     "scaffolding": true,
+    "tables": true,
     "thumbnails": true,
     "type": true,
 
@@ -49,7 +50,6 @@
     "print": false,
     "progress-bars": false,
     "responsive-embed": false,
-    "tables": false,
     "tooltip": false,
     "wells": false
   }
