@@ -1,8 +1,7 @@
-import { LOAD_REPOSITORY_JSON_DATA } from '../constants/actionTypes.js';
-import { REPOSITORY_LIST } from '../constants/repositoryTypes.js';
+import { REPOSITORY_INTERNAL_NAMES } from '../constants/repositoryTypes.js';
 
 
-const initialState = REPOSITORY_LIST.map(repo => ({
+const initialState = REPOSITORY_INTERNAL_NAMES.map(repo => ({
   [repo]: {},
 }))
 .reduce((obj, item) => ({
@@ -10,11 +9,8 @@ const initialState = REPOSITORY_LIST.map(repo => ({
   ...item,
 }), {});
 
-const repositoryReducer = (state = initialState, { type, payload }) => {
+const repositoryReducer = (state = initialState, { type }) => {
   switch (type) {
-    case LOAD_REPOSITORY_JSON_DATA: {
-      return payload;
-    }
     default: {
       return state;
     }

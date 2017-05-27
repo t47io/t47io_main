@@ -98,7 +98,7 @@ HitracePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project[HITRACE]);
+const mapStateToProps = state => (state.project ? state.project[HITRACE] : {});
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

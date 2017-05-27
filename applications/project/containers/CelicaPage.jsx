@@ -59,7 +59,7 @@ CelicaPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project[CELICA]);
+const mapStateToProps = state => (state.project ? state.project[CELICA] : {});
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

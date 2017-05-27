@@ -30,8 +30,7 @@ import '../stylesheets/index.scss';
 
 const Project = ({
   data: {
-    project,
-    repository,
+    data,
     ready,
     scroll,
   },
@@ -40,7 +39,7 @@ const Project = ({
     onScrollTop,
   },
 }) => {
-  if (project && repository && !ready) { onReady(); }
+  if (data && !ready) { onReady(); }
 
   return (
     <div id="HOME__section">
@@ -77,8 +76,7 @@ const Project = ({
 
 Project.propTypes = {
   data: React.PropTypes.shape({
-    project: React.PropTypes.bool,
-    repository: React.PropTypes.bool,
+    data: React.PropTypes.bool,
     ready: React.PropTypes.bool,
     scroll: React.PropTypes.bool,
   }),

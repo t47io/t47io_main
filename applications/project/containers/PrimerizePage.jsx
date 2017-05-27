@@ -88,7 +88,7 @@ PrimerizePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project[PRIMERIZE]);
+const mapStateToProps = state => (state.project ? state.project[PRIMERIZE] : {});
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

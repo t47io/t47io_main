@@ -88,7 +88,7 @@ RmdbPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project[RMDB]);
+const mapStateToProps = state => (state.project ? state.project[RMDB] : {});
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

@@ -74,7 +74,7 @@ SpindlePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project[SPINDLE]);
+const mapStateToProps = state => (state.project ? state.project[SPINDLE] : {});
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

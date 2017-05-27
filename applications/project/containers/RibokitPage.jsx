@@ -90,7 +90,7 @@ RibokitPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project[RIBOKIT]);
+const mapStateToProps = state => (state.project ? state.project[RIBOKIT] : {});
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

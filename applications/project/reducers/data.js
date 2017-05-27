@@ -1,14 +1,12 @@
 import {
   TOGGLE_PAGE_READY,
   TOGGLE_SCROLLTOP_ANIMATION,
-  LOAD_PROJECT_JSON_DATA,
-  LOAD_REPOSITORY_JSON_DATA,
+  LOAD_JSON_DATA,
 } from '../constants/actionTypes.js';
 
 
 export const initialState = {
-  project: false,
-  repository: false,
+  data: false,
   ready: false,
   scroll: false,
 };
@@ -27,16 +25,10 @@ const dataReducer = (state = initialState, { type, payload }) => {
         scroll: payload.status,
       };
     }
-    case LOAD_PROJECT_JSON_DATA: {
+    case LOAD_JSON_DATA: {
       return {
         ...state,
-        project: true,
-      };
-    }
-    case LOAD_REPOSITORY_JSON_DATA: {
-      return {
-        ...state,
-        repository: true,
+        data: true,
       };
     }
     default: {

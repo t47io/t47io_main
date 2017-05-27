@@ -92,7 +92,7 @@ DaslabPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project[DASLAB]);
+const mapStateToProps = state => (state.project ? state.project[DASLAB] : {});
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });
