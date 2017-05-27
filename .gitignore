@@ -2,13 +2,9 @@
 
 config/**/*.json
 !config/**/*.example.json
-server/backup/
-server/backup.tgz
+backup/
+backup.tgz
 public/
-!public/t47_icon.png
-!public/robots.txt
-!public/sitemap.xml
-!public/img/
 
 node_modules/
 .sass-cache/

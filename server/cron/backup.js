@@ -3,16 +3,20 @@ import path from 'path';
 import shell from 'shelljs';
 
 
-const backupPath = path.join(__dirname, '../backup');
+const backupPath = path.join(__dirname, '../../backup');
 
 const prepareFolder = () => {
   shell.rm('-rf', backupPath);
   shell.mkdir('-p', `${backupPath}/json`, `${backupPath}/nginx`);
+  shell.mkdir('-p', `${backupPath}/json/main`, `${backupPath}/json/project`, `${backupPath}/json/repository`);
 };
 
 const backupJson = () => {
   shell.cp('config/server.json', `${backupPath}/json`);
-  shell.cp('-R', 'config/main/*.json', `${backupPath}/json`);
+  shell.cp('-R', 'config/main/*.json', `${backupPath}/json/main`);
+  shell.cp('-R', 'config/project/*.json', `${backupPath}/json/project`);
+  shell.cp('-R', 'config/repository/*.json', `${backupPath}/json/repository`);
+  shell.rm('-rf', `${backupPath}/**/*.example.json`);
 };
 
 const backupNginx = () => {
