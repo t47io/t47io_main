@@ -5,6 +5,7 @@ config/**/*.json
 backup/
 backup.tgz
 public/
+!public/.gitignore
 
 node_modules/
 .sass-cache/
