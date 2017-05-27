@@ -11,6 +11,7 @@ import TitleSection from '../components/TitleSection.jsx';
 
 import { imgRibokit } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
+import { getPageProps } from '../util.js';
 import { RIBOKIT } from '../constants/projectTypes.js';
 
 
@@ -21,6 +22,7 @@ const RibokitPage = ({
   docs,
   carousels,
   lists,
+  repos,
   onScroll,
 }) => {
   if (!title) { return null; }
@@ -48,7 +50,7 @@ const RibokitPage = ({
         lists={lists}
         onScroll={onScroll}
       />
-      <GithubSection />
+      <GithubSection repos={repos} />
       <DocsSection
         labels={docs}
         urls={[urls.manual]}
@@ -73,6 +75,7 @@ RibokitPage.propTypes = {
   docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  repos: React.PropTypes.arrayOf(React.PropTypes.object),
   onScroll: React.PropTypes.func,
 };
 RibokitPage.defaultProps = {
@@ -86,11 +89,12 @@ RibokitPage.defaultProps = {
   docs: [],
   carousels: [],
   lists: [],
+  repos: [],
   onScroll: () => {},
 };
 
 
-const mapStateToProps = state => (state.project ? state.project[RIBOKIT] : {});
+const mapStateToProps = state => getPageProps(state, RIBOKIT);
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

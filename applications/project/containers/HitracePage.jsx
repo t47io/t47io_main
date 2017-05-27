@@ -12,6 +12,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import { imgHitrace } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
+import { getPageProps } from '../util.js';
 import { HITRACE } from '../constants/projectTypes.js';
 
 
@@ -22,6 +23,7 @@ const HitracePage = ({
   docs,
   carousels,
   lists,
+  repos,
   onScroll,
 }) => {
   if (!title) { return null; }
@@ -57,7 +59,7 @@ const HitracePage = ({
         delay={0}
         onToggleAnimation={onScroll}
       />
-      <GithubSection />
+      <GithubSection repos={repos} />
       <DocsSection
         labels={docs}
         urls={[urls.manual]}
@@ -81,6 +83,7 @@ HitracePage.propTypes = {
   docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  repos: React.PropTypes.arrayOf(React.PropTypes.object),
   onScroll: React.PropTypes.func,
 };
 HitracePage.defaultProps = {
@@ -94,11 +97,12 @@ HitracePage.defaultProps = {
   docs: [],
   carousels: [],
   lists: [],
+  repos: [],
   onScroll: () => {},
 };
 
 
-const mapStateToProps = state => (state.project ? state.project[HITRACE] : {});
+const mapStateToProps = state => getPageProps(state, HITRACE);
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

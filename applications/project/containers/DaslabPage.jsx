@@ -12,6 +12,7 @@ import TitleSection from '../components/TitleSection.jsx';
 import { daslabNotes } from '../components/AccessNotes.jsx';
 import { imgDaslab } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
+import { getPageProps } from '../util.js';
 import { DASLAB } from '../constants/projectTypes.js';
 
 
@@ -22,6 +23,7 @@ const DaslabPage = ({
   docs,
   carousels,
   lists,
+  repos,
   onScroll,
 }) => {
   if (!title) { return null; }
@@ -49,7 +51,7 @@ const DaslabPage = ({
         lists={lists}
         onScroll={onScroll}
       />
-      <GithubSection />
+      <GithubSection repos={repos} />
       <DocsSection
         labels={docs}
         urls={[`${urls.repo}wiki/`, `${urls.demo}admin/ref/`]}
@@ -75,6 +77,7 @@ DaslabPage.propTypes = {
   docs: React.PropTypes.arrayOf(React.PropTypes.string),
   carousels: React.PropTypes.arrayOf(React.PropTypes.array),
   lists: React.PropTypes.arrayOf(React.PropTypes.object),
+  repos: React.PropTypes.arrayOf(React.PropTypes.object),
   onScroll: React.PropTypes.func,
 };
 DaslabPage.defaultProps = {
@@ -88,11 +91,12 @@ DaslabPage.defaultProps = {
   docs: [],
   carousels: [],
   lists: [],
+  repos: [],
   onScroll: () => {},
 };
 
 
-const mapStateToProps = state => (state.project ? state.project[DASLAB] : {});
+const mapStateToProps = state => getPageProps(state, DASLAB);
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

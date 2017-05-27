@@ -10,6 +10,7 @@ import TitleSection from '../components/TitleSection.jsx';
 import { eternaNotes } from '../components/AccessNotes.jsx';
 import { imgEterna } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
+import { getPageProps } from '../util.js';
 import { ETERNA } from '../constants/projectTypes.js';
 
 
@@ -79,7 +80,7 @@ EternaPage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project ? state.project[ETERNA] : {});
+const mapStateToProps = state => getPageProps(state, ETERNA);
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

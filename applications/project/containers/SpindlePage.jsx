@@ -9,6 +9,7 @@ import TitleSection from '../components/TitleSection.jsx';
 
 import { imgSpindle } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
+import { getPageProps } from '../util.js';
 import { SPINDLE } from '../constants/projectTypes.js';
 
 
@@ -74,7 +75,7 @@ SpindlePage.defaultProps = {
 };
 
 
-const mapStateToProps = state => (state.project ? state.project[SPINDLE] : {});
+const mapStateToProps = state => getPageProps(state, SPINDLE);
 const mapDispatchToProps = dispatch => ({
   onScroll: bindActionCreators(aniamteScrollTop, dispatch),
 });

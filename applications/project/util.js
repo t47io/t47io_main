@@ -1,25 +1,18 @@
-const getPageProps = (state, project) => {
+export const getPageProps = (state, project) => {
   if (!state.project || !state.repository) { return {}; }
 
-  const repositoryData = state.repository;
   const projectData = state.project[project];
   const { repos = [] } = projectData;
 
+  const repositoryData = Object.keys(state.repository)
+    .filter(key => repos.includes(key))
+    .map(key => ({
+      ...state.repository[key],
+      key,
+    }));
+
   return {
     ...projectData,
-    data: (
-      Object.keys(repositoryData)
-      .filter(key => repos.includes(key))
-      .map(key => ({
-        key: repositoryData[key],
-      }))
-      .reduce((obj, item) => ({
-        ...obj,
-        ...item,
-      }), {})
-    ),
+    repos: repositoryData,
   };
 };
-
-
-export default getPageProps;
