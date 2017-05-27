@@ -3,26 +3,35 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
-const mainJson = {
-  home: require('../config/main/home.json'),
-  about: require('../config/main/about.json'),
-  affiliation: require('../config/main/affiliation.json'),
-  portfolio: require('../config/main/portfolio.json'),
-  skills: require('../config/main/skills.json'),
-  stats: require('../config/main/stats.json'),
-  pubs: require('../config/main/pubs.json'),
-  contact: require('../config/main/contact.json'),
-};
-const projectJson = {
-  daslab: require('../config/project/daslab.json'),
-  primerize: require('../config/project/primerize.json'),
-  rmdb: require('../config/project/rmdb.json'),
-  eterna: require('../config/project/eterna.json'),
-  hitrace: require('../config/project/hitrace.json'),
-  spindle: require('../config/project/spindle.json'),
-  ribokit: require('../config/project/ribokit.json'),
-  celica: require('../config/project/celica.json'),
-};
+import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
+import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
+import { REPOSITORY_INTERNAL_NAMES } from '../applications/project/constants/repositoryTypes.js';
+
+const mainJson = SECTION_LIST
+  .map(section => ({
+    [section]: require(`../config/main/${section}.json`),
+  }))
+  .reduce((obj, item) => ({
+    ...obj,
+    ...item,
+  }), {});
+const projectJson = PROJECT_LIST
+  .map(project => ({
+    [project]: require(`../config/project/${project}.json`),
+  }))
+  .reduce((obj, item) => ({
+    ...obj,
+    ...item,
+  }), {});
+const repositoryJson = REPOSITORY_INTERNAL_NAMES
+  .map(repository => ({
+    [repository]: require(`../config/repository/${repository}.json`),
+  }))
+  .reduce((obj, item) => ({
+    ...obj,
+    ...item,
+  }), {});
+
 
 const publicPath = path.join(__dirname, '../public');
 const getResume = () => {
@@ -87,7 +96,11 @@ const concatMainJSON = () => {
 };
 
 const concatProjectJSON = () => {
-  fs.writeJsonSync(path.join(__dirname, '../config/project.json'), projectJson);
+  const data = {
+    project: projectJson,
+    repository: repositoryJson,
+  };
+  fs.writeJsonSync(path.join(__dirname, '../config/project.json'), data);
 };
 
 

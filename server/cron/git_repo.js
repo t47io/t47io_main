@@ -85,6 +85,7 @@ const formatCalendar = (data, result) => ({
   ],
 });
 
+
 let gh = null;
 try {
   gh = new Github({ token });

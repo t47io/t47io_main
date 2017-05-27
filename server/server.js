@@ -11,6 +11,7 @@ import {
   HTML_HEADER,
   SMTP,
 } from './config.js';
+import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import {
   app,
   middleware,
@@ -20,10 +21,9 @@ import {
   renderProjectHTML,
 } from '../build/render/client.jsx';
 
-const indexJson = require('../config/main.json');
-const projectJson = require('../config/project.json');
+const { contact: { resume } } = require('../config/main.json');
 
-const projectPathRegex = new RegExp(`^/project/(${Object.keys(projectJson).join('|')})/?$`);
+const projectPathRegex = new RegExp(`^/project/(${PROJECT_LIST.join('|')})/?$`);
 const errorPathRegex = new RegExp(`^/error/(${HTTP_CODE.join('|')})/?$`);
 const publicPath = path.join(__dirname, '../public');
 
@@ -58,7 +58,7 @@ app.get(projectPathRegex, (req, res) => {
 app.use(express.static(publicPath, { maxAge: '30 days' }));
 
 app.get('/resume', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pdf/', indexJson.contact.resume), {
+  res.sendFile(path.join(publicPath, 'pdf/', resume), {
     headers: { 'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"' },
     maxAge: '60 days',
   });
