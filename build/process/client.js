@@ -47,3 +47,18 @@ try {
   console.log(err);
   console.log(`${colors.red('ERROR')}: Failed to delete Build temporary files.`);
 }
+
+try {
+  const staticFiles = glob.sync(path.join(__dirname, '../../', 'static/*'))
+    .map(file => path.basename(file));
+  staticFiles.forEach(file => (
+    fs.copySync(
+      path.join(__dirname, '../../', `static/${file}`),
+      path.join(__dirname, '../../', `public/${file}`)
+    )
+  ));
+  console.log(`${colors.green('SUCCESS')}: Public files copied.`);
+} catch (err) {
+  console.log(err);
+  console.log(`${colors.red('ERROR')}: Failed to copy Public files.`);
+}
