@@ -17,6 +17,7 @@ import webpackConfig from '../webpack.config.client.js';
 import {
   DEBUG,
   PORT,
+  FAVICO_FILE_NAME,
 } from './config.js';
 
 
@@ -29,7 +30,7 @@ if (DEBUG) {
 } else {
   app.use(staticGzip(/\.(html|js|css)$/i));
 }
-app.use(favicon(path.join(publicPath, 't47_icon.png')));
+app.use(favicon(path.join(publicPath, FAVICO_FILE_NAME)));
 app.use(helmet());
 app.use(bodyParser.json());
 app.disable('x-powered-by');

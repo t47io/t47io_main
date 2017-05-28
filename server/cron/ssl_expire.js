@@ -3,6 +3,8 @@ import fs from 'fs-extra';
 import https from 'https';
 import path from 'path';
 
+import { JSON_FORMAT } from '../config.js';
+
 const cron = require('../../config/cron.json');
 
 
@@ -33,7 +35,7 @@ try {
       newJson.https[host] = values[i];
     });
 
-    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson, { spaces: 2 });
+    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson, JSON_FORMAT);
 
     console.log(`${colors.green('SUCCESS')}: SSL Certificate expiration checked.`);
   })

@@ -7,9 +7,11 @@ import sanitizer from 'sanitizer';
 import {
   DEBUG,
   EMAIL_RECV,
+  SMTP,
   HTTP_CODE,
   HTML_HEADER,
-  SMTP,
+  CACHE_MAX_AGE,
+  RESUME_FILE_NAME,
 } from './config.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import {
@@ -38,7 +40,7 @@ app.get('/', (req, res) => {
     const htmlFile = req.query.static ? 'index' : 'main';
     res.sendFile(path.join(publicPath, `${htmlFile}.html.gz`), {
       headers: HTML_HEADER(DEBUG),
-      maxAge: '7 days',
+      maxAge: `${CACHE_MAX_AGE} days`,
     });
   }
 });
@@ -51,7 +53,7 @@ app.get(projectPathRegex, (req, res) => {
   } else {
     res.sendFile(path.join(publicPath, 'project.html.gz'), {
       headers: HTML_HEADER(DEBUG),
-      maxAge: '7 days',
+      maxAge: `${CACHE_MAX_AGE} days`,
     });
   }
 });
@@ -59,8 +61,8 @@ app.use(express.static(publicPath, { maxAge: '30 days' }));
 
 app.get('/resume', (req, res) => {
   res.sendFile(path.join(publicPath, 'pdf/', resume), {
-    headers: { 'Content-Disposition': 'inline; filename="SiqiTian_resume.pdf"' },
-    maxAge: '60 days',
+    headers: { 'Content-Disposition': `inline; filename="${RESUME_FILE_NAME}"` },
+    maxAge: `${CACHE_MAX_AGE / 2} days`,
   });
 });
 
@@ -68,7 +70,7 @@ app.route('/send')
 .get((req, res) => {
   if ('success' in req.query && req.query.success === '1') {
     return res.status(201).sendFile(
-      path.join(publicPath, '201.html')
+      path.join(publicPath, 'e.201.html.gz')
     );
   }
   return res.sendStatus(400);
@@ -139,7 +141,7 @@ app.use((err, req, res, next) => {
 
   return res.status(code).sendFile(path.join(publicPath, `e.${err.status}.html.gz`), {
     headers: HTML_HEADER(false),
-    maxAge: '60 days',
+    maxAge: `${CACHE_MAX_AGE} days`,
   });
 });
 

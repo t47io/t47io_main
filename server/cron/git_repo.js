@@ -7,6 +7,10 @@ import path from 'path';
 import {
   GITHUB_RETRY,
   GITHUB_INTERVAL,
+  GITHUB_TABLE_LIMIT,
+  GITHUB_DEFUALT_AUTHOR,
+  GITHUB_REPO_API,
+  JSON_FORMAT,
 } from '../config.js';
 import {
   REPOSITORY_INTERNAL_NAMES,
@@ -32,16 +36,42 @@ const getContribRetry = (repo, retry, interval) => (
   .catch(() => {
     if (retry > 0) {
       return Promise((resolve) => {
-        setTimeout(() => {
-          resolve(getContribRetry(repo, retry - 1, interval));
-        }, interval);
+        setTimeout(() => resolve(getContribRetry(repo, retry - 1, interval)), interval);
       });
     }
     return Promise.reject('retry maxed out.');
   })
 );
 
+const trimZeroContribs = (months, aggregatedData) => {
+  let beginIdx = 0;
+  let endIdx = months.length;
+  while (beginIdx < endIdx) {
+    const monthData = aggregatedData[months[beginIdx]];
+    if (monthData.additions === 0 && monthData.deletions === 0) {
+      beginIdx += 1;
+    } else {
+      break;
+    }
+  }
+  while (beginIdx < endIdx) {
+    const monthData = aggregatedData[months[endIdx - 1]];
+    if (monthData.additions === 0 && monthData.deletions === 0) {
+      endIdx -= 1;
+    } else {
+      break;
+    }
+  }
+  return months.slice(beginIdx, endIdx);
+};
+
 const formatDateTime = utc => (utc.replace('T', ' ').replace('Z', ''));
+const formatWeekMonth = week => (
+  new Date(week * 1000).toLocaleString('en-us', {
+    month: 'numeric',
+    year: 'numeric',
+  })
+);
 const formatBasics = ({ data, pulls, branches, downloads }, result) => ({
   ...result,
   basics: {
@@ -63,7 +93,7 @@ const formatTable = (data, result) => {
   const combinedResult = {
     ...result,
     contributors: data.map(contrib => ({
-      author: contrib.author ? contrib.author.login : '(None)',
+      author: contrib.author ? contrib.author.login : GITHUB_DEFUALT_AUTHOR,
       commits: contrib.total,
       ...(
         contrib.weeks.reduce((sum, week) => ({
@@ -77,24 +107,16 @@ const formatTable = (data, result) => {
     })),
   };
   combinedResult.contributors.sort((a, b) => (b.commits - a.commits));
-  combinedResult.contributors.splice(4);
+  combinedResult.contributors.splice(GITHUB_TABLE_LIMIT);
   return combinedResult;
 };
 const formatCalendar = (data, result) => {
-  const weeks = data.map(week => (
-    new Date(week.w * 1000).toLocaleString('en-us', {
-      month: 'numeric',
-      year: 'numeric',
-    })
-  ));
+  const weeks = data.map(week => formatWeekMonth(week.w));
   let months = weeks.filter((week, i, self) => (self.indexOf(week) === i));
 
   const aggregatedData = {};
   data.forEach((week) => {
-    const month = new Date(week.w * 1000).toLocaleString('en-us', {
-      month: 'numeric',
-      year: 'numeric',
-    });
+    const month = formatWeekMonth(week.w);
 
     if (!(month in aggregatedData)) {
       aggregatedData[month] = {
@@ -108,26 +130,7 @@ const formatCalendar = (data, result) => {
       aggregatedData[month].commits += week.c;
     }
   });
-
-  let beginIdx = 0;
-  let endIdx = months.length;
-  while (beginIdx < endIdx) {
-    const monthData = aggregatedData[months[beginIdx]];
-    if (monthData.additions === 0 && monthData.deletions === 0) {
-      beginIdx += 1;
-    } else {
-      break;
-    }
-  }
-  while (beginIdx < endIdx) {
-    const monthData = aggregatedData[months[endIdx - 1]];
-    if (monthData.additions === 0 && monthData.deletions === 0) {
-      endIdx -= 1;
-    } else {
-      break;
-    }
-  }
-  months = months.slice(beginIdx, endIdx);
+  months = trimZeroContribs(months, aggregatedData);
 
   return {
     ...result,
@@ -154,9 +157,9 @@ REPOSITORY_LIST.forEach((repoName, i) => {
 
     axios.all([
       repo.getDetails(),
-      axios.get(`https://api.github.com/repos/${repoName}/pulls?access_token=${token}`),
-      axios.get(`https://api.github.com/repos/${repoName}/branches?access_token=${token}`),
-      axios.get(`https://api.github.com/repos/${repoName}/downloads?access_token=${token}`),
+      axios.get(`${GITHUB_REPO_API}${repoName}/pulls?access_token=${token}`),
+      axios.get(`${GITHUB_REPO_API}${repoName}/branches?access_token=${token}`),
+      axios.get(`${GITHUB_REPO_API}${repoName}/downloads?access_token=${token}`),
     ])
     .then(axios.spread((details, pulls, branches, downloads) => ({
       data: details.data,
@@ -173,7 +176,7 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     })
     .then((data) => { result = formatCalendar(data, result); })
     .then(() => {
-      fs.writeJsonSync(path.join(__dirname, '../../config/repository', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, { spaces: 2 });
+      fs.writeJsonSync(path.join(__dirname, '../../config/repository', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
       console.log(`${colors.green('SUCCESS')}: GitHub records updated for repository ${colors.blue(repoName)}.`);
     })
     .catch((error) => {

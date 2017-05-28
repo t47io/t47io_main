@@ -16,6 +16,16 @@ export const HTML_HEADER = (DEBUG = false) => ({
   ...(DEBUG ? {} : { 'Content-Encoding': 'gzip' }),
   'X-UA-Compatible': 'IE=edge',
 });
+export const CACHE_MAX_AGE = 120;
 
 export const GITHUB_RETRY = 5;
 export const GITHUB_INTERVAL = 1000;
+export const GITHUB_TABLE_LIMIT = 4;
+export const GITHUB_DEFUALT_AUTHOR = '(None)';
+export const GITHUB_REPO_API = 'https://api.github.com/repos/';
+
+export const JSON_FORMAT = { spaces: 2 };
+
+export const BACKUP_FILE_NAME = 'backup.tgz';
+export const FAVICO_FILE_NAME = 't47_icon.png';
+export const RESUME_FILE_NAME = 'SiqiTian_resume';

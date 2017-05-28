@@ -2,6 +2,7 @@ import colors from 'colors';
 import path from 'path';
 import shell from 'shelljs';
 
+import { BACKUP_FILE_NAME } from '../config.js';
 
 const backupPath = path.join(__dirname, '../../backup');
 
@@ -36,7 +37,7 @@ const backupMisc = () => {
 const createTgz = () => {
   shell.cd(backupPath);
   shell.cd('..');
-  shell.exec('tar -zvcf backup.tgz backup/');
+  shell.exec(`tar -zvcf ${BACKUP_FILE_NAME} backup/`);
 };
 
 
