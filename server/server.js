@@ -40,7 +40,9 @@ app.get('/', (req, res) => {
   } else {
     const userAgent = req.useragent.source.toLowerCase();
     const isBot = (BOT_USER_AGENTS.filter(botUA => userAgent.includes(botUA)).length > 0);
-    const htmlFile = (isBot || req.query.static) ? 'index' : 'main';
+    const isStatic = ('static' in req.query && req.query.static === '1');
+
+    const htmlFile = (isBot || isStatic) ? 'index' : 'main';
     res.sendFile(path.join(publicPath, `${htmlFile}.html.gz`), {
       headers: HTML_HEADER(DEBUG),
       maxAge: `${CACHE_MAX_AGE} days`,
@@ -72,14 +74,15 @@ app.get('/resume', (req, res) => {
 app.route('/send')
 .get((req, res) => {
   if ('success' in req.query && req.query.success === '1') {
-    return res.status(201).sendFile(
-      path.join(publicPath, 'e.201.html.gz')
-    );
+    return res.status(201).sendFile(path.join(publicPath, 'e.201.html.gz'), {
+      headers: HTML_HEADER(false),
+      maxAge: `${CACHE_MAX_AGE} days`,
+    });
   }
   return res.sendStatus(400);
 })
 .post((req, res) => {
-  const form = req.body.map(item => sanitizer.escape(item));
+  const form = Object.keys(req.body).map(key => sanitizer.escape(req.body[key]));
   const [name, email, subject, message] = form;
 
   if (form.filter(item => item.length).length !== 4) {
@@ -103,7 +106,7 @@ app.route('/send')
   }, (err) => {
     if (err) {
       console.log(`${colors.red('ERROR')}: Failed to send email for client.`);
-      console.log(err);
+      console.error(err);
       return res.sendStatus(500);
     }
     console.log(`${colors.green('SUCCESS')}: Message sent on behalf of ${email}.`);
@@ -140,7 +143,10 @@ app.all('*', (req, res, next) => {
 // });
 
 app.use((err, req, res, next) => {
-  const code = HTTP_CODE.includes(err.status) ? err.status : 503;
+  let code = 500;
+  if (err.status) {
+    code = HTTP_CODE.includes(err.status) ? err.status : 503;
+  }
 
   return res.status(code).sendFile(path.join(publicPath, `e.${err.status}.html.gz`), {
     headers: HTML_HEADER(false),
