@@ -39,13 +39,12 @@
 }
 .btn-default {
   &:hover,
-  &:disabled:hover {
+  &:focus, &.focus {
     color: $colorWhite;
     background: $colorGreen;
   } 
   &,
   &:disabled, &.disabled,
-  &:focus, &.focus,
   &:active, &.active {
     background: $colorGreenDark;
     color: $colorWhite;
@@ -53,12 +52,7 @@
   }
 }
 .btn-primary {
-  &:hover,
-  &:disabled:hover {
-    color: $colorWhite;
-    background: $colorCyan;
-  } 
-  &,
+  &, &:hover,
   &:disabled, &.disabled,
   &:focus, &.focus,
   &:active, &.active {
@@ -68,12 +62,7 @@
   }
 }
 .btn-danger {
-  &:hover,
-  &:disabled:hover {
-    color: $colorWhite;
-    background: $colorRed;
-  } 
-  &,
+  &, &:hover,
   &:disabled, &.disabled,
   &:focus, &.focus,
   &:active, &.active {

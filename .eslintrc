@@ -36,6 +36,8 @@
     "import/no-mutable-exports": [0],
     "import/prefer-default-export": [0],
 
+    "jsx-a11y/media-has-caption": [0],
+
     "react/forbid-prop-types": [1, { "forbid": ["any"] }],
     "react/jsx-max-props-per-line": [0],
     "react/no-array-index-key": [0],

@@ -128,7 +128,7 @@
       .fa { color: $colorGreen; }
     }
     &:last-child { padding-bottom: 0; }
-    &:last-of-type {
+    &:nth-last-of-type(-n+2) {
       padding-top: 1em;
 
       .CONTACT__button {
@@ -137,6 +137,7 @@
 
         @include transition(0.5s);
 
+        &.long { width: 13em; }
         &:hover {
           width: 15em;
 
