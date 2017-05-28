@@ -22,3 +22,5 @@ export const LINK = {
     'shortcut icon': '/t47_icon.png',
   },
 };
+
+export const AUDIO = '/t47_pronunciation.mp3';
