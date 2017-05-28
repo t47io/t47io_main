@@ -12,6 +12,7 @@ import {
   HTML_HEADER,
   CACHE_MAX_AGE,
   RESUME_FILE_NAME,
+  BOT_USER_AGENTS,
 } from './config.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import {
@@ -37,7 +38,9 @@ app.get('/', (req, res) => {
     );
     res.set(HTML_HEADER(DEBUG)).send(renderMainHTML(mainHTML));
   } else {
-    const htmlFile = req.query.static ? 'index' : 'main';
+    const userAgent = req.useragent.source.toLowerCase();
+    const isBot = (BOT_USER_AGENTS.filter(botUA => userAgent.includes(botUA)).length > 0);
+    const htmlFile = (isBot || req.query.static) ? 'index' : 'main';
     res.sendFile(path.join(publicPath, `${htmlFile}.html.gz`), {
       headers: HTML_HEADER(DEBUG),
       maxAge: `${CACHE_MAX_AGE} days`,

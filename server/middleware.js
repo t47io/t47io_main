@@ -12,6 +12,7 @@ import fs from 'fs-extra';
 import helmet from 'helmet';
 import path from 'path';
 import staticGzip from 'http-static-gzip-regexp';
+import userAgent from 'express-useragent';
 
 import webpackConfig from '../webpack.config.client.js';
 import {
@@ -33,6 +34,7 @@ if (DEBUG) {
 app.use(favicon(path.join(publicPath, FAVICO_FILE_NAME)));
 app.use(helmet());
 app.use(bodyParser.json());
+app.use(userAgent.express());
 app.disable('x-powered-by');
 
 

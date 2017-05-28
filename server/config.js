@@ -29,3 +29,19 @@ export const JSON_FORMAT = { spaces: 2 };
 export const BACKUP_FILE_NAME = 'backup.tgz';
 export const FAVICO_FILE_NAME = 't47_icon.png';
 export const RESUME_FILE_NAME = 'SiqiTian_resume';
+
+export const BOT_USER_AGENTS = [
+  'googlebot',
+  'yahoo',
+  'bingbot',
+  'yandex',
+  'applebot',
+  'msnbot',
+  'yeti',
+  'yodaobot',
+  'gigabot',
+  'slurp',
+  'facebookexternalhit',
+  'twitterbot',
+  'developers.google.com',
+];
