@@ -52,7 +52,7 @@
 .fa-camera-alt:before { content: '\e818'; }
 .fa-megaphone:before { content: '\e819'; }
 .fa-play:before { content: '\e81a'; }
-.fa-stop:before { content: '\e81b'; }
+.fa-pause:before { content: '\e81b'; }
 .fa-link-ext:before { content: '\f08e'; }
 .fa-twitter:before { content: '\f099'; }
 .fa-facebook:before { content: '\f09a'; }
@@ -82,6 +82,7 @@
 .fa-database:before { content: '\f1c0'; }
 .fa-file-pdf:before { content: '\f1c1'; }
 .fa-file-word:before { content: '\f1c2'; }
+.fa-file-audio:before { content: '\f1c7'; }
 .fa-file-code:before { content: '\f1c9'; }
 .fa-paper-plane-empty:before { content: '\f1d9'; }
 .fa-history:before { content: '\f1da'; }
