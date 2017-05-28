@@ -111,7 +111,7 @@ app.route('/send')
       return next(sendErrorResponse(500));
     }
     console.log(`${colors.green('SUCCESS')}: Message sent on behalf of ${email}.`);
-    return res.sendStatus(201);
+    return next(sendErrorResponse(201));
   });
 });
 

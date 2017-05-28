@@ -147,6 +147,7 @@ const reducer = (state = initialState, { type, payload }) => {
         animations: {
           ...state.animations,
           audio: !state.animations.audio,
+          left: false,
         },
       };
     }
