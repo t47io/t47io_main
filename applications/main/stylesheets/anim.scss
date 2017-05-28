@@ -9,7 +9,9 @@
 .HOME__typewrite {
   will-change: color;
 }
-.HOME__title,
+.HOME__title {
+  will-change: transform, opacity, filter;
+}
 .ABOUT__icon,
 .AFFILIATION__panel,
 .PORTFOLIO__filter,

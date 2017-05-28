@@ -1,8 +1,8 @@
 
 export const homeName = {
   keyframes: [
-    { transform: 'scale(5)', opacity: 0 },
-    { transform: 'scale(1)', opacity: 1 },
+    { transform: 'scale(5)', opacity: 0, filter: 'blur(3em)' },
+    { transform: 'scale(1)', opacity: 1, filter: 'none' },
   ],
   timing: {
     duration: 750,

@@ -57,7 +57,7 @@ app.get(projectPathRegex, (req, res) => {
     });
   }
 });
-app.use(express.static(publicPath, { maxAge: '30 days' }));
+app.use(express.static(publicPath, { maxAge: `${CACHE_MAX_AGE * 5} days` }));
 
 app.get('/resume', (req, res) => {
   res.sendFile(path.join(publicPath, 'pdf/', resume), {
