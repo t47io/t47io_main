@@ -146,6 +146,8 @@ app.use((err, req, res, next) => {
   let code = 500;
   if (err.status) {
     code = HTTP_CODE.includes(err.status) ? err.status : 503;
+  } else {
+    console.error(err);
   }
 
   return res.status(code).sendFile(path.join(publicPath, `e.${err.status}.html.gz`), {
