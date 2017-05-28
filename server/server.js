@@ -6,6 +6,7 @@ import sanitizer from 'sanitizer';
 
 import {
   DEBUG,
+  EMAIL_CONTENT_LEN,
   EMAIL_RECV,
   SMTP,
   HTTP_CODE,
@@ -29,6 +30,12 @@ const { contact: { resume } } = require('../config/main.json');
 const projectPathRegex = new RegExp(`^/project/(${PROJECT_LIST.join('|')})/?$`);
 const errorPathRegex = new RegExp(`^/error/(${HTTP_CODE.join('|')})/?$`);
 const publicPath = path.join(__dirname, '../public');
+
+const sendErrorResponse = (code) => {
+  const err = new Error();
+  err.status = code;
+  return err;
+};
 
 
 app.get('/', (req, res) => {
@@ -72,25 +79,19 @@ app.get('/resume', (req, res) => {
 });
 
 app.route('/send')
-.get((req, res) => {
-  if ('success' in req.query && req.query.success === '1') {
-    return res.status(201).sendFile(path.join(publicPath, 'e.201.html.gz'), {
-      headers: HTML_HEADER(false),
-      maxAge: `${CACHE_MAX_AGE} days`,
-    });
-  }
-  return res.sendStatus(400);
+.get((req, res, next) => {
+  const code = ('success' in req.query && req.query.success === '1') ? 201 : 400;
+  return next(sendErrorResponse(code));
 })
-.post((req, res) => {
+.post((req, res, next) => {
   const form = Object.keys(req.body).map(key => sanitizer.escape(req.body[key]));
   const [name, email, subject, message] = form;
 
-  if (form.filter(item => item.length).length !== 4) {
-    return res.sendStatus(400);
+  if (form.filter(item => (item.length >= EMAIL_CONTENT_LEN)).length !== 4) {
+    return next(sendErrorResponse(400));
   }
-  if (subject.toLowerCase().startsWith('http') ||
-    !emailValidator.validate(email)) {
-    return res.sendStatus(403);
+  if (subject.toLowerCase().startsWith('http') || !emailValidator.validate(email)) {
+    return next(sendErrorResponse(403));
   }
 
   return SMTP.sendMail({
@@ -107,7 +108,7 @@ app.route('/send')
     if (err) {
       console.log(`${colors.red('ERROR')}: Failed to send email for client.`);
       console.error(err);
-      return res.sendStatus(500);
+      return next(sendErrorResponse(500));
     }
     console.log(`${colors.green('SUCCESS')}: Message sent on behalf of ${email}.`);
     return res.sendStatus(201);
@@ -122,16 +123,12 @@ app.route('/send')
 // process.on('uncaughtException', (e) => { server.close(); process.exit(1); });
 
 
-app.get(errorPathRegex, (req, res, next) => {
-  const err = new Error();
-  err.status = parseInt(req.params[0], 10);
-  next(err);
-});
+app.get(errorPathRegex, (req, res, next) => (
+  next(sendErrorResponse(parseInt(req.params[0], 10)))
+));
 app.all('*', (req, res, next) => {
   const code = (req.method === 'GET') ? 404 : 405;
-  const err = new Error();
-  err.status = code;
-  next(err);
+  return next(sendErrorResponse(code));
 });
 
 // app.use((req, res, next) => {
