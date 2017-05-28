@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.3.6",
+  "version": "2.3.7",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build": "npm run lint && npm run json && npm run build:server && npm run build:client",
 
     "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
-    "start": "npm run json && npm run nodemon",
+    "dev": "npm run json && npm run nodemon",
+    "prod": "pm2 start --env production --interpreter babel-node --watch server/server.js",
 
     "build:server": "npm run webpack:server && npm run process:server",
     "build:client": "npm run webpack:client && npm run process:error && npm run process:client && npm run process:manifest",
