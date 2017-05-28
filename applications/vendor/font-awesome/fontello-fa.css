@@ -50,6 +50,9 @@
 .fa-ok-circled:before { content: '\e816'; }
 .fa-cancel-circled:before { content: '\e817'; }
 .fa-camera-alt:before { content: '\e818'; }
+.fa-megaphone:before { content: '\e819'; }
+.fa-play:before { content: '\e81a'; }
+.fa-stop:before { content: '\e81b'; }
 .fa-link-ext:before { content: '\f08e'; }
 .fa-twitter:before { content: '\f099'; }
 .fa-facebook:before { content: '\f09a'; }
