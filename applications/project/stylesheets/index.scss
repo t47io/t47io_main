@@ -7,3 +7,21 @@
 
 @import '../../common/stylesheets/Logo';
 @import '../../common/stylesheets/Dropdown';
+
+
+.LOAD__container {
+  &.fade {
+    opacity: 0;
+
+    @include filter(blur(2em));
+  }
+  &.behind { z-index: -1; }
+}
+
+#HOME__section {
+  @include transition(1s);
+
+  &.fade {
+    @include filter(blur(3em));
+  }
+}

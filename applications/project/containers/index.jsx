@@ -40,9 +40,13 @@ const Project = ({
   },
 }) => {
   if (data && !ready) { onReady(); }
+  const sectionClass = ready ? '' : 'fade';
 
   return (
-    <div id="HOME__section">
+    <div
+      id="HOME__section"
+      className={sectionClass}
+    >
       <Meta />
       <Navbar />
 
