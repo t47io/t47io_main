@@ -88,6 +88,10 @@ const reducer = (state = initialState, { type, payload }) => {
           isSuccess: false,
           isError: false,
         },
+        animations: {
+          ...state.animations,
+          right: false,
+        },
       };
     }
     case SUBMIT_CONTACT_EMAIL_SUCCESS: {
@@ -98,6 +102,10 @@ const reducer = (state = initialState, { type, payload }) => {
           isPending: false,
           isSuccess: true,
           isError: false,
+        },
+        animations: {
+          ...state.animations,
+          right: false,
         },
       };
     }
@@ -110,6 +118,10 @@ const reducer = (state = initialState, { type, payload }) => {
           isSuccess: false,
           isError: true,
         },
+        animations: {
+          ...state.animations,
+          right: false,
+        },
       };
     }
     case SUBMIT_CONTACT_EMAIL_WAIT: {
@@ -120,6 +132,10 @@ const reducer = (state = initialState, { type, payload }) => {
           isPending: true,
           isSuccess: false,
           isError: false,
+        },
+        animations: {
+          ...state.animations,
+          right: false,
         },
       };
     }
