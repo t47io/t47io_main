@@ -9,3 +9,13 @@
 @import '../../common/stylesheets/Logo';
 
 @import '../../vendor/tooltip';
+
+
+.LOAD__container{
+  &.fade {
+    opacity: 0;
+
+    @include filter(blur(2em));
+  }
+  &.behind { z-index: -1; }
+}

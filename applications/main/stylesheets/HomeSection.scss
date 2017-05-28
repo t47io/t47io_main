@@ -12,7 +12,14 @@
   background-color: $colorBlack;
 
   .container { height: 100vh; }
-  .UTIL__parallax img { display: none; }
+  .UTIL__parallax {
+    @include transition(1s);
+
+    &.fade {
+      @include filter(blur(5em));
+    }
+    .HOME__avatar-fake { display: none; }
+  }
 }
 .HOME__content {
   position: absolute;

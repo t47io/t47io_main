@@ -35,6 +35,7 @@ const HomeSection = ({
   },
 }) => {
   const arrowColorClass = `text-${TEXT_COLOR_CYCLE[color % 2]}`;
+  const avatarClass = (server || ready) ? '' : 'fade';
 
   return (
     <section id="HOME__section">
@@ -43,13 +44,14 @@ const HomeSection = ({
         onToggleAnimation={animateIntro}
       />
       <div
-        className="UTIL__parallax"
+        className={`UTIL__parallax HOME__avatar ${avatarClass}`}
         style={avatarStyle}
       >
         <img
           src={imgAvatar}
           alt="T47 Avatar"
           onLoad={animateReady}
+          className="HOME__avatar-fake"
         />
       </div>
 

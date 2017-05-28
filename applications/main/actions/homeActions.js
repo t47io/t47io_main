@@ -19,12 +19,11 @@ import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 
 export const animateReady = () => (dispatch) => {
   const loadingContainer = document.querySelector('.LOAD__container');
-  loadingContainer.style.opacity = 0;
-  setTimeout(() => {
-    dispatch({ type: TOGGLE_HOME_READY });
-    // z-index does not obey transition
-    loadingContainer.style.zIndex = -1;
-  }, 1000);
+  loadingContainer.classList.add('fade');
+  dispatch({ type: TOGGLE_HOME_READY });
+
+  // z-index does not obey transition
+  setTimeout(() => loadingContainer.classList.add('behind'), 1000);
 };
 
 export const animateIntro = () => (dispatch) => {

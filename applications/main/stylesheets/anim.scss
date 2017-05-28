@@ -1,4 +1,4 @@
-.LOAD__container { will-change: opacity, z-index; }
+.LOAD__container { will-change: opacity, z-index, filter; }
 
 .COMMON__navbar { will-change: background-color, z-index, box-shadow; }
 .UTIL__section-header > div { will-change: transform, opacity, letter-spacing; }
