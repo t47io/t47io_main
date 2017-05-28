@@ -57,6 +57,15 @@ Use `npm` scripts with `npm run <cmd>`.
 | `cron` | Retrives _GitHub_ contribution statistics, _Google Scholar_ citations, _SSL Certificate_ expirations, and backup local `nginx` and JSON configs with admin email notice. |
 
 
+## Notes
+
+- Template app HTML files `public/(main|project).html.gz` contains JS/CSS loading logic that do not hard-code any asset path. Thus they are allowed for long cache. Only `(manifest|f.012345.min).js` is variable with a short cache.
+- Custom error pages are server-side rendered and stored as `public/e.(\d{3}).html.gz`.
+- Server-side rendered home page is stored as `public/index.html.gz`, as a static version without animation or interactivity. It is served to _bots_ based on user-agent match.
+- `webpack` generated JS/CSS/HTML assets under `public/` are pre-gzipped.
+- `npm run cron` is scheduled weekly as a `crontab` job on production.
+
+
 ## License
 
 **Copyright &copy; 2014-2017: Siqi Tian. All Rights Reserved.**
