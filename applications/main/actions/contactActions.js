@@ -7,6 +7,7 @@ import {
   SUBMIT_CONTACT_EMAIL_SUCCESS,
   SUBMIT_CONTACT_EMAIL_ERROR,
   SUBMIT_CONTACT_EMAIL_WAIT,
+  TOGGLE_AUDIO_PLAYBACK,
 } from '../constants/actionTypes.js';
 import {
   CONTACT,
@@ -74,3 +75,6 @@ export const submitEmail = () => (dispatch, getState) => {
     return dispatch(submitEmailError());
   });
 };
+
+export const playAudio = () => ({ type: TOGGLE_AUDIO_PLAYBACK });
+

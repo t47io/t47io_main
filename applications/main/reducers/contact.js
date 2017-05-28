@@ -7,6 +7,7 @@ import {
   SUBMIT_CONTACT_EMAIL_SUCCESS,
   SUBMIT_CONTACT_EMAIL_ERROR,
   SUBMIT_CONTACT_EMAIL_WAIT,
+  TOGGLE_AUDIO_PLAYBACK,
 } from '../constants/actionTypes.js';
 import { CONTACT } from '../constants/sectionTypes.js';
 
@@ -35,6 +36,7 @@ export const initialState = {
     icon: false,
     left: false,
     right: false,
+    audio: false,
   },
 };
 
@@ -136,6 +138,15 @@ const reducer = (state = initialState, { type, payload }) => {
         animations: {
           ...state.animations,
           right: false,
+        },
+      };
+    }
+    case TOGGLE_AUDIO_PLAYBACK: {
+      return {
+        ...state,
+        animations: {
+          ...state.animations,
+          audio: !state.animations.audio,
         },
       };
     }

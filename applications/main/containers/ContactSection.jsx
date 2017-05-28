@@ -36,6 +36,7 @@ const ContactSection = ({
     icon,
     left,
     right,
+    audio,
   },
   actions: {
     animateHeader,
@@ -44,6 +45,7 @@ const ContactSection = ({
     animateRightItems,
     changeEmailField,
     submitEmail,
+    playAudio,
   },
 }) => (
   <section id="CONTACT__section" className="text-white">
@@ -79,7 +81,9 @@ const ContactSection = ({
         <div className="row">
           <ContactList
             resume={resume}
+            audio={audio}
             counter={left}
+            onToggleAudio={playAudio}
             onToggleAnimation={animateLeftItems}
           />
           <ContactForm
@@ -121,6 +125,7 @@ ContactSection.propTypes = {
     icon: React.PropTypes.bool,
     left: React.PropTypes.bool,
     right: React.PropTypes.bool,
+    audio: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
@@ -129,6 +134,7 @@ ContactSection.propTypes = {
     animateRightItems: React.PropTypes.func,
     changeEmailField: React.PropTypes.func,
     submitEmail: React.PropTypes.func,
+    playAudio: React.PropTypes.func,
   }),
 };
 ContactSection.defaultProps = {
@@ -140,6 +146,7 @@ ContactSection.defaultProps = {
     animateRightItems: () => {},
     changeEmailField: () => {},
     submitEmail: () => {},
+    playAudio: () => {},
   },
 };
 

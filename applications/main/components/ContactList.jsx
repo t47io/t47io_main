@@ -1,20 +1,29 @@
 import React from 'react';
 
+import Audio from '../../common/components/Audio.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { imgPhone } from '../components/Images.js';
 import { contactPanel } from '../animations/contact.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
+import { AUDIO } from '../../common/constants/util.js';
 
 
 const ContactList = ({
   resume,
+  audio,
   counter,
+  onToggleAudio,
   onToggleAnimation,
 }) => {
+  const audioPlayClass = audio ? 'pause' : 'play';
   const date = resume.slice(7, -4);
-  const objDate = new Date(`${date.slice(4, 6)}/01/${date.slice(0, 4)}`);
+  const objDate = new Date(`${date.slice(4, 6)}/01/${date.slice(0, 4)}`)
+    .toLocaleString('en-us', {
+      month: 'short',
+      year: 'numeric',
+    });
 
   return (
     <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -100,26 +109,46 @@ const ContactList = ({
         </WebAnimation>
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item"
+          className="CONTACT__list-item padding"
+          keyframes={contactPanel.keyframes(CONTACT_LEFT)}
+          timing={contactPanel.timing(4)}
+          shouldAnimate={counter}
+          propsForceUpdate={audio}
+        >
+          <i className="fa fa-megaphone fa-lg fa-fw" />
+          <button
+            className="CONTACT__button long btn btn-default"
+            onClick={onToggleAudio}
+          >
+            <i className="fa fa-file-audio fa-fw" />
+            Proununciation
+            <span className="text-main CONTACT__resume">
+              <i className={`fa fa-${audioPlayClass} fa-fw`} />
+            </span>
+          </button>
+          <Audio
+            src={AUDIO} play={audio}
+            onFinish={onToggleAudio}
+          />
+        </WebAnimation>
+        <WebAnimation
+          tagName="li"
+          className="CONTACT__list-item padding"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(6)}
           shouldAnimate={counter}
         >
+          <i className="fa fa-download fa-lg fa-fw" />
           <a
             className="CONTACT__button btn btn-default"
             href="/resume/"
             target="_blank" rel="noopener noreferrer"
           >
-            <i className="fa fa-download fa-fw" />
-            Resume
+            <i className="fa fa-file-pdf fa-fw" />
+            Résumé
             <span className="text-main CONTACT__resume">
               <i className="fa fa-clock fa-fw" />
-              <small>
-                {objDate.toLocaleString('en-us', {
-                  month: 'short',
-                  year: 'numeric',
-                })}
-              </small>
+              <small>{objDate}</small>
             </span>
           </a>
         </WebAnimation>
@@ -130,12 +159,16 @@ const ContactList = ({
 
 ContactList.propTypes = {
   resume: React.PropTypes.string,
+  audio: React.PropTypes.bool,
   counter: React.PropTypes.bool,
+  onToggleAudio: React.PropTypes.func,
   onToggleAnimation: React.PropTypes.func,
 };
 ContactList.defaultProps = {
   resume: '',
+  audio: false,
   counter: false,
+  onToggleAudio: () => {},
   onToggleAnimation: () => {},
 };
 
