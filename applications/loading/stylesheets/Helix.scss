@@ -2,7 +2,6 @@
 @import '../../common/mixins/palette';
 @import '../../common/mixins/prefix';
 
-
 .LOAD__logo svg {
   width: 25rem;
   max-width: 75%;
@@ -22,10 +21,10 @@
     background: $colorGray;
     opacity: 0;
     border-radius: 1.5rem;
-
     will-change: top, right, opacity, z-index;
   }
 }
+
 @include media_width_lt(991px) {
   .LOAD__helix {
     height: 15rem;
@@ -38,39 +37,36 @@
   }
 }
 @include media_width_gt(992px) {
-  .LOAD__helix { width: 36rem; }
+  .LOAD__helix {
+    width: 36rem;
+  }
 }
-
 
 @include keyframes(dna_rotate) {
   $i: 0;
+
   @while $i <= 100 {
     #{$i}% {
       opacity: 1;
+
       @if $i % 100 == 0 {
         top: 20%;
         z-index: 0;
         @include transform(scale(1));
-      }
-      @else if $i % 50 == 0 {
+      } @else if $i % 50 == 0 {
         top: 60%;
         z-index: 1;
         @include transform(scale(1));
-      }
-      @else if $i == 25 {
+      } @else if $i == 25 {
         @include transform(scale(1.8));
-      }
-      @else {
+      } @else {
         @include transform(scale(0.5));
       }
     }
     $i: $i + 25;
   }
 }
-
-
 $list-clr: $colorGray, $colorGreen, $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGreen, $colorGray, $colorCyan, $colorRed, $colorPurple, $colorYellow;
-
 $time: 2s;
 $delay: 0.1s;
 $padding: 4%;
@@ -79,15 +75,16 @@ $padding: 4%;
   -webkit-animation: dna_rotate #{$time $val * $delay + $off + 1s} infinite ease-in-out;
   animation: dna_rotate $time #{$val * $delay + $off} infinite ease-in-out;
 }
+
 @for $i from 0 through 25 {
   .LOAD__helix .LOAD__helix-dot:nth-child(#{$i + 1}) {
     right: $i * $padding;
+
     @if $i % 2 == 0 {
-      background-color: nth($list-clr, $i % 12 + 1); 
+      background-color: nth($list-clr, $i % 12 + 1);
       @include animation($i, 0s);
-    }
-    @else {
-      background-color: nth($list-clr, $i % 12 + 1); 
+    } @else {
+      background-color: nth($list-clr, $i % 12 + 1);
       @include animation($i, 1s);
     }
   }

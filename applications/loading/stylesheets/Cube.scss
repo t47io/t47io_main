@@ -9,11 +9,11 @@ $unit: 144px;
   animation: $val1, $val2;
 }
 
-
 .LOAD__logo svg {
   width: 15rem;
   max-width: 50%;
 }
+
 .LOAD__cube {
   width: $unit;
   height: $unit;
@@ -26,6 +26,7 @@ $unit: 144px;
     position: absolute;
     font-size: 0;
   }
+
   .LOAD__cube-tile {
     display: inline-block;
     width: $unit / 18 * 5;
@@ -37,60 +38,97 @@ $unit: 144px;
   .LOAD__cube-face--front {
     @include transform(translateZ($unit / 2));
   }
+
   .LOAD__cube-face--left {
     @include transform(rotateY(90deg) translate3d($unit / 18 + 1px, 0, -$unit / 2));
-  } 
+  }
+
   .LOAD__cube-face--bottom {
     @include transform(rotateX(90deg) translate3d(0, $unit / 18 + 1px, -$unit / 2));
   }
+
   .LOAD__cube-face--right {
     @include transform(rotateY(90deg) translateZ($unit / 2));
   }
+
   .LOAD__cube-face--top {
     @include transform(rotateX(90deg) translatez($unit / 2));
   }
 }
-
 
 .LOAD__cube-group--1 {
   top: $unit / 3 * 2;
   width: $unit;
   height: $unit / 3;
   @include transform_style(preserve-3d);
-  @include animation(cube_rotate_1 2s ease-in-out infinite,
-    cube_rotate_5 2s steps(1) infinite);
+  @include animation(cube_rotate_1 2s ease-in-out infinite, cube_rotate_5 2s steps(1) infinite);
 
   .LOAD__cube-face--front {
-    .LOAD__cube-tile:nth-child(1) { background: $colorGray; }
-    .LOAD__cube-tile:nth-child(2) { background: $colorGray; }
-    .LOAD__cube-tile:nth-child(3) { background: $colorRed; }
+    .LOAD__cube-tile:nth-child(1) {
+      background: $colorGray;
+    }
+
+    .LOAD__cube-tile:nth-child(2) {
+      background: $colorGray;
+    }
+
+    .LOAD__cube-tile:nth-child(3) {
+      background: $colorRed;
+    }
   }
+
   .LOAD__cube-face--left {
-    .LOAD__cube-tile:nth-child(1) { background: $colorRed; }
-    .LOAD__cube-tile:nth-child(2) { background: $colorYellow; }
-    .LOAD__cube-tile:nth-child(3) { background: $colorCyan; }
+    .LOAD__cube-tile:nth-child(1) {
+      background: $colorRed;
+    }
+
+    .LOAD__cube-tile:nth-child(2) {
+      background: $colorYellow;
+    }
+
+    .LOAD__cube-tile:nth-child(3) {
+      background: $colorCyan;
+    }
   }
 }
+
 .LOAD__cube-group--2 {
   opacity: 0;
   left: $unit / 3;
   width: $unit / 3;
   height: $unit;
   @include transform_style(preserve-3d);
-  @include animation(cube_rotate_2 2s ease-in-out infinite,
-    cube_rotate_5 2s steps(1) 0.5s infinite);
+  @include animation(cube_rotate_2 2s ease-in-out infinite, cube_rotate_5 2s steps(1) 0.5s infinite);
 
   .LOAD__cube-face--front {
-    .LOAD__cube-tile:nth-child(1) { background: $colorGreen; }
-    .LOAD__cube-tile:nth-child(2) { background: $colorPurple; }
-    .LOAD__cube-tile:nth-child(3) { background: $colorYellow; }
+    .LOAD__cube-tile:nth-child(1) {
+      background: $colorGreen;
+    }
+
+    .LOAD__cube-tile:nth-child(2) {
+      background: $colorPurple;
+    }
+
+    .LOAD__cube-tile:nth-child(3) {
+      background: $colorYellow;
+    }
   }
+
   .LOAD__cube-face--bottom {
-    .LOAD__cube-tile:nth-child(1) { background: $colorGray; }
-    .LOAD__cube-tile:nth-child(2) { background: $colorRed; }
-    .LOAD__cube-tile:nth-child(3) { background: $colorGreen; }
+    .LOAD__cube-tile:nth-child(1) {
+      background: $colorGray;
+    }
+
+    .LOAD__cube-tile:nth-child(2) {
+      background: $colorRed;
+    }
+
+    .LOAD__cube-tile:nth-child(3) {
+      background: $colorGreen;
+    }
   }
 }
+
 .LOAD__cube-group--3 {
   opacity: 0;
   top: $unit / 3;
@@ -98,20 +136,37 @@ $unit: 144px;
   width: $unit;
   height: $unit / 3;
   @include transform_style(preserve-3d);
-  @include animation(cube_rotate_3 2s ease-in-out infinite,
-    cube_rotate_5 2s steps(1) 1s infinite);
+  @include animation(cube_rotate_3 2s ease-in-out infinite, cube_rotate_5 2s steps(1) 1s infinite);
 
   .LOAD__cube-face--front {
-    .LOAD__cube-tile:nth-child(1) { background: $colorCyan; }
-    .LOAD__cube-tile:nth-child(2) { background: $colorRed; }
-    .LOAD__cube-tile:nth-child(3) { background: $colorCyan; }
+    .LOAD__cube-tile:nth-child(1) {
+      background: $colorCyan;
+    }
+
+    .LOAD__cube-tile:nth-child(2) {
+      background: $colorRed;
+    }
+
+    .LOAD__cube-tile:nth-child(3) {
+      background: $colorCyan;
+    }
   }
+
   .LOAD__cube-face--right {
-    .LOAD__cube-tile:nth-child(1) { background: $colorYellow; }
-    .LOAD__cube-tile:nth-child(2) { background: $colorPurple; }
-    .LOAD__cube-tile:nth-child(3) { background: $colorCyan; }
+    .LOAD__cube-tile:nth-child(1) {
+      background: $colorYellow;
+    }
+
+    .LOAD__cube-tile:nth-child(2) {
+      background: $colorPurple;
+    }
+
+    .LOAD__cube-tile:nth-child(3) {
+      background: $colorCyan;
+    }
   }
 }
+
 .LOAD__cube-group--4 {
   opacity: 0;
   top: 0;
@@ -119,18 +174,34 @@ $unit: 144px;
   width: $unit / 3;
   height: $unit;
   @include transform_style(preserve-3d);
-  @include animation(cube_rotate_4 2s ease-in-out infinite,
-    cube_rotate_5 2s steps(1) 1.5s infinite);
+  @include animation(cube_rotate_4 2s ease-in-out infinite, cube_rotate_5 2s steps(1) 1.5s infinite);
 
   .LOAD__cube-face--front {
-    .LOAD__cube-tile:nth-child(1) { background: $colorYellow; }
-    .LOAD__cube-tile:nth-child(2) { background: $colorYellow; }
-    .LOAD__cube-tile:nth-child(3) { background: $colorCyan; }
+    .LOAD__cube-tile:nth-child(1) {
+      background: $colorYellow;
+    }
+
+    .LOAD__cube-tile:nth-child(2) {
+      background: $colorYellow;
+    }
+
+    .LOAD__cube-tile:nth-child(3) {
+      background: $colorCyan;
+    }
   }
+
   .LOAD__cube-face--top {
-    .LOAD__cube-tile:nth-child(1) { background: $colorYellow; }
-    .LOAD__cube-tile:nth-child(2) { background: $colorCyan; }
-    .LOAD__cube-tile:nth-child(3) { background: $colorGreen; }
+    .LOAD__cube-tile:nth-child(1) {
+      background: $colorYellow;
+    }
+
+    .LOAD__cube-tile:nth-child(2) {
+      background: $colorCyan;
+    }
+
+    .LOAD__cube-tile:nth-child(3) {
+      background: $colorGreen;
+    }
   }
 }
 
@@ -141,9 +212,9 @@ $unit: 144px;
   @include animation(cube_rotate_6 2s steps(1) infinite);
 }
 
-
 @include keyframes(cube_rotate_1) {
-  25%, 100% {
+  25%,
+  100% {
     @include transform(rotateY(90deg));
   }
 }
@@ -151,7 +222,9 @@ $unit: 144px;
   25% {
     @include transform(rotateX(0));
   }
-  50%, 100% {
+
+  50%,
+  100% {
     @include transform(rotateX(90deg));
   }
 }
@@ -159,7 +232,9 @@ $unit: 144px;
   50% {
     @include transform(rotateY(0));
   }
-  75%, 100% {
+
+  75%,
+  100% {
     @include transform(rotateY(-90deg));
   }
 }
@@ -167,46 +242,41 @@ $unit: 144px;
   75% {
     @include transform(rotateX(0));
   }
+
   100% {
     @include transform(rotateX(-90deg));
   }
 }
 @include keyframes(cube_rotate_5) {
-  0%, 100% { opacity: 1; }
-  25%, 50%, 75% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  50%,
+  75% {
+    opacity: 0;
+  }
 }
 
 @include keyframes(cube_rotate_6) {
   0% {
-    box-shadow: $unit / 3 0 0 $colorGreen,
-      $unit / 3 * 2 0 0 $colorGray,
-      0 $unit / 3 0 $colorCyan,
-      $unit / 3 $unit / 3 0 $colorPurple,
-      $unit / 3 * 2 $unit / 3 0 $colorCyan;
+    box-shadow: $unit / 3 0 0 $colorGreen, $unit / 3 * 2 0 0 $colorGray, 0 $unit / 3 0 $colorCyan, $unit / 3 $unit / 3 0 $colorPurple, $unit / 3 * 2 $unit / 3 0 $colorCyan;
   }
+
   25% {
     background: $colorYellow;
-    box-shadow: $unit / 3 * 2 0 0 $colorGray,
-      0 $unit / 3 0 $colorCyan,
-      $unit / 3 * 2 $unit / 3 0 $colorCyan,
-      0 $unit / 3 * 2 0 $colorCyan,
-      $unit / 3 * 2 $unit / 3 * 2 0 $colorRed;
+    box-shadow: $unit / 3 * 2 0 0 $colorGray, 0 $unit / 3 0 $colorCyan, $unit / 3 * 2 $unit / 3 0 $colorCyan, 0 $unit / 3 * 2 0 $colorCyan, $unit / 3 * 2 $unit / 3 * 2 0 $colorRed;
   }
+
   50% {
     background: $colorYellow;
-    box-shadow: $unit / 3 0 0 $colorGreen,
-      $unit / 3 * 2 0 0 $colorGray,
-      0 $unit / 3 * 2 0 $colorCyan,
-      $unit / 3 $unit / 3 * 2 0 $colorGray,
-      $unit / 3 * 2 $unit / 3 * 2 0 $colorRed;
+    box-shadow: $unit / 3 0 0 $colorGreen, $unit / 3 * 2 0 0 $colorGray, 0 $unit / 3 * 2 0 $colorCyan, $unit / 3 $unit / 3 * 2 0 $colorGray, $unit / 3 * 2 $unit / 3 * 2 0 $colorRed;
   }
+
   75% {
     background: transparent;
-    box-shadow: $unit / 3 0 0 $colorGreen,
-      $unit / 3 * 2 0 0 $colorGray,
-      $unit / 3 $unit / 3 0 $colorPurple,
-      $unit / 3 * 2 $unit / 3 0 $colorCyan,
-      $unit / 3 $unit / 3 * 2 0 $colorGray,
-      $unit / 3 * 2 $unit / 3 * 2 0 $colorRed;
+    box-shadow: $unit / 3 0 0 $colorGreen, $unit / 3 * 2 0 0 $colorGray, $unit / 3 $unit / 3 0 $colorPurple, $unit / 3 * 2 $unit / 3 0 $colorCyan, $unit / 3 $unit / 3 * 2 0 $colorGray, $unit / 3 * 2 $unit / 3 * 2 0 $colorRed;
   }
 }

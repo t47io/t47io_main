@@ -1,13 +1,15 @@
 @import '../../common/mixins/media';
 
-
 .UTIL__image-RNA {
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 100%;
 }
+
 @include media_width_gt(992px) {
-  .UTIL__image-RNA { background-size: 75%; }
+  .UTIL__image-RNA {
+    background-size: 75%;
+  }
 }
 
 .UTIL__image-RNA {

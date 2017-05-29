@@ -1,32 +1,29 @@
 @import '../../common/mixins/palette';
 @import '../../common/mixins/prefix';
-
 $unit: 3rem;
 $list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $colorGreen;
-
 
 .LOAD__square-block {
   background-color: transparent;
   opacity: 0;
-
   float: left;
   display: block;
   overflow: hidden;
   width: $unit;
   height: $unit;
   margin: 0 #{$unit / 6} #{$unit / 6} 0;
-
   will-change: opacity, background-color;
 }
 
-
 @include keyframes(square_color) {
   $i: 1;
+
   @while $i <= 99 {
     #{$i - 15}% {
       opacity: 1;
       background-color: nth($list-clr, ceil($i / 16.5));
     }
+
     #{$i}% {
       opacity: 0;
       background-color: nth($list-clr, ceil($i / 16.5));
@@ -34,7 +31,6 @@ $list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $color
     $i: $i + 16.5;
   }
 }
-
 $time: 6.75s;
 $delay: 0.125s;
 
@@ -42,6 +38,7 @@ $delay: 0.125s;
   -webkit-animation: square_color #{$time $val * $delay} infinite ease-in-out;
   animation: square_color $time #{$val * $delay} infinite ease-in-out;
 }
+
 @for $i from 0 through 8 {
   .LOAD__square-block--#{$i + 1} {
     @include animation($i);
