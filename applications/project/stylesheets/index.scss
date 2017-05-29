@@ -19,7 +19,7 @@
 }
 
 #HOME__section {
-  @include transition(1s);
+  @include transition(0.5s);
 
   &.fade {
     @include filter(blur(3em));

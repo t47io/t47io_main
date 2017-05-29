@@ -45,8 +45,17 @@
   padding: 0;
   margin: 0 auto;
 }
-.PORTFOLIO__entry {
+.PORTFOLIO__div-enter {
+  opacity: 0;
   @include transition(0.5s);
+
+  &.PORTFOLIO__div-enter-active { opacity: 1; }
+}
+.PORTFOLIO__div-leave {
+  opacity: 1;
+  @include transition(0.5s);
+
+  &.PORTFOLIO__div-leave-active { opacity: 0; }
 }
 
 .PORTFOLIO__item {

@@ -1,4 +1,5 @@
 import React from 'react';
+import CSSTransitionGroup from 'preact-css-transition-group';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -71,16 +72,26 @@ const PortfolioSection = ({
             onToggleAnimation={animateThumbnails}
           />
           <div className="PORTFOLIO__div">
-            {items.filter(item => (selectedCategory === 'all' || item.category === selectedCategory))
-              .map((item, i) => (
-                <PortfolioItem
-                  key={`PORTFOLIO__item-${item.name}`}
-                  shouldAnimate={thumbnail}
-                  index={i}
-                  {...item}
-                />
-              )
-            )}
+            <CSSTransitionGroup
+              component="div"
+              transitionName="PORTFOLIO__div"
+              transitionAppear={false}
+              transitionEnter
+              transitionEnterTimeout={500}
+              transitionLeave
+              transitionLeaveTimeout={500}
+            >
+              {items.filter(item => (selectedCategory === 'all' || item.category === selectedCategory))
+                .map((item, i) => (
+                  <PortfolioItem
+                    key={`PORTFOLIO__item-${item.name}`}
+                    shouldAnimate={thumbnail}
+                    index={i}
+                    {...item}
+                  />
+                )
+              )}
+            </CSSTransitionGroup>
           </div>
         </div>
       </div>

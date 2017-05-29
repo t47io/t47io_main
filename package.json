@@ -83,6 +83,7 @@
     "optimize-js-plugin": "0.0.4",
     "preact": "7.2.1",
     "preact-compat": "3.16.0",
+    "preact-css-transition-group": "1.2.0",
     "preact-router": "2.5.2",
     "purify-css": "1.2.2",
     "purifycss-webpack": "0.7.0",
