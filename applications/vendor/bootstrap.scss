@@ -2,7 +2,6 @@
 @import '../common/mixins/media';
 @import '../common/mixins/palette';
 
-
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -10,10 +9,19 @@ body {
   color: $colorBlack;
   background-color: $colorWhite;
 }
+
 h2,
-h3 { margin: 20px 0 10px 0; }
-p { margin: 0 0 10px; }
-a { text-decoration: none; }
+h3 {
+  margin: 20px 0 10px 0;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+a {
+  text-decoration: none;
+}
 
 code {
   padding: 2px 4px;
@@ -21,6 +29,7 @@ code {
   background-color: #fdecea;
   border-radius: 4px;
 }
+
 kbd {
   padding: 2px 4px;
   font-size: 90%;
@@ -42,6 +51,7 @@ kbd {
   vertical-align: baseline;
   border-radius: .25em;
 }
+
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -50,7 +60,6 @@ hr {
   height: 0;
   box-sizing: content-box;
 }
-
 
 .col-xs-12,
 .col-sm-6,
@@ -61,13 +70,15 @@ hr {
   padding-right: 15px;
   padding-left: 15px;
 }
+
 .col-xs-12 {
   float: left;
   width: 100%;
- }
+}
+
 @include media_width_gt(768px) {
   .col-sm-6 {
     float: left;
-    width: 50%
+    width: 50%;
   }
 }
