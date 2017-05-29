@@ -1,13 +1,10 @@
 @import '../../common/mixins/reset';
 @import '../../common/mixins/typography';
 @import '../../common/mixins/prefix';
-
 @import './typography';
 @import './sprites';
-
 @import '../../common/stylesheets/Logo';
 @import '../../common/stylesheets/Dropdown';
-
 
 .LOAD__container {
   &.fade {
@@ -15,7 +12,10 @@
 
     @include filter(blur(2em));
   }
-  &.behind { z-index: -1; }
+
+  &.behind {
+    z-index: -1;
+  }
 }
 
 #HOME__section {

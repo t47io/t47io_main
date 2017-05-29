@@ -1,10 +1,23 @@
-html { overflow-y: scroll; }
-hr { margin: 1em 0; }
+html {
+  overflow-y: scroll;
+}
 
-.PROJECT__body { padding: 6rem 1rem 1rem 1rem; }
+hr {
+  margin: 1em 0;
+}
+
+.PROJECT__body {
+  padding: 6rem 1rem 1rem 1rem;
+}
+
 .PROJECT__title {
   margin-top: 1.5em;
 
-  .PROJECT__title-image { max-width: 100%; }
+  .PROJECT__title-image {
+    max-width: 100%;
+  }
 }
-.PROJECT__headline { margin-bottom: 1.5em; }
+
+.PROJECT__headline {
+  margin-bottom: 1.5em;
+}

@@ -1,18 +1,34 @@
 @import '../../common/mixins/palette';
 
-
 .label {
   margin: 0 0.25em;
 
-  &.PROJECT__label--green { background-color: $colorGreen; }
-  &.PROJECT__label--red { background-color: $colorRed; }
-  &.PROJECT__label--blue { background-color: $colorCyan; }
-  &.PROJECT__label--yellow { background-color: $colorYellow; }
-  &.PROJECT__label--purple { background-color: $colorPurple; }
-  &.PROJECT__label--gray { 
-    background-color: $colorGray; 
+  &.PROJECT__label--green {
+    background-color: $colorGreen;
+  }
+
+  &.PROJECT__label--red {
+    background-color: $colorRed;
+  }
+
+  &.PROJECT__label--blue {
+    background-color: $colorCyan;
+  }
+
+  &.PROJECT__label--yellow {
+    background-color: $colorYellow;
+  }
+
+  &.PROJECT__label--purple {
+    background-color: $colorPurple;
+  }
+
+  &.PROJECT__label--gray {
+    background-color: $colorGray;
     color: #000;
   }
 }
 
-.lead { margin: 0 0.5rem; }
+.lead {
+  margin: 0 0.5rem;
+}
