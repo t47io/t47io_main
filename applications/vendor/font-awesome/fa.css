@@ -7,31 +7,61 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fa-sm { font-size: 0.66666667em; }
-.fa-md { font-size: 1em; }
+.fa-sm {
+  font-size: 0.66666667em;
+}
+
+.fa-md {
+  font-size: 1em;
+}
+
 .fa-lg {
   font-size: 1.33333333em;
   line-height: 0.75em;
   vertical-align: -15%;
 }
-.fa-2x { font-size: 2em; }
-.fa-3x { font-size: 3em; }
-.fa-4x { font-size: 4em; }
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
 
 .fa-fw {
   width: 2em;
   text-align: center;
 }
+
 .fa-fwn {
   width: 1.4em;
   text-align: center;
 }
-.fa-fw.fa-link-ext { margin-left: 0.25em; }
 
-.fa-pull-left { float: left; }
-.fa-pull-right { float: right; }
-.fa.fa-pull-left { margin-right: .3em; }
-.fa.fa-pull-right { margin-left: .3em; }
+.fa-fw.fa-link-ext {
+  margin-left: 0.25em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left {
+  margin-right: .3em;
+}
+
+.fa.fa-pull-right {
+  margin-left: .3em;
+}
 
 .fa-stack {
   position: relative;
@@ -41,6 +71,7 @@
   line-height: 2em;
   vertical-align: middle;
 }
+
 .fa-stack-1x,
 .fa-stack-2x {
   position: absolute;
@@ -48,29 +79,42 @@
   width: 100%;
   text-align: center;
 }
-.fa-stack-1x { line-height: inherit; }
-.fa-stack-2x { font-size: 2em; }
-.fa-inverse { color: #ffffff; }
+
+.fa-stack-1x {
+  line-height: inherit;
+}
+
+.fa-stack-2x {
+  font-size: 2em;
+}
+
+.fa-inverse {
+  color: #ffffff;
+}
 
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
 }
+
 @-webkit-keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
 }
+
 @keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
