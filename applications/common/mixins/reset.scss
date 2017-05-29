@@ -1,21 +1,28 @@
 @import './colors';
 
+html {
+  font-size: 14px;
+}
 
-html { font-size: 14px; }
 body {
   line-height: 1;
   font-size: 1rem;
   color: $colorBlack;
   -webkit-text-size-adjust: 100%;
 
-  .body { height: 100%; }
-  .boxed { color: $colorGray; }
+  .body {
+    height: 100%;
+  }
+
+  .boxed {
+    color: $colorGray;
+  }
 }
 
 * {
   border-radius: 0;
 
-  &:focus { 
+  &:focus {
     outline: none;
     box-shadow: none;
   }
@@ -27,11 +34,35 @@ section {
   padding: 3.5rem 0;
   background-color: $colorWhite;
 }
-small { font-size: 0.8em; }
-h1 { font-size: 2.5em; }
-h2 { font-size: 2.25em; }
-h3 { font-size: 2em; }
-h4 { font-size: 1.5em; }
-h5 { font-size: 1.25em; }
-h6 { font-size: 1em; }
-p { font-size: 1em; }
+
+small {
+  font-size: 0.8em;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2.25em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 1em;
+}

@@ -2,7 +2,6 @@
 @import '../mixins/media';
 @import '../mixins/prefix';
 
-
 .COMMON__navbar {
   margin: 0;
   border: none;
@@ -24,11 +23,16 @@
       text-transform: uppercase;
     }
 
-    &:hover { background-color: rgba(0, 7, 11, 0.25); }
+    &:hover {
+      background-color: rgba(0, 7, 11, 0.25);
+    }
   }
 
-  &::after { clear: both; }
+  &::after {
+    clear: both;
+  }
 }
+
 .COMMON__navbar-header {
   .COMMON__navbar-logo {
     float: left;
@@ -50,23 +54,31 @@
     .COMMON__navbar-link {
       color: $colorGreenFaint;
       background-color: transparent;
-
       padding: 24px 0;
     }
+
     &.active .COMMON__navbar-link {
       color: $colorWhite;
-
       box-shadow: inset 0 3px $colorWhite;
     }
-    &:hover .COMMON__navbar-link { color: $colorWhite; }
+
+    &:hover .COMMON__navbar-link {
+      color: $colorWhite;
+    }
   }
 }
+
 .COMMON__navbar--transparent {
   height: 97px;
   background-color: transparent;
 
-  .COMMON__navbar-logo { opacity: 0.5; }
-  .container { padding-top: 30px; }
+  .COMMON__navbar-logo {
+    opacity: 0.5;
+  }
+
+  .container {
+    padding-top: 30px;
+  }
 
   .COMMON__navbar-item {
     .COMMON__navbar-link {
@@ -77,18 +89,18 @@
     &:hover {
       background-color: transparent;
 
-      .COMMON__navbar-link { color: $colorGreen; }
+      .COMMON__navbar-link {
+        color: $colorGreen;
+      }
     }
   }
 }
-
 
 @include media_width_lt(767px) {
   .COMMON__navbar--collapse {
     display: none;
     float: right;
     text-align: center;
-
     background-color: $colorGreen;
     border-top: 2px solid $colorWhite;
     padding: 0;
@@ -101,17 +113,25 @@
   }
 
   .COMMON__navbar-header {
-    &.navbar-header { margin: 0; }
+    &.navbar-header {
+      margin: 0;
+    }
 
-    .COMMON__navbar-logo { margin-left: 10px; }
+    .COMMON__navbar-logo {
+      margin-left: 10px;
+    }
+
     .COMMON__navbar-toggle {
       margin-top: 1.25em;
       margin-right: 0.5em;
       border: none;
 
-      &:hover, &:focus { background-color: rgba(0, 7, 11, 0); }
+      &:hover,
+      &:focus {
+        background-color: rgba(0, 7, 11, 0);
+      }
 
-      .icon-bar { 
+      .icon-bar {
         background-color: $colorWhite;
         height: 3px;
       }
@@ -128,18 +148,27 @@
       }
     }
   }
-  .COMMON__navbar--transparent .COMMON__navbar-item { 
+
+  .COMMON__navbar--transparent .COMMON__navbar-item {
     &.active {
       .COMMON__navbar-link {
         color: $colorGreenFull;
 
-        &:hover, &:focus { color: $colorWhite; }
+        &:hover,
+        &:focus {
+          color: $colorWhite;
+        }
       }
     }
-    &:hover { background-color: rgba(0, 7, 11, 0.25); }
+
+    &:hover {
+      background-color: rgba(0, 7, 11, 0.25);
+    }
   }
 }
 
 @include media_width_gt(768px) {
-  .COMMON__navbar--collapse .COMMON__navbar-item { float: left; }
+  .COMMON__navbar--collapse .COMMON__navbar-item {
+    float: left;
+  }
 }

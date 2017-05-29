@@ -1,9 +1,10 @@
 @import '../../common/mixins/colors';
 
-
 .COMMON__dropdown {
   &:hover {
-    .COMMON__dropdown-menu { display: block; }  
+    .COMMON__dropdown-menu {
+      display: block;
+    }
   }
 }
 
@@ -27,7 +28,7 @@
       &:hover,
       &:focus {
         background-color: $colorGreenFaint;
-        color: $colorGreenFull; 
+        color: $colorGreenFull;
         font-weight: bold;
         text-decoration: none;
       }
@@ -35,7 +36,7 @@
       &.active,
       &.active:hover,
       &.active:focus {
-        background-color: $colorGreen; 
+        background-color: $colorGreen;
         color: $colorWhite;
         font-weight: bold;
       }
@@ -44,8 +45,11 @@
 }
 
 @include media_width_lt(767px) {
-  .COMMON__navbar-toggle { display: none; }
+  .COMMON__navbar-toggle {
+    display: none;
+  }
 }
 
-
-.caret { margin-left: 0.5em; }
+.caret {
+  margin-left: 0.5em;
+}

@@ -1,7 +1,6 @@
 @import '../mixins/colors';
 @import '../mixins/prefix';
 
-
 .COMMON__carousel {
   float: left;
   position: absolute;
@@ -14,7 +13,9 @@
     overflow: hidden;
     @include transition(0.5s);
 
-    img { max-width: none; }
+    img {
+      max-width: none;
+    }
   }
 
   .COMMON__carousel-indicators {

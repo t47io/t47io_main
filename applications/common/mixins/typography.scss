@@ -2,29 +2,51 @@
 @import '../../vendor/font-awesome/fontello-fa';
 @import '../../vendor/font-awesome/fa';
 
-
 @font-face {
   font-family: "Tenor Sans";
   font-weight: normal;
   font-style: normal;
-
-  src: local("Tenor Sans"),
-    url("../font/tenor-sans.woff") format("woff");
-    // url("../font/tenor-sans.woff2") format("woff2"),
-    // url("../font/tenor-sans.ttf") format("truetype"),
-    // url("../font/tenor-sans.eot") format("embedded-opentype"),
-    // url("../font/tenor-sans.svg#tenor_sansregular") format("svg");
+  src: local("Tenor Sans"), url("../font/tenor-sans.woff") format("woff");
+  // url("../font/tenor-sans.woff2") format("woff2"),
+  // url("../font/tenor-sans.ttf") format("truetype"),
+  // url("../font/tenor-sans.eot") format("embedded-opentype"),
+  // url("../font/tenor-sans.svg#tenor_sansregular") format("svg");
 }
-* { font-family: 'Tenor Sans', Helvetica, Arial, sans-serif; }
 
-.text-main { color: $colorBlack; } /* Theme main color */
-.text-white { color: $colorWhite; }
-.text-off-white { color: $colorGrayLight; }
-.text-dark-green { color: $colorGreenHeavy;}
-.text-green { color: $colorGreenDark; }
-.text-light-green { color: $colorGreen; }
-.text-gray { color: $colorGrayDark; }
-.text-light-gray { color: $colorGray; }
+* {
+  font-family: 'Tenor Sans', Helvetica, Arial, sans-serif;
+}
+
+.text-main {
+  color: $colorBlack;
+} /* Theme main color */
+.text-white {
+  color: $colorWhite;
+}
+
+.text-off-white {
+  color: $colorGrayLight;
+}
+
+.text-dark-green {
+  color: $colorGreenHeavy;
+}
+
+.text-green {
+  color: $colorGreenDark;
+}
+
+.text-light-green {
+  color: $colorGreen;
+}
+
+.text-gray {
+  color: $colorGrayDark;
+}
+
+.text-light-gray {
+  color: $colorGray;
+}
 
 .bg-light-green,
 .bg-light-gray,
@@ -32,21 +54,39 @@
   padding: 0;
   border-radius: 0.25em;
 }
-.bg-light-green { background-color: $colorGreenNone; }
-.bg-light-gray { background-color: $colorGrayLight; }
-.bg-black { background-color: rgba(0, 7, 11, 0.5); }
 
+.bg-light-green {
+  background-color: $colorGreenNone;
+}
+
+.bg-light-gray {
+  background-color: $colorGrayLight;
+}
+
+.bg-black {
+  background-color: rgba(0, 7, 11, 0.5);
+}
 
 a {
   color: $colorGreenDark;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $colorGreen;
     text-decoration: none;
   }
 }
-b { font-weight: 900; }
-h1, h2, h3, h4, h5, h6 {
+
+b {
+  font-weight: 900;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 900;
   margin-bottom: 0.7rem;
 }

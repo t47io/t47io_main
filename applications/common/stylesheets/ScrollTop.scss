@@ -1,14 +1,12 @@
 @import '../mixins/colors';
 @import '../mixins/prefix';
 
-
 .scrollTop {
   position: fixed;
   bottom: 2em;
   right: 2.5em;
   width: 2.5em;
   height: 2.5em;
-
   color: $colorGreen;
   border: 2px solid $colorGreen;
   line-height: 2.5em;
@@ -25,8 +23,14 @@
     @include transition(0.5s);
     @include transform(rotate(-45deg) translate(-1px, -0.125em));
   }
-  &:hover { background-color: $colorGreen; }
-  &:hover .fa { color: $colorWhite; }
+
+  &:hover {
+    background-color: $colorGreen;
+  }
+
+  &:hover .fa {
+    color: $colorWhite;
+  }
 
   &.invisible {
     opacity: 0;

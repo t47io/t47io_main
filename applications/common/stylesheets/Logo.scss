@@ -1,12 +1,24 @@
 @import '../mixins/colors';
 
+.green .T47__logo path {
+  fill: $colorGreenDark;
+}
 
-.green .T47__logo path { fill: $colorGreenDark; }
-.white .T47__logo path { fill: $colorWhite; }
+.white .T47__logo path {
+  fill: $colorWhite;
+}
 
 .green-transparent .T47__logo_alt,
 .green-white .T47__logo_alt {
-  path { fill: $colorGreen; }
+  path {
+    fill: $colorGreen;
+  }
 }
-.green-transparent .T47__logo_alt-fill path { fill: transparent; }
-.green-white .T47__logo_alt-fill path { fill: white; }
+
+.green-transparent .T47__logo_alt-fill path {
+  fill: transparent;
+}
+
+.green-white .T47__logo_alt-fill path {
+  fill: white;
+}

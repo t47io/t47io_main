@@ -1,13 +1,16 @@
 @import '../mixins/prefix';
 
-
 .UTIL__section-header {
   text-align: center;
   margin: 0 0 4.25em 0;
   padding: 0;
   border: none;
 }
-.UTIL__section-title { text-transform: uppercase; }
+
+.UTIL__section-title {
+  text-transform: uppercase;
+}
+
 .UTIL__section-subtitle {
   letter-spacing: inherit;
   margin-top: 0.75em;

@@ -1,38 +1,51 @@
 @import '../mixins/colors';
 @import '../mixins/media';
 
-
-.FOOTER { 
-  background-color: $colorBlack; 
+.FOOTER {
+  background-color: $colorBlack;
   height: 96px;
   width: 100%;
   margin: 0;
   display: table;
   overflow: hidden;
 
-  a { text-decoration: none; }
+  a {
+    text-decoration: none;
+  }
+
   .FOOTTER__city,
-  .FOOTER__header { display: table-cell; }
+  .FOOTER__header {
+    display: table-cell;
+  }
 
   .FOOTTER__city {
     height: 96px;
     width: 128px;
     padding: 0;
 
-    &:last-child { text-align: right; }
+    &:last-child {
+      text-align: right;
+    }
+
     .FOOTER__city-gif {
       @extend .FOOTTER__city;
       vertical-align: text-bottom;
     }
   }
 
-  .FOOTER__copyright:last-of-type { padding-top: 0.8em; }
+  .FOOTER__copyright:last-of-type {
+    padding-top: 0.8em;
+  }
 }
+
 .FOOTER__header {
   padding-top: 1em;
   width: auto;
 }
-.FOOTER__year { margin-right: 0.75em; }
+
+.FOOTER__year {
+  margin-right: 0.75em;
+}
 
 .COMMON__footer_logo {
   svg {
