@@ -1,10 +1,13 @@
 {
   "name": "t47io_main",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js]",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js] --fix",
+    "lint:css": "./node_modules/stylefmt/bin/cli.js -r \"applications/**/*.{css,scss}\"",
+
     "json": "babel-node ./server/json.js",
     "build": "npm run lint && npm run json && npm run build:server && npm run build:client",
 
@@ -104,6 +107,7 @@
     "smoothscroll": "0.3.0",
     "static-site-generator-webpack-plugin": "3.4.1",
     "style-loader": "0.18.1",
+    "stylefmt": "6.0.0",
     "svg-inline-loader": "0.7.1",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
     "uglifyjs-webpack-plugin": "0.4.3",

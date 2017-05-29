@@ -1,7 +1,6 @@
 @import '../common/mixins/prefix';
 
-
-@mixin svg_arrow ($position: top) {
+@mixin svg_arrow($position: top) {
   $width: 1.5rem;
   $height: 0.5rem;
   $degrees: 0;
@@ -10,13 +9,11 @@
   @if ($position == bottom) {
     $degrees: 180 $width $height;
   }
-
-  background: no-repeat url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22#{$width * 2}%22%20height%3D%22#{$height * 2}%22%3E%3Cpath%20fill%3D%22#{$color}%22%20transform%3D%22rotate(#{$degrees})%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E');
+  background: no-repeat url('data:image/svg+xml;charset=utf-8, %3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22#{$width * 2}%22%20height%3D%22#{$height * 2}%22%3E%3Cpath%20fill%3D%22#{$color}%22%20transform%3D%22rotate(#{$degrees})%22%20d%3D%22M2.658, 0.000%20C-13.615, 0.000%2050.938, 0.000%2034.662, 0.000%20C28.662, 0.000%2023.035, 12.002%2018.660, 12.002%20C14.285, 12.002%208.594, 0.000%202.658, 0.000%20Z%22/%3E%3C/svg%3E');
   background-size: 100% auto;
   width: $width;
   height: $height;
 }
-
 
 [data-balloon] {
   position: relative;
@@ -30,16 +27,18 @@
 
     @include transition(0.25s);
   }
-  &:before { content: ''; }
+
+  &:before {
+    content: '';
+  }
+
   &:after {
     width: 100%;
     padding: .5em 1em;
-
     font-size: 1rem;
     color: #fff;
     white-space: normal;
     border-radius: 4px;
-
     background: rgba(0, 7, 11, 0.75);
     content: attr(data-balloon);
   }
@@ -61,12 +60,16 @@
       @include transform(translate(-50%, 1rem));
       @include transform_origin(top);
     }
+
     &:before {
       margin-bottom: 0.5rem;
 
       @include svg_arrow();
     }
-    &:after { margin-bottom: 1rem; }
+
+    &:after {
+      margin-bottom: 1rem;
+    }
 
     &:hover {
       &:before,
@@ -84,12 +87,16 @@
 
       @include transform(translate(-50%, -1rem));
     }
+
     &:before {
       margin-top: 0.5rem;
 
       @include svg_arrow("bottom");
     }
-    &:after { margin-top: 1rem; }
+
+    &:after {
+      margin-top: 1rem;
+    }
 
     &:hover {
       &:before,
