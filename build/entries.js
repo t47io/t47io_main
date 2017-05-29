@@ -26,6 +26,7 @@ const entries = (DEBUG = true) => {
     ],
     [chunkNames.error]: './applications/error/index.jsx',
     [chunkNames.vendor]: [
+      'preact-css-transition-group',
       'react',
       'react-document-meta',
       'react-redux',
