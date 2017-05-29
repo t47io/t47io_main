@@ -1,7 +1,6 @@
 @import '../../common/mixins/media';
 @import '../../project/stylesheets/typography';
 
-
 .LOAD__container {
   text-align: left;
 
@@ -9,15 +8,25 @@
     margin-top: 0;
     width: 992px;
   }
-  .UTIL__image-RNA { background-position: center center; }
 
-  .ERROR__title { margin-bottom: 20px; }
+  .UTIL__image-RNA {
+    background-position: center center;
+  }
+
+  .ERROR__title {
+    margin-bottom: 20px;
+  }
+
   .ERROR__image {
     max-width: 75%;
     display: block;
     margin: 0 auto;
   }
-  hr { width: 60%; }
+
+  hr {
+    width: 60%;
+  }
+
   .green {
     text-align: left;
 
@@ -25,7 +34,9 @@
       height: 6rem;
       width: auto;
 
-      .T47__logo path { fill: $colorGreen; }
+      .T47__logo path {
+        fill: $colorGreen;
+      }
     }
   }
 }
@@ -37,11 +48,24 @@
     padding: 2rem 0;
     text-align: center;
 
-    .LOAD__content { width: 100%; }
-    .UTIL__image-RNA { background-size: 100%; }
+    .LOAD__content {
+      width: 100%;
+    }
 
-    .ERROR__title { margin-bottom: 10px; }
-    hr { width: 80%; }
-    .green { text-align: center; }
+    .UTIL__image-RNA {
+      background-size: 100%;
+    }
+
+    .ERROR__title {
+      margin-bottom: 10px;
+    }
+
+    hr {
+      width: 80%;
+    }
+
+    .green {
+      text-align: center;
+    }
   }
 }

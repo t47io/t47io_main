@@ -2,13 +2,17 @@
 @import '../../common/mixins/media';
 @import '../../common/stylesheets/Logo';
 
-
 .FOOTER {
   text-align: center;
   padding: 0 2em;
 
-  a { color: $colorGreen; }
-  .FOOTER__year { margin-right: 0.75em; }
+  a {
+    color: $colorGreen;
+  }
+
+  .FOOTER__year {
+    margin-right: 0.75em;
+  }
 
   .fa {
     display: inline-block;
@@ -18,6 +22,7 @@
       text-align: center;
     }
   }
+
   .fa svg,
   .green-white svg {
     height: 1em;
@@ -27,6 +32,8 @@
   }
 
   @include media_width_lt(767px) {
-    .FOOTER__line { margin-bottom: 0; }
+    .FOOTER__line {
+      margin-bottom: 0;
+    }
   }
 }
