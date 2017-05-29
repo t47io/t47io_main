@@ -14,6 +14,7 @@ section:not(#HOME__section) {
   background-color: rgba(0, 7, 11, 0.5);
   padding: 1.5em;
 }
+
 .UTIL__divider {
   width: 100%;
   height: 52px;
@@ -26,7 +27,6 @@ section:not(#HOME__section) {
   position: relative;
   width: 100%;
   height: 100%;
-  
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -36,17 +36,28 @@ section:not(#HOME__section) {
     padding-bottom: 5.5rem;
     height: 100%;
   }
-  &:not(.UTIL__background) { background-position: 50% 30%; }
+
+  &:not(.UTIL__background) {
+    background-position: 50% 30%;
+  }
 }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { 
-  .UTIL__parallax { background-attachment: scroll; }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .UTIL__parallax {
+    background-attachment: scroll;
+  }
 }
 @include media_width_lt(991px) {
   .UTIL__parallax {
     background-attachment: scroll;
-    
-    &:not(.UTIL__background) { background-position: 50% 50%; }
-    &.UTIL__background { background-size: initial; }
+
+    &:not(.UTIL__background) {
+      background-position: 50% 50%;
+    }
+
+    &.UTIL__background {
+      background-size: initial;
+    }
   }
 }
 
@@ -54,9 +65,26 @@ section:not(#HOME__section) {
 .UTIL__spacer-md,
 .UTIL__spacer-lg,
 .UTIL__spacer-xl,
-.UTIL__spacer-hg { width: 100%; }
-.UTIL__spacer-sm { height: 1rem; }
-.UTIL__spacer-md { height: 1.45rem; }
-.UTIL__spacer-lg { height: 2.85rem; }
-.UTIL__spacer-xl { height: 4.30rem; }
-.UTIL__spacer-hg { height: 5.70rem; }
+.UTIL__spacer-hg {
+  width: 100%;
+}
+
+.UTIL__spacer-sm {
+  height: 1rem;
+}
+
+.UTIL__spacer-md {
+  height: 1.45rem;
+}
+
+.UTIL__spacer-lg {
+  height: 2.85rem;
+}
+
+.UTIL__spacer-xl {
+  height: 4.30rem;
+}
+
+.UTIL__spacer-hg {
+  height: 5.70rem;
+}

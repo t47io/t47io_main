@@ -1,17 +1,32 @@
-.LOAD__container { will-change: opacity, z-index, filter; }
+.LOAD__container {
+  will-change: opacity, z-index, filter;
+}
 
-.COMMON__navbar { will-change: background-color, z-index, box-shadow; }
-.UTIL__section-header > div { will-change: transform, opacity, letter-spacing; }
+.COMMON__navbar {
+  will-change: background-color, z-index, box-shadow;
+}
 
-.HOME__shade { will-change: background-color; }
-.HOME__cursor { will-change: opacity; }
+.UTIL__section-header > div {
+  will-change: transform, opacity, letter-spacing;
+}
+
+.HOME__shade {
+  will-change: background-color;
+}
+
+.HOME__cursor {
+  will-change: opacity;
+}
+
 .HOME__scroll-down,
 .HOME__typewrite {
   will-change: color;
 }
+
 .HOME__title {
   will-change: transform, opacity, filter;
 }
+
 .ABOUT__icon,
 .AFFILIATION__panel,
 .PORTFOLIO__filter,
@@ -29,4 +44,6 @@
   will-change: transform, opacity;
 }
 
-.scrollTop { will-change: visibility, opacity; }
+.scrollTop {
+  will-change: visibility, opacity;
+}

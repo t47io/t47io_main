@@ -1,27 +1,44 @@
 @import '../../common/mixins/colors';
 
-
 .STATS__area {
-  .STATS__item:last-of-type { border-right: none; }
+  .STATS__item:last-of-type {
+    border-right: none;
+  }
+
   .STATS__counter {
     padding-bottom: 2.25em;
 
-    &:hover .fa { color: $colorGreen; }
-    .STATS__num { font-size: 4em; }
+    &:hover .fa {
+      color: $colorGreen;
+    }
+
+    .STATS__num {
+      font-size: 4em;
+    }
   }
 }
-.STATS__num.done ~ .STATS__text { color: $colorGreenDark; }
-.STATS__note-link { margin-left: 0.5em; }
+
+.STATS__num.done ~ .STATS__text {
+  color: $colorGreenDark;
+}
+
+.STATS__note-link {
+  margin-left: 0.5em;
+}
 
 .STATS__github svg {
   overflow: visible;
 
-  .private { font-style: italic; }
+  .private {
+    font-style: italic;
+  }
+
   .month,
   .wday {
     fill: $colorGrayDark;
     font-size: 0.8rem;
   }
+
   .legend {
     fill: $colorGrayDark;
     font-size: 0.9rem;
@@ -32,11 +49,28 @@
     height: 0.8rem;
     width: 0.8rem;
 
-    &:hover { stroke: $colorBlack; }
-    &.day_0 { fill: $colorGrayLight; }
-    &.day_1 { fill: $colorGreenLight; }
-    &.day_2 { fill: $colorGreen; }
-    &.day_3 { fill: $colorGreenDark; }
-    &.day_4 { fill: $colorGreenHeavy; }
+    &:hover {
+      stroke: $colorBlack;
+    }
+
+    &.day_0 {
+      fill: $colorGrayLight;
+    }
+
+    &.day_1 {
+      fill: $colorGreenLight;
+    }
+
+    &.day_2 {
+      fill: $colorGreen;
+    }
+
+    &.day_3 {
+      fill: $colorGreenDark;
+    }
+
+    &.day_4 {
+      fill: $colorGreenHeavy;
+    }
   }
 }

@@ -3,7 +3,6 @@
 @import '../../common/mixins/palette';
 @import '../../common/mixins/prefix';
 
-
 #HOME__section {
   height: 100vh;
   width: 100vw;
@@ -11,16 +10,23 @@
   padding: 0;
   background-color: $colorBlack;
 
-  .container { height: 100vh; }
+  .container {
+    height: 100vh;
+  }
+
   .UTIL__parallax {
     @include transition(1s);
 
     &.fade {
       @include filter(blur(5em));
     }
-    .HOME__avatar-fake { display: none; }
+
+    .HOME__avatar-fake {
+      display: none;
+    }
   }
 }
+
 .HOME__content {
   position: absolute;
   bottom: 20vh;
@@ -29,6 +35,7 @@
     width: 100%;
     opacity: 0;
   }
+
   .HOME__name {
     margin-left: 1em;
     max-width: 50%;
@@ -44,13 +51,18 @@
     width: 34rem;
   }
 }
+
 @include media_width_gt(768px) {
   .HOME__content {
-    .HOME__title .HOME__name { max-width: 75%; }
+    .HOME__title .HOME__name {
+      max-width: 75%;
+    }
   }
 }
 @include media_width_bt(512px, 767px) {
-  .HOME__content { bottom: 10vh; }
+  .HOME__content {
+    bottom: 10vh;
+  }
 }
 @include media_width_lt(511px) {
   .HOME__content {
@@ -58,11 +70,13 @@
       max-width: 80vw;
       margin-left: 0;
     }
+
     .HOME__typewrite {
       width: initial;
       text-align: center;
       margin-left: 0;
     }
+
     .HOME__placeholder {
       height: 10vh;
       width: initial;
@@ -77,6 +91,7 @@
 
   @include transition(1s);
 }
+
 .HOME__cursor {
   color: $colorRed;
   font-weight: bold;
@@ -85,10 +100,21 @@
     @include animation(blink, 0.5s, linear, infinite);
   }
   @include keyframes(blink) {
-    0% { opacity: 1; }
-    45% { opacity: 1; }
-    55% { opacity: 0; }
-    100% { opacity: 0; }
+    0% {
+      opacity: 1;
+    }
+
+    45% {
+      opacity: 1;
+    }
+
+    55% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+    }
   }
 }
 
@@ -101,5 +127,8 @@
     opacity: 0.4;
     @include transition(1s);
   }
-  &:hover .fa { opacity: 0.75; }
+
+  &:hover .fa {
+    opacity: 0.75;
+  }
 }

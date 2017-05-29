@@ -3,27 +3,29 @@
 @import '../../common/mixins/palette';
 @import '../../common/mixins/prefix';
 
-
 .form-control {
   background-color: rgba(0, 7, 11, 0.5);
   color: $colorWhite;
   border-color: $colorBlack;
-
   box-shadow: none;
-  
+
   &:focus {
     background-color: rgba(0, 7, 11, 0.75);
     border-color: $colorGreen;
     box-shadow: none;
   }
+
   &:disabled {
     background-color: $colorGrayDark;
     color: $colorGreenFull;
     opacity: 0.5;
   }
 }
+
 @include media_width_lt(767px) {
-  .form-control { text-align: center; }
+  .form-control {
+    text-align: center;
+  }
 }
 
 .btn {
@@ -37,35 +39,50 @@
     box-shadow: inset 0 3px 5px rgba(0, 7, 11, 0.15);
   }
 }
+
 .btn-default {
   &:hover,
-  &:focus, &.focus {
+  &:focus,
+  &.focus {
     color: $colorWhite;
     background: $colorGreen;
-  } 
+  }
+
   &,
-  &:disabled, &.disabled,
-  &:active, &.active {
+  &:disabled,
+  &.disabled,
+  &:active,
+  &.active {
     background: $colorGreenDark;
     color: $colorWhite;
     @include transition(0.6s);
   }
 }
+
 .btn-primary {
-  &, &:hover,
-  &:disabled, &.disabled,
-  &:focus, &.focus,
-  &:active, &.active {
+  &,
+  &:hover,
+  &:disabled,
+  &.disabled,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
     background: $colorCyan;
     color: $colorWhite;
     @include transition(0.6s);
   }
 }
+
 .btn-danger {
-  &, &:hover,
-  &:disabled, &.disabled,
-  &:focus, &.focus,
-  &:active, &.active {
+  &,
+  &:hover,
+  &:disabled,
+  &.disabled,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
     background: $colorRed;
     color: $colorWhite;
     @include transition(0.6s);
@@ -76,6 +93,7 @@
   font-size: 1.5em;
   padding: 0.7em 2.8em;
 }
+
 .btn-xl {
   font-size: 1.75em;
   padding: 1em 4em;

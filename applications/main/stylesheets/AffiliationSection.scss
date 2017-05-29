@@ -2,7 +2,6 @@
 @import '../../common/mixins/media';
 @import '../../common/mixins/prefix';
 
-
 .AFFILIATION__story {
   position: relative;
   padding: 3.5em 7em 3.5em 14em;
@@ -14,14 +13,15 @@
     clear: both;
   }
 }
+
 .AFFILIATION__timeline {
-  position: absolute; 
-  width: 1px; 
-  height: 100%; 
-  left: 14em; 
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  left: 14em;
   top: 0;
-  border-right: 2px solid $colorGray; 
-  z-index: 5; 
+  border-right: 2px solid $colorGray;
+  z-index: 5;
 
   &::before,
   &::after {
@@ -33,8 +33,14 @@
     position: absolute;
     border-radius: 0.5em;
   }
-  &::before { top: 0; }
-  &::after { bottom: 0; }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
 }
 
 .AFFILIATION__entry {
@@ -55,7 +61,7 @@
 .AFFILIATION__content {
   width: 100%;
   padding-left: 3.5em;
-  float: left; 
+  float: left;
   position: relative;
 
   .AFFILIATION__panel {
@@ -69,7 +75,9 @@
     .AFFILIATION__year {
       color: $colorGreen;
 
-      &::after { background-color: $colorGreen; }
+      &::after {
+        background-color: $colorGreen;
+      }
     }
   }
 }
@@ -94,6 +102,7 @@
     max-width: 224px;
   }
 }
+
 .AFFILIATION__year {
   font-size: 2em;
   font-weight: 900;
@@ -102,7 +111,7 @@
   position: absolute;
   width: 14em;
   top: 40%;
-  left: -15em; 
+  left: -15em;
 
   &::after {
     content: "";
@@ -116,22 +125,36 @@
     border-radius: 0.5em;
   }
 }
+
 .AFFILIATION__text {
   border-left: 2px dashed $colorGray;
   padding: 1em;
   color: $colorBlack;
   line-height: 150%;
 
-  .AFFILIATION__role { font-size: 1.1em; }
-  .AFFILIATION__reward:first-of-type { padding-right: 2em; }
+  .AFFILIATION__role {
+    font-size: 1.1em;
+  }
+
+  .AFFILIATION__reward:first-of-type {
+    padding-right: 2em;
+  }
 }
 
 @include media_width_lt(991px) {
-  .AFFILIATION__story { padding: 3.5em 3.5em 3.5em 7.5em; }
-  .AFFILIATION__timeline { left: 7.5em; }
+  .AFFILIATION__story {
+    padding: 3.5em 3.5em 3.5em 7.5em;
+  }
+
+  .AFFILIATION__timeline {
+    left: 7.5em;
+  }
+
   .AFFILIATION__text {
     text-align: center;
-    
-    .AFFILIATION__role { margin-bottom: 0; }
+
+    .AFFILIATION__role {
+      margin-bottom: 0;
+    }
   }
 }

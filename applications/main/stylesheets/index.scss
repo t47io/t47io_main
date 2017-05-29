@@ -1,15 +1,11 @@
 @import '../../common/mixins/reset';
 @import '../../common/mixins/typography';
 @import '../../common/mixins/prefix';
-
 @import './anim';
 @import './util';
 @import './sprites';
-
 @import '../../common/stylesheets/Logo';
-
 @import '../../vendor/tooltip';
-
 
 .LOAD__container {
   &.fade {
@@ -17,5 +13,8 @@
 
     @include filter(blur(2em));
   }
-  &.behind { z-index: -1; }
+
+  &.behind {
+    z-index: -1;
+  }
 }

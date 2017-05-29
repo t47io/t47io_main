@@ -1,25 +1,37 @@
 @import '../../common/mixins/colors';
 @import '../../common/mixins/prefix';
 
+.PUBS__row {
+  margin: 0 0 1.5em 0;
+}
 
-.PUBS__row { margin: 0 0 1.5em 0; }
 .PUBS__year {
   color: $colorGrayDark;
   font-size: 2em;
   padding: 0.5em;
   vertical-align: text-top;
 }
-.PUBS__content { border-left: 5px solid $colorGreenDark; }
-.PUBS__entry { margin: 1em 0; }
+
+.PUBS__content {
+  border-left: 5px solid $colorGreenDark;
+}
+
+.PUBS__entry {
+  margin: 1em 0;
+}
+
 .PUBS__title {
   -webkit-text-stroke: 0.01rem $colorBlack;
   font-size: 1.2em;
   line-height: 1.5em;
 }
+
 .PUBS__text {
   line-height: 1.5em;
 
-  .PUBS__hr { margin-bottom: 0; }
+  .PUBS__hr {
+    margin-bottom: 0;
+  }
 }
 
 .PUBS__image {
@@ -33,15 +45,27 @@
     @include transition(0.5s);
   }
 
-  &:hover .SPRITE { opacity: 1; }
+  &:hover .SPRITE {
+    opacity: 1;
+  }
 }
 
 .PUBS__cite {
   padding-right: 0.5em;
 
-  .text-main { padding: 0 0.5em; }
+  .text-main {
+    padding: 0 0.5em;
+  }
 }
-.PUBS__issue { margin-left: 0.5em; }
-.PUBS__link { margin-left: 0.5em; }
 
-.PUBS__find-more { line-height: 1.5em; }
+.PUBS__issue {
+  margin-left: 0.5em;
+}
+
+.PUBS__link {
+  margin-left: 0.5em;
+}
+
+.PUBS__find-more {
+  line-height: 1.5em;
+}

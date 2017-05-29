@@ -1,7 +1,6 @@
 @import '../../common/mixins/colors';
 @import '../../common/mixins/prefix';
 
-
 .ABOUT__box {
   display: inline-block;
   margin: 2em 0;
@@ -18,11 +17,9 @@
     width: 2.25em;
     height: 2.25em;
     display: inline-block;
-
     font-size: 2.5rem;
     line-height: 2.25em;
     text-align: center;
-
     color: $colorWhite;
     background-color: $colorGreenDark;
     margin-bottom: 1em;
@@ -45,10 +42,14 @@
       border: 2px solid $colorWhite;
     }
   }
+
   .ABOUT__text {
     margin-top: 2em;
 
-    &:hover { color: $colorGreen; }
+    &:hover {
+      color: $colorGreen;
+    }
+
     .ABOUT__detail {
       line-height: 1.5em;
       margin-bottom: 0;

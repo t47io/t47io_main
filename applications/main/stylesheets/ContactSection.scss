@@ -3,7 +3,6 @@
 @import '../../common/mixins/prefix';
 @import './ContactForm';
 
-
 #CONTACT__section {
   position: relative;
   width: 100%;
@@ -11,10 +10,12 @@
   background-color: $colorGreenDark;
   overflow: hidden;
 }
-@include media_width_lt(767px) {
-  #CONTACT__section { text-align: center; }
-}
 
+@include media_width_lt(767px) {
+  #CONTACT__section {
+    text-align: center;
+  }
+}
 
 .CONTACT__title {
   font-weight: 900;
@@ -31,11 +32,9 @@
     height: 3.25rem;
     display: inline-block;
     float: left;
-
     font-size: 1.25rem;
     line-height: 3.25rem;
     text-align: center;
-
     color: $colorWhite;
     background-color: $colorGreenDark;
     margin-right: 1.75em;
@@ -78,19 +77,19 @@
     }
   }
 }
+
 @include media_width_lt(767px) {
   .CONTACT__box {
     text-align: center;
     margin-top: 0;
 
     .CONTACT__icon {
-      float: none ;
+      float: none;
       margin-right: 0;
       margin-bottom: 2.25em;
     }
   }
 }
-
 
 .CONTACT__social {
   text-align: center;
@@ -100,8 +99,13 @@
     display: inline-block;
     margin-right: 1.5em;
 
-    .CONTACT__box { margin: 0; }
-    .fa { color: $colorWhite; }
+    .CONTACT__box {
+      margin: 0;
+    }
+
+    .fa {
+      color: $colorWhite;
+    }
   }
 }
 
@@ -120,14 +124,25 @@
     .fa {
       margin-right: 0.5em;
 
-      &.invisible { visibility: hidden; }
+      &.invisible {
+        visibility: hidden;
+      }
     }
 
-    &.padding { padding-bottom: 0.8em; }
-    &:hover {
-      .fa { color: $colorGreen; }
+    &.padding {
+      padding-bottom: 0.8em;
     }
-    &:last-child { padding-bottom: 0; }
+
+    &:hover {
+      .fa {
+        color: $colorGreen;
+      }
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
     &:nth-last-of-type(-n+2) {
       padding-top: 1em;
 
@@ -137,7 +152,10 @@
 
         @include transition(0.5s);
 
-        &.long { width: 13em; }
+        &.long {
+          width: 13em;
+        }
+
         &:hover {
           width: 15em;
 
@@ -146,7 +164,10 @@
 
             @include transition(0.5s);
           }
-          .fa { color: $colorBlack; }
+
+          .fa {
+            color: $colorBlack;
+          }
         }
       }
     }
@@ -155,8 +176,11 @@
   .CONTACT__resume {
     opacity: 0;
 
-    .fa { margin-right: 0; }
+    .fa {
+      margin-right: 0;
+    }
   }
+
   .CONTACT__phone {
     height: 1.1em;
     vertical-align: text-top;
@@ -169,9 +193,15 @@
   .CONTACT__form-button {
     height: 3em;
 
-    &:hover { color: $colorWhite; }
+    &:hover {
+      color: $colorWhite;
+    }
   }
-  .CONTACT__form-textarea { resize: vertical; }
+
+  .CONTACT__form-textarea {
+    resize: vertical;
+  }
+
   .input-lg {
     font-size: 1rem;
     border-radius: 0;
