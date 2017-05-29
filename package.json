@@ -13,7 +13,7 @@
 
     "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
     "dev": "npm run json && npm run nodemon",
-    "prod": "pm2 start --interpreter babel-node server/server.js -n main --watch",
+    "prod": "pm2 start --interpreter babel-node server/server.js -n main",
 
     "build:server": "npm run webpack:server && npm run process:server",
     "build:client": "npm run webpack:client && npm run process:error && npm run process:client && npm run process:manifest",
