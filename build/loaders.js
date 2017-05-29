@@ -55,16 +55,11 @@ const loaders = (SSR = false) => {
         },
       },
     },
-    // {
-    //   test: /\.json$/i,
-    //   loader: 'json-loader',
-    //   exclude: /public\/data/,
-    // },
   ];
 
   if (SSR) {
     loader.unshift({
-      test: /web-animations-js/,
+      test: /(web-animations-js|preact-css-transition-group)/,
       use: {
         loader: 'ignore-loader',
       },
