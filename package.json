@@ -1,15 +1,15 @@
 {
   "name": "t47io_main",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Personal website assets of t47.io",
   "main": "index.js",
   "scripts": {
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js] --fix",
-    "lint:css": "./node_modules/stylefmt/bin/cli.js -r \"applications/**/*.{css,scss}\"",
+    "lint:css": "./node_modules/stylefmt/bin/cli.js -i applications/common/mixins/sprite.scss -r \"applications/**/*.{css,scss}\"",
 
     "json": "babel-node ./server/json.js",
-    "build": "npm run lint && npm run json && npm run build:server && npm run build:client",
+    "build": "npm run lint:js && npm run json && npm run build:server && npm run build:client",
 
     "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
     "dev": "npm run json && npm run nodemon",
