@@ -1,9 +1,10 @@
 import emailer from 'nodemailer';
 
-const { debug, port, email } = require('../config/server.json');
+const { mode, port, email } = require('../config/server.json');
 
 
-export const DEBUG = debug;
+export const DEBUG = mode.debug;
+export const MAINTENANCE = mode.maintenance;
 export const PORT = port;
 
 export const EMAIL_CONTENT_LEN = 10;
