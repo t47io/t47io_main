@@ -1,15 +1,14 @@
 !.gitignore
 
-config/**/*.json
-!config/**/*.example.json
 backup/
 backup.tgz
+config/**/*.json
+!config/**/*.example.json
 public/
 !public/.gitignore
 
 node_modules/
 .sass-cache/
 
-yarn.lock
 .DS_Store
 npm-debug.log
