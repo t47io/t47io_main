@@ -1,14 +1,16 @@
+import colors from 'colors';
 import express from 'express';
 import path from 'path';
 
 import {
   PUBLIC_PATH,
   MAINTENANCE,
+  PORT,
   HTTP_CODE,
   HTML_HEADER,
   CACHE_MAX_AGE,
 } from './config.js';
-import { app } from './middleware.js';
+import middlewares from './middleware.js';
 import routes from './route.js';
 import {
   projectPathRegex,
@@ -17,6 +19,11 @@ import {
 } from './util.js';
 
 
+const app = express();
+app.disable('x-powered-by');
+app.listen(PORT, () => console.log(`${colors.rainbow('t47io Main Site')} listening on port: ${colors.red(PORT)} ...`));
+
+middlewares.forEach(middleware => app.use(middleware));
 if (MAINTENANCE) {
   app.all('*', (req, res, next) => next(sendErrorResponse(503)));
 }

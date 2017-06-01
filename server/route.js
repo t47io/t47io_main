@@ -14,7 +14,7 @@ import {
   RESUME_FILE_NAME,
   BOT_USER_AGENTS,
 } from './config.js';
-import { middleware } from './middleware.js';
+import { webpackMiddleware } from './middleware.js';
 import {
   resumeVersion,
   sendErrorResponse,
@@ -28,7 +28,7 @@ import {
 const routes = {
   main: (req, res) => {
     if (DEBUG) {
-      const mainHTML = middleware.fileSystem.readFileSync(
+      const mainHTML = webpackMiddleware.fileSystem.readFileSync(
         path.join(PUBLIC_PATH, 'main.html'), 'utf8'
       );
       res.set(HTML_HEADER(DEBUG)).send(renderMainHTML(mainHTML));
@@ -46,7 +46,7 @@ const routes = {
   },
   project: (req, res) => {
     if (DEBUG) {
-      const projectHTML = middleware.fileSystem.readFileSync(
+      const projectHTML = webpackMiddleware.fileSystem.readFileSync(
         path.join(PUBLIC_PATH, 'project.html'), 'utf8'
       );
       res.set(HTML_HEADER(DEBUG)).send(renderProjectHTML(projectHTML));
