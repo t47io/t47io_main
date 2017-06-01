@@ -7,9 +7,9 @@ This is the _Code and Content_ repository for **t47io Main** Website. The online
 
 ## Installation
 
-**t47io Main** requires the following [**`Node.js`**](https://nodejs.org/) packages as dependencies (see in `package.json`), all of which can be installed through [`npm`](https://www.npmjs.com/). A couple of them are required globally.
+**t47io Main** requires the following [**`Node.js`**](https://nodejs.org/) packages as dependencies (see in `package.json`), all of which can be installed through [`yarn`](https://yarnpkg.com/).
 
-Make sure you have `nodejs >= 7` and `npm` ready.
+Make sure you have `nodejs`, `babel-node` and `yarn` ready globally.
 
 To install:
 

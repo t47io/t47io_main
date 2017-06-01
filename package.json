@@ -1,26 +1,26 @@
 {
   "name": "t47io_main",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
-    "node": ">= 6.9.0",
-    "npm": ">= 4.0.0"
+    "node": ">=6.9.0",
+    "yarn": "^0.24.6"
   },
   "scripts": {
-    "lint": "npm run lint:js && npm run lint:css",
+    "lint": "yarn run lint:js && yarn run lint:css",
     "lint:js": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js] --fix",
     "lint:css": "./node_modules/stylefmt/bin/cli.js -i applications/common/mixins/sprite.scss -r \"applications/**/*.{css,scss}\"",
 
     "json": "babel-node ./server/json.js",
-    "build": "npm run lint:js && npm run json && npm run build:server && npm run build:client",
+    "build": "yarn run lint:js && yarn run json && yarn run build:server && yarn run build:client",
 
     "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
-    "dev": "npm run json && npm run nodemon",
+    "dev": "yarn run json && yarn run nodemon",
     "prod": "pm2 start --interpreter babel-node server/server.js -n main",
 
-    "build:server": "npm run webpack:server && npm run process:server",
-    "build:client": "npm run webpack:client && npm run process:error && npm run process:client && npm run process:manifest",
+    "build:server": "yarn run webpack:server && yarn run process:server",
+    "build:client": "yarn run webpack:client && yarn run process:error && yarn run process:client && yarn run process:manifest",
 
     "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
     "webpack:client": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.client.js --verbose",
@@ -30,7 +30,7 @@
     "process:manifest": "babel-node ./build/process/manifest.js",
     "process:error": "babel-node ./build/process/error.jsx",
 
-    "cron": "npm run cron:contrib && npm run cron:repo && npm run cron:scholar && npm run cron:https && npm run cron:backup && npm run cron:email",
+    "cron": "yarn run cron:contrib && yarn run cron:repo && yarn run cron:scholar && yarn run cron:https && yarn run cron:backup && yarn run cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:repo": "babel-node ./server/cron/git_repo.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",
@@ -38,14 +38,11 @@
     "cron:backup": "babel-node ./server/cron/backup.js",
     "cron:email": "babel-node ./server/cron/email.js",
 
-    "update": "./node_modules/npm-check-updates/bin/ncu -x preact -u -a && npm update"
+    "update": "./node_modules/npm-check-updates/bin/ncu -x preact -u -a && yarn upgrade && yarn clean"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/t47io/t47io_main"
-  },
+  "repository": "github:t47io/t47io_main",
+  "license": "CC-BY-NC-SA-4.0",
   "author": "Siqi Tian <contact@t47.io>",
-  "license": "CC-BY-NC-SA",
   "homepage": "https://t47.io/",
   "keywords": [
     "t47io",
@@ -148,6 +145,5 @@
     "linux"
   ],
   "preferGlobal": false,
-  "private": true,
-  "analyze": true
+  "private": true
 }
