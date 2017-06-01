@@ -61,7 +61,7 @@ const loaders = (SSR = false) => {
     loader.unshift({
       test: /(web-animations-js|preact-css-transition-group)/,
       use: {
-        loader: 'ignore-loader',
+        loader: 'null-loader',
       },
     });
   }
