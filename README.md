@@ -17,10 +17,10 @@ To install:
 git clone https://github.com/t47io/t47io_main.git
 cd ./t47io_main/
 # babel-node is used for running ES6 scripts
-npm install -g babel-cli
+yarn global add babel-cli
 # pm2 is used for production only
-# npm install -g pm2
-npm install
+# yarn global add pm2
+yarn install
 ```
 
 > PDF assets (publication and resume) should be maintained under `public/pdf/` manually.
@@ -30,14 +30,14 @@ npm install
 
 Config files are stored as `config/**/*.json`. Example configs are included in the repository, see `config/**/*.example.json`. Rename/remove the `.example` from filenames.
 
-Server credentials are stored in `config/server.json`, including server `PORT`, email SMTP logins, _Google Analytics_ tracker ID and _GitHub_ access token. The `debug` flag here determines the server environment.
+Server credentials are stored in `config/server.json`, including server `PORT`, email SMTP logins, _Google Analytics_ tracker ID and _GitHub_ access token. The `debug` flag here determines the server environment; the `maintenance` flag toggles 503 status.
 
 > `nginx` reverse proxy and `pm2` startup configs are _not_ included in the repository.
 
 
 ## Scripts
 
-Use `npm` scripts with `npm run <cmd>`.
+Use `yarn` scripts with `yarn run <cmd>`.
 
 - Scripts for build and server:
 
@@ -52,8 +52,8 @@ Use `npm` scripts with `npm run <cmd>`.
 | command | description |
 | --- | --- |
 | `json` | Concatenate app JSON files: `config/(main\|project).json`. These files are code-split from app bundles. |
-| `lint` | Check syntax standards with `eslint`. |
-| `update` | Check and update `npm` dependency versions. |
+| `lint` | Check syntax standards with `eslint` and `stylelint`. |
+| `update` | Check and update `yarn` dependency versions. |
 | `cron` | Retrives _GitHub_ contribution statistics, _Google Scholar_ citations, _SSL Certificate_ expirations, and backup local `nginx` and JSON configs with admin email notice. |
 
 
@@ -63,7 +63,7 @@ Use `npm` scripts with `npm run <cmd>`.
 - Custom error pages are server-side rendered and stored as `public/e.(\d{3}).html.gz`.
 - Server-side rendered home page is stored as `public/index.html.gz`, as a static version without animation or interactivity. It is served to _bots_ based on user-agent match.
 - `webpack` generated JS/CSS/HTML assets under `public/` are pre-gzipped.
-- `npm run cron` is scheduled weekly as a `crontab` job on production.
+- `yarn run cron` is scheduled weekly as a `crontab` job on production.
 
 
 ## License
