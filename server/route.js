@@ -4,6 +4,7 @@ import path from 'path';
 import sanitizer from 'sanitizer';
 
 import {
+  PUBLIC_PATH,
   DEBUG,
   EMAIL_CONTENT_LEN,
   EMAIL_RECV,
@@ -15,7 +16,6 @@ import {
 } from './config.js';
 import { middleware } from './middleware.js';
 import {
-  publicPath,
   resumeVersion,
   sendErrorResponse,
 } from './util.js';
@@ -29,7 +29,7 @@ const routes = {
   main: (req, res) => {
     if (DEBUG) {
       const mainHTML = middleware.fileSystem.readFileSync(
-        path.join(publicPath, 'main.html'), 'utf8'
+        path.join(PUBLIC_PATH, 'main.html'), 'utf8'
       );
       res.set(HTML_HEADER(DEBUG)).send(renderMainHTML(mainHTML));
     } else {
@@ -38,7 +38,7 @@ const routes = {
       const isStatic = ('static' in req.query && req.query.static === '1');
 
       const htmlFile = (isBot || isStatic) ? 'index' : 'main';
-      res.sendFile(path.join(publicPath, `${htmlFile}.html.gz`), {
+      res.sendFile(path.join(PUBLIC_PATH, `${htmlFile}.html.gz`), {
         headers: HTML_HEADER(DEBUG),
         maxAge: `${CACHE_MAX_AGE} days`,
       });
@@ -47,11 +47,11 @@ const routes = {
   project: (req, res) => {
     if (DEBUG) {
       const projectHTML = middleware.fileSystem.readFileSync(
-        path.join(publicPath, 'project.html'), 'utf8'
+        path.join(PUBLIC_PATH, 'project.html'), 'utf8'
       );
       res.set(HTML_HEADER(DEBUG)).send(renderProjectHTML(projectHTML));
     } else {
-      res.sendFile(path.join(publicPath, 'project.html.gz'), {
+      res.sendFile(path.join(PUBLIC_PATH, 'project.html.gz'), {
         headers: HTML_HEADER(DEBUG),
         maxAge: `${CACHE_MAX_AGE} days`,
       });
@@ -59,7 +59,7 @@ const routes = {
   },
 
   resume: (req, res) => {
-    res.sendFile(path.join(publicPath, 'pdf/', resumeVersion), {
+    res.sendFile(path.join(PUBLIC_PATH, 'pdf/', resumeVersion), {
       headers: { 'Content-Disposition': `inline; filename="${RESUME_FILE_NAME}"` },
       maxAge: `${CACHE_MAX_AGE / 2} days`,
     });

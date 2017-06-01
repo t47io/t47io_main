@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 
 import {
+  PUBLIC_PATH,
   MAINTENANCE,
   HTTP_CODE,
   HTML_HEADER,
@@ -10,7 +11,6 @@ import {
 import { app } from './middleware.js';
 import routes from './route.js';
 import {
-  publicPath,
   projectPathRegex,
   errorPathRegex,
   sendErrorResponse,
@@ -24,7 +24,7 @@ if (MAINTENANCE) {
 app.get('/', routes.main);
 app.get(projectPathRegex, routes.project);
 
-app.use(express.static(publicPath, { maxAge: `${CACHE_MAX_AGE * 5} days` }));
+app.use(express.static(PUBLIC_PATH, { maxAge: `${CACHE_MAX_AGE * 5} days` }));
 
 app.get('/resume', routes.resume);
 app.route('/send').get(routes.email.get).post(routes.email.post);
@@ -46,7 +46,7 @@ app.use((err, req, res, next) => {
     console.error(err);
   }
 
-  return res.status(code).sendFile(path.join(publicPath, `e.${err.status}.html.gz`), {
+  return res.status(code).sendFile(path.join(PUBLIC_PATH, `e.${err.status}.html.gz`), {
     headers: HTML_HEADER(false),
     maxAge: `${CACHE_MAX_AGE} days`,
   });

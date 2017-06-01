@@ -16,13 +16,13 @@ import userAgent from 'express-useragent';
 
 import webpackConfig from '../webpack.config.client.js';
 import {
+  PUBLIC_PATH,
   DEBUG,
   PORT,
   FAVICO_FILE_NAME,
 } from './config.js';
 
 
-const publicPath = path.join(__dirname, '../public');
 const app = express();
 let middleware = null;
 
@@ -31,7 +31,7 @@ if (DEBUG) {
 } else {
   app.use(staticGzip(/\.(html|js|css)$/i));
 }
-app.use(favicon(path.join(publicPath, FAVICO_FILE_NAME)));
+app.use(favicon(path.join(PUBLIC_PATH, FAVICO_FILE_NAME)));
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(userAgent.express());
@@ -39,7 +39,7 @@ app.disable('x-powered-by');
 
 
 if (DEBUG) {
-  childProcess.execSync('npm run json');
+  childProcess.execSync('yarn run json');
 
   const compiler = webpack(webpackConfig);
   middleware = webpackDevMiddleware(compiler, {
@@ -57,12 +57,12 @@ if (DEBUG) {
     stats: { colors: true },
   });
   middleware.waitUntilValid(() => {
-    const errorHTML = middleware.fileSystem.readFileSync(path.join(publicPath, 'error.html'));
+    const errorHTML = middleware.fileSystem.readFileSync(path.join(PUBLIC_PATH, 'error.html'));
     fs.writeFileSync(
-      path.join(__dirname, '../public/error.html'),
+      path.join(PUBLIC_PATH, 'error.html'),
       errorHTML, 'utf8'
     );
-    childProcess.execSync('npm run process:error');
+    childProcess.execSync('yarn run process:error');
   });
 
   app.use(middleware);

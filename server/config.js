@@ -1,7 +1,10 @@
 import emailer from 'nodemailer';
+import path from 'path';
 
 const { mode, port, email } = require('../config/server.json');
 
+
+export const PUBLIC_PATH = path.join(__dirname, '../public');
 
 export const DEBUG = mode.debug;
 export const MAINTENANCE = mode.maintenance;

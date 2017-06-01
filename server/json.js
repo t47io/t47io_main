@@ -3,6 +3,7 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
+import { PUBLIC_PATH } from './config.js';
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_INTERNAL_NAMES } from '../applications/project/constants/repositoryTypes.js';
@@ -33,9 +34,8 @@ const repositoryJson = REPOSITORY_INTERNAL_NAMES
   }), {});
 
 
-const publicPath = path.join(__dirname, '../public');
 const getResume = () => {
-  const resumeFiles = glob.sync(path.join(publicPath, 'pdf/Resume*.pdf'));
+  const resumeFiles = glob.sync(path.join(PUBLIC_PATH, 'pdf/Resume*.pdf'));
   return path.basename(resumeFiles[resumeFiles.length - 1] || '');
 };
 
@@ -92,7 +92,7 @@ const concatMainJSON = () => {
   config.pubs.lens = pubsCounter;
   config.stats.items[2].value = pubsCounter;
 
-  fs.writeJsonSync(path.join(__dirname, '../config/main.json'), config);
+  fs.writeJsonSync(path.join(PUBLIC_PATH, '../config/main.json'), config);
 };
 
 const concatProjectJSON = () => {
@@ -100,7 +100,7 @@ const concatProjectJSON = () => {
     project: projectJson,
     repository: repositoryJson,
   };
-  fs.writeJsonSync(path.join(__dirname, '../config/project.json'), data);
+  fs.writeJsonSync(path.join(PUBLIC_PATH, '../config/project.json'), data);
 };
 
 
