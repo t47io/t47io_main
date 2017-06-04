@@ -36,7 +36,7 @@ const getContribRetry = (repo, retry, interval) => (
   .catch(() => {
     if (retry > 0) {
       return Promise((resolve) => {
-        setTimeout(() => resolve(getContribRetry(repo, retry - 1, interval)), interval);
+        setTimeout(() => resolve(getContribRetry(repo, retry - 1, interval)), interval * 2);
       });
     }
     return Promise.reject('retry maxed out.');
