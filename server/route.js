@@ -11,6 +11,7 @@ import {
   SMTP,
   HTML_HEADER,
   CACHE_MAX_AGE,
+  DEFENSE_FILE_NAME,
   RESUME_FILE_NAME,
   BOT_USER_AGENTS,
 } from './config.js';
@@ -63,6 +64,9 @@ const routes = {
       headers: { 'Content-Disposition': `inline; filename="${RESUME_FILE_NAME}"` },
       maxAge: `${CACHE_MAX_AGE / 2} days`,
     });
+  },
+  defense: (req, res) => {
+    res.sendFile(path.join(PUBLIC_PATH, DEFENSE_FILE_NAME), { maxAge: `${CACHE_MAX_AGE * 5} days` });
   },
   email: {
     get: (req, res, next) => {
