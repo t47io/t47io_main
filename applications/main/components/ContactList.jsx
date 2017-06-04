@@ -5,9 +5,9 @@ import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { imgPhone } from '../components/Images.js';
+import { audName } from '../components/Audio.js';
 import { contactPanel } from '../animations/contact.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
-import { AUDIO } from '../../common/constants/util.js';
 
 
 const ContactList = ({
@@ -127,7 +127,7 @@ const ContactList = ({
             </span>
           </button>
           <Audio
-            src={AUDIO} play={audio}
+            src={audName} play={audio}
             onFinish={onToggleAudio}
           />
         </WebAnimation>
