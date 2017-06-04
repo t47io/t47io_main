@@ -6,11 +6,11 @@
   font-family: "Tenor Sans";
   font-weight: normal;
   font-style: normal;
-  src: local("Tenor Sans"), url("../font/tenor-sans.woff") format("woff");
-  // url("../font/tenor-sans.woff2") format("woff2"),
-  // url("../font/tenor-sans.ttf") format("truetype"),
-  // url("../font/tenor-sans.eot") format("embedded-opentype"),
-  // url("../font/tenor-sans.svg#tenor_sansregular") format("svg");
+  src: local("Tenor Sans"),
+    url("../font/tenor-sans.woff") format("woff"),
+    url("../font/tenor-sans.woff2") format("woff2"),
+    url("../font/tenor-sans.ttf") format("truetype"),
+    url("../font/tenor-sans.eot") format("embedded-opentype");
 }
 
 * {

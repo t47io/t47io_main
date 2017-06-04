@@ -2,7 +2,10 @@
   font-family: 'fontello-fa';
   font-weight: normal;
   font-style: normal;
-  src: url("./font/fontello-fa.woff") format("woff");
+  src: url("./font/fontello-fa.woff") format("woff"),
+    url("./font/fontello-fa.woff2") format("woff2"),
+    url("./font/fontello-fa.ttf") format("truetype"),
+    url("./font/fontello-fa.eot") format("embedded-opentype");
 }
 
 [class^="fa-"]:before,
