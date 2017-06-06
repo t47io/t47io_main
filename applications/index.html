@@ -15,6 +15,7 @@
           function appendPreload(chunk, hash) {
             var link = document.createElement('link');
             link.rel = 'preload';
+            link.as = 'script';
             link.href = '/' + chunk + '.' + hash + '.min.js';
             head.appendChild(link);
           }
