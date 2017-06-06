@@ -15,12 +15,10 @@ export const EMAIL_RECV = email.login;
 export const SMTP = emailer.createTransport(`${email.protocol}://${EMAIL_RECV.replace('@', '%40')}:${email.password}@${email.host}:${email.port}`);
 
 export const HTTP_CODE = [201, 400, 401, 403, 404, 405, 500, 502, 503];
-
-export const HTML_HEADER = (DEBUG = false) => ({
+export const HTML_HEADER = {
   'Content-Type': 'text/html; charset=UTF-8',
-  ...(DEBUG ? {} : { 'Content-Encoding': 'gzip' }),
   'X-UA-Compatible': 'IE=edge',
-});
+};
 export const CACHE_MAX_AGE = 120;
 
 export const GITHUB_RETRY = 5;

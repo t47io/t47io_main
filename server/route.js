@@ -9,15 +9,15 @@ import {
   EMAIL_CONTENT_LEN,
   EMAIL_RECV,
   SMTP,
-  HTML_HEADER,
   CACHE_MAX_AGE,
   DEFENSE_FILE_NAME,
   RESUME_FILE_NAME,
   BOT_USER_AGENTS,
 } from './config.js';
-import { webpackMiddleware } from './middleware.js';
 import {
   resumeVersion,
+  sendHtmlFromCache,
+  sendHtmlFromDisk,
   sendErrorResponse,
 } from './util.js';
 import {
@@ -29,33 +29,21 @@ import {
 const routes = {
   main: (req, res) => {
     if (DEBUG) {
-      const mainHTML = webpackMiddleware.fileSystem.readFileSync(
-        path.join(PUBLIC_PATH, 'main.html'), 'utf8'
-      );
-      res.set(HTML_HEADER(DEBUG)).send(renderMainHTML(mainHTML));
+      sendHtmlFromCache('main', renderMainHTML, req, res);
     } else {
       const userAgent = req.useragent.source.toLowerCase();
       const isBot = (BOT_USER_AGENTS.filter(botUA => userAgent.includes(botUA)).length > 0);
       const isStatic = ('static' in req.query && req.query.static === '1');
 
       const htmlFile = (isBot || isStatic) ? 'index' : 'main';
-      res.sendFile(path.join(PUBLIC_PATH, `${htmlFile}.html.gz`), {
-        headers: HTML_HEADER(DEBUG),
-        maxAge: `${CACHE_MAX_AGE} days`,
-      });
+      sendHtmlFromDisk(htmlFile, req, res);
     }
   },
   project: (req, res) => {
     if (DEBUG) {
-      const projectHTML = webpackMiddleware.fileSystem.readFileSync(
-        path.join(PUBLIC_PATH, 'project.html'), 'utf8'
-      );
-      res.set(HTML_HEADER(DEBUG)).send(renderProjectHTML(projectHTML));
+      sendHtmlFromCache('project', renderProjectHTML, req, res);
     } else {
-      res.sendFile(path.join(PUBLIC_PATH, 'project.html.gz'), {
-        headers: HTML_HEADER(DEBUG),
-        maxAge: `${CACHE_MAX_AGE} days`,
-      });
+      sendHtmlFromDisk('project', req, res);
     }
   },
 

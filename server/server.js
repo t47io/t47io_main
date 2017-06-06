@@ -7,7 +7,6 @@ import {
   MAINTENANCE,
   PORT,
   HTTP_CODE,
-  HTML_HEADER,
   CACHE_MAX_AGE,
 } from './config.js';
 import middlewares from './middleware.js';
@@ -15,6 +14,8 @@ import routes from './route.js';
 import {
   projectPathRegex,
   errorPathRegex,
+  getZipExt,
+  getHeader,
   sendErrorResponse,
 } from './util.js';
 
@@ -60,8 +61,9 @@ app.use((err, req, res, next) => {
     console.error(err);
   }
 
-  return res.status(code).sendFile(path.join(PUBLIC_PATH, `e.${code}.html.gz`), {
-    headers: HTML_HEADER(false),
+  const ext = getZipExt(req.headers);
+  return res.status(code).sendFile(path.join(PUBLIC_PATH, `e.${code}.html.${ext}`), {
+    headers: getHeader(req),
     maxAge: `${CACHE_MAX_AGE} days`,
   });
 });
