@@ -31,7 +31,7 @@ export const GITHUB_REPO_API = 'https://api.github.com/repos/';
 
 export const JSON_FORMAT = { spaces: 2 };
 
-export const BACKUP_FILE_NAME = 'backup.tgz';
+export const BACKUP_FILE_NAME = 'backup.tar.gz';
 export const FAVICO_FILE_NAME = 't47_icon.png';
 export const DEFENSE_FILE_NAME = 't47_phd_defense.png';
 export const RESUME_FILE_NAME = 'SiqiTian_resume';

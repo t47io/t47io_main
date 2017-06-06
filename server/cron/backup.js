@@ -35,9 +35,13 @@ const backupMisc = () => {
 };
 
 const createTgz = () => {
+  const tarFilename = BACKUP_FILE_NAME.replace('.gz', '');
+
   shell.cd(backupPath);
   shell.cd('..');
-  shell.exec(`tar -zvcf ${BACKUP_FILE_NAME} backup/`);
+  shell.exec(`tar -vcf ${tarFilename} backup/`);
+  shell.exec(`zopfli ${tarFilename}`);
+  shell.rm('-rf', tarFilename);
 };
 
 
