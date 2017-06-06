@@ -3,6 +3,7 @@ import path from 'path';
 import webpack from 'webpack';
 
 import BabiliPlugin from 'babili-webpack-plugin';
+import BrotliPlugin from 'brotli-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -115,9 +116,10 @@ const plugins = (DEBUG = true) => {
       },
     }),
     new OptimizeJsPlugin({ sourceMap: false }),
+    new BrotliPlugin({ test: /\.(html|js|css)$/i }),
     new CompressionPlugin({
       test: /\.(html|js|css)$/i,
-      asset: '[path].gz',
+      algorithm: 'zopfli',
       deleteOriginalAssets: true,
     }),
   ];
