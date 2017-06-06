@@ -5,11 +5,11 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import bodyParser from 'body-parser';
 import childProcess from 'child_process';
 import compression from 'compression';
+import expressStatic from 'express-static-gzip';
 import favicon from 'serve-favicon';
 import fs from 'fs-extra';
 import helmet from 'helmet';
 import path from 'path';
-import staticGzip from 'http-static-gzip-regexp';
 import userAgent from 'express-useragent';
 
 import webpackConfig from '../webpack.config.client.js';
@@ -21,7 +21,13 @@ import {
 
 
 const middlewares = [
-  DEBUG ? compression() : staticGzip(/\.(html|js|css)$/i),
+  DEBUG ? compression() : [
+    '/',
+    expressStatic(`${PUBLIC_PATH}/`, {
+      enableBrotli: true,
+      indexFromEmptyFile: false,
+    }),
+  ],
   favicon(path.join(PUBLIC_PATH, FAVICO_FILE_NAME)),
   helmet(),
   bodyParser.json(),

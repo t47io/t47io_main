@@ -23,7 +23,13 @@ const app = express();
 app.disable('x-powered-by');
 app.listen(PORT, () => console.log(`${colors.rainbow('t47io Main Site')} listening on port: ${colors.red(PORT)} ...`));
 
-middlewares.forEach(middleware => app.use(middleware));
+middlewares.forEach((middleware) => {
+  if (Array.isArray(middleware)) {
+    app.use(...middleware);
+  } else {
+    app.use(middleware);
+  }
+});
 if (MAINTENANCE) {
   app.all('*', (req, res, next) => next(sendErrorResponse(503)));
 }
@@ -54,7 +60,7 @@ app.use((err, req, res, next) => {
     console.error(err);
   }
 
-  return res.status(code).sendFile(path.join(PUBLIC_PATH, `e.${err.status}.html.gz`), {
+  return res.status(code).sendFile(path.join(PUBLIC_PATH, `e.${code}.html.gz`), {
     headers: HTML_HEADER(false),
     maxAge: `${CACHE_MAX_AGE} days`,
   });
