@@ -3,6 +3,7 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
+import { ROOT_PATH } from '../render/config.js';
 import {
   renderMainHTML,
   renderProjectHTML,
@@ -37,9 +38,10 @@ try {
 
 try {
   const tmpFiles = [
-    ...glob.sync(path.join(__dirname, '../../', 'public/*.map')),
-    ...glob.sync(path.join(__dirname, '../../', 'public/*.js')),
-    ...glob.sync(path.join(__dirname, '../../', 'public/*.html')),
+    ...glob.sync(path.join(ROOT_PATH, 'public/*.map')),
+    ...glob.sync(path.join(ROOT_PATH, 'public/*.js')),
+    ...glob.sync(path.join(ROOT_PATH, 'public/*.html')),
+    ...glob.sync(path.join(ROOT_PATH, 'public/e.*.min.js.br')),
   ];
   tmpFiles.forEach(file => fs.removeSync(file));
   console.log(`${colors.green('SUCCESS')}: Build temporary files deleted.`);
@@ -49,12 +51,12 @@ try {
 }
 
 try {
-  const staticFiles = glob.sync(path.join(__dirname, '../../', 'static/*'))
+  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/*'))
     .map(file => path.basename(file));
   staticFiles.forEach(file => (
     fs.copySync(
-      path.join(__dirname, '../../', `static/${file}`),
-      path.join(__dirname, '../../', `public/${file}`)
+      path.join(ROOT_PATH, `static/${file}`),
+      path.join(ROOT_PATH, `public/${file}`)
     )
   ));
   console.log(`${colors.green('SUCCESS')}: Public files copied.`);

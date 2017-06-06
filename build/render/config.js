@@ -1,3 +1,5 @@
+import path from 'path';
+
 const { ga } = require('../../config/server.json');
 
 
@@ -30,3 +32,4 @@ export const HTML_MINIFIER = {
 };
 
 export const MANIFEST_JS = 'f.012345.min.js';
+export const ROOT_PATH = path.join(__dirname, '../../');
