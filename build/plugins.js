@@ -1,5 +1,4 @@
 import glob from 'glob';
-import path from 'path';
 import webpack from 'webpack';
 
 import BabiliPlugin from 'babili-webpack-plugin';
@@ -14,9 +13,10 @@ import PurifyCSSPlugin from 'purifycss-webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 import { getChunkNames } from './entries.js';
-import { MANIFEST_JS } from './render/config.js';
-
-const rootPath = path.join(__dirname, '../');
+import {
+  MANIFEST_JS,
+  ROOT_PATH,
+} from './render/config.js';
 
 
 const plugins = (DEBUG = true) => {
@@ -29,8 +29,8 @@ const plugins = (DEBUG = true) => {
     }),
     new HtmlWebpackPlugin({
       chunks: [chunkNames.main, chunkNames.vendor, chunkNames.manifest],
-      template: `${rootPath}/applications/index.html`,
-      filename: `${rootPath}/public/main.html`,
+      template: `${ROOT_PATH}/applications/index.html`,
+      filename: `${ROOT_PATH}/public/main.html`,
       inject: false,
       chunk: chunkNames.main,
       manifest: MANIFEST_JS,
@@ -38,8 +38,8 @@ const plugins = (DEBUG = true) => {
     }),
     new HtmlWebpackPlugin({
       chunks: [chunkNames.project, chunkNames.vendor, chunkNames.manifest],
-      template: `${rootPath}/applications/index.html`,
-      filename: `${rootPath}/public/project.html`,
+      template: `${ROOT_PATH}/applications/index.html`,
+      filename: `${ROOT_PATH}/public/project.html`,
       inject: false,
       chunk: chunkNames.project,
       manifest: MANIFEST_JS,
@@ -47,8 +47,8 @@ const plugins = (DEBUG = true) => {
     }),
     new HtmlWebpackPlugin({
       chunks: [chunkNames.error],
-      template: `${rootPath}/applications/index.html`,
-      filename: `${rootPath}/public/error.html`,
+      template: `${ROOT_PATH}/applications/index.html`,
+      filename: `${ROOT_PATH}/public/error.html`,
       inject: false,
       chunk: chunkNames.error,
       manifest: MANIFEST_JS,
@@ -60,9 +60,9 @@ const plugins = (DEBUG = true) => {
     }),
     new PurifyCSSPlugin({
       paths: [
-        ...(glob.sync(`${rootPath}/applications/**/*.{jsx,json,scss}`)),
-        ...(glob.sync(`${rootPath}/public/**/*.html`)),
-        `${rootPath}/config/main.json`,
+        ...(glob.sync(`${ROOT_PATH}/applications/**/*.{jsx,json,scss}`)),
+        ...(glob.sync(`${ROOT_PATH}/public/**/*.html`)),
+        `${ROOT_PATH}/config/main.json`,
       ],
       styleExtensions: ['.css', '.scss'],
       moduleExtensions: ['.html'],

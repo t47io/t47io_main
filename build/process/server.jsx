@@ -11,7 +11,10 @@ import DocumentMeta from 'react-document-meta';
 
 import MainMeta from '../../applications/main/components/Meta.jsx';
 
-import { HTML_MINIFIER } from '../render/config.js';
+import {
+  HTML_MINIFIER,
+  ROOT_PATH,
+} from '../render/config.js';
 import {
   replaceHTML,
   loadFileSync,
@@ -49,7 +52,7 @@ try {
   saveFileSync('public/index.html', finalHTML);
   console.log(`${colors.green('SUCCESS')}: Index Page SSR finished.`);
 
-  const ssrFiles = glob.sync(path.join(__dirname, '../../', 'public/ssr.*'));
+  const ssrFiles = glob.sync(path.join(ROOT_PATH, 'public/ssr.*'));
   ssrFiles.forEach(ssr => fs.removeSync(ssr));
   console.log(`${colors.green('SUCCESS')}: SSR temporary files deleted.`);
 } catch (err) {
