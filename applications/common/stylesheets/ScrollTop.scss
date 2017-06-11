@@ -1,5 +1,4 @@
 @import '../mixins/colors';
-@import '../mixins/prefix';
 
 .scrollTop {
   position: fixed;
@@ -14,14 +13,14 @@
   text-decoration: none;
   z-index: 9999;
 
-  @include transform(rotate(45deg));
-  @include transition(0.5s);
+  transition-duration: 0.5s;
+  transform: rotate(45deg);
 
   .fa {
     padding-left: 0.25em;
 
-    @include transition(0.5s);
-    @include transform(rotate(-45deg) translate(-1px, -0.125em));
+    transition-duration: 0.5s;
+    transform: rotate(-45deg) translate(-1px, -0.125em);
   }
 
   &:hover {

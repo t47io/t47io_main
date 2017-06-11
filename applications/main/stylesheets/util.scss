@@ -30,7 +30,7 @@ section:not(#HOME__section) {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  @include transition(0.5s);
+  transition-duration: 0.5s;
 
   &.UTIL__background {
     padding-bottom: 5.5rem;

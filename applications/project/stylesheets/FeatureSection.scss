@@ -1,5 +1,4 @@
 @import '../../common/mixins/colors';
-@import '../../common/mixins/prefix';
 
 .PROJECT__thumbnail {
   padding: 0.75rem;
@@ -13,7 +12,7 @@
 }
 
 .PROJECT__carousel-item::after {
-  @include transition(0.5s);
+  transition-duration: 0.5s;
 }
 
 .PROJECT__carousel-indicators {
@@ -23,8 +22,7 @@
     border: 2px solid $colorGray;
     border-radius: 0;
     background-color: $colorGrayLight;
-
-    @include transform(rotate(45deg));
+    transform: rotate(45deg);
 
     &:hover,
     &.active {

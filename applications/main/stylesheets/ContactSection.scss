@@ -1,6 +1,5 @@
 @import '../../common/mixins/colors';
 @import '../../common/mixins/media';
-@import '../../common/mixins/prefix';
 @import './ContactForm';
 
 #CONTACT__section {
@@ -41,12 +40,12 @@
     margin-top: 0.75em;
     margin-bottom: 1em;
 
-    @include transform(rotate(45deg));
-    @include transition(0.25s);
+    transition-duration: 0.25s;
+    transform: rotate(45deg);
 
     .fa {
-      @include transform(rotate(-45deg));
-      @include transition(0.25s);
+      transition-duration: 0.25s;
+      transform: rotate(-45deg);
     }
 
     &::after {
@@ -63,16 +62,12 @@
   &:hover {
     .CONTACT__icon {
       background-color: $colorGreen;
-
-      @include transition(0.25s);
+      transition-duration: 0.25s;
 
       .fa {
-        -webkit-transform-origin: 50% 50%;
-        -moz-transform-origin: 50% 50%;
-        -o-transform-origin: 50% 50%;
+        transition-duration: 0.25s;
         transform-origin: 50% 50%;
-        @include transform(scale(2, 1.41) rotate(90deg) rotateX(225deg));
-        @include transition(0.25s);
+        transform: scale(2, 1.41) rotate(90deg) rotateX(225deg);
       }
     }
   }
@@ -149,8 +144,7 @@
       .CONTACT__button {
         width: 9em;
         text-align: left;
-
-        @include transition(0.5s);
+        transition-duration: 0.5s;
 
         &.long {
           width: 13em;
@@ -161,8 +155,7 @@
 
           .CONTACT__resume {
             opacity: 1;
-
-            @include transition(0.5s);
+            transition-duration: 0.5s;
           }
 
           .fa {

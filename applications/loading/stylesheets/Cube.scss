@@ -1,13 +1,7 @@
 @import '../../common/mixins/palette';
-@import '../../common/mixins/prefix';
 
 /* adapted from http://codepen.io/wenbin5243/pen/tcAeJ/ */
 $unit: 144px;
-
-@mixin animation($val1, $val2: null) {
-  -webkit-animation: $val1, $val2;
-  animation: $val1, $val2;
-}
 
 .LOAD__logo svg {
   width: 15rem;
@@ -36,23 +30,23 @@ $unit: 144px;
   }
 
   .LOAD__cube-face--front {
-    @include transform(translateZ($unit / 2));
+    transform: translateZ($unit / 2);
   }
 
   .LOAD__cube-face--left {
-    @include transform(rotateY(90deg) translate3d($unit / 18 + 1px, 0, -$unit / 2));
+    transform: rotateY(90deg) translate3d($unit / 18 + 1px, 0, -$unit / 2);
   }
 
   .LOAD__cube-face--bottom {
-    @include transform(rotateX(90deg) translate3d(0, $unit / 18 + 1px, -$unit / 2));
+    transform: rotateX(90deg) translate3d(0, $unit / 18 + 1px, -$unit / 2);
   }
 
   .LOAD__cube-face--right {
-    @include transform(rotateY(90deg) translateZ($unit / 2));
+    transform: rotateY(90deg) translateZ($unit / 2);
   }
 
   .LOAD__cube-face--top {
-    @include transform(rotateX(90deg) translatez($unit / 2));
+    transform: rotateX(90deg) translatez($unit / 2);
   }
 }
 
@@ -60,8 +54,9 @@ $unit: 144px;
   top: $unit / 3 * 2;
   width: $unit;
   height: $unit / 3;
-  @include transform_style(preserve-3d);
-  @include animation(cube_rotate_1 2s ease-in-out infinite, cube_rotate_5 2s steps(1) infinite);
+  transform-style: preserve-3d;
+  animation: cube_rotate_1 2s ease-in-out infinite,
+    cube_rotate_5 2s steps(1) infinite;
 
   .LOAD__cube-face--front {
     .LOAD__cube-tile:nth-child(1) {
@@ -97,8 +92,9 @@ $unit: 144px;
   left: $unit / 3;
   width: $unit / 3;
   height: $unit;
-  @include transform_style(preserve-3d);
-  @include animation(cube_rotate_2 2s ease-in-out infinite, cube_rotate_5 2s steps(1) 0.5s infinite);
+  transform-style: preserve-3d;
+  animation: cube_rotate_2 2s ease-in-out infinite,
+    cube_rotate_5 2s steps(1) 0.5s infinite;
 
   .LOAD__cube-face--front {
     .LOAD__cube-tile:nth-child(1) {
@@ -135,8 +131,9 @@ $unit: 144px;
   left: 0;
   width: $unit;
   height: $unit / 3;
-  @include transform_style(preserve-3d);
-  @include animation(cube_rotate_3 2s ease-in-out infinite, cube_rotate_5 2s steps(1) 1s infinite);
+  transform-style: preserve-3d;
+  animation: cube_rotate_3 2s ease-in-out infinite,
+    cube_rotate_5 2s steps(1) 1s infinite;
 
   .LOAD__cube-face--front {
     .LOAD__cube-tile:nth-child(1) {
@@ -173,8 +170,9 @@ $unit: 144px;
   left: 0;
   width: $unit / 3;
   height: $unit;
-  @include transform_style(preserve-3d);
-  @include animation(cube_rotate_4 2s ease-in-out infinite, cube_rotate_5 2s steps(1) 1.5s infinite);
+  transform-style: preserve-3d;
+  animation: cube_rotate_4 2s ease-in-out infinite,
+    cube_rotate_5 2s steps(1) 1.5s infinite;
 
   .LOAD__cube-face--front {
     .LOAD__cube-tile:nth-child(1) {
@@ -209,45 +207,45 @@ $unit: 144px;
   width: $unit / 18 * 5;
   height: $unit / 18 * 5;
   background: $colorYellow;
-  @include animation(cube_rotate_6 2s steps(1) infinite);
+  animation: cube_rotate_6 2s steps(1) infinite;
 }
 
-@include keyframes(cube_rotate_1) {
+@keyframes cube_rotate_1 {
   25%,
   100% {
-    @include transform(rotateY(90deg));
+    transform: rotateY(90deg);
   }
 }
-@include keyframes(cube_rotate_2) {
+@keyframes cube_rotate_2 {
   25% {
-    @include transform(rotateX(0));
+    transform: rotateX(0);
   }
 
   50%,
   100% {
-    @include transform(rotateX(90deg));
+    transform: rotateX(90deg);
   }
 }
-@include keyframes(cube_rotate_3) {
+@keyframes cube_rotate_3 {
   50% {
-    @include transform(rotateY(0));
+    transform: rotateY(0);
   }
 
   75%,
   100% {
-    @include transform(rotateY(-90deg));
+    transform: rotateY(-90deg);
   }
 }
-@include keyframes(cube_rotate_4) {
+@keyframes cube_rotate_4 {
   75% {
-    @include transform(rotateX(0));
+    transform: rotateX(0);
   }
 
   100% {
-    @include transform(rotateX(-90deg));
+    transform: rotateX(-90deg);
   }
 }
-@include keyframes(cube_rotate_5) {
+@keyframes cube_rotate_5 {
   0%,
   100% {
     opacity: 1;
@@ -260,7 +258,7 @@ $unit: 144px;
   }
 }
 
-@include keyframes(cube_rotate_6) {
+@keyframes cube_rotate_6 {
   0% {
     box-shadow: $unit / 3 0 0 $colorGreen, $unit / 3 * 2 0 0 $colorGray, 0 $unit / 3 0 $colorCyan, $unit / 3 $unit / 3 0 $colorPurple, $unit / 3 * 2 $unit / 3 0 $colorCyan;
   }

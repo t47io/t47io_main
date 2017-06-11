@@ -1,5 +1,5 @@
 @import './colors';
-@import './prefix';
+@import './media';
 
 .SPRITE {
   display: inline-block;
@@ -23,6 +23,28 @@
   }
 
   @return $result;
+}
+
+@mixin retina_image($url) {
+  $len: str-length($url);
+  $path: str-slice($url, 0, $len - 4);
+  $ext: str-slice($url, $len - 2);
+  background-image: url("#{$path}.#{$ext}");
+  /* filter: blur(5px); */
+  transition-duration: 1s;
+
+  @include media_pixel_ratio(1.5) {
+    background-image: url("#{$path}@1.5x.#{$ext}");
+    /* filter: none; */
+  }
+  @include media_pixel_ratio(2) {
+    background-image: url("#{$path}@2x.#{$ext}");
+    /* filter: none; */
+  }
+  @include media_pixel_ratio(3) {
+    background-image: url("#{$path}@3x.#{$ext}");
+    /* filter: none; */
+  }
 }
 
 @mixin img_sprites($img, $w, $h, $cls_names, $retina) {

@@ -1,5 +1,4 @@
 @import '../../common/mixins/colors';
-@import '../../common/mixins/prefix';
 
 .ABOUT__box {
   display: inline-block;
@@ -24,12 +23,12 @@
     background-color: $colorGreenDark;
     margin-bottom: 1em;
 
-    @include transform(rotate(45deg));
-    @include transition(0.25s);
+    transition-duration: 0.25s;
+    transform: rotate(45deg);
 
     .fa {
-      @include transform(rotate(-45deg));
-      @include transition(0.25s);
+      transition-duration: 0.25s;
+      transform: rotate(-45deg);
     }
 
     &::after {
@@ -59,16 +58,12 @@
   &:hover {
     .ABOUT__icon {
       background-color: $colorGreen;
-
-      @include transition(0.25s);
+      transition-duration: 0.25s;
 
       .fa {
-        -webkit-transform-origin: 50% 50%;
-        -moz-transform-origin: 50% 50%;
-        -o-transform-origin: 50% 50%;
+        transition-duration: 0.25s;
+        transform: scale(2, 1.41) rotate(90deg) rotateX(225deg);
         transform-origin: 50% 50%;
-        @include transform(scale(2, 1.41) rotate(90deg) rotateX(225deg));
-        @include transition(0.25s);
       }
     }
   }

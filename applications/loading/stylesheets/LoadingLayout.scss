@@ -1,6 +1,5 @@
 @import '../../common/mixins/colors';
 @import '../../common/mixins/media';
-@import '../../common/mixins/prefix';
 
 .LOAD__container {
   height: 100vh;
@@ -8,15 +7,15 @@
   max-width: 100%;
   position: fixed;
 
-  @include flex;
-  @include flex_direction(column);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
   text-align: center;
   z-index: 99999;
   background-color: $colorWhite;
-
-  @include transition(1s);
+  transition-duration: 1s;
 
   .LOAD__content {
     display: inline-block;

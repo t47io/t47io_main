@@ -1,6 +1,6 @@
 @import '../../common/mixins/math';
 @import '../../common/mixins/palette';
-@import '../../common/mixins/prefix';
+
 $unit: 6rem;
 $list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $colorGreen;
 
@@ -14,7 +14,7 @@ $list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $color
   height: $unit;
   margin: 3rem auto;
   will-change: transform;
-  @include animation(hex_rotate, 1.5s, ease-in-out, infinite);
+  animation: hex_rotate 1.5s ease-in-out infinite;
 }
 
 .LOAD__hexagon-group {
@@ -28,34 +28,32 @@ $list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $color
   height: $unit / 2;
   border-radius: 50%;
   will-change: transform, opacity;
-  @include animation(hex_move, 1.5s, linear, infinite);
+  animation: hex_move 1.5s linear infinite;
 }
 
-@include keyframes(hex_move) {
+@keyframes hex_move {
   50% {
     opacity: 0.5;
-
-    @include transform(translate($unit / 4, $unit / 4));
+    transform: translate($unit / 4, $unit / 4);
   }
 }
-@include keyframes(hex_rotate) {
+@keyframes hex_rotate {
   0% {
-    @include transform(rotate(0) scale(0.75));
+    transform: rotate(0) scale(0.75);
   }
 
   50% {
-    @include transform(rotate(180deg) scale(1));
+    transform: rotate(180deg) scale(1);
   }
 
   100% {
-    @include transform(rotate(360deg) scale(0.75));
+    transform: rotate(360deg) scale(0.75);
   }
 }
 
 @for $i from 0 through 5 {
   .LOAD__hexagon .LOAD__hexagon-group:nth-child(#{$i + 1}) .LOAD__hexagon-dot {
     background-color: nth($list-clr, $i + 1);
-
-    @include transform(translate( (sin(($i - 2) * 60) + 1 / 4) * $unit, (cos(($i - 2) * 60) + 1 / 4) * $unit));
+    transform: translate( (sin(($i - 2) * 60) + 1 / 4) * $unit, (cos(($i - 2) * 60) + 1 / 4) * $unit);
   }
 }

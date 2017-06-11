@@ -1,7 +1,6 @@
 @import '../../common/mixins/colors';
 @import '../../common/mixins/media';
 @import '../../common/mixins/palette';
-@import '../../common/mixins/prefix';
 
 .form-control {
   background-color: rgba(0, 7, 11, 0.5);
@@ -55,7 +54,7 @@
   &.active {
     background: $colorGreenDark;
     color: $colorWhite;
-    @include transition(0.6s);
+    transition-duration: 0.6s;
   }
 }
 
@@ -70,7 +69,7 @@
   &.active {
     background: $colorCyan;
     color: $colorWhite;
-    @include transition(0.6s);
+    transition-duration: 0.6s;
   }
 }
 
@@ -85,7 +84,7 @@
   &.active {
     background: $colorRed;
     color: $colorWhite;
-    @include transition(0.6s);
+    transition-duration: 0.6s;
   }
 }
 

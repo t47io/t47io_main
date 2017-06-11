@@ -1,6 +1,10 @@
 @import '../../common/mixins/media';
 @import '../../common/mixins/palette';
-@import '../../common/mixins/prefix';
+
+$time: 2s;
+$delay: 0.1s;
+$padding: 4%;
+$list-clr: $colorGray, $colorGreen, $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGreen, $colorGray, $colorCyan, $colorRed, $colorPurple, $colorYellow;
 
 .LOAD__logo svg {
   width: 25rem;
@@ -11,7 +15,7 @@
   height: 20rem;
   width: 30rem;
   max-width: 75%;
-  @include transform(scaleX(-1));
+  transform: scaleX(-1);
 
   .LOAD__helix-dot {
     position: absolute;
@@ -42,7 +46,7 @@
   }
 }
 
-@include keyframes(dna_rotate) {
+@keyframes dna_rotate {
   $i: 0;
 
   @while $i <= 100 {
@@ -52,29 +56,25 @@
       @if $i % 100 == 0 {
         top: 20%;
         z-index: 0;
-        @include transform(scale(1));
+        transform: scale(1);
       } @else if $i % 50 == 0 {
         top: 60%;
         z-index: 1;
-        @include transform(scale(1));
+        transform: scale(1);
       } @else if $i == 25 {
-        @include transform(scale(1.8));
+        transform: scale(1.8);
       } @else {
-        @include transform(scale(0.5));
+        transform: scale(0.5);
       }
     }
     $i: $i + 25;
   }
 }
-$list-clr: $colorGray, $colorGreen, $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGreen, $colorGray, $colorCyan, $colorRed, $colorPurple, $colorYellow;
-$time: 2s;
-$delay: 0.1s;
-$padding: 4%;
 
-@mixin animation($val, $off) {
-  -webkit-animation: dna_rotate #{$time $val * $delay + $off + 1s} infinite ease-in-out;
-  animation: dna_rotate $time #{$val * $delay + $off} infinite ease-in-out;
-}
+// @mixin animation($val, $off) {
+//   -webkit-animation: dna_rotate #{$time $val * $delay + $off + 1s} ease-in-out infinite;
+//   animation: dna_rotate $time #{$val * $delay + $off} ease-in-out infinite;
+// }
 
 @for $i from 0 through 25 {
   .LOAD__helix .LOAD__helix-dot:nth-child(#{$i + 1}) {
@@ -82,10 +82,10 @@ $padding: 4%;
 
     @if $i % 2 == 0 {
       background-color: nth($list-clr, $i % 12 + 1);
-      @include animation($i, 0s);
+      animation: dna_rotate $time #{$i * $delay + 0s} ease-in-out infinite;
     } @else {
       background-color: nth($list-clr, $i % 12 + 1);
-      @include animation($i, 1s);
+      animation: dna_rotate $time #{$i * $delay + 1s} ease-in-out infinite;
     }
   }
 }

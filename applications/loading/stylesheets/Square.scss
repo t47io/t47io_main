@@ -1,5 +1,7 @@
 @import '../../common/mixins/palette';
-@import '../../common/mixins/prefix';
+
+$time: 6.75s;
+$delay: 0.125s;
 $unit: 3rem;
 $list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $colorGreen;
 
@@ -15,7 +17,7 @@ $list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $color
   will-change: opacity, background-color;
 }
 
-@include keyframes(square_color) {
+@keyframes square_color {
   $i: 1;
 
   @while $i <= 99 {
@@ -31,16 +33,9 @@ $list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $color
     $i: $i + 16.5;
   }
 }
-$time: 6.75s;
-$delay: 0.125s;
-
-@mixin animation($val) {
-  -webkit-animation: square_color #{$time $val * $delay} infinite ease-in-out;
-  animation: square_color $time #{$val * $delay} infinite ease-in-out;
-}
 
 @for $i from 0 through 8 {
   .LOAD__square-block--#{$i + 1} {
-    @include animation($i);
+    animation: square_color $time #{$i * $delay} ease-in-out infinite;
   }
 }

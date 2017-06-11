@@ -1,16 +1,14 @@
 @import '../mixins/colors';
 @import '../mixins/media';
-@import '../mixins/prefix';
 
 .COMMON__navbar {
   margin: 0;
   border: none;
-  @include transition(0.2s);
+  transition-duration: 0.2s;
 
   .container {
     padding: 0;
-
-    @include transition(0.2s);
+    transition-duration: 0.2s;
   }
 
   .COMMON__navbar-item {
@@ -39,8 +37,7 @@
     width: 120px;
     height: auto;
     padding: 0;
-
-    @include transition(0.2s);
+    transition-duration: 0.2s;
   }
 }
 

@@ -1,6 +1,5 @@
 @import '../../common/mixins/reset';
 @import '../../common/mixins/typography';
-@import '../../common/mixins/prefix';
 @import './anim';
 @import './util';
 @import './sprites';
@@ -10,8 +9,7 @@
 .LOAD__container {
   &.fade {
     opacity: 0;
-
-    @include filter(blur(2em));
+    filter: blur(2em);
   }
 
   &.behind {

@@ -1,5 +1,4 @@
 @import '../common/mixins/colors';
-@import '../common/mixins/prefix';
 
 .__react_component_tooltip {
   display: inline-block;
@@ -16,7 +15,7 @@
   color: $colorWhite;
   background-color: $colorBlack;
 
-  @include transition(0.25s, ease-in-out, opacity);
+  transition: opacity 0.25s ease-in-out;
 
   &:before,
   &:after {

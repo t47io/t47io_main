@@ -1,5 +1,4 @@
 @import '../../common/mixins/palette';
-@import '../../common/mixins/prefix';
 @import './Helix';
 @import './LoadingLayout';
 @import './LoadingBackground';
@@ -7,7 +6,6 @@
 .green-white .T47__logo_alt path {
   fill: $colorGreen;
 }
-
 .green-white .T47__logo_alt-fill path {
   fill: white;
 }
