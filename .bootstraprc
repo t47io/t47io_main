@@ -3,6 +3,7 @@
   "styleLoaders": [
     "style-loader",
     "css-loader",
+    "postcss-loader",
     "resolve-url-loader",
     "sass-loader"
   ],

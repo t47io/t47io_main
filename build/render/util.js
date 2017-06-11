@@ -1,5 +1,7 @@
+import autoprefixer from 'autoprefixer';
 import fs from 'fs';
 import path from 'path';
+import postcss from 'postcss';
 import sass from 'node-sass';
 import shell from 'shelljs';
 
@@ -29,9 +31,11 @@ export const saveFileSync = (filename, content) => {
 };
 
 export const renderSassSync = filename => (
-  sass.renderSync({
-    file: path.join(__dirname, '../../', filename),
-  }).css.toString()
+  postcss([autoprefixer]).process(
+    sass.renderSync({
+      file: path.join(__dirname, '../../', filename),
+    }).css.toString()
+  ).css
 );
 
 export const loadImageSync = (filename) => {

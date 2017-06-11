@@ -1,3 +1,4 @@
+import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 
@@ -16,9 +17,22 @@ const loaders = (SSR = false) => {
     use: ExtractTextPlugin.extract({
       fallback: 'style-loader',
       use: [
-        'css-loader',
+        {
+          loader: 'css-loader',
+          options: { importLoaders: 1 },
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: false,
+            plugins: () => ([autoprefixer]),
+          },
+        },
         'resolve-url-loader',
-        'sass-loader?sourceMap',
+        {
+          loader: 'sass-loader',
+          options: { sourceMap: true },
+        },
       ],
     }),
   }, {
