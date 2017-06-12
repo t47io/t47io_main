@@ -43,6 +43,7 @@ const HomeSection = ({
         disabled={!ready}
         onToggleAnimation={animateIntro}
       />
+      <h1 className="HOME__name--seo">SIQI TIAN</h1>
       <div
         className={`UTIL__parallax HOME__avatar ${avatarClass}`}
         style={avatarStyle}
@@ -51,7 +52,7 @@ const HomeSection = ({
           src={imgAvatar}
           alt="T47 Avatar"
           onLoad={animateReady}
-          className="HOME__avatar-fake"
+          className="HOME__avatar--fake"
         />
       </div>
 

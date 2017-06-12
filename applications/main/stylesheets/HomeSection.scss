@@ -20,7 +20,7 @@
       filter: blur(5em);
     }
 
-    .HOME__avatar-fake {
+    .HOME__avatar--fake {
       display: none;
     }
   }
@@ -39,6 +39,9 @@
     margin-left: 1em;
     max-width: 50%;
     width: 480px;
+  }
+  .HOME__name--seo {
+    display: none;
   }
 
   .HOME__typewrite,
