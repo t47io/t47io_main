@@ -165,7 +165,13 @@
 }
 
 @include media_width_gt(768px) {
-  .COMMON__navbar--collapse .COMMON__navbar-item {
-    float: left;
+  .COMMON__navbar--collapse {
+    .COMMON__navbar-dropdown {
+      margin-right: 0;
+    }
+
+    .COMMON__navbar-item {
+      float: left;
+    }
   }
 }
