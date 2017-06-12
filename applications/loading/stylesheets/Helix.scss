@@ -71,11 +71,6 @@ $list-clr: $colorGray, $colorGreen, $colorRed, $colorCyan, $colorYellow, $colorP
   }
 }
 
-// @mixin animation($val, $off) {
-//   -webkit-animation: dna_rotate #{$time $val * $delay + $off + 1s} ease-in-out infinite;
-//   animation: dna_rotate $time #{$val * $delay + $off} ease-in-out infinite;
-// }
-
 @for $i from 0 through 25 {
   .LOAD__helix .LOAD__helix-dot:nth-child(#{$i + 1}) {
     right: $i * $padding;

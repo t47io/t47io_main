@@ -13,6 +13,8 @@ const GithubLegend = () => (
         <rect
           className={`day day_${i}`}
           x={i * 13}
+          height="11"
+          width="11"
         />
       ))}
 

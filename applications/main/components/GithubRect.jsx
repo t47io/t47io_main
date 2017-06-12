@@ -21,6 +21,8 @@ const GithubRect = ({
       className={`day day_${day}`}
       x={x}
       y={y}
+      height="11"
+      width="11"
       {...tooltip}
     />
   );
