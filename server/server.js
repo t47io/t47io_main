@@ -61,7 +61,7 @@ app.use((err, req, res, next) => {
     console.error(err);
   }
 
-  const ext = getZipExt(req.headers);
+  const ext = getZipExt(req.headers).slice(0, 2);
   return res.status(code).sendFile(path.join(PUBLIC_PATH, `e.${code}.html.${ext}`), {
     headers: getHeader(req),
     maxAge: `${CACHE_MAX_AGE} days`,
