@@ -8,20 +8,20 @@
     "yarn": "^0.24.6"
   },
   "scripts": {
-    "lint": "yarn run lint:js && yarn run lint:css",
+    "lint": "yarn lint:js && yarn lint:css",
     "lint:js": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js] --fix",
     "lint:css": "./node_modules/stylefmt/bin/cli.js -i applications/common/mixins/sprite.scss -r \"applications/**/*.{css,scss}\"",
 
     "json": "babel-node ./server/json.js",
-    "stat": "yarn run cron && yarn run json && yarn run build:client && yarn run cron:chmod",
-    "build": "yarn run lint:js && yarn run json && yarn run build:server && yarn run build:client",
+    "stat": "yarn cron && yarn json && yarn build && yarn cron:chmod",
+    "build": "yarn lint:js && yarn json && yarn build:server && yarn build:client",
 
     "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
-    "dev": "yarn run json && yarn run nodemon",
+    "dev": "yarn json && yarn nodemon",
     "prod": "pm2 start --interpreter babel-node server/server.js -n main",
 
-    "build:server": "yarn run webpack:server && yarn run process:server",
-    "build:client": "yarn run webpack:client && yarn run process:error && yarn run process:client && yarn run process:manifest",
+    "build:server": "yarn webpack:server && yarn process:server",
+    "build:client": "yarn webpack:client && yarn process:error && yarn process:client && yarn process:manifest",
 
     "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
     "webpack:client": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.client.js --verbose",
@@ -31,7 +31,7 @@
     "process:manifest": "babel-node ./build/process/manifest.js",
     "process:error": "babel-node ./build/process/error.jsx",
 
-    "cron": "yarn run cron:contrib && yarn run cron:repo && yarn run cron:scholar && yarn run cron:https && yarn run cron:backup && yarn run cron:email",
+    "cron": "yarn cron:contrib && yarn cron:repo && yarn cron:scholar && yarn cron:https && yarn cron:backup && yarn cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:repo": "babel-node ./server/cron/git_repo.js",
     "cron:scholar": "babel-node ./server/cron/cite_scholar.js",

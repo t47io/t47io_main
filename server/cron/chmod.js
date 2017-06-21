@@ -16,15 +16,15 @@ const excludeFind = () => (
 
 const chmodRoot = () => {
   shell.cd(path.join(PUBLIC_PATH, '../'));
-  shell.exec(`chown -R ${CHMOD_USER}:${CHMOD_USER} *`);
-  shell.exec(`find ${excludeFind()} . -type d | xargs chmod 640`);
-  shell.exec(`find ${excludeFind()} . -type f | xargs chmod 750`);
+  shell.exec(`chown -R ${CHMOD_USER}:${CHMOD_USER} * .*`);
+  shell.exec(`find . ${excludeFind()} -type f | xargs chmod 640`);
+  shell.exec(`find . ${excludeFind()} -type d | xargs chmod 750`);
 };
 
 const chmodPublic = () => {
   shell.cd(PUBLIC_PATH);
   shell.exec(`chown -R ${CHMOD_USER}:${CHMOD_GROUP} *`);
-  shell.exec(`chown -R ${CHMOD_USER}:${CHMOD_GROUP} ..`);
+  shell.exec(`chown ${CHMOD_USER}:${CHMOD_GROUP} . .. ../..`);
 };
 
 
