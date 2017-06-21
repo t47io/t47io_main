@@ -26,7 +26,7 @@ const loaders = (SSR = false) => {
             loader: 'postcss-loader',
             options: { plugins: () => ([autoprefixer]) },
           },
-          'resolve-url-loader',
+          'resolve-url-loader?-sourceMap',
           'sass-loader?sourceMap',
         ],
       }),

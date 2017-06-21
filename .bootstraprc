@@ -2,10 +2,10 @@
   "bootstrapVersion": 3,
   "styleLoaders": [
     "style-loader",
-    "css-loader",
+    "css-loader?importLoaders=1",
     "postcss-loader",
-    "resolve-url-loader",
-    "sass-loader"
+    "resolve-url-loader?-sourceMap",
+    "sass-loader?sourceMap"
   ],
 
   "debug": false,
