@@ -9,9 +9,17 @@ This is the _Code and Content_ repository for **t47io Main** Website. The online
 
 **t47io Main** requires the following [**`Node.js`**](https://nodejs.org/) packages as dependencies (see in `package.json`), all of which can be installed through [`yarn`](https://yarnpkg.com/).
 
-Make sure you have `nodejs`, `babel-node` and `yarn` ready globally.
+Make sure you have `nodejs` and `babel-node` ready globally. Also for static compression of asset files, install `yarn`, `zopfli` and `brotli` globally (by [`brew`](https://brew.sh/) or `apt-get`):
 
-To install:
+```sh
+# ubuntu/debian
+sudo apt-get install yarn zopfli brotli
+# osx
+brew install yarn zopfli brotli
+sudo ln -s /usr/local/bin/bro /usr/local/bin/brotli
+```
+
+Then, setup the repository:
 
 ```sh
 git clone https://github.com/t47io/t47io_main.git
@@ -19,7 +27,7 @@ cd ./t47io_main/
 # babel-node is used for running ES6 scripts
 yarn global add babel-cli
 # pm2 is used for production only
-# yarn global add pm2
+yarn global add pm2
 yarn install
 ```
 
