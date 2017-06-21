@@ -19,6 +19,7 @@ const chmodRoot = () => {
   shell.exec(`chown -R ${CHMOD_USER}:${CHMOD_USER} * .*`);
   shell.exec(`find . ${excludeFind()} -type f | xargs chmod 640`);
   shell.exec(`find . ${excludeFind()} -type d | xargs chmod 750`);
+  shell.chmod(700, './server/cron/cert_renew.sh');
 };
 
 const chmodPublic = () => {
