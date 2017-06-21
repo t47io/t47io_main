@@ -2,9 +2,12 @@ import colors from 'colors';
 import path from 'path';
 import shell from 'shelljs';
 
-import { BACKUP_FILE_NAME } from '../config.js';
+import {
+  PUBLIC_PATH,
+  BACKUP_FILE_NAME,
+} from '../config.js';
 
-const backupPath = path.join(__dirname, '../../backup');
+const backupPath = path.join(PUBLIC_PATH, '../backup');
 
 const prepareFolder = () => {
   shell.rm('-rf', backupPath);

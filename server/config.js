@@ -49,3 +49,6 @@ export const BOT_USER_AGENTS = [
   'twitterbot',
   'developers.google.com',
 ];
+
+export const CHMOD_USER = 'admin';
+export const CHMOD_GROUP = 'www-data';

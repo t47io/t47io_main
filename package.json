@@ -13,7 +13,7 @@
     "lint:css": "./node_modules/stylefmt/bin/cli.js -i applications/common/mixins/sprite.scss -r \"applications/**/*.{css,scss}\"",
 
     "json": "babel-node ./server/json.js",
-    "stat": "yarn run cron && yarn run json && yarn run build:client",
+    "stat": "yarn run cron && yarn run json && yarn run build:client && yarn run cron:chmod",
     "build": "yarn run lint:js && yarn run json && yarn run build:server && yarn run build:client",
 
     "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
@@ -38,6 +38,7 @@
     "cron:https": "babel-node ./server/cron/ssl_expire.js",
     "cron:backup": "babel-node ./server/cron/backup.js",
     "cron:email": "babel-node ./server/cron/email.js",
+    "cron:chmod": "babel-node ./server/cron/chmod.js",
 
     "update": "./node_modules/npm-check-updates/bin/ncu -x preact -u -a && yarn upgrade && yarn clean"
   },
