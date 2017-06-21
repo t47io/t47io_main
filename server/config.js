@@ -52,3 +52,7 @@ export const BOT_USER_AGENTS = [
 
 export const CHMOD_USER = 'admin';
 export const CHMOD_GROUP = 'www-data';
+export const CHMOD_EXCLUDES = [
+  'node_modules',
+  '.git',
+];
