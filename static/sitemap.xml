@@ -1,104 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
+  xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9
+        https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
   <url>
-    <loc>http://t47.io/</loc>
+    <loc>https://t47.io/</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2016_Tian_QRB.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2017_Tian_eLife.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2015_Cheng_eLife.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2017_Chen_Science.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2015_Tian_NAR.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2017_Hagey_NatMed.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2015_Lee_Bioinfomatics.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2017_Miao_RNA.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2015_Miao_RNA.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2017_Tian_Bioinformatics.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2015_Xue_Nature.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2016_Tian_QRB.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2014_Tian_RNA.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2015_Cheng_eLife.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2014_Kladwang_Biochemistry.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2015_Tian_NAR.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/pdf/2013_Shi_NewPhytol.pdf</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/pdf/2015_Lee_Bioinfomatics.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://t47.io/pdf/2015_Miao_RNA.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://t47.io/pdf/2015_Xue_Nature.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://t47.io/pdf/2014_Tian_RNA.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://t47.io/pdf/2014_Kladwang_Biochemistry.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://t47.io/pdf/2013_Shi_NewPhytol.pdf</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>yearly</changefreq>
   </url>
 
   <url>
-    <loc>http://t47.io/project/daslab/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/project/daslab/</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/project/rmdb/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/project/rmdb/</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/project/primerize/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/project/primerize/</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/project/eterna/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/project/eterna/</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/project/hitrace/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/project/hitrace/</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/project/spindle/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/project/spindle/</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://t47.io/project/celica/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/project/celica/</loc>
+    <lastmod>2017-06-01T23:38:02+00:00</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>http://t47.io/resume/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
+    <loc>https://t47.io/resume/</loc>
+    <lastmod>2017-06-20T23:38:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://t47.io/load/</loc>
-    <lastmod>2016-01-25T23:38:02+00:00</lastmod>
-    <changefreq>yearly</changefreq>
   </url>
 </urlset>
