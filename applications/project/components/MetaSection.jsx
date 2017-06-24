@@ -4,7 +4,7 @@ import DocumentMeta from 'react-document-meta';
 import {
   HOST,
   META,
-} from '../../common/constants/util.js';
+} from '../../config.js';
 
 
 const MetaSection = ({

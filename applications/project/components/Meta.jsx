@@ -1,13 +1,13 @@
 import React from 'react';
 import DocumentMeta from 'react-document-meta';
 
+import { mainMeta } from '../../main/components/Meta.jsx';
 import {
   HOST,
   LINK,
   TITLE,
   DESCRIPTION,
-} from '../../common/constants/util.js';
-import { mainMeta } from '../../main/components/Meta.jsx';
+} from '../../config.js';
 
 
 const Meta = () => (

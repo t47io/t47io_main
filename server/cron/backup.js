@@ -2,10 +2,9 @@ import colors from 'colors';
 import path from 'path';
 import shell from 'shelljs';
 
-import {
-  PUBLIC_PATH,
-  BACKUP_FILE_NAME,
-} from '../config.js';
+import { PUBLIC_PATH } from '../env.js';
+import { FILE_NAMES } from '../config.js';
+
 
 const backupPath = path.join(PUBLIC_PATH, '../backup');
 
@@ -38,7 +37,7 @@ const backupMisc = () => {
 };
 
 const createTgz = () => {
-  const tarFilename = BACKUP_FILE_NAME.replace('.gz', '');
+  const tarFilename = FILE_NAMES.BACKUP.replace('.gz', '');
 
   shell.cd(backupPath);
   shell.cd('..');

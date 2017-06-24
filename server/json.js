@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
-import { PUBLIC_PATH } from './config.js';
+import { PUBLIC_PATH } from './env.js';
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_INTERNAL_NAMES } from '../applications/project/constants/repositoryTypes.js';

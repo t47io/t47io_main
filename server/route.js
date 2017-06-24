@@ -9,9 +9,10 @@ import {
   EMAIL_CONTENT_LEN,
   EMAIL_RECV,
   SMTP,
+} from './env.js';
+import {
   CACHE_MAX_AGE,
-  DEFENSE_FILE_NAME,
-  RESUME_FILE_NAME,
+  FILE_NAMES,
   BOT_USER_AGENTS,
 } from './config.js';
 import {
@@ -49,12 +50,12 @@ const routes = {
 
   resume: (req, res) => {
     res.sendFile(path.join(PUBLIC_PATH, 'pdf/', resumeVersion), {
-      headers: { 'Content-Disposition': `inline; filename="${RESUME_FILE_NAME}"` },
+      headers: { 'Content-Disposition': `inline; filename="${FILE_NAMES.RESUME}"` },
       maxAge: `${CACHE_MAX_AGE / 2} days`,
     });
   },
   defense: (req, res) => {
-    res.sendFile(path.join(PUBLIC_PATH, DEFENSE_FILE_NAME), { maxAge: `${CACHE_MAX_AGE * 5} days` });
+    res.sendFile(path.join(PUBLIC_PATH, FILE_NAMES.DEFENSE), { maxAge: `${CACHE_MAX_AGE * 5} days` });
   },
   email: {
     get: (req, res, next) => {

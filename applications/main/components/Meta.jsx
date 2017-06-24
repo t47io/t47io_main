@@ -7,7 +7,7 @@ import {
   META,
   TITLE,
   DESCRIPTION,
-} from '../../common/constants/util.js';
+} from '../../config.js';
 
 
 export const mainMeta = {

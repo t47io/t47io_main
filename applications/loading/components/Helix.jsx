@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LogoAlt from '../../common/components/LogoAlt.jsx';
-import { EMAIL } from '../../common/constants/util.js';
+import { EMAIL } from '../../config.js';
 
 // import '../stylesheets/Helix.scss';
 

@@ -23,7 +23,7 @@ import {
   footerHeader,
   footerGif,
 } from '../animations/footer.js';
-import { EMAIL } from '../constants/util.js';
+import { EMAIL } from '../../config.js';
 
 import '../stylesheets/Footer.scss';
 

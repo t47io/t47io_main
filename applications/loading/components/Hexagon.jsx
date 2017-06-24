@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Logo from '../../common/components/Logo.jsx';
-import { EMAIL } from '../../common/constants/util.js';
+import { EMAIL } from '../../config.js';
 
 // import '../stylesheets/Cube.scss';
 

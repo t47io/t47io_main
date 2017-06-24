@@ -3,7 +3,9 @@ import path from 'path';
 import {
   PUBLIC_PATH,
   DEBUG,
-  HTTP_CODE,
+} from './env.js';
+import {
+  HTTP_CODES,
   HTML_HEADER,
   CACHE_MAX_AGE,
 } from './config.js';
@@ -12,10 +14,11 @@ import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js'
 
 const { contact } = require('../config/main.json');
 
+
 export const resumeVersion = contact.resume;
 
 export const projectPathRegex = new RegExp(`^/project/(${PROJECT_LIST.join('|')})/?$`);
-export const errorPathRegex = new RegExp(`^/error/(${HTTP_CODE.join('|')})/?$`);
+export const errorPathRegex = new RegExp(`^/error/(${HTTP_CODES.join('|')})/?$`);
 
 export const getZipExt = headers => (
   headers['accept-encoding'].includes('br') ? 'br' : 'gzip'

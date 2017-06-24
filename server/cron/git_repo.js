@@ -5,11 +5,7 @@ import Github from 'github-api';
 import path from 'path';
 
 import {
-  GITHUB_RETRY,
-  GITHUB_INTERVAL,
-  GITHUB_TABLE_LIMIT,
-  GITHUB_DEFUALT_AUTHOR,
-  GITHUB_REPO_API,
+  GITHUB,
   JSON_FORMAT,
 } from '../config.js';
 import {
@@ -93,7 +89,7 @@ const formatTable = (data, result) => {
   const combinedResult = {
     ...result,
     contributors: data.map(contrib => ({
-      author: contrib.author ? contrib.author.login : GITHUB_DEFUALT_AUTHOR,
+      author: contrib.author ? contrib.author.login : GITHUB.DEFUALT_AUTHOR,
       commits: contrib.total,
       ...(
         contrib.weeks.reduce((sum, week) => ({
@@ -107,7 +103,7 @@ const formatTable = (data, result) => {
     })),
   };
   combinedResult.contributors.sort((a, b) => (b.commits - a.commits));
-  combinedResult.contributors.splice(GITHUB_TABLE_LIMIT);
+  combinedResult.contributors.splice(GITHUB.TABLE_LIMIT);
   return combinedResult;
 };
 const formatCalendar = (data, result) => {
@@ -157,9 +153,9 @@ REPOSITORY_LIST.forEach((repoName, i) => {
 
     axios.all([
       repo.getDetails(),
-      axios.get(`${GITHUB_REPO_API}${repoName}/pulls?access_token=${token}`),
-      axios.get(`${GITHUB_REPO_API}${repoName}/branches?access_token=${token}`),
-      axios.get(`${GITHUB_REPO_API}${repoName}/downloads?access_token=${token}`),
+      axios.get(`${GITHUB.API}${repoName}/pulls?access_token=${token}`),
+      axios.get(`${GITHUB.API}${repoName}/branches?access_token=${token}`),
+      axios.get(`${GITHUB.API}${repoName}/downloads?access_token=${token}`),
     ])
     .then(axios.spread((details, pulls, branches, downloads) => ({
       data: details.data,
@@ -168,8 +164,8 @@ REPOSITORY_LIST.forEach((repoName, i) => {
       downloads: downloads.data.length,
     })))
     .then((data) => { result = formatBasics(data, result); })
-    .then(() => getContribRetry(repo, GITHUB_RETRY, GITHUB_INTERVAL))
-    .catch(() => { console.error(`${colors.red('ERROR')}: Failed to fetch Github records for repository ${colors.blue(repoName)} after ${GITHUB_RETRY} attempts.`); })
+    .then(() => getContribRetry(repo, GITHUB.RETRY, GITHUB.INTERVAL))
+    .catch(() => { console.error(`${colors.red('ERROR')}: Failed to fetch Github records for repository ${colors.blue(repoName)} after ${GITHUB.RETRY} attempts.`); })
     .then(({ data }) => {
       result = formatTable(data, result);
       return data.filter(contrib => contrib.author.login === login)[0].weeks;
@@ -181,7 +177,7 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     })
     .catch((error) => {
       console.error(error);
-      console.log(`${colors.red('ERROR')}: Failed to process Github records for repository ${colors.blue(repoName)} after ${GITHUB_RETRY} attempts.`);
+      console.log(`${colors.red('ERROR')}: Failed to process Github records for repository ${colors.blue(repoName)} after ${GITHUB.RETRY} attempts.`);
     });
   } catch (err) {
     console.error(err);

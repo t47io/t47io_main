@@ -6,7 +6,7 @@ import {
   LINK,
   META,
   TITLE,
-} from '../../common/constants/util.js';
+} from '../../config.js';
 
 
 const errorMeta = {

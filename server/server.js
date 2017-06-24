@@ -6,7 +6,9 @@ import {
   PUBLIC_PATH,
   MAINTENANCE,
   PORT,
-  HTTP_CODE,
+} from './env.js';
+import {
+  HTTP_CODES,
   CACHE_MAX_AGE,
 } from './config.js';
 import middlewares from './middleware.js';
@@ -56,7 +58,7 @@ app.all('*', routes.all);
 app.use((err, req, res, next) => {
   let code = 500;
   if (err.status) {
-    code = HTTP_CODE.includes(err.status) ? err.status : 503;
+    code = HTTP_CODES.includes(err.status) ? err.status : 503;
   } else {
     console.error(err);
   }

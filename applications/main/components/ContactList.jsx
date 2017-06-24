@@ -8,7 +8,7 @@ import { imgPhone } from '../components/Images.js';
 import { audName } from '../components/Audio.js';
 import { contactPanel } from '../animations/contact.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
-import { EMAIL } from '../../common/constants/util.js';
+import { EMAIL } from '../../config.js';
 
 
 const ContactList = ({

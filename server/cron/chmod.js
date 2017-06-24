@@ -4,19 +4,17 @@ import shell from 'shelljs';
 
 import {
   PUBLIC_PATH,
-  CHMOD_USER,
-  CHMOD_GROUP,
-  CHMOD_EXCLUDES,
-} from '../config.js';
+  CHMOD,
+} from '../env.js';
 
 
 const excludeFind = () => (
-  CHMOD_EXCLUDES.map(dir => `-not -path "./${dir}/*"`).join(' ')
+  CHMOD.EXCLUDES.map(dir => `-not -path "./${dir}/*"`).join(' ')
 );
 
 const chmodRoot = () => {
   shell.cd(path.join(PUBLIC_PATH, '../'));
-  shell.exec(`chown -R ${CHMOD_USER}:${CHMOD_USER} * .*`);
+  shell.exec(`chown -R ${CHMOD.USER}:${CHMOD.USER} * .*`);
   shell.exec(`find . ${excludeFind()} -type f | xargs chmod 640`);
   shell.exec(`find . ${excludeFind()} -type d | xargs chmod 750`);
   shell.chmod(700, './server/cron/cert_renew.sh');
@@ -24,8 +22,8 @@ const chmodRoot = () => {
 
 const chmodPublic = () => {
   shell.cd(PUBLIC_PATH);
-  shell.exec(`chown -R ${CHMOD_USER}:${CHMOD_GROUP} *`);
-  shell.exec(`chown ${CHMOD_USER}:${CHMOD_GROUP} . .. ../..`);
+  shell.exec(`chown -R ${CHMOD.USER}:${CHMOD.GROUP} *`);
+  shell.exec(`chown ${CHMOD.USER}:${CHMOD.GROUP} . .. ../..`);
 };
 
 

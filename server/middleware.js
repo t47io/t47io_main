@@ -16,8 +16,8 @@ import webpackConfig from '../webpack.config.client.js';
 import {
   PUBLIC_PATH,
   DEBUG,
-  FAVICO_FILE_NAME,
-} from './config.js';
+} from './env.js';
+import { FILE_NAMES } from './config.js';
 
 
 const middlewares = [
@@ -28,7 +28,7 @@ const middlewares = [
       indexFromEmptyFile: false,
     }),
   ],
-  favicon(path.join(PUBLIC_PATH, FAVICO_FILE_NAME)),
+  favicon(path.join(PUBLIC_PATH, FILE_NAMES.FAVICO)),
   helmet(),
   bodyParser.json(),
   userAgent.express(),

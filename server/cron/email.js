@@ -5,8 +5,8 @@ import {
   DEBUG,
   EMAIL_RECV,
   SMTP,
-  BACKUP_FILE_NAME,
-} from '../config.js';
+} from '../env.js';
+import { FILE_NAMES } from '../config.js';
 
 const cron = require('../../config/cron.json');
 
@@ -30,7 +30,7 @@ const emailAdmin = (content) => {
     text: content,
     attachments: [{
       filename: `t47io_backup_${dateString}.tgz`,
-      path: path.join(__dirname, `../../${BACKUP_FILE_NAME}`),
+      path: path.join(__dirname, `../../${FILE_NAMES.BACKUP}`),
     }],
   }, (err) => {
     if (err) {
