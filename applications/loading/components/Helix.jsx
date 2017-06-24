@@ -1,6 +1,7 @@
 import React from 'react';
 
 import LogoAlt from '../../common/components/LogoAlt.jsx';
+import { EMAIL } from '../../common/constants/util.js';
 
 // import '../stylesheets/Helix.scss';
 
@@ -9,7 +10,7 @@ const Helix = () => (
   <div className="LOAD__container UTIL__image-RNA">
     <div className="LOAD__content">
       <LogoAlt
-        href="mailto:contact@t47.io"
+        href={`mailto:${EMAIL}`}
         className="LOAD__logo green-white"
       />
 

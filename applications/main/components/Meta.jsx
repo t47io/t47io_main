@@ -5,6 +5,8 @@ import {
   HOST,
   LINK,
   META,
+  TITLE,
+  DESCRIPTION,
 } from '../../common/constants/util.js';
 
 
@@ -18,8 +20,8 @@ export const mainMeta = {
 
 const Meta = () => (
   <DocumentMeta
-    title="SIQI TIAN - Full-Stack Web Developer & RNA Biochemistry Automator | T47.IO"
-    description="Personal portfolio of Siqi Tian, a full-stack web designer and developer, as well as an RNA biochemist (PhD) from Stanford University."
+    title={TITLE}
+    description={DESCRIPTION}
     meta={mainMeta}
     link={LINK}
     canonical={HOST}

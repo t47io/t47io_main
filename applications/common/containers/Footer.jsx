@@ -23,6 +23,7 @@ import {
   footerHeader,
   footerGif,
 } from '../animations/footer.js';
+import { EMAIL } from '../constants/util.js';
 
 import '../stylesheets/Footer.scss';
 
@@ -70,7 +71,7 @@ const Footer = ({
         <a className="FOOTER__year">2015 - {year}</a>
         Designed, built & managed by
         <LogoAlt
-          href="mailto:contact@t47.io"
+          href={`mailto:${EMAIL}`}
           className="COMMON__footer_logo green-transparent"
         />
         . All rights reserverd.

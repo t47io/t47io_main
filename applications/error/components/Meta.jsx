@@ -5,6 +5,7 @@ import {
   HOST,
   LINK,
   META,
+  TITLE,
 } from '../../common/constants/util.js';
 
 
@@ -18,8 +19,8 @@ const errorMeta = {
 
 const Meta = () => (
   <DocumentMeta
-    title="SIQI TIAN - Full-Stack Web Developer & RNA Biochemistry Automator | T47.IO"
-    description="Custom HTTP error page for https://t47.io/, the personal portfolio of Siqi Tian."
+    title={TITLE}
+    description={`Custom HTTP error page for ${HOST}, the personal portfolio of Siqi Tian.`}
     meta={errorMeta}
     link={LINK}
     canonical={HOST}

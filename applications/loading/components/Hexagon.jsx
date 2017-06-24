@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Logo from '../../common/components/Logo.jsx';
+import { EMAIL } from '../../common/constants/util.js';
 
 // import '../stylesheets/Cube.scss';
 
@@ -9,7 +10,7 @@ const Hexagon = () => (
   <div className="LOAD__container UTIL__image-RNA">
     <div className="LOAD__content">
       <Logo
-        href="mailto:contact@t47.io"
+        href={`mailto:${EMAIL}`}
         className="LOAD__logo green"
       />
 

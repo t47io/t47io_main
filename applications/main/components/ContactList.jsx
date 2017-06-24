@@ -8,6 +8,7 @@ import { imgPhone } from '../components/Images.js';
 import { audName } from '../components/Audio.js';
 import { contactPanel } from '../animations/contact.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
+import { EMAIL } from '../../common/constants/util.js';
 
 
 const ContactList = ({
@@ -101,10 +102,10 @@ const ContactList = ({
           <i className="fa fa-mail-alt fa-lg fa-fw invisible" />
           <a
             className="text-light-gray"
-            href="mailto:contact@t47.io"
+            href={`mailto:${EMAIL}`}
             target="_blank" rel="noopener noreferrer external"
           >
-            contact @ t47.io
+            {EMAIL.replace('@', ' @ ')}
           </a>
         </WebAnimation>
         <WebAnimation
