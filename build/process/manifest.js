@@ -6,7 +6,7 @@ import shell from 'shelljs';
 import {
   MANIFEST_JS,
   ROOT_PATH,
-} from '../render/config.js';
+} from '../config.js';
 import {
   loadFileSync,
   saveFileSync,

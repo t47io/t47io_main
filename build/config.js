@@ -1,7 +1,12 @@
 import path from 'path';
 
-const { ga } = require('../../config/server.json');
+import { PUBLIC_PATH } from '../server/env.js';
 
+const { ga } = require('../config/server.json');
+
+
+export const ROOT_PATH = path.join(PUBLIC_PATH, '../');
+export const MANIFEST_JS = 'f.012345.min.js';
 
 export const GA_TRACKER = `
   <script type="application/javascript">
@@ -30,6 +35,3 @@ export const HTML_MINIFIER = {
   removeRedundantAttributes: true,
   useShortDoctype: true,
 };
-
-export const MANIFEST_JS = 'f.012345.min.js';
-export const ROOT_PATH = path.join(__dirname, '../../');

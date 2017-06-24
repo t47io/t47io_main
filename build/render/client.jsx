@@ -10,7 +10,7 @@ import Hexagon from '../../applications/loading/components/Hexagon.jsx';
 import MainMeta from '../../applications/main/components/Meta.jsx';
 import ProjectMeta from '../../applications/project/components/Meta.jsx';
 
-import { HTML_MINIFIER } from './config.js';
+import { HTML_MINIFIER } from '../config.js';
 import {
   replaceHTML,
   renderSassSync,

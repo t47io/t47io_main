@@ -1,6 +1,7 @@
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+
 const loaders = (SSR = false) => {
   const loader = [
     {

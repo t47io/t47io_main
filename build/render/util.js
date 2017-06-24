@@ -8,7 +8,7 @@ import shell from 'shelljs';
 import {
   GA_TRACKER,
   IE9_SHIM,
-} from './config.js';
+} from '../config.js';
 
 
 export const replaceHTML = inputHTML => (

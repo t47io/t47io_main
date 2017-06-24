@@ -16,7 +16,7 @@ import { getChunkNames } from './entries.js';
 import {
   MANIFEST_JS,
   ROOT_PATH,
-} from './render/config.js';
+} from './config.js';
 
 
 const plugins = (DEBUG = true) => {

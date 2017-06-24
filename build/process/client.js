@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import glob from 'glob-promise';
 import path from 'path';
 
-import { ROOT_PATH } from '../render/config.js';
+import { ROOT_PATH } from '../config.js';
 import {
   renderMainHTML,
   renderProjectHTML,

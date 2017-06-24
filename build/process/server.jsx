@@ -14,7 +14,7 @@ import MainMeta from '../../applications/main/components/Meta.jsx';
 import {
   HTML_MINIFIER,
   ROOT_PATH,
-} from '../render/config.js';
+} from '../config.js';
 import {
   replaceHTML,
   loadFileSync,
