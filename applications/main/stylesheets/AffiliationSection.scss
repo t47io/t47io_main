@@ -1,3 +1,4 @@
+@import '../../common/mixins/clearfix';
 @import '../../common/mixins/colors';
 @import '../../common/mixins/media';
 
@@ -50,9 +51,7 @@
   float: left;
 
   &::after {
-    content: "";
-    display: table;
-    clear: both;
+    @include clear_fix;
   }
   // &:last-child { margin: 0; }
 }

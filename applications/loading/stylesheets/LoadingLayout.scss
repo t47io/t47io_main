@@ -1,3 +1,4 @@
+@import '../../common/mixins/clearfix';
 @import '../../common/mixins/colors';
 @import '../../common/mixins/media';
 
@@ -59,12 +60,7 @@
 
   &::before,
   &::after {
-    display: table;
-    content: "";
-  }
-
-  &::after {
-    clear: both;
+    @include clear_fix;
   }
 }
 
