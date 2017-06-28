@@ -6,8 +6,11 @@
   ],
   "plugins": [
     "lodash",
-    ["module-resolver", {
-      "root": ["."],
+    [
+      "module-resolver", {
+      "root": [
+        "."
+      ],
       "alias": {
         "react": "preact-compat",
         "react-dom": "preact-compat"
@@ -16,11 +19,27 @@
   ],
   "env": {
     "development": {
-      "presets": ["react-hmre"]
+      "presets": [
+        "react-hmre"
+      ]
     },
     "production": {
       "presets": [
-        ["babili", { "mangle": false }]
+        [
+          "env", {
+            "targets": {
+              "browsers": [
+                "> 5%",
+                "last 2 versions"
+              ]
+            }
+          }
+        ],
+        [
+          "babili", {
+            "mangle": false
+          }
+        ]
       ]
     }
   }
