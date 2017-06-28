@@ -90,7 +90,7 @@ const Footer = ({
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
           target="_blank" rel="noopener noreferrer external"
         >
-          <i className="fa fa-fw fa-lg fa-creative-commons" />
+          <i className="fa fa-fw fa-creative-commons" />
           BY-NC-SA 4.0
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>.
