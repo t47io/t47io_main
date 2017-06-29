@@ -31,9 +31,11 @@ const getContribRetry = (repo, retry, interval) => (
   getContribOnce(repo)
   .catch(() => {
     if (retry > 0) {
-      return Promise((resolve) => {
-        setTimeout(() => resolve(getContribRetry(repo, retry - 1, interval)), interval * 2);
-      });
+      return new Promise(resolve => (
+        setTimeout(() => (
+          resolve(getContribRetry(repo, retry - 1, interval * 2))
+        ), interval)
+      ));
     }
     return Promise.reject('retry maxed out.');
   })
