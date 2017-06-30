@@ -32,7 +32,8 @@ export const saveFileSync = (filename, content) => {
 };
 
 export const getThemeColor = () => {
-  const whichTheme = THEMES[new Date().getMonth() % 3];
+  const index = (new Date().getMonth() + 1) % 6;
+  const whichTheme = THEMES[Math.max(0, index - 3)];
   return loadFileSync(`applications/common/themes/${whichTheme}.scss`);
 };
 
