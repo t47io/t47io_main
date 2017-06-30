@@ -61,7 +61,7 @@ const PubsSection = ({
         <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
           <h4 className="PUBS__find-more text-gray text-center">
             <span className="fa-stack">
-              <i className="fa fa-fw fa-blank fa-stack-2x text-light-green" />
+              <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
               <i className="fa fa-fw fa-search fa-stack-1x text-white" />
             </span>
             Find more on

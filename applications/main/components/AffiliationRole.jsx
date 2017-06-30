@@ -10,7 +10,7 @@ const AffiliationRole = ({
     <b>{position}</b>
     {` ${title}`}
     <br className="hidden-lg hidden-md" />
-    <span className="text-green">{' @ '}</span>
+    <span className="text-main">{' @ '}</span>
     <u>{team}</u>
   </p>
 );

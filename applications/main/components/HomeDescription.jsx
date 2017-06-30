@@ -15,7 +15,7 @@ const HomeDescription = ({
     const displayHTML = title.replace(/!/g, '').replace(/@/g, '<br/>');
     return (
       <p
-        className="HOME__typewrite text-light-green"
+        className="HOME__typewrite text-main-light"
         dangerouslySetInnerHTML={{ __html: displayHTML }}
       />
     );

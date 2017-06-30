@@ -72,7 +72,7 @@ const Footer = ({
         Designed, built & managed by
         <LogoAlt
           href={`mailto:${EMAIL}`}
-          className="COMMON__footer_logo green-transparent"
+          className="COMMON__footer_logo filled-transparent"
         />
         . All rights reserverd.
       </div>

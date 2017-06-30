@@ -11,7 +11,7 @@ const Helix = () => (
     <div className="LOAD__content">
       <LogoAlt
         href={`mailto:${EMAIL}`}
-        className="LOAD__logo green-white"
+        className="LOAD__logo filled-white"
       />
 
       <div className="row">

@@ -8,7 +8,7 @@ const PubsCodeLink = ({ code }) => {
     <a
       href={code}
       target="_blank" rel="noopener noreferrer external"
-      className="text-dark-green bg-light-green"
+      className="text-main-dark bg-main-light"
     >
       <i className="fa fa-fwn fa-file-code" />
     </a>

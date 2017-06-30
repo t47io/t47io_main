@@ -27,8 +27,8 @@ const PubsItem = ({
 }) => {
   const urlJournal = !url ? {} : { href: url };
   const urlPDF = isPreprint ? {} : { href: `/pdf/${tag}.pdf` };
-  const urlJournalClassName = !url ? 'text-light-gray' : 'text-dark-green bg-light-green';
-  const urlPDFClassName = isPreprint ? 'text-light-gray' : 'text-dark-green bg-light-green';
+  const urlJournalClassName = !url ? 'text-gray-light' : 'text-main-dark bg-main-light';
+  const urlPDFClassName = isPreprint ? 'text-gray-light' : 'text-main-dark bg-main-light';
 
   return (
     <WebAnimation
@@ -53,7 +53,7 @@ const PubsItem = ({
         <p className="text-gray">
           <PubsAuthor authors={authors} />
           {' ('}
-          <b className="text-light-green">{year}</b>
+          <b className="text-main-light">{year}</b>
           )
         </p>
         <p>
@@ -62,7 +62,7 @@ const PubsItem = ({
           <b>{'"'}</b>
         </p>
         <p>
-          <i className="text-green">{journal}</i>
+          <i className="main">{journal}</i>
           <PubsIssuePage
             issue={issue}
             page={page}

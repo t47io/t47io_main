@@ -12,7 +12,7 @@ const ErrorSection = ({
 }) => (
   <div className="LOAD__content UTIL__image-RNA">
     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <Logo className="green" />
+      <Logo className="filled" />
       <img
         className="ERROR__image"
         src={img}

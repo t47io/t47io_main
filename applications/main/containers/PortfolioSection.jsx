@@ -46,10 +46,10 @@ const PortfolioSection = ({
       <div className="PORTFOLIO__wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <p className="text-gray text-center">
           <span className="fa-stack">
-            <i className="fa fa-fw fa-blank fa-stack-2x text-light-green" />
+            <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
             <i className="fa fa-fw fa-mouse-pointer fa-stack-1x text-white" />
           </span>
-          Click for more details about each <span className="text-green">project</span>.
+          Click for more details about each <span className="main">project</span>.
         </p>
 
         <div className="PORTFOLIO__area" >

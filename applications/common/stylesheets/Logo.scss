@@ -1,6 +1,6 @@
 @import '../mixins/colors';
 
-.green .T47__logo path {
+.filled .T47__logo path {
   fill: $colorDark;
 }
 
@@ -8,17 +8,17 @@
   fill: $colorWhite;
 }
 
-.green-transparent .T47__logo_alt,
-.green-white .T47__logo_alt {
+.filled-transparent .T47__logo_alt,
+.filled-white .T47__logo_alt {
   path {
     fill: $colorMain;
   }
 }
 
-.green-transparent .T47__logo_alt-fill path {
+.filled-transparent .T47__logo_alt-fill path {
   fill: transparent;
 }
 
-.green-white .T47__logo_alt-fill path {
+.filled-white .T47__logo_alt-fill path {
   fill: white;
 }

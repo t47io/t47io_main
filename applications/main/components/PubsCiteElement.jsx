@@ -5,12 +5,12 @@ const PubsCiteElement = ({ citation }) => {
   if (!citation) { return null; }
 
   return (
-    <span className="PUBS__cite pull-right text-gray bg-light-gray">
+    <span className="PUBS__cite pull-right text-gray bg-gray-light">
       <i className="fa fa-fw fa-balance-scale" />
       <i>
         <small>Cited by :</small>
       </i>
-      <u className="text-main">{citation}</u>
+      <u className="text-black">{citation}</u>
     </span>
   );
 };

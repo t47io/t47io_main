@@ -17,9 +17,10 @@
   font-family: 'Tenor Sans', Helvetica, Arial, sans-serif;
 }
 
-.text-main {
+.text-black {
   color: $colorBlack;
-} /* Theme main color */
+}
+
 .text-white {
   color: $colorWhite;
 }
@@ -28,15 +29,15 @@
   color: $colorGrayLight;
 }
 
-.text-dark-green {
+.text-main-dark {
   color: $colorHeavy;
 }
 
-.text-green {
+.text-main {
   color: $colorDark;
 }
 
-.text-light-green {
+.text-main-light {
   color: $colorMain;
 }
 
@@ -44,22 +45,22 @@
   color: $colorGrayDark;
 }
 
-.text-light-gray {
+.text-gray-light {
   color: $colorGray;
 }
 
-.bg-light-green,
-.bg-light-gray,
+.bg-main-light,
+.bg-gray-light,
 .bg-black {
   padding: 0;
   border-radius: 0.25em;
 }
 
-.bg-light-green {
+.bg-main-light {
   background-color: $colorNone;
 }
 
-.bg-light-gray {
+.bg-gray-light {
   background-color: $colorGrayLight;
 }
 

@@ -84,7 +84,7 @@ const ContactList = ({
           <i className="fa fa-mail-alt fa-lg fa-fw" />
           <b>
             <a
-              className="text-light-green"
+              className="text-main-light"
               href="mailto:t47@alumni.stanford.edu"
               target="_blank" rel="noopener noreferrer external"
             >
@@ -101,7 +101,7 @@ const ContactList = ({
         >
           <i className="fa fa-mail-alt fa-lg fa-fw invisible" />
           <a
-            className="text-light-gray"
+            className="text-gray-light"
             href={`mailto:${EMAIL}`}
             target="_blank" rel="noopener noreferrer external"
           >
@@ -123,7 +123,7 @@ const ContactList = ({
           >
             <i className="fa fa-file-audio fa-fw" />
             Proununciation
-            <span className="text-main CONTACT__resume">
+            <span className="text-black CONTACT__resume">
               <i className={`fa fa-${audioPlayClass} fa-fw`} />
             </span>
           </button>
@@ -147,7 +147,7 @@ const ContactList = ({
           >
             <i className="fa fa-file-pdf fa-fw" />
             Résumé
-            <span className="text-main CONTACT__resume">
+            <span className="text-black CONTACT__resume">
               <i className="fa fa-clock fa-fw" />
               <small>{objDate}</small>
             </span>

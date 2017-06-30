@@ -17,7 +17,7 @@ const Footer = ({
       Designed, built & managed by
       <LogoAlt
         isTargetBlank={false}
-        className="green-white"
+        className="filled-white"
       />
       . All rights reserverd.
     </p>

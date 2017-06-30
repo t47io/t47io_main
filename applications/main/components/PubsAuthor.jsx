@@ -17,7 +17,7 @@ const PubsAuthor = ({ authors }) => {
           if (author === 'Tian S.') {
             return (
               <span>
-                <u className="text-main bg-light-gray">
+                <u className="text-black bg-gray-light">
                   Tian, S.
                   {(i <= numAuthors - 2) && ','}
                 </u>

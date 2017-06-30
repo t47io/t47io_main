@@ -11,7 +11,7 @@ const Cube = () => (
     <div className="LOAD__content">
       <Logo
         href={`mailto:${EMAIL}`}
-        className="LOAD__logo green"
+        className="LOAD__logo filled"
       />
 
       <div className="row">

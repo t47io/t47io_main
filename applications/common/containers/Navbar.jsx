@@ -29,7 +29,7 @@ const Navbar = ({
 }) => {
   const navbarClassName = (activeSection === HOME) ? 'COMMON__navbar--transparent' : 'navbar-shrink COMMON__navbar--default';
   const buttonClassName = isMobileCollapsed ? 'collapsed' : '';
-  const logoClassName = (activeSection === HOME) ? 'green' : 'white';
+  const logoClassName = (activeSection === HOME) ? 'filled' : 'white';
   const collapseClassName = isMobileCollapsed ? 'display' : '';
 
   return (
