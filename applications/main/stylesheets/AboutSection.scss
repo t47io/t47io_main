@@ -20,7 +20,7 @@
     line-height: 2.25em;
     text-align: center;
     color: $colorWhite;
-    background-color: $colorGreenDark;
+    background-color: $colorDark;
     margin-bottom: 1em;
 
     transition-duration: 0.25s;
@@ -46,7 +46,7 @@
     margin-top: 2em;
 
     &:hover {
-      color: $colorGreen;
+      color: $colorMain;
     }
 
     .ABOUT__detail {
@@ -57,7 +57,7 @@
 
   &:hover {
     .ABOUT__icon {
-      background-color: $colorGreen;
+      background-color: $colorMain;
       transition-duration: 0.25s;
 
       .fa {

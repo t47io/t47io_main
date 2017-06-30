@@ -12,7 +12,7 @@
 .COMMON__dropdown-menu {
   padding: 0.75em 0;
   margin-top: 0;
-  border: 2px solid $colorGreen;
+  border: 2px solid $colorMain;
   border-radius: 0;
   box-shadow: none;
 
@@ -22,14 +22,14 @@
       margin-left: 0;
       border-radius: 0;
       // padding: 4px 20px;
-      color: $colorGreenFull;
+      color: $colorFull;
       text-align: right;
       text-transform: uppercase;
 
       &:hover,
       &:focus {
-        background-color: $colorGreenFaint;
-        color: $colorGreenFull;
+        background-color: $colorFaint;
+        color: $colorFull;
         font-weight: bold;
         text-decoration: none;
       }
@@ -37,7 +37,7 @@
       &.active,
       &.active:hover,
       &.active:focus {
-        background-color: $colorGreen;
+        background-color: $colorMain;
         color: $colorWhite;
         font-weight: bold;
       }

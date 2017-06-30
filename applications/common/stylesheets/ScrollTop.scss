@@ -6,8 +6,8 @@
   right: 2.5em;
   width: 2.5em;
   height: 2.5em;
-  color: $colorGreen;
-  border: 2px solid $colorGreen;
+  color: $colorMain;
+  border: 2px solid $colorMain;
   line-height: 2.5em;
   text-align: center;
   text-decoration: none;
@@ -24,7 +24,7 @@
   }
 
   &:hover {
-    background-color: $colorGreen;
+    background-color: $colorMain;
   }
 
   &:hover .fa {

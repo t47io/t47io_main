@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   padding: 0;
-  background-color: $colorGreenDark;
+  background-color: $colorDark;
   overflow: hidden;
 }
 
@@ -34,7 +34,7 @@
     line-height: 3.25rem;
     text-align: center;
     color: $colorWhite;
-    background-color: $colorGreenDark;
+    background-color: $colorDark;
     margin-right: 1.75em;
     margin-top: 0.75em;
     margin-bottom: 1em;
@@ -60,7 +60,7 @@
 
   &:hover {
     .CONTACT__icon {
-      background-color: $colorGreen;
+      background-color: $colorMain;
       transition-duration: 0.25s;
 
       .fa {
@@ -127,7 +127,7 @@
 
     &:hover {
       .fa {
-        color: $colorGreen;
+        color: $colorMain;
       }
     }
 

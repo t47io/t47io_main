@@ -9,7 +9,7 @@
     padding-bottom: 2.25em;
 
     &:hover .fa {
-      color: $colorGreen;
+      color: $colorMain;
     }
 
     .STATS__num {
@@ -19,7 +19,7 @@
 }
 
 .STATS__num.done ~ .STATS__text {
-  color: $colorGreenDark;
+  color: $colorDark;
 }
 
 .STATS__note-link {
@@ -58,19 +58,19 @@
     }
 
     &.day_1 {
-      fill: $colorGreenLight;
+      fill: $colorLight;
     }
 
     &.day_2 {
-      fill: $colorGreen;
+      fill: $colorMain;
     }
 
     &.day_3 {
-      fill: $colorGreenDark;
+      fill: $colorDark;
     }
 
     &.day_4 {
-      fill: $colorGreenHeavy;
+      fill: $colorHeavy;
     }
   }
 }

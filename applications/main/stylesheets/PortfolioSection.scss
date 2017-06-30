@@ -15,7 +15,7 @@
       display: inline-block;
 
       &.active .PORTFOLIO__filter-link {
-        background: $colorGreenDark;
+        background: $colorDark;
         color: $colorWhite;
         font-weight: 900;
       }
@@ -30,7 +30,7 @@
         text-transform: uppercase;
 
         &:hover {
-          background: $colorGreen;
+          background: $colorMain;
           color: $colorWhite;
         }
       }

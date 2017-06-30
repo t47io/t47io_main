@@ -43,13 +43,13 @@
 
 .COMMON__navbar--default {
   height: 67px;
-  background-color: $colorGreenDark;
+  background-color: $colorDark;
   z-index: 9999;
   box-shadow: 0 1px 3px rgba(0, 7, 11, 0.15);
 
   .COMMON__navbar-item {
     .COMMON__navbar-link {
-      color: $colorGreenFaint;
+      color: $colorFaint;
       background-color: transparent;
       padding: 24px 0;
     }
@@ -87,7 +87,7 @@
       background-color: transparent;
 
       .COMMON__navbar-link {
-        color: $colorGreen;
+        color: $colorMain;
       }
     }
   }
@@ -98,7 +98,7 @@
     display: none;
     float: right;
     text-align: center;
-    background-color: $colorGreen;
+    background-color: $colorMain;
     border-top: 2px solid $colorWhite;
     padding: 0;
 
@@ -149,7 +149,7 @@
   .COMMON__navbar--transparent .COMMON__navbar-item {
     &.active {
       .COMMON__navbar-link {
-        color: $colorGreenFull;
+        color: $colorFull;
 
         &:hover,
         &:focus {

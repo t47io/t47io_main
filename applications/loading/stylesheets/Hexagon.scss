@@ -2,7 +2,7 @@
 @import '../../common/mixins/palette';
 
 $unit: 6rem;
-$list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $colorGreen;
+$list-clr: $colorRed, $colorCyan, $colorYellow, $colorPurple, $colorGray, $colorMain;
 
 .LOAD__logo svg {
   width: 15rem;

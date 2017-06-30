@@ -64,16 +64,16 @@
   .AFFILIATION__panel {
     background: $colorGrayLight;
     padding: 1.5em;
-    border-left: 5px solid $colorGreen;
+    border-left: 5px solid $colorMain;
     text-align: left;
   }
 
   &.active {
     .AFFILIATION__year {
-      color: $colorGreen;
+      color: $colorMain;
 
       &::after {
-        background-color: $colorGreen;
+        background-color: $colorMain;
       }
     }
   }
@@ -87,7 +87,7 @@
   font-variant: small-caps;
   text-align: center;
 
-  // a { color: $colorGreenDark; }
+  // a { color: $colorDark; }
   .AFFILIATION__geo {
     font-variant: normal;
     font-size: 0.7em;
@@ -116,7 +116,7 @@
     height: 0.5em;
     left: 14.8em;
     top: 40%;
-    background: $colorGreenDark;
+    background: $colorDark;
     position: absolute;
     z-index: 6;
     border-radius: 0.5em;

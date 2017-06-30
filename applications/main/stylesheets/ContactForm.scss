@@ -10,13 +10,13 @@
 
   &:focus {
     background-color: rgba(0, 7, 11, 0.75);
-    border-color: $colorGreen;
+    border-color: $colorMain;
     box-shadow: none;
   }
 
   &:disabled {
     background-color: $colorGrayDark;
-    color: $colorGreenFull;
+    color: $colorFull;
     opacity: 0.5;
   }
 }
@@ -44,7 +44,7 @@
   &:focus,
   &.focus {
     color: $colorWhite;
-    background: $colorGreen;
+    background: $colorMain;
   }
 
   &,
@@ -52,7 +52,7 @@
   &.disabled,
   &:active,
   &.active {
-    background: $colorGreenDark;
+    background: $colorDark;
     color: $colorWhite;
     transition-duration: 0.6s;
   }

@@ -3,14 +3,14 @@
 .SKILLS__progress {
   overflow: visible;
   margin-bottom: 1.25em;
-  border: 3px solid $colorGreenDark;
+  border: 3px solid $colorDark;
   box-sizing: content-box;
   background-color: transparent;
   box-shadow: none;
 }
 
 .SKILLS__bar {
-  background-color: $colorGreen;
+  background-color: $colorMain;
   color: $colorBlack;
   padding: 0.25em;
   text-align: center;

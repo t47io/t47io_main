@@ -29,15 +29,15 @@
 }
 
 .text-dark-green {
-  color: $colorGreenHeavy;
+  color: $colorHeavy;
 }
 
 .text-green {
-  color: $colorGreenDark;
+  color: $colorDark;
 }
 
 .text-light-green {
-  color: $colorGreen;
+  color: $colorMain;
 }
 
 .text-gray {
@@ -56,7 +56,7 @@
 }
 
 .bg-light-green {
-  background-color: $colorGreenNone;
+  background-color: $colorNone;
 }
 
 .bg-light-gray {
@@ -68,11 +68,11 @@
 }
 
 a {
-  color: $colorGreenDark;
+  color: $colorDark;
 
   &:hover,
   &:focus {
-    color: $colorGreen;
+    color: $colorMain;
     text-decoration: none;
   }
 }
