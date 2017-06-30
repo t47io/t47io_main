@@ -1,6 +1,8 @@
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+import colorCSS from './render/theme.js';
+
 
 const loaders = (SSR = false) => {
   const loader = [
@@ -28,7 +30,13 @@ const loaders = (SSR = false) => {
             options: { plugins: () => ([autoprefixer]) },
           },
           'resolve-url-loader?-sourceMap',
-          'sass-loader?sourceMap',
+          {
+            loader: 'sass-loader',
+            options: {
+              data: colorCSS,
+              sourceMap: true,
+            },
+          },
         ],
       }),
     },

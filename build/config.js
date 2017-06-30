@@ -35,3 +35,9 @@ export const HTML_MINIFIER = {
   removeRedundantAttributes: true,
   useShortDoctype: true,
 };
+
+export const THEMES = [
+  'green',
+  'cyan',
+  'purple',
+];
