@@ -9,7 +9,7 @@ const cron = require('../../config/cron.json');
 
 
 const checkCertificate = host => (
-  new Promise((resolve, reject) => {
+  new Promise((resolve) => {
     const req = https.request({ host }, (res) => {
       const cert = res.socket.getPeerCertificate();
       resolve(new Date(cert.valid_to).toISOString());
@@ -17,8 +17,8 @@ const checkCertificate = host => (
 
     req.on('error', (error) => {
       console.error(error);
-      console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
-      reject();
+      console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate of ${colors.blue(host)}.`);
+      resolve(undefined);
     });
     req.end();
   })
