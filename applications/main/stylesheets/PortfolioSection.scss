@@ -96,7 +96,7 @@
     text-align: center;
     opacity: 0;
     color: transparent;
-    background: none repeat scroll 0 0 rgba(114, 166, 3, 0.75);
+    background: none repeat scroll 0 0 rgba($colorMain, 0.75);
     transition-duration: 0.6s;
     transform: scale(0);
   }
