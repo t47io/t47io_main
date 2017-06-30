@@ -9,6 +9,7 @@ import {
   ROOT_PATH,
   GA_TRACKER,
   IE9_SHIM,
+  THEMES,
 } from '../config.js';
 
 
@@ -18,7 +19,6 @@ export const replaceHTML = inputHTML => (
     .replace('<ga />', `${GA_TRACKER}${IE9_SHIM}`)
     .replace('[object Object]', '')
 );
-
 
 export const loadFileSync = filename => (
   fs.readFileSync(path.join(ROOT_PATH, filename), 'utf8')
@@ -31,10 +31,16 @@ export const saveFileSync = (filename, content) => {
   shell.exec(`brotli -f -q 11 -i ${filename} -o ${filename}.br`);
 };
 
+export const getThemeColor = () => {
+  const whichTheme = THEMES[new Date().getMonth() % 3];
+  return loadFileSync(`applications/common/themes/${whichTheme}.scss`);
+};
+
 export const renderSassSync = filename => (
   postcss([autoprefixer]).process(
     sass.renderSync({
       file: path.join(ROOT_PATH, filename),
+      data: `${getThemeColor()}${loadFileSync(filename)}`,
     }).css.toString()
   ).css
 );

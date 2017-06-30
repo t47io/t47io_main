@@ -1,7 +1,7 @@
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-import colorCSS from './render/theme.js';
+import { getThemeColor } from './render/util.js';
 
 
 const loaders = (SSR = false) => {
@@ -33,7 +33,7 @@ const loaders = (SSR = false) => {
           {
             loader: 'sass-loader',
             options: {
-              data: colorCSS,
+              data: getThemeColor(),
               sourceMap: true,
             },
           },
