@@ -134,6 +134,46 @@
   }
 }
 
+.PORTFOLIO__power-by {
+  border: solid 1px red;
+  margin: 1rem;
+
+  svg {
+    height: 2.5rem;
+    width: auto;
+    margin: 0 0.5rem;
+
+    .brand-logo__open,
+    .brand-logo__filled,
+    .brand-logo__extra {
+      transition-duration: 0.25s;
+    }
+
+    .brand-logo__open {
+      fill: $colorGrayLight;
+    }
+
+    .brand-logo__filled {
+      fill: $colorMain;
+    }
+
+    .brand-logo__extra {
+      fill: $colorGrayDark;
+    }
+
+    &:hover {
+      .brand-logo__open,
+      .brand-logo__extra {
+        fill: $colorLight;
+      }
+
+      .brand-logo__filled {
+        fill: $colorGrayDark;
+      }
+    }
+  }
+}
+
 @include media_width_lt(767px) {
   .PORTFOLIO__wrapper {
     padding: 0;

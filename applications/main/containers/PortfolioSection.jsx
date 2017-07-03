@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import PortfolioFilterItem from '../components/PortfolioFilterItem.jsx';
 import PortfolioItem from '../components/PortfolioItem.jsx';
+import PortfolioPowerBy from '../components/PortfolioPowerBy.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
@@ -84,6 +85,8 @@ const PortfolioSection = ({
           </div>
         </div>
       </div>
+
+      <PortfolioPowerBy />
     </div>
   </section>
 );
