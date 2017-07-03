@@ -4,6 +4,7 @@ import glob from 'glob-promise';
 import path from 'path';
 
 import { ROOT_PATH } from '../config.js';
+import { FILE_NAMES } from '../../server/config.js';
 import {
   renderMainHTML,
   renderProjectHTML,
@@ -59,6 +60,9 @@ try {
       path.join(ROOT_PATH, `public/${file}`)
     )
   ));
+
+  const robotsTXT = loadFileSync(`static/${FILE_NAMES.ROBOTS}`);
+  saveFileSync(`public/${FILE_NAMES.ROBOTS}`, robotsTXT);
   console.log(`${colors.green('SUCCESS')}: Public files copied.`);
 } catch (err) {
   console.log(err);

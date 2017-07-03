@@ -19,6 +19,8 @@ export const FILE_NAMES = {
   FAVICO: 't47_icon.png',
   RESUME: 'SiqiTian_resume',
   DEFENSE: 't47_phd_defense.png',
+  ROBOTS: 'robots.txt',
+  SITEMAP: 'sitemap.xml',
   BACKUP: 'backup.tar.gz',
 };
 
