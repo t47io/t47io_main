@@ -97,7 +97,7 @@ const plugins = (DEBUG = true) => {
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: chunkNames.manifest,
-      filename: DEBUG ? '[name].js' : '[name].012345.min.js',
+      filename: DEBUG ? '[name].js' : MANIFEST_JS,
     }),
     new ManifestPlugin(),
     new BabiliPlugin(),
