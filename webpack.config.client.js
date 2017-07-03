@@ -3,6 +3,7 @@ import colors from 'colors';
 import entries from './build/entries.js';
 import loaders from './build/loaders.js';
 import plugins from './build/plugins.js';
+import { PUBLIC_PATH } from './server/env.js';
 
 
 const DEBUG = !(process.argv.includes('--production') || (process.env.BABEL_ENV === 'production') || process.env.PM2_USAGE);
@@ -16,7 +17,7 @@ const config = {
     filename: DEBUG ? '[name].js' : '[name].[chunkhash].min.js',
     chunkFilename: DEBUG ? '[name].js' : '[name].[chunkhash].min.js',
     hashDigestLength: 6,
-    path: `${__dirname}/public`,
+    path: PUBLIC_PATH,
     publicPath: '/',
   },
 

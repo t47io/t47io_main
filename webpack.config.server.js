@@ -2,6 +2,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import StaticSiteGeneratorPlugin from 'static-site-generator-webpack-plugin';
 
 import loaders from './build/loaders.js';
+import { PUBLIC_PATH } from './server/env.js';
 
 
 const config = {
@@ -13,7 +14,7 @@ const config = {
   },
   output: {
     filename: 'ssr.min.js',
-    path: `${__dirname}/public`,
+    path: PUBLIC_PATH,
     publicPath: '/',
     libraryTarget: 'umd',
   },
