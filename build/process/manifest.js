@@ -47,7 +47,6 @@ try {
 
   saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
   fs.writeJsonSync(path.join(ROOT_PATH, 'config/manifest.json'), chunkManifest);
-  shell.rm('-rf', path.join(ROOT_PATH, `public/${MANIFEST_JS}`));
   console.log(`${colors.green('SUCCESS')}: Manifest JSON injected.`);
 } catch (err) {
   console.log(err);

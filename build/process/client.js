@@ -1,10 +1,5 @@
 import colors from 'colors';
-import fs from 'fs-extra';
-import glob from 'glob-promise';
-import path from 'path';
 
-import { ROOT_PATH } from '../config.js';
-import { FILE_NAMES } from '../../server/config.js';
 import {
   renderMainHTML,
   renderProjectHTML,
@@ -35,36 +30,4 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Index Page.`);
-}
-
-try {
-  const tmpFiles = [
-    ...glob.sync(path.join(ROOT_PATH, 'public/*.map')),
-    ...glob.sync(path.join(ROOT_PATH, 'public/*.js')),
-    ...glob.sync(path.join(ROOT_PATH, 'public/*.html')),
-    ...glob.sync(path.join(ROOT_PATH, 'public/e.*.min.js.br')),
-  ];
-  tmpFiles.forEach(file => fs.removeSync(file));
-  console.log(`${colors.green('SUCCESS')}: Build temporary files deleted.`);
-} catch (err) {
-  console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to delete Build temporary files.`);
-}
-
-try {
-  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/*'))
-    .map(file => path.basename(file));
-  staticFiles.forEach(file => (
-    fs.copySync(
-      path.join(ROOT_PATH, `static/${file}`),
-      path.join(ROOT_PATH, `public/${file}`)
-    )
-  ));
-
-  const robotsTXT = loadFileSync(`static/${FILE_NAMES.ROBOTS}`);
-  saveFileSync(`public/${FILE_NAMES.ROBOTS}`, robotsTXT);
-  console.log(`${colors.green('SUCCESS')}: Public files copied.`);
-} catch (err) {
-  console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to copy Public files.`);
 }
