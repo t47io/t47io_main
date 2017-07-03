@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
@@ -21,7 +21,7 @@
     "prod": "pm2 start --interpreter babel-node server/server.js -n main",
 
     "build:server": "yarn webpack:server && yarn process:server",
-    "build:client": "yarn webpack:client && yarn process:error && yarn process:client && yarn process:manifest",
+    "build:client": "yarn webpack:client && yarn process:error && yarn process:client && yarn process:manifest && yarn process:sitemap",
 
     "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
     "webpack:client": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.client.js --verbose",
@@ -30,6 +30,7 @@
     "process:client": "babel-node ./build/process/client.js",
     "process:manifest": "babel-node ./build/process/manifest.js",
     "process:error": "babel-node ./build/process/error.jsx",
+    "process:sitemap": "babel-node ./build/process/sitemap.js",
 
     "cron": "yarn cron:contrib && yarn cron:repo && yarn cron:scholar && yarn cron:https && yarn cron:backup && yarn cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",

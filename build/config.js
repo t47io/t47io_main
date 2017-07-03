@@ -36,6 +36,12 @@ export const HTML_MINIFIER = {
   useShortDoctype: true,
 };
 
+export const SITEMAP_HEAD = {
+  xmlns: 'https://www.sitemaps.org/schemas/sitemap/0.9',
+  xsi: 'https://www.w3.org/2001/XMLSchema-instance',
+  schemaLocation: 'sitemap.xsd',
+};
+
 export const THEMES = [
   'green',
   'cyan',

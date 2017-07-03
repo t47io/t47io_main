@@ -22,6 +22,7 @@ const getContribOnce = repo => (
     .then((json) => {
       // github may respond 202 while it executes query
       if (json.status === 200) { resolve(json); }
+      console.log(`${colors.yellow('WARNING')}: Fetching Github records for repository ${colors.blue(repo)} returned ${colors.red(json.status)}, retrying...`);
       reject('Failed to fetch Github repository contrib');
     })
     .catch(reject)
