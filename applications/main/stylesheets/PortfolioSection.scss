@@ -135,8 +135,13 @@
 }
 
 .PORTFOLIO__power-by {
-  border: solid 1px red;
-  margin: 1rem;
+  .PORTFOLIO__find-more {
+    line-height: 1.5em;
+  }
+
+  .PORTFOLIO__brand-logo {
+    padding: 1em 0;
+  }
 
   svg {
     height: 2.5rem;
@@ -151,6 +156,7 @@
 
     .brand-logo__open {
       fill: $colorGrayLight;
+      stroke: $colorGrayLight;
     }
 
     .brand-logo__filled {

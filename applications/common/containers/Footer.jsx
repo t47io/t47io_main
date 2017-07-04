@@ -23,7 +23,11 @@ import {
   footerHeader,
   footerGif,
 } from '../animations/footer.js';
-import { EMAIL } from '../../config.js';
+import {
+  EMAIL,
+  LICENSE,
+  REPOSITORY,
+} from '../../config.js';
 
 import '../stylesheets/Footer.scss';
 
@@ -78,7 +82,7 @@ const Footer = ({
       </div>
       <p className="FOOTER__copyright">
         <a
-          href="https://github.com/t47io/t47io_main/"
+          href={REPOSITORY}
           target="_blank" rel="noopener noreferrer external"
           className="text-gray"
         >
@@ -87,7 +91,7 @@ const Footer = ({
         </a>
         on this site is licensed under
         <a
-          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          href={LICENSE}
           target="_blank" rel="noopener noreferrer external"
         >
           <i className="fa fa-fw fa-creative-commons" />

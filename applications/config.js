@@ -22,3 +22,6 @@ export const LINK = {
 
 export const TITLE = 'SIQI TIAN - Full-Stack Web Developer & RNA Biochemistry Automator | T47.IO';
 export const DESCRIPTION = 'Personal portfolio of Siqi Tian, a full-stack web designer and developer, as well as an RNA biochemist (PhD) from Stanford University.';
+
+export const LICENSE = 'https://creativecommons.org/licenses/by-nc-sa/4.0/';
+export const REPOSITORY = 'https://github.com/t47io/t47io_main/';

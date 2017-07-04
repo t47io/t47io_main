@@ -11,6 +11,7 @@ export const initialState = {
   data: {
     items: [],
     categories: [],
+    brands: [],
     selectedCategory: 'all',
   },
   animations: {

@@ -2,8 +2,10 @@ import React from 'react';
 
 import LogoAlt from '../../common/components/LogoAlt.jsx';
 
-const year = new Date().getFullYear();
+import { LICENSE } from '../../config.js';
 
+
+const year = new Date().getFullYear();
 
 const Footer = ({
   copy,
@@ -24,7 +26,7 @@ const Footer = ({
     <p className="FOOTER__line">
       Code and content on this site is licensed under
       <a
-        href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+        href={LICENSE}
         target="_blank" rel="noopener noreferrer external"
       >
         <i className="fa fa-fw" dangerouslySetInnerHTML={{ __html: cc }} />

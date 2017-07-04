@@ -33,7 +33,7 @@ const RepositoryTable = ({ items }) => (
         />
       ))}
       <tr>
-        <td colSpan="4" style={{ padding: 0 }} />
+        <td colSpan="4" className="PROJECT__repo-table-bottom" />
       </tr>
     </tbody>
   </table>
