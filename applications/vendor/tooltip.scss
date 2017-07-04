@@ -1,78 +1,57 @@
 @import '../common/mixins/colors';
 
 .__react_component_tooltip {
-  display: inline-block;
   position: fixed;
+  display: inline-block;
   left: -999em;
   top: -999em;
+  z-index: 999;
+
   visibility: hidden;
   opacity: 0;
-  z-index: 999;
   border-radius: 0.25rem;
   padding: 0.6rem 1.5rem;
+
   font-size: 1rem;
-  pointer-events: none;
   color: $colorWhite;
   background-color: $colorBlack;
 
+  pointer-events: none;
   transition: opacity 0.25s ease-in-out;
 
-  &:before,
-  &:after {
+  &::after {
     position: absolute;
     content: "";
     width: 0;
     height: 0;
+
+    left: 50%;
+    margin-left: -0.75rem;
+    border-left: 0.6rem solid transparent;
+    border-right: 0.6rem solid transparent;
   }
 
   &.show {
-    margin-top: 0;
-    margin-left: 0;
+    margin-left: 0.6rem;
     opacity: 0.9;
     visibility: visible;
-  }
 
-  &.place-top {
-    margin-top: -0.75rem;
-
-    &:before {
-      bottom: -0.6rem;
-      left: 50%;
-      margin-left: -0.75rem;
-      border-left: 0.75rem solid transparent;
-      border-right: 0.75rem solid transparent;
-      border-top: 0.45rem solid $colorWhite;
+    &.place-top {
+      margin-top: -0.5rem;
     }
 
-    &:after {
-      bottom: -0.45rem;
-      left: 50%;
-      margin-left: -0.6rem;
-      border-left: 0.6rem solid transparent;
-      border-right: 0.6rem solid transparent;
-      border-top: 0.45rem solid $colorBlack;
+    &.place-bottom {
+      margin-top: 0.5rem;
     }
   }
 
-  &.place-bottom {
-    margin-top: 0.75rem;
+  &.place-top::after {
+    bottom: -0.45rem;
+    border-top: 0.45rem solid $colorBlack;
+  }
 
-    &:before {
-      top: -0.6rem;
-      left: 50%;
-      margin-left: -0.75rem;
-      border-left: 0.75rem solid transparent;
-      border-right: 0.75rem solid transparent;
-      border-bottom: 0.45rem solid $colorWhite;
-    }
-
-    &:after {
-      top: -0.45rem;
-      left: 50%;
-      margin-left: -0.6rem;
-      border-left: 0.6rem solid transparent;
-      border-right: 0.6rem solid transparent;
-      border-bottom: 0.45rem solid $colorBlack;
-    }
+  &.place-bottom::after {
+    top: -0.45rem;
+    border-bottom: 0.45rem solid $colorBlack;
   }
 }
