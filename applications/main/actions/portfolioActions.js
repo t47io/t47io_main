@@ -20,7 +20,7 @@ export const animateFilters = status => ({
   payload: { status },
 });
 
-export const animateBrandLogos = status => ({
+export const animateBrands = status => ({
   type: TOGGLE_PORTFOLIO_BRAND_ANIMATION,
   payload: { status },
 });

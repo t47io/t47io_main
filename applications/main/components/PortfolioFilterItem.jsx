@@ -17,7 +17,7 @@ const PortfolioFilterItem = ({
   return (
     <WebAnimation
       tagName="li"
-      className={`PORTFOLIO__filter ${activeClassName}`}
+      className={`PORTFOLIO__filter-item ${activeClassName}`}
       keyframes={portfolioFilterItem.keyframes}
       timing={portfolioFilterItem.timing(index)}
       shouldAnimate={shouldAnimate}

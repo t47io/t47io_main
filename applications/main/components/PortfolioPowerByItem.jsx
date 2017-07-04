@@ -14,7 +14,7 @@ const PortfolioPowerByItem = ({
 }) => (
   <WebAnimation
     tagName="li"
-    className="PORTFOLIO__brand-logo-item"
+    className="PORTFOLIO__brand-item"
     keyframes={portfolioBrandItem.keyframes}
     timing={portfolioBrandItem.timing(index)}
     shouldAnimate={shouldAnimate}

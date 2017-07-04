@@ -32,7 +32,7 @@ const PortfolioSection = ({
     animateHeader,
     animateFilters,
     animateThumbnails,
-    animateBrandLogos,
+    animateBrands,
     changeFilter,
   },
 }) => (
@@ -90,7 +90,7 @@ const PortfolioSection = ({
       </div>
 
       <div className="UTIL__spacer-lg" />
-      <Trigger onToggleAnimation={animateBrandLogos} />
+      <Trigger onToggleAnimation={animateBrands} />
       <PortfolioPowerBy
         items={brands}
         shouldAnimate={brand}
@@ -116,7 +116,7 @@ PortfolioSection.propTypes = {
     animateHeader: React.PropTypes.func,
     animateFilters: React.PropTypes.func,
     animateThumbnails: React.PropTypes.func,
-    animateBrandLogos: React.PropTypes.func,
+    animateBrands: React.PropTypes.func,
     changeFilter: React.PropTypes.func,
   }),
 };

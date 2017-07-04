@@ -4,10 +4,10 @@ import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 
 export const contactItem = {
   keyframes: [
-    { transform: 'rotateX(180deg) rotateZ(180deg)', opacity: 0 },
-    { transform: 'rotate(0)' },
-    { transform: 'rotateX(180deg) rotateZ(90deg)' },
-    { transform: 'rotate(0)', opacity: 1 },
+    { transform: 'rotateX(180deg) rotateZ(180deg) scale(2)', opacity: 0 },
+    { transform: 'rotate(0) scale(1)' },
+    { transform: 'rotateX(180deg) rotateZ(90deg) scale(0.5)' },
+    { transform: 'rotate(0) scale(1)', opacity: 1 },
   ],
   timing: index => ({
     delay: index * 125,

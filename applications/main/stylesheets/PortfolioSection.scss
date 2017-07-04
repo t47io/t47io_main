@@ -11,7 +11,7 @@
     list-style: none outside none;
     text-align: center;
 
-    .PORTFOLIO__filter {
+    .PORTFOLIO__filter-item {
       display: inline-block;
 
       &.active .PORTFOLIO__filter-link {
@@ -139,13 +139,13 @@
     line-height: 1.5em;
   }
 
-  .PORTFOLIO__brand-logo {
+  .PORTFOLIO__brands {
     line-height: 2.5em;
     padding: 1em 0;
     margin: 0;
   }
 
-  .PORTFOLIO__brand-logo-item {
+  .PORTFOLIO__brand-item {
     list-style: none;
     display: inline-block;
   }

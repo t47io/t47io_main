@@ -24,16 +24,19 @@ const PortfolioPowerBy = ({
     <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
       <div className="PORTFOLIO__power-by">
         <h5 className="PORTFOLIO__find-more text-gray text-center">
-          <i className="fa fa-fw fa-coffee text-black" />
+          <span className="fa-stack">
+            <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
+            <i className="fa fa-fw fa-coffee fa-stack-1x text-white" />
+          </span>
           This site is
           <i> (proudly) </i>
           <b className="text-black">Powered By</b>
         </h5>
 
-        <ul className="PORTFOLIO__brand-logo text-center">
+        <ul className="PORTFOLIO__brands text-center">
           {items.map((item, i) => (
             <PortfolioPowerByItem
-              key={`PORTFOLIO__brand-logo-${item.name}`}
+              key={`PORTFOLIO__brand-${item.name}`}
               {...item}
               icon={svgBrands[item.name]}
               shouldAnimate={shouldAnimate}
