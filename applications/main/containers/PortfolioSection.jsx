@@ -19,6 +19,7 @@ const PortfolioSection = ({
   data: {
     items,
     categories,
+    brands,
     selectedCategory,
   },
   animations: {
@@ -86,7 +87,8 @@ const PortfolioSection = ({
         </div>
       </div>
 
-      <PortfolioPowerBy />
+      <div className="UTIL__spacer-lg" />
+      <PortfolioPowerBy items={brands} />
     </div>
   </section>
 );
@@ -95,6 +97,7 @@ PortfolioSection.propTypes = {
   data: React.PropTypes.shape({
     items: React.PropTypes.arrayOf(React.PropTypes.object),
     categories: React.PropTypes.arrayOf(React.PropTypes.string),
+    brands: React.PropTypes.arrayOf(React.PropTypes.object),
     selectedCategory: React.PropTypes.string,
   }),
   animations: React.PropTypes.shape({
