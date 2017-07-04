@@ -16,8 +16,8 @@
 [data-balloon] {
   position: relative;
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     position: absolute;
     z-index: 100;
     opacity: 0;
@@ -26,11 +26,11 @@
     transition-duration: 0.25s;
   }
 
-  &:before {
+  &::before {
     content: '';
   }
 
-  &:after {
+  &::after {
     width: 100%;
     padding: .5em 1em;
     font-size: 1rem;
@@ -42,16 +42,16 @@
   }
 
   &:hover {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       opacity: 1;
       pointer-events: auto;
     }
   }
 
   &[data-balloon-pos="top"] {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       bottom: 100%;
       left: 50%;
 
@@ -59,46 +59,46 @@
       transform-origin: top;
     }
 
-    &:before {
+    &::before {
       margin-bottom: 0.5rem;
 
       @include svg_arrow();
     }
 
-    &:after {
+    &::after {
       margin-bottom: 1rem;
     }
 
     &:hover {
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         transform: translate(-50%, 0);
       }
     }
   }
 
   &[data-balloon-pos="bottom"] {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       left: 50%;
       top: 100%;
 
       transform: translate(-50%, -1rem);
     }
 
-    &:before {
+    &::before {
       margin-top: 0.5rem;
 
       @include svg_arrow("bottom");
     }
 
-    &:after {
+    &::after {
       margin-top: 1rem;
     }
 
     &:hover {
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         transform: translate(-50%, 0);
       }
     }

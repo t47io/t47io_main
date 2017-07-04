@@ -104,11 +104,11 @@ q {
   quotes: none;
 }
 
-blockquote:after,
-blockquote:before,
-q:after,
-q:before {
-  content: '';
+blockquote::after,
+blockquote::before,
+q::after,
+q::before {
+  content: "";
   content: none;
 }
 

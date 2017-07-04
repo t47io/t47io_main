@@ -76,5 +76,51 @@
     "software",
     "rna-biochem",
     "misc"
+  ],
+  "brands": [
+    {
+      "name": "preact",
+      "url": "https://preactjs.com/"
+    },
+    {
+      "name": "redux",
+      "url": "http://redux.js.org/"
+    },
+    {
+      "name": "webpack",
+      "url": "https://webpack.js.org/"
+    },
+    {
+      "name": "babel",
+      "url": "https://babeljs.io/"
+    },
+    {
+      "name": "yarn",
+      "url": "https://yarnpkg.com/"
+    },
+    {
+      "name": "nodejs",
+      "url": "https://nodejs.org/"
+    },
+    {
+      "name": "express",
+      "url": "https://expressjs.com/"
+    },
+    {
+      "name": "pm2",
+      "url": "http://pm2.keymetrics.io/"
+    },
+    {
+      "name": "nginx",
+      "url": "https://www.nginx.com/"
+    },
+    {
+      "name": "ubuntu",
+      "url": "https://www.ubuntu.com/"
+    },
+    {
+      "name": "vultr",
+      "url": "https://www.vultr.com/"
+    }
   ]
 }

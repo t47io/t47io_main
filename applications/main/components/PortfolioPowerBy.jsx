@@ -10,7 +10,7 @@ import {
 } from '../../config.js';
 
 const tooltipOffset = {
-  right: 25,
+  right: 20,
   bottom: 15,
 };
 
@@ -21,8 +21,12 @@ const PortfolioPowerBy = ({ items }) => (
     <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
       <div className="PORTFOLIO__power-by">
         <h5 className="PORTFOLIO__find-more text-gray text-center">
-          This site is (proudly) powered by:
+          <i className="fa fa-fw fa-coffee text-black" />
+          This site is
+          <i> (proudly) </i>
+          <b className="text-black">Powered By</b>
         </h5>
+
         <p className="PORTFOLIO__brand-logo text-center">
           {items.map(item => (
             <PortfolioPowerByItem
@@ -32,6 +36,7 @@ const PortfolioPowerBy = ({ items }) => (
             />
           ))}
         </p>
+
         <p className="PORTFOLIO__find-more text-center">
           <a
             href={REPOSITORY}
