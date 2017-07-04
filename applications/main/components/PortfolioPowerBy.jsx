@@ -15,7 +15,10 @@ const tooltipOffset = {
 };
 
 
-const PortfolioPowerBy = ({ items }) => (
+const PortfolioPowerBy = ({
+  items,
+  shouldAnimate,
+}) => (
   <div className="row">
     <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
     <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
@@ -27,15 +30,17 @@ const PortfolioPowerBy = ({ items }) => (
           <b className="text-black">Powered By</b>
         </h5>
 
-        <p className="PORTFOLIO__brand-logo text-center">
-          {items.map(item => (
+        <ul className="PORTFOLIO__brand-logo text-center">
+          {items.map((item, i) => (
             <PortfolioPowerByItem
+              key={`PORTFOLIO__brand-logo-${item.name}`}
               {...item}
               icon={svgBrands[item.name]}
-              key={`PORTFOLIO__brand-logo-${item.name}`}
+              shouldAnimate={shouldAnimate}
+              index={i}
             />
           ))}
-        </p>
+        </ul>
 
         <p className="PORTFOLIO__find-more text-center">
           <a
@@ -73,9 +78,11 @@ PortfolioPowerBy.propTypes = {
     url: React.PropTypes.string,
     icon: React.PropTypes.string,
   })),
+  shouldAnimate: React.PropTypes.bool,
 };
 PortfolioPowerBy.defaultProps = {
   items: [],
+  shouldAnimate: false,
 };
 
 

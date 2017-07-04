@@ -26,11 +26,13 @@ const PortfolioSection = ({
     header,
     filter,
     thumbnail,
+    brand,
   },
   actions: {
     animateHeader,
     animateFilters,
     animateThumbnails,
+    animateBrandLogos,
     changeFilter,
   },
 }) => (
@@ -88,7 +90,11 @@ const PortfolioSection = ({
       </div>
 
       <div className="UTIL__spacer-lg" />
-      <PortfolioPowerBy items={brands} />
+      <Trigger onToggleAnimation={animateBrandLogos} />
+      <PortfolioPowerBy
+        items={brands}
+        shouldAnimate={brand}
+      />
     </div>
   </section>
 );
@@ -104,11 +110,13 @@ PortfolioSection.propTypes = {
     header: React.PropTypes.bool,
     filter: React.PropTypes.bool,
     thumbnail: React.PropTypes.bool,
+    brand: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
     animateFilters: React.PropTypes.func,
     animateThumbnails: React.PropTypes.func,
+    animateBrandLogos: React.PropTypes.func,
     changeFilter: React.PropTypes.func,
   }),
 };
