@@ -7,10 +7,7 @@ import { PUBLIC_PATH } from './server/env.js';
 
 const config = {
   entry: {
-    main: [
-      'bootstrap-loader',
-      './build/render/server.jsx',
-    ],
+    main: './build/render/server.jsx',
   },
   output: {
     filename: 'ssr.min.js',

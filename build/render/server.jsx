@@ -7,8 +7,10 @@ import Main from '../../applications/main/containers/index.jsx';
 import reducer, { crossReducer } from '../../applications/main/reducers/index.js';
 import { LOAD_JSON_DATA } from '../../applications/main/constants/actionTypes.js';
 
+import 'bootstrap-loader';
 
 const json = require('../../config/main.json');
+
 
 const loadedState = crossReducer(createStore(reducer).getState(), {
   type: LOAD_JSON_DATA,
