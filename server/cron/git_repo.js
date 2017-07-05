@@ -16,25 +16,28 @@ import {
 const { git: { token, login } } = require('../../config/server.json');
 
 
-const getContribOnce = repo => (
+const getContribOnce = (repo, repoName) => (
   new Promise((resolve, reject) => (
     repo.getContributorStats()
     .then((json) => {
       // github may respond 202 while it executes query
-      if (json.status === 200) { resolve(json); }
-      console.log(`${colors.yellow('WARNING')}: Fetching Github records for repository ${colors.blue(repo)} returned ${colors.red(json.status)}, retrying...`);
-      reject('Failed to fetch Github repository contrib');
+      if (json.status === 200) {
+        resolve(json);
+      } else {
+        console.log(`${colors.yellow('WARNING')}: Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
+        reject('Failed to fetch Github repository contrib');
+      }
     })
     .catch(reject)
   ))
 );
-const getContribRetry = (repo, retry, interval) => (
-  getContribOnce(repo)
+const getContribRetry = (repo, repoName, retry, interval) => (
+  getContribOnce(repo, repoName)
   .catch(() => {
     if (retry > 0) {
       return new Promise(resolve => (
         setTimeout(() => (
-          resolve(getContribRetry(repo, retry - 1, interval * 2))
+          resolve(getContribRetry(repo, repoName, retry - 1, interval * 2))
         ), interval)
       ));
     }
@@ -167,7 +170,7 @@ REPOSITORY_LIST.forEach((repoName, i) => {
       downloads: downloads.data.length,
     })))
     .then((data) => { result = formatBasics(data, result); })
-    .then(() => getContribRetry(repo, GITHUB.RETRY, GITHUB.INTERVAL))
+    .then(() => getContribRetry(repo, repoName, GITHUB.RETRY, GITHUB.INTERVAL))
     .catch(() => { console.error(`${colors.red('ERROR')}: Failed to fetch Github records for repository ${colors.blue(repoName)} after ${GITHUB.RETRY} attempts.`); })
     .then(({ data }) => {
       result = formatTable(data, result);
