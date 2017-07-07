@@ -1,7 +1,8 @@
 import colors from 'colors';
 import fs from 'fs-extra';
-import glob from 'glob-promise';
+import glob from 'glob';
 import path from 'path';
+import shell from 'shelljs';
 
 import { ROOT_PATH } from '../config.js';
 import { FILE_NAMES } from '../../server/config.js';
@@ -11,18 +12,69 @@ import {
 } from '../render/util.js';
 
 
-try {
-  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/*'))
+const copyImages = () => {
+  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/*'), { nodir: true })
     .map(file => path.basename(file));
+
   staticFiles.forEach(file => (
     fs.copySync(
       path.join(ROOT_PATH, `static/${file}`),
       path.join(ROOT_PATH, `public/${file}`)
     )
   ));
+};
 
+const copyRobots = () => {
   const robotsTXT = loadFileSync(`static/${FILE_NAMES.ROBOTS}`);
   saveFileSync(`public/${FILE_NAMES.ROBOTS}`, robotsTXT);
+};
+
+const copyPubs = () => {
+  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/pubs/*.pdf'))
+    .map(file => path.basename(file));
+
+  staticFiles.forEach(file => (
+    fs.copySync(
+      path.join(ROOT_PATH, `static/pubs/${file}`),
+      path.join(ROOT_PATH, `public/pdf/${file}`)
+    )
+  ));
+};
+
+const copyResume = () => {
+  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/resume/*.pdf'))
+    .map(file => path.basename(file));
+
+  staticFiles.forEach(file => (
+    fs.copySync(
+      path.join(ROOT_PATH, `static/resume/${file}`),
+      path.join(ROOT_PATH, `public/pdf/Resume_${file}`)
+    )
+  ));
+};
+
+const copyThesis = () => {
+  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/thesis/*.pdf'))
+    .map(file => path.basename(file));
+
+  staticFiles.forEach(file => (
+    fs.copySync(
+      path.join(ROOT_PATH, `static/thesis/${file}`),
+      path.join(ROOT_PATH, `public/pdf/PhD_${file}`)
+    )
+  ));
+};
+
+
+try {
+  copyImages();
+  copyRobots();
+
+  shell.mkdir('-p', `${ROOT_PATH}/public/pdf`);
+  copyPubs();
+  copyResume();
+  copyThesis();
+
   console.log(`${colors.green('SUCCESS')}: Static files copied to public.`);
 } catch (err) {
   console.log(err);

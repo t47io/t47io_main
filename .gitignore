@@ -8,6 +8,7 @@ config/repository/*.json
 !config/repository/*.example.json
 public/
 !public/.gitignore
+static/**/*.pdf
 
 node_modules/
 .sass-cache/
