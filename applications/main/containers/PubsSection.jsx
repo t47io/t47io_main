@@ -25,7 +25,7 @@ const PubsSection = ({
     thesis: {
       title,
       url,
-      sizes,
+      links,
     },
   },
   animations: {
@@ -98,7 +98,7 @@ const PubsSection = ({
     <PubsThesis
       title={title}
       url={url}
-      sizes={sizes}
+      links={links}
     />
     <div className="UTIL__spacer-xl CONTACT__trigger" />
   </section>
@@ -114,7 +114,7 @@ PubsSection.propTypes = {
     thesis: React.PropTypes.shape({
       title: React.PropTypes.string,
       url: React.PropTypes.string,
-      sizes: React.PropTypes.object,
+      links: React.PropTypes.arrayOf(React.PropTypes.object),
     }),
   }),
   animations: React.PropTypes.shape({

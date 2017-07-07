@@ -7,7 +7,7 @@ import PubsTitle from './PubsTitle.jsx';
 const PubsThesis = ({
   title,
   url,
-  sizes,
+  links,
 }) => (
   <div className="row PUBS__entry PUBS__thesis">
     <div className="col-lg-1 col-md-1 hidden-sm hidden-xs" />
@@ -28,35 +28,25 @@ const PubsThesis = ({
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
       </h3>
-      <p>
-        <PubsLink
-          url="/phd/dissertation/"
-          icon="file-pdf"
-          size={sizes.dissertation}
-          data-tip="Augmented Dissertation"
-          data-for="PUBS__tooltip"
-        />
-        <PubsLink
-          url="/phd/figures/"
-          icon="file-archive"
-          size={sizes.figures}
-          data-tip="Hi-Resolution Figures"
-          data-for="PUBS__tooltip"
-        />
-        <PubsLink
-          url="/phd/slides/"
-          icon="file-image"
-          size={sizes.slides}
-          data-tip="Defense Slides"
-          data-for="PUBS__tooltip"
-        />
-        <PubsLink
-          url="/phd/flyer/"
-          icon="file-code"
-          size={sizes.flyer}
-          data-tip="Defense Flyer"
-          data-for="PUBS__tooltip"
-        />
+      <p className="PUBS__issue">
+        <b>Siqi Tian</b>
+        <span> (</span>
+        <b className="text-main-light">Dec 2016</b>
+        <span>) </span>
+      </p>
+      <p className="PUBS__issue">
+        Department of Biochemistry, Stanford University
+      </p>
+      <p className="PUBS__thesis-links">
+        {links.map(link => (
+          <PubsLink
+            url={`/phd/${link.tag}`}
+            icon={link.icon}
+            size={link.size}
+            data-tip={link.title}
+            data-for="PUBS__tooltip"
+          />
+        ))}
       </p>
     </div>
     <div className="col-lg-1 col-md-1 hidden-sm hidden-xs" />
@@ -66,22 +56,17 @@ const PubsThesis = ({
 PubsThesis.propTypes = {
   title: React.PropTypes.string,
   url: React.PropTypes.string,
-  sizes: React.PropTypes.shape({
-    dissertation: React.PropTypes.string,
-    figures: React.PropTypes.string,
-    slides: React.PropTypes.string,
-    flyer: React.PropTypes.string,
-  }),
+  links: React.PropTypes.arrayOf(React.PropTypes.shape({
+    title: React.PropTypes.string,
+    tag: React.PropTypes.string,
+    icon: React.PropTypes.string,
+    size: React.PropTypes.string,
+  })),
 };
 PubsThesis.defaultProps = {
   title: '',
   url: '',
-  sizes: {
-    dissertation: '',
-    figures: '',
-    slides: '',
-    flyer: '',
-  },
+  links: [],
 };
 
 

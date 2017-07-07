@@ -344,10 +344,31 @@
   "thesis": {
     "title": "Modeling and Validation of RNA Secondary Structures and Ensembles through Multi-Dimensional Chemical Mapping",
     "url": "https://purl.stanford.edu/qj116cc8596",
-    "sizes": {
-      "dissertation": "",
-      "figures": "",
-      "slides": ""
-    }
+    "links": [
+      {
+        "title": "Augmented Dissertation",
+        "tag": "dissertation",
+        "icon": "file-pdf",
+        "size": ""
+      },
+      {
+        "title": "Hi-Resolution Figures",
+        "tag": "figures",
+        "icon": "file-archive",
+        "size": ""
+      },
+      {
+        "title": "Defense Slides",
+        "tag": "slides",
+        "icon": "file-image",
+        "size": ""
+      },
+      {
+        "title": "Defense Flyer",
+        "tag": "flyer",
+        "icon": "file-code",
+        "size": ""
+      }
+    ]
   }
 }

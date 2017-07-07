@@ -42,19 +42,15 @@ const getResume = () => {
 };
 
 const getFileSize = (fileName) => {
-  const byteSize = fs.statSync(path.join(PUBLIC_PATH, fileName)).size;
-  return `${(byteSize / 1e6).toFixed(1)} MB`;
+  try {
+    const byteSize = fs.statSync(path.join(PUBLIC_PATH, fileName)).size;
+    return `${(byteSize / 1e6).toFixed(1)} MB`;
+  } catch (err) {
+    console.error(err);
+    console.log(`${colors.red('ERROR')}: Failed to get size of file ${colors.blue(fileName)}.`);
+  }
+  return 'unavailable';
 };
-
-const getThesisSizes = () => (
-  Object.keys(FILE_NAMES.THESIS).map(item => ({
-    [item]: getFileSize(`../static/thesis/${FILE_NAMES.THESIS[item]}`),
-  }))
-  .reduce((obj, item) => ({
-    ...obj,
-    ...item,
-  }), {})
-);
 
 
 const concatMainJSON = () => {
@@ -65,6 +61,16 @@ const concatMainJSON = () => {
     portfolio: {
       ...mainJson.portfolio,
       selectedCategory: 'all',
+    },
+    pubs: {
+      ...mainJson.pubs,
+      thesis: {
+        ...mainJson.pubs.thesis,
+        links: mainJson.pubs.thesis.links.map(link => ({
+          ...link,
+          size: getFileSize(`../static/thesis/${FILE_NAMES.THESIS[link.tag]}`),
+        })),
+      },
     },
     contact: {
       ...mainJson.contact,
@@ -108,7 +114,6 @@ const concatMainJSON = () => {
   });
   config.pubs.lens = pubsCounter;
   config.stats.items[2].value = pubsCounter;
-  config.pubs.thesis.sizes = getThesisSizes();
 
   fs.writeJsonSync(path.join(PUBLIC_PATH, '../config/main.json'), config);
   console.log(`${colors.green('SUCCESS')}: Main JSON compiled.`);

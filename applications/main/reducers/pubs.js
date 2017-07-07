@@ -10,6 +10,11 @@ export const initialState = {
       googleScholar: '',
       pubmed: '',
     },
+    thesis: {
+      title: '',
+      url: '',
+      links: [],
+    },
     lens: 0,
   },
   animations: {

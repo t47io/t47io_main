@@ -9,6 +9,7 @@ config/repository/*.json
 public/
 !public/.gitignore
 static/**/*.pdf
+static/**/*.zip
 
 node_modules/
 .sass-cache/

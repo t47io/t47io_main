@@ -20,7 +20,7 @@ export const FILE_NAMES = {
   RESUME: 'SiqiTian_resume',
   THESIS: {
     dissertation: 'dissertation.pdf',
-    figures: 'dissertation_figures.pdf',
+    figures: 'dissertation_figures.zip',
     slides: 'defense_slides.pdf',
     flyer: 'defense_flyer.png',
   },

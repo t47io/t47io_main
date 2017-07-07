@@ -83,6 +83,10 @@
   padding-bottom: 1em;
 }
 
+.PUBS__thesis-links {
+  padding-top: 1.5em;
+}
+
 @include media_width_gt(992px) {
   .PUBS__thesis-title {
     padding: 0 2em 1em 2em;
