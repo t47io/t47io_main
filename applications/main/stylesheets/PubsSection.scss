@@ -56,8 +56,9 @@
   }
 }
 
-.PUBS__issue {
-  margin-left: 0.5em;
+.PUBS__issue,
+.PUBS__link-text {
+  margin: 0 0.5em;
 }
 
 .PUBS__link {
@@ -66,4 +67,9 @@
 
 .PUBS__find-more {
   line-height: 1.5em;
+}
+
+.PUBS__thesis {
+  font-size: 1.5em;
+  text-align: center;
 }

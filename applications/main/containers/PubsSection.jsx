@@ -3,6 +3,7 @@ import ReactTooltip from 'react-tooltip';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import PubsThesis from '../components/PubsThesis.jsx';
 import PubsYearPanel from '../components/PubsYearPanel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
@@ -20,6 +21,11 @@ const PubsSection = ({
     links: {
       googleScholar,
       pubmed,
+    },
+    thesis: {
+      title,
+      url,
+      sizes,
     },
   },
   animations: {
@@ -55,7 +61,7 @@ const PubsSection = ({
         insecure={false}
       />
 
-      <div className="UTIL__spacer-lg" />
+      <div className="UTIL__spacer-md" />
       <div className="row">
         <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
         <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
@@ -87,6 +93,13 @@ const PubsSection = ({
         <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
       </div>
     </div>
+
+    <div className="UTIL__spacer-lg" />
+    <PubsThesis
+      title={title}
+      url={url}
+      sizes={sizes}
+    />
     <div className="UTIL__spacer-xl CONTACT__trigger" />
   </section>
 );
@@ -97,6 +110,11 @@ PubsSection.propTypes = {
     links: React.PropTypes.shape({
       googleScholar: React.PropTypes.string,
       pubmed: React.PropTypes.string,
+    }),
+    thesis: React.PropTypes.shape({
+      title: React.PropTypes.string,
+      url: React.PropTypes.string,
+      sizes: React.PropTypes.object,
     }),
   }),
   animations: React.PropTypes.shape({
