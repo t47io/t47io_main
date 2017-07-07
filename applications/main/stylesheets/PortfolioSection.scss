@@ -168,6 +168,7 @@
 
     .brand-logo__filled {
       fill: $colorMain;
+      stroke: $colorMain;
     }
 
     .brand-logo__extra {
@@ -183,6 +184,7 @@
 
       .brand-logo__filled {
         fill: $colorGrayDark;
+        stroke: $colorGrayDark;
       }
     }
   }
