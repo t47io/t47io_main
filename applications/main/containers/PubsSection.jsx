@@ -31,10 +31,12 @@ const PubsSection = ({
   animations: {
     header,
     entry,
+    thesis,
   },
   actions: {
     animateHeader,
     animateEntries,
+    animateThesis,
   },
 }) => (
   <section id="PUBS__section">
@@ -95,10 +97,12 @@ const PubsSection = ({
     </div>
 
     <div className="UTIL__spacer-lg" />
+    <Trigger onToggleAnimation={animateThesis} />
     <PubsThesis
       title={title}
       url={url}
       links={links}
+      shouldAnimate={thesis}
     />
     <div className="UTIL__spacer-xl CONTACT__trigger" />
   </section>
@@ -120,10 +124,12 @@ PubsSection.propTypes = {
   animations: React.PropTypes.shape({
     header: React.PropTypes.bool,
     entry: React.PropTypes.bool,
+    thesis: React.PropTypes.bool,
   }),
   actions: React.PropTypes.shape({
     animateHeader: React.PropTypes.func,
     animateEntries: React.PropTypes.func,
+    animateThesis: React.PropTypes.func,
   }),
 };
 PubsSection.defaultProps = {
@@ -131,6 +137,7 @@ PubsSection.defaultProps = {
   actions: {
     animateHeader: () => {},
     animateEntries: () => {},
+    animateThesis: () => {},
   },
 };
 

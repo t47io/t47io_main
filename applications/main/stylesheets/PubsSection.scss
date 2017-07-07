@@ -84,7 +84,12 @@
 }
 
 .PUBS__thesis-links {
+  font-size: 0.8em;
   padding-top: 1.5em;
+}
+
+.PUBS__thesis-link-item {
+  display: inline-block;
 }
 
 @include media_width_gt(992px) {

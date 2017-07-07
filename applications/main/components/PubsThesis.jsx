@@ -2,14 +2,23 @@ import React from 'react';
 
 import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
+import WebAnimation from '../../common/components/WebAnimation.jsx';
+
+import { pubsThesis } from '../animations/pubs.js';
 
 
 const PubsThesis = ({
   title,
   url,
   links,
+  shouldAnimate,
 }) => (
-  <div className="row PUBS__entry PUBS__thesis">
+  <WebAnimation
+    className="row PUBS__entry PUBS__thesis"
+    keyframes={pubsThesis.keyframes}
+    timing={pubsThesis.timing}
+    shouldAnimate={shouldAnimate}
+  >
     <div className="col-lg-1 col-md-1 hidden-sm hidden-xs" />
     <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12 PUBS__text">
       <h5 className="PUBS__find-more text-center">
@@ -45,12 +54,13 @@ const PubsThesis = ({
             size={link.size}
             data-tip={link.title}
             data-for="PUBS__tooltip"
+            className="PUBS__thesis-link-item"
           />
         ))}
       </p>
     </div>
     <div className="col-lg-1 col-md-1 hidden-sm hidden-xs" />
-  </div>
+  </WebAnimation>
 );
 
 PubsThesis.propTypes = {
@@ -62,11 +72,13 @@ PubsThesis.propTypes = {
     icon: React.PropTypes.string,
     size: React.PropTypes.string,
   })),
+  shouldAnimate: React.PropTypes.bool,
 };
 PubsThesis.defaultProps = {
   title: '',
   url: '',
   links: [],
+  shouldAnimate: false,
 };
 
 

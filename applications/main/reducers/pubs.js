@@ -1,5 +1,8 @@
 import { TOGGLE_HEADER_ANIMATION } from '../../common/constants/actionTypes.js';
-import { TOGGLE_PUBS_ENTRY_ANIMATION } from '../constants/actionTypes.js';
+import {
+  TOGGLE_PUBS_ENTRY_ANIMATION,
+  TOGGLE_PUBS_THESIS_ANIMATION,
+} from '../constants/actionTypes.js';
 import { PUBS } from '../constants/sectionTypes.js';
 
 
@@ -20,6 +23,7 @@ export const initialState = {
   animations: {
     header: false,
     entry: false,
+    thesis: false,
   },
 };
 
@@ -43,6 +47,15 @@ const reducer = (state = initialState, { type, payload }) => {
         animations: {
           ...state.animations,
           entry: payload.status,
+        },
+      };
+    }
+    case TOGGLE_PUBS_THESIS_ANIMATION: {
+      return {
+        ...state,
+        animations: {
+          ...state.animations,
+          thesis: payload.status,
         },
       };
     }

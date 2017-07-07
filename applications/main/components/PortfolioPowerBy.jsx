@@ -9,11 +9,6 @@ import {
   REPOSITORY,
 } from '../../config.js';
 
-const tooltipOffset = {
-  right: 20,
-  bottom: 15,
-};
-
 
 const PortfolioPowerBy = ({
   items,
@@ -63,7 +58,7 @@ const PortfolioPowerBy = ({
 
     <ReactTooltip
       id="PORTFOLIO__tooltip"
-      effect="solid" place="bottom" offset={tooltipOffset}
+      effect="solid" place="bottom"
       insecure={false}
     />
   </div>

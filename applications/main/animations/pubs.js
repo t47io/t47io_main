@@ -26,3 +26,16 @@ export const pubsYear = {
     fill: 'both',
   }),
 };
+
+export const pubsThesis = {
+  keyframes: [
+    { filter: 'blur(3em)', opacity: 0.25 },
+    { filter: 'none', opacity: 1 },
+  ],
+  timing: {
+    delay: 500,
+    duration: 250,
+    easing: 'linear',
+    fill: 'both',
+  },
+};
