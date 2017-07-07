@@ -30,24 +30,31 @@ const PubsThesis = ({
       </h3>
       <p>
         <PubsLink
-          url="/pdf/PhD_dissertation.pdf"
+          url="/phd/dissertation/"
           icon="file-pdf"
-          size="100 MB"
+          size={sizes.dissertation}
           data-tip="Augmented Dissertation"
           data-for="PUBS__tooltip"
         />
         <PubsLink
-          url="/pdf/PhD_dissertation_figures.pdf"
+          url="/phd/figures/"
           icon="file-archive"
-          size="100 MB"
+          size={sizes.figures}
           data-tip="Hi-Resolution Figures"
           data-for="PUBS__tooltip"
         />
         <PubsLink
-          url="/pdf/PhD_defense_slides.pdf"
+          url="/phd/slides/"
           icon="file-image"
-          size="100 MB"
+          size={sizes.slides}
           data-tip="Defense Slides"
+          data-for="PUBS__tooltip"
+        />
+        <PubsLink
+          url="/phd/flyer/"
+          icon="file-code"
+          size={sizes.flyer}
+          data-tip="Defense Flyer"
           data-for="PUBS__tooltip"
         />
       </p>
@@ -63,6 +70,7 @@ PubsThesis.propTypes = {
     dissertation: React.PropTypes.string,
     figures: React.PropTypes.string,
     slides: React.PropTypes.string,
+    flyer: React.PropTypes.string,
   }),
 };
 PubsThesis.defaultProps = {
@@ -72,6 +80,7 @@ PubsThesis.defaultProps = {
     dissertation: '',
     figures: '',
     slides: '',
+    flyer: '',
   },
 };
 
