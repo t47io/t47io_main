@@ -32,6 +32,7 @@ const AccessLinks = ({
                 label={LABELS[key]}
                 className={COLORS[key]}
                 isShortName={key === 'theme'}
+                isLead={key !== 'theme'}
               />
             ) : (
               <div className="PROJECT__access-link">

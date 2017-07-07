@@ -16,7 +16,7 @@ const DocsSection = ({
         icon="paste"
       />
       <p className="lead text-center">
-        {'Complete '}
+        <span>Complete </span>
         {labels.map((label, i) => (
           <span>
             <a
