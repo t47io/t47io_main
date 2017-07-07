@@ -8,11 +8,10 @@ const PubsFileLink = ({
   size,
   ...props
 }) => {
-  const href = (url && !isPreprint) ? { href: url } : {};
-  let iconClassName = url ? 'text-main-dark bg-main-light' : 'text-gray-light';
-  if (size) {
-    iconClassName += ' lead';
-  }
+  const isAvailable = size ? (size !== 'unavailable') : (url && !isPreprint);
+  const href = isAvailable ? { href: url } : {};
+  let iconClassName = isAvailable ? 'text-main-dark bg-main-light' : 'text-gray-light';
+  if (size) { iconClassName += ' lead'; }
 
   const iconElement = (
     <a

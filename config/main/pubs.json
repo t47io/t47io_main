@@ -349,6 +349,7 @@
         "title": "Augmented Dissertation",
         "tag": "dissertation",
         "icon": "file-pdf",
+        "isHidden": true,
         "size": ""
       },
       {

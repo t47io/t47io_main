@@ -51,7 +51,7 @@ const PubsThesis = ({
           <PubsLink
             url={`/phd/${link.tag}`}
             icon={link.icon}
-            size={link.size}
+            size={link.isHidden ? 'unavailable' : link.size}
             data-tip={link.title}
             data-for="PUBS__tooltip"
             className="PUBS__thesis-link-item"
@@ -71,6 +71,7 @@ PubsThesis.propTypes = {
     tag: React.PropTypes.string,
     icon: React.PropTypes.string,
     size: React.PropTypes.string,
+    isHidden: React.PropTypes.bool,
   })),
   shouldAnimate: React.PropTypes.bool,
 };
