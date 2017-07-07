@@ -1,6 +1,6 @@
 import colors from 'colors';
 import fs from 'fs-extra';
-import glob from 'glob-promise';
+import glob from 'glob';
 import path from 'path';
 
 import { PUBLIC_PATH } from './env.js';
@@ -35,8 +35,9 @@ const repositoryJson = REPOSITORY_INTERNAL_NAMES
 
 
 const getResume = () => {
-  const resumeFiles = glob.sync(path.join(PUBLIC_PATH, 'pdf/Resume*.pdf'));
-  return path.basename(resumeFiles[resumeFiles.length - 1] || '');
+  const resumeFiles = glob.sync(path.join(PUBLIC_PATH, '../static/resume/*.pdf'));
+  const fileName = resumeFiles[resumeFiles.length - 1] || '';
+  return path.basename(fileName).replace('.pdf', '');
 };
 
 

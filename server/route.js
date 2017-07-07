@@ -49,7 +49,7 @@ const routes = {
   },
 
   resume: (req, res) => {
-    res.sendFile(path.join(PUBLIC_PATH, 'pdf/', resumeVersion), {
+    res.sendFile(path.join(PUBLIC_PATH, 'pdf/', `Resume_${resumeVersion}.pdf`), {
       headers: { 'Content-Disposition': `inline; filename="${FILE_NAMES.RESUME}"` },
       maxAge: `${CACHE_MAX_AGE / 2} days`,
     });
