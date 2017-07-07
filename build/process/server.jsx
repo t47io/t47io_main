@@ -1,6 +1,6 @@
 import colors from 'colors';
 import fs from 'fs-extra';
-import glob from 'glob-promise';
+import glob from 'glob';
 import htmlMinifier from 'html-minifier';
 import path from 'path';
 import purify from 'purify-css';

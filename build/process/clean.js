@@ -1,7 +1,8 @@
 import colors from 'colors';
 import fs from 'fs-extra';
-import glob from 'glob-promise';
+import glob from 'glob';
 import path from 'path';
+import shell from 'shelljs';
 
 import { ROOT_PATH } from '../config.js';
 
@@ -14,6 +15,9 @@ try {
     ...glob.sync(path.join(ROOT_PATH, 'public/e.*.min.js.br')),
   ];
   tmpFiles.forEach(file => fs.removeSync(file));
+
+  shell.cd(ROOT_PATH);
+  shell.exec('find . -name ".DS_Store" -type f -delete');
   console.log(`${colors.green('SUCCESS')}: Build temporary files deleted.`);
 } catch (err) {
   console.log(err);
