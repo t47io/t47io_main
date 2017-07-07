@@ -2,9 +2,9 @@
   "title": "RNA Mapping Database",
   "description": "Academic Data Sharing and Visualization",
   "urls": {
-    "repo": "https://github.com/t47io/Django-Server-RMDB/",
+    "repo": "https://github.com/DasLab/Server_RMDB/",
     "server": "https://rmdb.stanford.edu/",
-    "manual": "https://hitrace.github.io/RDATKit/"
+    "manual": "https://ribokit.github.io/RDATKit/"
   },
   "docs": [
     "Package Reference",

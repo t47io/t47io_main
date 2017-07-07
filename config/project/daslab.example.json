@@ -2,7 +2,7 @@
   "title": "Das Lab Website",
   "description": "Intricate System for Automated Scheduling and Secure Content Management",
   "urls": {
-    "repo": "https://github.com/t47io/Django-Server-Daslab/",
+    "repo": "https://github.com/DasLab/Server_Daslab/",
     "prod": "https://daslab.stanford.edu/",
     "demo": "https://demo.t47.io/"
   },

@@ -3,9 +3,7 @@
   "description": "Centralized Documentation of Packages Hosted by GitHub Pages",
   "urls": {
     "prod": [
-      "https://ribokit.github.io/",
-      "https://daslab.github.io/",
-      "https://hitrace.github.io/"
+      "https://ribokit.github.io/"
     ],
     "theme": [
       "https://github.com/t47io/ribokit-Jekyll-theme/",
