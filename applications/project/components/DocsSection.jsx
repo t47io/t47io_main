@@ -13,7 +13,7 @@ const DocsSection = ({
     <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
       <Headline
         title="Documentation"
-        icon="book"
+        icon="paste"
       />
       <p className="lead text-center">
         {'Complete '}

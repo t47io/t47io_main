@@ -85,10 +85,6 @@
   content: '\e80e';
 }
 
-.fa-book::before {
-  content: '\e80f';
-}
-
 .fa-chart-bar::before {
   content: '\e810';
 }
@@ -193,6 +189,10 @@
   content: '\f0e8';
 }
 
+.fa-paste::before {
+  content: '\f0ea';
+}
+
 .fa-coffee::before {
   content: '\f0f4';
 }
@@ -233,6 +233,10 @@
   content: '\f187';
 }
 
+.fa-bank::before {
+  content: '\f19c';
+}
+
 .fa-graduation-cap::before {
   content: '\f19d';
 }
@@ -251,6 +255,14 @@
 
 .fa-file-word::before {
   content: '\f1c2';
+}
+
+.fa-file-image::before {
+  content: '\f1c5';
+}
+
+.fa-file-archive::before {
+  content: '\f1c6';
 }
 
 .fa-file-audio::before {
