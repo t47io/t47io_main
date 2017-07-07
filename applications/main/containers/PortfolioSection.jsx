@@ -102,10 +102,13 @@ const PortfolioSection = ({
       <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
       <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
         <div className="UTIL__spacer-lg" />
-        <Trigger onToggleAnimation={animateBrands} />
         <PortfolioPowerBy
           items={brands}
           shouldAnimate={brand}
+        />
+        <Trigger
+          delay={500}
+          onToggleAnimation={animateBrands}
         />
       </div>
       <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
