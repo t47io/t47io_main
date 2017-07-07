@@ -2,8 +2,10 @@
 
 backup/
 backup.tar.gz
-config/**/*.json
-!config/**/*.example.json
+config/*.json
+!config/error.json
+config/repository/*.json
+!config/repository/*.example.json
 public/
 !public/.gitignore
 

@@ -11,7 +11,7 @@
           ],
           "title": "Four-dimensional chemical mapping restores a Monod-Wyman-Changeux model for the _V_. _vulnificus_ adenine riboswitch",
           "journal": "eLife",
-          "issue": "submited",
+          "issue": "submitted",
           "isPreprint": true,
           "isHidden": false,
           "citation": null,
@@ -145,7 +145,7 @@
           "journal": "Quarterly Review of Biophysics",
           "issue": "49 (e7)",
           "page": "1 - 30",
-          "citation": 4,
+          "citation": 5,
           "tag": "2016_Tian_QRB",
           "url": "https://www.cambridge.org/core/journals/quarterly-reviews-of-biophysics/article/rna-structure-through-multidimensional-chemical-mapping/1D773A4C81E046E6BA4521BAF688E0DC"
         }
@@ -167,7 +167,7 @@
           "journal": "eLife",
           "issue": "4",
           "page": "e07600",
-          "citation": 19,
+          "citation": 18,
           "tag": "2015_Cheng_eLife",
           "url": "https://elifesciences.org/content/4/e07600",
           "code": "https://rmdb.stanford.edu/mapseeker/"
@@ -183,7 +183,7 @@
           "journal": "Nucleic Acid Research",
           "issue": "43 (W1)",
           "page": "W522 - W526",
-          "citation": 3,
+          "citation": 4,
           "tag": "2015_Tian_NAR",
           "url": "https://nar.oxfordjournals.org/content/43/W1/W522",
           "code": "https://primerize.stanford.edu/"
@@ -253,7 +253,7 @@
           "journal": "RNA",
           "issue": "21 (6)",
           "page": "1066 - 1084",
-          "citation": 48,
+          "citation": 47,
           "tag": "2015_Miao_RNA",
           "url": "http://rnajournal.cshlp.org/content/21/6/1066"
         },
@@ -270,7 +270,7 @@
           "journal": "Nature",
           "issue": "517",
           "page": "33 - 38",
-          "citation": 68,
+          "citation": 64,
           "tag": "2015_Xue_Nature",
           "url": "http://www.nature.com/nature/journal/v517/n7532/full/nature14010.html"
         }

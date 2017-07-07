@@ -6,8 +6,8 @@
       "https://ribokit.github.io/"
     ],
     "theme": [
-      "https://github.com/t47io/ribokit-Jekyll-theme/",
-      "https://github.com/t47io/ribokit-Sphinx-theme/"
+      "https://github.com/ribokit/ribokit-Jekyll-theme/",
+      "https://github.com/ribokit/ribokit-Sphinx-theme/"
     ],
     "manual": "http://ribokit.github.io/docs/"
   },
