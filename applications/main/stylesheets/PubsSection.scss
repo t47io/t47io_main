@@ -1,4 +1,5 @@
 @import '../../common/mixins/colors';
+@import '../../common/mixins/media';
 
 .PUBS__row {
   margin: 0 0 1.5em 0;
@@ -70,6 +71,20 @@
 }
 
 .PUBS__thesis {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: center;
+  padding: 0 2em;
+}
+
+.PUBS__thesis-title {
+  font-size: 1.2em;
+  max-width: 45em;
+  margin: 0 auto;
+  padding-bottom: 1em;
+}
+
+@include media_width_gt(992px) {
+  .PUBS__thesis-title {
+    padding: 0 2em 1em 2em;
+  }
 }

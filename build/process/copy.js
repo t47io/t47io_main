@@ -22,11 +22,13 @@ const copyImages = () => {
       path.join(ROOT_PATH, `public/${file}`)
     )
   ));
+  console.log(`${colors.green('SUCCESS')}: Image files copied to public.`);
 };
 
 const copyRobots = () => {
   const robotsTXT = loadFileSync(`static/${FILE_NAMES.ROBOTS}`);
   saveFileSync(`public/${FILE_NAMES.ROBOTS}`, robotsTXT);
+  console.log(`${colors.green('SUCCESS')}: Robots.txt copied to public.`);
 };
 
 const copyPubs = () => {
@@ -39,6 +41,7 @@ const copyPubs = () => {
       path.join(ROOT_PATH, `public/pdf/${file}`)
     )
   ));
+  console.log(`${colors.green('SUCCESS')}: Pubs PDF files copied to public.`);
 };
 
 const copyResume = () => {
@@ -51,6 +54,7 @@ const copyResume = () => {
       path.join(ROOT_PATH, `public/pdf/Resume_${file}`)
     )
   ));
+  console.log(`${colors.green('SUCCESS')}: Resume PDF files copied to public.`);
 };
 
 const copyThesis = () => {
@@ -63,6 +67,7 @@ const copyThesis = () => {
       path.join(ROOT_PATH, `public/pdf/PhD_${file}`)
     )
   ));
+  console.log(`${colors.green('SUCCESS')}: Thesis PDF files copied to public.`);
 };
 
 

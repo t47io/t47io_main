@@ -6,6 +6,7 @@ const PubsFileLink = ({
   isPreprint,
   icon,
   size,
+  ...props
 }) => {
   const href = (url && !isPreprint) ? { href: url } : {};
   const iconClassName = url ? 'text-main-dark bg-main-light' : 'text-gray-light';
@@ -22,7 +23,7 @@ const PubsFileLink = ({
 
   if (size) {
     return (
-      <span>
+      <span {...props}>
         {iconElement}
         <span className="PUBS__link-text text-gray">{size}</span>
       </span>

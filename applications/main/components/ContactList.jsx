@@ -19,8 +19,7 @@ const ContactList = ({
   onToggleAnimation,
 }) => {
   const audioPlayClass = audio ? 'pause' : 'play';
-  const date = resume.slice(7, -4);
-  const objDate = new Date(`${date.slice(4, 6)}/01/${date.slice(0, 4)}`)
+  const objDate = new Date(`${resume.slice(4, 6)}/01/${resume.slice(0, 4)}`)
     .toLocaleString('en-us', {
       month: 'short',
       year: 'numeric',

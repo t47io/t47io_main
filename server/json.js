@@ -94,6 +94,7 @@ const concatMainJSON = () => {
   config.stats.items[2].value = pubsCounter;
 
   fs.writeJsonSync(path.join(PUBLIC_PATH, '../config/main.json'), config);
+  console.log(`${colors.green('SUCCESS')}: Main JSON compiled.`);
 };
 
 const concatProjectJSON = () => {
@@ -102,15 +103,16 @@ const concatProjectJSON = () => {
     repository: repositoryJson,
   };
   fs.writeJsonSync(path.join(PUBLIC_PATH, '../config/project.json'), data);
+  console.log(`${colors.green('SUCCESS')}: Project JSON compiled.`);
 };
 
 
 try {
   concatMainJSON();
   concatProjectJSON();
-  console.log(`${colors.green('SUCCESS')}: Main and project JSON compiled.`);
+  console.log(`${colors.green('SUCCESS')}: Data JSON files compiled.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to compile main and project JSON.`);
+  console.log(`${colors.red('ERROR')}: Failed to compile main and/or project JSON.`);
 }
 

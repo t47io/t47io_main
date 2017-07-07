@@ -15,10 +15,10 @@ try {
   const finalHTML = renderMainHTML(baseHTML);
 
   saveFileSync('public/main.html', finalHTML);
-  console.log(`${colors.green('SUCCESS')}: Index Page DOM/JS/CSS inlined.`);
+  console.log(`${colors.green('SUCCESS')}: Main Page DOM/JS/CSS inlined.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Index Page.`);
+  console.log(`${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Main Page.`);
 }
 
 try {
@@ -26,8 +26,8 @@ try {
   const finalHTML = renderProjectHTML(baseHTML);
 
   saveFileSync('public/project.html', finalHTML);
-  console.log(`${colors.green('SUCCESS')}: Index Page DOM/JS/CSS inlined.`);
+  console.log(`${colors.green('SUCCESS')}: Project Page DOM/JS/CSS inlined.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Index Page.`);
+  console.log(`${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Project Page.`);
 }

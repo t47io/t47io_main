@@ -37,6 +37,7 @@ try {
     const finalHTML = renderErrorHTML(baseHTML, bodyHTML, rawCSS);
 
     saveFileSync(`public/e.${code}.html`, finalHTML);
+    console.log(`${colors.green('SUCCESS')}: Custom ${colors.blue(code)} Error Page created.`);
   });
   console.log(`${colors.green('SUCCESS')}: Custom Error Pages created.`);
 } catch (err) {

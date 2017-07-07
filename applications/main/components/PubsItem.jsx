@@ -41,7 +41,11 @@ const PubsItem = ({
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
           <a {...href}>
-            <div className="SPRITE" data-tip={tag} data-for="PUBS__tooltip">
+            <div
+              className="SPRITE"
+              data-tip={tag}
+              data-for="PUBS__tooltip"
+            >
               <div className={`SPRITE__pubs-${tag}`} />
             </div>
           </a>
