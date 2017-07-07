@@ -1,9 +1,9 @@
 import React from 'react';
 
 import PubsAuthor from './PubsAuthor.jsx';
-import PubsCiteElement from './PubsCiteElement.jsx';
-import PubsCodeLink from './PubsCodeLink.jsx';
+import PubsCitation from './PubsCitation.jsx';
 import PubsIssuePage from './PubsIssuePage.jsx';
+import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -25,10 +25,11 @@ const PubsItem = ({
   shouldAnimate,
   index,
 }) => {
-  const urlJournal = !url ? {} : { href: url };
-  const urlPDF = isPreprint ? {} : { href: `/pdf/${tag}.pdf` };
-  const urlJournalClassName = !url ? 'text-gray-light' : 'text-main-dark bg-main-light';
-  const urlPDFClassName = isPreprint ? 'text-gray-light' : 'text-main-dark bg-main-light';
+  const href = url ? {
+    href: url,
+    target: '_blank',
+    rel: 'noopener noreferrer external',
+  } : {};
 
   return (
     <WebAnimation
@@ -39,10 +40,7 @@ const PubsItem = ({
     >
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div className="PUBS__image">
-          <a
-            {...urlJournal}
-            target="_blank" rel="noopener noreferrer external"
-          >
+          <a {...href}>
             <div className="SPRITE" data-tip={tag} data-for="PUBS__tooltip">
               <div className={`SPRITE__pubs-${tag}`} />
             </div>
@@ -68,23 +66,23 @@ const PubsItem = ({
             page={page}
             isPreprint={isPreprint}
           />
-          <a
-            {...urlJournal}
-            target="_blank" rel="noopener noreferrer external"
-            className={urlJournalClassName}
-          >
-            <i className="fa fa-fwn fa-file-word" />
-          </a>
-          <a
-            {...urlPDF}
-            target="_blank" rel="noopener noreferrer external"
-            className={urlPDFClassName}
-          >
-            <i className="fa fa-fwn fa-file-pdf" />
-          </a>
-          <PubsCodeLink code={code} />
+          <PubsLink
+            url={url}
+            isPreprint={isPreprint}
+            icon="file-word"
+          />
+          <PubsLink
+            url={`/pdf/${tag}.pdf`}
+            icon="file-pdf"
+          />
+          {code && (
+            <PubsLink
+              url={code}
+              icon="file-code"
+            />
+          )}
           <br className="hidden-lg hidden-md" />
-          <PubsCiteElement citation={citation} />
+          <PubsCitation citation={citation} />
         </p>
         <br className="hidden-lg hidden-md" />
         <hr className="hidden-lg hidden-md PUBS__hr" />
