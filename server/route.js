@@ -17,6 +17,7 @@ import {
 } from './config.js';
 import {
   resumeVersion,
+  getThesisFile,
   sendHtmlFromCache,
   sendHtmlFromDisk,
   sendErrorResponse,
@@ -54,8 +55,8 @@ const routes = {
       maxAge: `${CACHE_MAX_AGE / 2} days`,
     });
   },
-  defense: (req, res) => {
-    res.sendFile(path.join(PUBLIC_PATH, FILE_NAMES.DEFENSE), { maxAge: `${CACHE_MAX_AGE * 5} days` });
+  thesis: (req, res) => {
+    res.sendFile(getThesisFile(req.params[0]), { maxAge: `${CACHE_MAX_AGE * 5} days` });
   },
   email: {
     get: (req, res, next) => {

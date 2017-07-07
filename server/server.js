@@ -14,6 +14,7 @@ import {
 import middlewares from './middleware.js';
 import routes from './route.js';
 import {
+  thesisPathRegex,
   projectPathRegex,
   errorPathRegex,
   getZipExt,
@@ -43,7 +44,7 @@ app.get(projectPathRegex, routes.project);
 app.use(express.static(PUBLIC_PATH, { maxAge: `${CACHE_MAX_AGE * 5} days` }));
 
 app.get('/resume', routes.resume);
-app.get('/defense', routes.defense);
+app.get(thesisPathRegex, routes.thesis);
 app.route('/send').get(routes.email.get).post(routes.email.post);
 
 // cleanup

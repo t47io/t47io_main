@@ -18,7 +18,12 @@ export const JSON_FORMAT = { spaces: 2 };
 export const FILE_NAMES = {
   FAVICO: 't47_icon.png',
   RESUME: 'SiqiTian_resume',
-  DEFENSE: 't47_phd_defense.png',
+  THESIS: {
+    dissertation: 'dissertation.pdf',
+    figures: 'dissertation_figures.pdf',
+    slides: 'defense_slides.pdf',
+    flyer: 'defense_flyer.png',
+  },
   ROBOTS: 'robots.txt',
   SITEMAP: 'sitemap.xml',
   BACKUP: 'backup.tar.gz',

@@ -4,6 +4,7 @@ import glob from 'glob';
 import path from 'path';
 
 import { PUBLIC_PATH } from './env.js';
+import { FILE_NAMES } from './config.js';
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_INTERNAL_NAMES } from '../applications/project/constants/repositoryTypes.js';
@@ -39,6 +40,21 @@ const getResume = () => {
   const fileName = resumeFiles[resumeFiles.length - 1] || '';
   return path.basename(fileName).replace('.pdf', '');
 };
+
+const getFileSize = (fileName) => {
+  const byteSize = fs.statSync(path.join(PUBLIC_PATH, fileName)).size;
+  return `${(byteSize / 1e6).toFixed(1)} MB`;
+};
+
+const getThesisSizes = () => (
+  Object.keys(FILE_NAMES.THESIS).map(item => ({
+    [item]: getFileSize(`../static/thesis/${FILE_NAMES.THESIS[item]}`),
+  }))
+  .reduce((obj, item) => ({
+    ...obj,
+    ...item,
+  }), {})
+);
 
 
 const concatMainJSON = () => {
@@ -92,6 +108,7 @@ const concatMainJSON = () => {
   });
   config.pubs.lens = pubsCounter;
   config.stats.items[2].value = pubsCounter;
+  config.pubs.thesis.sizes = getThesisSizes();
 
   fs.writeJsonSync(path.join(PUBLIC_PATH, '../config/main.json'), config);
   console.log(`${colors.green('SUCCESS')}: Main JSON compiled.`);

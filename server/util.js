@@ -8,6 +8,7 @@ import {
   HTTP_CODES,
   HTML_HEADER,
   CACHE_MAX_AGE,
+  FILE_NAMES,
 } from './config.js';
 import { webpackMiddleware } from './middleware.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
@@ -17,6 +18,7 @@ const { contact } = require('../config/main.json');
 
 export const resumeVersion = contact.resume;
 
+export const thesisPathRegex = new RegExp(`^/phd/(${Object.keys(FILE_NAMES.THESIS).join('|')})/?$`);
 export const projectPathRegex = new RegExp(`^/project/(${PROJECT_LIST.join('|')})/?$`);
 export const errorPathRegex = new RegExp(`^/error/(${HTTP_CODES.join('|')})/?$`);
 
@@ -30,6 +32,10 @@ export const getHeader = (req, dev = false) => {
     ...encoding,
   };
 };
+
+export const getThesisFile = name => (
+  path.join(PUBLIC_PATH, `/pdf/PhD_${FILE_NAMES.THESIS[name]}`)
+);
 
 export const sendHtmlFromCache = (name, render, req, res) => {
   const HTML = webpackMiddleware.fileSystem.readFileSync(
