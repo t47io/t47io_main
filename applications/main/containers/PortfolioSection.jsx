@@ -43,16 +43,24 @@ const PortfolioSection = ({
       shouldAnimate={header}
       onToggleAnimation={animateHeader}
     />
-    <div className="PORTFOLIO__wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <p className="text-gray text-center">
-        <span className="fa-stack">
-          <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
-          <i className="fa fa-fw fa-mouse-pointer fa-stack-1x text-white" />
-        </span>
-        Click for more details about each <span className="main">project</span>.
-      </p>
 
-      <div className="PORTFOLIO__area" >
+    <div className="row">
+      <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
+      <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        <p className="text-gray text-center">
+          <span className="fa-stack">
+            <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
+            <i className="fa fa-fw fa-mouse-pointer fa-stack-1x text-white" />
+          </span>
+          Click for more details about each
+          <span className="text-main"> project</span>.
+        </p>
+      </div>
+      <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
+    </div>
+
+    <div className="PORTFOLIO__wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div className="PORTFOLIO__area">
         <div className="PORTFOLIO__menu">
           <Trigger onToggleAnimation={animateFilters} />
           <ul className="PORTFOLIO__filters">
@@ -88,13 +96,19 @@ const PortfolioSection = ({
           </div>
         </div>
       </div>
+    </div>
 
-      <div className="UTIL__spacer-lg" />
-      <Trigger onToggleAnimation={animateBrands} />
-      <PortfolioPowerBy
-        items={brands}
-        shouldAnimate={brand}
-      />
+    <div className="row">
+      <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
+      <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        <div className="UTIL__spacer-lg" />
+        <Trigger onToggleAnimation={animateBrands} />
+        <PortfolioPowerBy
+          items={brands}
+          shouldAnimate={brand}
+        />
+      </div>
+      <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
     </div>
   </section>
 );

@@ -8,9 +8,9 @@ const AffiliationRole = ({
 }) => (
   <p className="AFFILIATION__role">
     <b>{position}</b>
-    {` ${title}`}
+    <span> {title}</span>
     <br className="hidden-lg hidden-md" />
-    <span className="text-main">{' @ '}</span>
+    <span className="text-main"> @ </span>
     <u>{team}</u>
   </p>
 );

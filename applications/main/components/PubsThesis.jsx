@@ -13,9 +13,9 @@ const PubsThesis = ({
     <div className="col-lg-1 col-md-1 hidden-sm hidden-xs" />
     <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12 PUBS__text">
       <p>
-        <b>{'"'}</b>
+        <b>&quot;</b>
         <PubsTitle title={title} />
-        <b>{'"'}</b>
+        <b>&quot;</b>
       </p>
       <p>
         <PubsLink

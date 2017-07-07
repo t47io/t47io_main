@@ -50,14 +50,14 @@ const PubsItem = ({
       <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12 PUBS__text">
         <p className="text-gray">
           <PubsAuthor authors={authors} />
-          {' ('}
+          <span> (</span>
           <b className="text-main-light">{year}</b>
-          )
+          <span>) </span>
         </p>
         <p>
-          <b>{'"'}</b>
+          <b>&quot;</b>
           <PubsTitle title={title} />
-          <b>{'"'}</b>
+          <b>&quot;</b>
         </p>
         <p>
           <i className="main">{journal}</i>

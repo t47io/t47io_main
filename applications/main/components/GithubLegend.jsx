@@ -5,7 +5,7 @@ const GithubLegend = () => (
   <g transform="translate(12, 128)">
     <text y="8">
       # Includes contributions from
-      <tspan className="private">{' private '}</tspan>
+      <tspan className="private"> private </tspan>
       repositories
     </text>
     <g transform="translate(555, 0)">

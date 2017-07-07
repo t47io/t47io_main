@@ -46,6 +46,38 @@ const PubsSection = ({
       onToggleAnimation={animateHeader}
     />
 
+    <div className="row">
+      <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
+      <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        <p className="PUBS__find-more text-gray text-center">
+          <span className="fa-stack">
+            <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
+            <i className="fa fa-fw fa-search fa-stack-1x text-white" />
+          </span>
+          Find more on
+          <a
+            href={googleScholar}
+            target="_blank" rel="noopener noreferrer external"
+            className="PUBS__link"
+          >
+            Google Scholar
+            <i className="fa fa-fw fa-sm fa-link-ext" />
+          </a>
+          and
+          <a
+            href={pubmed}
+            target="_blank" rel="noopener noreferrer external"
+            className="PUBS__link"
+          >
+            PubMed
+            <i className="fa fa-fw fa-sm fa-link-ext" />
+          </a>.
+        </p>
+      </div>
+      <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
+    </div>
+
+    <div className="UTIL__spacer-md" />
     <div className="container">
       <Trigger onToggleAnimation={animateEntries} />
       {items.map(item => (
@@ -60,38 +92,6 @@ const PubsSection = ({
         effect="solid" place="bottom"
         insecure={false}
       />
-
-      <div className="UTIL__spacer-md" />
-      <div className="row">
-        <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
-        <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
-          <h4 className="PUBS__find-more text-gray text-center">
-            <span className="fa-stack">
-              <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
-              <i className="fa fa-fw fa-search fa-stack-1x text-white" />
-            </span>
-            Find more on
-            <a
-              href={googleScholar}
-              target="_blank" rel="noopener noreferrer external"
-              className="PUBS__link"
-            >
-              Google Scholar
-              <i className="fa fa-fw fa-sm fa-link-ext" />
-            </a>
-            and
-            <a
-              href={pubmed}
-              target="_blank" rel="noopener noreferrer external"
-              className="PUBS__link"
-            >
-              PubMed
-              <i className="fa fa-fw fa-sm fa-link-ext" />
-            </a>.
-          </h4>
-        </div>
-        <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
-      </div>
     </div>
 
     <div className="UTIL__spacer-lg" />

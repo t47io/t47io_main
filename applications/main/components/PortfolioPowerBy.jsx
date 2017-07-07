@@ -19,59 +19,53 @@ const PortfolioPowerBy = ({
   items,
   shouldAnimate,
 }) => (
-  <div className="row">
-    <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
-    <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
-      <div className="PORTFOLIO__power-by">
-        <h5 className="PORTFOLIO__find-more text-gray text-center">
-          <span className="fa-stack">
-            <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
-            <i className="fa fa-fw fa-coffee fa-stack-1x text-white" />
-          </span>
-          This site is
-          <i> (proudly) </i>
-          <b className="text-black">Powered By</b>
-        </h5>
+  <div className="PORTFOLIO__power-by">
+    <h5 className="PORTFOLIO__find-more text-gray text-center">
+      <span className="fa-stack">
+        <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
+        <i className="fa fa-fw fa-coffee fa-stack-1x text-white" />
+      </span>
+      This site is
+      <i> (proudly) </i>
+      <b className="text-black">Powered By</b>
+    </h5>
 
-        <ul className="PORTFOLIO__brands text-center">
-          {items.map((item, i) => (
-            <PortfolioPowerByItem
-              key={`PORTFOLIO__brand-${item.name}`}
-              {...item}
-              icon={svgBrands[item.name]}
-              shouldAnimate={shouldAnimate}
-              index={i}
-            />
-          ))}
-        </ul>
-
-        <p className="PORTFOLIO__find-more text-center">
-          <a
-            href={REPOSITORY}
-            target="_blank" rel="noopener noreferrer external"
-          >
-            Code and content
-            <i className="fa fa-fw fa-sm fa-link-ext" />
-          </a>
-          on this site is licensed under
-          <a
-            href={LICENSE}
-            target="_blank" rel="noopener noreferrer external"
-          >
-            <i className="fa fa-fw fa-creative-commons" />
-            BY-NC-SA 4.0
-            <i className="fa fa-fw fa-sm fa-link-ext" />
-          </a>.
-        </p>
-
-        <ReactTooltip
-          id="PORTFOLIO__tooltip"
-          effect="solid" place="bottom" offset={tooltipOffset}
-          insecure={false}
+    <ul className="PORTFOLIO__brands text-center">
+      {items.map((item, i) => (
+        <PortfolioPowerByItem
+          key={`PORTFOLIO__brand-${item.name}`}
+          {...item}
+          icon={svgBrands[item.name]}
+          shouldAnimate={shouldAnimate}
+          index={i}
         />
-      </div>
-    </div>
-    <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
+      ))}
+    </ul>
+
+    <p className="PORTFOLIO__find-more text-center">
+      <a
+        href={REPOSITORY}
+        target="_blank" rel="noopener noreferrer external"
+      >
+        Code and content
+        <i className="fa fa-fw fa-sm fa-link-ext" />
+      </a>
+      on this site is licensed under
+      <a
+        href={LICENSE}
+        target="_blank" rel="noopener noreferrer external"
+      >
+        <i className="fa fa-fw fa-creative-commons" />
+        BY-NC-SA 4.0
+        <i className="fa fa-fw fa-sm fa-link-ext" />
+      </a>.
+    </p>
+
+    <ReactTooltip
+      id="PORTFOLIO__tooltip"
+      effect="solid" place="bottom" offset={tooltipOffset}
+      insecure={false}
+    />
   </div>
 );
 
