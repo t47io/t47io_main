@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
@@ -8,24 +8,24 @@
     "yarn": "^0.24.6"
   },
   "scripts": {
+    "dev": "yarn json && yarn nodemon",
+    "prod": "pm2 start --interpreter babel-node server/server.js -n main",
+
+    "json": "babel-node ./server/json.js",
+    "stat": "yarn cron && yarn json && yarn build && yarn cron:chmod",
+    "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
+
     "lint": "yarn lint:js && yarn lint:css",
     "lint:js": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js] --fix",
     "lint:css": "./node_modules/stylefmt/bin/cli.js -i applications/common/mixins/sprite.scss -r \"applications/**/*.{css,scss}\"",
 
-    "json": "babel-node ./server/json.js",
-    "stat": "yarn cron && yarn json && yarn build && yarn cron:chmod",
     "build": "yarn lint:js && yarn json && yarn build:server && yarn build:client",
-
-    "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
-    "dev": "yarn json && yarn nodemon",
-    "prod": "pm2 start --interpreter babel-node server/server.js -n main",
-
     "build:server": "yarn webpack:server && yarn process:server",
-    "build:client": "yarn webpack:client && yarn process:error && yarn process:client && yarn process:manifest && yarn process:static",
-
+    "build:client": "yarn webpack:client && yarn process",
     "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
     "webpack:client": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.client.js --verbose",
 
+    "process": "yarn process:error && yarn process:client && yarn process:manifest && yarn process:static",
     "process:server": "babel-node ./build/process/server.jsx",
     "process:client": "babel-node ./build/process/client.js",
     "process:error": "babel-node ./build/process/error.jsx",
@@ -45,7 +45,9 @@
     "cron:chmod": "babel-node ./server/cron/chmod.js",
     "cron:renew": "babel-node ./server/cron/ssl_renew.js",
 
-    "update": "./node_modules/npm-check-updates/bin/ncu -x preact -u -a && yarn upgrade && yarn clean"
+    "package": "yarn package:check -x preact -u -a && yarn package:update",
+    "package:check": "./node_modules/npm-check-updates/bin/ncu",
+    "package:update": "yarn upgrade && yarn clean"
   },
   "repository": "github:t47io/t47io_main",
   "license": "CC-BY-NC-SA-4.0",
@@ -57,7 +59,7 @@
     "portfolio"
   ],
   "devDependencies": {
-    "autoprefixer": "7.1.1",
+    "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
     "babel-loader": "7.1.1",
@@ -78,11 +80,11 @@
     "css-loader": "0.28.4",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "15.0.2",
-    "eslint-loader": "1.8.0",
-    "eslint-plugin-import": "2.6.1",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.1.0",
-    "express-static-gzip": "0.2.3",
+    "express-static-gzip": "0.3.0",
     "extract-text-webpack-plugin": "2.1.2",
     "file-loader": "0.11.2",
     "html-minifier": "3.5.2",
@@ -93,7 +95,7 @@
     "npm-check-updates": "2.12.1",
     "null-loader": "0.1.1",
     "optimize-js-plugin": "0.0.4",
-    "postcss": "6.0.5",
+    "postcss": "6.0.6",
     "postcss-loader": "2.0.6",
     "preact": "7.2.1",
     "preact-compat": "3.16.0",
@@ -123,10 +125,10 @@
     "uglifyjs-webpack-plugin": "0.4.6",
     "url-loader": "0.5.9",
     "web-animations-js": "2.2.5",
-    "webpack": "3.0.0",
+    "webpack": "3.1.0",
     "webpack-dev-middleware": "1.11.0",
-    "webpack-hot-middleware": "2.18.1",
-    "webpack-manifest-plugin": "1.1.0",
+    "webpack-hot-middleware": "2.18.2",
+    "webpack-manifest-plugin": "1.1.1",
     "whatwg-fetch": "2.0.3"
   },
   "dependencies": {
