@@ -38,7 +38,7 @@ yarn install
 
 Config files are stored as `config/**/*.json`. Example configs are included in the repository, see `config/**/*.example.json`.
 
-Server credentials are stored in `config/server.json`, including server `PORT`, email SMTP logins, _Google Analytics_ tracker ID and _GitHub_ access token. The `debug` flag here determines the server environment; the `maintenance` flag toggles 503 status. Use the `config/server.example.json` as a template and rename it.
+Server credentials are stored in `config/server.json`, including server `PORT`, email SMTP logins, _Google Analytics_ tracker ID and _GitHub_ access token. The `debug` flag here determines the server environment; the `maintenance` flag toggles 503 status. Adapt from the `config/server.example.json` as a template and rename it.
 
 
 > `nginx` reverse proxy and `pm2` startup configs are _not_ included in the repository.
