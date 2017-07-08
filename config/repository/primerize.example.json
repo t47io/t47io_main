@@ -1,7 +1,6 @@
 {
   "basics": {
-    "name": "t47io/django-Primerize-server",
-    "url": "https://github.com/t47io/django-Primerize-server",
+    "name": "DasLab/Server_Primerize",
     "isPrivate": false,
     "createdAt": "2016-08-28 03:44:13",
     "pushedAt": "2017-05-02 04:55:34",

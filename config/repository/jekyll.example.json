@@ -1,7 +1,6 @@
 {
   "basics": {
-    "name": "t47io/ribokit-Jekyll-theme",
-    "url": "https://github.com/t47io/ribokit-Jekyll-theme",
+    "name": "ribokit/ribokit-Jekyll-theme",
     "isPrivate": false,
     "createdAt": "2016-05-07 04:55:11",
     "pushedAt": "2016-12-12 00:37:10",

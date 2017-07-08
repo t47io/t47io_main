@@ -1,7 +1,6 @@
 {
   "basics": {
-    "name": "t47io/ribokit-Sphinx-theme",
-    "url": "https://github.com/t47io/ribokit-Sphinx-theme",
+    "name": "ribokit/ribokit-Sphinx-theme",
     "isPrivate": false,
     "createdAt": "2016-05-05 16:54:32",
     "pushedAt": "2016-12-04 00:13:06",

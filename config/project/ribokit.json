@@ -6,10 +6,10 @@
       "https://ribokit.github.io/"
     ],
     "theme": [
-      "https://github.com/ribokit/ribokit-Jekyll-theme/",
-      "https://github.com/ribokit/ribokit-Sphinx-theme/"
+      "ribokit/ribokit-Jekyll-theme/",
+      "ribokit/ribokit-Sphinx-theme/"
     ],
-    "manual": "http://ribokit.github.io/docs/"
+    "manual": "docs/"
   },
   "docs": [
     "Format and Integration"
@@ -80,8 +80,8 @@
         "RiboKit Package List"
       ],
       "links": [
-        "https://hitrace.github.io/HiTRACE/tutorial/",
-        "https://daslab.github.io/Primerize/",
+        "https://ribokit.github.io/HiTRACE/tutorial/",
+        "https://ribokit.github.io/Primerize/",
         "https://ribokit.github.io/RiboVis/",
         "https://ribokit.github.io/package/"
       ]

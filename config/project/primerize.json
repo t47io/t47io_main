@@ -2,9 +2,9 @@
   "title": "Primerize Server",
   "description": "PCR Assembly Primer Design and Service",
   "urls": {
-    "repo": "https://github.com/DasLab/Server_Primerize/",
+    "repo": "DasLab/Server_Primerize/",
     "server": "https://primerize.stanford.edu/",
-    "manual": "https://ribokit.github.io/Primerize/"
+    "manual": "Primerize/"
   },
   "docs": [
     "Package Reference",

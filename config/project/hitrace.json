@@ -2,9 +2,9 @@
   "title": "HiTRACE Graphics",
   "description": "High-Throughput Data Processing Pipeline and Standardized Graphical Archiving",
   "urls": {
-    "repo": "https://github.com/ribokit/HiTRACE/",
+    "repo": "ribokit/HiTRACE/",
     "server": "http://hitrace.org/",
-    "manual": "https://ribokit.github.io/HiTRACE/tutorial/"
+    "manual": "HiTRACE/tutorial/"
   },
   "docs": [
     "Step-by-Step Tutorial"

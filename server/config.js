@@ -6,12 +6,14 @@ export const HTML_HEADER = {
 export const CACHE_MAX_AGE = 120;
 
 export const GITHUB = {
+  HOST: 'https://github.com/',
   API: 'https://api.github.com/repos/',
   RETRY: 5,
   INTERVAL: 1000,
   TABLE_LIMIT: 4,
   DEFUALT_AUTHOR: '(None)',
 };
+export const RIBOKIT = 'https://ribokit.github.io/';
 
 export const JSON_FORMAT = { spaces: 2 };
 

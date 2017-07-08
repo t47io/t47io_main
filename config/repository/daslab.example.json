@@ -1,7 +1,6 @@
 {
   "basics": {
-    "name": "t47io/django-Daslab-server",
-    "url": "https://github.com/t47io/django-Daslab-server",
+    "name": "DasLab/Server_Daslab",
     "isPrivate": false,
     "createdAt": "2016-08-28 04:34:17",
     "pushedAt": "2017-02-22 05:11:09",

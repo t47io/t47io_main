@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { GITHUB_HOST } from '../../config.js';
+
 
 const RepositoryBasic = ({
   name,
-  url,
   isPrivate,
   createdAt,
   pushedAt,
@@ -16,6 +17,7 @@ const RepositoryBasic = ({
   stars,
 }) => {
   const privateLabel = isPrivate ? 'private' : 'public';
+  const url = `${GITHUB_HOST}${name}`;
 
   return (
     <div className="PROJECT__repo-basics">
@@ -60,7 +62,6 @@ const RepositoryBasic = ({
 
 RepositoryBasic.propTypes = {
   name: React.PropTypes.string,
-  url: React.PropTypes.string,
   isPrivate: React.PropTypes.bool,
   createdAt: React.PropTypes.string,
   pushedAt: React.PropTypes.string,
@@ -74,7 +75,6 @@ RepositoryBasic.propTypes = {
 };
 RepositoryBasic.defaultProps = {
   name: '',
-  url: '',
   isPrivate: false,
   createdAt: '',
   pushedAt: '',

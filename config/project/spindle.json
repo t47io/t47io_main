@@ -2,7 +2,7 @@
   "title": "Spindle Utility",
   "description": "Automated Image Selection and Quantitation",
   "urls": {
-    "repo": "https://github.com/t47io/SpindleUtil"
+    "repo": "t47io/SpindleUtil"
   },
   "carousels": [
     [

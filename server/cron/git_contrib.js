@@ -4,7 +4,10 @@ import colors from 'colors';
 import fs from 'fs-extra';
 import path from 'path';
 
-import { JSON_FORMAT } from '../config.js';
+import {
+  GITHUB,
+  JSON_FORMAT,
+} from '../config.js';
 
 import statsJSON from '../../config/main/stats.json';
 import cronJSON from '../../config/cron.json';
@@ -62,8 +65,8 @@ const combineData = (data1, data2) => {
 
 try {
   axios.all([
-    axios.get(statsJSON.links.github),
-    axios.get(statsJSON.links.githubMinted),
+    axios.get(`${GITHUB.HOST}/${statsJSON.links.github}`),
+    axios.get(`${GITHUB.HOST}/${statsJSON.links.githubMinted}`),
   ])
   .then(axios.spread((response1, response2) => {
     const data1 = extractData(response1.data);

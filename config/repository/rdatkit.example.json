@@ -1,7 +1,6 @@
 {
   "basics": {
-    "name": "hitrace/RDATKit",
-    "url": "https://github.com/hitrace/RDATKit",
+    "name": "ribokit/RDATKit",
     "isPrivate": false,
     "createdAt": "2013-08-02 05:56:41",
     "pushedAt": "2017-04-09 03:56:07",

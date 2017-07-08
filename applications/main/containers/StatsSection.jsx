@@ -11,6 +11,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 import * as statsActions from '../actions/statsActions.js';
 import { initialState as statsProps } from '../reducers/stats.js';
 import { STATS } from '../constants/sectionTypes.js';
+import { GITHUB_HOST } from '../../config.js';
 
 import '../stylesheets/StatsSection.scss';
 
@@ -71,14 +72,14 @@ const StatsSection = ({
       <small className="STATS__note-link">
         (
         <a
-          href={links.github}
+          href={`${GITHUB_HOST}/${links.github}`}
           target="_blank" rel="noopener noreferrer external"
         >
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
         and
         <a
-          href={links.githubMinted}
+          href={`${GITHUB_HOST}/${links.githubMinted}`}
           target="_blank" rel="noopener noreferrer external"
         >
           <i className="fa fa-fw fa-sm fa-link-ext" />

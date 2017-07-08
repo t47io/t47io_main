@@ -4,7 +4,11 @@ import glob from 'glob';
 import path from 'path';
 
 import { PUBLIC_PATH } from './env.js';
-import { FILE_NAMES } from './config.js';
+import {
+  GITHUB,
+  RIBOKIT,
+  FILE_NAMES,
+} from './config.js';
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_INTERNAL_NAMES } from '../applications/project/constants/repositoryTypes.js';
@@ -18,9 +22,25 @@ const mainJSON = SECTION_LIST
     ...item,
   }), {});
 const projectJSON = PROJECT_LIST
-  .map(project => ({
-    [project]: require(`../config/project/${project}.json`),
-  }))
+  .map((project) => {
+    const projJSON = require(`../config/project/${project}.json`);
+    const updatedJSON = {
+      ...projJSON,
+      urls: projJSON.urls || {},
+    };
+    if (updatedJSON.urls.repo) {
+      updatedJSON.urls.repo = `${GITHUB.HOST}${updatedJSON.urls.repo}`;
+    }
+    if (updatedJSON.urls.manual) {
+      updatedJSON.urls.manual = `${RIBOKIT}${updatedJSON.urls.manual}`;
+    }
+    if (updatedJSON.urls.theme) {
+      updatedJSON.urls.theme = updatedJSON.urls.theme.map(theme => (
+        `${GITHUB.HOST}${theme}`
+      ));
+    }
+    return { [project]: updatedJSON };
+  })
   .reduce((obj, item) => ({
     ...obj,
     ...item,

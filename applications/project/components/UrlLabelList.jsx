@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { GITHUB_HOST } from '../../config.js';
+
 
 const UrlLabelList = ({
   urls,
@@ -21,7 +23,7 @@ const UrlLabelList = ({
             href={url}
             target="_blank" rel="noopener noreferrer external"
           >
-            {isShortName ? url.replace('https://github.com/t47io/', '').replace('/', '') : url}
+            {isShortName ? url.replace(`${GITHUB_HOST}/t47io/`, '').replace('/', '') : url}
             <i className="fa fa-fw fa-sm fa-link-ext" />
           </a>
         </p>

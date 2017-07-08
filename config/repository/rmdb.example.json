@@ -1,7 +1,6 @@
 {
   "basics": {
-    "name": "t47io/django-RMDB-server",
-    "url": "https://github.com/t47io/django-RMDB-server",
+    "name": "DasLab/Server_RMDB",
     "isPrivate": false,
     "createdAt": "2016-08-28 04:10:25",
     "pushedAt": "2017-04-21 02:56:21",

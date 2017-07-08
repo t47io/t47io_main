@@ -1,7 +1,6 @@
 {
   "basics": {
-    "name": "hitrace/HiTRACE",
-    "url": "https://github.com/hitrace/HiTRACE",
+    "name": "ribokit/HiTRACE",
     "isPrivate": false,
     "createdAt": "2013-08-02 05:40:06",
     "pushedAt": "2017-05-24 17:39:58",

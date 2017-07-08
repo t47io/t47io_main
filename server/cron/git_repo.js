@@ -81,7 +81,6 @@ const formatBasics = ({ data, pulls, branches, downloads }, result) => ({
   ...result,
   basics: {
     name: data.full_name,
-    url: data.html_url,
     isPrivate: data.private,
     createdAt: formatDateTime(data.created_at),
     pushedAt: formatDateTime(data.pushed_at),
