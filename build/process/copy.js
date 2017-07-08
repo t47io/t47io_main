@@ -58,7 +58,7 @@ const copyResume = () => {
 };
 
 const copyThesis = () => {
-  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/thesis/*.pdf'))
+  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/thesis/*'))
     .map(file => path.basename(file));
 
   staticFiles.forEach(file => (
