@@ -2,10 +2,10 @@
   "items": {
     "left": [
       {
-        "icon": "server",
+        "icon": "code",
         "items": [
           {
-            "title": "Django, Node.js + Express, Jekyll",
+            "title": "Node.js + Express, Django, Jekyll",
             "value": 90
           },
           {
@@ -13,7 +13,7 @@
             "value": 85
           },
           {
-            "title": "AWS EC2 / ELB, HTTP2, Webauth + Kerberos, Vultr, letsencrypt",
+            "title": "AWS EC2 / ELB, HTTP2, Webauth + Kerberos, letsencrypt",
             "value": 85
           }
         ],
@@ -24,7 +24,7 @@
         "items": [
           {
             "title": "React, Redux, ES6",
-            "value": 80
+            "value": 90
           },
           {
             "title": "Material UI, Bootstrap, jQuery",
@@ -39,7 +39,7 @@
             "value": 90
           },
           {
-            "title": "Photoshop + Illustrator",
+            "title": "Illustrator, Photoshop",
             "value": 85
           }
         ],
@@ -49,7 +49,7 @@
         "icon": "user-secret",
         "items": [
           {
-            "title": "Git, webpack + Babel, Grunt, Bower, npm",
+            "title": "Git, webpack + Babel, Yarn, Grunt, Bower",
             "value": 90
           },
           {
@@ -95,6 +95,10 @@
           {
             "title": "MySQL, HiveQL",
             "value": 95
+          },
+          {
+            "title": "Elasticsearch, GraphQL",
+            "value": 60
           },
           {
             "title": "Splunk + Tableau + Datameer",
