@@ -4,7 +4,6 @@ import Audio from '../../common/components/Audio.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { imgPhone } from '../components/Images.js';
 import { audName } from '../components/Audio.js';
 import { contactPanel } from '../animations/contact.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
@@ -67,11 +66,7 @@ const ContactList = ({
           shouldAnimate={counter}
         >
           <i className="fa fa-phone fa-lg fa-fw" />
-          <img
-            className="CONTACT__phone"
-            alt="T47 phone no."
-            src={imgPhone}
-          />
+          <i>int</i> ( <u>0x3D7C99F2E</u> )
         </WebAnimation>
         <WebAnimation
           tagName="li"
