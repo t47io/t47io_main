@@ -37,7 +37,7 @@ const middlewares = [
 
 let webpackMiddleware = null;
 if (DEBUG) {
-  childProcess.execSync('yarn run json');
+  childProcess.execSync('yarn json');
 
   const compiler = webpack(webpackConfig);
   webpackMiddleware = webpackDevMiddleware(compiler, {
@@ -60,7 +60,7 @@ if (DEBUG) {
       path.join(PUBLIC_PATH, 'error.html'),
       errorHTML, 'utf8'
     );
-    childProcess.execSync('yarn run process:error');
+    childProcess.execSync('yarn process:error');
   });
 
   middlewares.push(webpackMiddleware);

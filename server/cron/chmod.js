@@ -7,6 +7,8 @@ import {
   CHMOD,
 } from '../env.js';
 
+const SCRIPT = 'cron:chmod';
+
 
 const excludeFind = () => (
   CHMOD.EXCLUDES.map(dir => `-not -path "./${dir}/*"`).join(' ')
@@ -30,8 +32,8 @@ try {
   chmodRoot();
   chmodPublic();
 
-  console.log(`${colors.green('SUCCESS')}: Permission changed for directories and files.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Permission changed for directories and files.`);
 } catch (err) {
   console.error(err);
-  console.log(`${colors.red('ERROR')}: Failed to change permission for directories and files.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to change permission for directories and files.`);
 }

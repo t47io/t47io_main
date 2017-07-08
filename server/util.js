@@ -8,11 +8,11 @@ import {
 } from './config.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 
-const { pubs, contact } = require('../config/main.json');
+import mainJSON from '../config/main.json';
 
 
-export const resumeVersion = contact.resume;
-export const pubTags = pubs.items.map(obj => (
+export const resumeVersion = mainJSON.contact.resume;
+export const pubTags = mainJSON.pubs.items.map(obj => (
   obj.items.map(item => item.tag)
 ))
 .reduce((list, item) => ([

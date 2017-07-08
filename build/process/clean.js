@@ -6,6 +6,8 @@ import shell from 'shelljs';
 
 import { ROOT_PATH } from '../config.js';
 
+const SCRIPT = 'process:clean';
+
 
 try {
   const tmpFiles = [
@@ -18,8 +20,8 @@ try {
 
   shell.cd(ROOT_PATH);
   shell.exec('find . -name ".DS_Store" -type f -delete');
-  console.log(`${colors.green('SUCCESS')}: Build temporary files deleted.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Build temporary files deleted.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to delete Build temporary files.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to delete Build temporary files.`);
 }

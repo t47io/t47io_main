@@ -10,6 +10,8 @@ import {
 } from '../../server/util.js';
 import { saveFileSync } from '../render/util.js';
 
+const SCRIPT = 'process:sitemap';
+
 
 const addRecord = (location, lastModify, changeFreq = 'never', priority = null) => {
   let urlXML = '<url>';
@@ -48,8 +50,8 @@ try {
   sitemapXML += '</urlset>';
 
   saveFileSync(`public/${FILE_NAMES.SITEMAP}`, sitemapXML);
-  console.log(`${colors.green('SUCCESS')}: Sitemap XML file generated.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Sitemap XML file generated.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to generate sitemap XML file.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to generate sitemap XML file.`);
 }

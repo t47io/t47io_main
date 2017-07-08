@@ -6,8 +6,10 @@ import path from 'path';
 
 import { JSON_FORMAT } from '../config.js';
 
-const json = require('../../config/main/stats.json');
-const cron = require('../../config/cron.json');
+import statsJSON from '../../config/main/stats.json';
+import cronJSON from '../../config/cron.json';
+
+const SCRIPT = 'cron:contrib';
 
 
 const extractData = (body) => {
@@ -31,10 +33,10 @@ const extractData = (body) => {
 
 const combineData = (data1, data2) => {
   if (data1.startDate !== data2.startDate) {
-    console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} Failed to update GitHub contribution records.`);
     throw new Error('Date mismatch on GitHub contribution data.');
   } else if (data1.countArray.length !== data2.countArray.length) {
-    console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} Failed to update GitHub contribution records.`);
     throw new Error('countArray length mismatch on GitHub contribution data.');
   }
 
@@ -60,43 +62,40 @@ const combineData = (data1, data2) => {
 
 try {
   axios.all([
-    axios.get(json.links.github),
-    axios.get(json.links.githubMinted),
+    axios.get(statsJSON.links.github),
+    axios.get(statsJSON.links.githubMinted),
   ])
   .then(axios.spread((response1, response2) => {
     const data1 = extractData(response1.data);
     const data2 = extractData(response2.data);
     const combinedData = combineData(data1, data2);
 
-    const newJson = {
-      ...json,
+    const newJSON = {
+      ...statsJSON,
       gitContrib: combinedData,
     };
-    fs.writeJsonSync(path.join(__dirname, '../../config/main/stats.json'), newJson, JSON_FORMAT);
+    fs.writeJSONSync(path.join(__dirname, '../../config/main/stats.json'), newJSON, JSON_FORMAT);
     return combinedData;
   }))
   .then((data) => {
-    const oldTotal = parseInt(cron.gitContrib.total, 10) || 0;
+    const oldTotal = parseInt(cronJSON.gitContrib.total, 10) || 0;
     const newTotal = data.countArray.reduce((x, y) => (x + y), 0);
     const diffNumber = newTotal - oldTotal;
     const diffString = `(${(diffNumber > 0) ? '+' : ''}${diffNumber})`;
 
-    const newJson = {
-      ...cron,
+    const newJSON = {
+      ...cronJSON,
       gitContrib: {
         total: `${newTotal} ${diffString}`,
         lastWeek: data.countArray.slice(data.countArray.length - 7),
       },
     };
-    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson, JSON_FORMAT);
+    fs.writeJSONSync(path.join(__dirname, '../../config/cron.json'), newJSON, JSON_FORMAT);
 
-    console.log(`${colors.green('SUCCESS')}: GitHub contribution records updated.`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub contribution records updated.`);
   })
-  .catch((error) => {
-    console.error(error);
-    console.log(`${colors.red('ERROR')}: Failed to retrieve GitHub contribution records.`);
-  });
+  .catch((err) => { throw err; });
 } catch (err) {
   console.error(err);
-  console.log(`${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
 }

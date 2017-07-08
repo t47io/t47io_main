@@ -5,7 +5,9 @@ import path from 'path';
 
 import { JSON_FORMAT } from '../config.js';
 
-const cron = require('../../config/cron.json');
+import cronJSON from '../../config/cron.json';
+
+const SCRIPT = 'cron:https';
 
 
 const checkCertificate = host => (
@@ -17,7 +19,7 @@ const checkCertificate = host => (
 
     req.on('error', (error) => {
       console.error(error);
-      console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate of ${colors.blue(host)}.`);
+      console.log(`${colors.magenta(`[${SCRIPT}]`)} Failed to check SSL Certificate of ${colors.blue(host)}.`);
       resolve(undefined);
     });
     req.end();
@@ -26,24 +28,21 @@ const checkCertificate = host => (
 
 
 try {
-  const newJson = { ...cron };
-  const hostList = Object.keys(cron.https);
+  const newJSON = { ...cronJSON };
+  const hostList = Object.keys(cronJSON.https);
 
   Promise.all(hostList.map(host => checkCertificate(host)))
   .then((values) => {
     hostList.forEach((host, i) => {
-      newJson.https[host] = values[i];
+      newJSON.https[host] = values[i];
     });
 
-    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson, JSON_FORMAT);
+    fs.writeJSONSync(path.join(__dirname, '../../config/cron.json'), newJSON, JSON_FORMAT);
 
-    console.log(`${colors.green('SUCCESS')}: SSL Certificate expiration checked.`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: SSL Certificate expiration checked.`);
   })
-  .catch((error) => {
-    console.error(error);
-    console.log(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
-  });
+  .catch((err) => { throw err; });
 } catch (err) {
-  console.error(`${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
   console.log(err);
+  console.error(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
 }

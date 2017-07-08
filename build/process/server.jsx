@@ -21,6 +21,8 @@ import {
   saveFileSync,
 } from '../render/util.js';
 
+const SCRIPT = 'process:server';
+
 
 const renderMainHTML = () => {
   const baseHTML = loadFileSync('applications/index.html');
@@ -50,12 +52,14 @@ const renderMainHTML = () => {
 try {
   const finalHTML = renderMainHTML();
   saveFileSync('public/index.html', finalHTML);
-  console.log(`${colors.green('SUCCESS')}: Index Page SSR finished.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Index Page SSR created.`);
 
   const ssrFiles = glob.sync(path.join(ROOT_PATH, 'public/ssr.*'));
   ssrFiles.forEach(ssr => fs.removeSync(ssr));
-  console.log(`${colors.green('SUCCESS')}: SSR temporary files deleted.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} SSR temporary files deleted.`);
+
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Index Page SSR finished.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to SSR on Index Page.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to SSR on Index Page.`);
 }

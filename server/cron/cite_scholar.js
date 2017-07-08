@@ -6,8 +6,10 @@ import path from 'path';
 
 import { JSON_FORMAT } from '../config.js';
 
-const json = require('../../config/main/pubs.json');
-const cron = require('../../config/cron.json');
+import pubsJSON from '../../config/main/pubs.json';
+import cronJSON from '../../config/cron.json';
+
+const SCRIPT = 'cron:scholar';
 
 
 const wordRegex = /[a-zA-Z]+/g;
@@ -36,8 +38,8 @@ const extractHTML = (body) => {
 };
 
 const matchRecords = allRecords => ({
-  ...json,
-  items: json.items.map(obj => ({
+  ...pubsJSON,
+  items: pubsJSON.items.map(obj => ({
     ...obj,
     items: obj.items.map((item) => {
       const title = filterWords(item.title, 4);
@@ -92,45 +94,42 @@ const diffCitations = (oldCitations, newCitations) => {
 
 
 try {
-  axios.get(json.links.googleScholar)
+  axios.get(pubsJSON.links.googleScholar)
   .then((response) => {
     const allRecords = extractHTML(response.data);
-    const newJson = matchRecords(allRecords);
+    const newJSON = matchRecords(allRecords);
 
     if (allRecords.length) {
-      console.log(`${colors.yellow('WARNING')}: ${allRecords.length} record(s) from Google Scholar was not matched.`);
+      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: ${allRecords.length} record(s) from Google Scholar was not matched.`);
       allRecords.forEach(item => (
-        console.log(`${colors.yellow('WARNING')}: entry ${item.year} / ${item.author.join()} / ${item.title.join(' ')}`)
+        console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: entry ${colors.blue(`${item.year} / ${item.author.join()} / ${item.title.join(' ')}`)}`)
       ));
     }
 
-    newJson.items.forEach((obj) => {
+    newJSON.items.forEach((obj) => {
       obj.items.filter(item => (item.citation === null))
       .forEach((item) => {
-        console.log(`${colors.blue('NOTICE')}: entry ${colors.yellow(item.tag)} did not match any citation record.`);
+        console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: entry ${colors.blue(item.tag)} did not match any citation record.`);
       });
     });
 
-    fs.writeJsonSync(path.join(__dirname, '../../config/main/pubs.json'), newJson, JSON_FORMAT);
-    return newJson.items;
+    fs.writeJSONSync(path.join(__dirname, '../../config/main/pubs.json'), newJSON, JSON_FORMAT);
+    return newJSON.items;
   })
   .then((items) => {
-    const oldCitations = cron.citations;
+    const oldCitations = cronJSON.citations;
     const newCitations = flattenCitations(items);
 
-    const newJson = {
-      ...cron,
+    const newJSON = {
+      ...cronJSON,
       citations: diffCitations(oldCitations, newCitations),
     };
-    fs.writeJsonSync(path.join(__dirname, '../../config/cron.json'), newJson, JSON_FORMAT);
+    fs.writeJSONSync(path.join(__dirname, '../../config/cron.json'), newJSON, JSON_FORMAT);
 
-    console.log(`${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
   })
-  .catch((error) => {
-    console.error(error);
-    console.log(`${colors.red('ERROR')}: Failed to retrieve Google Scholar citation.`);
-  });
+  .catch((err) => { throw err; });
 } catch (err) {
   console.error(err);
-  console.log(`${colors.red('ERROR')}: Failed to update Google Scholar citation.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update Google Scholar citation.`);
 }

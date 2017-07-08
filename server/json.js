@@ -9,7 +9,7 @@ import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_INTERNAL_NAMES } from '../applications/project/constants/repositoryTypes.js';
 
-const mainJson = SECTION_LIST
+const mainJSON = SECTION_LIST
   .map(section => ({
     [section]: require(`../config/main/${section}.json`),
   }))
@@ -17,7 +17,7 @@ const mainJson = SECTION_LIST
     ...obj,
     ...item,
   }), {});
-const projectJson = PROJECT_LIST
+const projectJSON = PROJECT_LIST
   .map(project => ({
     [project]: require(`../config/project/${project}.json`),
   }))
@@ -25,7 +25,7 @@ const projectJson = PROJECT_LIST
     ...obj,
     ...item,
   }), {});
-const repositoryJson = REPOSITORY_INTERNAL_NAMES
+const repositoryJSON = REPOSITORY_INTERNAL_NAMES
   .map(repository => ({
     [repository]: require(`../config/repository/${repository}.json`),
   }))
@@ -33,6 +33,8 @@ const repositoryJson = REPOSITORY_INTERNAL_NAMES
     ...obj,
     ...item,
   }), {});
+
+const SCRIPT = 'server:json';
 
 
 const getResume = () => {
@@ -55,25 +57,25 @@ const getFileSize = (fileName) => {
 
 const concatMainJSON = () => {
   const config = {
-    ...mainJson,
-    navbar: { items: mainJson.home.sections },
-    home: { title: mainJson.home.title },
+    ...mainJSON,
+    navbar: { items: mainJSON.home.sections },
+    home: { title: mainJSON.home.title },
     portfolio: {
-      ...mainJson.portfolio,
+      ...mainJSON.portfolio,
       selectedCategory: 'all',
     },
     pubs: {
-      ...mainJson.pubs,
+      ...mainJSON.pubs,
       thesis: {
-        ...mainJson.pubs.thesis,
-        links: mainJson.pubs.thesis.links.map(link => ({
+        ...mainJSON.pubs.thesis,
+        links: mainJSON.pubs.thesis.links.map(link => ({
           ...link,
           size: getFileSize(`../static/thesis/${FILE_NAMES.THESIS[link.tag]}`),
         })),
       },
     },
     contact: {
-      ...mainJson.contact,
+      ...mainJSON.contact,
       resume: getResume(),
     },
   };
@@ -115,26 +117,27 @@ const concatMainJSON = () => {
   config.pubs.lens = pubsCounter;
   config.stats.items[2].value = pubsCounter;
 
-  fs.writeJsonSync(path.join(PUBLIC_PATH, '../config/main.json'), config);
-  console.log(`${colors.green('SUCCESS')}: Main JSON compiled.`);
+  fs.writeJSONSync(path.join(PUBLIC_PATH, '../config/main.json'), config);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Main JSON compiled.`);
 };
 
 const concatProjectJSON = () => {
   const data = {
-    project: projectJson,
-    repository: repositoryJson,
+    project: projectJSON,
+    repository: repositoryJSON,
   };
-  fs.writeJsonSync(path.join(PUBLIC_PATH, '../config/project.json'), data);
-  console.log(`${colors.green('SUCCESS')}: Project JSON compiled.`);
+  fs.writeJSONSync(path.join(PUBLIC_PATH, '../config/project.json'), data);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Project JSON compiled.`);
 };
 
 
 try {
   concatMainJSON();
   concatProjectJSON();
-  console.log(`${colors.green('SUCCESS')}: Data JSON files compiled.`);
+
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Data JSON files compiled.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to compile main and/or project JSON.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to compile main and/or project JSON.`);
 }
 

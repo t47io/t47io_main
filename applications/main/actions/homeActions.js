@@ -5,17 +5,6 @@ import {
 } from '../constants/actionTypes.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 
-// export const loadJsonData = () => (
-//   dispatch => (
-//     fetch('/config.json')
-//     .then(response => response.json())
-//     .then(json => dispatch({
-//       type: LOAD_JSON_DATA,
-//       payload: { ...json },
-//     }))
-//     .catch(() => console.error('Failed to fetch config.json.'))
-//   )
-// );
 
 export const animateReady = () => (dispatch) => {
   const loadingContainer = document.querySelector('.LOAD__container');

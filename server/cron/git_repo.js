@@ -13,7 +13,10 @@ import {
   REPOSITORY_LIST,
 } from '../../applications/project/constants/repositoryTypes.js';
 
-const { git: { token, login } } = require('../../config/server.json');
+import serverJSON from '../../config/server.json';
+
+const { git: { token, login } } = serverJSON;
+const SCRIPT = 'cron:repo';
 
 
 const getContribOnce = (repo, repoName) => (
@@ -24,7 +27,7 @@ const getContribOnce = (repo, repoName) => (
       if (json.status === 200) {
         resolve(json);
       } else {
-        console.log(`${colors.yellow('WARNING')}: Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
+        console.log(`${colors.magenta(`[${SCRIPT}]`)} Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
         reject('Failed to fetch Github repository contrib');
       }
     })
@@ -149,7 +152,8 @@ try {
   gh = new Github({ token });
 } catch (err) {
   console.error(err);
-  console.log(`${colors.red('ERROR')}: Failed to connect to GitHub.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to connect to GitHub.`);
+  process.exit();
 }
 
 REPOSITORY_LIST.forEach((repoName, i) => {
@@ -171,22 +175,21 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     })))
     .then((data) => { result = formatBasics(data, result); })
     .then(() => getContribRetry(repo, repoName, GITHUB.RETRY, GITHUB.INTERVAL))
-    .catch(() => { console.error(`${colors.red('ERROR')}: Failed to fetch Github records for repository ${colors.blue(repoName)} after ${GITHUB.RETRY} attempts.`); })
+    .catch((err) => { throw err; })
     .then(({ data }) => {
       result = formatTable(data, result);
       return data.filter(contrib => contrib.author.login === login)[0].weeks;
     })
     .then((data) => { result = formatCalendar(data, result); })
     .then(() => {
-      fs.writeJsonSync(path.join(__dirname, '../../config/repository', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
-      console.log(`${colors.green('SUCCESS')}: GitHub records updated for repository ${colors.blue(repoName)}.`);
+      fs.writeJSONSync(path.join(__dirname, '../../config/repository', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
+      console.log(`${colors.magenta(`[${SCRIPT}]`)} GitHub records updated for repository ${colors.blue(repoName)}.`);
     })
-    .catch((error) => {
-      console.error(error);
-      console.log(`${colors.red('ERROR')}: Failed to process Github records for repository ${colors.blue(repoName)} after ${GITHUB.RETRY} attempts.`);
-    });
+    .catch((err) => { throw err; });
   } catch (err) {
     console.error(err);
-    console.log(`${colors.red('ERROR')}: Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
   }
 });
+
+console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Updated GitHub records.`);

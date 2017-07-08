@@ -5,11 +5,13 @@ import shell from 'shelljs';
 import { DAY_MILLISECONDS } from '../../applications/common/constants/util.js';
 import { PUBLIC_PATH } from '../env.js';
 
-const cron = require('../../config/cron.json');
+import cronJSON from '../../config/cron.json';
+
+const SCRIPT = 'cron:renew';
 
 
 const checkExpire = () => {
-  const expireDate = new Date(cron.https['t47.io']).getTime();
+  const expireDate = new Date(cronJSON.https['t47.io']).getTime();
   const currentDate = new Date().getTime();
   return (expireDate - currentDate < DAY_MILLISECONDS * 10);
 };
@@ -26,9 +28,9 @@ try {
     runLetsencrypt();
     shell.exec('service nginx start');
 
-    console.log(`${colors.green('SUCCESS')}: SSL Certificate renewed.`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: SSL Certificate renewed.`);
   }
 } catch (err) {
-  console.error(`${colors.red('ERROR')}: Failed to renew SSL Certificate.`);
+  console.error(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to renew SSL Certificate.`);
   console.log(err);
 }

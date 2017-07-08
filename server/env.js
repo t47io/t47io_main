@@ -1,7 +1,9 @@
 import emailer from 'nodemailer';
 import path from 'path';
 
-const { mode, port, email, chmod } = require('../config/server.json');
+import serverJSON from '../config/server.json';
+
+const { mode, port, email, chmod } = serverJSON;
 
 
 export const PUBLIC_PATH = path.join(__dirname, '../public');

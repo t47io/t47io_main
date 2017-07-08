@@ -113,7 +113,7 @@
           "journal": "RNA",
           "issue": "23 (5)",
           "page": "655 - 672",
-          "citation": 2,
+          "citation": 3,
           "tag": "2017_Miao_RNA",
           "url": "http://rnajournal.cshlp.org/content/early/2017/01/30/rna.060368.116"
         },
@@ -167,7 +167,7 @@
           "journal": "eLife",
           "issue": "4",
           "page": "e07600",
-          "citation": 18,
+          "citation": 20,
           "tag": "2015_Cheng_eLife",
           "url": "https://elifesciences.org/content/4/e07600",
           "code": "https://rmdb.stanford.edu/mapseeker/"
@@ -253,7 +253,7 @@
           "journal": "RNA",
           "issue": "21 (6)",
           "page": "1066 - 1084",
-          "citation": 47,
+          "citation": 50,
           "tag": "2015_Miao_RNA",
           "url": "http://rnajournal.cshlp.org/content/21/6/1066"
         },
@@ -270,7 +270,7 @@
           "journal": "Nature",
           "issue": "517",
           "page": "33 - 38",
-          "citation": 64,
+          "citation": 72,
           "tag": "2015_Xue_Nature",
           "url": "http://www.nature.com/nature/journal/v517/n7532/full/nature14010.html"
         }
@@ -290,7 +290,7 @@
           "journal": "RNA",
           "issue": "20 (11)",
           "page": "1815 - 1826",
-          "citation": 17,
+          "citation": 19,
           "tag": "2014_Tian_RNA",
           "url": "http://rnajournal.cshlp.org/content/20/11/1815"
         },
@@ -308,7 +308,7 @@
           "journal": "Biochemistry",
           "issue": "53 (19)",
           "page": "3063 - 3065",
-          "citation": 23,
+          "citation": 22,
           "tag": "2014_Kladwang_Biochemistry",
           "url": "https://pubs.acs.org/doi/abs/10.1021/bi5003426"
         }

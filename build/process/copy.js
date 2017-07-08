@@ -12,6 +12,8 @@ import {
   saveFileSync,
 } from '../render/util.js';
 
+const SCRIPT = 'process:copy';
+
 
 const copyImages = () => {
   const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/*'), { nodir: true })
@@ -23,13 +25,13 @@ const copyImages = () => {
       path.join(ROOT_PATH, `public/${file}`)
     )
   ));
-  console.log(`${colors.green('SUCCESS')}: Image files copied to public.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Image files copied to public.`);
 };
 
 const copyRobots = () => {
   const robotsTXT = loadFileSync(`static/${FILE_NAMES.ROBOTS}`);
   saveFileSync(`public/${FILE_NAMES.ROBOTS}`, robotsTXT);
-  console.log(`${colors.green('SUCCESS')}: Robots.txt copied to public.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Robots.txt copied to public.`);
 };
 
 const copyPubs = () => {
@@ -43,7 +45,7 @@ const copyPubs = () => {
       path.join(ROOT_PATH, `public/pdf/pubs/${file}`)
     )
   ));
-  console.log(`${colors.green('SUCCESS')}: Pubs PDF files copied to public.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ubs PDF files copied to public.`);
 };
 
 const copyResume = () => {
@@ -51,7 +53,7 @@ const copyResume = () => {
     path.join(ROOT_PATH, `static/resume/${resumeVersion}.pdf`),
     path.join(ROOT_PATH, 'public/pdf/resume.pdf')
   );
-  console.log(`${colors.green('SUCCESS')}: Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
 };
 
 const copyThesis = () => {
@@ -65,7 +67,7 @@ const copyThesis = () => {
       path.join(ROOT_PATH, `public/pdf/thesis/${file}`)
     )
   ));
-  console.log(`${colors.green('SUCCESS')}: Thesis PDF files copied to public.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Thesis PDF files copied to public.`);
 };
 
 
@@ -77,8 +79,8 @@ try {
   copyThesis();
   copyResume();
 
-  console.log(`${colors.green('SUCCESS')}: Static files copied to public.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Static files copied to public.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to copy static files to public.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to copy static files to public.`);
 }

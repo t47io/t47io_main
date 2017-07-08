@@ -13,9 +13,12 @@ import {
   loadImageSync,
 } from '../render/util.js';
 
-const json = require('../../config/error.json');
+import errorJSON from '../../config/error.json';
 
-const codes = Object.keys(json).map(code => parseInt(code, 10));
+const SCRIPT = 'process:error';
+
+
+const codes = Object.keys(errorJSON).map(code => parseInt(code, 10));
 const images = codes.map(code => loadImageSync(`applications/error/images/${code}.png`));
 
 try {
@@ -27,7 +30,7 @@ try {
   codes.forEach((code, i) => {
     const bodyHTML = renderToStaticMarkup(
       <ErrorPage
-        {...(json[code])}
+        {...(errorJSON[code])}
         code={code}
         img={images[i]}
         copy={copySVG}
@@ -37,10 +40,10 @@ try {
     const finalHTML = renderErrorHTML(baseHTML, bodyHTML, rawCSS);
 
     saveFileSync(`public/e.${code}.html`, finalHTML);
-    console.log(`${colors.green('SUCCESS')}: Custom ${colors.blue(code)} Error Page created.`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} Custom ${colors.blue(code)} Error Page created.`);
   });
-  console.log(`${colors.green('SUCCESS')}: Custom Error Pages created.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Custom Error Pages created.`);
 } catch (err) {
   console.log(err);
-  console.log(`${colors.red('ERROR')}: Failed to create Custom Error Pages.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to create Custom Error Pages.`);
 }
