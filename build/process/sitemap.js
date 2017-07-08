@@ -11,11 +11,14 @@ import {
 import { saveFileSync } from '../render/util.js';
 
 
-const addRecord = (location, lastModify, changeFreq) => {
+const addRecord = (location, lastModify, changeFreq = 'never', priority = null) => {
   let urlXML = '<url>';
   urlXML += `<loc>${HOST}/${location}</loc>`;
   urlXML += `<lastmod>${lastModify}</lastmod>`;
   urlXML += `<changefreq>${changeFreq}</changefreq>`;
+  if (priority !== null) {
+    urlXML += `<priority>${priority.toFixed(1)}</priority>`;
+  }
   urlXML += '</url>';
   return urlXML;
 };
@@ -29,14 +32,18 @@ try {
   let sitemapXML = '<?xml version="1.0" encoding="UTF-8"?>';
   sitemapXML += `<urlset xmlns="${SITEMAP_HEAD.xmlns}" xmlns:xsi="${SITEMAP_HEAD.xsi}" xsi:schemaLocation="${SITEMAP_HEAD.xmlns} ${SITEMAP_HEAD.xmlns}/${SITEMAP_HEAD.schemaLocation}">`;
 
-  sitemapXML += addRecord('', homeDate, 'weekly');
-  sitemapXML += addRecord('resume', resumeDate, 'montly');
+  sitemapXML += addRecord('', homeDate, 'weekly', 1);
+  sitemapXML += addRecord('resume', resumeDate, 'montly', 0.8);
   PROJECT_LIST.forEach((project) => {
     sitemapXML += addRecord(`project/${project}`, projectDate, 'monthly');
   });
   pubTags.forEach((pub) => {
     const year = parseInt(pub.slice(0, 4), 10);
-    sitemapXML += addRecord(`pdf/${pub}`, `${year}-01-01`, 'yearly');
+    const changefreq = (new Date().getFullYear() === year) ? 'yearly' : 'never';
+    sitemapXML += addRecord(`pdf/${pub}`, `${year}-01-01`, changefreq);
+  });
+  Object.keys(FILE_NAMES.THESIS).forEach((item) => {
+    sitemapXML += addRecord(`phd/${FILE_NAMES.THESIS[item]}`, '2017-01-01');
   });
   sitemapXML += '</urlset>';
 
