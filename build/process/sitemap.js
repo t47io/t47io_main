@@ -4,20 +4,12 @@ import { SITEMAP_HEAD } from '../config.js';
 import { HOST } from '../../applications/config.js';
 import { FILE_NAMES } from '../../server/config.js';
 import { PROJECT_LIST } from '../../applications/project/constants/projectTypes.js';
+import {
+  resumeVersion,
+  pubTags,
+} from '../../server/util.js';
 import { saveFileSync } from '../render/util.js';
 
-const json = require('../../config/main.json');
-
-
-const getPublications = () => (
-  json.pubs.items.map(obj => (
-    obj.items.map(item => item.tag)
-  ))
-  .reduce((list, item) => ([
-    ...list,
-    ...item,
-  ]), [])
-);
 
 const addRecord = (location, lastModify, changeFreq) => {
   let urlXML = '<url>';
@@ -32,8 +24,7 @@ const addRecord = (location, lastModify, changeFreq) => {
 try {
   const homeDate = new Date().toISOString().slice(0, 10);
   const projectDate = `${homeDate.slice(0, 7)}-01`;
-  const resume = json.contact.resume.replace(/[a-zA-Z_.]/g, '');
-  const resumeDate = `${resume.slice(0, 4)}-${resume.slice(4, 6)}-${resume.slice(6, 8)}`;
+  const resumeDate = `${resumeVersion.slice(0, 4)}-${resumeVersion.slice(4, 6)}-${resumeVersion.slice(6, 8)}`;
 
   let sitemapXML = '<?xml version="1.0" encoding="UTF-8"?>';
   sitemapXML += `<urlset xmlns="${SITEMAP_HEAD.xmlns}" xmlns:xsi="${SITEMAP_HEAD.xsi}" xsi:schemaLocation="${SITEMAP_HEAD.xmlns} ${SITEMAP_HEAD.xmlns}/${SITEMAP_HEAD.schemaLocation}">`;
@@ -43,9 +34,9 @@ try {
   PROJECT_LIST.forEach((project) => {
     sitemapXML += addRecord(`project/${project}`, projectDate, 'monthly');
   });
-  getPublications().forEach((pub) => {
+  pubTags.forEach((pub) => {
     const year = parseInt(pub.slice(0, 4), 10);
-    sitemapXML += addRecord(`pdf/${pub}.pdf`, `${year}-01-01`, 'yearly');
+    sitemapXML += addRecord(`pdf/${pub}`, `${year}-01-01`, 'yearly');
   });
   sitemapXML += '</urlset>';
 

@@ -76,7 +76,7 @@ const PubsItem = ({
             icon="file-word"
           />
           <PubsLink
-            url={`/pdf/${tag}.pdf`}
+            url={`/pdf/${tag}`}
             icon="file-pdf"
           />
           {code && (

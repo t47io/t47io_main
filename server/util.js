@@ -1,23 +1,26 @@
 import path from 'path';
 
-import {
-  PUBLIC_PATH,
-  DEBUG,
-} from './env.js';
+import { PUBLIC_PATH } from './env.js';
 import {
   HTTP_CODES,
   HTML_HEADER,
-  CACHE_MAX_AGE,
   FILE_NAMES,
 } from './config.js';
-import { webpackMiddleware } from './middleware.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 
-const { contact } = require('../config/main.json');
+const { pubs, contact } = require('../config/main.json');
 
 
 export const resumeVersion = contact.resume;
+export const pubTags = pubs.items.map(obj => (
+  obj.items.map(item => item.tag)
+))
+.reduce((list, item) => ([
+  ...list,
+  ...item,
+]), []);
 
+export const pubsPathRegex = new RegExp(`^/pdf/(${pubTags.join('|')})/?$`);
 export const thesisPathRegex = new RegExp(`^/phd/(${Object.keys(FILE_NAMES.THESIS).join('|')})/?$`);
 export const projectPathRegex = new RegExp(`^/project/(${PROJECT_LIST.join('|')})/?$`);
 export const errorPathRegex = new RegExp(`^/error/(${HTTP_CODES.join('|')})/?$`);
@@ -33,24 +36,12 @@ export const getHeader = (req, dev = false) => {
   };
 };
 
-export const getThesisFile = name => (
-  path.join(PUBLIC_PATH, `/pdf/PhD_${FILE_NAMES.THESIS[name]}`)
+export const getPubFile = name => (
+  path.join(PUBLIC_PATH, `/pdf/pubs/${name}.pdf`)
 );
-
-export const sendHtmlFromCache = (name, render, req, res) => {
-  const HTML = webpackMiddleware.fileSystem.readFileSync(
-    path.join(PUBLIC_PATH, `${name}.html`), 'utf8'
-  );
-  res.set(getHeader(req, DEBUG)).send(render(HTML));
-};
-export const sendHtmlFromDisk = (name, req, res) => {
-  const ext = getZipExt(req.headers);
-
-  res.sendFile(path.join(PUBLIC_PATH, `${name}.html.${ext}`), {
-    headers: getHeader(req, DEBUG),
-    maxAge: `${CACHE_MAX_AGE} days`,
-  });
-};
+export const getThesisFile = name => (
+  path.join(PUBLIC_PATH, `/pdf/thesis/${FILE_NAMES.THESIS[name]}`)
+);
 
 export const sendErrorResponse = (code) => {
   const err = new Error();

@@ -6,6 +6,7 @@ import shell from 'shelljs';
 
 import { ROOT_PATH } from '../config.js';
 import { FILE_NAMES } from '../../server/config.js';
+import { resumeVersion } from '../../server/util.js';
 import {
   loadFileSync,
   saveFileSync,
@@ -32,39 +33,36 @@ const copyRobots = () => {
 };
 
 const copyPubs = () => {
+  shell.mkdir('-p', `${ROOT_PATH}/public/pdf/pubs/`);
+
   const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/pubs/*.pdf'))
     .map(file => path.basename(file));
-
   staticFiles.forEach(file => (
     fs.copySync(
       path.join(ROOT_PATH, `static/pubs/${file}`),
-      path.join(ROOT_PATH, `public/pdf/${file}`)
+      path.join(ROOT_PATH, `public/pdf/pubs/${file}`)
     )
   ));
   console.log(`${colors.green('SUCCESS')}: Pubs PDF files copied to public.`);
 };
 
 const copyResume = () => {
-  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/resume/*.pdf'))
-    .map(file => path.basename(file));
-
-  staticFiles.forEach(file => (
-    fs.copySync(
-      path.join(ROOT_PATH, `static/resume/${file}`),
-      path.join(ROOT_PATH, `public/pdf/Resume_${file}`)
-    )
-  ));
-  console.log(`${colors.green('SUCCESS')}: Resume PDF files copied to public.`);
+  fs.copySync(
+    path.join(ROOT_PATH, `static/resume/${resumeVersion}.pdf`),
+    path.join(ROOT_PATH, 'public/pdf/resume.pdf')
+  );
+  console.log(`${colors.green('SUCCESS')}: Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
 };
 
 const copyThesis = () => {
+  shell.mkdir('-p', `${ROOT_PATH}/public/pdf/thesis/`);
+
   const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/thesis/*'))
     .map(file => path.basename(file));
-
   staticFiles.forEach(file => (
     fs.copySync(
       path.join(ROOT_PATH, `static/thesis/${file}`),
-      path.join(ROOT_PATH, `public/pdf/PhD_${file}`)
+      path.join(ROOT_PATH, `public/pdf/thesis/${file}`)
     )
   ));
   console.log(`${colors.green('SUCCESS')}: Thesis PDF files copied to public.`);
@@ -75,10 +73,9 @@ try {
   copyImages();
   copyRobots();
 
-  shell.mkdir('-p', `${ROOT_PATH}/public/pdf`);
   copyPubs();
-  copyResume();
   copyThesis();
+  copyResume();
 
   console.log(`${colors.green('SUCCESS')}: Static files copied to public.`);
 } catch (err) {

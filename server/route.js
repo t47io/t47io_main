@@ -15,17 +15,34 @@ import {
   FILE_NAMES,
   BOT_USER_AGENTS,
 } from './config.js';
+import { webpackMiddleware } from './middleware.js';
 import {
-  resumeVersion,
+  getPubFile,
   getThesisFile,
-  sendHtmlFromCache,
-  sendHtmlFromDisk,
+  getZipExt,
+  getHeader,
   sendErrorResponse,
 } from './util.js';
 import {
   renderMainHTML,
   renderProjectHTML,
 } from '../build/render/client.jsx';
+
+
+export const sendHtmlFromCache = (name, render, req, res) => {
+  const HTML = webpackMiddleware.fileSystem.readFileSync(
+    path.join(PUBLIC_PATH, `${name}.html`), 'utf8'
+  );
+  res.set(getHeader(req, DEBUG)).send(render(HTML));
+};
+export const sendHtmlFromDisk = (name, req, res) => {
+  const ext = getZipExt(req.headers);
+
+  res.sendFile(path.join(PUBLIC_PATH, `${name}.html.${ext}`), {
+    headers: getHeader(req, DEBUG),
+    maxAge: `${CACHE_MAX_AGE} days`,
+  });
+};
 
 
 const routes = {
@@ -49,15 +66,19 @@ const routes = {
     }
   },
 
-  resume: (req, res) => {
-    res.sendFile(path.join(PUBLIC_PATH, 'pdf/', `Resume_${resumeVersion}.pdf`), {
-      headers: { 'Content-Disposition': `inline; filename="${FILE_NAMES.RESUME}"` },
-      maxAge: `${CACHE_MAX_AGE / 2} days`,
-    });
+  pubs: (req, res) => {
+    res.sendFile(getPubFile(req.params[0]), { maxAge: `${CACHE_MAX_AGE * 5} days` });
   },
   thesis: (req, res) => {
     res.sendFile(getThesisFile(req.params[0]), { maxAge: `${CACHE_MAX_AGE * 5} days` });
   },
+  resume: (req, res) => {
+    res.sendFile(path.join(PUBLIC_PATH, 'pdf/resume.pdf'), {
+      headers: { 'Content-Disposition': `inline; filename="${FILE_NAMES.RESUME}"` },
+      maxAge: `${CACHE_MAX_AGE / 2} days`,
+    });
+  },
+
   email: {
     get: (req, res, next) => {
       const code = ('success' in req.query && req.query.success === '1') ? 201 : 400;
