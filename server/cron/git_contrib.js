@@ -101,4 +101,5 @@ try {
 } catch (err) {
   console.error(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+  process.exit(1);
 }

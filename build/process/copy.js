@@ -83,4 +83,5 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to copy static files to public.`);
+  process.exit(1);
 }

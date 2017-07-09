@@ -62,4 +62,5 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to SSR on Index Page.`);
+  process.exit(1);
 }

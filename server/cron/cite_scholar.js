@@ -132,4 +132,5 @@ try {
 } catch (err) {
   console.error(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update Google Scholar citation.`);
+  process.exit(1);
 }

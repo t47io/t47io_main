@@ -54,4 +54,5 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to generate sitemap XML file.`);
+  process.exit(1);
 }

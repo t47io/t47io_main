@@ -152,7 +152,7 @@ try {
 } catch (err) {
   console.error(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to connect to GitHub.`);
-  process.exit();
+  process.exit(1);
 }
 
 REPOSITORY_LIST.forEach((repoName, i) => {

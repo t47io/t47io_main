@@ -36,4 +36,5 @@ try {
 } catch (err) {
   console.error(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to change permission for directories and files.`);
+  process.exit(1);
 }

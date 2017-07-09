@@ -38,7 +38,7 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to parse Manifest JSON.`);
-  process.exit();
+  process.exit(1);
 }
 
 try {
@@ -53,4 +53,5 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to inject Manifest JSON.`);
+  process.exit(1);
 }
