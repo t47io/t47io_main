@@ -25,7 +25,7 @@ const formatPubs = () => {
 const emailAdmin = (content) => {
   const dateString = new Date().toISOString().slice(0, 10).replace(/-/g, '');
 
-  SMTP.sendMail({
+  return SMTP.sendMail({
     from: EMAIL_RECV,
     to: EMAIL_RECV,
     subject: '[t47io] Google Scholar Citation Update',
@@ -34,8 +34,6 @@ const emailAdmin = (content) => {
       filename: `t47io_backup_${dateString}.tgz`,
       path: path.join(__dirname, `../../${FILE_NAMES.BACKUP}`),
     }],
-  }, (err) => {
-    if (err) { throw err; }
   });
 };
 
@@ -54,9 +52,14 @@ ${JSON.stringify(cronJSON.gitContrib, null, 2)}
 SSL Certificates:
 ${JSON.stringify(cronJSON.https, null, 2)}
   `;
+
   if (!DEBUG) {
-    emailAdmin(content);
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Notified admin on cron data results.`);
+    emailAdmin(content)
+    .then((info) => {
+      console.log(info);
+      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Notified admin on cron data results.`);
+    })
+    .catch((err) => { throw err; });
   }
 } catch (err) {
   console.error(err);

@@ -105,14 +105,16 @@ const routes = {
 
           ${message}
         `,
-      }, (err) => {
-        if (err) {
-          console.log(`${colors.red('ERROR')}: Failed to send email for client.`);
-          console.error(err);
-          return next(sendErrorResponse(500));
-        }
-        console.log(`${colors.green('SUCCESS')}: Message sent on behalf of ${email}.`);
-        return next(sendErrorResponse(201));
+      })
+      .then((info) => {
+        console.log(info);
+        console.log(`${colors.green('SUCCESS')}: Message sent on behalf of ${colors.blue(email)}.`);
+        next(sendErrorResponse(201));
+      })
+      .catch((err) => {
+        console.error(err);
+        console.log(`${colors.red('ERROR')}: Failed to send email for client ${colors.blue(email)}.`);
+        next(sendErrorResponse(500));
       });
     },
   },
