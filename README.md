@@ -1,11 +1,18 @@
-# t47io Main Website
+<div align="center">
+  <img src="https://t47.io/t47_logo.png" alt="T47 Logo" width="208" />
+  <h1>
+    <a href="https://t47.io/" taregt="_blank">
+      T47.IO
+    </a>
+    | Personal Website</h1>
+  <p>
+    <i>Code and Content</i>
+    for the personal portfolio
+  </p>
+</div>
 
-<img src="https://t47.io/t47_logo.png" alt="T47 Logo" width="150px" align="right">
 
-This is the _Code and Content_ repository for **t47io Main** Website. The online portfolio is freely accessible at https://t47.io/.
-
-
-## Installation
+<h2 align="center">Installation</h2>
 
 **t47io Main** requires the following [**`Node.js`**](https://nodejs.org/) packages as dependencies (see in `package.json`), all of which can be installed through [`yarn`](https://yarnpkg.com/).
 
@@ -34,7 +41,7 @@ yarn install
 > PDF assets (publication, thesis and resume) should be maintained under `static/pubs/`, `static/thesis/` and `static/resume/` manually.
 
 
-## Configuration
+<h2 align="center">Configuration</h2>
 
 Config files are stored as `config/**/*.json`. Example configs are included in the repository, see `config/**/*.example.json`.
 
@@ -44,7 +51,7 @@ Server credentials are stored in `config/server.json`, including server `PORT`, 
 > `nginx` reverse proxy and `pm2` startup configs are _not_ included in the repository.
 
 
-## Scripts
+<h2 align="center">Scripts</h2>
 
 Use `yarn` scripts with `yarn run <cmd>`.
 
@@ -66,7 +73,8 @@ Use `yarn` scripts with `yarn run <cmd>`.
 | `cron` | Retrives _GitHub_ contribution statistics, _Google Scholar_ citations, _SSL Certificate_ expirations, and backup local `nginx` and JSON configs with admin email notice. |
 | `stat` | Updates stats by `yarn run cron`, rebuilds the server by `yarn run build`, and fix file permissions by `yarn run cron:chmod`. |
 
-## Notes
+
+<h2 align="center"></h2>
 
 - Template app HTML files `public/(main|project).html.gz` contains JS/CSS loading logic that do not hard-code any asset path. Thus they are allowed for long cache. Only `(manifest|f.012345.min).js` is variable with a short cache.
 - Custom error pages are server-side rendered and stored as `public/e.(\d{3}).html.gz`.
@@ -75,12 +83,25 @@ Use `yarn` scripts with `yarn run <cmd>`.
 - `yarn run stat` is scheduled weekly as a `crontab` job on production (by `root`).
 
 
-## License
-
-**Copyright &copy; 2014-2017: Siqi Tian. All Rights Reserved.**
-
-Code and content are licensed under [**CC-BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-
-
-by [**t47**](https://t47.io/), *July 2017*.
+<div align="center">
+  <h2>License</h2>
+  <p><b>Copyright &copy; 2014-2017: Siqi Tian. All Rights Reserved.</b></p>
+  <p>
+    Code and content are licensed under
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+      <b>CC-BY-NC-SA 4.0</b>
+    </a>
+    .
+  </p>
+  <hr/>
+  <p>
+    by
+    <a href="https://t47.io/" target="_blank">
+      t47
+    </a>
+    <i>July 2017</i>
+    .
+  </p>
+  <img src="https://t47.io/t47_qr_code.png" alt="T47 QR Code" width="256" />
+</div>
 
