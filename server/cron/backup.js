@@ -67,4 +67,5 @@ try {
 } catch (err) {
   console.error(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to backup System settings and data.`);
+  process.exit(1);
 }

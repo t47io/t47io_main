@@ -46,4 +46,5 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to create Custom Error Pages.`);
+  process.exit(1);
 }

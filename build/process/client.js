@@ -21,7 +21,7 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Main Page.`);
-  process.exit();
+  process.exit(1);
 }
 
 try {
@@ -33,4 +33,5 @@ try {
 } catch (err) {
   console.log(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Project Page.`);
+  process.exit(1);
 }

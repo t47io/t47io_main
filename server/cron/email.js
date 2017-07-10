@@ -61,4 +61,5 @@ ${JSON.stringify(cronJSON.https, null, 2)}
 } catch (err) {
   console.error(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to notify admin on cron data results.`);
+  process.exit(1);
 }

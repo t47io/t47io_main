@@ -45,4 +45,5 @@ try {
 } catch (err) {
   console.log(err);
   console.error(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
+  process.exit(1);
 }

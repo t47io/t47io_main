@@ -33,4 +33,5 @@ try {
 } catch (err) {
   console.error(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to renew SSL Certificate.`);
   console.log(err);
+  process.exit(1);
 }

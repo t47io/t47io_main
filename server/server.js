@@ -49,12 +49,6 @@ app.get(pubsPathRegex, routes.pubs);
 app.get(thesisPathRegex, routes.thesis);
 app.route('/send').get(routes.email.get).post(routes.email.post);
 
-// cleanup
-// process.on('SIGINT', () => { server.close(); process.exit(2); });
-// process.on('SIGTERM', () => { server.close(); process.exit(7); });
-// process.on('exit', () => { server.close(); process.exit(0); });
-// process.on('uncaughtException', (e) => { server.close(); process.exit(1); });
-
 app.get(errorPathRegex, routes.error);
 app.all('*', routes.all);
 
@@ -72,3 +66,9 @@ app.use((err, req, res, next) => {
     maxAge: `${CACHE_MAX_AGE} days`,
   });
 });
+
+// cleanup
+// process.on('SIGINT', () => { server.close(); process.exit(2); });
+// process.on('SIGTERM', () => { server.close(); process.exit(7); });
+// process.on('exit', () => { server.close(); process.exit(0); });
+// process.on('uncaughtException', (e) => { server.close(); process.exit(1); });
