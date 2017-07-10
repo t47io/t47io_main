@@ -4,8 +4,8 @@
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
-    "node": ">=6.9.0 <8.0.0",
-    "yarn": "^0.24.6"
+    "node": "^8.1.0",
+    "yarn": "^0.27.5"
   },
   "scripts": {
     "dev": "yarn json && yarn nodemon",
