@@ -3,6 +3,7 @@ import webpack from 'webpack';
 
 import BabiliPlugin from 'babili-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
+import CommonShakePlugin from 'webpack-common-shake';
 import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -97,9 +98,10 @@ const plugins = (DEBUG = true) => {
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: chunkNames.manifest,
-      filename: DEBUG ? '[name].js' : MANIFEST_JS,
+      filename: MANIFEST_JS,
     }),
     new ManifestPlugin(),
+    new CommonShakePlugin.Plugin(),
     new BabiliPlugin(),
     new UglifyJsPlugin({
       beautify: false,

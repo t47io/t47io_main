@@ -22,25 +22,9 @@ const mainJSON = SECTION_LIST
     ...item,
   }), {});
 const projectJSON = PROJECT_LIST
-  .map((project) => {
-    const projJSON = require(`../config/project/${project}.json`);
-    const updatedJSON = {
-      ...projJSON,
-      urls: projJSON.urls || {},
-    };
-    if (updatedJSON.urls.repo) {
-      updatedJSON.urls.repo = `${GITHUB.HOST}${updatedJSON.urls.repo}`;
-    }
-    if (updatedJSON.urls.manual) {
-      updatedJSON.urls.manual = `${RIBOKIT}${updatedJSON.urls.manual}`;
-    }
-    if (updatedJSON.urls.theme) {
-      updatedJSON.urls.theme = updatedJSON.urls.theme.map(theme => (
-        `${GITHUB.HOST}${theme}`
-      ));
-    }
-    return { [project]: updatedJSON };
-  })
+  .map(project => ({
+    [project]: require(`../config/project/${project}.json`),
+  }))
   .reduce((obj, item) => ({
     ...obj,
     ...item,
@@ -55,6 +39,7 @@ const repositoryJSON = REPOSITORY_INTERNAL_NAMES
   }), {});
 
 const SCRIPT = 'server:json';
+console.log(`${colors.magenta(`[${SCRIPT}]`)} All config JSON files loaded.`);
 
 
 const getResume = () => {
@@ -142,8 +127,28 @@ const concatMainJSON = () => {
 };
 
 const concatProjectJSON = () => {
+  const updatedProjectJSON = { ...projectJSON };
+  PROJECT_LIST.forEach((project) => {
+    const updatedJSON = {
+      ...projectJSON[project],
+      urls: projectJSON[project].urls || {},
+    };
+    if (updatedJSON.urls.repo) {
+      updatedJSON.urls.repo = `${GITHUB.HOST}${updatedJSON.urls.repo}`;
+    }
+    if (updatedJSON.urls.manual) {
+      updatedJSON.urls.manual = `${RIBOKIT}${updatedJSON.urls.manual}`;
+    }
+    if (updatedJSON.urls.theme) {
+      updatedJSON.urls.theme = updatedJSON.urls.theme.map(theme => (
+        `${GITHUB.HOST}${theme}`
+      ));
+    }
+    updatedProjectJSON[project] = updatedJSON;
+  });
+
   const data = {
-    project: projectJSON,
+    project: updatedProjectJSON,
     repository: repositoryJSON,
   };
   fs.writeJSONSync(path.join(PUBLIC_PATH, '../config/project.json'), data);

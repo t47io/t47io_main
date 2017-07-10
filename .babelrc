@@ -8,14 +8,15 @@
     "lodash",
     [
       "module-resolver", {
-      "root": [
-        "."
-      ],
-      "alias": {
-        "react": "preact-compat",
-        "react-dom": "preact-compat"
+        "root": [
+          "."
+        ],
+        "alias": {
+          "react": "preact-compat",
+          "react-dom": "preact-compat"
+        }
       }
-    }]
+    ]
   ],
   "env": {
     "development": {
@@ -32,7 +33,8 @@
                 "> 5%",
                 "last 2 versions"
               ]
-            }
+            },
+            "useBuiltIns": true
           }
         ],
         [
