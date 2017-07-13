@@ -1,21 +1,7 @@
-@import '../../common/mixins/reset';
-@import '../../common/mixins/typography';
 @import './typography';
 @import './sprites';
 @import '../../common/stylesheets/Logo';
 @import '../../common/stylesheets/Dropdown';
-@import '../../vendor/tooltip';
-
-.LOAD__container {
-  &.fade {
-    opacity: 0;
-    filter: blur(2em);
-  }
-
-  &.behind {
-    z-index: -1;
-  }
-}
 
 #HOME__section {
   transition-duration: 0.5s;

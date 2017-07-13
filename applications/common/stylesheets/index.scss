@@ -1,0 +1,17 @@
+@import '../mixins/reset';
+@import '../mixins/typography';
+
+@import '../../vendor/font-awesome/fontello-fa';
+@import '../../vendor/font-awesome/fa';
+@import '../../vendor/tooltip';
+
+.LOAD__container {
+  &.fade {
+    opacity: 0;
+    filter: blur(2em);
+  }
+
+  &.behind {
+    z-index: -1;
+  }
+}

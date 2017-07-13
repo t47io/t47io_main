@@ -1,18 +1,4 @@
-@import '../../common/mixins/reset';
-@import '../../common/mixins/typography';
 @import './anim';
 @import './util';
 @import './sprites';
 @import '../../common/stylesheets/Logo';
-@import '../../vendor/tooltip';
-
-.LOAD__container {
-  &.fade {
-    opacity: 0;
-    filter: blur(2em);
-  }
-
-  &.behind {
-    z-index: -1;
-  }
-}
