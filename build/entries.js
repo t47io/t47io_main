@@ -17,15 +17,16 @@ const entries = (DEBUG = true) => {
   const chunkNames = getChunkNames(DEBUG);
   const entry = {
     [chunkNames.main]: [
-      './applications/main/index.jsx',
       'bootstrap-loader',
+      './applications/main/index.jsx',
     ],
     [chunkNames.project]: [
-      './applications/project/index.jsx',
       'bootstrap-loader',
+      './applications/project/index.jsx',
     ],
     [chunkNames.error]: './applications/error/index.jsx',
     [chunkNames.vendor]: [
+      'bootstrap-loader',
       'react',
       'react-document-meta',
       'react-redux',

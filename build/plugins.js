@@ -55,6 +55,10 @@ const plugins = (DEBUG = true) => {
       manifest: MANIFEST_JS,
       debug: DEBUG,
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: chunkNames.vendor,
+      filename: DEBUG ? '[name].js' : '[name].[chunkhash].min.js',
+    }),
     new ExtractTextPlugin({
       filename: DEBUG ? '[name].css' : '[name].[chunkhash].min.css',
       allChunks: true,
@@ -74,10 +78,6 @@ const plugins = (DEBUG = true) => {
       },
     }),
     new LodashModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: chunkNames.vendor,
-      filename: DEBUG ? '[name].js' : '[name].[chunkhash].min.js',
-    }),
   ];
 
   if (DEBUG) {

@@ -10,6 +10,7 @@
 
   "debug": false,
   "extractStyles": true,
+  "appStyles": "./applications/common/stylesheets/index.scss",
 
   "scripts": false,
   "styles": {
