@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://t47.io/t47_logo.png" alt="T47 Logo" width="208" />
+  <img src="https://t47.io/t47_logo.png" alt="T47.IO Logo" width="208" />
   <h1>
     <a href="https://t47.io/" taregt="_blank">
       T47.IO
@@ -69,9 +69,9 @@ Use `yarn` scripts with `yarn run <cmd>`.
 | --- | --- |
 | `json` | Concatenate app JSON files: `config/(main\|project).json`. These files are code-split from app bundles. |
 | `lint` | Check syntax standards with `eslint` and `stylelint`. |
-| `package` | Check and update `yarn` dependency versions. |
 | `cron` | Retrives _GitHub_ contribution statistics, _Google Scholar_ citations, _SSL Certificate_ expirations, and backup local `nginx` and JSON configs with admin email notice. |
 | `stat` | Updates stats by `yarn run cron`, rebuilds the server by `yarn run build`, and fix file permissions by `yarn run cron:chmod`. |
+| `update` | Check and update `yarn` dependency versions. |
 
 
 <h2 align="center"></h2>
@@ -102,6 +102,6 @@ Use `yarn` scripts with `yarn run <cmd>`.
     <i>July 2017</i>
     .
   </p>
-  <img src="https://t47.io/t47_qr_code.png" alt="T47 QR Code" width="256" />
+  <img src="https://t47.io/t47_qr_code.png" alt="T47.IO QR Code" width="256" />
 </div>
 
