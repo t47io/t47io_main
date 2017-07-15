@@ -34,6 +34,7 @@ const entries = (DEBUG = true) => {
   if (DEBUG) {
     [entry.main, entry.project].forEach((chunk) => {
       chunk.unshift('webpack-hot-middleware/client?reload=true');
+      chunk.unshift('preact/devtools');
     });
   }
   return entry;

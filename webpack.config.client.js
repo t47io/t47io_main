@@ -20,6 +20,7 @@ const config = {
     filename: CHUNK_FILE_NAME(DEBUG),
     chunkFilename: CHUNK_FILE_NAME(DEBUG),
     hashDigestLength: 6,
+    hotUpdateChunkFilename: '[name].[hash].json',
     path: PUBLIC_PATH,
     publicPath: '/',
   },
