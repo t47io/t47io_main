@@ -1,10 +1,11 @@
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+import { ASSET_FILE_NAME } from './config.js';
 import { getThemeColor } from './render/util.js';
 
 
-const loaders = (SSR = false) => {
+const loaders = (DEBUG = true, SSR = false) => {
   const loader = [
     {
       test: /\.js(x)?$/i,
@@ -47,7 +48,7 @@ const loaders = (SSR = false) => {
         options: {
           limit: 25600,
           mimetype: 'application/x-font-woff',
-          name: 'font/[hash:6].[ext]',
+          name: ASSET_FILE_NAME('font'),
         },
       },
     },
@@ -55,7 +56,7 @@ const loaders = (SSR = false) => {
       test: /\.(woff2|ttf|eot)$/i,
       use: {
         loader: 'file-loader',
-        options: { name: 'font/[hash:6].[ext]' },
+        options: { name: ASSET_FILE_NAME('font') },
       },
     },
     {
@@ -64,7 +65,7 @@ const loaders = (SSR = false) => {
         loader: 'url-loader',
         options: {
           limit: 25600,
-          name: 'image/[hash:6].[ext]',
+          name: ASSET_FILE_NAME('image'),
         },
       },
     },
@@ -82,7 +83,7 @@ const loaders = (SSR = false) => {
       test: /\.mp3$/i,
       use: {
         loader: 'file-loader',
-        options: { name: 'audio/[hash:6].[ext]' },
+        options: { name: ASSET_FILE_NAME('audio') },
       },
     },
   ];
@@ -90,6 +91,11 @@ const loaders = (SSR = false) => {
   if (SSR) {
     loader.unshift({
       test: /web-animations-js/,
+      use: { loader: 'null-loader' },
+    });
+  } else if (!DEBUG) {
+    loader.unshift({
+      test: /redux-logger/,
       use: { loader: 'null-loader' },
     });
   }

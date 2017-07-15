@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
+import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import Main from './containers/index.jsx';
@@ -9,12 +10,10 @@ import reducer from './reducers/index.js';
 import { LOAD_JSON_DATA } from './constants/actionTypes.js';
 
 
-const middleware = [thunk];
-if (process.env.NODE_ENV !== 'production') {
-  // require('preact/devtools');
-  const { logger } = require('redux-logger');
-  middleware.push(logger);
-}
+const middleware = [
+  thunk,
+  (typeof logger === 'function') ? logger : null,
+].filter(Boolean);
 const store = createStore(
   reducer,
   applyMiddleware(...middleware)
