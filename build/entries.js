@@ -1,20 +1,8 @@
-const chunkName = (chunk, DEBUG = true) => (
-  DEBUG ? chunk : chunk.slice(0, 1)
-);
+import { CHUNK_NAMES } from './config.js';
 
-export const getChunkNames = (DEBUG = true) => ({
-  main: chunkName('main', DEBUG),
-  project: chunkName('project', DEBUG),
-  error: chunkName('error', DEBUG),
-  vendor: chunkName('vendor', DEBUG),
-  manifest: DEBUG ? 'manifest' : 'f',
-  config: chunkName('config', DEBUG),
-  data: chunkName('data', DEBUG),
-  repo: chunkName('repo', DEBUG),
-});
 
 const entries = (DEBUG = true) => {
-  const chunkNames = getChunkNames(DEBUG);
+  const chunkNames = CHUNK_NAMES(DEBUG);
   const entry = {
     [chunkNames.main]: [
       'bootstrap-loader',
@@ -35,6 +23,7 @@ const entries = (DEBUG = true) => {
       'react-web-animation',
       'reduce-reducers',
       'redux',
+      'redux-logger',
       'redux-thunk',
       'smoothscroll',
       'web-animations-js',
@@ -43,8 +32,9 @@ const entries = (DEBUG = true) => {
   };
 
   if (DEBUG) {
-    entry.main.unshift('webpack-hot-middleware/client?reload=true');
-    entry.project.unshift('webpack-hot-middleware/client?reload=true');
+    [entry.main, entry.project].forEach((chunk) => {
+      chunk.unshift('webpack-hot-middleware/client?reload=true');
+    });
   }
   return entry;
 };

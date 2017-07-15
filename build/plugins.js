@@ -13,15 +13,17 @@ import PurifyCSSPlugin from 'purifycss-webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import ZopfliPlugin from 'zopfli-webpack-plugin';
 
-import { getChunkNames } from './entries.js';
 import {
-  MANIFEST_JS,
   ROOT_PATH,
+  CHUNK_FILE_NAME,
+  CHUNK_NAMES,
+  MANIFEST_JS,
+  HTML_TEMPLATE,
 } from './config.js';
 
 
 const plugins = (DEBUG = true) => {
-  const chunkNames = getChunkNames(DEBUG);
+  const chunkNames = CHUNK_NAMES(DEBUG);
 
   const plugin = [
     new webpack.LoaderOptionsPlugin({
@@ -30,7 +32,7 @@ const plugins = (DEBUG = true) => {
     }),
     new HtmlWebpackPlugin({
       chunks: [chunkNames.main, chunkNames.vendor, chunkNames.manifest],
-      template: `${ROOT_PATH}/applications/index.html`,
+      template: HTML_TEMPLATE,
       filename: `${ROOT_PATH}/public/main.html`,
       inject: false,
       chunk: chunkNames.main,
@@ -39,7 +41,7 @@ const plugins = (DEBUG = true) => {
     }),
     new HtmlWebpackPlugin({
       chunks: [chunkNames.project, chunkNames.vendor, chunkNames.manifest],
-      template: `${ROOT_PATH}/applications/index.html`,
+      template: HTML_TEMPLATE,
       filename: `${ROOT_PATH}/public/project.html`,
       inject: false,
       chunk: chunkNames.project,
@@ -48,7 +50,7 @@ const plugins = (DEBUG = true) => {
     }),
     new HtmlWebpackPlugin({
       chunks: [chunkNames.error],
-      template: `${ROOT_PATH}/applications/index.html`,
+      template: HTML_TEMPLATE,
       filename: `${ROOT_PATH}/public/error.html`,
       inject: false,
       chunk: chunkNames.error,
@@ -57,10 +59,10 @@ const plugins = (DEBUG = true) => {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: chunkNames.vendor,
-      filename: DEBUG ? '[name].js' : '[name].[chunkhash].min.js',
+      filename: CHUNK_FILE_NAME(DEBUG),
     }),
     new ExtractTextPlugin({
-      filename: DEBUG ? '[name].css' : '[name].[chunkhash].min.css',
+      filename: CHUNK_FILE_NAME(DEBUG, 'css'),
       allChunks: true,
     }),
     new PurifyCSSPlugin({
