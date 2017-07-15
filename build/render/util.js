@@ -8,7 +8,6 @@ import shell from 'shelljs';
 import {
   ROOT_PATH,
   GA_TRACKER,
-  IE9_SHIM,
   THEMES,
 } from '../config.js';
 
@@ -16,7 +15,7 @@ import {
 export const replaceHTML = inputHTML => (
   inputHTML
     .replace('<meta data-rdm/>', '<meta charset="utf-8" data-rdm />')
-    .replace('<ga />', `${GA_TRACKER}${IE9_SHIM}`)
+    .replace('<ga />', GA_TRACKER)
     .replace('[object Object]', '')
 );
 
