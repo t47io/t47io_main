@@ -4,7 +4,6 @@ import webpack from 'webpack';
 import BabiliPlugin from 'babili-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
 import CommonShakePlugin from 'webpack-common-shake';
-import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
@@ -12,6 +11,7 @@ import ManifestPlugin from 'webpack-manifest-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import ZopfliPlugin from 'zopfli-webpack-plugin';
 
 import { getChunkNames } from './entries.js';
 import {
@@ -119,7 +119,7 @@ const plugins = (DEBUG = true) => {
     }),
     new OptimizeJsPlugin({ sourceMap: false }),
     new BrotliPlugin({ test: /\.(html|js|css)$/i }),
-    new CompressionPlugin({
+    new ZopfliPlugin({
       test: /\.(html|js|css)$/i,
       algorithm: 'zopfli',
       deleteOriginalAssets: true,

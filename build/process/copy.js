@@ -45,7 +45,7 @@ const copyPubs = () => {
       path.join(ROOT_PATH, `public/pdf/pubs/${file}`)
     )
   ));
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ubs PDF files copied to public.`);
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Pubs PDF files copied to public.`);
 };
 
 const copyResume = () => {
