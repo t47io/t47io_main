@@ -1,6 +1,7 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import StaticSiteGeneratorPlugin from 'static-site-generator-webpack-plugin';
 
+import aliases from './build/aliases.js';
 import loaders from './build/loaders.js';
 import { PUBLIC_PATH } from './server/env.js';
 
@@ -17,14 +18,9 @@ const config = {
   },
 
   devtool: 'cheap-module-source-map',
-  resolve: {
-    alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
-    },
-  },
+  resolve: { alias: aliases() },
 
-  module: { rules: loaders(true) },
+  module: { rules: loaders(false, true) },
   plugins: [
     new ExtractTextPlugin({
       filename: 'ssr.min.css',
