@@ -24,7 +24,6 @@ export const CHUNK_NAMES = (DEBUG = true) => ({
   manifest: DEBUG ? 'manifest' : 'f',
   config: CHUNK_NAME('config', DEBUG),
   data: CHUNK_NAME('data', DEBUG),
-  repo: CHUNK_NAME('repo', DEBUG),
 });
 
 

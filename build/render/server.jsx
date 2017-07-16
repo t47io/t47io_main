@@ -7,7 +7,6 @@ import Main from '../../applications/main/containers/index.jsx';
 import reducer, { crossReducer } from '../../applications/main/reducers/index.js';
 import { LOAD_JSON_DATA } from '../../applications/main/constants/actionTypes.js';
 
-import 'bootstrap-loader';
 import mainJSON from '../../config/main.json';
 
 
