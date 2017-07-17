@@ -76,7 +76,7 @@ const plugins = (DEBUG = true) => {
       purifyOptions: {
         minify: !DEBUG,
         info: !DEBUG,
-        rejected: !DEBUG,
+        rejected: false,
       },
     }),
     new LodashModuleReplacementPlugin(),
