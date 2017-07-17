@@ -16,21 +16,21 @@ const store = createStore(
 );
 
 if (process.env.NODE_ENV !== 'production') {
-  require.ensure([], (require) => {
-    const json = require('../../config/main.json');
+  import(/* webpackChunkName: "config" */ '../../config/main.json')
+  .then((json) => {
     store.dispatch({
       type: LOAD_JSON_DATA,
       payload: { ...json },
     });
-  }, 'config');
+  });
 } else {
-  require.ensure([], (require) => {
-    const json = require('../../config/main.json');
+  import(/* webpackChunkName: "c" */ '../../config/main.json')
+  .then((json) => {
     store.dispatch({
       type: LOAD_JSON_DATA,
       payload: { ...json },
     });
-  }, 'c');
+  });
 }
 
 
