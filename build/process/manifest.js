@@ -27,7 +27,7 @@ try {
   chunkManifest = chunkKeys.map((key) => {
     const chunk = key.replace('.js', '');
     return {
-      [chunk]: manifest[key].replace(`${chunk}.`, '').replace('.min.js', ''),
+      [chunk]: manifest[key].replace(`${chunk}.`, '').replace('scripts/', '').replace('.min.js', ''),
     };
   })
   .reduce((obj, item) => ({

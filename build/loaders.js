@@ -49,7 +49,7 @@ const loaders = (DEBUG = true, SSR = false) => {
         options: {
           limit: 25600,
           mimetype: 'application/x-font-woff',
-          name: ASSET_FILE_NAME('font'),
+          name: ASSET_FILE_NAME('fonts'),
         },
       },
     },
@@ -57,7 +57,7 @@ const loaders = (DEBUG = true, SSR = false) => {
       test: /\.(woff2|ttf|eot)$/i,
       use: {
         loader: 'file-loader',
-        options: { name: ASSET_FILE_NAME('font') },
+        options: { name: ASSET_FILE_NAME('fonts') },
       },
     },
     {
@@ -66,7 +66,7 @@ const loaders = (DEBUG = true, SSR = false) => {
         loader: 'url-loader',
         options: {
           limit: 25600,
-          name: ASSET_FILE_NAME('image'),
+          name: ASSET_FILE_NAME('images'),
         },
       },
     },

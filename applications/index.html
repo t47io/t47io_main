@@ -16,14 +16,14 @@
             var link = document.createElement('link');
             link.rel = 'preload';
             link.as = 'script';
-            link.href = '/' + chunk + '.' + hash + '.min.js';
+            link.href = '/scripts/' + chunk + '.' + hash + '.min.js';
             head.appendChild(link);
           }
           function appendScriptTag(chunk, hash, callback) {
             var script = document.createElement('script');
             script.type = 'text/javascript';
             script.async = script.defer = true;
-            script.src = '/' + chunk + '.' + hash + '.min.js';
+            script.src = '/scripts/' + chunk + '.' + hash + '.min.js';
             script.onload = callback || null;
             head.appendChild(script);
           }

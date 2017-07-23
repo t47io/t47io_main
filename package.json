@@ -13,7 +13,7 @@
 
     "json": "babel-node ./server/json.js",
     "stat": "yarn cron && yarn build && yarn cron:chmod",
-    "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -x babel-node -d 3 -V server/server.js",
+    "nodemon": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -i config/main.json -i config/project.json -i config/manifest.json -x babel-node -d 3 -V server/server.js",
 
     "lint": "yarn lint:js && yarn lint:css",
     "lint:js": "./node_modules/eslint/bin/eslint.js applications build server webpack.*.js --ext [.jsx,.js] --fix",

@@ -11,10 +11,9 @@ const SCRIPT = 'process:clean';
 
 try {
   const tmpFiles = [
-    ...glob.sync(path.join(ROOT_PATH, 'public/*.map')),
-    ...glob.sync(path.join(ROOT_PATH, 'public/*.js')),
-    ...glob.sync(path.join(ROOT_PATH, 'public/*.html')),
-    ...glob.sync(path.join(ROOT_PATH, 'public/e.*.min.js.br')),
+    ...glob.sync(path.join(ROOT_PATH, 'public/**/*.{map,js,html,txt,xml}')),
+    ...glob.sync(path.join(ROOT_PATH, 'public/**/e.*.min.js.*')),
+    ...glob.sync(path.join(ROOT_PATH, 'public/error.*')),
   ];
   tmpFiles.forEach(file => fs.removeSync(file));
 

@@ -7,10 +7,12 @@ import serverJSON from '../config/server.json';
 
 export const ROOT_PATH = path.join(PUBLIC_PATH, '../');
 
-export const MANIFEST_JS = 'f.012345.min.js';
-export const CHUNK_FILE_NAME = (DEBUG = true, ext = 'js') => (
-  DEBUG ? `[name].${ext}` : `[name].[chunkhash].min.${ext}`
-);
+export const MANIFEST_JS = 'scripts/f.012345.min.js';
+export const CHUNK_FILE_NAME = (DEBUG = true, ext = 'js') => {
+  const dir = (ext === 'js') ? 'scripts' : 'styles';
+  const name = DEBUG ? '[name]' : '[name].[chunkhash].min';
+  return `${dir}/${name}.${ext}`;
+};
 export const ASSET_FILE_NAME = (dir = '') => (`${dir}/[hash:6].[ext]`);
 
 const CHUNK_NAME = (chunk, DEBUG = true) => (
