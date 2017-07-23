@@ -1,4 +1,5 @@
 import autoprefixer from 'autoprefixer';
+import csso from 'postcss-csso';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import { ASSET_FILE_NAME } from './config.js';
@@ -28,7 +29,7 @@ const loaders = (DEBUG = true, SSR = false) => {
           'css-loader?importLoaders=1',
           {
             loader: 'postcss-loader',
-            options: { plugins: () => ([autoprefixer]) },
+            options: { plugins: () => ([autoprefixer, csso]) },
           },
           'resolve-url-loader?-sourceMap',
           {
