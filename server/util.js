@@ -37,10 +37,10 @@ export const getHeader = (req, dev = false) => {
 };
 
 export const getPubFile = name => (
-  path.join(PUBLIC_PATH, `/pdf/pubs/${name}.pdf`)
+  path.join(PUBLIC_PATH, `/docs/${name}.pdf`)
 );
 export const getThesisFile = name => (
-  path.join(PUBLIC_PATH, `/pdf/thesis/${FILE_NAMES.THESIS[name]}`)
+  path.join(PUBLIC_PATH, `/docs/${FILE_NAMES.THESIS[name]}`)
 );
 
 export const sendErrorResponse = (code) => {

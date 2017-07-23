@@ -35,14 +35,12 @@ const copyRobots = () => {
 };
 
 const copyPubs = () => {
-  shell.mkdir('-p', `${ROOT_PATH}/public/pdf/pubs/`);
-
   const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/pubs/*.pdf'))
     .map(file => path.basename(file));
   staticFiles.forEach(file => (
     fs.copySync(
       path.join(ROOT_PATH, `static/pubs/${file}`),
-      path.join(ROOT_PATH, `public/pdf/pubs/${file}`)
+      path.join(ROOT_PATH, `public/docs/${file}`)
     )
   ));
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Pubs PDF files copied to public.`);
@@ -51,20 +49,18 @@ const copyPubs = () => {
 const copyResume = () => {
   fs.copySync(
     path.join(ROOT_PATH, `static/resume/${resumeVersion}.pdf`),
-    path.join(ROOT_PATH, 'public/pdf/resume.pdf')
+    path.join(ROOT_PATH, 'public/docs/resume.pdf')
   );
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
 };
 
 const copyThesis = () => {
-  shell.mkdir('-p', `${ROOT_PATH}/public/pdf/thesis/`);
-
   const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/thesis/*'))
     .map(file => path.basename(file));
   staticFiles.forEach(file => (
     fs.copySync(
       path.join(ROOT_PATH, `static/thesis/${file}`),
-      path.join(ROOT_PATH, `public/pdf/thesis/${file}`)
+      path.join(ROOT_PATH, `public/docs/${file}`)
     )
   ));
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Thesis PDF files copied to public.`);
@@ -75,6 +71,7 @@ try {
   copyImages();
   copyRobots();
 
+  shell.mkdir('-p', `${ROOT_PATH}/public/docs/`);
   copyPubs();
   copyThesis();
   copyResume();

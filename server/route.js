@@ -73,7 +73,7 @@ const routes = {
     res.sendFile(getThesisFile(req.params[0]), { maxAge: `${CACHE_MAX_AGE * 5} days` });
   },
   resume: (req, res) => {
-    res.sendFile(path.join(PUBLIC_PATH, 'pdf/resume.pdf'), {
+    res.sendFile(path.join(PUBLIC_PATH, 'docs/resume.pdf'), {
       headers: { 'Content-Disposition': `inline; filename="${FILE_NAMES.RESUME}"` },
       maxAge: `${CACHE_MAX_AGE / 2} days`,
     });
