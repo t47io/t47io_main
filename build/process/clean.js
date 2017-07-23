@@ -4,14 +4,18 @@ import glob from 'glob';
 import path from 'path';
 import shell from 'shelljs';
 
-import { ROOT_PATH } from '../config.js';
+import {
+  ROOT_PATH,
+  GZIP_FILE_TYPES,
+} from '../config.js';
 
 const SCRIPT = 'process:clean';
 
 
 try {
   const tmpFiles = [
-    ...glob.sync(path.join(ROOT_PATH, 'public/**/*.{map,js,html,txt,xml}')),
+    ...glob.sync(path.join(ROOT_PATH, `public/**/*.{${GZIP_FILE_TYPES.join(',')}}`)),
+    ...glob.sync(path.join(ROOT_PATH, 'public/**/*.map.*')),
     ...glob.sync(path.join(ROOT_PATH, 'public/**/e.*.min.js.*')),
     ...glob.sync(path.join(ROOT_PATH, 'public/error.*')),
   ];

@@ -28,6 +28,8 @@ export const CHUNK_NAMES = (DEBUG = true) => ({
   data: CHUNK_NAME('data', DEBUG),
 });
 
+export const GZIP_FILE_TYPES = ['html', 'js', 'css', 'map', 'eot', 'ttf', 'woff', 'woff2', 'mp3', 'xml', 'txt'];
+
 
 export const GA_TRACKER = `
   <script type="application/javascript">

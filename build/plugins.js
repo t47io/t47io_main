@@ -19,8 +19,11 @@ import {
   CHUNK_NAMES,
   MANIFEST_JS,
   HTML_TEMPLATE,
+  GZIP_FILE_TYPES,
 } from './config.js';
 
+
+const compressionRegex = new RegExp(`.(${GZIP_FILE_TYPES.join('|')})$`);
 
 const plugins = (DEBUG = true) => {
   const chunkNames = CHUNK_NAMES(DEBUG);
@@ -121,11 +124,14 @@ const plugins = (DEBUG = true) => {
       },
     }),
     new OptimizeJsPlugin({ sourceMap: false }),
-    new BrotliPlugin({ test: /\.(html|js|css)$/i }),
+    new BrotliPlugin({
+      test: compressionRegex,
+      minRatio: Infinity,
+    }),
     new ZopfliPlugin({
-      test: /\.(html|js|css)$/i,
+      test: compressionRegex,
       algorithm: 'zopfli',
-      deleteOriginalAssets: true,
+      minRatio: Infinity,
     }),
   ];
 };

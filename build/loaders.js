@@ -9,7 +9,7 @@ import { getThemeColor } from './render/util.js';
 const loaders = (DEBUG = true, SSR = false) => {
   const loader = [
     {
-      test: /\.js(x)?$/i,
+      test: /\.js(x)?$/,
       exclude: /node_module/,
       use: [
         {
@@ -22,7 +22,7 @@ const loaders = (DEBUG = true, SSR = false) => {
       ],
     },
     {
-      test: /\.scss$/i,
+      test: /\.scss$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
@@ -43,7 +43,7 @@ const loaders = (DEBUG = true, SSR = false) => {
       }),
     },
     {
-      test: /\.woff$/i,
+      test: /\.woff$/,
       use: {
         loader: 'url-loader',
         options: {
@@ -54,14 +54,14 @@ const loaders = (DEBUG = true, SSR = false) => {
       },
     },
     {
-      test: /\.(woff2|ttf|eot)$/i,
+      test: /\.(woff2|ttf|eot)$/,
       use: {
         loader: 'file-loader',
         options: { name: ASSET_FILE_NAME('fonts') },
       },
     },
     {
-      test: /\.(png|jpg|gif)$/i,
+      test: /\.(png|jpg|gif)$/,
       use: {
         loader: 'url-loader',
         options: {
@@ -71,7 +71,7 @@ const loaders = (DEBUG = true, SSR = false) => {
       },
     },
     {
-      test: /\.svg$/i,
+      test: /\.svg$/,
       use: {
         loader: 'svg-inline-loader',
         options: {
@@ -81,7 +81,7 @@ const loaders = (DEBUG = true, SSR = false) => {
       },
     },
     {
-      test: /\.mp3$/i,
+      test: /\.mp3$/,
       use: {
         loader: 'file-loader',
         options: { name: ASSET_FILE_NAME('audio') },
