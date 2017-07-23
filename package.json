@@ -142,7 +142,7 @@
     "fs-extra": "4.0.0",
     "github-api": "3.0.0",
     "glob": "7.1.2",
-    "helmet": "3.6.1",
+    "helmet": "3.8.0",
     "https": "1.0.0",
     "nodemailer": "4.0.1",
     "pm2": "2.6.1",
