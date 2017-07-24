@@ -22,17 +22,15 @@ const PubsYearPanel = ({
       {year}
     </WebAnimation>
     <div className="col-lg-11 col-md-11 col-sm-10 col-xs-9 PUBS__content">
-      {items.filter(item => (!item.isHidden))
-        .map((item, i) => (
-          <PubsItem
-            key={`PUBS__entry-${year}-${i}`}
-            year={year}
-            shouldAnimate={counter}
-            index={offset + i}
-            {...item}
-          />
-        )
-      )}
+      {items.filter(item => (!item.isHidden)).map((item, i) => (
+        <PubsItem
+          key={`PUBS__entry-${year}-${i}`}
+          year={year}
+          shouldAnimate={counter}
+          index={offset + i}
+          {...item}
+        />
+      ))}
     </div>
   </div>
 );
