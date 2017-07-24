@@ -4,7 +4,8 @@
     <a href="https://t47.io/" taregt="_blank">
       T47.IO
     </a>
-    | Personal Website</h1>
+    | Personal Website
+  </h1>
   <p>
     <i>Code and Content</i>
     for the personal portfolio
@@ -74,7 +75,7 @@ Use `yarn` scripts with `yarn run <cmd>`.
 | `update` | Check and update `yarn` dependency versions. |
 
 
-<h2 align="center"></h2>
+<h2 align="center">Notes</h2>
 
 - Template app HTML files `public/(main|project).html.gz` contains JS/CSS loading logic that do not hard-code any asset path. Thus they are allowed for long cache. Only `(manifest|f.012345.min).js` is variable with a short cache.
 - Custom error pages are server-side rendered and stored as `public/e.(\d{3}).html.gz`.
