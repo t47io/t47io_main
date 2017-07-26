@@ -4,6 +4,7 @@ backup/
 backup.tar.gz
 config/**/*.json
 !config/**/*.example.json
+config/stats.*
 public/
 !public/.gitignore
 static/**/*.pdf

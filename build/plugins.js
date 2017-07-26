@@ -3,6 +3,7 @@ import webpack from 'webpack';
 
 import BabiliPlugin from 'babili-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CommonShakePlugin from 'webpack-common-shake';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -132,6 +133,13 @@ const plugins = (DEBUG = true) => {
       test: compressionRegex,
       algorithm: 'zopfli',
       minRatio: Infinity,
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      generateStatsFile: true,
+      statsFilename: `${ROOT_PATH}/config/stats.json`,
+      reportFilename: `${ROOT_PATH}/config/stats.html`,
     }),
   ];
 };
