@@ -123,6 +123,7 @@ const plugins = (DEBUG = true) => {
         screw_ie8: true,
         keep_fnames: false,
       },
+      parallel: { cache: true },
     }),
     new OptimizeJsPlugin({ sourceMap: false }),
     new BrotliPlugin({

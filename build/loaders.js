@@ -16,6 +16,7 @@ const loaders = (DEBUG = true, SSR = false) => {
           loader: 'babel-loader',
           options: {
             presets: ['es2015'],
+            cacheDirectory: DEBUG,
           },
         },
         // 'eslint-loader',
