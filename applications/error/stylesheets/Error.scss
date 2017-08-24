@@ -42,6 +42,16 @@
   }
 }
 
+@include media_width_gt(992px) {
+  .LOAD__container {
+    .UTIL__image-RNA {
+      &::before {
+        background-size: 60%;
+      }
+    }
+  }
+}
+
 @include media_width_lt(767px) {
   .LOAD__container {
     height: auto;

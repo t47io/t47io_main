@@ -14,13 +14,6 @@
   }
 }
 
-@include media_width_gt(992px) {
-  .UTIL__image-RNA {
-    &::before {
-      background-size: 60%;
-    }
-  }
-}
 @include media_width_lt(767px) {
   .UTIL__image-RNA {
     &::before {
@@ -28,6 +21,7 @@
     }
   }
 }
+
 @include media_width_lt(511px) {
   .UTIL__image-RNA {
     &::before {
