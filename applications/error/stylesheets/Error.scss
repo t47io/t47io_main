@@ -9,10 +9,6 @@
     width: 992px;
   }
 
-  .UTIL__image-RNA {
-    background-position: center center;
-  }
-
   .ERROR__title {
     margin-bottom: 20px;
   }
@@ -20,7 +16,12 @@
   .ERROR__image {
     max-width: 75%;
     display: block;
-    margin: 0 auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .ERROR__words {
+    margin-top: 1.5rem;
   }
 
   hr {
@@ -52,20 +53,32 @@
       width: 100%;
     }
 
-    .UTIL__image-RNA {
-      background-size: 100%;
-    }
-
     .ERROR__title {
       margin-bottom: 10px;
     }
 
     hr {
       width: 80%;
+      z-index: 1;
     }
 
     .filled {
       text-align: center;
+    }
+  }
+}
+
+@include media_width_lt(511px) {
+  .LOAD__container {
+    .ERROR__image {
+      max-width: 120%;
+    }
+
+    .label {
+      line-height: 1.25em;
+      display: inline-block;
+      margin-left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

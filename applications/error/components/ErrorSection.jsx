@@ -29,7 +29,7 @@ const ErrorSection = ({
       <p>
         <b dangerouslySetInnerHTML={{ __html: text.custom.replace(/\n/g, '<br/>') }} />
       </p>
-      <p>
+      <p className="ERROR__words">
         <i>In other words,</i>
       </p>
       <h3>
