@@ -23,6 +23,7 @@
     max-width: 75%;
     width: 50%;
     margin-top: 14rem;
+    z-index: 1;
   }
 
   .row {
@@ -67,6 +68,13 @@
 .center-block {
   display: block;
   margin: 0 auto;
+}
+
+@include media_width_lt(511px) {
+  .LOAD__helix.center-block {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 html {
