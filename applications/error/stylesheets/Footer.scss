@@ -27,9 +27,16 @@
   .fa svg,
   .filled-white svg {
     height: 1em;
-    width: auto;
     margin: 0 0.5em;
     vertical-align: text-top;
+  }
+
+  .fa svg {
+    width: 1em;
+  }
+
+  .filled-white svg {
+    width: auto;
   }
 
   @include media_width_lt(767px) {

@@ -79,6 +79,10 @@
 }
 
 @include media_width_lt(511px) {
+  body .body {
+    overflow-x: hidden;
+  }
+
   .LOAD__container {
     .ERROR__image {
       max-width: 120%;
