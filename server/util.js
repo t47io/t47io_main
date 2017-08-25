@@ -1,6 +1,9 @@
 import path from 'path';
 
-import { PUBLIC_PATH } from './env.js';
+import {
+  PUBLIC_PATH,
+  DEBUG,
+} from './env.js';
 import {
   HTTP_CODES,
   HTML_HEADER,
@@ -28,8 +31,8 @@ export const errorPathRegex = new RegExp(`^/error/(${HTTP_CODES.join('|')})/?$`)
 export const getZipExt = headers => (
   headers['accept-encoding'].includes('br') ? 'br' : 'gzip'
 );
-export const getHeader = (req, dev = false) => {
-  const encoding = dev ? {} : { 'Content-Encoding': getZipExt(req.headers) };
+export const getHeader = (req) => {
+  const encoding = DEBUG ? {} : { 'Content-Encoding': getZipExt(req.headers) };
   return {
     ...HTML_HEADER,
     ...encoding,
