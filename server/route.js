@@ -36,7 +36,7 @@ export const sendHtmlFromCache = (name, render, req, res) => {
   res.set(getHeader(req)).send(render(HTML));
 };
 export const sendHtmlFromDisk = (name, req, res) => {
-  const ext = getZipExt(req.headers).slice(0, 2);
+  const ext = getZipExt(req.headers, 2);
 
   res.sendFile(path.join(PUBLIC_PATH, `${name}.html.${ext}`), {
     headers: getHeader(req),

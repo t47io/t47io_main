@@ -28,9 +28,10 @@ export const thesisPathRegex = new RegExp(`^/phd/(${Object.keys(FILE_NAMES.THESI
 export const projectPathRegex = new RegExp(`^/project/(${PROJECT_LIST.join('|')})/?$`);
 export const errorPathRegex = new RegExp(`^/error/(${HTTP_CODES.join('|')})/?$`);
 
-export const getZipExt = headers => (
-  headers['accept-encoding'].includes('br') ? 'br' : 'gzip'
-);
+export const getZipExt = (headers, length = 4) => {
+  const zipType = headers['accept-encoding'].includes('br') ? 'br' : 'gzip';
+  return zipType.slice(0, length);
+};
 export const getHeader = (req) => {
   const encoding = DEBUG ? {} : { 'Content-Encoding': getZipExt(req.headers) };
   return {
