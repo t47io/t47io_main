@@ -9,19 +9,19 @@ const RepositoryTable = ({ items }) => (
       <tr className="active">
         <th className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <i className="fa fa-fw fa-user" />
-          Account
+          <span className="hidden-xs">Account</span>
         </th>
         <th className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <i className="fa fa-fw fa-angle-circled-up" />
-          Commits
+          <span className="hidden-xs">Commits</span>
         </th>
         <th className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <i className="fa fa-fw fa-plus-circled" />
-          Additions
+          <span className="hidden-xs">Additions</span>
         </th>
         <th className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <i className="fa fa-fw fa-minus-circled" />
-          Deletions
+          <span className="hidden-xs">Deletions</span>
         </th>
       </tr>
     </thead>
