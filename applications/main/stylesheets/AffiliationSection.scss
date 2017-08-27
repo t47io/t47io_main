@@ -149,9 +149,37 @@
 
   .AFFILIATION__text {
     text-align: center;
+    border: none;
 
     .AFFILIATION__role {
       margin-bottom: 0;
+    }
+  }
+}
+
+@include media_width_lt(511px) {
+  .AFFILIATION__story {
+    padding-right: 2.5em;
+  }
+
+  .AFFILIATION__content {
+    padding-left: 0;
+  }
+
+  .AFFILIATION__timeline {
+    left: 5em;
+  }
+
+  .AFFILIATION__year {
+    &::after {
+      left: 13.5em;
+      z-index: 0;
+    }
+
+    .AFFILIATION__year-text {
+      display: inline-block;
+      transform: rotate(-90deg) translateY(-1rem);
+      transform-origin: center;
     }
   }
 }

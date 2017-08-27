@@ -42,7 +42,9 @@ const AffiliationItem = ({
           fireOnRapidScroll={false}
         />
 
-        <span className="AFFILIATION__year">{year}</span>
+        <span className="AFFILIATION__year">
+          <span className="AFFILIATION__year-text">{year}</span>
+        </span>
         <WebAnimation
           keyframes={affiliationPanel.keyframes(shouldAnimate)}
           timing={affiliationPanel.timing}
