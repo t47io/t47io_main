@@ -17,7 +17,11 @@ import {
   PUBLIC_PATH,
   DEBUG,
 } from './env.js';
-import { FILE_NAMES } from './config.js';
+import {
+  CACHE_MAX_AGE,
+  FILE_NAMES,
+} from './config.js';
+import { MANIFEST_JS } from '../build/config.js';
 
 
 const middlewares = [
@@ -26,6 +30,12 @@ const middlewares = [
     expressStatic(`${PUBLIC_PATH}/`, {
       enableBrotli: true,
       indexFromEmptyFile: false,
+      maxAge: `${CACHE_MAX_AGE * 5} days`,
+      setHeaders: (res, uri) => {
+        if (uri.includes(MANIFEST_JS)) {
+          res.setHeader('Cache-Control', 'no-cache, max-age=0');
+        }
+      },
     }),
   ],
   favicon(path.join(PUBLIC_PATH, FILE_NAMES.FAVICO)),

@@ -42,8 +42,6 @@ if (MAINTENANCE) {
 app.get('/', routes.main);
 app.get(projectPathRegex, routes.project);
 
-app.use(express.static(PUBLIC_PATH, { maxAge: `${CACHE_MAX_AGE * 5} days` }));
-
 app.get('/resume', routes.resume);
 app.get(pubsPathRegex, routes.pubs);
 app.get(thesisPathRegex, routes.thesis);
