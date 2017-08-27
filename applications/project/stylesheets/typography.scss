@@ -1,3 +1,4 @@
+@import '../../common/mixins/media';
 @import '../../common/mixins/palette';
 
 .label {
@@ -31,4 +32,10 @@
 
 .lead {
   margin: 0 0.5rem;
+}
+
+@include media_width_lt(511px) {
+  a {
+    word-break: break-word;
+  }
 }

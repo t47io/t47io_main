@@ -1,7 +1,15 @@
+@import '../../common/mixins/media';
+
 .PROJECT__access-link {
   margin-bottom: 1em;
 }
 
 .PROJECT__access-note {
   margin: 1em 0;
+}
+
+@include media_width_lt(511px) {
+  .PROJECT__access-note {
+    line-height: 1.5;
+  }
 }

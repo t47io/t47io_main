@@ -1,3 +1,4 @@
+@import '../../common/mixins/media';
 @import '../../common/mixins/palette';
 
 .PROJECT__repo-basics {
@@ -48,5 +49,11 @@
 
   .PROJECT__repo-table-bottom {
     padding: 0;
+  }
+}
+
+@include media_width_lt(511px) {
+  .PROJECT__repo-basics {
+    text-align: center;
   }
 }
