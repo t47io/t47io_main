@@ -15,6 +15,7 @@ const entries = (DEBUG = true) => {
     [chunkNames.error]: './applications/error/index.jsx',
     [chunkNames.vendor]: [
       'bootstrap-loader',
+      'es6-promise/auto',
       'react',
       'react-document-meta',
       'react-redux',
