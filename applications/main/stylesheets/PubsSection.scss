@@ -97,3 +97,11 @@
     padding: 0 2em 1em 2em;
   }
 }
+
+@include media_width_lt(511px) {
+  .PUBS__year-text {
+    display: block;
+    transform: rotate(-90deg) translateX(-2rem);
+    transform-origin: center;
+  }
+}

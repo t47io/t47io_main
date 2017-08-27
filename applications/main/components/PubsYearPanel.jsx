@@ -14,14 +14,14 @@ const PubsYearPanel = ({
 }) => (
   <div className="row PUBS__row">
     <WebAnimation
-      className="col-lg-1 col-md-1 col-sm-2 col-xs-3 PUBS__year"
+      className="col-lg-1 col-md-1 col-sm-2 col-xs-2 PUBS__year"
       keyframes={pubsYear.keyframes}
       timing={pubsYear.timing(offset)}
       shouldAnimate={counter}
     >
-      {year}
+      <span className="PUBS__year-text">{year}</span>
     </WebAnimation>
-    <div className="col-lg-11 col-md-11 col-sm-10 col-xs-9 PUBS__content">
+    <div className="col-lg-11 col-md-11 col-sm-10 col-xs-10 PUBS__content">
       {items.filter(item => (!item.isHidden)).map((item, i) => (
         <PubsItem
           key={`PUBS__entry-${year}-${i}`}
