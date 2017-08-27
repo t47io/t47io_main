@@ -62,7 +62,7 @@ app.use((err, req, res, next) => {
 
   const ext = getZipExt(req.headers, 2);
   return res.status(code).sendFile(path.join(PUBLIC_PATH, `e.${code}.html.${ext}`), {
-    headers: getHeader(req),
+    headers: getHeader(req, true),
     maxAge: `${CACHE_MAX_AGE} days`,
   });
 });

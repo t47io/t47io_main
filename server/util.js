@@ -32,8 +32,8 @@ export const getZipExt = (headers, length = 4) => {
   const zipType = headers['accept-encoding'].includes('br') ? 'br' : 'gzip';
   return zipType.slice(0, length);
 };
-export const getHeader = (req) => {
-  const encoding = DEBUG ? {} : { 'Content-Encoding': getZipExt(req.headers) };
+export const getHeader = (req, forceHeader = false) => {
+  const encoding = (!forceHeader && DEBUG) ? {} : { 'Content-Encoding': getZipExt(req.headers) };
   return {
     ...HTML_HEADER,
     ...encoding,

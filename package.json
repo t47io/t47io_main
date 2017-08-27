@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.8.9",
+  "version": "2.8.10",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
