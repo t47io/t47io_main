@@ -102,6 +102,16 @@
   }
 }
 
+@include media_width_lt(511px) {
+  .CONTACT__social {
+    padding-left: 0;
+
+    .CONTACT__item:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
 .CONTACT__address {
   width: 100%;
   padding: 0;

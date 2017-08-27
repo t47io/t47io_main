@@ -38,10 +38,4 @@
   .filled-white svg {
     width: auto;
   }
-
-  @include media_width_lt(767px) {
-    .FOOTER__line {
-      margin-bottom: 0;
-    }
-  }
 }

@@ -50,3 +50,17 @@
     margin: 0 0.5em;
   }
 }
+
+@include media_width_lt(511px) {
+  .FOOTER {
+    height: auto;
+
+    .FOOTER__copyright {
+      line-height: 1.25;
+    }
+  }
+
+  .FOOTER__header {
+    padding: 1em 1.5em;    
+  }
+}
