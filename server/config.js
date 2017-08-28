@@ -30,19 +30,3 @@ export const FILE_NAMES = {
   SITEMAP: 'sitemap.xml',
   BACKUP: 'backup.tar.gz',
 };
-
-export const BOT_USER_AGENTS = [
-  'googlebot',
-  'yahoo',
-  'bingbot',
-  'yandex',
-  'applebot',
-  'msnbot',
-  'yeti',
-  'yodaobot',
-  'gigabot',
-  'slurp',
-  'facebookexternalhit',
-  'twitterbot',
-  'developers.google.com',
-];

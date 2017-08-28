@@ -21,7 +21,6 @@ import {
   CACHE_MAX_AGE,
   FILE_NAMES,
 } from './config.js';
-import { MANIFEST_JS } from '../build/config.js';
 
 
 const middlewares = [

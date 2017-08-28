@@ -13,7 +13,6 @@ import {
 import {
   CACHE_MAX_AGE,
   FILE_NAMES,
-  BOT_USER_AGENTS,
 } from './config.js';
 import { webpackMiddleware } from './middleware.js';
 import {
@@ -50,11 +49,11 @@ const routes = {
     if (DEBUG) {
       sendHtmlFromCache('main', renderMainHTML, req, res);
     } else {
-      const userAgent = req.useragent.source.toLowerCase();
-      const isBot = (BOT_USER_AGENTS.filter(botUA => userAgent.includes(botUA)).length > 0);
+      const isBot = req.useragent.isBot;
+      const isIE = (req.useragent.browser === 'IE');
       const isStatic = ('static' in req.query && req.query.static === '1');
 
-      const htmlFile = (isBot || isStatic) ? 'index' : 'main';
+      const htmlFile = (isBot || isIE || isStatic) ? 'index' : 'main';
       sendHtmlFromDisk(htmlFile, req, res);
     }
   },
