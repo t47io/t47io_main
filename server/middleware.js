@@ -5,7 +5,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import bodyParser from 'body-parser';
 import childProcess from 'child_process';
 import compression from 'compression';
-import expressStatic from 'express-static-gzip';
+import express from 'express';
 import favicon from 'serve-favicon';
 import fs from 'fs-extra';
 import helmet from 'helmet';
@@ -25,24 +25,25 @@ import { MANIFEST_JS } from '../build/config.js';
 
 
 const middlewares = [
-  DEBUG ? compression() : [
-    '/',
-    expressStatic(`${PUBLIC_PATH}/`, {
-      enableBrotli: true,
-      indexFromEmptyFile: false,
-      maxAge: `${CACHE_MAX_AGE * 5} days`,
-      setHeaders: (res, uri) => {
-        if (uri.includes(MANIFEST_JS)) {
-          res.setHeader('Cache-Control', 'no-cache, max-age=0');
-        }
+  DEBUG ? compression() : null,
+  DEBUG ? favicon(path.join(PUBLIC_PATH, FILE_NAMES.FAVICO)) : null,
+  DEBUG ? express.static(PUBLIC_PATH, { maxAge: `${CACHE_MAX_AGE * 5} days` }) : null,
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        scriptSrc: [
+          '\'self\'',
+          '\'unsafe-inline\'',
+          '\'unsafe-eval\'',
+          'www.google-analytics.com',
+          'www.gstatic.com',
+        ],
       },
-    }),
-  ],
-  favicon(path.join(PUBLIC_PATH, FILE_NAMES.FAVICO)),
-  helmet(),
+    },
+  }),
   bodyParser.json(),
   userAgent.express(),
-];
+].filter(Boolean);
 
 
 let webpackMiddleware = null;

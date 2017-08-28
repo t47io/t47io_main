@@ -28,13 +28,7 @@ const app = express();
 app.disable('x-powered-by');
 app.listen(PORT, () => console.log(`${colors.rainbow('t47io Main Site')} listening on port: ${colors.red(PORT)} ...`));
 
-middlewares.forEach((middleware) => {
-  if (Array.isArray(middleware)) {
-    app.use(...middleware);
-  } else {
-    app.use(middleware);
-  }
-});
+middlewares.forEach(middleware => app.use(middleware));
 if (MAINTENANCE) {
   app.all('*', (req, res, next) => next(sendErrorResponse(503)));
 }
