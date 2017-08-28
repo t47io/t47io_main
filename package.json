@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.8.15",
+  "version": "2.8.16",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
@@ -45,7 +45,8 @@
     "cron:chmod": "babel-node ./server/cron/chmod.js",
     "cron:renew": "babel-node ./server/cron/ssl_renew.js",
 
-    "update": "yarn upgrade-interactive --exact && yarn clean"
+    "update": "yarn upgrade-interactive --exact && yarn clean",
+    "update:nginx": "babel-node ./server/cron/build_nginx.js"
   },
   "repository": "github:t47io/t47io_main",
   "license": "CC-BY-NC-SA-4.0",
@@ -91,7 +92,7 @@
     "nodemon": "1.11.0",
     "null-loader": "0.1.1",
     "optimize-js-plugin": "0.0.4",
-    "postcss": "6.0.9",
+    "postcss": "6.0.10",
     "postcss-csso": "2.0.0",
     "postcss-loader": "2.0.6",
     "preact": "8.2.4",

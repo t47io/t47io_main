@@ -41,13 +41,14 @@ yarn install
 
 > PDF assets (publication, thesis and resume) should be maintained under `static/pubs/`, `static/thesis/` and `static/resume/` manually.
 
+For **production only**, we use `pm2`, `nginx` and [`ngx_brotli`](https://github.com/google/ngx_brotli) module for hosting. A custom build of `nginx` is required to enable the `brotli` compression. For details, read posts [here](https://www.enovate.co.uk/blog/2017/02/28/how-to-brotli-compression-with-nginx) and [here](https://afasterweb.com/2016/03/15/serving-up-brotli-with-nginx-and-jekyll/). Briefly, run `yarn run update:nginx` with `sudo`.
+
 
 <h2 align="center">Configuration</h2>
 
 Config files are stored as `config/**/*.json`. Example configs are included in the repository, see `config/**/*.example.json`.
 
-Server credentials are stored in `config/server.json`, including server `PORT`, email SMTP logins, _Google Analytics_ tracker ID and _GitHub_ access token. The `debug` flag here determines the server environment; the `maintenance` flag toggles 503 status. Adapt from the `config/server.example.json` as a template and rename it.
-
+Server credentials are stored in `config/server.json`, including server `PORT`, email SMTP logins, _Google Analytics_ tracker ID and _GitHub_ access token. The `DEBUG` flag here determines the server environment; the `MAINTENANCE` flag toggles 503 status. Adapt from the `config/server.example.json` as a template and rename it.
 
 > `nginx` reverse proxy and `pm2` startup configs are _not_ included in the repository.
 
@@ -60,9 +61,9 @@ Use `yarn` scripts with `yarn run <cmd>`.
 
 | command | description |
 | --- | --- |
-| `dev` | Spawn dev server with `nodemon`. When `debug=true`, hot-reloading is enabled and bundles are _not_ optimized or minimized. When `debug=false`, the app only serves static assets from `public/`; thus you will need to run `build` first. |
-| `prod` | Launch prod server with `pm2`. You should use this with `debug=false` only. |
-| `build` | Run `webpack` to build client-side bundles and server-side rendered index page into `public/`. It ignores `debug` and always use `debug=false`. Files are hash-versioned and gzipped. Assets from `static/` are copied to `public/`, manifest file and `sitemap.xml` are generated. |
+| `dev` | Spawn dev server with `nodemon`. When `DEBUG=true`, hot-reloading is enabled and bundles are _not_ optimized or minimized. When `DEBUG=false`, the app only serves static assets from `public/`; thus you will need to run `build` first. |
+| `prod` | Launch prod server with `pm2`. You should use this with `DEBUG=false` only. |
+| `build` | Run `webpack` to build client-side bundles and server-side rendered index page into `public/`. It ignores `DEBUG` and always use `DEBUG=false`. Files are hash-versioned and gzipped. Assets from `static/` are copied to `public/`, manifest file and `sitemap.xml` are generated. `webpack` build information is saved to `config/stats.(json\|html)`. For production, a follow up of `yarn run cron:chmod` is required for `nginx` permissions. |
 
 - Scripts for maintenance:
 
@@ -77,10 +78,10 @@ Use `yarn` scripts with `yarn run <cmd>`.
 
 <h2 align="center">Notes</h2>
 
-- Template app HTML files `public/(main|project).html.gz` contains JS/CSS loading logic that do not hard-code any asset path. Thus they are allowed for long cache. Only `(manifest|f.012345.min).js` is variable with a short cache.
-- Custom error pages are server-side rendered and stored as `public/e.(\d{3}).html.gz`.
-- Server-side rendered home page is stored as `public/index.html.gz`, as a static version without animation or interactivity. It is served to _bots_ based on user-agent match.
-- `webpack` generated JS/CSS/HTML assets under `public/` are pre-gzipped.
+- Template app HTML files `public/(main|project).html.(gz|br)` contains JS/CSS loading logic that do not hard-code any asset path. Thus they are allowed for long cache. Only `(manifest|f.012345.min).js` is variable with a short cache.
+- Custom error pages are server-side rendered and stored as `public/e.(\d{3}).html.(gz|br)`.
+- Server-side rendered home page is stored as `public/index.html.(gz|br)`, as a static version without animation or interactivity. It is served to _bots_ based on user-agent match.
+- `webpack` generated JS/CSS/HTML assets under `public/` are pre-compressed by `gzip` and `brotli`.
 - `yarn run stat` is scheduled weekly as a `crontab` job on production (by `root`).
 
 
