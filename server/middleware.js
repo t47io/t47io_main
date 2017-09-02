@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import childProcess from 'child_process';
 import compression from 'compression';
 import express from 'express';
+import staticGzip from 'express-static-gzip';
 import favicon from 'serve-favicon';
 import fs from 'fs-extra';
 import helmet from 'helmet';
@@ -16,6 +17,7 @@ import webpackConfig from '../webpack.config.client.js';
 import {
   PUBLIC_PATH,
   DEBUG,
+  NGINX,
 } from './env.js';
 import {
   CACHE_MAX_AGE,
@@ -25,8 +27,14 @@ import {
 
 const middlewares = [
   DEBUG ? compression() : null,
-  DEBUG ? favicon(path.join(PUBLIC_PATH, FILE_NAMES.FAVICO)) : null,
-  DEBUG ? express.static(PUBLIC_PATH, { maxAge: `${CACHE_MAX_AGE * 5} days` }) : null,
+  (DEBUG || !NGINX) ? favicon(path.join(PUBLIC_PATH, FILE_NAMES.FAVICO)) : null,
+  DEBUG ? express.static(PUBLIC_PATH, {
+    maxAge: `${CACHE_MAX_AGE * 5} days`,
+  }) : null,
+  !NGINX ? ['/', staticGzip(PUBLIC_PATH, {
+    enableBrotli: true,
+    indexFromEmptyFile: false,
+  })] : null,
   helmet({
     contentSecurityPolicy: {
       directives: {
