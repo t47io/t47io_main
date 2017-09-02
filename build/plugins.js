@@ -1,7 +1,7 @@
 import glob from 'glob';
 import webpack from 'webpack';
 
-import BabiliPlugin from 'babili-webpack-plugin';
+import BabelMinifyPlugin from 'babel-minify-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CommonShakePlugin from 'webpack-common-shake';
@@ -109,7 +109,7 @@ const plugins = (DEBUG = true) => {
     }),
     new ManifestPlugin(),
     new CommonShakePlugin.Plugin(),
-    new BabiliPlugin(),
+    new BabelMinifyPlugin(),
     new UglifyJsPlugin({
       beautify: false,
       comments: false,
