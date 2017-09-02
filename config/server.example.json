@@ -17,6 +17,7 @@
   },
   "mode": {
     "debug": true,
+    "nginx": false,
     "maintenance": false
   },
   "port": 8000
