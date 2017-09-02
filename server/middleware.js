@@ -34,6 +34,7 @@ const middlewares = [
   !NGINX ? ['/', staticGzip(PUBLIC_PATH, {
     enableBrotli: true,
     indexFromEmptyFile: false,
+    maxAge: `${CACHE_MAX_AGE * 5} days`,
   })] : null,
   helmet({
     contentSecurityPolicy: {
