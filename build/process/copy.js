@@ -71,7 +71,7 @@ try {
   copyImages();
   copyRobots();
 
-  shell.mkdir('-p', `${ROOT_PATH}/public/docs/`);
+  shell.mkdir('-p', path.join(ROOT_PATH, 'public/docs/'));
   copyPubs();
   copyThesis();
   copyResume();

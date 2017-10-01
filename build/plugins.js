@@ -1,4 +1,5 @@
 import glob from 'glob';
+import path from 'path';
 import webpack from 'webpack';
 
 import BabelMinifyPlugin from 'babel-minify-webpack-plugin';
@@ -37,7 +38,7 @@ const plugins = (DEBUG = true) => {
     new HtmlWebpackPlugin({
       chunks: [chunkNames.main, chunkNames.vendor, chunkNames.manifest],
       template: HTML_TEMPLATE,
-      filename: `${ROOT_PATH}/public/main.html`,
+      filename: path.join(ROOT_PATH, 'public/main.html'),
       inject: false,
       chunk: chunkNames.main,
       manifest: MANIFEST_JS,
@@ -46,7 +47,7 @@ const plugins = (DEBUG = true) => {
     new HtmlWebpackPlugin({
       chunks: [chunkNames.project, chunkNames.vendor, chunkNames.manifest],
       template: HTML_TEMPLATE,
-      filename: `${ROOT_PATH}/public/project.html`,
+      filename: path.join(ROOT_PATH, 'public/project.html'),
       inject: false,
       chunk: chunkNames.project,
       manifest: MANIFEST_JS,
@@ -55,7 +56,7 @@ const plugins = (DEBUG = true) => {
     new HtmlWebpackPlugin({
       chunks: [chunkNames.error],
       template: HTML_TEMPLATE,
-      filename: `${ROOT_PATH}/public/error.html`,
+      filename: path.join(ROOT_PATH, 'public/error.html'),
       inject: false,
       chunk: chunkNames.error,
       manifest: MANIFEST_JS,
@@ -64,6 +65,12 @@ const plugins = (DEBUG = true) => {
     new webpack.optimize.CommonsChunkPlugin({
       name: chunkNames.vendor,
       filename: CHUNK_FILE_NAME(DEBUG),
+      minChunks: module => (
+        module.resource && (
+          module.resource.includes('node_modules/') ||
+          (module.resource.includes('applications/vendor/') && module.resource.endsWith('css'))
+        )
+      ),
     }),
     new ExtractTextPlugin({
       filename: CHUNK_FILE_NAME(DEBUG, 'css'),
@@ -71,10 +78,10 @@ const plugins = (DEBUG = true) => {
     }),
     new PurifyCSSPlugin({
       paths: [
-        ...(glob.sync(`${ROOT_PATH}/applications/**/*.{jsx,json,scss}`)),
-        ...(glob.sync(`${ROOT_PATH}/public/**/*.html`)),
-        `${ROOT_PATH}/config/main.json`,
-        `${ROOT_PATH}/config/project.json`,
+        ...(glob.sync(path.join(ROOT_PATH, 'applications/**/*.{jsx,json,scss}'))),
+        ...(glob.sync(path.join(ROOT_PATH, 'public/**/*.html'))),
+        path.join(ROOT_PATH, 'config/main.json'),
+        path.join(ROOT_PATH, 'config/project.json'),
       ],
       styleExtensions: ['.css', '.scss'],
       moduleExtensions: ['.html'],
@@ -139,8 +146,8 @@ const plugins = (DEBUG = true) => {
       analyzerMode: 'static',
       openAnalyzer: false,
       generateStatsFile: true,
-      statsFilename: `${ROOT_PATH}/config/stats.json`,
-      reportFilename: `${ROOT_PATH}/config/stats.html`,
+      statsFilename: path.join(ROOT_PATH, 'config/stats.json'),
+      reportFilename: path.join(ROOT_PATH, 'config/stats.html'),
     }),
   ];
 };
