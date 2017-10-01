@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
@@ -66,7 +66,6 @@
     "babel-plugin-lodash": "3.2.11",
     "babel-plugin-module-resolver": "2.7.1",
     "babel-preset-env": "1.6.0",
-    "babel-preset-es2015": "6.24.1",
     "babel-preset-minify": "0.2.0",
     "babel-preset-react": "6.24.1",
     "babel-preset-react-hmre": "1.1.1",

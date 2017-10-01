@@ -24,7 +24,7 @@ Make sure you have `nodejs` and `babel-node` ready globally. Also for static com
 sudo apt-get install yarn zopfli brotli
 # osx
 brew install yarn zopfli brotli
-sudo ln -s /usr/local/bin/bro /usr/local/bin/brotli
+sudo ln -sf /usr/local/bin/bro /usr/local/bin/brotli
 ```
 
 Then, setup the repository:
@@ -41,7 +41,13 @@ yarn install
 
 > PDF assets (publication, thesis and resume) should be maintained under `static/pubs/`, `static/thesis/` and `static/resume/` manually.
 
-For **production only**, we use `pm2`, `nginx` and [`ngx_brotli`](https://github.com/google/ngx_brotli) module for hosting. A custom build of `nginx` is required to enable the `brotli` compression. For details, read posts [here](https://www.enovate.co.uk/blog/2017/02/28/how-to-brotli-compression-with-nginx) and [here](https://afasterweb.com/2016/03/15/serving-up-brotli-with-nginx-and-jekyll/). Briefly, run `yarn run update:nginx` with `sudo`.
+For **production only**, a fresh build  of [`brotli`](https://github.com/google/brotli) is used. Follow the `cmake` instructions there and link it afterwards:
+
+```sh
+sudo ln -sf ~/brotli/out/brotli /usr/local/bin/brotli
+```
+
+Also, we use `pm2`, `nginx` and [`ngx_brotli`](https://github.com/google/ngx_brotli) module for hosting. A custom build of `nginx` is required to enable the `brotli` compression. For details, read posts [here](https://www.enovate.co.uk/blog/2017/02/28/how-to-brotli-compression-with-nginx) and [here](https://afasterweb.com/2016/03/15/serving-up-brotli-with-nginx-and-jekyll/). Briefly, run `yarn run update:nginx` with `sudo`.
 
 
 <h2 align="center">Configuration</h2>
