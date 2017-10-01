@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import AboutItem from '../components/AboutItem.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
@@ -52,16 +53,16 @@ const AboutSection = ({
 );
 
 AboutSection.propTypes = {
-  data: React.PropTypes.shape({
-    items: React.PropTypes.arrayOf(React.PropTypes.object),
+  data: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object),
   }),
-  animations: React.PropTypes.shape({
-    header: React.PropTypes.bool,
-    icon: React.PropTypes.bool,
+  animations: PropTypes.shape({
+    header: PropTypes.bool,
+    icon: PropTypes.bool,
   }),
-  actions: React.PropTypes.shape({
-    animateHeader: React.PropTypes.func,
-    animateIcons: React.PropTypes.func,
+  actions: PropTypes.shape({
+    animateHeader: PropTypes.func,
+    animateIcons: PropTypes.func,
   }),
 };
 AboutSection.defaultProps = {

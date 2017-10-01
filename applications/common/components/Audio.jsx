@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class Audio extends React.PureComponent {
@@ -38,10 +39,10 @@ class Audio extends React.PureComponent {
 }
 
 Audio.propTypes = {
-  src: React.PropTypes.string.isRequired,
-  play: React.PropTypes.bool,
-  loop: React.PropTypes.bool,
-  onFinish: React.PropTypes.func,
+  src: PropTypes.string.isRequired,
+  play: PropTypes.bool,
+  loop: PropTypes.bool,
+  onFinish: PropTypes.func,
 };
 Audio.defaultProps = {
   play: false,

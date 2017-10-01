@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class AsyncComponent extends React.PureComponent {
@@ -29,8 +30,8 @@ class AsyncComponent extends React.PureComponent {
 }
 
 AsyncComponent.propTypes = {
-  loader: React.PropTypes.func,
-  placeholder: React.PropTypes.string,
+  loader: PropTypes.func,
+  placeholder: PropTypes.string,
 };
 AsyncComponent.defaultProps = {
   loader: () => {},

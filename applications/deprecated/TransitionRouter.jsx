@@ -1,6 +1,7 @@
 import React from 'react';
 import CSSTransitionGroup from 'preact-css-transition-group';
 import { Router } from 'preact-router';
+import PropTypes from 'prop-types';
 
 
 const TransitionRouter = ({
@@ -26,9 +27,9 @@ const TransitionRouter = ({
 );
 
 TransitionRouter.propTypes = {
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.arrayOf(React.PropTypes.node),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
 };
 

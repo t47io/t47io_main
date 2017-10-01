@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const TitleImage = ({
@@ -20,8 +21,8 @@ const TitleImage = ({
 );
 
 TitleImage.propTypes = {
-  title: React.PropTypes.string,
-  image: React.PropTypes.string,
+  title: PropTypes.string,
+  image: PropTypes.string,
 };
 TitleImage.defaultProps = {
   title: '',

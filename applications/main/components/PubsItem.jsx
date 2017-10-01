@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PubsAuthor from './PubsAuthor.jsx';
 import PubsCitation from './PubsCitation.jsx';
@@ -96,19 +97,19 @@ const PubsItem = ({
 };
 
 PubsItem.propTypes = {
-  year: React.PropTypes.number,
-  authors: React.PropTypes.arrayOf(React.PropTypes.string),
-  title: React.PropTypes.string,
-  journal: React.PropTypes.string,
-  issue: React.PropTypes.string,
-  page: React.PropTypes.string,
-  url: React.PropTypes.string,
-  code: React.PropTypes.string,
-  citation: React.PropTypes.number,
-  tag: React.PropTypes.string,
-  isPreprint: React.PropTypes.bool,
-  shouldAnimate: React.PropTypes.bool,
-  index: React.PropTypes.number,
+  year: PropTypes.number,
+  authors: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
+  journal: PropTypes.string,
+  issue: PropTypes.string,
+  page: PropTypes.string,
+  url: PropTypes.string,
+  code: PropTypes.string,
+  citation: PropTypes.number,
+  tag: PropTypes.string,
+  isPreprint: PropTypes.bool,
+  shouldAnimate: PropTypes.bool,
+  index: PropTypes.number,
 };
 PubsItem.defaultProps = {
   year: NaN,

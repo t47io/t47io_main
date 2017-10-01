@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { GITHUB_HOST } from '../../config.js';
 
@@ -64,17 +65,17 @@ const RepositoryBasic = ({
 };
 
 RepositoryBasic.propTypes = {
-  name: React.PropTypes.string,
-  isPrivate: React.PropTypes.bool,
-  createdAt: React.PropTypes.string,
-  pushedAt: React.PropTypes.string,
-  issues: React.PropTypes.number,
-  downloads: React.PropTypes.number,
-  forks: React.PropTypes.number,
-  pulls: React.PropTypes.number,
-  branches: React.PropTypes.number,
-  watchers: React.PropTypes.number,
-  stars: React.PropTypes.number,
+  name: PropTypes.string,
+  isPrivate: PropTypes.bool,
+  createdAt: PropTypes.string,
+  pushedAt: PropTypes.string,
+  issues: PropTypes.number,
+  downloads: PropTypes.number,
+  forks: PropTypes.number,
+  pulls: PropTypes.number,
+  branches: PropTypes.number,
+  watchers: PropTypes.number,
+  stars: PropTypes.number,
 };
 RepositoryBasic.defaultProps = {
   name: '',

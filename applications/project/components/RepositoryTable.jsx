@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import RepositoryTableItem from './RepositoryTableItem.jsx';
 
@@ -40,7 +41,7 @@ const RepositoryTable = ({ items }) => (
 );
 
 RepositoryTable.propTypes = {
-  items: React.PropTypes.arrayOf(React.PropTypes.object),
+  items: PropTypes.arrayOf(PropTypes.object),
 };
 RepositoryTable.defaultProps = {
   items: [],

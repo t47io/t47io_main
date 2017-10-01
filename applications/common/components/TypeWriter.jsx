@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class TypeWriter extends React.PureComponent {
@@ -70,13 +71,13 @@ class TypeWriter extends React.PureComponent {
 }
 
 TypeWriter.propTypes = {
-  className: React.PropTypes.string,
-  fullText: React.PropTypes.string,
-  cursorCharacter: React.PropTypes.string,
-  cursorClassName: React.PropTypes.string,
-  interval: React.PropTypes.number,
-  delay: React.PropTypes.number,
-  shouldAnimate: React.PropTypes.bool,
+  className: PropTypes.string,
+  fullText: PropTypes.string,
+  cursorCharacter: PropTypes.string,
+  cursorClassName: PropTypes.string,
+  interval: PropTypes.number,
+  delay: PropTypes.number,
+  shouldAnimate: PropTypes.bool,
 };
 TypeWriter.defaultProps = {
   className: '',

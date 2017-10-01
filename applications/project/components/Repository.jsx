@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import RepositoryCharts from './RepositoryCharts.jsx';
 import RepositoryStats from './RepositoryStats.jsx';
@@ -35,12 +36,12 @@ const Repository = ({
 };
 
 Repository.propTypes = {
-  basics: React.PropTypes.object,
-  contributors: React.PropTypes.arrayOf(React.PropTypes.object),
-  additions: React.PropTypes.arrayOf(React.PropTypes.number),
-  deletions: React.PropTypes.arrayOf(React.PropTypes.number),
-  commits: React.PropTypes.arrayOf(React.PropTypes.number),
-  months: React.PropTypes.arrayOf(React.PropTypes.string),
+  basics: PropTypes.object,
+  contributors: PropTypes.arrayOf(PropTypes.object),
+  additions: PropTypes.arrayOf(PropTypes.number),
+  deletions: PropTypes.arrayOf(PropTypes.number),
+  commits: PropTypes.arrayOf(PropTypes.number),
+  months: PropTypes.arrayOf(PropTypes.string),
 };
 Repository.defaultProps = {
   basics: {},

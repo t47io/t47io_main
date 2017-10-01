@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'preact-router/match';
+import PropTypes from 'prop-types';
 
 
 const DropdownItem = ({ title }) => (
@@ -15,7 +16,7 @@ const DropdownItem = ({ title }) => (
 );
 
 DropdownItem.propTypes = {
-  title: React.PropTypes.string,
+  title: PropTypes.string,
 };
 DropdownItem.defaultProps = {
   title: '',

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Trigger from './Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
@@ -31,10 +32,10 @@ const SectionHeader = ({
 );
 
 SectionHeader.propTypes = {
-  title: React.PropTypes.string,
-  subtitle: React.PropTypes.string,
-  shouldAnimate: React.PropTypes.bool,
-  onToggleAnimation: React.PropTypes.func,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  shouldAnimate: PropTypes.bool,
+  onToggleAnimation: PropTypes.func,
 };
 SectionHeader.defaultProps = {
   title: '',

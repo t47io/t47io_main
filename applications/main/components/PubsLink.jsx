@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const PubsFileLink = ({
@@ -35,10 +36,10 @@ const PubsFileLink = ({
 };
 
 PubsFileLink.propTypes = {
-  url: React.PropTypes.string,
-  isPreprint: React.PropTypes.bool,
-  icon: React.PropTypes.string,
-  size: React.PropTypes.string,
+  url: PropTypes.string,
+  isPreprint: PropTypes.bool,
+  icon: PropTypes.string,
+  size: PropTypes.string,
 };
 PubsFileLink.defaultProps = {
   url: '',

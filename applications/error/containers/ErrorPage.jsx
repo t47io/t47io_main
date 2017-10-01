@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Meta from '../components/Meta.jsx';
 import ErrorSection from '../components/ErrorSection.jsx';
 import Footer from '../components/Footer.jsx';
+
+import { ERROR_COLOR_CODES } from '../../common/constants/util.js';
 
 
 const ErrorPage = ({
@@ -34,19 +37,19 @@ const ErrorPage = ({
 );
 
 ErrorPage.propTypes = {
-  code: React.PropTypes.number,
-  color: React.PropTypes.oneOf(['green', 'blue', 'yellow', 'purple', 'red']),
-  img: React.PropTypes.string,
-  title: React.PropTypes.shape({
-    custom: React.PropTypes.string,
-    standard: React.PropTypes.string,
+  code: PropTypes.number,
+  color: PropTypes.oneOf(ERROR_COLOR_CODES),
+  img: PropTypes.string,
+  title: PropTypes.shape({
+    custom: PropTypes.string,
+    standard: PropTypes.string,
   }),
-  text: React.PropTypes.shape({
-    custom: React.PropTypes.string,
-    standard: React.PropTypes.string,
+  text: PropTypes.shape({
+    custom: PropTypes.string,
+    standard: PropTypes.string,
   }),
-  copy: React.PropTypes.string,
-  cc: React.PropTypes.string,
+  copy: PropTypes.string,
+  cc: PropTypes.string,
 };
 ErrorPage.defaultProps = {
   code: 500,

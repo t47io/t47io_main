@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const PubsIssuePage = ({
@@ -22,9 +23,9 @@ const PubsIssuePage = ({
 };
 
 PubsIssuePage.propTypes = {
-  issue: React.PropTypes.string,
-  page: React.PropTypes.string,
-  isPreprint: React.PropTypes.bool,
+  issue: PropTypes.string,
+  page: PropTypes.string,
+  isPreprint: PropTypes.bool,
 };
 PubsIssuePage.defaultProps = {
   issue: '',

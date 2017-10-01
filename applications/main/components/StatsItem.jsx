@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Counter from '../../common/components/Counter.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
@@ -36,11 +37,11 @@ const StatsItem = ({
 );
 
 StatsItem.propTypes = {
-  icon: React.PropTypes.string,
-  title: React.PropTypes.string,
-  value: React.PropTypes.number,
-  shouldAnimate: React.PropTypes.bool,
-  index: React.PropTypes.number,
+  icon: PropTypes.string,
+  title: PropTypes.string,
+  value: PropTypes.number,
+  shouldAnimate: PropTypes.bool,
+  index: PropTypes.number,
 };
 StatsItem.defaultProps = {
   icon: '',

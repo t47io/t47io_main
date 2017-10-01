@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const ITALIC_MARKUP = '_';
@@ -32,7 +33,7 @@ const PubsTitle = ({ title }) => {
 };
 
 PubsTitle.propTypes = {
-  title: React.PropTypes.string,
+  title: PropTypes.string,
 };
 PubsTitle.defaultProps = {
   title: '',

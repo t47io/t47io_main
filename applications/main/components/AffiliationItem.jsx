@@ -1,5 +1,6 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
+import PropTypes from 'prop-types';
 
 import AffiliationPanel from './AffiliationPanel.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
@@ -85,16 +86,16 @@ const AffiliationItem = ({
 };
 
 AffiliationItem.propTypes = {
-  year: React.PropTypes.number,
-  title: React.PropTypes.string,
-  url: React.PropTypes.string,
-  geo: React.PropTypes.string,
-  role: React.PropTypes.object,
-  rewards: React.PropTypes.arrayOf(React.PropTypes.object),
-  tag: React.PropTypes.string,
-  shouldAnimate: React.PropTypes.bool,
-  onToggleAnimation: React.PropTypes.func,
-  index: React.PropTypes.number,
+  year: PropTypes.number,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  geo: PropTypes.string,
+  role: PropTypes.object,
+  rewards: PropTypes.arrayOf(PropTypes.object),
+  tag: PropTypes.string,
+  shouldAnimate: PropTypes.bool,
+  onToggleAnimation: PropTypes.func,
+  index: PropTypes.number,
 };
 AffiliationItem.defaultProps = {
   year: NaN,

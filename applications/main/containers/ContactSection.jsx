@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import Carousel from '../../common/components/Carousel.jsx';
 import ContactForm from '../components/ContactForm.jsx';
@@ -106,35 +107,35 @@ const ContactSection = ({
 );
 
 ContactSection.propTypes = {
-  data: React.PropTypes.shape({
-    items: React.PropTypes.arrayOf(React.PropTypes.object),
-    backgrounds: React.PropTypes.arrayOf(React.PropTypes.string),
-    resume: React.PropTypes.string,
+  data: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object),
+    backgrounds: PropTypes.arrayOf(PropTypes.string),
+    resume: PropTypes.string,
   }),
-  form: React.PropTypes.shape({
-    name: React.PropTypes.string,
-    email: React.PropTypes.string,
-    subject: React.PropTypes.string,
-    message: React.PropTypes.string,
-    isPending: React.PropTypes.bool,
-    isSuccess: React.PropTypes.bool,
-    isError: React.PropTypes.bool,
+  form: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    subject: PropTypes.string,
+    message: PropTypes.string,
+    isPending: PropTypes.bool,
+    isSuccess: PropTypes.bool,
+    isError: PropTypes.bool,
   }),
-  animations: React.PropTypes.shape({
-    header: React.PropTypes.bool,
-    icon: React.PropTypes.bool,
-    left: React.PropTypes.bool,
-    right: React.PropTypes.bool,
-    audio: React.PropTypes.bool,
+  animations: PropTypes.shape({
+    header: PropTypes.bool,
+    icon: PropTypes.bool,
+    left: PropTypes.bool,
+    right: PropTypes.bool,
+    audio: PropTypes.bool,
   }),
-  actions: React.PropTypes.shape({
-    animateHeader: React.PropTypes.func,
-    animateIcons: React.PropTypes.func,
-    animateLeftItems: React.PropTypes.func,
-    animateRightItems: React.PropTypes.func,
-    changeEmailField: React.PropTypes.func,
-    submitEmail: React.PropTypes.func,
-    playAudio: React.PropTypes.func,
+  actions: PropTypes.shape({
+    animateHeader: PropTypes.func,
+    animateIcons: PropTypes.func,
+    animateLeftItems: PropTypes.func,
+    animateRightItems: PropTypes.func,
+    changeEmailField: PropTypes.func,
+    submitEmail: PropTypes.func,
+    playAudio: PropTypes.func,
   }),
 };
 ContactSection.defaultProps = {

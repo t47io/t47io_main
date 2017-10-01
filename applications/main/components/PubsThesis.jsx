@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
@@ -64,16 +65,16 @@ const PubsThesis = ({
 );
 
 PubsThesis.propTypes = {
-  title: React.PropTypes.string,
-  url: React.PropTypes.string,
-  links: React.PropTypes.arrayOf(React.PropTypes.shape({
-    title: React.PropTypes.string,
-    tag: React.PropTypes.string,
-    icon: React.PropTypes.string,
-    size: React.PropTypes.string,
-    isHidden: React.PropTypes.bool,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  links: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    tag: PropTypes.string,
+    icon: PropTypes.string,
+    size: PropTypes.string,
+    isHidden: PropTypes.bool,
   })),
-  shouldAnimate: React.PropTypes.bool,
+  shouldAnimate: PropTypes.bool,
 };
 PubsThesis.defaultProps = {
   title: '',

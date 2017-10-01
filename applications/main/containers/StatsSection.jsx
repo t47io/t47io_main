@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import Carousel from '../../common/components/Carousel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
@@ -98,30 +99,30 @@ const StatsSection = ({
 );
 
 StatsSection.propTypes = {
-  data: React.PropTypes.shape({
-    items: React.PropTypes.arrayOf(React.PropTypes.object),
-    backgrounds: React.PropTypes.arrayOf(React.PropTypes.string),
-    links: React.PropTypes.shape({
-      github: React.PropTypes.string,
-      githubMinted: React.PropTypes.string,
+  data: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object),
+    backgrounds: PropTypes.arrayOf(PropTypes.string),
+    links: PropTypes.shape({
+      github: PropTypes.string,
+      githubMinted: PropTypes.string,
     }),
-    gitContrib: React.PropTypes.shape({
-      startDate: React.PropTypes.string,
-      countArray: React.PropTypes.arrayOf(React.PropTypes.number),
-      indexArray: React.PropTypes.arrayOf(React.PropTypes.number),
-      maxCount: React.PropTypes.number,
-      monthText: React.PropTypes.object,
+    gitContrib: PropTypes.shape({
+      startDate: PropTypes.string,
+      countArray: PropTypes.arrayOf(PropTypes.number),
+      indexArray: PropTypes.arrayOf(PropTypes.number),
+      maxCount: PropTypes.number,
+      monthText: PropTypes.object,
     }),
   }),
-  animations: React.PropTypes.shape({
-    header: React.PropTypes.bool,
-    counter: React.PropTypes.bool,
-    github: React.PropTypes.bool,
+  animations: PropTypes.shape({
+    header: PropTypes.bool,
+    counter: PropTypes.bool,
+    github: PropTypes.bool,
   }),
-  actions: React.PropTypes.shape({
-    animateHeader: React.PropTypes.func,
-    animateCounters: React.PropTypes.func,
-    animateGithub: React.PropTypes.func,
+  actions: PropTypes.shape({
+    animateHeader: PropTypes.func,
+    animateCounters: PropTypes.func,
+    animateGithub: PropTypes.func,
   }),
 };
 StatsSection.defaultProps = {

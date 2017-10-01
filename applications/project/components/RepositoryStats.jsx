@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import RepositoryBasic from './RepositoryBasic.jsx';
 import RepositoryTable from './RepositoryTable.jsx';
@@ -16,8 +17,8 @@ const RepositoryStats = ({
 );
 
 RepositoryStats.propTypes = {
-  basics: React.PropTypes.object,
-  contributors: React.PropTypes.arrayOf(React.PropTypes.object),
+  basics: PropTypes.object,
+  contributors: PropTypes.arrayOf(PropTypes.object),
 };
 RepositoryStats.defaultProps = {
   basics: {},

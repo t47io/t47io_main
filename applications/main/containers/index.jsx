@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import HomeSection from './HomeSection.jsx';
 import AboutSection from './AboutSection.jsx';
@@ -88,10 +89,10 @@ const Main = ({
 };
 
 Main.propTypes = {
-  isLoaded: React.PropTypes.bool,
-  hideScrollTop: React.PropTypes.bool,
-  onUpdateScroll: React.PropTypes.func,
-  onScrollTop: React.PropTypes.func,
+  isLoaded: PropTypes.bool,
+  hideScrollTop: PropTypes.bool,
+  onUpdateScroll: PropTypes.func,
+  onScrollTop: PropTypes.func,
 };
 Main.defaultProps = {
   isLoaded: false,

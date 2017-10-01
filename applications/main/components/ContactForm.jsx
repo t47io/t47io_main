@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
@@ -134,17 +135,17 @@ const ContactForm = ({
 };
 
 ContactForm.propTypes = {
-  name: React.PropTypes.string,
-  email: React.PropTypes.string,
-  subject: React.PropTypes.string,
-  message: React.PropTypes.string,
-  isPending: React.PropTypes.bool,
-  isSuccess: React.PropTypes.bool,
-  isError: React.PropTypes.bool,
-  counter: React.PropTypes.bool,
-  onChangeField: React.PropTypes.func,
-  onSubmitForm: React.PropTypes.func,
-  onToggleAnimation: React.PropTypes.func,
+  name: PropTypes.string,
+  email: PropTypes.string,
+  subject: PropTypes.string,
+  message: PropTypes.string,
+  isPending: PropTypes.bool,
+  isSuccess: PropTypes.bool,
+  isError: PropTypes.bool,
+  counter: PropTypes.bool,
+  onChangeField: PropTypes.func,
+  onSubmitForm: PropTypes.func,
+  onToggleAnimation: PropTypes.func,
 };
 ContactForm.defaultProps = {
   name: '',

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -33,11 +34,11 @@ const SkillsProgressBar = ({
 );
 
 SkillsProgressBar.propTypes = {
-  title: React.PropTypes.string,
-  value: React.PropTypes.number,
-  side: React.PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
-  shouldAnimate: React.PropTypes.bool,
-  index: React.PropTypes.number,
+  title: PropTypes.string,
+  value: PropTypes.number,
+  side: PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
+  shouldAnimate: PropTypes.bool,
+  index: PropTypes.number,
 };
 SkillsProgressBar.defaultProps = {
   title: '',

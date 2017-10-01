@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const AffiliationRole = ({
@@ -16,9 +17,9 @@ const AffiliationRole = ({
 );
 
 AffiliationRole.propTypes = {
-  title: React.PropTypes.string,
-  position: React.PropTypes.string,
-  team: React.PropTypes.string,
+  title: PropTypes.string,
+  position: PropTypes.string,
+  team: PropTypes.string,
 };
 AffiliationRole.defaultProps = {
   title: '',

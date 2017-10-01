@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import Logo from '../components/Logo.jsx';
 import NavbarItem from '../components/NavbarItem.jsx';
@@ -72,17 +73,17 @@ const Navbar = ({
 };
 
 Navbar.propTypes = {
-  data: React.PropTypes.shape({
-    items: React.PropTypes.arrayOf(React.PropTypes.string),
-    dropdown: React.PropTypes.arrayOf(React.PropTypes.string),
+  data: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.string),
+    dropdown: PropTypes.arrayOf(PropTypes.string),
   }),
-  animations: React.PropTypes.shape({
-    activeSection: React.PropTypes.string,
-    isMobileCollapsed: React.PropTypes.bool,
+  animations: PropTypes.shape({
+    activeSection: PropTypes.string,
+    isMobileCollapsed: PropTypes.bool,
   }),
-  actions: React.PropTypes.shape({
-    scrollToSection: React.PropTypes.func,
-    toggleMobileCollapse: React.PropTypes.func,
+  actions: PropTypes.shape({
+    scrollToSection: PropTypes.func,
+    toggleMobileCollapse: PropTypes.func,
   }),
 };
 Navbar.defaultProps = {

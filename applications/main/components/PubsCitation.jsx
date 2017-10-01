@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const PubsCiteElement = ({ citation }) => {
@@ -16,7 +17,7 @@ const PubsCiteElement = ({ citation }) => {
 };
 
 PubsCiteElement.propTypes = {
-  citation: React.PropTypes.number,
+  citation: PropTypes.number,
 };
 PubsCiteElement.defaultProps = {
   citation: NaN,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Animation } from 'react-web-animation';
+import PropTypes from 'prop-types';
 
 
 const getPlayState = shouldAnimate => (shouldAnimate ? 'running' : 'finished');
@@ -46,21 +47,21 @@ class WebAnimation extends React.PureComponent {
 }
 
 WebAnimation.propTypes = {
-  tagName: React.PropTypes.string,
-  keyframes: React.PropTypes.arrayOf(React.PropTypes.object),
-  timing: React.PropTypes.object,
-  shouldAnimate: React.PropTypes.bool,
-  shouldReverse: React.PropTypes.bool,
-  shouldForceUpdate: React.PropTypes.bool,
-  propsForceUpdate: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool,
-    React.PropTypes.number,
+  tagName: PropTypes.string,
+  keyframes: PropTypes.arrayOf(PropTypes.object),
+  timing: PropTypes.object,
+  shouldAnimate: PropTypes.bool,
+  shouldReverse: PropTypes.bool,
+  shouldForceUpdate: PropTypes.bool,
+  propsForceUpdate: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.number,
   ]),
-  onFinish: React.PropTypes.func,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.arrayOf(React.PropTypes.node),
+  onFinish: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
   ]),
 };
 WebAnimation.defaultProps = {

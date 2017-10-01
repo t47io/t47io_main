@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import LogoAlt from '../components/LogoAlt.jsx';
 import Trigger from '../components/Trigger.jsx';
@@ -123,13 +124,13 @@ const Footer = ({
 );
 
 Footer.propTypes = {
-  animations: React.PropTypes.shape({
-    footer: React.PropTypes.bool,
+  animations: PropTypes.shape({
+    footer: PropTypes.bool,
   }),
-  actions: React.PropTypes.shape({
-    animateFooter: React.PropTypes.func,
+  actions: PropTypes.shape({
+    animateFooter: PropTypes.func,
   }),
-  disabled: React.PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 Footer.defaultProps = {
   ...footerProps,

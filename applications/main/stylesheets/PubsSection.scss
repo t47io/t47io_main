@@ -50,7 +50,9 @@
 }
 
 .PUBS__cite {
-  padding-right: 0.5em;
+  &.bg-gray-light {
+    padding-right: 0.5em;
+  }
 
   .text-main {
     padding: 0 0.5em;

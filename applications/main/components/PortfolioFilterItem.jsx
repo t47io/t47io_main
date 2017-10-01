@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -35,11 +36,11 @@ const PortfolioFilterItem = ({
 };
 
 PortfolioFilterItem.propTypes = {
-  category: React.PropTypes.string,
-  selectedCategory: React.PropTypes.string,
-  shouldAnimate: React.PropTypes.bool,
-  index: React.PropTypes.number,
-  onClick: React.PropTypes.func,
+  category: PropTypes.string,
+  selectedCategory: PropTypes.string,
+  shouldAnimate: PropTypes.bool,
+  index: PropTypes.number,
+  onClick: PropTypes.func,
 };
 PortfolioFilterItem.defaultProps = {
   category: '',

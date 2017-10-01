@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import FeatureSection from '../components/FeatureSection.jsx';
 import MetaSection from '../components/MetaSection.jsx';
@@ -45,11 +46,11 @@ const CelicaPage = ({
 };
 
 CelicaPage.propTypes = {
-  title: React.PropTypes.string,
-  description: React.PropTypes.string,
-  carousels: React.PropTypes.arrayOf(React.PropTypes.array),
-  lists: React.PropTypes.arrayOf(React.PropTypes.object),
-  onScroll: React.PropTypes.func,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  carousels: PropTypes.arrayOf(PropTypes.array),
+  lists: PropTypes.arrayOf(PropTypes.object),
+  onScroll: PropTypes.func,
 };
 CelicaPage.defaultProps = {
   title: '',

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import FeatureListItem from './FeatureListItem.jsx';
 
@@ -28,11 +29,11 @@ const FeatureList = ({
 );
 
 FeatureList.propTypes = {
-  title: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  items: React.PropTypes.arrayOf(React.PropTypes.string),
-  links: React.PropTypes.arrayOf(React.PropTypes.string),
-  className: React.PropTypes.string,
+  title: PropTypes.string,
+  icon: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.string),
+  links: PropTypes.arrayOf(PropTypes.string),
+  className: PropTypes.string,
 };
 FeatureList.defaultProps = {
   title: '',

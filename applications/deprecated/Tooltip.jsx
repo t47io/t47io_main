@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const Tooltip = ({
@@ -27,13 +28,13 @@ const Tooltip = ({
 };
 
 Tooltip.propTypes = {
-  text: React.PropTypes.string,
-  position: React.PropTypes.oneOf(['top', 'bottom']),
-  tagName: React.PropTypes.string,
-  className: React.PropTypes.string,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.arrayOf(React.PropTypes.node),
+  text: PropTypes.string,
+  position: PropTypes.oneOf(['top', 'bottom']),
+  tagName: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
 };
 Tooltip.defaultProps = {

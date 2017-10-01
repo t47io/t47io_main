@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AccessLinks from './AccessLinks.jsx';
 import Headline from './Headline.jsx';
@@ -45,22 +46,22 @@ const AccessSection = ({
 );
 
 AccessSection.propTypes = {
-  urls: React.PropTypes.shape({
-    repo: React.PropTypes.string,
-    prod: React.PropTypes.oneOfType([
-      React.PropTypes.arrayOf(React.PropTypes.string),
-      React.PropTypes.string,
+  urls: PropTypes.shape({
+    repo: PropTypes.string,
+    prod: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.string,
     ]),
-    demo: React.PropTypes.string,
-    server: React.PropTypes.string,
-    theme: React.PropTypes.arrayOf(React.PropTypes.string),
+    demo: PropTypes.string,
+    server: PropTypes.string,
+    theme: PropTypes.arrayOf(PropTypes.string),
   }),
-  notes: React.PropTypes.shape({
-    prod: React.PropTypes.node,
-    demo: React.PropTypes.node,
+  notes: PropTypes.shape({
+    prod: PropTypes.node,
+    demo: PropTypes.node,
   }),
-  isUrlList: React.PropTypes.bool,
-  isRow: React.PropTypes.bool,
+  isUrlList: PropTypes.bool,
+  isRow: PropTypes.bool,
 };
 AccessSection.defaultProps = {
   urls: {

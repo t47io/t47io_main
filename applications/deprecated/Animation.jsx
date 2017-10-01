@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class Animation extends React.Component {
@@ -47,20 +48,20 @@ class Animation extends React.Component {
 
 
 Animation.propTypes = {
-  tagName: React.PropTypes.string,
-  className: React.PropTypes.string,
-  beginClassName: React.PropTypes.string,
-  endClassName: React.PropTypes.string,
-  shouldAnimate: React.PropTypes.bool,
-  shouldForceUpdate: React.PropTypes.bool,
-  propsForceUpdate: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool,
-    React.PropTypes.number,
+  tagName: PropTypes.string,
+  className: PropTypes.string,
+  beginClassName: PropTypes.string,
+  endClassName: PropTypes.string,
+  shouldAnimate: PropTypes.bool,
+  shouldForceUpdate: PropTypes.bool,
+  propsForceUpdate: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.number,
   ]),
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.arrayOf(React.PropTypes.node),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
 };
 Animation.defaultProps = {

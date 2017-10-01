@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
+import PropTypes from 'prop-types';
 
 import CarouselIndicator from './CarouselIndicator.jsx';
 
@@ -65,14 +66,14 @@ class Carousel extends React.PureComponent {
 }
 
 Carousel.propTypes = {
-  project: React.PropTypes.string,
-  items: React.PropTypes.arrayOf(React.PropTypes.shape({
-    tag: React.PropTypes.string,
-    label: React.PropTypes.string,
+  project: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    tag: PropTypes.string,
+    label: PropTypes.string,
   })),
-  className: React.PropTypes.string,
-  interval: React.PropTypes.number,
-  index: React.PropTypes.number,
+  className: PropTypes.string,
+  interval: PropTypes.number,
+  index: PropTypes.number,
 };
 Carousel.defaultProps = {
   project: '',

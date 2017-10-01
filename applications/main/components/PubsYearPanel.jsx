@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PubsItem from './PubsItem.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
@@ -36,10 +37,10 @@ const PubsYearPanel = ({
 );
 
 PubsYearPanel.propTypes = {
-  year: React.PropTypes.number,
-  items: React.PropTypes.arrayOf(React.PropTypes.object),
-  counter: React.PropTypes.bool,
-  offset: React.PropTypes.number,
+  year: PropTypes.number,
+  items: PropTypes.arrayOf(PropTypes.object),
+  counter: PropTypes.bool,
+  offset: PropTypes.number,
 };
 PubsYearPanel.defaultProps = {
   year: NaN,

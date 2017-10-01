@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Logo from '../../common/components/Logo.jsx';
+
+import { ERROR_COLOR_CODES } from '../../common/constants/util.js';
 
 
 const ErrorSection = ({
@@ -43,16 +46,16 @@ const ErrorSection = ({
 );
 
 ErrorSection.propTypes = {
-  code: React.PropTypes.number,
-  color: React.PropTypes.oneOf(['green', 'blue', 'yellow', 'purple', 'red']),
-  img: React.PropTypes.string,
-  title: React.PropTypes.shape({
-    custom: React.PropTypes.string,
-    standard: React.PropTypes.string,
+  code: PropTypes.number,
+  color: PropTypes.oneOf(ERROR_COLOR_CODES),
+  img: PropTypes.string,
+  title: PropTypes.shape({
+    custom: PropTypes.string,
+    standard: PropTypes.string,
   }),
-  text: React.PropTypes.shape({
-    custom: React.PropTypes.string,
-    standard: React.PropTypes.string,
+  text: PropTypes.shape({
+    custom: PropTypes.string,
+    standard: PropTypes.string,
   }),
 };
 ErrorSection.defaultProps = {

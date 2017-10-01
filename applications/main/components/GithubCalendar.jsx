@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import GithubAxes from './GithubAxes.jsx';
 import GithubColumn from './GithubColumn.jsx';
@@ -45,12 +46,12 @@ const GithubCalendar = ({
 };
 
 GithubCalendar.propTypes = {
-  height: React.PropTypes.number,
-  width: React.PropTypes.number,
-  countArray: React.PropTypes.arrayOf(React.PropTypes.number),
-  indexArray: React.PropTypes.arrayOf(React.PropTypes.number),
-  startDate: React.PropTypes.string,
-  monthText: React.PropTypes.object,
+  height: PropTypes.number,
+  width: PropTypes.number,
+  countArray: PropTypes.arrayOf(PropTypes.number),
+  indexArray: PropTypes.arrayOf(PropTypes.number),
+  startDate: PropTypes.string,
+  monthText: PropTypes.object,
 };
 GithubCalendar.defaultProps = {
   height: 145,

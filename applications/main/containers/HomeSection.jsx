@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import HomeDescription from '../components/HomeDescription.jsx';
 import HomeName from '../components/HomeName.jsx';
@@ -86,18 +87,18 @@ const HomeSection = ({
 };
 
 HomeSection.propTypes = {
-  data: React.PropTypes.shape({
-    title: React.PropTypes.string,
-    server: React.PropTypes.bool,
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    server: PropTypes.bool,
   }),
-  animations: React.PropTypes.shape({
-    ready: React.PropTypes.bool,
-    intro: React.PropTypes.bool,
-    color: React.PropTypes.number,
+  animations: PropTypes.shape({
+    ready: PropTypes.bool,
+    intro: PropTypes.bool,
+    color: PropTypes.number,
   }),
-  actions: React.PropTypes.shape({
-    animateReady: React.PropTypes.func,
-    animateIntro: React.PropTypes.func,
+  actions: PropTypes.shape({
+    animateReady: PropTypes.func,
+    animateIntro: PropTypes.func,
   }),
 };
 HomeSection.defaultProps = {

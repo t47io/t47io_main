@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class Counter extends React.PureComponent {
@@ -65,12 +66,12 @@ class Counter extends React.PureComponent {
 }
 
 Counter.propTypes = {
-  className: React.PropTypes.string,
-  beginValue: React.PropTypes.number,
-  endValue: React.PropTypes.number,
-  duration: React.PropTypes.number,
-  interval: React.PropTypes.number,
-  shouldAnimate: React.PropTypes.bool,
+  className: PropTypes.string,
+  beginValue: PropTypes.number,
+  endValue: PropTypes.number,
+  duration: PropTypes.number,
+  interval: PropTypes.number,
+  shouldAnimate: PropTypes.bool,
 };
 Counter.defaultProps = {
   className: '',

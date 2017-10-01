@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -30,11 +31,11 @@ const PortfolioPowerByItem = ({
 );
 
 PortfolioPowerByItem.propTypes = {
-  name: React.PropTypes.string,
-  url: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  shouldAnimate: React.PropTypes.bool,
-  index: React.PropTypes.number,
+  name: PropTypes.string,
+  url: PropTypes.string,
+  icon: PropTypes.string,
+  shouldAnimate: PropTypes.bool,
+  index: PropTypes.number,
 };
 PortfolioPowerByItem.defaultProps = {
   name: '',

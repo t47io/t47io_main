@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AffiliationRewardItem from './AffiliationRewardItem.jsx';
 import AffiliationRole from './AffiliationRole.jsx';
@@ -52,13 +53,13 @@ const AffiliationPanel = ({
 );
 
 AffiliationPanel.propTypes = {
-  year: React.PropTypes.number,
-  title: React.PropTypes.string,
-  url: React.PropTypes.string,
-  geo: React.PropTypes.string,
-  role: React.PropTypes.object,
-  rewards: React.PropTypes.arrayOf(React.PropTypes.object),
-  tag: React.PropTypes.string,
+  year: PropTypes.number,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  geo: PropTypes.string,
+  role: PropTypes.object,
+  rewards: PropTypes.arrayOf(PropTypes.object),
+  tag: PropTypes.string,
 };
 AffiliationPanel.defaultProps = {
   year: NaN,

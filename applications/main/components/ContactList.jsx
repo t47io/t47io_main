@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Audio from '../../common/components/Audio.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
@@ -153,11 +154,11 @@ const ContactList = ({
 };
 
 ContactList.propTypes = {
-  resume: React.PropTypes.string,
-  audio: React.PropTypes.bool,
-  counter: React.PropTypes.bool,
-  onToggleAudio: React.PropTypes.func,
-  onToggleAnimation: React.PropTypes.func,
+  resume: PropTypes.string,
+  audio: PropTypes.bool,
+  counter: PropTypes.bool,
+  onToggleAudio: PropTypes.func,
+  onToggleAnimation: PropTypes.func,
 };
 ContactList.defaultProps = {
   resume: '',

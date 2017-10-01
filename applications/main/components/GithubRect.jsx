@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const GithubRect = ({
@@ -29,11 +30,11 @@ const GithubRect = ({
 };
 
 GithubRect.propTypes = {
-  x: React.PropTypes.number,
-  y: React.PropTypes.number,
-  day: React.PropTypes.number,
-  count: React.PropTypes.number,
-  date: React.PropTypes.number,
+  x: PropTypes.number,
+  y: PropTypes.number,
+  day: PropTypes.number,
+  count: PropTypes.number,
+  date: PropTypes.number,
 };
 GithubRect.defaultProps = {
   x: 0,

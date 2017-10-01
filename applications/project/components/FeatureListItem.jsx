@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const FeatureListItem = ({
@@ -24,8 +25,8 @@ const FeatureListItem = ({
 };
 
 FeatureListItem.propTypes = {
-  text: React.PropTypes.string,
-  link: React.PropTypes.string,
+  text: PropTypes.string,
+  link: PropTypes.string,
 };
 FeatureListItem.defaultProps = {
   text: '',

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { GITHUB_HOST } from '../../config.js';
 
@@ -33,11 +34,11 @@ const UrlLabelList = ({
 };
 
 UrlLabelList.propTypes = {
-  urls: React.PropTypes.arrayOf(React.PropTypes.string),
-  label: React.PropTypes.string,
-  className: React.PropTypes.string,
-  isShortName: React.PropTypes.bool,
-  isLead: React.PropTypes.bool,
+  urls: PropTypes.arrayOf(PropTypes.string),
+  label: PropTypes.string,
+  className: PropTypes.string,
+  isShortName: PropTypes.bool,
+  isLead: PropTypes.bool,
 };
 UrlLabelList.defaultProps = {
   urls: [],

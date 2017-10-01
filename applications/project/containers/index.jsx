@@ -6,6 +6,7 @@ import {
   Route,
   Router,
 } from 'preact-router';
+import PropTypes from 'prop-types';
 
 import DaslabPage from './DaslabPage.jsx';
 import PrimerizePage from './PrimerizePage.jsx';
@@ -80,14 +81,14 @@ const Project = ({
 };
 
 Project.propTypes = {
-  data: React.PropTypes.shape({
-    data: React.PropTypes.bool,
-    ready: React.PropTypes.bool,
-    scroll: React.PropTypes.bool,
+  data: PropTypes.shape({
+    data: PropTypes.bool,
+    ready: PropTypes.bool,
+    scroll: PropTypes.bool,
   }),
-  actions: React.PropTypes.shape({
-    onReady: React.PropTypes.func,
-    onScrollTop: React.PropTypes.func,
+  actions: PropTypes.shape({
+    onReady: PropTypes.func,
+    onScrollTop: PropTypes.func,
   }),
 };
 Project.defaultProps = {

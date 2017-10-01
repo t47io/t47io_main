@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TitleImage from './TitleImage.jsx';
 
@@ -40,13 +41,13 @@ const TitleSection = ({
 };
 
 TitleSection.propTypes = {
-  title: React.PropTypes.string,
-  description: React.PropTypes.string,
-  image: React.PropTypes.string,
-  isSplit: React.PropTypes.bool,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.arrayOf(React.PropTypes.node),
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  isSplit: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
   ]),
 };
 TitleSection.defaultProps = {

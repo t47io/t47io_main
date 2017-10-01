@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import SkillsPanel from '../components/SkillsPanel.jsx';
@@ -79,21 +80,21 @@ const SkillsSection = ({
 );
 
 SkillsSection.propTypes = {
-  data: React.PropTypes.shape({
-    items: React.PropTypes.shape({
-      left: React.PropTypes.arrayOf(React.PropTypes.object),
-      right: React.PropTypes.arrayOf(React.PropTypes.object),
+  data: PropTypes.shape({
+    items: PropTypes.shape({
+      left: PropTypes.arrayOf(PropTypes.object),
+      right: PropTypes.arrayOf(PropTypes.object),
     }),
   }),
-  animations: React.PropTypes.shape({
-    header: React.PropTypes.bool,
-    left: React.PropTypes.bool,
-    right: React.PropTypes.bool,
+  animations: PropTypes.shape({
+    header: PropTypes.bool,
+    left: PropTypes.bool,
+    right: PropTypes.bool,
   }),
-  actions: React.PropTypes.shape({
-    animateHeader: React.PropTypes.func,
-    animateLeftBars: React.PropTypes.func,
-    animateRightBars: React.PropTypes.func,
+  actions: PropTypes.shape({
+    animateHeader: PropTypes.func,
+    animateLeftBars: PropTypes.func,
+    animateRightBars: PropTypes.func,
   }),
 };
 SkillsSection.defaultProps = {

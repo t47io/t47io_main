@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const CarouselItem = ({
@@ -20,9 +21,9 @@ const CarouselItem = ({
 };
 
 CarouselItem.propTypes = {
-  tooltip: React.PropTypes.string,
-  spriteName: React.PropTypes.string,
-  isActive: React.PropTypes.bool,
+  tooltip: PropTypes.string,
+  spriteName: PropTypes.string,
+  isActive: PropTypes.bool,
 };
 CarouselItem.defaultProps = {
   tooltip: '',

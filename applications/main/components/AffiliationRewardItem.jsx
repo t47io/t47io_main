@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const AffiliationRewardItem = ({
@@ -22,8 +23,8 @@ const AffiliationRewardItem = ({
 };
 
 AffiliationRewardItem.propTypes = {
-  year: React.PropTypes.number,
-  title: React.PropTypes.string,
+  year: PropTypes.number,
+  title: PropTypes.string,
 };
 AffiliationRewardItem.defaultProps = {
   year: NaN,

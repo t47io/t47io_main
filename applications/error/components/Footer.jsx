@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import LogoAlt from '../../common/components/LogoAlt.jsx';
 
@@ -38,8 +39,8 @@ const Footer = ({
 );
 
 Footer.propTypes = {
-  copy: React.PropTypes.string,
-  cc: React.PropTypes.string,
+  copy: PropTypes.string,
+  cc: PropTypes.string,
 };
 Footer.defaultProps = {
   copy: '',

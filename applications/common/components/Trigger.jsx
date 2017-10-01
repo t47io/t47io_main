@@ -1,5 +1,6 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
+import PropTypes from 'prop-types';
 
 
 const Trigger = ({
@@ -33,18 +34,18 @@ const Trigger = ({
 );
 
 Trigger.propTypes = {
-  disabled: React.PropTypes.bool,
-  delay: React.PropTypes.number,
-  topOffset: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
+  disabled: PropTypes.bool,
+  delay: PropTypes.number,
+  topOffset: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  bottomOffset: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
+  bottomOffset: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  onToggleAnimation: React.PropTypes.func,
-  debug: React.PropTypes.bool,
+  onToggleAnimation: PropTypes.func,
+  debug: PropTypes.bool,
 };
 Trigger.defaultProps = {
   disabled: false,

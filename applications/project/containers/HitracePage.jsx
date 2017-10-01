@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import AccessSection from '../components/AccessSection.jsx';
 import DocsSection from '../components/DocsSection.jsx';
@@ -73,18 +74,18 @@ const HitracePage = ({
 };
 
 HitracePage.propTypes = {
-  title: React.PropTypes.string,
-  description: React.PropTypes.string,
-  urls: React.PropTypes.shape({
-    repo: React.PropTypes.string,
-    server: React.PropTypes.string,
-    manual: React.PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  urls: PropTypes.shape({
+    repo: PropTypes.string,
+    server: PropTypes.string,
+    manual: PropTypes.string,
   }),
-  docs: React.PropTypes.arrayOf(React.PropTypes.string),
-  carousels: React.PropTypes.arrayOf(React.PropTypes.array),
-  lists: React.PropTypes.arrayOf(React.PropTypes.object),
-  repos: React.PropTypes.arrayOf(React.PropTypes.object),
-  onScroll: React.PropTypes.func,
+  docs: PropTypes.arrayOf(PropTypes.string),
+  carousels: PropTypes.arrayOf(PropTypes.array),
+  lists: PropTypes.arrayOf(PropTypes.object),
+  repos: PropTypes.arrayOf(PropTypes.object),
+  onScroll: PropTypes.func,
 };
 HitracePage.defaultProps = {
   title: '',

@@ -1,5 +1,6 @@
 import React from 'react';
 import DocumentMeta from 'react-document-meta';
+import PropTypes from 'prop-types';
 
 import {
   HOST,
@@ -32,9 +33,9 @@ const MetaSection = ({
 };
 
 MetaSection.propTypes = {
-  title: React.PropTypes.string,
-  description: React.PropTypes.string,
-  project: React.PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  project: PropTypes.string,
 };
 MetaSection.defaultProps = {
   title: '',

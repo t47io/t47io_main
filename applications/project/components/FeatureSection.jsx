@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Carousel from './Carousel.jsx';
 import FeatureList from './FeatureList.jsx';
@@ -70,12 +71,12 @@ const FeatureSection = ({
 };
 
 FeatureSection.propTypes = {
-  project: React.PropTypes.string,
-  carousels: React.PropTypes.arrayOf(React.PropTypes.array),
-  lists: React.PropTypes.arrayOf(React.PropTypes.object),
-  isStory: React.PropTypes.bool,
-  isRow: React.PropTypes.bool,
-  onScroll: React.PropTypes.func,
+  project: PropTypes.string,
+  carousels: PropTypes.arrayOf(PropTypes.array),
+  lists: PropTypes.arrayOf(PropTypes.object),
+  isStory: PropTypes.bool,
+  isRow: PropTypes.bool,
+  onScroll: PropTypes.func,
 };
 FeatureSection.defaultProps = {
   project: '',

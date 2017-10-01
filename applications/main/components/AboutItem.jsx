@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -34,11 +35,11 @@ const AboutItem = ({
 );
 
 AboutItem.propTypes = {
-  title: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  description: React.PropTypes.string,
-  shouldAnimate: React.PropTypes.bool,
-  index: React.PropTypes.number,
+  title: PropTypes.string,
+  icon: PropTypes.string,
+  description: PropTypes.string,
+  shouldAnimate: PropTypes.bool,
+  index: PropTypes.number,
 };
 AboutItem.defaultProps = {
   title: '',

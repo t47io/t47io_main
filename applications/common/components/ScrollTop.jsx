@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { HOME } from '../../main/constants/sectionTypes.js';
 
@@ -23,8 +24,8 @@ const ScrollTop = ({
 };
 
 ScrollTop.propTypes = {
-  isHidden: React.PropTypes.bool,
-  onScrollTop: React.PropTypes.func,
+  isHidden: PropTypes.bool,
+  onScrollTop: PropTypes.func,
 };
 ScrollTop.defaultProps = {
   isHidden: false,

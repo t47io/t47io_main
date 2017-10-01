@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TypeWriter from '../../common/components/TypeWriter.jsx';
 
@@ -35,10 +36,10 @@ const HomeDescription = ({
 };
 
 HomeDescription.propTypes = {
-  title: React.PropTypes.string,
-  intro: React.PropTypes.bool,
-  color: React.PropTypes.number,
-  server: React.PropTypes.bool,
+  title: PropTypes.string,
+  intro: PropTypes.bool,
+  color: PropTypes.number,
+  server: PropTypes.bool,
 };
 HomeDescription.defaultProps = {
   title: '',

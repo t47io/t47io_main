@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // import '../stylesheets/Logo.scss';
 const targetBlank = {
@@ -32,9 +33,9 @@ const Logo = ({
 };
 
 Logo.propTypes = {
-  href: React.PropTypes.string,
-  isTargetBlank: React.PropTypes.bool,
-  className: React.PropTypes.string,
+  href: PropTypes.string,
+  isTargetBlank: PropTypes.bool,
+  className: PropTypes.string,
 };
 Logo.defaultProps = {
   href: '/',

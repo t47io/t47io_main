@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const PubsAuthor = ({ authors }) => {
@@ -33,7 +34,7 @@ const PubsAuthor = ({ authors }) => {
 };
 
 PubsAuthor.propTypes = {
-  authors: React.PropTypes.arrayOf(React.PropTypes.string),
+  authors: PropTypes.arrayOf(PropTypes.string),
 };
 PubsAuthor.defaultProps = {
   authors: [],

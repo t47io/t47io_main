@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PortfolioDescription from './PortfolioDescription.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
@@ -40,12 +41,12 @@ const PortfolioItem = ({
 );
 
 PortfolioItem.propTypes = {
-  name: React.PropTypes.string,
-  description: React.PropTypes.string,
-  title: React.PropTypes.string,
-  url: React.PropTypes.string,
-  shouldAnimate: React.PropTypes.bool,
-  index: React.PropTypes.number,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  shouldAnimate: PropTypes.bool,
+  index: PropTypes.number,
 };
 PortfolioItem.defaultProps = {
   name: '',

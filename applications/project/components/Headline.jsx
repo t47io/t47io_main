@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const Headline = ({
@@ -12,8 +13,8 @@ const Headline = ({
 );
 
 Headline.propTypes = {
-  title: React.PropTypes.string,
-  icon: React.PropTypes.string,
+  title: PropTypes.string,
+  icon: PropTypes.string,
 };
 Headline.defaultProps = {
   title: '',

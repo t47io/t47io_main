@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SkillsProgressBar from './SkillsProgressBar.jsx';
 
@@ -35,12 +36,12 @@ const SkillsPanel = ({
 );
 
 SkillsPanel.propTypes = {
-  title: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  items: React.PropTypes.arrayOf(React.PropTypes.object),
-  side: React.PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
-  counter: React.PropTypes.bool,
-  offset: React.PropTypes.number,
+  title: PropTypes.string,
+  icon: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.object),
+  side: PropTypes.oneOf([SKILLS_LEFT, SKILLS_RIGHT]),
+  counter: PropTypes.bool,
+  offset: PropTypes.number,
 };
 SkillsPanel.defaultProps = {
   title: '',

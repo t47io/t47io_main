@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Headline from './Headline.jsx';
 
@@ -36,9 +37,9 @@ const DocsSection = ({
 );
 
 DocsSection.propTypes = {
-  labels: React.PropTypes.arrayOf(React.PropTypes.string),
-  urls: React.PropTypes.arrayOf(React.PropTypes.string),
-  joinWord: React.PropTypes.string,
+  labels: PropTypes.arrayOf(PropTypes.string),
+  urls: PropTypes.arrayOf(PropTypes.string),
+  joinWord: PropTypes.string,
 };
 DocsSection.defaultProps = {
   labels: [],

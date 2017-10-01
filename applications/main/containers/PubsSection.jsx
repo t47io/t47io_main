@@ -2,6 +2,7 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import PubsThesis from '../components/PubsThesis.jsx';
 import PubsYearPanel from '../components/PubsYearPanel.jsx';
@@ -109,27 +110,27 @@ const PubsSection = ({
 );
 
 PubsSection.propTypes = {
-  data: React.PropTypes.shape({
-    items: React.PropTypes.arrayOf(React.PropTypes.object),
-    links: React.PropTypes.shape({
-      googleScholar: React.PropTypes.string,
-      pubmed: React.PropTypes.string,
+  data: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object),
+    links: PropTypes.shape({
+      googleScholar: PropTypes.string,
+      pubmed: PropTypes.string,
     }),
-    thesis: React.PropTypes.shape({
-      title: React.PropTypes.string,
-      url: React.PropTypes.string,
-      links: React.PropTypes.arrayOf(React.PropTypes.object),
+    thesis: PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+      links: PropTypes.arrayOf(PropTypes.object),
     }),
   }),
-  animations: React.PropTypes.shape({
-    header: React.PropTypes.bool,
-    entry: React.PropTypes.bool,
-    thesis: React.PropTypes.bool,
+  animations: PropTypes.shape({
+    header: PropTypes.bool,
+    entry: PropTypes.bool,
+    thesis: PropTypes.bool,
   }),
-  actions: React.PropTypes.shape({
-    animateHeader: React.PropTypes.func,
-    animateEntries: React.PropTypes.func,
-    animateThesis: React.PropTypes.func,
+  actions: PropTypes.shape({
+    animateHeader: PropTypes.func,
+    animateEntries: PropTypes.func,
+    animateThesis: PropTypes.func,
   }),
 };
 PubsSection.defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class ImageLoader extends React.PureComponent {
@@ -42,10 +43,10 @@ class ImageLoader extends React.PureComponent {
 }
 
 ImageLoader.propTypes = {
-  tinySrc: React.PropTypes.string,
-  fullSrc: React.PropTypes.string,
-  altText: React.PropTypes.string,
-  className: React.PropTypes.string,
+  tinySrc: PropTypes.string,
+  fullSrc: PropTypes.string,
+  altText: PropTypes.string,
+  className: PropTypes.string,
 };
 ImageLoader.defaultProps = {
   tinySrc: '',

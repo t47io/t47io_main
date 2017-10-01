@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const UrlLabel = ({
@@ -47,11 +48,11 @@ const UrlLabel = ({
 };
 
 UrlLabel.propTypes = {
-  url: React.PropTypes.string,
-  label: React.PropTypes.string,
-  isOneLine: React.PropTypes.bool,
-  isLead: React.PropTypes.bool,
-  className: React.PropTypes.string,
+  url: PropTypes.string,
+  label: PropTypes.string,
+  isOneLine: PropTypes.bool,
+  isLead: PropTypes.bool,
+  className: PropTypes.string,
 };
 UrlLabel.defaultProps = {
   url: '#',

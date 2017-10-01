@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import GithubRect from './GithubRect.jsx';
 
@@ -25,11 +26,11 @@ const GithubColumn = ({
 );
 
 GithubColumn.propTypes = {
-  dx: React.PropTypes.number,
-  dy: React.PropTypes.number,
-  countArray: React.PropTypes.arrayOf(React.PropTypes.number),
-  indexArray: React.PropTypes.arrayOf(React.PropTypes.number),
-  startDate: React.PropTypes.number,
+  dx: PropTypes.number,
+  dy: PropTypes.number,
+  countArray: PropTypes.arrayOf(PropTypes.number),
+  indexArray: PropTypes.arrayOf(PropTypes.number),
+  startDate: PropTypes.number,
 };
 GithubColumn.defaultProps = {
   dx: 0,

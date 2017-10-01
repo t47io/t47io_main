@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import UrlLabel from './UrlLabel.jsx';
 import UrlLabelList from './UrlLabelList.jsx';
@@ -54,20 +55,20 @@ const AccessLinks = ({
 };
 
 AccessLinks.propTypes = {
-  urls: React.PropTypes.shape({
-    prod: React.PropTypes.oneOfType([
-      React.PropTypes.arrayOf(React.PropTypes.string),
-      React.PropTypes.string,
+  urls: PropTypes.shape({
+    prod: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.string,
     ]),
-    demo: React.PropTypes.string,
-    server: React.PropTypes.string,
-    theme: React.PropTypes.arrayOf(React.PropTypes.string),
+    demo: PropTypes.string,
+    server: PropTypes.string,
+    theme: PropTypes.arrayOf(PropTypes.string),
   }),
-  notes: React.PropTypes.shape({
-    prod: React.PropTypes.node,
-    demo: React.PropTypes.node,
+  notes: PropTypes.shape({
+    prod: PropTypes.node,
+    demo: PropTypes.node,
   }),
-  isUrlList: React.PropTypes.bool,
+  isUrlList: PropTypes.bool,
 };
 AccessLinks.defaultProps = {
   urls: {

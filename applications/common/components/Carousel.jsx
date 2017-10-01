@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import CarouselIndicator from './CarouselIndicator.jsx';
 
 import '../stylesheets/Carousel.scss';
@@ -57,12 +59,12 @@ class Carousel extends React.PureComponent {
 }
 
 Carousel.propTypes = {
-  items: React.PropTypes.arrayOf(React.PropTypes.string),
-  className: React.PropTypes.string,
-  interval: React.PropTypes.number,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.arrayOf(React.PropTypes.node),
+  items: PropTypes.arrayOf(PropTypes.string),
+  className: PropTypes.string,
+  interval: PropTypes.number,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
 };
 Carousel.defaultProps = {

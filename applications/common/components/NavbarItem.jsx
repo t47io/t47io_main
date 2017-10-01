@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import DropdownItem from './DropdownItem.jsx';
 import { PORTFOLIO } from '../../main/constants/sectionTypes.js';
@@ -40,10 +41,10 @@ const NavbarItem = ({
 };
 
 NavbarItem.propTypes = {
-  name: React.PropTypes.string,
-  dropdown: React.PropTypes.arrayOf(React.PropTypes.string),
-  isActive: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
+  name: PropTypes.string,
+  dropdown: PropTypes.arrayOf(PropTypes.string),
+  isActive: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 NavbarItem.defaultProps = {
   name: '',

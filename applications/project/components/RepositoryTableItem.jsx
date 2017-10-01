@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const RepositoryTableItem = ({
@@ -22,10 +23,10 @@ const RepositoryTableItem = ({
 );
 
 RepositoryTableItem.propTypes = {
-  author: React.PropTypes.string,
-  commits: React.PropTypes.number,
-  additions: React.PropTypes.number,
-  deletions: React.PropTypes.number,
+  author: PropTypes.string,
+  commits: PropTypes.number,
+  additions: PropTypes.number,
+  deletions: PropTypes.number,
 };
 RepositoryTableItem.defaultProps = {
   author: '',

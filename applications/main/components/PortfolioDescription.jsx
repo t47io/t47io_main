@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const SPACER_MARKUP = '_';
@@ -33,7 +34,7 @@ const PortfolioDescription = ({ description }) => {
 };
 
 PortfolioDescription.propTypes = {
-  description: React.PropTypes.string,
+  description: PropTypes.string,
 };
 PortfolioDescription.defaultProps = {
   description: '',

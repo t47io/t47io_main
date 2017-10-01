@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -31,10 +32,10 @@ const ContactItem = ({
 );
 
 ContactItem.propTypes = {
-  icon: React.PropTypes.string,
-  url: React.PropTypes.string,
-  shouldAnimate: React.PropTypes.bool,
-  index: React.PropTypes.number,
+  icon: PropTypes.string,
+  url: PropTypes.string,
+  shouldAnimate: PropTypes.bool,
+  index: PropTypes.number,
 };
 ContactItem.defaultProps = {
   icon: '',

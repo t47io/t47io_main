@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import AffiliationItem from '../components/AffiliationItem.jsx';
 import Carousel from '../../common/components/Carousel.jsx';
@@ -62,17 +63,17 @@ const AffiliationSection = ({
 );
 
 AffiliationSection.propTypes = {
-  data: React.PropTypes.shape({
-    items: React.PropTypes.arrayOf(React.PropTypes.object),
-    backgrounds: React.PropTypes.arrayOf(React.PropTypes.string),
+  data: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object),
+    backgrounds: PropTypes.arrayOf(PropTypes.string),
   }),
-  animations: React.PropTypes.shape({
-    header: React.PropTypes.bool,
-    panel: React.PropTypes.number,
+  animations: PropTypes.shape({
+    header: PropTypes.bool,
+    panel: PropTypes.number,
   }),
-  actions: React.PropTypes.shape({
-    animateHeader: React.PropTypes.func,
-    animatePanels: React.PropTypes.func,
+  actions: PropTypes.shape({
+    animateHeader: PropTypes.func,
+    animatePanels: PropTypes.func,
   }),
 };
 AffiliationSection.defaultProps = {

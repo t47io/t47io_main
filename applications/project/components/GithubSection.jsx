@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Headline from './Headline.jsx';
 import Repository from './Repository.jsx';
@@ -26,7 +27,7 @@ const GithubSection = ({ repos }) => (
 );
 
 GithubSection.propTypes = {
-  repos: React.PropTypes.arrayOf(React.PropTypes.object),
+  repos: PropTypes.arrayOf(PropTypes.object),
 };
 GithubSection.defaultProps = {
   repos: [],

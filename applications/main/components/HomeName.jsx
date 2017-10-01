@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
@@ -33,8 +34,8 @@ const HomeName = ({
 );
 
 HomeName.propTypes = {
-  intro: React.PropTypes.bool,
-  server: React.PropTypes.bool,
+  intro: PropTypes.bool,
+  server: PropTypes.bool,
 };
 HomeName.defaultProps = {
   intro: false,

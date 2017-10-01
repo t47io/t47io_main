@@ -1,5 +1,6 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
+import PropTypes from 'prop-types';
 
 import { getChartData } from '../util.js';
 import {
@@ -43,10 +44,10 @@ const RepositoryCharts = ({
 };
 
 RepositoryCharts.propTypes = {
-  additions: React.PropTypes.arrayOf(React.PropTypes.number),
-  deletions: React.PropTypes.arrayOf(React.PropTypes.number),
-  commits: React.PropTypes.arrayOf(React.PropTypes.number),
-  months: React.PropTypes.arrayOf(React.PropTypes.string),
+  additions: PropTypes.arrayOf(PropTypes.number),
+  deletions: PropTypes.arrayOf(PropTypes.number),
+  commits: PropTypes.arrayOf(PropTypes.number),
+  months: PropTypes.arrayOf(PropTypes.string),
 };
 RepositoryCharts.defaultProps = {
   additions: [],

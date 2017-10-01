@@ -1,5 +1,6 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
+import PropTypes from 'prop-types';
 
 
 const ScrollSpy = ({
@@ -30,21 +31,21 @@ const ScrollSpy = ({
 );
 
 ScrollSpy.propTypes = {
-  section: React.PropTypes.number,
-  topOffset: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
+  section: PropTypes.number,
+  topOffset: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  bottomOffset: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
+  bottomOffset: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
   ]),
-  onUpdateScroll: React.PropTypes.func,
-  debug: React.PropTypes.bool,
-  className: React.PropTypes.string,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.arrayOf(React.PropTypes.node),
+  onUpdateScroll: PropTypes.func,
+  debug: PropTypes.bool,
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
 };
 ScrollSpy.defaultProps = {

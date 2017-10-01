@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 
 import GithubCalendar from './GithubCalendar.jsx';
@@ -33,15 +34,15 @@ const StatsGithub = ({
 );
 
 StatsGithub.propTypes = {
-  gitContrib: React.PropTypes.shape({
-    startDate: React.PropTypes.string,
-    countArray: React.PropTypes.arrayOf(React.PropTypes.number),
-    indexArray: React.PropTypes.arrayOf(React.PropTypes.number),
-    maxCount: React.PropTypes.number,
-    monthText: React.PropTypes.object,
+  gitContrib: PropTypes.shape({
+    startDate: PropTypes.string,
+    countArray: PropTypes.arrayOf(PropTypes.number),
+    indexArray: PropTypes.arrayOf(PropTypes.number),
+    maxCount: PropTypes.number,
+    monthText: PropTypes.object,
   }),
-  shouldAnimate: React.PropTypes.bool,
-  onToggleAnimation: React.PropTypes.func,
+  shouldAnimate: PropTypes.bool,
+  onToggleAnimation: PropTypes.func,
 };
 StatsGithub.defaultProps = {
   gitContrib: {

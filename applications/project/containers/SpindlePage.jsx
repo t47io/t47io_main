@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import AccessSection from '../components/AccessSection.jsx';
 import FeatureSection from '../components/FeatureSection.jsx';
@@ -54,14 +55,14 @@ const SpindlePage = ({
 };
 
 SpindlePage.propTypes = {
-  title: React.PropTypes.string,
-  description: React.PropTypes.string,
-  urls: React.PropTypes.shape({
-    repo: React.PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  urls: PropTypes.shape({
+    repo: PropTypes.string,
   }),
-  carousels: React.PropTypes.arrayOf(React.PropTypes.array),
-  lists: React.PropTypes.arrayOf(React.PropTypes.object),
-  onScroll: React.PropTypes.func,
+  carousels: PropTypes.arrayOf(PropTypes.array),
+  lists: PropTypes.arrayOf(PropTypes.object),
+  onScroll: PropTypes.func,
 };
 SpindlePage.defaultProps = {
   title: '',

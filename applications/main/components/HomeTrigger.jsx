@@ -1,5 +1,6 @@
 import React from 'react';
 import Waypoint from 'react-waypoint';
+import PropTypes from 'prop-types';
 
 
 class HomeTrigger extends React.PureComponent {
@@ -29,9 +30,9 @@ class HomeTrigger extends React.PureComponent {
 }
 
 HomeTrigger.propTypes = {
-  disabled: React.PropTypes.bool,
-  onToggleAnimation: React.PropTypes.func,
-  debug: React.PropTypes.bool,
+  disabled: PropTypes.bool,
+  onToggleAnimation: PropTypes.func,
+  debug: PropTypes.bool,
 };
 HomeTrigger.defaultProps = {
   disabled: false,

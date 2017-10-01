@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const GithubAxes = ({
@@ -31,8 +32,8 @@ const GithubAxes = ({
 );
 
 GithubAxes.propTypes = {
-  monthText: React.PropTypes.object,
-  weekdayText: React.PropTypes.arrayOf(React.PropTypes.string),
+  monthText: PropTypes.object,
+  weekdayText: PropTypes.arrayOf(PropTypes.string),
 };
 GithubAxes.defaultProps = {
   monthText: {},
