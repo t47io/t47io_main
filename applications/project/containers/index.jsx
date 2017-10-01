@@ -25,6 +25,7 @@ import { initialState as dataProps } from '../reducers/data.js';
 import { scrollToSection } from '../../common/actions/navbarActions.js';
 import { animateReady } from '../actions/dataActions.js';
 
+import '../../vendor/index.scss';
 import '../stylesheets/index.scss';
 
 

@@ -1,7 +1,9 @@
-@import './typography';
-@import './sprites';
+@import '../../common/stylesheets/index';
 @import '../../common/stylesheets/Logo';
 @import '../../common/stylesheets/Dropdown';
+
+@import './typography';
+@import './sprites';
 
 #HOME__section {
   transition-duration: 0.5s;
