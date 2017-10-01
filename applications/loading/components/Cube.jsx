@@ -18,49 +18,49 @@ const Cube = () => (
         <div className="LOAD__cube center-block">
           <div className="LOAD__cube-group LOAD__cube-group--1">
             <div className="LOAD__cube-face LOAD__cube-face--front">
-              {Array(...Array(3)).map(() => (
-                <i className="LOAD__cube-tile" />
+              {Array(...Array(3)).map((_, i) => (
+                <i key={i} className="LOAD__cube-tile" />
               ))}
             </div>
             <div className="LOAD__cube-face LOAD__cube-face--left">
-              {Array(...Array(3)).map(() => (
-                <i className="LOAD__cube-tile" />
+              {Array(...Array(3)).map((_, i) => (
+                <i key={i} className="LOAD__cube-tile" />
               ))}
             </div>
           </div>
           <div className="LOAD__cube-group LOAD__cube-group--2">
             <div className="LOAD__cube-face LOAD__cube-face--front">
-              {Array(...Array(3)).map(() => (
-                <i className="LOAD__cube-tile" />
+              {Array(...Array(3)).map((_, i) => (
+                <i key={i} className="LOAD__cube-tile" />
               ))}
             </div>
             <div className="LOAD__cube-face LOAD__cube-face--bottom">
-              {Array(...Array(3)).map(() => (
-                <i className="LOAD__cube-tile" />
+              {Array(...Array(3)).map((_, i) => (
+                <i key={i} className="LOAD__cube-tile" />
               ))}
             </div>
           </div>
           <div className="LOAD__cube-group LOAD__cube-group--3">
             <div className="LOAD__cube-face LOAD__cube-face--front">
-              {Array(...Array(3)).map(() => (
-                <i className="LOAD__cube-tile" />
+              {Array(...Array(3)).map((_, i) => (
+                <i key={i} className="LOAD__cube-tile" />
               ))}
             </div>
             <div className="LOAD__cube-face LOAD__cube-face--right">
-              {Array(...Array(3)).map(() => (
-                <i className="LOAD__cube-tile" />
+              {Array(...Array(3)).map((_, i) => (
+                <i key={i} className="LOAD__cube-tile" />
               ))}
             </div>
           </div>
           <div className="LOAD__cube-group LOAD__cube-group--4">
             <div className="LOAD__cube-face LOAD__cube-face--front">
-              {Array(...Array(3)).map(() => (
-                <i className="LOAD__cube-tile" />
+              {Array(...Array(3)).map((_, i) => (
+                <i key={i} className="LOAD__cube-tile" />
               ))}
             </div>
             <div className="LOAD__cube-face LOAD__cube-face--top">
-              {Array(...Array(3)).map(() => (
-                <i className="LOAD__cube-tile" />
+              {Array(...Array(3)).map((_, i) => (
+                <i key={i} className="LOAD__cube-tile" />
               ))}
             </div>
           </div>

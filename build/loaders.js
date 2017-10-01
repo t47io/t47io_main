@@ -11,16 +11,10 @@ const loaders = (DEBUG = true, SSR = false) => {
     {
       test: /\.js(x)?$/,
       exclude: /node_module/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: ['es2015'],
-            cacheDirectory: DEBUG,
-          },
-        },
-        // 'eslint-loader',
-      ],
+      use: {
+        loader: 'babel-loader',
+        options: { cacheDirectory: DEBUG },
+      },
     },
     {
       test: /\.scss$/,

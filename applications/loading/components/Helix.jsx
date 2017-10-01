@@ -16,8 +16,8 @@ const Helix = () => (
 
       <div className="row">
         <div className="LOAD__helix center-block">
-          {Array(...Array(26)).map(() => (
-            <div className="LOAD__helix-dot" />
+          {Array(...Array(26)).map((_, i) => (
+            <div key={i} className="LOAD__helix-dot" />
           ))}
         </div>
       </div>

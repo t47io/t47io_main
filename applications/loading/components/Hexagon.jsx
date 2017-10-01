@@ -16,8 +16,8 @@ const Hexagon = () => (
 
       <div className="row">
         <div className="LOAD__hexagon">
-          {Array(...Array(6)).map(() => (
-            <div className="LOAD__hexagon-group">
+          {Array(...Array(6)).map((_, i) => (
+            <div key={i} className="LOAD__hexagon-group">
               <div className="LOAD__hexagon-dot" />
             </div>
           ))}
