@@ -27,7 +27,7 @@ export const saveFileSync = (filename, content) => {
   const filePath = path.join(ROOT_PATH, filename);
   fs.writeFileSync(filePath, content, 'utf8');
   shell.exec(`zopfli ${filename}`);
-  shell.exec(`brotli -f -q 11 -i ${filename} -o ${filename}.br`);
+  shell.exec(`brotli -Zf -o ${filename}.br ${filename}`);
 };
 
 export const getThemeColor = () => {
