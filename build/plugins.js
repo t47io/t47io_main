@@ -118,19 +118,15 @@ const plugins = (DEBUG = true) => {
     new CommonShakePlugin.Plugin(),
     new BabelMinifyPlugin(),
     new UglifyJsPlugin({
-      beautify: false,
-      comments: false,
-      sourceMap: false,
-      compress: {
-        warnings: false,
-        drop_console: true,
-      },
-      mangle: {
-        except: ['$'],
-        screw_ie8: true,
-        keep_fnames: false,
-      },
       parallel: { cache: true },
+      sourceMap: false,
+      uglifyOptions: {
+        beautify: false,
+        comments: false,
+        compress: { drop_console: true },
+        ie8: false,
+        mangle: { keep_fnames: false },
+      },
     }),
     new OptimizeJsPlugin({ sourceMap: false }),
     new BrotliPlugin({
