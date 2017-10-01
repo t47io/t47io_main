@@ -24,8 +24,8 @@ export const CHUNK_NAMES = (DEBUG = true) => ({
   error: CHUNK_NAME('error', DEBUG),
   vendor: CHUNK_NAME('vendor', DEBUG),
   manifest: DEBUG ? 'manifest' : 'f',
-  config: CHUNK_NAME('config', DEBUG),
   data: CHUNK_NAME('data', DEBUG),
+  repo: CHUNK_NAME('repo', DEBUG),
 });
 
 export const GZIP_FILE_TYPES = ['html', 'js', 'css', 'map', 'eot', 'ttf', 'woff', 'woff2', 'mp3', 'xml', 'txt'];
@@ -58,7 +58,7 @@ export const HTML_MINIFIER = {
   removeRedundantAttributes: true,
   useShortDoctype: true,
 };
-export const HTML_TEMPLATE = `${ROOT_PATH}/applications/index.html`;
+export const HTML_TEMPLATE = path.join(ROOT_PATH, 'applications/index.html');
 
 export const SITEMAP_HEAD = {
   xmlns: 'https://www.sitemaps.org/schemas/sitemap/0.9',

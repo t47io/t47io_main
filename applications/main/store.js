@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
       type: LOAD_JSON_DATA,
       payload: { ...json },
     });
-  }, 'config');
+  }, 'data');
 } else {
   require.ensure([], (require) => {
     const json = require('../../config/main.json');
@@ -30,7 +30,7 @@ if (process.env.NODE_ENV !== 'production') {
       type: LOAD_JSON_DATA,
       payload: { ...json },
     });
-  }, 'c');
+  }, 'd');
 }
 
 
