@@ -49,8 +49,8 @@ const routes = {
     if (DEBUG) {
       sendHtmlFromCache('main', renderMainHTML, req, res);
     } else {
-      const isBot = req.useragent.isBot;
-      const isIE = (req.useragent.browser === 'IE');
+      const { isBot, browser } = req.useragent;
+      const isIE = (browser === 'IE');
       const isStatic = ('static' in req.query && req.query.static === '1');
 
       const htmlFile = (isBot || isIE || isStatic) ? 'index' : 'main';
