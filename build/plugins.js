@@ -118,7 +118,8 @@ const plugins = (DEBUG = true) => {
     new CommonShakePlugin.Plugin(),
     new BabelMinifyPlugin(),
     new UglifyJsPlugin({
-      parallel: { cache: true },
+      cache: true,
+      parallel: true,
       sourceMap: false,
       uglifyOptions: {
         beautify: false,
