@@ -1,10 +1,10 @@
 {
   "name": "t47io_main",
-  "version": "2.9.6",
+  "version": "2.9.7",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
-    "node": "^8.7.0",
+    "node": "^8.8.1",
     "yarn": "^1.2.1"
   },
   "scripts": {
@@ -99,9 +99,9 @@
     "prop-types": "15.6.0",
     "purify-css": "1.2.5",
     "purifycss-webpack": "0.7.0",
-    "react": "15.6.2",
+    "react": "16.0.0",
     "react-document-meta": "2.1.2",
-    "react-dom": "15.6.2",
+    "react-dom": "16.0.0",
     "react-google-charts": "1.5.5",
     "react-redux": "5.0.6",
     "react-tooltip": "3.4.0",
