@@ -32,7 +32,10 @@ const NavbarItem = ({
       {isDropdown && isActive && (
         <ul className="dropdown-menu COMMON__dropdown-menu nav nav-pills nav-stacked">
           {dropdown.map(title => (
-            <DropdownItem title={title} />
+            <DropdownItem
+              key={title}
+              title={title}
+            />
           ))}
         </ul>
       )}

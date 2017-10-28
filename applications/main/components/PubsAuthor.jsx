@@ -7,28 +7,26 @@ const PubsAuthor = ({ authors }) => {
 
   return (
     <span>
-      {
-        authors.map((author, i) => {
-          let displayAuthor = author.split(' ').join(', ');
-          if (i <= numAuthors - 2) {
-            displayAuthor += ', ';
-          } else if (i === numAuthors - 1) {
-            displayAuthor = `and ${displayAuthor}`;
-          }
-          if (author === 'Tian S.') {
-            return (
-              <span>
-                <u className="text-black bg-gray-light">
-                  Tian, S.
-                  {(i <= numAuthors - 2) && ','}
-                </u>
-                {' '}
-              </span>
-            );
-          }
-          return displayAuthor;
-        })
-      }
+      {authors.map((author, i) => {
+        let displayAuthor = author.split(' ').join(', ');
+        if (i <= numAuthors - 2) {
+          displayAuthor += ', ';
+        } else if (i === numAuthors - 1) {
+          displayAuthor = `and ${displayAuthor}`;
+        }
+        if (author === 'Tian S.') {
+          return (
+            <span key={author}>
+              <u className="text-black bg-gray-light">
+                Tian, S.
+                {(i <= numAuthors - 2) && ','}
+              </u>
+              {' '}
+            </span>
+          );
+        }
+        return displayAuthor;
+      })}
     </span>
   );
 };

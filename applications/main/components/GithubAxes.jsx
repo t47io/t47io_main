@@ -10,6 +10,7 @@ const GithubAxes = ({
     <g transform="translate(4, 32)">
       {weekdayText.map((wday, i) => (
         <text
+          key={`axes-${wday}`}
           className="wday"
           textAnchor="end"
           y={i * 24}
@@ -21,6 +22,7 @@ const GithubAxes = ({
     <g>
       {Object.keys(monthText).map(month => (
         <text
+          key={`axes-${month}`}
           className="month"
           x={monthText[month]}
         >

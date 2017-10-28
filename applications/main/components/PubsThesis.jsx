@@ -50,6 +50,7 @@ const PubsThesis = ({
       <p className="PUBS__thesis-links">
         {links.map(link => (
           <PubsLink
+            key={link.title}
             url={`/phd/${link.tag}`}
             icon={link.icon}
             size={link.isHidden ? 'unavailable' : link.size}

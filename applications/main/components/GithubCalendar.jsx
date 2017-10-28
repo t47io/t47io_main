@@ -28,6 +28,7 @@ const GithubCalendar = ({
     >
       {[...Array(Math.ceil(countArray.length / 7)).keys()].map(i => (
         <GithubColumn
+          key={`col-${i}`}
           dx={(i + 3) * 12}
           dy={20}
           countArray={countArray.slice(i * 7, Math.min((i + 1) * 7, countArray.length))}

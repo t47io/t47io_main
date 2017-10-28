@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-class Audio extends React.PureComponent {
+class Audio extends React.Component {
   constructor(props) {
     super(props);
     this.audio = null;

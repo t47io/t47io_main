@@ -18,16 +18,14 @@ const PubsTitle = ({ title }) => {
 
   return (
     <b className="PUBS__title">
-      {
-        titleChunks.map((chunk) => {
-          if (italicChunks.includes(`${ITALIC_MARKUP}${chunk}${ITALIC_MARKUP}`)) {
-            return (
-              <i>{chunk}</i>
-            );
-          }
-          return chunk;
-        })
-      }
+      {titleChunks.map((chunk) => {
+        if (italicChunks.includes(`${ITALIC_MARKUP}${chunk}${ITALIC_MARKUP}`)) {
+          return (
+            <i key={chunk}>{chunk}</i>
+          );
+        }
+        return chunk;
+      })}
     </b>
   );
 };

@@ -16,6 +16,7 @@ const GithubColumn = ({
   <g transform={`translate(${dx}, ${dy})`}>
     {countArray.map((count, i) => (
       <GithubRect
+        key={`rect-${dx}-${i}`}
         y={i * 12}
         day={indexArray[i]}
         count={count}

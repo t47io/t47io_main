@@ -19,16 +19,16 @@ const PortfolioDescription = ({ description }) => {
 
   return (
     <span className="PORTFILIO__text-description">
-      {
-        despChunks.map((chunk) => {
-          if (`${SPACER_MARKUP}${chunk}${SPACER_MARKUP}` === FIELD_MARKUP) {
-            return (
-              <u><b>1<sup>st</sup></b></u>
-            );
-          }
-          return chunk;
-        })
-      }
+      {despChunks.map((chunk) => {
+        if (`${SPACER_MARKUP}${chunk}${SPACER_MARKUP}` === FIELD_MARKUP) {
+          return (
+            <u key={chunk}>
+              <b>1<sup>st</sup></b>
+            </u>
+          );
+        }
+        return chunk;
+      })}
     </span>
   );
 };

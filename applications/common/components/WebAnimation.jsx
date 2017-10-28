@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const getPlayState = shouldAnimate => (shouldAnimate ? 'running' : 'finished');
 
 
-class WebAnimation extends React.PureComponent {
+class WebAnimation extends React.Component {
   constructor(props) {
     super(props);
     this.state = { playState: getPlayState(props.shouldAnimate) };

@@ -11,6 +11,7 @@ const GithubLegend = () => (
     <g transform="translate(555, 0)">
       {[...Array(5).keys()].map(i => (
         <rect
+          key={`legend-${i}`}
           className={`day day_${i}`}
           x={i * 13}
           height="11"
