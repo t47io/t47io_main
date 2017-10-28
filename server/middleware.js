@@ -10,6 +10,7 @@ import staticGzip from 'express-static-gzip';
 import favicon from 'serve-favicon';
 import fs from 'fs-extra';
 import helmet from 'helmet';
+import ms from 'ms';
 import path from 'path';
 import userAgent from 'express-useragent';
 
@@ -47,6 +48,11 @@ const middlewares = [
           'www.gstatic.com',
         ],
       },
+    },
+    hsts: {
+      maxAge: ms(`${CACHE_MAX_AGE * 5} days`),
+      includeSubDomains: true,
+      preload: true,
     },
   }),
   bodyParser.json(),
