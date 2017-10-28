@@ -50,7 +50,7 @@ const middlewares = [
       },
     },
     hsts: {
-      maxAge: ms(`${CACHE_MAX_AGE * 5} days`),
+      maxAge: ms(`${CACHE_MAX_AGE * 5} days`) / 1000,
       includeSubDomains: true,
       preload: true,
     },
