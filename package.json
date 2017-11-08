@@ -1,11 +1,11 @@
 {
   "name": "t47io_main",
-  "version": "2.9.8",
+  "version": "2.9.9",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
-    "node": "^8.8.1",
-    "yarn": "^1.2.1"
+    "node": "^8.9.1",
+    "yarn": "^1.3.2"
   },
   "scripts": {
     "dev": "yarn json && yarn nodemon",
@@ -86,11 +86,11 @@
     "html-minifier": "3.5.6",
     "html-webpack-plugin": "2.30.1",
     "lodash-webpack-plugin": "0.11.4",
-    "node-sass": "4.5.3",
+    "node-sass": "4.6.0",
     "nodemon": "1.12.1",
     "null-loader": "0.1.1",
     "optimize-js-plugin": "0.0.4",
-    "postcss": "6.0.13",
+    "postcss": "6.0.14",
     "postcss-csso": "3.0.0",
     "postcss-loader": "2.0.8",
     "preact": "8.2.6",
@@ -111,7 +111,7 @@
     "redux": "3.7.2",
     "redux-logger": "3.0.6",
     "redux-thunk": "2.2.0",
-    "resolve-url-loader": "2.1.1",
+    "resolve-url-loader": "2.2.0",
     "sass-loader": "6.0.6",
     "serve-favicon": "2.4.5",
     "smoothscroll": "0.4.0",
@@ -119,7 +119,7 @@
     "style-loader": "0.19.0",
     "stylefmt": "6.0.0",
     "svg-inline-loader": "0.8.0",
-    "uglify-es": "3.1.5",
+    "uglify-es": "3.1.8",
     "uglifyjs-webpack-plugin": "1.0.1",
     "url-loader": "0.6.2",
     "web-animations-js": "2.3.1",
