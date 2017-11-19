@@ -118,7 +118,8 @@ const concatMainJSON = () => {
     };
     pubsCounter += visibleEntries.length;
     return filteredYear;
-  });
+  })
+  .filter(year => year.items.length);
   config.pubs.lens = pubsCounter;
   config.stats.items[2].value = pubsCounter;
 

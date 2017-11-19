@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { AUTHOR_NAME } from '../../common/constants/util.js';
+
 
 const PubsAuthor = ({ authors }) => {
   const numAuthors = authors.length;
@@ -14,11 +16,12 @@ const PubsAuthor = ({ authors }) => {
         } else if (i === numAuthors - 1) {
           displayAuthor = `and ${displayAuthor}`;
         }
-        if (author === 'Tian S.') {
+        if (author.startsWith(AUTHOR_NAME)) {
           return (
             <span key={author}>
               <u className="text-black bg-gray-light">
                 Tian, S.
+                {author.endsWith('*') && '*'}
                 {(i <= numAuthors - 2) && ','}
               </u>
               {' '}
