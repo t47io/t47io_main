@@ -1,0 +1,13 @@
+{
+  "exec": "babel-node",
+  "delay": 3000,
+  "verbose": true,
+  "ignore": [
+    "config/main.json",
+    "config/project.json",
+    "config/manifest.json",
+    "public/",
+    "static/"
+  ],
+  "ext": "js jsx json css scss html"
+}
