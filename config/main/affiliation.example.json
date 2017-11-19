@@ -1,6 +1,19 @@
 {
   "items": [
     {
+      "year": 2018,
+      "title": "Counsyl Inc.",
+      "url": "https://www.counsyl.com/",
+      "geo": "South San Francisco, CA, USA",
+      "role": {
+        "position": "LIMS",
+        "title": "Software Engineer",
+        "team": "Analytical Labs"
+      },
+      "rewards": [],
+      "tag": "Counsyl"
+    },
+    {
       "year": 2017,
       "title": "Minted LLC",
       "url": "https://www.minted.com/",
@@ -42,7 +55,7 @@
     },
     {
       "year": 2015,
-      "title": "AUTODESK Inc. ",
+      "title": "AUTODESK Inc.",
       "url": "http://www.autodesk.com/",
       "geo": "San Francisco, CA, USA",
       "role": {

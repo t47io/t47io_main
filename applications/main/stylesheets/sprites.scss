@@ -2,7 +2,7 @@
 
 @include img_sprites("./images/sp_portfolio.jpg", 640px, 480px, ( "SPRITE__portfolio-daslab", "SPRITE__portfolio-primerize", "SPRITE__portfolio-rmdb", "SPRITE__portfolio-eterna", "SPRITE__portfolio-hitrace", "SPRITE__portfolio-spindle", "SPRITE__portfolio-m2r", "SPRITE__portfolio-ires", "SPRITE__portfolio-flu", "SPRITE__portfolio-celica", "SPRITE__portfolio-ribokit",), true);
 @include img_sprites("./images/sp_publications.jpg", 432px, 216px, ( "SPRITE__pubs-2013_Shi_NewPhytol", "SPRITE__pubs-2014_Kladwang_Biochemistry", "SPRITE__pubs-2014_Tian_RNA", "SPRITE__pubs-2015_Xue_Nature", "SPRITE__pubs-2015_Miao_RNA", "SPRITE__pubs-2015_Lee_Bioinfomatics", "SPRITE__pubs-2015_Tian_NAR", "SPRITE__pubs-2015_Cheng_eLife", "SPRITE__pubs-2016_Tian_QRB", "SPRITE__pubs-2017_Tian_Bioinformatics", "SPRITE__pubs-2017_Miao_RNA", "SPRITE__pubs-2017_Hagey_NatMed", "SPRITE__pubs-2017_Chen_Science", "SPRITE__pubs-2017_Tian_eLife",), true);
-@include img_sprites("./images/sp_affiliation.png", 512px, 224px, ( "SPRITE__affiliation-CAU", "SPRITE__affiliation-Autodesk", "SPRITE__affiliation-Stanford", "SPRITE__affiliation-Minted",), true);
+@include img_sprites("./images/sp_affiliation.png", 512px, 224px, ( "SPRITE__affiliation-CAU", "SPRITE__affiliation-Autodesk", "SPRITE__affiliation-Stanford", "SPRITE__affiliation-Minted", "SPRITE__affiliation-Counsyl"), true);
 
 @include img_sprites_bg("./images/bg_set_1.jpg", 1920px, 1280px, ( "SPRITE__bg-hoover_tower", "SPRITE__bg-fish_necklace", "SPRITE__bg-campus_map",));
 @include img_sprites_bg("./images/bg_set_2.jpg", 1920px, 1280px, ( "SPRITE__bg-yosemite", "SPRITE__bg-lawn_bench", "SPRITE__bg-muir_trees",));
