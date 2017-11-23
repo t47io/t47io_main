@@ -8,7 +8,7 @@ import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { pubThumbs } from './Images.js';
+import { publicationThumbs } from './Images.js';
 import { pubsItem } from '../animations/pubs.js';
 
 
@@ -48,7 +48,7 @@ const PubsItem = ({
               data-tip={tag}
               data-for="PUBS__tooltip"
             >
-              <i dangerouslySetInnerHTML={{ __html: pubThumbs[tag] }} />
+              <i dangerouslySetInnerHTML={{ __html: publicationThumbs[tag] }} />
             </div>
           </a>
         </div>

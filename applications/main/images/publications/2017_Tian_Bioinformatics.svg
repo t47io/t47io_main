@@ -1,6 +1,5 @@
 <svg width="1024" height="512" viewBox="0 0 1024 512" xmlns="http://www.w3.org/2000/svg">
-  <path fill="#ebecec" d="M0 0h1024v512H0z" />
-  <g fill-opacity=".502">
+  <g fill-opacity=".5">
     <g class="UTIL__svg-thumb__low-res">
       <path fill="#1e1d1d" d="M31.487 380.075L49.79 343.13l380.915-2.436-26.028 41.762" />
       <path d="M48.787 369.467l-3.47-54.265 65.345 9.31-5.507 25.237" />
