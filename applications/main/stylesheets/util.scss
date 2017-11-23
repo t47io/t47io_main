@@ -99,12 +99,28 @@ section:not(#HOME__section) {
 
   .UTIL__svg-thumb__high-res {
     opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.5s;
   }
 
   &:hover {
     .UTIL__svg-thumb__high-res {
       opacity: 1;
-      transition-duration: 0.25s;
+      visibility: visible;
+    }
+  }
+
+  &.reverse {
+    .UTIL__svg-thumb__high-res {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &:hover {
+      .UTIL__svg-thumb__high-res {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
   }
 }
@@ -112,5 +128,6 @@ section:not(#HOME__section) {
 @include media_width_lt(511px) {
   .UTIL__svg-thumb .UTIL__svg-thumb__high-res {
     opacity: 1;
+    visibility: visible;
   }
 }

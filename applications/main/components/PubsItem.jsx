@@ -32,6 +32,7 @@ const PubsItem = ({
     target: '_blank',
     rel: 'noopener noreferrer external',
   } : {};
+  const SvgThumb = publicationThumbs[tag] ? publicationThumbs[tag].default : null;
 
   return (
     <WebAnimation
@@ -48,7 +49,7 @@ const PubsItem = ({
               data-tip={tag}
               data-for="PUBS__tooltip"
             >
-              <i dangerouslySetInnerHTML={{ __html: publicationThumbs[tag] }} />
+              <SvgThumb />
             </div>
           </a>
         </div>

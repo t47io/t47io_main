@@ -12,23 +12,27 @@ const PortfolioPowerByItem = ({
   url,
   shouldAnimate,
   index,
-}) => (
-  <WebAnimation
-    tagName="li"
-    className="PORTFOLIO__brand-item"
-    keyframes={portfolioBrandItem.keyframes}
-    timing={portfolioBrandItem.timing(index)}
-    shouldAnimate={shouldAnimate}
-    data-tip={name} data-for="PORTFOLIO__tooltip"
-  >
-    <a
-      href={url}
-      target="_blank" rel="noopener noreferrer external"
+}) => {
+  const SvgThumb = brandLogos[name] ? brandLogos[name].default : null;
+
+  return (
+    <WebAnimation
+      tagName="li"
+      className="PORTFOLIO__brand-item"
+      keyframes={portfolioBrandItem.keyframes}
+      timing={portfolioBrandItem.timing(index)}
+      shouldAnimate={shouldAnimate}
+      data-tip={name} data-for="PORTFOLIO__tooltip"
     >
-      <i dangerouslySetInnerHTML={{ __html: brandLogos[name] }} />
-    </a>
-  </WebAnimation>
-);
+      <a
+        href={url}
+        target="_blank" rel="noopener noreferrer external"
+      >
+        <SvgThumb />
+      </a>
+    </WebAnimation>
+  );
+};
 
 PortfolioPowerByItem.propTypes = {
   name: PropTypes.string,
