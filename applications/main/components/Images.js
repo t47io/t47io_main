@@ -14,8 +14,10 @@ const getContextObject = (context, ext) => (
   }))
 );
 
-const BRAND_LOGOS = require.context('../../vendor/js-logo/', false, /\.svg$/);
-const PUB_THUMBS = require.context('../images/publications/', false, /\.svg$/);
+const BRAND_LOGOS = require.context('../images/brands/', false, /\.svg$/);
+const PORTFOLIO_THUMBS = require.context('../images/portfolio/', false, /\.svg$/);
+const PUBLICATION_THUMBS = require.context('../images/publications/', false, /\.svg$/);
 
 export const brandLogos = getContextObject(BRAND_LOGOS, 'svg');
-export const pubThumbs = getContextObject(PUB_THUMBS, 'svg');
+export const portfolioThumbs = getContextObject(PORTFOLIO_THUMBS, 'svg');
+export const publicationThumbs = getContextObject(PUBLICATION_THUMBS, 'svg');
