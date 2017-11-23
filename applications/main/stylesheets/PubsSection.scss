@@ -35,16 +35,13 @@
 }
 
 .PUBS__image {
-  .SPRITE {
-    width: 100%;
-    height: 0;
-    padding-bottom: 50%;
+  .UTIL__svg-thumb {
     text-align: center;
     opacity: 0.75;
     transition-duration: 0.5s;
   }
 
-  &:hover .SPRITE {
+  &:hover .UTIL__svg-thumb {
     opacity: 1;
   }
 }

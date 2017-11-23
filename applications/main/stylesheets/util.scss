@@ -88,3 +88,29 @@ section:not(#HOME__section) {
 .UTIL__spacer-hg {
   height: 5.70rem;
 }
+
+.UTIL__svg-thumb {
+  display: inline-block;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .UTIL__svg-thumb__high-res {
+    opacity: 0;
+  }
+
+  &:hover {
+    .UTIL__svg-thumb__high-res {
+      opacity: 1;
+      transition-duration: 0.25s;
+    }
+  }
+}
+
+@include media_width_lt(511px) {
+  .UTIL__svg-thumb .UTIL__svg-thumb__high-res {
+    opacity: 1;
+  }
+}

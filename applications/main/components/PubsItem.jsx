@@ -8,6 +8,7 @@ import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
+import { pubThumbs } from './Images.js';
 import { pubsItem } from '../animations/pubs.js';
 
 
@@ -43,11 +44,11 @@ const PubsItem = ({
         <div className="PUBS__image">
           <a {...href}>
             <div
-              className="SPRITE"
+              className="UTIL__svg-thumb"
               data-tip={tag}
               data-for="PUBS__tooltip"
             >
-              <div className={`SPRITE__pubs-${tag}`} />
+              <i dangerouslySetInnerHTML={{ __html: pubThumbs[tag] }} />
             </div>
           </a>
         </div>
