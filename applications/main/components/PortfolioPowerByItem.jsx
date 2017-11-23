@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
+import { brandLogos } from './Images.js';
 import { portfolioBrandItem } from '../animations/portfolio.js';
 
 
 const PortfolioPowerByItem = ({
   name,
   url,
-  icon,
   shouldAnimate,
   index,
 }) => (
@@ -25,7 +25,7 @@ const PortfolioPowerByItem = ({
       href={url}
       target="_blank" rel="noopener noreferrer external"
     >
-      <i dangerouslySetInnerHTML={{ __html: icon }} />
+      <i dangerouslySetInnerHTML={{ __html: brandLogos[name] }} />
     </a>
   </WebAnimation>
 );
@@ -33,14 +33,12 @@ const PortfolioPowerByItem = ({
 PortfolioPowerByItem.propTypes = {
   name: PropTypes.string,
   url: PropTypes.string,
-  icon: PropTypes.string,
   shouldAnimate: PropTypes.bool,
   index: PropTypes.number,
 };
 PortfolioPowerByItem.defaultProps = {
   name: '',
   url: '',
-  icon: '',
   shouldAnimate: false,
   index: 0,
 };

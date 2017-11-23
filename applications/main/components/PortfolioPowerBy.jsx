@@ -2,7 +2,6 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import PropTypes from 'prop-types';
 
-import { svgBrands } from './Images.js';
 import PortfolioPowerByItem from './PortfolioPowerByItem.jsx';
 
 import {
@@ -31,7 +30,6 @@ const PortfolioPowerBy = ({
         <PortfolioPowerByItem
           key={`PORTFOLIO__brand-${item.name}`}
           {...item}
-          icon={svgBrands[item.name]}
           shouldAnimate={shouldAnimate}
           index={i}
         />
@@ -69,7 +67,6 @@ PortfolioPowerBy.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     url: PropTypes.string,
-    icon: PropTypes.string,
   })),
   shouldAnimate: PropTypes.bool,
 };
