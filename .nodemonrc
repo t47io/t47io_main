@@ -3,6 +3,7 @@
   "delay": 3000,
   "verbose": true,
   "ignore": [
+    "applications/deprecated/",
     "config/main.json",
     "config/project.json",
     "config/manifest.json",
