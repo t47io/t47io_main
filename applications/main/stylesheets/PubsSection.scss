@@ -35,13 +35,13 @@
 }
 
 .PUBS__image {
-  .UTIL__svg {
+  .SVG {
     text-align: center;
     opacity: 0.75;
     transition-duration: 0.5s;
   }
 
-  &:hover .UTIL__svg {
+  &:hover .SVG {
     opacity: 1;
   }
 }

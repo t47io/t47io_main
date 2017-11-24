@@ -77,10 +77,10 @@
       }
     }
 
-    .UTIL__svg--delay {
-      .UTIL__svg--1,
-      .UTIL__svg--2,
-      .UTIL__svg--3 {
+    .SVG--delay {
+      .SVG--1,
+      .SVG--2,
+      .SVG--3 {
         opacity: 1;
         visibility: visible;
       }
@@ -103,7 +103,7 @@
     color: $colorGrayDark;
   }
 
-  .UTIL__svg {
+  .SVG {
     width: 100%;
     max-width: 224px;
   }

@@ -15,13 +15,41 @@
 
   .UTIL__parallax {
     transition-duration: 1s;
+  }
 
-    &.fade {
-      filter: blur(5em);
+  .SVG--home {
+    .SVG--0 {
+      opacity: 0;
+      visibility: hidden;
+      transition-duration: 0.025s;
     }
 
-    .HOME__avatar--fake {
-      display: none;
+    $draws: 50;
+
+    @for $i from 1 through 7 {
+      .SVG--#{$i} {
+        opacity: 0;
+        visibility: hidden;
+        transition-duration: 0.5s;
+        transition-delay: #{$i * 0.5s + $draws * 0.05s + 1s};
+      }    
+    }
+
+    svg.active {
+      .SVG--0 {
+        @for $i from 0 through $draws - 1 {
+          path:nth-of-type(#{$draws}n+#{$i}) {
+            transition-delay: #{$i * 0.05s + 1s};
+          }
+        }
+      }
+
+      @for $i from 0 through 7 {
+        .SVG--#{$i} {
+          opacity: 1;
+          visibility: visible;
+        }    
+      }
     }
   }
 
@@ -98,6 +126,10 @@
 .HOME__cursor {
   color: $colorRed;
   font-weight: bold;
+
+  &.hidden {
+    opacity: 0;
+  }
 
   &.blink {
     animation: blink 0.5s linear infinite;
