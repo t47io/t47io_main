@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import Carousel from '../../common/components/Carousel.jsx';
+import Carousel from '../components/Carousel.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 import ContactItem from '../components/ContactItem.jsx';
 import ContactList from '../components/ContactList.jsx';

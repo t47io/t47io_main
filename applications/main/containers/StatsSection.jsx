@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import Carousel from '../../common/components/Carousel.jsx';
+import Carousel from '../components/Carousel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 import StatsItem from '../components/StatsItem.jsx';
 import StatsGithub from '../components/StatsGithub.jsx';

@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import AffiliationItem from '../components/AffiliationItem.jsx';
-import Carousel from '../../common/components/Carousel.jsx';
+import Carousel from '../components/Carousel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 
 import * as affiliationActions from '../actions/affiliationActions.js';
