@@ -26,7 +26,7 @@ const PortfolioItem = ({
         timing={portfolioItem.timing(index)}
         shouldAnimate={shouldAnimate}
       >
-        <div className="UTIL__svg-thumb reverse">
+        <div className="UTIL__svg UTIL__svg--reverse">
           <SvgThumb />
         </div>
         <div className="PORTFOLIO__text">

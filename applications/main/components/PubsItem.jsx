@@ -45,7 +45,7 @@ const PubsItem = ({
         <div className="PUBS__image">
           <a {...href}>
             <div
-              className="UTIL__svg-thumb"
+              className="UTIL__svg"
               data-tip={tag}
               data-for="PUBS__tooltip"
             >

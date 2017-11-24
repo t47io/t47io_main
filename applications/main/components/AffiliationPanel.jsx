@@ -25,7 +25,7 @@ const AffiliationPanel = ({
           href={url}
           target="_blank" rel="noopener noreferrer external"
         >
-          <div className="UTIL__svg-thumb">
+          <div className="UTIL__svg">
             <SvgThumb />
           </div>
         </a>

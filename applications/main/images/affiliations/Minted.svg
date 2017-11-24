@@ -1,6 +1,6 @@
 <svg width="1024" height="448" viewBox="0 0 1024 448" xmlns="http://www.w3.org/2000/svg">
   <g fill-opacity=".5">
-    <g class="UTIL__svg-thumb__low-res">
+    <g class="UTIL__svg--1">
       <path fill="#FFF" d="M260 197.6l-127.6-17.2 169.2-21.6-2.4 160" />
       <path fill="#6C9200" d="M200.4 373.6L92 303.6 343.6 274l-14.4 49.2" />
       <path fill="#86AA00" d="M330.8 164.8L336 140 211.6 74.8 84.4 167.2" />
@@ -45,7 +45,7 @@
       <path fill="#84A830" d="M409.6 196.4l25.6 15.2-24.8 90.4v-89.6" />
       <path fill="#94B44E" d="M572.8 282.8l8.8-117.6H722 565.6" />
     </g>
-    <g class="UTIL__svg-thumb__high-res">
+    <g class="UTIL__svg--2">
       <path fill="#7C9C03" d="M118.4 330l212.4-13.6-66 40.8-52 8" />
       <path fill="#7DA427" d="M864.4 195.2l.8 84.4-12-12-4.8-30.8" />
       <path fill="#9DBC00" d="M214.4 90.4l-48.8 86.4L94 149.2l66-52.4" />
@@ -174,6 +174,8 @@
       <path fill="#9EBE06" d="M350 252.4l-20.8 38-1.2-147.6 20.4 61.6" />
       <path fill="#93B349" d="M412.4 246l-.8-57.6 8 14 3.6 6" />
       <path fill="#8DAF3F" d="M932 215.2l-2.8-47.2-6.8 128 18-34.4" />
+    </g>
+    <g class="UTIL__svg--3">
       <path fill="#8BAD3A" d="M642.4 194.4l29.6 8-70.4 6.8 21.2 13.2" />
       <path fill="#8CAE3D" d="M470.4 186.4l17.2 102.4h-16l.4-5.6" />
       <path fill="#73920A" d="M230 348l39.6-10-26.8 26-43.2-.4" />

@@ -73,7 +73,7 @@
   z-index: 5;
   overflow: hidden;
 
-  .UTIL__svg-thumb {
+  .UTIL__svg {
     border: 1px solid $colorGray;
     margin-left: -1px;
     margin-top: -1px;
@@ -102,11 +102,11 @@
   }
 
   &:hover {
-    .UTIL__svg-thumb {
+    .UTIL__svg {
       transform: scale(1.5);
     }
 
-    .UTIL__svg-thumb__high-res {
+    .UTIL__svg--3 {
       opacity: 0;
       visibility: hidden;
     }

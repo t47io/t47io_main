@@ -77,10 +77,17 @@
       }
     }
 
-    .UTIL__svg-thumb__high-res {
+    .UTIL__svg--1,
+    .UTIL__svg--2,
+    .UTIL__svg--3 {
       opacity: 1;
       visibility: visible;
-      transition-delay: 1s;
+    }
+ 
+    @for $i from 1 through 3 {
+      .UTIL__svg--#{$i} {
+        transition-delay: #{($i + 1) * 0.25s};
+      }    
     }
   }
 }
@@ -100,7 +107,7 @@
     color: $colorGrayDark;
   }
 
-  .UTIL__svg-thumb {
+  .UTIL__svg {
     width: 100%;
     max-width: 224px;
   }
