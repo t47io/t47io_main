@@ -8,7 +8,7 @@ import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { publicationThumbs } from './Images.js';
+import { imgPublications } from './Images.js';
 import { pubsItem } from '../animations/pubs.js';
 
 
@@ -32,7 +32,7 @@ const PubsItem = ({
     target: '_blank',
     rel: 'noopener noreferrer external',
   } : {};
-  const SvgThumb = publicationThumbs[tag] ? publicationThumbs[tag].default : null;
+  const Svg = imgPublications[tag] || null;
 
   return (
     <WebAnimation
@@ -45,11 +45,11 @@ const PubsItem = ({
         <div className="PUBS__image">
           <a {...href}>
             <div
-              className="UTIL__svg UTIL__svg--hover"
+              className="SVG SVG--hover"
               data-tip={tag}
               data-for="PUBS__tooltip"
             >
-              <SvgThumb />
+              <Svg />
             </div>
           </a>
         </div>

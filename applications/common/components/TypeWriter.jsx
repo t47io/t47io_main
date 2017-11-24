@@ -7,6 +7,7 @@ class TypeWriter extends React.PureComponent {
     super(props);
     this.state = {
       isActive: props.shouldAnimate,
+      hasStarted: false,
       currentText: '',
     };
 
@@ -37,6 +38,8 @@ class TypeWriter extends React.PureComponent {
     const steps = fullText.length;
 
     setTimeout(() => {
+      this.setState({ hasStarted: true });
+
       let currentStep = 0;
       let currentText = '';
       this.timer = setInterval(() => {
@@ -55,14 +58,19 @@ class TypeWriter extends React.PureComponent {
 
   render() {
     const { className, cursorCharacter, cursorClassName } = this.props;
-    const { isActive, currentText } = this.state;
+    const { isActive, hasStarted, currentText } = this.state;
     const cursor = isActive ? cursorCharacter : '';
-    const cursorBlinkClass = isActive ? 'blink' : '';
+    let cursorBlinkClassName;
+    if (hasStarted) {
+      cursorBlinkClassName = isActive ? 'blink' : '';
+    } else {
+      cursorBlinkClassName = 'hidden';
+    }
 
     return (
       <p className={className}>
         <span dangerouslySetInnerHTML={{ __html: currentText }} />
-        <b className={`${cursorClassName} ${cursorBlinkClass}`}>
+        <b className={`${cursorClassName} ${cursorBlinkClassName}`}>
           {cursor}
         </b>
       </p>

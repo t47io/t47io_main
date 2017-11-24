@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import PortfolioDescription from './PortfolioDescription.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { portfolioThumbs } from './Images.js';
+import { imgPortfolio } from './Images.js';
 import { portfolioItem } from '../animations/portfolio.js';
 
 
@@ -16,7 +16,7 @@ const PortfolioItem = ({
   shouldAnimate,
   index,
 }) => {
-  const SvgThumb = portfolioThumbs[name] ? portfolioThumbs[name].default : null;
+  const Svg = imgPortfolio[name] || null;
 
   return (
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry">
@@ -26,8 +26,8 @@ const PortfolioItem = ({
         timing={portfolioItem.timing(index)}
         shouldAnimate={shouldAnimate}
       >
-        <div className="UTIL__svg UTIL__svg--hover UTIL__svg--reverse">
-          <SvgThumb />
+        <div className="SVG SVG--hover SVG--reverse">
+          <Svg />
         </div>
         <div className="PORTFOLIO__text">
           <a

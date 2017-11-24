@@ -7,18 +7,19 @@ import HomeDescription from '../components/HomeDescription.jsx';
 import HomeName from '../components/HomeName.jsx';
 import HomeTrigger from '../components/HomeTrigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
-import { imgAvatar } from '../components/Images.js';
 
 import * as homeActions from '../actions/homeActions.js';
 import { initialState as homeProps } from '../reducers/home.js';
 import { HOME } from '../constants/sectionTypes.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
+
+import { imgAvatar } from '../components/Images.js';
 import { homeShade } from '../animations/home.js';
 
 import '../stylesheets/HomeSection.scss';
 
-const avatarStyle = { backgroundImage: `url(${imgAvatar})` };
 
+const SvgAvatar = imgAvatar;
 
 const HomeSection = ({
   data: {
@@ -27,33 +28,26 @@ const HomeSection = ({
   },
   animations: {
     ready,
+    avatar,
     intro,
     color,
   },
-  actions: {
-    animateReady,
-    animateIntro,
-  },
+  actions: { animateHome },
 }) => {
-  const arrowColorClass = `text-${TEXT_COLOR_CYCLE[color % 2]}`;
-  const avatarClass = (server || ready) ? '' : 'fade';
+  const svgClassName = (ready && avatar) ? 'active' : '';
+  const arrowColorClassName = `text-${TEXT_COLOR_CYCLE[color % 2]}`;
 
   return (
     <section id="HOME__section">
       <HomeTrigger
         disabled={!ready}
-        onToggleAnimation={animateIntro}
+        onToggleAnimation={animateHome}
       />
       <h1 className="HOME__name--seo">SIQI TIAN</h1>
-      <div
-        className={`UTIL__parallax HOME__avatar ${avatarClass}`}
-        style={avatarStyle}
-      >
-        <img
-          src={imgAvatar}
-          alt="T47 Avatar"
-          onLoad={animateReady}
-          className="HOME__avatar--fake"
+      <div className="SVG SVG--home SVG__background UTIL__parallax">
+        <SvgAvatar
+          className={svgClassName}
+          preserveAspectRatio="xMidYMid slice"
         />
       </div>
 
@@ -79,7 +73,7 @@ const HomeSection = ({
           />
         </div>
         <div className="HOME__scroll-down">
-          <i className={`fa fa-3x fa-fw fa-down-circled ${arrowColorClass}`} />
+          <i className={`fa fa-3x fa-fw fa-down-circled ${arrowColorClassName}`} />
         </div>
       </div>
     </section>
@@ -93,19 +87,18 @@ HomeSection.propTypes = {
   }),
   animations: PropTypes.shape({
     ready: PropTypes.bool,
+    avatar: PropTypes.bool,
     intro: PropTypes.bool,
     color: PropTypes.number,
   }),
   actions: PropTypes.shape({
-    animateReady: PropTypes.func,
-    animateIntro: PropTypes.func,
+    animateHome: PropTypes.func,
   }),
 };
 HomeSection.defaultProps = {
   ...homeProps,
   actions: {
-    animateReady: () => {},
-    animateIntro: () => {},
+    animateHome: () => {},
   },
 };
 

@@ -42,12 +42,12 @@ const Project = ({
   },
 }) => {
   if (data && !ready) { onReady(); }
-  const sectionClass = ready ? '' : 'fade';
+  const sectionClassName = ready ? '' : 'fade';
 
   return (
     <div
       id="HOME__section"
-      className={sectionClass}
+      className={sectionClassName}
     >
       <Meta />
       <Navbar />

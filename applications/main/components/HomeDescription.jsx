@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import TypeWriter from '../../common/components/TypeWriter.jsx';
 
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
-
+import {
+  TYPE_WRITER_DELAY,
+  TYPE_WRITER_SPEED,
+} from '../animations/home.js';
 
 const HomeDescription = ({
   title,
@@ -22,14 +25,15 @@ const HomeDescription = ({
     );
   }
 
-  const textColorClass = `text-${TEXT_COLOR_CYCLE[color]}`;
+  const textColorClassName = `text-${TEXT_COLOR_CYCLE[color]}`;
 
   return (
     <TypeWriter
-      className={`HOME__typewrite ${textColorClass}`}
+      className={`HOME__typewrite ${textColorClassName}`}
       cursorClassName="HOME__cursor"
       fullText={title}
-      delay={1250}
+      delay={TYPE_WRITER_DELAY}
+      interval={TYPE_WRITER_SPEED}
       shouldAnimate={intro}
     />
   );

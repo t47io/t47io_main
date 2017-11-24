@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 
 import reducer from './reducers/index.js';
 import { LOAD_JSON_DATA } from './constants/actionTypes.js';
+import { animateReady } from './actions/homeActions.js';
 
 
 const middleware = [
@@ -15,21 +16,23 @@ const store = createStore(
   applyMiddleware(...middleware)
 );
 
+const loadData = (data) => {
+  store.dispatch({
+    type: LOAD_JSON_DATA,
+    payload: { ...data },
+  });
+  setTimeout(() => animateReady()(store.dispatch), 1000);
+};
+
 if (process.env.NODE_ENV !== 'production') {
   require.ensure([], (require) => {
     const json = require('../../config/main.json');
-    store.dispatch({
-      type: LOAD_JSON_DATA,
-      payload: { ...json },
-    });
+    loadData(json);
   }, 'data');
 } else {
   require.ensure([], (require) => {
     const json = require('../../config/main.json');
-    store.dispatch({
-      type: LOAD_JSON_DATA,
-      payload: { ...json },
-    });
+    loadData(json);
   }, 'd');
 }
 

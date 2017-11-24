@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import AffiliationRewardItem from './AffiliationRewardItem.jsx';
 import AffiliationRole from './AffiliationRole.jsx';
 
-import { affiliationThumbs } from './Images.js';
+import { imgAffiliations } from './Images.js';
 
 
 const AffiliationPanel = ({
@@ -16,7 +16,7 @@ const AffiliationPanel = ({
   rewards,
   tag,
 }) => {
-  const SvgThumb = affiliationThumbs[tag] ? affiliationThumbs[tag].default : null;
+  const Svg = imgAffiliations[tag] || null;
 
   return (
     <div className="AFFILIATION__panel row">
@@ -25,8 +25,8 @@ const AffiliationPanel = ({
           href={url}
           target="_blank" rel="noopener noreferrer external"
         >
-          <div className="UTIL__svg UTIL__svg--delay">
-            <SvgThumb />
+          <div className="SVG SVG--delay">
+            <Svg />
           </div>
         </a>
         <br />

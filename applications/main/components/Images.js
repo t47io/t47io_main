@@ -1,12 +1,15 @@
-export const imgAvatar = require('../images/t47_avatar.jpg');
 export const imgName = require('../images/t47_name.png');
+// export const imgAvatar = require('../images/t47_avatar.jpg');
 // export const imgPhone = require('../images/t47_phone.png');
+
+import imgAvatar from '../images/t47_avatar.svg';
+
 
 const pathRegex = /[./]/g;
 
 const getContextObject = (context, ext) => (
   context.keys().map(key => ({
-    [key.replace(ext, '').replace(pathRegex, '')]: context(key),
+    [key.replace(ext, '').replace(pathRegex, '')]: context(key).default,
   }))
   .reduce((obj, item) => ({
     ...obj,
@@ -21,8 +24,9 @@ const PUBLICATION_THUMBS = require.context('../images/publications/', false, /\.
 const BACKGROUNDS = require.context('../images/backgrounds/', false, /\.svg$/);
 
 
-export const affiliationThumbs = getContextObject(AFFILIATION_THUMBS, 'svg');
-export const portfolioThumbs = getContextObject(PORTFOLIO_THUMBS, 'svg');
-export const brandLogos = getContextObject(BRAND_LOGOS, 'svg');
-export const publicationThumbs = getContextObject(PUBLICATION_THUMBS, 'svg');
-export const backgroundImgs = getContextObject(BACKGROUNDS, 'svg');
+export { imgAvatar };
+export const imgAffiliations = getContextObject(AFFILIATION_THUMBS, 'svg');
+export const imgPortfolio = getContextObject(PORTFOLIO_THUMBS, 'svg');
+export const imgBrands = getContextObject(BRAND_LOGOS, 'svg');
+export const imgPublications = getContextObject(PUBLICATION_THUMBS, 'svg');
+export const imgBackgrounds = getContextObject(BACKGROUNDS, 'svg');

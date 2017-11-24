@@ -18,7 +18,7 @@ const ContactList = ({
   onToggleAudio,
   onToggleAnimation,
 }) => {
-  const audioPlayClass = audio ? 'pause' : 'play';
+  const audioPlayClassName = audio ? 'pause' : 'play';
   const objDate = new Date(`${resume.slice(4, 6)}/01/${resume.slice(0, 4)}`)
     .toLocaleString('en-us', {
       month: 'short',
@@ -119,7 +119,7 @@ const ContactList = ({
             <i className="fa fa-file-audio fa-fw" />
             Proununciation
             <span className="text-black CONTACT__resume">
-              <i className={`fa fa-${audioPlayClass} fa-fw`} />
+              <i className={`fa fa-${audioPlayClassName} fa-fw`} />
             </span>
           </button>
           <Audio

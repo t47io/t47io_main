@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { backgroundImgs } from './Images.js';
+import { imgBackgrounds } from './Images.js';
 import CarouselIndicator from './CarouselIndicator.jsx';
 
 import '../stylesheets/Carousel.scss';
@@ -49,14 +49,14 @@ class Carousel extends React.PureComponent {
     const { items, className, children } = this.props;
     const { current, active } = this.state;
     const svgClassName = active ? 'active' : '';
-    const SvgImg = backgroundImgs[items[current]] ? backgroundImgs[items[current]].default : null;
+    const SvgImg = imgBackgrounds[items[current]] || null;
 
     return (
-      <div className={`${className} UTIL__svg UTIL__parallax UTIL__background`}>
-        <div className="COMMON__carousel COMMON__carousel--fade">
+      <div className={`${className} SVG UTIL__parallax UTIL__background`}>
+        <div className="SVG__background COMMON__carousel COMMON__carousel--fade">
           <SvgImg
             className={svgClassName}
-            preserveAspectRatio="xMaxYMax slice"
+            preserveAspectRatio="xMidYMid slice"
           />
           <ol className="COMMON__carousel-indicators carousel-indicators">
             {items.map((item, i) => (

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { brandLogos } from './Images.js';
+import { imgBrands } from './Images.js';
 import { portfolioBrandItem } from '../animations/portfolio.js';
 
 
@@ -13,7 +13,7 @@ const PortfolioPowerByItem = ({
   shouldAnimate,
   index,
 }) => {
-  const SvgThumb = brandLogos[name] ? brandLogos[name].default : null;
+  const Svg = imgBrands[name] || null;
 
   return (
     <WebAnimation
@@ -28,7 +28,7 @@ const PortfolioPowerByItem = ({
         href={url}
         target="_blank" rel="noopener noreferrer external"
       >
-        <SvgThumb />
+        <Svg />
       </a>
     </WebAnimation>
   );
