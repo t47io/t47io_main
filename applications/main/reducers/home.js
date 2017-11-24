@@ -1,5 +1,6 @@
 import {
   TOGGLE_HOME_READY,
+  TOGGLE_HOME_AVATAR_ANIMATION,
   TOGGLE_HOME_INTRO_ANIMATION,
   CYCLE_HOME_TEXT_COLOR,
 } from '../constants/actionTypes.js';
@@ -13,6 +14,7 @@ export const initialState = {
   },
   animations: {
     ready: false,
+    avatar: false,
     intro: false,
     color: 0,
   },
@@ -26,6 +28,15 @@ const reducer = (state = initialState, { type, payload }) => {
         animations: {
           ...state.animations,
           ready: true,
+        },
+      };
+    }
+    case TOGGLE_HOME_AVATAR_ANIMATION: {
+      return {
+        ...state,
+        animations: {
+          ...state.animations,
+          avatar: true,
         },
       };
     }
