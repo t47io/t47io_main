@@ -5,8 +5,11 @@ import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
+import { imgThesis } from './Images.js';
 import { pubsThesis } from '../animations/pubs.js';
 
+
+const SvgThesis = imgThesis;
 
 const PubsThesis = ({
   title,
@@ -29,6 +32,10 @@ const PubsThesis = ({
         </span>
         Ph.D. Dissertation
       </h5>
+      <div className="SVG SVG--hover PUBS__thesis-flyer">
+        <SvgThesis />
+      </div>
+
       <h3 className="PUBS__thesis-title">
         <PubsTitle title={title} />
         <a
@@ -47,6 +54,7 @@ const PubsThesis = ({
       <p className="PUBS__issue">
         Department of Biochemistry, Stanford University
       </p>
+
       <p className="PUBS__thesis-links">
         {links.map(link => (
           <PubsLink
