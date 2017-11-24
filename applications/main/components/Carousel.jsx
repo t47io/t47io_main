@@ -10,7 +10,10 @@ import '../stylesheets/Carousel.scss';
 class Carousel extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = { current: 0 };
+    this.state = {
+      current: 0,
+      active: false,
+    };
 
     this.onClick = this.onClick.bind(this);
   }
@@ -21,27 +24,40 @@ class Carousel extends React.PureComponent {
     clearInterval(this.timer);
   }
 
-  onClick(index) {
-    clearInterval(this.timer);
-    this.setState({ current: index });
-    this.onLoop();
+  onChange(index) {
+    this.setState({
+      current: index,
+      active: false,
+    });
+    setTimeout(() => {
+      this.setState({ active: true });
+    }, this.props.interval / 10);
   }
   onLoop() {
     this.timer = setInterval(() => {
       const next = (this.state.current + 1) % this.props.items.length;
-      this.setState({ current: next });
+      this.onChange(next);
     }, this.props.interval);
+  }
+  onClick(index) {
+    clearInterval(this.timer);
+    this.onChange(index);
+    this.onLoop();
   }
 
   render() {
     const { items, className, children } = this.props;
-    const { current } = this.state;
+    const { current, active } = this.state;
+    const svgClassName = active ? 'active' : '';
     const SvgImg = backgroundImgs[items[current]] ? backgroundImgs[items[current]].default : null;
 
     return (
-      <div className={`${className} UTIL__parallax UTIL__background`}>
+      <div className={`${className} UTIL__svg UTIL__parallax UTIL__background`}>
         <div className="COMMON__carousel COMMON__carousel--fade">
-          <SvgImg preserveAspectRatio="xMaxYMax slice" />
+          <SvgImg
+            className={svgClassName}
+            preserveAspectRatio="xMaxYMax slice"
+          />
           <ol className="COMMON__carousel-indicators carousel-indicators">
             {items.map((item, i) => (
               <CarouselIndicator

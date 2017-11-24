@@ -29,7 +29,8 @@ const AffiliationSection = ({
   <section id="AFFILIATION__section" className="text-center">
     <Carousel
       className="text-white"
-      items={backgrounds} interval={4000}
+      items={backgrounds}
+      interval={4000}
     >
       <div className="UTIL__spacer-lg AFFILIATION__trigger" />
       <SectionHeader

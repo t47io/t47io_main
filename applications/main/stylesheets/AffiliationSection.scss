@@ -77,17 +77,13 @@
       }
     }
 
-    .UTIL__svg--1,
-    .UTIL__svg--2,
-    .UTIL__svg--3 {
-      opacity: 1;
-      visibility: visible;
-    }
- 
-    @for $i from 1 through 3 {
-      .UTIL__svg--#{$i} {
-        transition-delay: #{($i + 1) * 0.25s};
-      }    
+    .UTIL__svg--delay {
+      .UTIL__svg--1,
+      .UTIL__svg--2,
+      .UTIL__svg--3 {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 }

@@ -111,11 +111,19 @@ section:not(#HOME__section) {
     }    
   }
 
-  &:hover {
+  &.UTIL__svg--hover:hover {
     .UTIL__svg--1,
     .UTIL__svg--2 {
       opacity: 1;
       visibility: visible;
+    }
+  }
+
+  &.UTIL__svg--delay {
+    @for $i from 1 through 3 {
+      .UTIL__svg--#{$i} {
+        transition-delay: #{($i + 1) * 0.25s};
+      }    
     }
   }
 
@@ -134,7 +142,7 @@ section:not(#HOME__section) {
       }    
     }
 
-    &:hover {
+    &.UTIL__svg--hover:hover {
       .UTIL__svg--1,
       .UTIL__svg--2 {
         opacity: 0;
@@ -145,8 +153,12 @@ section:not(#HOME__section) {
 }
 
 @include media_width_lt(511px) {
-  .UTIL__svg .UTIL__svg--3 {
-    opacity: 1;
-    visibility: visible;
+  .UTIL__svg {
+    .UTIL__svg--1,
+    .UTIL__svg--2,
+    .UTIL__svg--3 {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
