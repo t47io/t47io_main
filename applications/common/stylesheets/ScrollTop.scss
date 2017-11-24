@@ -2,13 +2,13 @@
 
 .scrollTop {
   position: fixed;
-  bottom: 2em;
-  right: 2.5em;
-  width: 2.5em;
-  height: 2.5em;
+  bottom: 2rem;
+  right: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: $colorMain;
   border: 2px solid $colorMain;
-  line-height: 2.5em;
+  line-height: 2.5rem;
   text-align: center;
   text-decoration: none;
   z-index: 9999;
@@ -17,7 +17,7 @@
   transform: rotate(45deg);
 
   .fa {
-    padding-left: 0.25em;
+    padding-left: 0.25rem;
 
     transition-duration: 0.5s;
     transform: rotate(-45deg) translate(-1px, -0.125em);

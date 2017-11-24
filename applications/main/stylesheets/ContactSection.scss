@@ -18,7 +18,7 @@
 
 .CONTACT__title {
   font-weight: 900;
-  margin-bottom: 1.75em;
+  margin-bottom: 2.5rem;
 }
 
 .CONTACT__box {
@@ -35,9 +35,9 @@
     text-align: center;
     color: $colorWhite;
     background-color: $colorDark;
-    margin-right: 1.75em;
-    margin-top: 0.75em;
-    margin-bottom: 1em;
+    margin-right: 2.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
 
     transition-duration: 0.25s;
     transform: rotate(45deg);
@@ -79,7 +79,7 @@
 
     .CONTACT__icon {
       margin-right: 0;
-      margin-bottom: 2.25em;
+      margin-bottom: 2.25rem;
     }
   }
 }
@@ -90,7 +90,7 @@
 
   .CONTACT__item {
     display: inline-block;
-    margin-right: 1.5em;
+    margin-right: 1.5rem;
 
     .CONTACT__box {
       margin: 0;
@@ -116,15 +116,15 @@
   width: 100%;
   padding: 0;
   margin: 1em 0;
-  font-size: 1.125em;
+  font-size: 1.125rem;
 
   .CONTACT__list-item {
-    padding: 0 0 1.45em;
+    padding: 0 0 1.75rem;
     margin: 0;
     list-style: none;
 
     .fa {
-      margin-right: 0.5em;
+      margin-right: 0.75rem;
 
       &.invisible {
         visibility: hidden;
@@ -132,7 +132,7 @@
     }
 
     &.padding {
-      padding-bottom: 0.8em;
+      padding-bottom: 1rem;
     }
 
     &:hover {
@@ -146,19 +146,19 @@
     }
 
     &:nth-last-of-type(-n+2) {
-      padding-top: 1em;
+      padding-top: 1rem;
 
       .CONTACT__button {
-        width: 9em;
+        width: 9rem;
         text-align: left;
         transition-duration: 0.5s;
 
         &.long {
-          width: 13em;
+          width: 13rem;
         }
 
         &:hover {
-          width: 15em;
+          width: 15rem;
 
           .CONTACT__resume {
             opacity: 1;
@@ -180,18 +180,13 @@
       margin-right: 0;
     }
   }
-
-  .CONTACT__phone {
-    height: 1.1em;
-    vertical-align: text-top;
-  }
 }
 
 .CONTACT__form {
-  margin-bottom: 2.85em;
+  margin-bottom: 2.5rem;
 
   .CONTACT__form-button {
-    height: 3em;
+    height: 3rem;
 
     &:hover {
       color: $colorWhite;

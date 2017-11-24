@@ -10,7 +10,7 @@
 }
 
 .COMMON__dropdown-menu {
-  padding: 0.75em 0;
+  padding: 0.75rem 0;
   margin-top: 0;
   border: 2px solid $colorMain;
   border-radius: 0;
@@ -18,7 +18,7 @@
 
   .COMMON__dropdown-item {
     .COMMON__dropdown-link {
-      padding: 8px 20px;
+      padding: 0.6rem 1.5rem;
       margin-left: 0;
       border-radius: 0;
       // padding: 4px 20px;
@@ -52,5 +52,5 @@
 }
 
 .caret {
-  margin-left: 0.5em;
+  margin-left: 0.5rem;
 }

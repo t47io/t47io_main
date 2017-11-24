@@ -1,11 +1,11 @@
 @import '../../common/mixins/media';
 
 .PROJECT__access-link {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .PROJECT__access-note {
-  margin: 1em 0;
+  margin: 1rem 0;
 }
 
 @include media_width_lt(511px) {

@@ -2,7 +2,7 @@
 
 .SKILLS__progress {
   overflow: visible;
-  margin-bottom: 1.25em;
+  margin-bottom: 1.25rem;
   border: 3px solid $colorDark;
   box-sizing: content-box;
   background-color: transparent;
@@ -12,14 +12,14 @@
 .SKILLS__bar {
   background-color: $colorMain;
   color: $colorBlack;
-  padding: 0.25em;
+  padding: 0.25rem;
   text-align: center;
   font-weight: bold;
   box-shadow: none;
 
   &:hover {
     background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-size: 2.5em 2.5em;
+    background-size: 2.5rem 2.5rem;
   }
 }
 
@@ -28,5 +28,5 @@
 }
 
 .SKILLS__chapter {
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
 }

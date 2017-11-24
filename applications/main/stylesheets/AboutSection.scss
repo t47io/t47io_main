@@ -2,26 +2,26 @@
 
 .ABOUT__box {
   display: inline-block;
-  margin: 2em 0;
+  margin: 2rem 0;
   text-decoration: none;
   color: $colorBlack;
 
   .ABOUT__title {
-    font-size: 1.75em;
+    font-size: 1.75rem;
     font-weight: 900;
-    margin-bottom: 1em;
+    margin-bottom: 1.75rem;
   }
 
   .ABOUT__icon {
-    width: 2.25em;
-    height: 2.25em;
+    width: 6rem;
+    height: 6rem;
     display: inline-block;
     font-size: 2.5rem;
-    line-height: 2.25em;
+    line-height: 6rem;
     text-align: center;
     color: $colorWhite;
     background-color: $colorDark;
-    margin-bottom: 1em;
+    margin-bottom: 2.5rem;
 
     transition-duration: 0.25s;
     transform: rotate(45deg);
@@ -43,14 +43,14 @@
   }
 
   .ABOUT__text {
-    margin-top: 2em;
+    margin-top: 2rem;
 
     &:hover {
       color: $colorMain;
     }
 
     .ABOUT__detail {
-      line-height: 1.5em;
+      line-height: 1.5rem;
       margin-bottom: 0;
     }
   }
