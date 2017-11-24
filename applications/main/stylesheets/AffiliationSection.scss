@@ -76,6 +76,13 @@
         background-color: $colorMain;
       }
     }
+
+    &:hover {
+      .UTIL__svg-thumb__high-res {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
 }
 
@@ -94,7 +101,7 @@
     color: $colorGrayDark;
   }
 
-  .SPRITE {
+  .UTIL__svg-thumb {
     width: 100%;
     max-width: 224px;
   }

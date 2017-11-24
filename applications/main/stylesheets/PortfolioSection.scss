@@ -106,6 +106,11 @@
       transform: scale(1.5);
     }
 
+    .UTIL__svg-thumb__high-res {
+      opacity: 0;
+      visibility: hidden;
+    }
+
     .PORTFOLIO__text {
       opacity: 1;
       padding: 0 2em;
