@@ -77,11 +77,10 @@
       }
     }
 
-    &:hover {
-      .UTIL__svg-thumb__high-res {
-        opacity: 1;
-        visibility: visible;
-      }
+    .UTIL__svg-thumb__high-res {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 1s;
     }
   }
 }
