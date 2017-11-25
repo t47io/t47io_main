@@ -6,12 +6,6 @@ import PropTypes from 'prop-types';
 import LogoAlt from '../components/LogoAlt.jsx';
 import Trigger from '../components/Trigger.jsx';
 import WebAnimation from '../components/WebAnimation.jsx';
-import {
-  imgSFO,
-  imgSEA,
-  imgSrcSetSFO,
-  imgSrcSetSEA,
-} from '../components/Images.js';
 
 import * as footerActions from '../../common/actions/footerActions.js';
 import { initialState as footerProps } from '../reducers/footer.js';
@@ -21,19 +15,24 @@ import {
   FOOTER_RIGHT,
 } from '../constants/sectionTypes.js';
 import {
-  footerHeader,
-  footerGif,
-} from '../animations/footer.js';
-import {
   EMAIL,
   LICENSE,
   REPOSITORY,
 } from '../../config.js';
 
+import {
+  SvgSEA,
+  SvgSFO,
+} from '../components/Images.js';
+import {
+  footerHeader,
+  footerGif,
+} from '../animations/footer.js';
+
 import '../stylesheets/Footer.scss';
 
-const year = new Date().getFullYear();
 
+const year = new Date().getFullYear();
 
 const Footer = ({
   animations: { footer },
@@ -46,7 +45,7 @@ const Footer = ({
       onToggleAnimation={animateFooter}
     />
     <WebAnimation
-      className="FOOTTER__city hidden-sm hidden-xs"
+      className="FOOTTER__city SVG SVG--hover hidden-sm hidden-xs"
       keyframes={footerGif.keyframes(FOOTER_LEFT)}
       timing={footerGif.timing}
       shouldAnimate={footer}
@@ -55,13 +54,7 @@ const Footer = ({
         href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge"
         target="_blank" rel="noopener noreferrer external"
       >
-        <img
-          className="FOOTER__city-gif"
-          alt="Minimal City SFO"
-          width="128" height="96"
-          src={imgSFO}
-          srcSet={imgSrcSetSFO}
-        />
+        <SvgSFO className="FOOTER__city-gif" />
       </a>
     </WebAnimation>
     <WebAnimation
@@ -102,7 +95,7 @@ const Footer = ({
       </p>
     </WebAnimation>
     <WebAnimation
-      className="FOOTTER__city hidden-sm hidden-xs"
+      className="FOOTTER__city SVG SVG--hover hidden-sm hidden-xs"
       keyframes={footerGif.keyframes(FOOTER_RIGHT)}
       timing={footerGif.timing}
       shouldAnimate={footer}
@@ -111,13 +104,7 @@ const Footer = ({
         href="https://dribbble.com/shots/2037387-Seattle-FTW"
         target="_blank" rel="noopener noreferrer external"
       >
-        <img
-          className="FOOTER__city-gif"
-          alt="Minimal City SEA"
-          width="128" height="96"
-          src={imgSEA}
-          srcSet={imgSrcSetSEA}
-        />
+        <SvgSEA className="FOOTER__city-gif" />
       </a>
     </WebAnimation>
   </footer>
