@@ -1,7 +1,6 @@
-export const imgName = require('../images/t47_name.png');
-
-import imgAvatar from '../images/t47_avatar.svg';
-import imgThesis from '../images/t47_thesis.svg';
+import SvgAvatar from '../images/t47_avatar.svg';
+import SvgName from '../images/t47_name.svg';
+import SvgThesis from '../images/t47_thesis.svg';
 
 
 const pathRegex = /[./]/g;
@@ -24,8 +23,9 @@ const BACKGROUNDS = require.context('../images/backgrounds/', false, /\.svg$/);
 
 
 export {
-  imgAvatar,
-  imgThesis,
+  SvgAvatar,
+  SvgName,
+  SvgThesis,
 };
 export const imgAffiliations = getContextObject(AFFILIATION_THUMBS, 'svg');
 export const imgPortfolio = getContextObject(PORTFOLIO_THUMBS, 'svg');

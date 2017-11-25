@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { imgName } from '../components/Images.js';
+import { SvgName } from '../components/Images.js';
 import { homeName } from '../animations/home.js';
 
 
@@ -12,11 +12,7 @@ const HomeName = ({
   server,
 }) => (
   server ? (
-    <img
-      className="HOME__name"
-      src={imgName}
-      alt="Siqi Tian"
-    />
+    <SvgName className="HOME__name" />
   ) : (
     <WebAnimation
       className="HOME__title"
@@ -24,11 +20,7 @@ const HomeName = ({
       timing={homeName.timing}
       shouldAnimate={intro}
     >
-      <img
-        className="HOME__name"
-        src={imgName}
-        alt="Siqi Tian"
-      />
+      <SvgName className="HOME__name" />
     </WebAnimation>
   )
 );

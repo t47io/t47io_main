@@ -5,11 +5,9 @@ import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { imgThesis } from './Images.js';
+import { SvgThesis } from './Images.js';
 import { pubsThesis } from '../animations/pubs.js';
 
-
-const SvgThesis = imgThesis;
 
 const PubsThesis = ({
   title,

@@ -13,13 +13,11 @@ import { initialState as homeProps } from '../reducers/home.js';
 import { HOME } from '../constants/sectionTypes.js';
 import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
 
-import { imgAvatar } from '../components/Images.js';
+import { SvgAvatar } from '../components/Images.js';
 import { homeShade } from '../animations/home.js';
 
 import '../stylesheets/HomeSection.scss';
 
-
-const SvgAvatar = imgAvatar;
 
 const HomeSection = ({
   data: {
