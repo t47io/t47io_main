@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Logo from '../../common/components/Logo.jsx';
+import { imgErrors } from '../components/Images.js';
 
 import { ERROR_COLOR_CODES } from '../../common/constants/util.js';
 
@@ -9,7 +10,6 @@ import { ERROR_COLOR_CODES } from '../../common/constants/util.js';
 const ErrorSection = ({
   code,
   color,
-  img,
   title,
   text,
 }) => (
@@ -18,7 +18,7 @@ const ErrorSection = ({
       <Logo className="filled" />
       <img
         className="ERROR__image"
-        src={img}
+        src={imgErrors[code]}
         alt={`HTTP Error ${code}`}
         height="auto"
       />
@@ -48,7 +48,6 @@ const ErrorSection = ({
 ErrorSection.propTypes = {
   code: PropTypes.number,
   color: PropTypes.oneOf(ERROR_COLOR_CODES),
-  img: PropTypes.string,
   title: PropTypes.shape({
     custom: PropTypes.string,
     standard: PropTypes.string,
@@ -61,7 +60,6 @@ ErrorSection.propTypes = {
 ErrorSection.defaultProps = {
   code: 500,
   color: 'red',
-  img: '',
   title: {
     custom: '',
     standard: '',

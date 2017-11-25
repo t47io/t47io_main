@@ -11,11 +11,8 @@ import { ERROR_COLOR_CODES } from '../../common/constants/util.js';
 const ErrorPage = ({
   code,
   color,
-  img,
   title,
   text,
-  copy,
-  cc,
 }) => (
   <div className="body" id="app">
     <Meta />
@@ -23,15 +20,11 @@ const ErrorPage = ({
       <ErrorSection
         code={code}
         color={color}
-        img={img}
         title={title}
         text={text}
       />
       <hr />
-      <Footer
-        copy={copy}
-        cc={cc}
-      />
+      <Footer />
     </div>
   </div>
 );
@@ -39,7 +32,6 @@ const ErrorPage = ({
 ErrorPage.propTypes = {
   code: PropTypes.number,
   color: PropTypes.oneOf(ERROR_COLOR_CODES),
-  img: PropTypes.string,
   title: PropTypes.shape({
     custom: PropTypes.string,
     standard: PropTypes.string,
@@ -48,13 +40,10 @@ ErrorPage.propTypes = {
     custom: PropTypes.string,
     standard: PropTypes.string,
   }),
-  copy: PropTypes.string,
-  cc: PropTypes.string,
 };
 ErrorPage.defaultProps = {
   code: 500,
   color: 'red',
-  img: '',
   title: {
     custom: '',
     standard: '',
@@ -63,8 +52,6 @@ ErrorPage.defaultProps = {
     custom: '',
     standard: '',
   },
-  copy: '',
-  cc: '',
 };
 
 
