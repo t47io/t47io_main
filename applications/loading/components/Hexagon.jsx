@@ -3,7 +3,7 @@ import React from 'react';
 import Logo from '../../common/components/Logo.jsx';
 import { EMAIL } from '../../config.js';
 
-// import '../stylesheets/Cube.scss';
+// import '../stylesheets/Hexagon.scss';
 
 
 const Hexagon = () => (

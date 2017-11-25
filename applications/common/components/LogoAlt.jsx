@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { SvgLogoAlt } from './Images.js';
 
-
 // import '../stylesheets/Logo.scss';
+
+
 const targetBlank = {
   target: '_blank',
   rel: 'noopener noreferrer external',
 };
-
 
 const LogoAlt = ({
   href,

@@ -1,5 +1,7 @@
 import React from 'react';
 
+// import '../stylesheets/Square.scss';
+
 
 const Square = () => (
   <div className="LOAD__square center-block">
