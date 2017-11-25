@@ -14,13 +14,12 @@ const entries = (DEBUG = true) => {
       'bootstrap-loader',
       './applications/project/index.jsx',
     ],
-    [chunkNames.error]: './applications/error/index.jsx',
   };
 
   if (DEBUG) {
-    [entry.main, entry.project].forEach((chunk) => {
+    Object.keys(entry).forEach((key) => {
       // chunk.unshift('preact/devtools');
-      chunk.unshift('webpack-hot-middleware/client?reload=true');
+      entry[key].unshift('webpack-hot-middleware/client?reload=true');
     });
   }
   return entry;

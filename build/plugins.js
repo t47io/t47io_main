@@ -53,15 +53,6 @@ const plugins = (DEBUG = true) => {
       manifest: MANIFEST_JS,
       debug: DEBUG,
     }),
-    new HtmlWebpackPlugin({
-      chunks: [chunkNames.error],
-      template: HTML_TEMPLATE,
-      filename: path.join(ROOT_PATH, 'public/error.html'),
-      inject: false,
-      chunk: chunkNames.error,
-      manifest: MANIFEST_JS,
-      debug: DEBUG,
-    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: chunkNames.vendor,
       filename: CHUNK_FILE_NAME(DEBUG),

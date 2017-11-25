@@ -21,14 +21,13 @@ const CHUNK_NAME = (chunk, DEBUG = true) => (
 export const CHUNK_NAMES = (DEBUG = true) => ({
   main: CHUNK_NAME('main', DEBUG),
   project: CHUNK_NAME('project', DEBUG),
-  error: CHUNK_NAME('error', DEBUG),
   vendor: CHUNK_NAME('vendor', DEBUG),
   manifest: DEBUG ? 'manifest' : 'f',
   data: CHUNK_NAME('data', DEBUG),
   repo: CHUNK_NAME('repo', DEBUG),
 });
 
-export const GZIP_FILE_TYPES = ['html', 'js', 'css', 'map', 'eot', 'ttf', 'woff', 'woff2', 'mp3', 'xml', 'txt'];
+export const GZIP_FILE_TYPES = ['html', 'js', 'css', 'map', 'eot', 'ttf', 'woff', 'woff2', 'mp3', 'svg', 'xml', 'txt'];
 
 
 export const GA_TRACKER = `

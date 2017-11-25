@@ -1,76 +1,48 @@
 import htmlMinifier from 'html-minifier';
-import purify from 'purify-css';
-
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
-import DocumentMeta from 'react-document-meta';
-
-import Helix from '../../applications/loading/components/Helix.jsx';
-import Hexagon from '../../applications/loading/components/Hexagon.jsx';
-import MainMeta from '../../applications/main/components/Meta.jsx';
-import ProjectMeta from '../../applications/project/components/Meta.jsx';
 
 import { HTML_MINIFIER } from '../config.js';
 import {
   replaceHTML,
-  renderSassSync,
+  loadFileSync,
 } from './util.js';
 
 
-const helixHTML = renderToStaticMarkup(<Helix />);
-const hexagonHTML = renderToStaticMarkup(<Hexagon />);
-
-const mainCSS = purify(
-  helixHTML,
-  renderSassSync('applications/loading/stylesheets/main.scss'),
-  { minify: true }
-);
-const projectCSS = purify(
-  hexagonHTML,
-  renderSassSync('applications/loading/stylesheets/project.scss'),
-  { minify: true }
-);
-
-
 export const renderMainHTML = (baseHTML) => {
-  let mainMETA = renderToStaticMarkup(<MainMeta />);
-  mainMETA = DocumentMeta.renderAsHTML();
+  const mainMETA = loadFileSync('public/tmp/_mainMeta.html');
+  const helixHTML = loadFileSync('public/tmp/_helix.html');
+  const helixCSS = loadFileSync('public/tmp/_helix.css');
 
   return htmlMinifier.minify(
     replaceHTML(baseHTML
       .replace('<meta />', mainMETA)
       .replace('<loader />', helixHTML)
-      .replace('html{}', mainCSS)
+      .replace('html{}', helixCSS)
     ), HTML_MINIFIER
   );
 };
 
 export const renderProjectHTML = (baseHTML) => {
-  let projectMETA = renderToStaticMarkup(<ProjectMeta />);
-  projectMETA = DocumentMeta.renderAsHTML();
+  const projectMETA = loadFileSync('public/tmp/_projectMeta.html');
+  const hexagonHTML = loadFileSync('public/tmp/_hexagon.html');
+  const hexagonCSS = loadFileSync('public/tmp/_hexagon.css');
 
   return htmlMinifier.minify(
     replaceHTML(baseHTML
       .replace('<meta />', projectMETA)
       .replace('<loader />', hexagonHTML)
-      .replace('html{}', projectCSS)
+      .replace('html{}', hexagonCSS)
     ), HTML_MINIFIER
   );
 };
 
-export const renderErrorHTML = (baseHTML, bodyHTML, rawCSS) => {
-  const errorMETA = DocumentMeta.renderAsHTML();
-  const cleanCSS = purify(bodyHTML, rawCSS, { minify: true });
-
-  return htmlMinifier.minify(
+export const renderErrorHTML = (baseHTML, bodyHTML, bodyMETA, bodyCSS) => (
+  htmlMinifier.minify(
     replaceHTML(baseHTML
-      .replace('<meta />', errorMETA)
-      .replace('<loader />', '')
-      .replace('<div class="body" id="app"></div>', bodyHTML)
-      .replace('html{}', cleanCSS)
+      .replace('<meta />', bodyMETA)
+      .replace('<app />', bodyHTML)
+      .replace('{style}', bodyCSS)
     )
-    .replace(/data-rdm/g, '')
-    .replace(/<script type="application\/javascript" src="\/scripts\/(manifest|f|error|e)?(\.|-)?([0-9a-f]{6})?\.(min\.)?js"><\/script>/g, ''),
+    .replace(/data-rdm/g, ''),
     HTML_MINIFIER
-  );
-};
+  )
+);
