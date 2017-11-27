@@ -6,12 +6,12 @@ import { PUBLIC_PATH } from './server/env.js';
 
 
 const config = {
-  entry: [
-    './build/render/temp.jsx',
-    './build/render/error.jsx',
-  ],
+  entry: {
+    temp: './build/render/temp.jsx',
+    error: './build/render/error.jsx',
+  },
   output: {
-    filename: 'tmp/_tmp.js',
+    filename: 'tmp/_tmp.[id].js',
     path: PUBLIC_PATH,
     publicPath: '/',
     libraryTarget: 'umd',
@@ -20,7 +20,10 @@ const config = {
   devtool: 'cheap-module-source-map',
   resolve: { alias: aliases() },
   module: { rules: loaders(false, true) },
-  plugins: [new StaticSiteGeneratorPlugin()],
+  plugins: [
+    new StaticSiteGeneratorPlugin({ entry: 'temp' }),
+    new StaticSiteGeneratorPlugin({ entry: 'error' }),
+  ],
 };
 
 

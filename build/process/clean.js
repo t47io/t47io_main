@@ -22,6 +22,7 @@ try {
   tmpFiles.forEach(file => fs.removeSync(file));
 
   shell.cd(ROOT_PATH);
+  shell.rm('-rf', 'public/tmp');
   shell.exec('find . -name ".DS_Store" -type f -delete');
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Build temporary files deleted.`);
 } catch (err) {
