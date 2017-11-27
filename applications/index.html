@@ -5,7 +5,7 @@
     <style type="text/css">html{}</style>
     <ga />
 
-    <% if (!htmlWebpackPlugin.options.debug && htmlWebpackPlugin.options.chunk !== 'e') { %>
+    <% if (!htmlWebpackPlugin.options.debug) { %>
       <script type="application/javascript" src="/<%= htmlWebpackPlugin.options.manifest %>"></script>
       <script type="application/javascript">
         !(function loadEntryChunks() {
