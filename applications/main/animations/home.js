@@ -1,4 +1,4 @@
-export const AVATAR_SVG_DRAW_DURATION = 50 * 50 + 500 * 7 + 1000;
+export const AVATAR_SVG_DRAW_DURATION = 50 * 50 + 500 * 4 + 1000;
 
 const SHADE_FADE_DURATION = 750;
 const SHADE_FADE_DELAY_1 = 1000;
