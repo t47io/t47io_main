@@ -10,5 +10,5 @@
     "public/",
     "static/"
   ],
-  "ext": "js jsx json css scss html"
+  "ext": "js jsx json css scss svg html"
 }
