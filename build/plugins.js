@@ -113,11 +113,15 @@ const plugins = (DEBUG = true) => {
       parallel: true,
       sourceMap: false,
       uglifyOptions: {
-        beautify: false,
-        comments: false,
-        compress: { drop_console: true },
-        ie8: false,
-        mangle: { keep_fnames: false },
+        compress: {
+          drop_console: true,
+          unsafe_math: true,
+          unsafe_proto: true,
+        },
+        output: {
+          beautify: false,
+          comments: false,
+        },
       },
     }),
     new OptimizeJsPlugin({ sourceMap: false }),

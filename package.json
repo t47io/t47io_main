@@ -28,7 +28,7 @@
     "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
     "webpack:client": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.client.js --verbose",
 
-    "process": "yarn process:error && yarn process:client && yarn process:manifest && yarn process:static",
+    "process": "yarn process:client && yarn process:manifest && yarn process:static",
     "process:temp": "babel-node ./build/process/temp.js",
     "process:server": "babel-node ./build/process/server.jsx",
     "process:client": "babel-node ./build/process/client.js",
