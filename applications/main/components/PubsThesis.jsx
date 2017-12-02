@@ -31,7 +31,7 @@ const PubsThesis = ({
         Ph.D. Dissertation
       </h5>
       <div className="SVG SVG--hover PUBS__thesis-flyer">
-        <SvgThesis />
+        <img src={SvgThesis} />
       </div>
 
       <h3 className="PUBS__thesis-title">

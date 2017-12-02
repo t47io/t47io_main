@@ -32,7 +32,6 @@ const PubsItem = ({
     target: '_blank',
     rel: 'noopener noreferrer external',
   } : {};
-  const Svg = imgPublications[tag] || null;
 
   return (
     <WebAnimation
@@ -49,7 +48,21 @@ const PubsItem = ({
               data-tip={tag}
               data-for="PUBS__tooltip"
             >
-              <Svg />
+              <img
+                className="SVG--0"
+                src={imgPublications[0][tag]}
+                alt={tag}
+              />
+              <img
+                className="SVG--1"
+                src={imgPublications[1][tag]}
+                alt={tag}
+              />
+              <img
+                className="SVG--2"
+                src={imgPublications[2][tag]}
+                alt={tag}
+              />
             </div>
           </a>
         </div>
