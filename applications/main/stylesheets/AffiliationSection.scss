@@ -106,6 +106,17 @@
   .SVG {
     width: 100%;
     max-width: 224px;
+
+    .SVG--1 {
+      position: relative;
+    }
+
+    .SVG--2,
+    .SVG--3 {
+      max-width: 224px;
+      left: 50%;
+      transform: translateX(-50%);
+    }    
   }
 }
 
