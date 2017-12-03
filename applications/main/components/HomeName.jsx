@@ -12,7 +12,11 @@ const HomeName = ({
   server,
 }) => (
   server ? (
-    <img src={SvgName} className="HOME__name" />
+    <img
+      className="HOME__name"
+      src={SvgName}
+      alt="Siqi Tian"
+    />
   ) : (
     <WebAnimation
       className="HOME__title"
@@ -20,7 +24,11 @@ const HomeName = ({
       timing={homeName.timing}
       shouldAnimate={intro}
     >
-      <img src={SvgName} className="HOME__name" />
+      <img
+        className="HOME__name"
+        src={SvgName}
+        alt="Siqi Tian"
+      />
     </WebAnimation>
   )
 );

@@ -16,7 +16,7 @@ const Footer = () => (
     <p className="FOOTER__line">
       Copyright
       <i className="fa fa-fw">
-        <img src={SvgCopyRight} />
+        <SvgCopyRight />
       </i>
       <a className="FOOTER__year">2015 - {year}</a>
       Designed, built & managed by
@@ -33,7 +33,7 @@ const Footer = () => (
         target="_blank" rel="noopener noreferrer external"
       >
         <i className="fa fa-fw">
-          <img src={SvgCC} />
+          <SvgCC />
         </i>
         BY-NC-SA 4.0
       </a>
