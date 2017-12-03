@@ -43,7 +43,8 @@ const HomeSection = ({
       />
       <h1 className="HOME__name--seo">SIQI TIAN</h1>
       <div className="SVG SVG--home SVG__background UTIL__parallax">
-        <img  src={SvgAvatar}
+        <img
+          src={SvgAvatar}
           className={svgClassName}
           preserveAspectRatio="xMidYMid slice"
         />

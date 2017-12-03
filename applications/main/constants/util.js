@@ -7,3 +7,5 @@ export const AUTHOR_NAME = 'Tian S.';
 
 export const MARKUP = '_';
 export const FIELD_MARKUP = `${MARKUP}1st${MARKUP}`;
+
+export const SVG_BG_INDICES = [0, 1, 2, 3];

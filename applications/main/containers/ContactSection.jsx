@@ -51,7 +51,6 @@ const ContactSection = ({
 }) => (
   <section id="CONTACT__section" className="text-white">
     <Carousel
-      className="long"
       items={backgrounds}
       interval={4000}
     >

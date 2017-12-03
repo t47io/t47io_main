@@ -48,5 +48,13 @@ export const imgPublications = [
   getContextObject(PUBLICATION_THUMBS_2),
 ];
 
-const BACKGROUNDS = require.context('../images/backgrounds/', false, /\.svg$/);
-export const imgBackgrounds = getContextObject(BACKGROUNDS);
+const BACKGROUNDS_0 = require.context('../images/backgrounds/', false, /-0\.svg$/);
+const BACKGROUNDS_1 = require.context('../images/backgrounds/', false, /-1\.svg$/);
+const BACKGROUNDS_2 = require.context('../images/backgrounds/', false, /-2\.svg$/);
+const BACKGROUNDS_3 = require.context('../images/backgrounds/', false, /-3\.svg$/);
+export const imgBackgrounds = [
+  getContextObject(BACKGROUNDS_0),
+  getContextObject(BACKGROUNDS_1),
+  getContextObject(BACKGROUNDS_2),
+  getContextObject(BACKGROUNDS_3),
+];

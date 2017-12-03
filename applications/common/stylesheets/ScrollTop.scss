@@ -17,10 +17,8 @@
   transform: rotate(45deg);
 
   .fa {
-    padding-left: 0.25rem;
-
     transition-duration: 0.5s;
-    transform: rotate(-45deg) translate(-1px, -0.125em);
+    transform: rotate(-45deg) translate(.125rem, -.125rem);
   }
 
   &:hover {

@@ -11,7 +11,7 @@ const CarouselIndicator = ({
 
   return (
     <li
-      className={`COMMON__carousel-indicator ${activeClassName}`}
+      className={`UTIL__carousel-indicator ${activeClassName}`}
       onClick={() => onClick(index)}
       role="presentation"
     />
