@@ -28,7 +28,7 @@ const PortfolioPowerByItem = ({
         href={url}
         target="_blank" rel="noopener noreferrer external"
       >
-        <Svg />
+        <img src={Svg} />
       </a>
     </WebAnimation>
   );
