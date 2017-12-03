@@ -21,9 +21,10 @@ import {
 } from '../../config.js';
 
 import {
-  SvgSEA,
-  SvgSFO,
+  imgSEA,
+  imgSFO,
 } from '../components/Images.js';
+import { SVG_INDICES } from '../constants/util.js';
 import {
   footerHeader,
   footerGif,
@@ -54,7 +55,14 @@ const Footer = ({
         href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge"
         target="_blank" rel="noopener noreferrer external"
       >
-        <img src={SvgSFO} className="FOOTER__city-gif" />
+        {SVG_INDICES.map(i => (
+          <img
+            key={`FOOTTER__city-SFO--${i}`}
+            className={`FOOTER__city-gif SVG--${i}`}
+            src={imgSFO[i]}
+            alt="Minimal City SFO"
+          />
+        ))}
       </a>
     </WebAnimation>
     <WebAnimation
@@ -104,7 +112,14 @@ const Footer = ({
         href="https://dribbble.com/shots/2037387-Seattle-FTW"
         target="_blank" rel="noopener noreferrer external"
       >
-        <img src={SvgSEA} className="FOOTER__city-gif" />
+        {SVG_INDICES.map(i => (
+          <img
+            key={`FOOTTER__city-SEA--${i}`}
+            className={`FOOTER__city-gif SVG--${i}`}
+            src={imgSEA[i]}
+            alt="Minimal City SEA"
+          />
+        ))}
       </a>
     </WebAnimation>
   </footer>
