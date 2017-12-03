@@ -16,12 +16,16 @@ const ErrorSection = ({
   <div className="LOAD__content UTIL__image-RNA">
     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <Logo className="filled" />
-      <img
-        className="ERROR__image"
-        src={imgErrors[code]}
-        alt={`HTTP Error ${code}`}
-        height="auto"
-      />
+      <div className="ERROR__image">
+        {code.toString().split('').map(dig => (
+          <img
+            key={`digit-${dig}`}
+            className="ERROR__image-digit"
+            src={imgErrors[dig]}
+            alt={`HTTP Error ${code}`}
+          />
+        ))}
+      </div>
     </div>
     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <h2 className="ERROR__title">

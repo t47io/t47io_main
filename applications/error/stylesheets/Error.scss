@@ -14,10 +14,13 @@
   }
 
   .ERROR__image {
-    max-width: 75%;
-    display: block;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    padding: 0 1rem;
+    text-align: center;
+
+    .ERROR__image-digit {
+      width: 33%;
+      margin-left: -1rem;
+    }
   }
 
   .ERROR__words {
@@ -86,6 +89,7 @@
   .LOAD__container {
     .ERROR__image {
       max-width: 120%;
+      padding: 0;
     }
 
     .label {

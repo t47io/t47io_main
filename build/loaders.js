@@ -65,7 +65,7 @@ const loaders = (DEBUG = true, SSR = false) => {
       include: [
         /brands/,
         /logo/,
-        /error/,
+        /fa-/,
       ],
       use: [{
         loader: 'babel-loader',

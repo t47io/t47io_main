@@ -3,7 +3,7 @@ import React from 'react';
 import LogoAlt from '../../common/components/LogoAlt.jsx';
 import {
   SvgCopyRight,
-  SvgCC,
+  SvgCreativeCommon,
 } from './Images.js';
 
 import { LICENSE } from '../../config.js';
@@ -33,7 +33,7 @@ const Footer = () => (
         target="_blank" rel="noopener noreferrer external"
       >
         <i className="fa fa-fw">
-          <SvgCC />
+          <SvgCreativeCommon />
         </i>
         BY-NC-SA 4.0
       </a>
