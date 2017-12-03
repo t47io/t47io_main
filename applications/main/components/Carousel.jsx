@@ -54,7 +54,7 @@ class Carousel extends React.PureComponent {
     return (
       <div className={`${className} SVG UTIL__parallax UTIL__background`}>
         <div className="SVG__background COMMON__carousel COMMON__carousel--fade">
-          <SvgImg
+          <img src={SvgImg}
             className={svgClassName}
             preserveAspectRatio="xMidYMid slice"
           />

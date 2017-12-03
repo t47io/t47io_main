@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
@@ -123,7 +123,7 @@
     "static-site-generator-webpack-plugin": "3.4.1",
     "style-loader": "0.19.0",
     "stylefmt": "6.0.0",
-    "svg-inline-loader": "0.8.0",
+    "svg-url-loader": "2.3.0",
     "uglify-es": "3.2.0",
     "uglifyjs-webpack-plugin": "1.1.2",
     "url-loader": "0.6.2",

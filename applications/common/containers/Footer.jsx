@@ -54,7 +54,7 @@ const Footer = ({
         href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge"
         target="_blank" rel="noopener noreferrer external"
       >
-        <SvgSFO className="FOOTER__city-gif" />
+        <img src={SvgSFO} className="FOOTER__city-gif" />
       </a>
     </WebAnimation>
     <WebAnimation
@@ -104,7 +104,7 @@ const Footer = ({
         href="https://dribbble.com/shots/2037387-Seattle-FTW"
         target="_blank" rel="noopener noreferrer external"
       >
-        <SvgSEA className="FOOTER__city-gif" />
+        <img src={SvgSEA} className="FOOTER__city-gif" />
       </a>
     </WebAnimation>
   </footer>

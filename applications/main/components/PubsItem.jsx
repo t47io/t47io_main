@@ -10,6 +10,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { imgPublications } from './Images.js';
 import { pubsItem } from '../animations/pubs.js';
+import { SVG_INDICES } from '../../common/constants/util.js';
 
 
 const PubsItem = ({
@@ -48,21 +49,14 @@ const PubsItem = ({
               data-tip={tag}
               data-for="PUBS__tooltip"
             >
-              <img
-                className="SVG--0"
-                src={imgPublications[0][tag]}
-                alt={tag}
-              />
-              <img
-                className="SVG--1"
-                src={imgPublications[1][tag]}
-                alt={tag}
-              />
-              <img
-                className="SVG--2"
-                src={imgPublications[2][tag]}
-                alt={tag}
-              />
+              {SVG_INDICES.map(i => (
+                <img
+                  key={`PUBS__entry--${i}`}
+                  className={`SVG--${i}`}
+                  src={imgPublications[i][tag]}
+                  alt={tag}
+                />
+              ))}
             </div>
           </a>
         </div>
