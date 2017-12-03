@@ -67,16 +67,10 @@ const loaders = (DEBUG = true, SSR = false) => {
     },
     {
       test: /\.svg$/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: { cacheDirectory: DEBUG },
-        },
-        {
-          loader: 'react-svg-loader',
-          options: { jsx: true },
-        },
-      ],
+      use: {
+        loader: 'svg-url-loader',
+        options: { limit: -1, noquotes: true },
+      },
     },
     {
       test: /\.mp3$/,

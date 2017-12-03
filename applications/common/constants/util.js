@@ -7,3 +7,5 @@ export const TEXT_COLOR_CYCLE = ['white', 'main-light', 'main', 'main-dark', 'ma
 export const ERROR_COLOR_CODES = ['green', 'blue', 'yellow', 'purple', 'red'];
 
 export const AUTHOR_NAME = 'Tian S.';
+
+export const SVG_INDICES = [0, 1, 2];

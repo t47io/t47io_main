@@ -104,11 +104,12 @@
   &:hover {
     .SVG {
       transform: scale(1.5);
-    }
 
-    .SVG--3 {
-      opacity: 0;
-      visibility: hidden;
+      .SVG--1,
+      .SVG--2 {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
 
     .PORTFOLIO__text {

@@ -39,6 +39,12 @@
     text-align: center;
     opacity: 0.75;
     transition-duration: 0.5s;
+
+    .SVG--1,
+    .SVG--2 {
+      width: calc(100% - 30px);
+      left: 15px;
+    }    
   }
 
   &:hover .SVG {
@@ -85,6 +91,13 @@
 .PUBS__thesis-flyer {
   width: 80%;
   padding-bottom: 1em;
+
+  .SVG--1,
+  .SVG--2 {
+    width: calc(80% - 24px);
+    left: 50%;
+    transform: translateX(-50%);
+  }  
 }
 
 .PUBS__thesis-links {
