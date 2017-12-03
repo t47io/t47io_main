@@ -24,7 +24,7 @@ const LogoAlt = ({
       href={href}
       className={className}
     >
-      <img src={SvgLogoAlt} />
+      <SvgLogoAlt />
     </a>
   );
 };

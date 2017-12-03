@@ -13,7 +13,7 @@ const PortfolioPowerByItem = ({
   shouldAnimate,
   index,
 }) => {
-  const Svg = imgBrands[name] || null;
+  const Svg = imgBrands[name].default;
 
   return (
     <WebAnimation
@@ -28,7 +28,7 @@ const PortfolioPowerByItem = ({
         href={url}
         target="_blank" rel="noopener noreferrer external"
       >
-        <img src={Svg} />
+        <Svg />
       </a>
     </WebAnimation>
   );

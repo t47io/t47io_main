@@ -2,11 +2,11 @@ import SvgAvatar from '../images/t47_avatar.svg';
 import SvgName from '../images/t47_name.svg';
 
 
-const pathRegex = /\.\/(.*)-.*$/g;
-
-const getContextObject = context => (
+const svgUrlRegex = /\.\/(.*)-.*$/g;
+const svgReactRegex = /\.\/(.*)\.svg/g;
+const getContextObject = (context, regex = svgUrlRegex) => (
   context.keys().map(key => ({
-    [key.replace(pathRegex, '$1')]: context(key),
+    [key.replace(regex, '$1')]: context(key),
   }))
   .reduce((obj, item) => ({
     ...obj,
@@ -32,8 +32,8 @@ export const imgPortfolio = [
   getContextObject(PORTFOLIO_THUMBS_2),
 ];
 
-const BRAND_LOGOS = require.context('../images/brands/', false, /\.svg$/);
 const BACKGROUNDS = require.context('../images/backgrounds/', false, /\.svg$/);
+export const imgBackgrounds = getContextObject(BACKGROUNDS);
 
 const PUBLICATION_THUMBS_0 = require.context('../images/publications/', false, /-0\.svg$/);
 const PUBLICATION_THUMBS_1 = require.context('../images/publications/', false, /-1\.svg$/);
@@ -45,6 +45,9 @@ export const imgPublications = [
 ];
 
 
+const BRAND_LOGOS = require.context('../images/brands/', false, /\.svg$/);
+export const imgBrands = getContextObject(BRAND_LOGOS, svgReactRegex);
+
 export const imgThesis = [
   require('../images/t47_thesis-0.svg'),
   require('../images/t47_thesis-1.svg'),
@@ -55,5 +58,3 @@ export {
   SvgAvatar,
   SvgName,
 };
-export const imgBrands = getContextObject(BRAND_LOGOS);
-export const imgBackgrounds = getContextObject(BACKGROUNDS);

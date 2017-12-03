@@ -24,7 +24,7 @@ const Logo = ({
       href={href}
       className={className}
     >
-      <img src={SvgLogo} />
+      <SvgLogo />
     </a>
   );
 };
