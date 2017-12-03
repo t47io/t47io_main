@@ -5,12 +5,10 @@ import webpack from 'webpack';
 import BabelMinifyPlugin from 'babel-minify-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import CommonShakePlugin from 'webpack-common-shake';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
-import OptimizeJsPlugin from 'optimize-js-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import ZopfliPlugin from 'zopfli-webpack-plugin';
@@ -106,25 +104,23 @@ const plugins = (DEBUG = true) => {
       filename: MANIFEST_JS,
     }),
     new ManifestPlugin(),
-    new CommonShakePlugin.Plugin(),
     new BabelMinifyPlugin(),
-    new UglifyJsPlugin({
-      cache: true,
-      parallel: true,
-      sourceMap: false,
-      uglifyOptions: {
-        compress: {
-          drop_console: true,
-          unsafe_math: true,
-          unsafe_proto: true,
-        },
-        output: {
-          beautify: false,
-          comments: false,
-        },
-      },
-    }),
-    new OptimizeJsPlugin({ sourceMap: false }),
+    // new UglifyJsPlugin({
+    //   cache: true,
+    //   parallel: true,
+    //   sourceMap: false,
+    //   uglifyOptions: {
+    //     compress: {
+    //       drop_console: true,
+    //       unsafe_math: true,
+    //       unsafe_proto: true,
+    //     },
+    //     output: {
+    //       beautify: false,
+    //       comments: false,
+    //     },
+    //   },
+    // }),
     new BrotliPlugin({
       test: compressionRegex,
       minRatio: Infinity,
