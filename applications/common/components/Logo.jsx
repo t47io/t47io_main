@@ -3,20 +3,17 @@ import PropTypes from 'prop-types';
 
 import { SvgLogo } from './Images.js';
 
+import { TARGET_BLANK } from '../constants/util.js';
+
 // import '../stylesheets/Logo.scss';
 
-
-const targetBlank = {
-  target: '_blank',
-  rel: 'noopener noreferrer external',
-};
 
 const Logo = ({
   href,
   isTargetBlank,
   className,
 }) => {
-  const target = isTargetBlank ? targetBlank : {};
+  const target = isTargetBlank ? TARGET_BLANK : {};
 
   return (
     <a

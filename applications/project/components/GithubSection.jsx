@@ -23,7 +23,6 @@ const GithubSection = ({ repos }) => (
       ))}
     </div>
   </div>
-
 );
 
 GithubSection.propTypes = {

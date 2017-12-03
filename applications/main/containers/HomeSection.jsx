@@ -11,7 +11,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import * as homeActions from '../actions/homeActions.js';
 import { initialState as homeProps } from '../reducers/home.js';
 import { HOME } from '../constants/sectionTypes.js';
-import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
+import { TEXT_COLOR_CYCLE } from '../constants/util.js';
 
 import { SvgAvatar } from '../components/Images.js';
 import { homeShade } from '../animations/home.js';

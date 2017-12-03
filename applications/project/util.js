@@ -1,3 +1,5 @@
+export const getColumn = condition => (condition ? 6 : 12);
+
 export const getPageProps = (state, project) => {
   if (!state.project || !state.repository) { return {}; }
 

@@ -2,7 +2,7 @@ import colors from 'colors';
 import path from 'path';
 import shell from 'shelljs';
 
-import { DAY_MILLISECONDS } from '../../applications/common/constants/util.js';
+import { DAY_MILLISECONDS } from '../../applications/main/constants/util.js';
 import { PUBLIC_PATH } from '../env.js';
 
 import cronJSON from '../../config/cron.json';

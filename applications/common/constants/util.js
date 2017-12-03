@@ -1,11 +1,9 @@
-export const DAY_MILLISECONDS = 1000 * 24 * 60 * 60;
-
-export const WEEK_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-export const TEXT_COLOR_CYCLE = ['white', 'main-light', 'main', 'main-dark', 'main', 'main-light'];
-
-export const ERROR_COLOR_CODES = ['green', 'blue', 'yellow', 'purple', 'red'];
-
-export const AUTHOR_NAME = 'Tian S.';
-
 export const SVG_INDICES = [0, 1, 2];
+
+export const TARGET_BLANK = {
+  target: '_blank',
+  rel: 'noopener noreferrer external',
+};
+
+export const URL_DRIBBLE_SFO = 'https://dribbble.com/shots/1772409-Golden-Gate-Bridge';
+export const URL_DRIBBLE_SEA = 'https://dribbble.com/shots/2037387-Seattle-FTW';

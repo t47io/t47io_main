@@ -10,3 +10,8 @@ export const getContextObject = (context, regex = svgUrlRegex) => (
     ...item,
   }), {})
 );
+
+
+export const getPlayState = shouldAnimate => (shouldAnimate ? 'running' : 'finished');
+
+export const year = new Date().getFullYear();

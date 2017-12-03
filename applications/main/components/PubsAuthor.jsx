@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { AUTHOR_NAME } from '../../common/constants/util.js';
+import { AUTHOR_NAME } from '../constants/util.js';
 
 
 const PubsAuthor = ({ authors }) => {

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import TitleImage from './TitleImage.jsx';
 
+import { getColumn } from '../util.js';
+
 import '../stylesheets/TitleSection.scss';
 
 
@@ -13,7 +15,7 @@ const TitleSection = ({
   isSplit,
   children,
 }) => {
-  const wrapperColumn = isSplit ? 6 : 12;
+  const wrapperColumn = getColumn(isSplit);
 
   return (
     <div className="row">

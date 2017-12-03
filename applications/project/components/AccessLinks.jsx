@@ -9,6 +9,7 @@ import {
   COLORS,
   KEYS,
 } from '../constants/labelTypes.js';
+import { getColumn } from '../util.js';
 
 
 const AccessLinks = ({
@@ -18,7 +19,7 @@ const AccessLinks = ({
 }) => {
   if (!urls.prod && !urls.server) { return null; }
 
-  const wrapperColumn = (urls.demo || urls.theme) ? 6 : 12;
+  const wrapperColumn = getColumn(urls.demo || urls.theme);
 
   return (
     <div className="row">

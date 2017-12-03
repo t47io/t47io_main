@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import GithubRect from './GithubRect.jsx';
 
-import { DAY_MILLISECONDS } from '../../common/constants/util.js';
+import { DAY_MILLISECONDS } from '../constants/util.js';
 
 
 const GithubColumn = ({

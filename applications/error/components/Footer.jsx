@@ -6,10 +6,9 @@ import {
   SvgCreativeCommon,
 } from './Images.js';
 
+import { year } from '../../common/util.js';
 import { LICENSE } from '../../config.js';
 
-
-const year = new Date().getFullYear();
 
 const Footer = () => (
   <footer className="FOOTER">

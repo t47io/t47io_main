@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const SPACER_MARKUP = '_';
-const FIELD_MARKUP = `${SPACER_MARKUP}1st${SPACER_MARKUP}`;
-const fieldRegex = new RegExp(FIELD_MARKUP, 'g');
+import {
+  MARKUP,
+  FIELD_MARKUP,
+} from '../constants/util.js';
+import { fieldRegex } from '../util.js';
 
 
 const PortfolioDescription = ({ description }) => {
-  const despChunks = description.split(SPACER_MARKUP);
+  const despChunks = description.split(MARKUP);
   const replaceChunks = description.match(fieldRegex);
 
   if (replaceChunks === null) {
@@ -20,7 +21,7 @@ const PortfolioDescription = ({ description }) => {
   return (
     <span className="PORTFILIO__text-description">
       {despChunks.map((chunk) => {
-        if (`${SPACER_MARKUP}${chunk}${SPACER_MARKUP}` === FIELD_MARKUP) {
+        if (`${MARKUP}${chunk}${MARKUP}` === FIELD_MARKUP) {
           return (
             <u key={chunk}>
               <b>1<sup>st</sup></b>

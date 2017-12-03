@@ -30,3 +30,5 @@ export const DESCRIPTION = 'Personal portfolio of Siqi Tian, a full-stack web de
 
 export const LICENSE = 'https://creativecommons.org/licenses/by-nc-sa/4.0/';
 export const REPOSITORY = `${GITHUB_HOST}/t47io/t47io_main/`;
+
+export const ERROR_COLOR_CODES = ['green', 'blue', 'yellow', 'purple', 'red'];

@@ -7,6 +7,7 @@ import {
   SMTP,
 } from '../env.js';
 import { FILE_NAMES } from '../config.js';
+import { today } from '../util.js';
 
 import cronJSON from '../../config/cron.json';
 
@@ -23,7 +24,7 @@ const formatPubs = () => {
 };
 
 const emailAdmin = (content) => {
-  const dateString = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  const dateString = today.replace(/-/g, '');
 
   return SMTP.sendMail({
     from: EMAIL_RECV,

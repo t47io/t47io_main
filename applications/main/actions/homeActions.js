@@ -4,7 +4,7 @@ import {
   TOGGLE_HOME_INTRO_ANIMATION,
   CYCLE_HOME_TEXT_COLOR,
 } from '../constants/actionTypes.js';
-import { TEXT_COLOR_CYCLE } from '../../common/constants/util.js';
+import { TEXT_COLOR_CYCLE } from '../constants/util.js';
 import {
   AVATAR_SVG_DRAW_DURATION,
   HOME_TEXT_COLOR_INTERVAL,

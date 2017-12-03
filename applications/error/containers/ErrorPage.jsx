@@ -5,7 +5,7 @@ import Meta from '../components/Meta.jsx';
 import ErrorSection from '../components/ErrorSection.jsx';
 import Footer from '../components/Footer.jsx';
 
-import { ERROR_COLOR_CODES } from '../../common/constants/util.js';
+import { ERROR_COLOR_CODES } from '../../config.js';
 
 
 const ErrorPage = ({

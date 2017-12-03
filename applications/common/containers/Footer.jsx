@@ -24,16 +24,19 @@ import {
   imgSEA,
   imgSFO,
 } from '../components/Images.js';
-import { SVG_INDICES } from '../constants/util.js';
+import {
+  SVG_INDICES,
+  URL_DRIBBLE_SEA,
+  URL_DRIBBLE_SFO,
+} from '../constants/util.js';
 import {
   footerHeader,
   footerGif,
 } from '../animations/footer.js';
+import { year } from '../../common/util.js';
 
 import '../stylesheets/Footer.scss';
 
-
-const year = new Date().getFullYear();
 
 const Footer = ({
   animations: { footer },
@@ -52,7 +55,7 @@ const Footer = ({
       shouldAnimate={footer}
     >
       <a
-        href="https://dribbble.com/shots/1772409-Golden-Gate-Bridge"
+        href={URL_DRIBBLE_SFO}
         target="_blank" rel="noopener noreferrer external"
       >
         {SVG_INDICES.map(i => (
@@ -109,7 +112,7 @@ const Footer = ({
       shouldAnimate={footer}
     >
       <a
-        href="https://dribbble.com/shots/2037387-Seattle-FTW"
+        href={URL_DRIBBLE_SEA}
         target="_blank" rel="noopener noreferrer external"
       >
         {SVG_INDICES.map(i => (

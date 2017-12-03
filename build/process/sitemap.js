@@ -7,6 +7,7 @@ import { PROJECT_LIST } from '../../applications/project/constants/projectTypes.
 import {
   resumeVersion,
   pubTags,
+  today,
 } from '../../server/util.js';
 import { saveFileSync } from '../render/util.js';
 
@@ -27,14 +28,13 @@ const addRecord = (location, lastModify, changeFreq = 'never', priority = null) 
 
 
 try {
-  const homeDate = new Date().toISOString().slice(0, 10);
-  const projectDate = `${homeDate.slice(0, 7)}-01`;
+  const projectDate = `${today.slice(0, 7)}-01`;
   const resumeDate = `${resumeVersion.slice(0, 4)}-${resumeVersion.slice(4, 6)}-${resumeVersion.slice(6, 8)}`;
 
   let sitemapXML = '<?xml version="1.0" encoding="UTF-8"?>';
   sitemapXML += `<urlset xmlns="${SITEMAP_HEAD.xmlns}" xmlns:xsi="${SITEMAP_HEAD.xsi}" xsi:schemaLocation="${SITEMAP_HEAD.xmlns} ${SITEMAP_HEAD.xmlns}/${SITEMAP_HEAD.schemaLocation}">`;
 
-  sitemapXML += addRecord('', homeDate, 'weekly', 1);
+  sitemapXML += addRecord('', today, 'weekly', 1);
   sitemapXML += addRecord('resume', resumeDate, 'montly', 0.8);
   PROJECT_LIST.forEach((project) => {
     sitemapXML += addRecord(`project/${project}`, projectDate, 'monthly');

@@ -2,8 +2,7 @@ import React from 'react';
 import { Animation } from 'react-web-animation';
 import PropTypes from 'prop-types';
 
-
-const getPlayState = shouldAnimate => (shouldAnimate ? 'running' : 'finished');
+import { getPlayState } from '../util.js';
 
 
 class WebAnimation extends React.Component {

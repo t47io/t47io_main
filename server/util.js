@@ -55,3 +55,5 @@ export const sendErrorResponse = (code) => {
   err.status = code;
   return err;
 };
+
+export const today = new Date().toISOString().slice(0, 10);

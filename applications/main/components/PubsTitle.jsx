@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const ITALIC_MARKUP = '_';
-const italicRegex = new RegExp(`${ITALIC_MARKUP}[a-zA-Z0-9]*${ITALIC_MARKUP}`, 'g');
+import { MARKUP } from '../constants/util.js';
+import { italicRegex } from '../util.js';
 
 
 const PubsTitle = ({ title }) => {
-  const titleChunks = title.split(ITALIC_MARKUP);
+  const titleChunks = title.split(MARKUP);
   const italicChunks = title.match(italicRegex);
 
   if (italicChunks === null) {
@@ -19,7 +18,7 @@ const PubsTitle = ({ title }) => {
   return (
     <b className="PUBS__title">
       {titleChunks.map((chunk) => {
-        if (italicChunks.includes(`${ITALIC_MARKUP}${chunk}${ITALIC_MARKUP}`)) {
+        if (italicChunks.includes(`${MARKUP}${chunk}${MARKUP}`)) {
           return (
             <i key={chunk}>{chunk}</i>
           );

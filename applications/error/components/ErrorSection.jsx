@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Logo from '../../common/components/Logo.jsx';
 import { imgErrors } from '../components/Images.js';
 
-import { ERROR_COLOR_CODES } from '../../common/constants/util.js';
+import { ERROR_COLOR_CODES } from '../../config.js';
 
 
 const ErrorSection = ({

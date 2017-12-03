@@ -8,7 +8,7 @@ import GithubLegend from './GithubLegend.jsx';
 import {
   DAY_MILLISECONDS,
   WEEK_DAYS,
-} from '../../common/constants/util.js';
+} from '../constants/util.js';
 
 
 const GithubCalendar = ({
