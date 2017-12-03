@@ -39,8 +39,8 @@
       "standard": "Forbidden"
     },
     "text": {
-      "custom": "Your mRNA lacks a RBS or IRES to access the ribosome. <i>trans</i>-splicing with the <span class=\"label label-green\">admin</span> might activate proper gene expression.",
-      "standard": "The server understood the request but refused to fulfill it.\n\n<b>This page is for site <span class=\"label label-green\">admin</span> only.</b>\nPlease contact the site <span class=\"label label-green\">admin</span> for administrative tasks (<a target=\"_blank\" rel=\"noopener noreferrer external\">&nbsp;<u>t47@stanford.edu</u>&nbsp;&nbsp;<i class=\"fa fa-fw fa-envelope\"></i>&nbsp;</a>)."
+      "custom": "Your mRNA lacks a RBS or IRES to access the ribosome. <i>trans</i>-splicing with the admin might activate proper gene expression.",
+      "standard": "The server understood the request but refused to fulfill it.\n\n<b>This page is for site admin only.</b>\nPlease contact the site admin for administrative tasks (<a target=\"_blank\" rel=\"noopener noreferrer external\">&nbsp;<u>t47@stanford.edu</u>&nbsp;&nbsp;<i class=\"fa fa-fw fa-envelope\"></i>&nbsp;</a>)."
     }
   },
   "404": {
