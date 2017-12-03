@@ -5,8 +5,9 @@ import PubsLink from './PubsLink.jsx';
 import PubsTitle from './PubsTitle.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { SvgThesis } from './Images.js';
+import { imgThesis } from './Images.js';
 import { pubsThesis } from '../animations/pubs.js';
+import { SVG_INDICES } from '../../common/constants/util.js';
 
 
 const PubsThesis = ({
@@ -31,7 +32,14 @@ const PubsThesis = ({
         Ph.D. Dissertation
       </h5>
       <div className="SVG SVG--hover PUBS__thesis-flyer">
-        <img src={SvgThesis} />
+        {SVG_INDICES.map(i => (
+          <img
+            key={`PUBS__thesis-flyer--${i}`}
+            className={`SVG--${i}`}
+            src={imgThesis[i]}
+            alt="PhD Thesis Flyer"
+          />
+        ))}
       </div>
 
       <h3 className="PUBS__thesis-title">
