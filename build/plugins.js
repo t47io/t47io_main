@@ -34,22 +34,50 @@ const plugins = (DEBUG = true) => {
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
-      chunks: [chunkNames.main, chunkNames.vendor, chunkNames.manifest],
+      chunks: [
+        chunkNames.mainApp,
+        chunkNames.mainImage,
+        chunkNames.vendor,
+        chunkNames.manifest,
+      ],
       template: HTML_TEMPLATE,
       filename: path.join(ROOT_PATH, 'public/main.html'),
       inject: false,
-      chunk: chunkNames.main,
-      manifest: MANIFEST_JS,
-      debug: DEBUG,
+      args: {
+        js: [
+          chunkNames.vendor,
+          chunkNames.mainImage,
+          chunkNames.mainApp,
+        ],
+        css: [
+          chunkNames.vendor,
+          chunkNames.mainApp,
+        ],
+        manifest: MANIFEST_JS,
+        debug: DEBUG,
+      },
     }),
     new HtmlWebpackPlugin({
-      chunks: [chunkNames.project, chunkNames.vendor, chunkNames.manifest],
+      chunks: [
+        chunkNames.projectApp,
+        chunkNames.vendor,
+        chunkNames.manifest,
+      ],
       template: HTML_TEMPLATE,
       filename: path.join(ROOT_PATH, 'public/project.html'),
       inject: false,
-      chunk: chunkNames.project,
-      manifest: MANIFEST_JS,
-      debug: DEBUG,
+      args: {
+        js: [
+          chunkNames.vendor,
+          chunkNames.projectApp,
+        ],
+        css: [
+          chunkNames.vendor,
+          chunkNames.projectApp,
+        ],
+        manifest: MANIFEST_JS,
+        debug: DEBUG,
+      },
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: chunkNames.vendor,
@@ -59,6 +87,14 @@ const plugins = (DEBUG = true) => {
           module.resource.includes('node_modules/') ||
           (module.resource.includes('applications/vendor/') && module.resource.endsWith('css'))
         )
+      ),
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: chunkNames.mainImage,
+      filename: CHUNK_FILE_NAME(DEBUG),
+      chunks: [chunkNames.mainApp],
+      minChunks: module => (
+        module.resource && module.resource.includes('applications/main/images/')
       ),
     }),
     new ExtractTextPlugin({
