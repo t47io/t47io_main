@@ -3,13 +3,20 @@ import {
   getContextObject,
 } from '../../common/util.js';
 
-import SvgAvatar from '../images/t47_avatar.svg';
+import SvgAvatar from '../images/t47_avatar-0.svg';
 import SvgName from '../images/t47_name.svg';
 
 export {
   SvgAvatar,
   SvgName,
 };
+
+export const imgAvatar = [
+  require('../images/t47_avatar-1.svg'),
+  require('../images/t47_avatar-2.svg'),
+  require('../images/t47_avatar-3.svg'),
+  require('../images/t47_avatar-4.svg'),
+];
 
 export const imgThesis = [
   require('../images/t47_thesis-0.svg'),

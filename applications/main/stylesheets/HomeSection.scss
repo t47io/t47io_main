@@ -19,6 +19,8 @@
 
   .SVG--home {
     .SVG--0 {
+      width: 100vw;
+      height: 100vh;
       opacity: 0;
       visibility: hidden;
       transition-duration: 0.025s;
@@ -28,6 +30,10 @@
 
     @for $i from 1 through 4 {
       .SVG--#{$i} {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        top: 0;
         opacity: 0;
         visibility: hidden;
         transition-duration: 0.5s;
@@ -35,7 +41,7 @@
       }    
     }
 
-    svg.active {
+    &.active {
       .SVG--0 {
         @for $i from 0 through $draws - 1 {
           path:nth-of-type(#{$draws}n+#{$i}) {

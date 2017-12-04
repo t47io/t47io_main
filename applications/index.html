@@ -28,7 +28,7 @@
             link.rel = 'stylesheet';
             link.media = 'none';
             link.href = '/styles/' + chunk + '.' + hash + '.min.css';
-            link.onload = function() {
+            link.onload = function () {
               if (this.media !== 'all') {
                 this.media = 'all';
               }
@@ -36,33 +36,33 @@
             appendHead(link);
           }
           function appendScriptTag(chunk, hash) {
-            return new Promise(function(resolve, reject) {
+            return new Promise(function (resolve, reject) {
               var script = document.createElement('script');
               script.type = 'application/javascript';
               script.async = script.defer = true;
               script.src = '/scripts/' + chunk + '.' + hash + '.min.js';
-              script.onload = function() {
+              script.onload = function () {
                 resolve();
               };
-              script.onerror = function() {
+              script.onerror = function () {
                 reject();
               };
               appendHead(script);
             });
           }
 
-          jsEntries.forEach(function(entry) {
+          jsEntries.forEach(function (entry) {
             appendPreload(entry, window.manifest[entry], 'script', 'js');
           });
-          cssEntries.forEach(function(entry) {
+          cssEntries.forEach(function (entry) {
             appendPreload(entry, window.manifest[entry], 'style', 'css');
           });
-          jsEntries.reduce(function(promise, entry) {
-            return promise.then(function() {
+          jsEntries.reduce(function (promise, entry) {
+            return promise.then(function () {
               return appendScriptTag(entry, window.manifest[entry]);
             });
           }, Promise.resolve());
-          cssEntries.forEach(function(entry) {
+          cssEntries.forEach(function (entry) {
             appendStyleTag(entry, window.manifest[entry]);
           });
         })();

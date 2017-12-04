@@ -11,9 +11,15 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import * as homeActions from '../actions/homeActions.js';
 import { initialState as homeProps } from '../reducers/home.js';
 import { HOME } from '../constants/sectionTypes.js';
-import { TEXT_COLORS } from '../constants/util.js';
+import {
+  TEXT_COLORS,
+  SVG_BG_INDICES,
+} from '../constants/util.js';
 
-import { SvgAvatar } from '../components/Images.js';
+import {
+  SvgAvatar,
+  imgAvatar,
+} from '../components/Images.js';
 import { homeShade } from '../animations/home.js';
 
 import '../stylesheets/HomeSection.scss';
@@ -42,12 +48,19 @@ const HomeSection = ({
         onToggleAnimation={animateHome}
       />
       <h1 className="HOME__name--seo">SIQI TIAN</h1>
-      <div className="SVG SVG--home SVG__background UTIL__parallax">
-        <img
-          src={SvgAvatar}
-          className={svgClassName}
+      <div className={`SVG SVG--home ${svgClassName} SVG__background UTIL__parallax`}>
+        <SvgAvatar
+          className="SVG--0"
           preserveAspectRatio="xMidYMid slice"
         />
+        {SVG_BG_INDICES.map(i => (
+          <img
+            key={`HOME__avatar--${i + 1}`}
+            className={`SVG--${i + 1}`}
+            src={imgAvatar[i]}
+            alt="Siqi Tian"
+          />
+        ))}
       </div>
 
       <WebAnimation
