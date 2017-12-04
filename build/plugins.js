@@ -10,7 +10,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import ZopfliPlugin from 'zopfli-webpack-plugin';
 
 import {
@@ -40,7 +39,7 @@ const plugins = (DEBUG = true) => {
         chunkNames.vendor,
         chunkNames.manifest,
       ],
-      template: HTML_TEMPLATE,
+      template: path.join(ROOT_PATH, HTML_TEMPLATE),
       filename: path.join(ROOT_PATH, 'public/main.html'),
       inject: false,
       args: {
@@ -63,7 +62,7 @@ const plugins = (DEBUG = true) => {
         chunkNames.vendor,
         chunkNames.manifest,
       ],
-      template: HTML_TEMPLATE,
+      template: path.join(ROOT_PATH, HTML_TEMPLATE),
       filename: path.join(ROOT_PATH, 'public/project.html'),
       inject: false,
       args: {
@@ -140,23 +139,13 @@ const plugins = (DEBUG = true) => {
       filename: MANIFEST_JS,
     }),
     new ManifestPlugin(),
-    new BabelMinifyPlugin(),
-    // new UglifyJsPlugin({
-    //   cache: true,
-    //   parallel: true,
-    //   sourceMap: false,
-    //   uglifyOptions: {
-    //     compress: {
-    //       drop_console: true,
-    //       unsafe_math: true,
-    //       unsafe_proto: true,
-    //     },
-    //     output: {
-    //       beautify: false,
-    //       comments: false,
-    //     },
-    //   },
-    // }),
+    new BabelMinifyPlugin({
+      removeConsole: true,
+      removeDebugger: true,
+    }, {
+      comments: false,
+      sourceMap: false,
+    }),
     new BrotliPlugin({
       test: compressionRegex,
       minRatio: Infinity,
