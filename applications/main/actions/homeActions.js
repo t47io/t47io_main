@@ -4,7 +4,7 @@ import {
   TOGGLE_HOME_INTRO_ANIMATION,
   CYCLE_HOME_TEXT_COLOR,
 } from '../constants/actionTypes.js';
-import { TEXT_COLOR_CYCLE } from '../constants/util.js';
+import { TEXT_COLORS } from '../constants/util.js';
 import {
   AVATAR_SVG_DRAW_DURATION,
   HOME_TEXT_COLOR_INTERVAL,
@@ -37,7 +37,7 @@ export const animateHome = () => (dispatch) => {
     let status = 0;
 
     setInterval(() => {
-      status = (status + 1) % TEXT_COLOR_CYCLE.length;
+      status = (status + 1) % TEXT_COLORS.length;
       dispatch(animateTextColorCycle(status));
     }, HOME_TEXT_COLOR_INTERVAL);
   }, SHADE_FADE_DELAY_2 + AVATAR_SVG_DRAW_DURATION);

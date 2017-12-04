@@ -6,22 +6,19 @@ import {
   loadFileSync,
   saveFileSync,
   renderSassSync,
-  loadImageSync,
+  replaceBgRNA,
 } from '../render/util.js';
 
 const SCRIPT = 'process:temp';
 
 
-const rnaSVG = loadImageSync('applications/loading/images/bg_rna.svg');
-
 const processTempCSS = (inputHTML, inputCSS, outputCSS, tag) => {
   const contentHTML = loadFileSync(path.join('public/tmp/', inputHTML));
-  const contentCSS = purify(
+  const contentCSS = replaceBgRNA(purify(
     contentHTML,
     renderSassSync(path.join('applications/', inputCSS)),
     { minify: true }
-  )
-  .replace('../images/bg_rna.svg', rnaSVG);
+  ));
   saveFileSync(path.join('public/tmp/', outputCSS), contentCSS);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Temp CSS (${colors.blue(`<${tag} />`)}) created.`);
 };

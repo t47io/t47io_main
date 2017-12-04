@@ -19,12 +19,14 @@ const CHUNK_NAME = (chunk, DEBUG = true) => (
   DEBUG ? chunk : chunk.slice(0, 1)
 );
 export const CHUNK_NAMES = (DEBUG = true) => ({
-  main: CHUNK_NAME('main', DEBUG),
-  project: CHUNK_NAME('project', DEBUG),
+  mainApp: CHUNK_NAME('main', DEBUG),
+  mainData: CHUNK_NAME('data', DEBUG),
+  mainImage: CHUNK_NAME('image', DEBUG),
+  projectApp: CHUNK_NAME('project', DEBUG),
+  projectData: CHUNK_NAME('repo', DEBUG),
+  projectImage: CHUNK_NAME('svg', DEBUG),
   vendor: CHUNK_NAME('vendor', DEBUG),
   manifest: DEBUG ? 'manifest' : 'f',
-  data: CHUNK_NAME('data', DEBUG),
-  repo: CHUNK_NAME('repo', DEBUG),
 });
 
 export const GZIP_FILE_TYPES = ['html', 'js', 'css', 'map', 'eot', 'ttf', 'woff', 'woff2', 'mp3', 'svg', 'xml', 'txt'];
@@ -38,8 +40,8 @@ export const GA_TRACKER = `
   </script>
   <script type="application/javascript"
     src="https://www.google-analytics.com/analytics.js"
-    async defer
-  ></script>
+    async defer>
+  </script>
 `;
 
 export const IE9_SHIM = `
@@ -50,6 +52,7 @@ export const IE9_SHIM = `
 `;
 
 export const HTML_MINIFIER = {
+  collapseBooleanAttributes: true,
   collapseWhitespace: true,
   minifyCSS: true,
   minifyJS: true,
@@ -57,16 +60,11 @@ export const HTML_MINIFIER = {
   removeRedundantAttributes: true,
   useShortDoctype: true,
 };
-export const HTML_TEMPLATE = path.join(ROOT_PATH, 'applications/index.html');
+export const HTML_TEMPLATE = 'applications/index.html';
+export const BG_RNA_SVG = 'applications/loading/images/bg_rna.svg';
 
 export const SITEMAP_HEAD = {
   xmlns: 'https://www.sitemaps.org/schemas/sitemap/0.9',
   xsi: 'https://www.w3.org/2001/XMLSchema-instance',
   schemaLocation: 'sitemap.xsd',
 };
-
-export const THEMES = [
-  'green',
-  'cyan',
-  'purple',
-];

@@ -6,7 +6,7 @@ import {
   loadFileSync,
   saveFileSync,
   renderSassSync,
-  loadImageSync,
+  replaceBgRNA,
 } from '../render/util.js';
 
 import errorJSON from '../../config/error.json';
@@ -15,12 +15,10 @@ const SCRIPT = 'process:error';
 
 
 const codes = Object.keys(errorJSON).map(code => parseInt(code, 10));
-const rnaSVG = loadImageSync('applications/loading/images/bg_rna.svg');
 
 const processErrorHTML = (code, baseHTML, rawCSS, bodyMETA) => {
   const bodyHTML = loadFileSync(`public/tmp/_err${code}.html`);
-  const bodyCSS = purify(bodyHTML, rawCSS, { minify: true })
-    .replace('../images/bg_rna.svg', rnaSVG);
+  const bodyCSS = replaceBgRNA(purify(bodyHTML, rawCSS, { minify: true }));
   const finalHTML = renderErrorHTML(baseHTML, bodyHTML, bodyMETA, bodyCSS);
 
   saveFileSync(`public/e.${code}.html`, finalHTML);

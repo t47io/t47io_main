@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import TypeWriter from '../../common/components/TypeWriter.jsx';
 
-import { TEXT_COLOR_CYCLE } from '../constants/util.js';
+import { TEXT_COLORS } from '../constants/util.js';
 import {
   TYPE_WRITER_DELAY,
   TYPE_WRITER_SPEED,
@@ -25,7 +25,7 @@ const HomeDescription = ({
     );
   }
 
-  const textColorClassName = `text-${TEXT_COLOR_CYCLE[color]}`;
+  const textColorClassName = `text-${TEXT_COLORS[color]}`;
 
   return (
     <TypeWriter

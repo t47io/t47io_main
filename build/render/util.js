@@ -8,8 +8,9 @@ import shell from 'shelljs';
 import {
   ROOT_PATH,
   GA_TRACKER,
-  THEMES,
+  BG_RNA_SVG,
 } from '../config.js';
+import { THEME_COLORS } from '../../applications/main/constants/util.js';
 
 
 export const replaceHTML = inputHTML => (
@@ -32,7 +33,7 @@ export const saveFileSync = (filename, content) => {
 
 export const getThemeColor = () => {
   const index = (new Date().getMonth() + 1) % 6;
-  const whichTheme = THEMES[Math.max(0, index - 3)];
+  const whichTheme = THEME_COLORS[Math.max(0, index - 3)];
   return loadFileSync(`applications/common/themes/${whichTheme}.scss`);
 };
 
@@ -49,3 +50,8 @@ export const loadImageSync = (filename) => {
   const img = fs.readFileSync(path.join(ROOT_PATH, filename));
   return `data:image/svg+xml,${encodeURIComponent(img)}`;
 };
+
+const rnaSVG = loadImageSync(BG_RNA_SVG);
+export const replaceBgRNA = inputCSS => (
+  inputCSS.replace('../images/bg_rna.svg', rnaSVG)
+);
