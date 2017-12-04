@@ -60,6 +60,12 @@ const loaders = (DEBUG = true, SSR = false) => {
       },
     },
   }, {
+    test: /\.mp3$/,
+    use: {
+      loader: 'url-loader',
+      options: { name: ASSET_FILE_NAME('audio') },
+    },
+  }, {
     test: /\.svg$/,
     oneOf: [{
       include: [
@@ -84,12 +90,6 @@ const loaders = (DEBUG = true, SSR = false) => {
         },
       },
     }],
-  }, {
-    test: /\.mp3$/,
-    use: {
-      loader: 'file-loader',
-      options: { name: ASSET_FILE_NAME('audio') },
-    },
   }];
 
   if (SSR) {

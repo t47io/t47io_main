@@ -93,7 +93,10 @@ const plugins = (DEBUG = true) => {
       filename: CHUNK_FILE_NAME(DEBUG),
       chunks: [chunkNames.mainApp],
       minChunks: module => (
-        module.resource && module.resource.includes('applications/main/images/')
+        module.resource && (
+          module.resource.includes('applications/main/images/') ||
+          module.resource.endsWith('mp3')
+        )
       ),
     }),
     new ExtractTextPlugin({
