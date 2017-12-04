@@ -46,6 +46,6 @@ export const renderSassSync = filename => (
 );
 
 export const loadImageSync = (filename) => {
-  const png = fs.readFileSync(path.join(ROOT_PATH, filename)).toString('base64');
-  return `data:image/png;base64,${png}`;
+  const img = fs.readFileSync(path.join(ROOT_PATH, filename));
+  return `data:image/svg+xml,${encodeURIComponent(img)}`;
 };
