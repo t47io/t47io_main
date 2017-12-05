@@ -54,7 +54,7 @@ class Carousel extends React.PureComponent {
     const tag = items[current];
 
     return (
-      <div className={`${className} SVG UTIL__carousel UTIL__parallax UTIL__background`}>
+      <div className={`${className} SVG UTIL__carousel UTIL__background`}>
         <div className={`SVG__background ${svgClassName} UTIL__carousel--fade`}>
           {SVG_BG_INDICES.map(i => (
             <img

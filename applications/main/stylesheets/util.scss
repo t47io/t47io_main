@@ -15,50 +15,19 @@ section:not(#HOME__section) {
   padding: 1.5rem;
 }
 
-.UTIL__divider {
-  width: 100%;
-  height: 52px;
-  margin: -10px 0px -5px 0px;
-  background: url("../images/fg_divider.png") no-repeat center center;
-  background-size: auto 52px;
+.UTIL__section-header {
+  .UTIL__divider {
+    width: 100%;
+    height: 4rem;
+    margin: -.5rem 0;
+  }
 }
 
-.UTIL__parallax {
+.UTIL__background {
   position: relative;
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  transition-duration: 0.5s;
-
-  &.UTIL__background {
-    padding-bottom: 5.5rem;
-    height: 100%;
-  }
-
-  &:not(.UTIL__background) {
-    background-position: 50% 30%;
-  }
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .UTIL__parallax {
-    background-attachment: scroll;
-  }
-}
-@include media_width_lt(991px) {
-  .UTIL__parallax {
-    background-attachment: scroll;
-
-    &:not(.UTIL__background) {
-      background-position: 50% 50%;
-    }
-
-    &.UTIL__background {
-      background-size: initial;
-    }
-  }
+  padding-bottom: 5.5rem;
 }
 
 .UTIL__spacer-sm,
