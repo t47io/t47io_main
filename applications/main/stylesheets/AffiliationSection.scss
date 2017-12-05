@@ -184,6 +184,13 @@
 
   .AFFILIATION__content {
     padding-left: 0;
+
+    .SVG {
+      .SVG--2,
+      .SVG--3 {
+        max-width: calc(100% - 30px);
+      }
+    }
   }
 
   .AFFILIATION__timeline {
