@@ -17,6 +17,7 @@ import Navbar from '../../common/containers/Navbar.jsx';
 import Footer from '../../common/containers/Footer.jsx';
 import ScrollSpy from '../../common/components/ScrollSpy.jsx';
 import ScrollTop from '../../common/components/ScrollTop.jsx';
+import ScrollDown from '../components/ScrollDown.jsx';
 
 import {
   scrollToSection,
@@ -51,6 +52,7 @@ const Main = ({
         onUpdateScroll={onUpdateScroll}
       >
         <HomeSection />
+        <ScrollDown onScrollTop={onScrollTop} />
       </ScrollSpy>
       <div className="UTIL__spacer-sm" />
 

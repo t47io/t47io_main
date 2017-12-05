@@ -87,9 +87,6 @@ const HomeSection = ({
             server={server}
           />
         </div>
-        <div className="HOME__scroll-down">
-          <i className={`fa fa-3x fa-fw fa-down-circled ${arrowColorClassName}`} />
-        </div>
       </div>
     </section>
   );

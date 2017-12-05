@@ -199,11 +199,23 @@
   right: 2rem;
 
   .fa {
-    opacity: 0.4;
-    transition-duration: 1s;
+    color: $colorMain;
+    transition-duration: 0.5s;
+    animation: pulse 1s ease-in-out infinite alternate;
   }
 
   &:hover .fa {
     opacity: 0.75;
+    animation: none;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 0.75;
+    }
   }
 }
