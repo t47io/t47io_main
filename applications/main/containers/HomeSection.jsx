@@ -35,8 +35,12 @@ const HomeSection = ({
   },
   actions: { animateHome },
 }) => {
-  let svgClassName = (ready && avatar) ? 'active' : '';
-  svgClassName = intro ? 'finished' : svgClassName;
+  let svgClassName;
+  if (ready && avatar) {
+    svgClassName = 'active';
+  } else {
+    svgClassName = intro ? 'finished' : '';
+  }
 
   return (
     <section id="HOME__section">
