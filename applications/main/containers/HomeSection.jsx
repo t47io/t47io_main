@@ -11,10 +11,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import * as homeActions from '../actions/homeActions.js';
 import { initialState as homeProps } from '../reducers/home.js';
 import { HOME } from '../constants/sectionTypes.js';
-import {
-  TEXT_COLORS,
-  AVATAR_INDICES,
-} from '../constants/util.js';
+import { AVATAR_INDICES } from '../constants/util.js';
 
 import {
   SvgAvatar,
@@ -40,7 +37,6 @@ const HomeSection = ({
 }) => {
   let svgClassName = (ready && avatar) ? 'active' : '';
   svgClassName = intro ? 'finished' : svgClassName;
-  const arrowColorClassName = ''; //`text-${TEXT_COLORS[color % 2]}`;
 
   return (
     <section id="HOME__section">

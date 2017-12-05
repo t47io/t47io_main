@@ -37,4 +37,4 @@ export const homeShade = {
   },
 };
 
-export const HOME_TEXT_COLOR_INTERVAL = 2500;
+export const COLOR_CYCLER_INTERVAL = 2500;

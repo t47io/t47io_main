@@ -2,7 +2,7 @@ import {
   TOGGLE_HOME_READY,
   TOGGLE_HOME_AVATAR_ANIMATION,
   TOGGLE_HOME_INTRO_ANIMATION,
-  CYCLE_HOME_TEXT_COLOR,
+  TOGGLE_HOME_TEXT_COLOR,
 } from '../constants/actionTypes.js';
 
 
@@ -49,7 +49,7 @@ const reducer = (state = initialState, { type, payload }) => {
         },
       };
     }
-    case CYCLE_HOME_TEXT_COLOR: {
+    case TOGGLE_HOME_TEXT_COLOR: {
       return {
         ...state,
         animations: {
