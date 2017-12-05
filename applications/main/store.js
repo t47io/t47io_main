@@ -21,7 +21,7 @@ const loadData = (data) => {
     type: LOAD_JSON_DATA,
     payload: { ...data },
   });
-  setTimeout(() => animateReady()(store.dispatch), 1000);
+  window.onload = () => animateReady()(store.dispatch);
 };
 
 if (process.env.NODE_ENV !== 'production') {
