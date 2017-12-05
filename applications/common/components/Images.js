@@ -6,6 +6,7 @@ export {
   SvgLogoAlt,
 };
 
+export const imgDivider = require('../images/fg_divider.svg');
 
 export const imgSEA = [
   require('../images/fg_city_sea-0.svg'),

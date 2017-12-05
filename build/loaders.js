@@ -51,19 +51,13 @@ const loaders = (DEBUG = true, SSR = false) => {
       options: { name: ASSET_FILE_NAME('fonts') },
     },
   }, {
-    test: /\.(png|jpg|gif)$/,
+    test: /\.(png|jpg|mp3)$/,
     use: {
       loader: 'url-loader',
       options: {
         limit: 25600,
-        name: ASSET_FILE_NAME('images'),
+        name: ASSET_FILE_NAME('media'),
       },
-    },
-  }, {
-    test: /\.mp3$/,
-    use: {
-      loader: 'url-loader',
-      options: { name: ASSET_FILE_NAME('audio') },
     },
   }, {
     test: /\.svg$/,

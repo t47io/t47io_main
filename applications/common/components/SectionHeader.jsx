@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Trigger from './Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
+import { imgDivider } from './Images.js';
 import { sectionHeader } from '../animations/sectionHeader.js';
 
 import '../stylesheets/SectionHeader.scss';
@@ -23,7 +24,11 @@ const SectionHeader = ({
       shouldAnimate={shouldAnimate}
     >
       <h2 className="UTIL__section-title">{title}</h2>
-      <div className="UTIL__divider" />
+      <img
+        className="UTIL__divider"
+        src={imgDivider}
+        alt="divider"
+      />
       <p className="UTIL__section-subtitle">
         {subtitle}
       </p>
