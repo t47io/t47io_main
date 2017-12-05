@@ -1,5 +1,6 @@
 export const svgUrlRegex = /\.\/(.*)-.*$/g;
 export const svgReactRegex = /\.\/(.*)\.svg/g;
+export const svgAvatarRegex = /\.\/t47_avatar-([0-5])\.svg/g;
 
 export const getContextObject = (context, regex = svgUrlRegex) => (
   context.keys().map(key => ({

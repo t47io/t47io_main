@@ -18,7 +18,8 @@
   }
 
   .SVG--home {
-    .SVG--0 {
+    .SVG--drawing {
+      position: relative;
       width: 100vw;
       height: 100vh;
       opacity: 0;
@@ -26,23 +27,36 @@
       transition-duration: 0.025s;
     }
 
+    .SVG--0 {
+      display: none;
+    }
+
+    @for $i from 0 through 4 {
+      .SVG--#{$i} {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        opacity: 0;
+        visibility: hidden;
+        transition-duration: 0.5s;
+      }
+    }
+
     $draws: 50;
 
     @for $i from 1 through 4 {
       .SVG--#{$i} {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        top: 0;
-        opacity: 0;
-        visibility: hidden;
-        transition-duration: 0.5s;
         transition-delay: #{$i * 0.5s + $draws * 0.05s + 1s};
       }    
     }
 
     &.active {
-      .SVG--0 {
+      .SVG--drawing {
+        opacity: 1;
+        visibility: visible;
+
         @for $i from 0 through $draws - 1 {
           path:nth-of-type(#{$draws}n+#{$i}) {
             transition-delay: #{$i * 0.05s + 1s};
@@ -50,10 +64,29 @@
         }
       }
 
+      @for $i from 1 through 4 {
+        .SVG--#{$i} {
+          opacity: 1;
+          visibility: visible;
+        }    
+      }
+    }
+
+    &.finished {
+      .SVG--drawing {
+        display: none;
+      }
+      
+      .SVG--0 {
+        display: inline;
+        position: relative;
+      }
+
       @for $i from 0 through 4 {
         .SVG--#{$i} {
           opacity: 1;
           visibility: visible;
+          transition-delay: 0s;
         }    
       }
     }

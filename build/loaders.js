@@ -71,8 +71,8 @@ const loaders = (DEBUG = true, SSR = false) => {
       include: [
         /brands/,
         /logo/,
-        /avatar-0/,
         /fa-/,
+        /avatar\.svg$/,
       ],
       use: [{
         loader: 'babel-loader',

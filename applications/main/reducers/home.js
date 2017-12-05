@@ -16,7 +16,7 @@ export const initialState = {
     ready: false,
     avatar: false,
     intro: false,
-    color: 0,
+    color: false,
   },
 };
 
@@ -54,7 +54,7 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         animations: {
           ...state.animations,
-          color: payload.status,
+          color: true,
         },
       };
     }

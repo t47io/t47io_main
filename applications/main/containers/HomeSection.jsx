@@ -13,12 +13,12 @@ import { initialState as homeProps } from '../reducers/home.js';
 import { HOME } from '../constants/sectionTypes.js';
 import {
   TEXT_COLORS,
-  SVG_BG_INDICES,
+  AVATAR_INDICES,
 } from '../constants/util.js';
 
 import {
   SvgAvatar,
-  imgAvatar,
+  imgAvatars,
 } from '../components/Images.js';
 import { homeShade } from '../animations/home.js';
 
@@ -38,8 +38,9 @@ const HomeSection = ({
   },
   actions: { animateHome },
 }) => {
-  const svgClassName = (ready && avatar) ? 'active' : '';
-  const arrowColorClassName = `text-${TEXT_COLORS[color % 2]}`;
+  let svgClassName = (ready && avatar) ? 'active' : '';
+  svgClassName = intro ? 'finished' : svgClassName;
+  const arrowColorClassName = ''; //`text-${TEXT_COLORS[color % 2]}`;
 
   return (
     <section id="HOME__section">
@@ -48,16 +49,18 @@ const HomeSection = ({
         onToggleAnimation={animateHome}
       />
       <h1 className="HOME__name--seo">SIQI TIAN</h1>
-      <div className={`SVG SVG--home ${svgClassName} SVG__background UTIL__parallax`}>
-        <SvgAvatar
-          className="SVG--0"
-          preserveAspectRatio="xMidYMid slice"
-        />
-        {SVG_BG_INDICES.map(i => (
+      <div className={`SVG SVG--home ${svgClassName} SVG__background`}>
+        {(svgClassName !== 'finished') && (
+          <SvgAvatar
+            className="SVG--drawing"
+            preserveAspectRatio="xMidYMid slice"
+          />
+        )}
+        {AVATAR_INDICES.map(i => (
           <img
-            key={`HOME__avatar--${i + 1}`}
-            className={`SVG--${i + 1}`}
-            src={imgAvatar[i]}
+            key={`HOME__avatar--${i}`}
+            className={`SVG--${i}`}
+            src={imgAvatars[i.toString()]}
             alt="Siqi Tian"
           />
         ))}
@@ -101,7 +104,7 @@ HomeSection.propTypes = {
     ready: PropTypes.bool,
     avatar: PropTypes.bool,
     intro: PropTypes.bool,
-    color: PropTypes.number,
+    color: PropTypes.bool,
   }),
   actions: PropTypes.shape({
     animateHome: PropTypes.func,
