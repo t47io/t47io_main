@@ -42,13 +42,13 @@ const HomeDescription = ({
 HomeDescription.propTypes = {
   title: PropTypes.string,
   intro: PropTypes.bool,
-  color: PropTypes.number,
+  color: PropTypes.bool,
   server: PropTypes.bool,
 };
 HomeDescription.defaultProps = {
   title: '',
   intro: false,
-  color: 0,
+  color: false,
   server: false,
 };
 
