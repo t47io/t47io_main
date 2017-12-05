@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { formatHomeText } from '../../main/util.js';
+
 
 class TypeWriter extends React.PureComponent {
   constructor(props) {
@@ -43,8 +45,7 @@ class TypeWriter extends React.PureComponent {
       let currentStep = 0;
       let currentText = '';
       this.timer = setInterval(() => {
-        currentText = fullText.slice(0, currentStep)
-          .replace(/!/g, '').replace(/@/g, '<br/>');
+        currentText = formatHomeText(fullText.slice(0, currentStep));
         currentStep += 1;
         this.setState({ currentText });
 

@@ -13,6 +13,21 @@ export const getContextObject = (context, regex = svgUrlRegex) => (
 );
 
 
+export const delayFor = (time = 0, callback) => (
+  new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        if (typeof callback === 'function') { callback(); }
+        resolve();
+      }, time);
+    } catch (err) {
+      console.log(err);
+      reject(err);
+    }
+  })
+);
+
+
 export const getPlayState = shouldAnimate => (shouldAnimate ? 'running' : 'finished');
 
 export const year = new Date().getFullYear();
