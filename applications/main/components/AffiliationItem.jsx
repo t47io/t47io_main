@@ -10,12 +10,7 @@ import { affiliationPanel } from '../animations/affiliation.js';
 
 const AffiliationItem = ({
   year,
-  title,
-  url,
-  geo,
-  role,
-  rewards,
-  tag,
+  items,
   shouldAnimate,
   onToggleAnimation,
   index,
@@ -52,15 +47,12 @@ const AffiliationItem = ({
           shouldAnimate
           shouldReverse={shouldAnimate}
         >
-          <AffiliationPanel
-            year={year}
-            title={title}
-            url={url}
-            geo={geo}
-            role={role}
-            rewards={rewards}
-            tag={tag}
-          />
+          {items.map((item, i) => (
+            <AffiliationPanel
+              key={`AFFILIATION__panel-${year}-${i}`}
+              {...item}
+            />
+          ))}
         </WebAnimation>
 
         <Waypoint
@@ -87,24 +79,14 @@ const AffiliationItem = ({
 
 AffiliationItem.propTypes = {
   year: PropTypes.number,
-  title: PropTypes.string,
-  url: PropTypes.string,
-  geo: PropTypes.string,
-  role: PropTypes.object,
-  rewards: PropTypes.arrayOf(PropTypes.object),
-  tag: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.object),
   shouldAnimate: PropTypes.bool,
   onToggleAnimation: PropTypes.func,
   index: PropTypes.number,
 };
 AffiliationItem.defaultProps = {
   year: NaN,
-  title: '',
-  url: '',
-  geo: '',
-  role: {},
-  rewards: [],
-  tag: '',
+  items: [],
   shouldAnimate: false,
   onToggleAnimation: () => {},
   index: 0,

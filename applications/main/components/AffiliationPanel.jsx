@@ -9,7 +9,6 @@ import { SVG_INDICES } from '../../common/constants/util.js';
 
 
 const AffiliationPanel = ({
-  year,
   title,
   url,
   geo,
@@ -52,7 +51,7 @@ const AffiliationPanel = ({
         <tbody>
           {rewards.map((item, i) => (
             <AffiliationRewardItem
-              key={`AFFILIATION__reward-${year}-${i}`}
+              key={`AFFILIATION__reward-${tag}-${i}`}
               {...item}
             />
           ))}
@@ -63,7 +62,6 @@ const AffiliationPanel = ({
 );
 
 AffiliationPanel.propTypes = {
-  year: PropTypes.number,
   title: PropTypes.string,
   url: PropTypes.string,
   geo: PropTypes.string,
@@ -72,7 +70,6 @@ AffiliationPanel.propTypes = {
   tag: PropTypes.string,
 };
 AffiliationPanel.defaultProps = {
-  year: NaN,
   title: '',
   url: '',
   geo: '',
