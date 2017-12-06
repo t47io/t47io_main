@@ -13,7 +13,10 @@ import PurifyCSSPlugin from 'purifycss-webpack';
 import ZopfliPlugin from 'zopfli-webpack-plugin';
 
 import {
-  ROOT_PATH,
+  ROOT,
+  PATH,
+} from '../server/env.js';
+import {
   CHUNK_FILE_NAME,
   CHUNK_NAMES,
   MANIFEST_JS,
@@ -39,8 +42,8 @@ const plugins = (DEBUG = true) => {
         chunkNames.vendor,
         chunkNames.manifest,
       ],
-      template: path.join(ROOT_PATH, HTML_TEMPLATE),
-      filename: path.join(ROOT_PATH, 'public/main.html'),
+      template: path.join(ROOT, HTML_TEMPLATE),
+      filename: path.join(PATH.PUBLIC, 'main.html'),
       inject: false,
       args: {
         js: [
@@ -62,8 +65,8 @@ const plugins = (DEBUG = true) => {
         chunkNames.vendor,
         chunkNames.manifest,
       ],
-      template: path.join(ROOT_PATH, HTML_TEMPLATE),
-      filename: path.join(ROOT_PATH, 'public/project.html'),
+      template: path.join(ROOT, HTML_TEMPLATE),
+      filename: path.join(PATH.PUBLIC, 'project.html'),
       inject: false,
       args: {
         js: [
@@ -105,10 +108,10 @@ const plugins = (DEBUG = true) => {
     }),
     new PurifyCSSPlugin({
       paths: [
-        ...(glob.sync(path.join(ROOT_PATH, 'applications/**/*.{jsx,json,scss}'))),
-        ...(glob.sync(path.join(ROOT_PATH, 'public/**/*.html'))),
-        path.join(ROOT_PATH, 'config/main.json'),
-        path.join(ROOT_PATH, 'config/project.json'),
+        ...(glob.sync(path.join(PATH.APP, '**/*.{jsx,json,scss}'))),
+        ...(glob.sync(path.join(PATH.PUBLIC, '**/*.html'))),
+        path.join(PATH.CONFIG, 'main.json'),
+        path.join(PATH.CONFIG, 'project.json'),
       ],
       styleExtensions: ['.css', '.scss'],
       moduleExtensions: ['.html'],
@@ -162,8 +165,8 @@ const plugins = (DEBUG = true) => {
       analyzerMode: 'static',
       openAnalyzer: false,
       generateStatsFile: true,
-      statsFilename: path.join(ROOT_PATH, 'config/stats.json'),
-      reportFilename: path.join(ROOT_PATH, 'config/stats.html'),
+      statsFilename: path.join(PATH.CONFIG, 'stats.json'),
+      reportFilename: path.join(PATH.CONFIG, 'stats.html'),
     }),
   ];
 };

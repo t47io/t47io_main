@@ -1,11 +1,5 @@
-import path from 'path';
-
-import { PUBLIC_PATH } from '../server/env.js';
-
 import serverJSON from '../config/server.json';
 
-
-export const ROOT_PATH = path.join(PUBLIC_PATH, '../');
 
 export const MANIFEST_JS = 'scripts/f.012345.min.js';
 export const CHUNK_FILE_NAME = (DEBUG = true, ext = 'js') => {

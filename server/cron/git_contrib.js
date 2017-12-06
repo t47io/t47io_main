@@ -4,6 +4,7 @@ import colors from 'colors';
 import fs from 'fs-extra';
 import path from 'path';
 
+import { PATH } from '../env.js';
 import {
   GITHUB,
   JSON_FORMAT,
@@ -77,7 +78,7 @@ try {
       ...statsJSON,
       gitContrib: combinedData,
     };
-    fs.writeJSONSync(path.join(__dirname, '../../config/main/stats.json'), newJSON, JSON_FORMAT);
+    fs.writeJSONSync(path.join(PATH.CONFIG, 'main/stats.json'), newJSON, JSON_FORMAT);
     return combinedData;
   }))
   .then((data) => {
@@ -93,7 +94,7 @@ try {
         lastWeek: data.countArray.slice(data.countArray.length - 7),
       },
     };
-    fs.writeJSONSync(path.join(__dirname, '../../config/cron.json'), newJSON, JSON_FORMAT);
+    fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newJSON, JSON_FORMAT);
 
     console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub contribution records updated.`);
   })

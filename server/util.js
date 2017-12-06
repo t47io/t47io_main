@@ -1,7 +1,7 @@
 import path from 'path';
 
 import {
-  PUBLIC_PATH,
+  PATH,
   DEBUG,
 } from './env.js';
 import {
@@ -44,10 +44,10 @@ export const getHeader = (req, forceHeader = false) => {
 };
 
 export const getPubFile = name => (
-  path.join(PUBLIC_PATH, `/docs/${name}.pdf`)
+  path.join(PATH.PUBLIC, `/docs/${name}.pdf`)
 );
 export const getThesisFile = name => (
-  path.join(PUBLIC_PATH, `/docs/${FILE_NAMES.THESIS[name]}`)
+  path.join(PATH.PUBLIC, `/docs/${FILE_NAMES.THESIS[name]}`)
 );
 
 export const sendErrorResponse = (code) => {

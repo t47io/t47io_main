@@ -1,9 +1,9 @@
 import colors from 'colors';
-import path from 'path';
 import shell from 'shelljs';
 
 import {
-  PUBLIC_PATH,
+  ROOT,
+  PATH,
   CHMOD,
 } from '../env.js';
 
@@ -15,14 +15,14 @@ const excludeFind = () => (
 );
 
 const chmodRoot = () => {
-  shell.cd(path.join(PUBLIC_PATH, '../'));
+  shell.cd(ROOT);
   shell.exec(`chown -R ${CHMOD.USER}:${CHMOD.USER} * .*`);
   shell.exec(`find . ${excludeFind()} -type f | xargs chmod 640`);
   shell.exec(`find . ${excludeFind()} -type d | xargs chmod 750`);
 };
 
 const chmodPublic = () => {
-  shell.cd(PUBLIC_PATH);
+  shell.cd(PATH.PUBLIC);
   shell.exec(`chown -R ${CHMOD.USER}:${CHMOD.GROUP} *`);
   shell.exec(`chown ${CHMOD.USER}:${CHMOD.GROUP} . .. ../..`);
 };

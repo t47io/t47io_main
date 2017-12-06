@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
 
-import { PUBLIC_PATH } from './env.js';
+import { PATH } from './env.js';
 import {
   GITHUB,
   RIBOKIT,
@@ -43,14 +43,14 @@ console.log(`${colors.magenta(`[${SCRIPT}]`)} All config JSON files loaded.`);
 
 
 const getResume = () => {
-  const resumeFiles = glob.sync(path.join(PUBLIC_PATH, '../static/resume/*.pdf'));
+  const resumeFiles = glob.sync(path.join(PATH.STATIC, 'resume/*.pdf'));
   const fileName = resumeFiles[resumeFiles.length - 1] || '';
   return path.basename(fileName).replace('.pdf', '');
 };
 
 const getFileSize = (fileName) => {
   try {
-    const byteSize = fs.statSync(path.join(PUBLIC_PATH, fileName)).size;
+    const byteSize = fs.statSync(path.join(PATH.PUBLIC, fileName)).size;
     return `${(byteSize / 1e6).toFixed(1)} MB`;
   } catch (err) {
     console.error(err);
@@ -123,7 +123,7 @@ const concatMainJSON = () => {
   config.pubs.lens = pubsCounter;
   config.stats.items[2].value = pubsCounter;
 
-  fs.writeJSONSync(path.join(PUBLIC_PATH, '../config/main.json'), config);
+  fs.writeJSONSync(path.join(PATH.CONFIG, 'main.json'), config);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Main JSON compiled.`);
 };
 
@@ -152,7 +152,7 @@ const concatProjectJSON = () => {
     project: updatedProjectJSON,
     repository: repositoryJSON,
   };
-  fs.writeJSONSync(path.join(PUBLIC_PATH, '../config/project.json'), data);
+  fs.writeJSONSync(path.join(PATH.CONFIG, 'project.json'), data);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Project JSON compiled.`);
 };
 
@@ -167,4 +167,3 @@ try {
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to compile main and/or project JSON.`);
   process.exit(1);
 }
-

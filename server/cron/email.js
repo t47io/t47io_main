@@ -2,6 +2,7 @@ import colors from 'colors';
 import path from 'path';
 
 import {
+  ROOT,
   DEBUG,
   EMAIL_RECV,
   SMTP,
@@ -33,7 +34,7 @@ const emailAdmin = (content) => {
     text: content,
     attachments: [{
       filename: `t47io_backup_${dateString}.tgz`,
-      path: path.join(__dirname, `../../${FILE_NAMES.BACKUP}`),
+      path: path.join(ROOT, FILE_NAMES.BACKUP),
     }],
   });
 };

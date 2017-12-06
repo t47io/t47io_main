@@ -3,7 +3,7 @@ import express from 'express';
 import path from 'path';
 
 import {
-  PUBLIC_PATH,
+  PATH,
   MAINTENANCE,
   PORT,
 } from './env.js';
@@ -59,7 +59,7 @@ app.use((err, req, res, next) => {
   }
 
   const ext = getZipExt(req.headers, 2);
-  return res.status(code).sendFile(path.join(PUBLIC_PATH, `e.${code}.html.${ext}`), {
+  return res.status(code).sendFile(path.join(PATH.PUBLIC, `e.${code}.html.${ext}`), {
     headers: getHeader(req, true),
     maxAge: `${CACHE_MAX_AGE} days`,
   });

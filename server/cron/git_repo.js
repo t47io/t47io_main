@@ -4,6 +4,7 @@ import fs from 'fs-extra';
 import Github from 'github-api';
 import path from 'path';
 
+import { PATH } from '../env.js';
 import {
   GITHUB,
   JSON_FORMAT,
@@ -181,7 +182,7 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     })
     .then((data) => { result = formatCalendar(data, result); })
     .then(() => {
-      fs.writeJSONSync(path.join(__dirname, '../../config/repository', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
+      fs.writeJSONSync(path.join(PATH.CONFIG, 'repository/', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
       console.log(`${colors.magenta(`[${SCRIPT}]`)} GitHub records updated for repository ${colors.blue(repoName)}.`);
     })
     .catch((err) => { throw err; });

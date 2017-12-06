@@ -4,7 +4,7 @@ import glob from 'glob';
 import path from 'path';
 import shell from 'shelljs';
 
-import { ROOT_PATH } from '../config.js';
+import { PATH } from '../../server/env.js';
 import { FILE_NAMES } from '../../server/config.js';
 import { resumeVersion } from '../../server/util.js';
 import {
@@ -16,13 +16,13 @@ const SCRIPT = 'process:copy';
 
 
 const copyImages = () => {
-  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/*'), { nodir: true })
+  const staticFiles = glob.sync(path.join(PATH.STATIC, '*'), { nodir: true })
     .map(file => path.basename(file));
 
   staticFiles.forEach(file => (
     fs.copySync(
-      path.join(ROOT_PATH, `static/${file}`),
-      path.join(ROOT_PATH, `public/${file}`)
+      path.join(PATH.STATIC, file),
+      path.join(PATH.PUBLIC, file)
     )
   ));
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Image files copied to public.`);
@@ -35,12 +35,12 @@ const copyRobots = () => {
 };
 
 const copyPubs = () => {
-  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/pubs/*.pdf'))
+  const staticFiles = glob.sync(path.join(PATH.STATIC, 'pubs/*.pdf'))
     .map(file => path.basename(file));
   staticFiles.forEach(file => (
     fs.copySync(
-      path.join(ROOT_PATH, `static/pubs/${file}`),
-      path.join(ROOT_PATH, `public/docs/${file}`)
+      path.join(PATH.STATIC, `pubs/${file}`),
+      path.join(PATH.PUBLIC, `docs/${file}`)
     )
   ));
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Pubs PDF files copied to public.`);
@@ -48,19 +48,19 @@ const copyPubs = () => {
 
 const copyResume = () => {
   fs.copySync(
-    path.join(ROOT_PATH, `static/resume/${resumeVersion}.pdf`),
-    path.join(ROOT_PATH, 'public/docs/resume.pdf')
+    path.join(PATH.STAIC, `resume/${resumeVersion}.pdf`),
+    path.join(PATH.PUBLIC, 'docs/resume.pdf')
   );
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
 };
 
 const copyThesis = () => {
-  const staticFiles = glob.sync(path.join(ROOT_PATH, 'static/thesis/*'))
+  const staticFiles = glob.sync(path.join(PATH.STATIC, 'thesis/*'))
     .map(file => path.basename(file));
   staticFiles.forEach(file => (
     fs.copySync(
-      path.join(ROOT_PATH, `static/thesis/${file}`),
-      path.join(ROOT_PATH, `public/docs/${file}`)
+      path.join(PATH.STATIC, `thesis/${file}`),
+      path.join(PATH.PUBLIC, `docs/${file}`)
     )
   ));
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Thesis PDF files copied to public.`);
@@ -71,7 +71,7 @@ try {
   copyImages();
   copyRobots();
 
-  shell.mkdir('-p', path.join(ROOT_PATH, 'public/docs/'));
+  shell.mkdir('-p', path.join(PATH.PUBLIC, 'docs/'));
   copyPubs();
   copyThesis();
   copyResume();

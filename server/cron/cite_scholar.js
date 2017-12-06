@@ -4,6 +4,7 @@ import colors from 'colors';
 import fs from 'fs-extra';
 import path from 'path';
 
+import { PATH } from '../env.js';
 import { JSON_FORMAT } from '../config.js';
 
 import pubsJSON from '../../config/main/pubs.json';
@@ -113,7 +114,7 @@ try {
       });
     });
 
-    fs.writeJSONSync(path.join(__dirname, '../../config/main/pubs.json'), newJSON, JSON_FORMAT);
+    fs.writeJSONSync(path.join(PATH.CONFIG, 'main/pubs.json'), newJSON, JSON_FORMAT);
     return newJSON.items;
   })
   .then((items) => {
@@ -124,7 +125,7 @@ try {
       ...cronJSON,
       citations: diffCitations(oldCitations, newCitations),
     };
-    fs.writeJSONSync(path.join(__dirname, '../../config/cron.json'), newJSON, JSON_FORMAT);
+    fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newJSON, JSON_FORMAT);
 
     console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
   })

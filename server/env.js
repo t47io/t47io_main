@@ -6,7 +6,14 @@ import serverJSON from '../config/server.json';
 const { mode, port, email, chmod } = serverJSON;
 
 
-export const PUBLIC_PATH = path.join(__dirname, '../public');
+export const ROOT = path.join(__dirname, '../');
+export const PATH = {
+  APP: path.join(ROOT, 'applications/'),
+  BACKUO: path.join(ROOT, 'backup/'),
+  CONFIG: path.join(ROOT, 'config/'),
+  STATIC: path.join(ROOT, 'static/'),
+  PUBLIC: path.join(ROOT, 'public/'),
+};
 
 export const DEBUG = mode.debug;
 export const NGINX = mode.nginx;

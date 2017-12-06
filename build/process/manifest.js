@@ -3,10 +3,8 @@ import fs from 'fs-extra';
 import path from 'path';
 import shell from 'shelljs';
 
-import {
-  MANIFEST_JS,
-  ROOT_PATH,
-} from '../config.js';
+import { PATH } from '../../server/env.js';
+import { MANIFEST_JS } from '../config.js';
 import {
   loadFileSync,
   saveFileSync,
@@ -17,8 +15,8 @@ let chunkManifest;
 
 try {
   fs.moveSync(
-    path.join(ROOT_PATH, 'public/manifest.json'),
-    path.join(ROOT_PATH, 'config/manifest.json'),
+    path.join(PATH.PUBLIC, 'manifest.json'),
+    path.join(PATH.CONFIG, 'manifest.json'),
     { overwrite: true }
   );
   const manifest = JSON.parse(loadFileSync('config/manifest.json'));
@@ -42,13 +40,13 @@ try {
 }
 
 try {
-  shell.exec(`gzip -df ${path.join(ROOT_PATH, `public/${MANIFEST_JS}.gz`)}`);
+  shell.exec(`gzip -df ${path.join(PATH.PUBLIC, `${MANIFEST_JS}.gz`)}`);
 
   const manifestJs = loadFileSync(`public/${MANIFEST_JS}`);
   const fullManifestJs = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJs}`;
 
   saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
-  fs.writeJSONSync(path.join(ROOT_PATH, 'config/manifest.json'), chunkManifest);
+  fs.writeJSONSync(path.join(PATH.CONFIG, 'manifest.json'), chunkManifest);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Manifest JSON injected.`);
 } catch (err) {
   console.log(err);

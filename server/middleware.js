@@ -14,7 +14,7 @@ import userAgent from 'express-useragent';
 
 import webpackConfig from '../webpack.config.client.js';
 import {
-  PUBLIC_PATH,
+  PATH,
   DEBUG,
   NGINX,
 } from './env.js';
@@ -26,11 +26,11 @@ import {
 
 const middlewares = [
   DEBUG ? compression() : null,
-  (DEBUG || !NGINX) ? favicon(path.join(PUBLIC_PATH, FILE_NAMES.FAVICO)) : null,
-  DEBUG ? express.static(PUBLIC_PATH, {
+  (DEBUG || !NGINX) ? favicon(path.join(PATH.PUBLIC, FILE_NAMES.FAVICO)) : null,
+  DEBUG ? express.static(PATH.PUBLIC, {
     maxAge: `${CACHE_MAX_AGE * 5} days`,
   }) : null,
-  !NGINX ? ['/', staticGzip(PUBLIC_PATH, {
+  !NGINX ? ['/', staticGzip(PATH.PUBLIC, {
     enableBrotli: true,
     indexFromEmptyFile: false,
     maxAge: `${CACHE_MAX_AGE * 5} days`,

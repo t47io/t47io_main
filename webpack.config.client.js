@@ -6,7 +6,7 @@ import loaders from './build/loaders.js';
 import plugins from './build/plugins.js';
 import { CHUNK_FILE_NAME } from './build/config.js';
 import {
-  PUBLIC_PATH,
+  PATH,
   DEBUG as DEBUG_CONFIG,
 } from './server/env.js';
 
@@ -25,7 +25,7 @@ const config = {
     filename: CHUNK_FILE_NAME(DEBUG),
     chunkFilename: CHUNK_FILE_NAME(DEBUG),
     hashDigestLength: 6,
-    path: PUBLIC_PATH,
+    path: PATH.PUBLIC,
     publicPath: '/',
   },
 

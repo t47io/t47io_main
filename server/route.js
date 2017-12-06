@@ -4,7 +4,7 @@ import path from 'path';
 import sanitizer from 'sanitizer';
 
 import {
-  PUBLIC_PATH,
+  PATH,
   DEBUG,
   EMAIL_CONTENT_LEN,
   EMAIL_RECV,
@@ -30,14 +30,14 @@ import {
 
 export const sendHtmlFromCache = (name, render, req, res) => {
   const HTML = webpackMiddleware.fileSystem.readFileSync(
-    path.join(PUBLIC_PATH, `${name}.html`), 'utf8'
+    path.join(PATH.PUBLIC, `${name}.html`), 'utf8'
   );
   res.set(getHeader(req)).send(render(HTML));
 };
 export const sendHtmlFromDisk = (name, req, res) => {
   const ext = getZipExt(req.headers, 2);
 
-  res.sendFile(path.join(PUBLIC_PATH, `${name}.html.${ext}`), {
+  res.sendFile(path.join(PATH.PUBLIC, `${name}.html.${ext}`), {
     headers: getHeader(req),
     maxAge: `${CACHE_MAX_AGE} days`,
   });
@@ -72,7 +72,7 @@ const routes = {
     res.sendFile(getThesisFile(req.params[0]), { maxAge: `${CACHE_MAX_AGE * 5} days` });
   },
   resume: (req, res) => {
-    res.sendFile(path.join(PUBLIC_PATH, 'docs/resume.pdf'), {
+    res.sendFile(path.join(PATH.PUBLIC, 'docs/resume.pdf'), {
       headers: { 'Content-Disposition': `inline; filename="${FILE_NAMES.RESUME}"` },
       maxAge: `${CACHE_MAX_AGE / 2} days`,
     });

@@ -3,7 +3,7 @@ import path from 'path';
 import shell from 'shelljs';
 
 import { DAY_MILLISECONDS } from '../../applications/main/constants/util.js';
-import { PUBLIC_PATH } from '../env.js';
+import { ROOT } from '../env.js';
 
 import cronJSON from '../../config/cron.json';
 
@@ -17,7 +17,7 @@ const checkExpire = () => {
 };
 
 const runLetsencrypt = () => {
-  const execPath = path.join(PUBLIC_PATH, '../../../', 'letsencrypt');
+  const execPath = path.join(ROOT, '../../', 'letsencrypt');
   shell.exec(`${execPath}/letsencrypt-auto renew`);
 };
 

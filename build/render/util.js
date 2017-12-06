@@ -5,8 +5,8 @@ import postcss from 'postcss';
 import sass from 'node-sass';
 import shell from 'shelljs';
 
+import { ROOT } from '../../server/env.js';
 import {
-  ROOT_PATH,
   GA_TRACKER,
   BG_RNA_SVG,
 } from '../config.js';
@@ -21,11 +21,11 @@ export const replaceHTML = inputHTML => (
 );
 
 export const loadFileSync = filename => (
-  fs.readFileSync(path.join(ROOT_PATH, filename), 'utf8')
+  fs.readFileSync(path.join(ROOT, filename), 'utf8')
 );
 
 export const saveFileSync = (filename, content) => {
-  const filePath = path.join(ROOT_PATH, filename);
+  const filePath = path.join(ROOT, filename);
   fs.writeFileSync(filePath, content, 'utf8');
   shell.exec(`zopfli ${filename}`);
   shell.exec(`brotli -Zf -o ${filename}.br ${filename}`);
@@ -40,14 +40,14 @@ export const getThemeColor = () => {
 export const renderSassSync = filename => (
   postcss([autoprefixer]).process(
     sass.renderSync({
-      file: path.join(ROOT_PATH, filename),
+      file: path.join(ROOT, filename),
       data: `${getThemeColor()}${loadFileSync(filename)}`,
     }).css.toString()
   ).css
 );
 
 export const loadImageSync = (filename) => {
-  const img = fs.readFileSync(path.join(ROOT_PATH, filename));
+  const img = fs.readFileSync(path.join(ROOT, filename));
   return `data:image/svg+xml,${encodeURIComponent(img)}`;
 };
 
