@@ -36,10 +36,10 @@ const HomeSection = ({
   actions: { animateHome },
 }) => {
   let svgClassName;
-  if (ready && avatar) {
-    svgClassName = 'active';
+  if (intro) {
+    svgClassName = 'finished';
   } else {
-    svgClassName = intro ? 'finished' : '';
+    svgClassName = (ready && avatar) ? 'active' : '';
   }
 
   return (
@@ -70,21 +70,21 @@ const HomeSection = ({
         className="UTIL__cover HOME__shade"
         keyframes={homeShade.keyframes}
         timing={homeShade.timing}
-        shouldAnimate={intro}
+        shouldAnimate={avatar}
       />
 
       <div className="container" >
         <div className="HOME__content text-white">
           <HomeName
-            intro={intro}
-            server={server}
+            shouldAnimate={avatar}
+            isServer={server}
           />
           <p className="text-white HOME__placeholder" />
           <HomeDescription
             title={title}
-            intro={intro}
-            color={color}
-            server={server}
+            shouldAnimate={avatar}
+            shouldCycle={color}
+            isServer={server}
           />
         </div>
       </div>

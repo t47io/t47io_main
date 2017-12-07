@@ -6,7 +6,7 @@ import {
 } from '../constants/actionTypes.js';
 import {
   AVATAR_SVG_DRAW_DURATION,
-  SHADE_FADE_DELAY_2,
+  SHADE_FADE_DURATION,
 } from '../animations/home.js';
 import { delayFor } from '../../common/util.js';
 
@@ -35,6 +35,6 @@ export const animateHome = () => dispatch => (
   )
   .then(() => delayFor(AVATAR_SVG_DRAW_DURATION))
   .then(() => dispatch(animateIntro()))
-  .then(() => delayFor(SHADE_FADE_DELAY_2))
+  .then(() => delayFor(SHADE_FADE_DURATION))
   .then(() => dispatch(animateTextColor()))
 );

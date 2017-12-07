@@ -8,10 +8,10 @@ import { homeName } from '../animations/home.js';
 
 
 const HomeName = ({
-  intro,
-  server,
+  shouldAnimate,
+  isServer,
 }) => (
-  server ? (
+  isServer ? (
     <img
       className="HOME__name"
       src={imgName}
@@ -22,7 +22,7 @@ const HomeName = ({
       className="HOME__title"
       keyframes={homeName.keyframes}
       timing={homeName.timing}
-      shouldAnimate={intro}
+      shouldAnimate={shouldAnimate}
     >
       <img
         className="HOME__name"
@@ -34,12 +34,12 @@ const HomeName = ({
 );
 
 HomeName.propTypes = {
-  intro: PropTypes.bool,
-  server: PropTypes.bool,
+  shouldAnimate: PropTypes.bool,
+  isServer: PropTypes.bool,
 };
 HomeName.defaultProps = {
-  intro: false,
-  server: false,
+  shouldAnimate: false,
+  isServer: false,
 };
 
 

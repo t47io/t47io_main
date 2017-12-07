@@ -15,19 +15,19 @@ import { formatHomeText } from '../util.js';
 
 const HomeDescription = ({
   title,
-  intro,
-  color,
-  server,
+  shouldAnimate,
+  shouldCycle,
+  isServer,
 }) => {
   const displayHTML = formatHomeText(title);
-  if (server) {
+  if (isServer) {
     return (
       <p
         className="HOME__typewrite text-main-light"
         dangerouslySetInnerHTML={{ __html: displayHTML }}
       />
     );
-  } else if (color) {
+  } else if (shouldCycle) {
     return (
       <ColorCycler
         className="HOME__typewrite"
@@ -46,22 +46,22 @@ const HomeDescription = ({
       fullText={title}
       delay={TYPE_WRITER_DELAY}
       interval={TYPE_WRITER_SPEED}
-      shouldAnimate={intro}
+      shouldAnimate={shouldAnimate}
     />
   );
 };
 
 HomeDescription.propTypes = {
   title: PropTypes.string,
-  intro: PropTypes.bool,
-  color: PropTypes.bool,
-  server: PropTypes.bool,
+  shouldAnimate: PropTypes.bool,
+  shouldCycle: PropTypes.bool,
+  isServer: PropTypes.bool,
 };
 HomeDescription.defaultProps = {
   title: '',
-  intro: false,
-  color: false,
-  server: false,
+  shouldAnimate: false,
+  shouldCycle: false,
+  isServer: false,
 };
 
 
