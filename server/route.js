@@ -25,7 +25,7 @@ import {
 import {
   renderMainHTML,
   renderProjectHTML,
-} from '../build/render/client.jsx';
+} from '../build/render/client.js';
 
 
 export const sendHtmlFromCache = (name, render, req, res) => {

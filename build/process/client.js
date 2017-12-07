@@ -3,7 +3,7 @@ import colors from 'colors';
 import {
   renderMainHTML,
   renderProjectHTML,
-} from '../render/client.jsx';
+} from '../render/client.js';
 import {
   loadFileSync,
   saveFileSync,

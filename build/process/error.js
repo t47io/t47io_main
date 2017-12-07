@@ -1,7 +1,7 @@
 import colors from 'colors';
 import purify from 'purify-css';
 
-import { renderErrorHTML } from '../render/client.jsx';
+import { renderErrorHTML } from '../render/client.js';
 import {
   loadFileSync,
   saveFileSync,
