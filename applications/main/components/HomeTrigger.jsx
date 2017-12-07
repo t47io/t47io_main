@@ -4,7 +4,18 @@ import PropTypes from 'prop-types';
 
 
 class HomeTrigger extends React.PureComponent {
-  state = { isTriggered: false }
+  static propTypes = {
+    disabled: PropTypes.bool,
+    onToggleAnimation: PropTypes.func,
+    debug: PropTypes.bool,
+  };
+  static defaultProps = {
+    disabled: false,
+    onToggleAnimation: () => {},
+    debug: false,
+  };
+
+  state = { isTriggered: false };
 
   render() {
     if (this.props.disabled || this.state.isTriggered) { return null; }
@@ -25,17 +36,6 @@ class HomeTrigger extends React.PureComponent {
     );
   }
 }
-
-HomeTrigger.propTypes = {
-  disabled: PropTypes.bool,
-  onToggleAnimation: PropTypes.func,
-  debug: PropTypes.bool,
-};
-HomeTrigger.defaultProps = {
-  disabled: false,
-  onToggleAnimation: () => {},
-  debug: false,
-};
 
 
 export default HomeTrigger;

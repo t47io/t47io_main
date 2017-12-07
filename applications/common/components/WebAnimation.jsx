@@ -6,7 +6,37 @@ import { getPlayState } from '../util.js';
 
 
 class WebAnimation extends React.Component {
-  state = { playState: getPlayState(this.props.shouldAnimate) }
+  static propTypes = {
+    tagName: PropTypes.string,
+    keyframes: PropTypes.arrayOf(PropTypes.object),
+    timing: PropTypes.object,
+    shouldAnimate: PropTypes.bool,
+    shouldReverse: PropTypes.bool,
+    shouldForceUpdate: PropTypes.bool,
+    propsForceUpdate: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool,
+      PropTypes.number,
+    ]),
+    onFinish: PropTypes.func,
+    children: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.arrayOf(PropTypes.node),
+    ]),
+  };
+  static defaultProps = {
+    tagName: 'div',
+    keyframes: [],
+    timing: {},
+    shouldAnimate: false,
+    shouldReverse: false,
+    shouldForceUpdate: false,
+    propsForceUpdate: '',
+    onFinish: undefined,
+    children: null,
+  };
+
+  state = { playState: getPlayState(this.props.shouldAnimate) };
 
   componentWillReceiveProps(nextProps) {
     this.setState({ playState: getPlayState(nextProps.shouldAnimate) });
@@ -41,36 +71,6 @@ class WebAnimation extends React.Component {
     );
   }
 }
-
-WebAnimation.propTypes = {
-  tagName: PropTypes.string,
-  keyframes: PropTypes.arrayOf(PropTypes.object),
-  timing: PropTypes.object,
-  shouldAnimate: PropTypes.bool,
-  shouldReverse: PropTypes.bool,
-  shouldForceUpdate: PropTypes.bool,
-  propsForceUpdate: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.bool,
-    PropTypes.number,
-  ]),
-  onFinish: PropTypes.func,
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
-  ]),
-};
-WebAnimation.defaultProps = {
-  tagName: 'div',
-  keyframes: [],
-  timing: {},
-  shouldAnimate: false,
-  shouldReverse: false,
-  shouldForceUpdate: false,
-  propsForceUpdate: '',
-  onFinish: undefined,
-  children: null,
-};
 
 
 export default WebAnimation;

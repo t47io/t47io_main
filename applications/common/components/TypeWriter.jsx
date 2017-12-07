@@ -5,11 +5,30 @@ import { formatHomeText } from '../../main/util.js';
 
 
 class TypeWriter extends React.PureComponent {
+  static propTypes = {
+    className: PropTypes.string,
+    fullText: PropTypes.string,
+    cursorCharacter: PropTypes.string,
+    cursorClassName: PropTypes.string,
+    interval: PropTypes.number,
+    delay: PropTypes.number,
+    shouldAnimate: PropTypes.bool,
+  };
+  static defaultProps = {
+    className: '',
+    fullText: '',
+    cursorCharacter: '|',
+    cursorClassName: 'blink',
+    interval: 125,
+    delay: 0,
+    shouldAnimate: false,
+  };
+
   state = {
     isActive: this.props.shouldAnimate,
     hasStarted: false,
     currentText: '',
-  }
+  };
 
   componentDidMount() {
     if (this.state.isActive) { this.onTypeWrite(); }
@@ -50,7 +69,7 @@ class TypeWriter extends React.PureComponent {
         }
       }, interval);
     }, delay);
-  }
+  };
 
   render() {
     const { className, cursorCharacter, cursorClassName } = this.props;
@@ -73,25 +92,6 @@ class TypeWriter extends React.PureComponent {
     );
   }
 }
-
-TypeWriter.propTypes = {
-  className: PropTypes.string,
-  fullText: PropTypes.string,
-  cursorCharacter: PropTypes.string,
-  cursorClassName: PropTypes.string,
-  interval: PropTypes.number,
-  delay: PropTypes.number,
-  shouldAnimate: PropTypes.bool,
-};
-TypeWriter.defaultProps = {
-  className: '',
-  fullText: '',
-  cursorCharacter: '|',
-  cursorClassName: 'blink',
-  interval: 125,
-  delay: 0,
-  shouldAnimate: false,
-};
 
 
 export default TypeWriter;

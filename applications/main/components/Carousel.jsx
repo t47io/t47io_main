@@ -10,10 +10,25 @@ import '../stylesheets/Carousel.scss';
 
 
 class Carousel extends React.PureComponent {
+  static propTypes = {
+    items: PropTypes.arrayOf(PropTypes.string),
+    className: PropTypes.string,
+    interval: PropTypes.number,
+    children: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.arrayOf(PropTypes.node),
+    ]).isRequired,
+  };
+  static defaultProps = {
+    items: [],
+    className: '',
+    interval: 2000,
+  };
+
   state = {
     current: 0,
     active: false,
-  }
+  };
 
   componentDidMount() {
     this.onLoop();
@@ -30,18 +45,18 @@ class Carousel extends React.PureComponent {
     setTimeout(() => {
       this.setState({ active: true });
     }, this.props.interval / 10);
-  }
+  };
   onLoop = () => {
     this.timer = setInterval(() => {
       const next = (this.state.current + 1) % this.props.items.length;
       this.onChange(next);
     }, this.props.interval);
-  }
+  };
   onClick = (index) => {
     clearInterval(this.timer);
     this.onChange(index);
     this.onLoop();
-  }
+  };
 
   render() {
     const { items, className, children } = this.props;
@@ -78,21 +93,6 @@ class Carousel extends React.PureComponent {
     );
   }
 }
-
-Carousel.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.string),
-  className: PropTypes.string,
-  interval: PropTypes.number,
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
-  ]).isRequired,
-};
-Carousel.defaultProps = {
-  items: [],
-  className: '',
-  interval: 2000,
-};
 
 
 export default Carousel;

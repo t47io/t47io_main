@@ -6,7 +6,25 @@ import CarouselIndicator from './CarouselIndicator.jsx';
 
 
 class Carousel extends React.PureComponent {
-  state = { current: 0 }
+  static propTypes = {
+    project: PropTypes.string,
+    items: PropTypes.arrayOf(PropTypes.shape({
+      tag: PropTypes.string,
+      label: PropTypes.string,
+    })),
+    className: PropTypes.string,
+    interval: PropTypes.number,
+    index: PropTypes.number,
+  };
+  static defaultProps = {
+    project: '',
+    items: [],
+    className: 'col-lg-7 col-md-7 col-sm-12 col-xs-12',
+    interval: 2500,
+    index: 0,
+  };
+
+  state = { current: 0 };
 
   componentDidMount() {
     this.onLoop();
@@ -19,14 +37,14 @@ class Carousel extends React.PureComponent {
     clearInterval(this.timer);
     this.setState({ current: index });
     this.onLoop();
-  }
+  };
   onLoop = () => {
     this.timer = setInterval(() => {
       const next = (this.state.current + 1) % this.props.items.length;
       this.setState({ current: next });
       ReactTooltip.rebuild();
     }, this.props.interval);
-  }
+  };
 
   render() {
     const { project, items, className, index } = this.props;
@@ -60,24 +78,6 @@ class Carousel extends React.PureComponent {
     );
   }
 }
-
-Carousel.propTypes = {
-  project: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    tag: PropTypes.string,
-    label: PropTypes.string,
-  })),
-  className: PropTypes.string,
-  interval: PropTypes.number,
-  index: PropTypes.number,
-};
-Carousel.defaultProps = {
-  project: '',
-  items: [],
-  className: 'col-lg-7 col-md-7 col-sm-12 col-xs-12',
-  interval: 2500,
-  index: 0,
-};
 
 
 export default Carousel;

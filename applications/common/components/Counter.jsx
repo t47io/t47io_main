@@ -3,10 +3,27 @@ import PropTypes from 'prop-types';
 
 
 class Counter extends React.PureComponent {
+  static propTypes = {
+    className: PropTypes.string,
+    beginValue: PropTypes.number,
+    endValue: PropTypes.number,
+    duration: PropTypes.number,
+    interval: PropTypes.number,
+    shouldAnimate: PropTypes.bool,
+  };
+  static defaultProps = {
+    className: '',
+    beginValue: 0,
+    endValue: NaN,
+    duration: 2000,
+    interval: 125,
+    shouldAnimate: false,
+  };
+
   state = {
     isActive: this.props.shouldAnimate,
     currentValue: this.props.beginValue,
-  }
+  };
 
   componentDidMount() {
     if (this.state.isActive) { this.onCountUp(); }
@@ -44,7 +61,7 @@ class Counter extends React.PureComponent {
         this.setState({ isActive: false });
       }
     }, interval);
-  }
+  };
 
   render() {
     const { className, endValue } = this.props;
@@ -59,23 +76,6 @@ class Counter extends React.PureComponent {
     );
   }
 }
-
-Counter.propTypes = {
-  className: PropTypes.string,
-  beginValue: PropTypes.number,
-  endValue: PropTypes.number,
-  duration: PropTypes.number,
-  interval: PropTypes.number,
-  shouldAnimate: PropTypes.bool,
-};
-Counter.defaultProps = {
-  className: '',
-  beginValue: 0,
-  endValue: NaN,
-  duration: 2000,
-  interval: 125,
-  shouldAnimate: false,
-};
 
 
 export default Counter;

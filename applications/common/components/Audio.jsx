@@ -3,26 +3,35 @@ import PropTypes from 'prop-types';
 
 
 class Audio extends React.Component {
-  constructor(props) {
-    super(props);
-    this.audio = null;
-  }
+  static propTypes = {
+    src: PropTypes.string.isRequired,
+    play: PropTypes.bool,
+    loop: PropTypes.bool,
+    onFinish: PropTypes.func,
+  };
+  static defaultProps = {
+    play: false,
+    loop: false,
+    onFinish: () => {},
+  };
+
+  state = { audio: null };
 
   componentDidMount() {
-    this.audio.addEventListener('ended', this.props.onFinish);
+    this.state.audio.addEventListener('ended', this.props.onFinish);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.play) {
-      this.audio.play();
+      this.state.audio.play();
     } else {
-      this.audio.pause();
+      this.state.audio.pause();
     }
   }
   shouldComponentUpdate(nextProps) {
     return false;
   }
   componentWillUnmount() {
-    this.audio.removeEventListener('ended', this.props.onFinish);
+    this.state.audio.removeEventListener('ended', this.props.onFinish);
   }
 
   render() {
@@ -30,25 +39,13 @@ class Audio extends React.Component {
 
     return (
       <audio
-        ref={(c) => { this.audio = c; }}
+        ref={(c) => { this.setState({ audio: c }); }}
         src={src}
         loop={loop}
       />
     );
   }
 }
-
-Audio.propTypes = {
-  src: PropTypes.string.isRequired,
-  play: PropTypes.bool,
-  loop: PropTypes.bool,
-  onFinish: PropTypes.func,
-};
-Audio.defaultProps = {
-  play: false,
-  loop: false,
-  onFinish: () => {},
-};
 
 
 export default Audio;

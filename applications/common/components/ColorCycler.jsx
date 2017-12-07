@@ -3,10 +3,27 @@ import PropTypes from 'prop-types';
 
 
 class ColorCycler extends React.PureComponent {
+  static propTypes = {
+    className: PropTypes.string,
+    fullText: PropTypes.string,
+    choices: PropTypes.arrayOf(PropTypes.string),
+    interval: PropTypes.number,
+    delay: PropTypes.number,
+    isActive: PropTypes.bool,
+  };
+  static defaultProps = {
+    className: '',
+    fullText: '',
+    choices: [],
+    interval: 2000,
+    delay: 0,
+    isActive: false,
+  };
+
   state = {
     isActive: this.props.isActive,
     index: 0,
-  }
+  };
 
   componentDidMount() {
     if (this.state.isActive) { this.onColorCycle(); }
@@ -30,7 +47,7 @@ class ColorCycler extends React.PureComponent {
         this.setState({ index: nextIndex });
       }, interval);
     }, delay);
-  }
+  };
 
   render() {
     const { className, fullText, choices } = this.props;
@@ -44,23 +61,6 @@ class ColorCycler extends React.PureComponent {
     );
   }
 }
-
-ColorCycler.propTypes = {
-  className: PropTypes.string,
-  fullText: PropTypes.string,
-  choices: PropTypes.arrayOf(PropTypes.string),
-  interval: PropTypes.number,
-  delay: PropTypes.number,
-  isActive: PropTypes.bool,
-};
-ColorCycler.defaultProps = {
-  className: '',
-  fullText: '',
-  choices: [],
-  interval: 2000,
-  delay: 0,
-  isActive: false,
-};
 
 
 export default ColorCycler;
