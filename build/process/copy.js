@@ -48,7 +48,7 @@ const copyPubs = () => {
 
 const copyResume = () => {
   fs.copySync(
-    path.join(PATH.STAIC, `resume/${resumeVersion}.pdf`),
+    path.join(PATH.STATIC, `resume/${resumeVersion}.pdf`),
     path.join(PATH.PUBLIC, 'docs/resume.pdf')
   );
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Resume PDF ${colors.blue(resumeVersion)} copied to public.`);

@@ -20,13 +20,12 @@ const loadedState = crossReducer(createStore(reducer).getState(), {
 const store = createStore(reducer, loadedState);
 
 
-const render = () => (
-  renderToStaticMarkup(
-    <Provider store={store}>
-      <Main />
-    </Provider>
-  )
+const mainHTML = renderToStaticMarkup(
+  <Provider store={store}>
+    <Main />
+  </Provider>
 );
+const render = () => ({ 'tmp/_ssr.html': mainHTML });
 
 
 export default render;

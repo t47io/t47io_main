@@ -15,7 +15,7 @@ const SCRIPT = 'process:clean';
 
 try {
   const tmpFiles = [
-    ...glob.sync(path.join(PATH.PUBLIC, `**/*.{${GZIP_FILE_TYPES.filter(type => (type !== 'mp3')).join(',')}}`)),
+    ...glob.sync(path.join(PATH.PUBLIC, `**/*.{${GZIP_FILE_TYPES.join(',')}}`)),
     ...glob.sync(path.join(PATH.PUBLIC, '**/*.map.*')),
     ...glob.sync(path.join(PATH.PUBLIC, '**/e.*.min.js.*')),
     ...glob.sync(path.join(PATH.PUBLIC, 'error.*')),

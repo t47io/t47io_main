@@ -24,10 +24,10 @@ const SCRIPT = 'process:server';
 
 const renderMainHTML = () => {
   const baseHTML = loadFileSync('applications/index.html');
-  const contentHTML = loadFileSync('public/index.html');
+  const contentHTML = loadFileSync('public/tmp/_ssr.html');
   const mainCSS = purify(
     contentHTML,
-    loadFileSync('public/ssr.min.css'),
+    loadFileSync('public/tmp/_ssr.min.css'),
     { minify: true }
   );
 
@@ -42,8 +42,8 @@ const renderMainHTML = () => {
       .replace('html{}', mainCSS)
     ), HTML_MINIFIER
   )
-  .replace(/<% for.*%>/g, '')
-  .replace(/<% if.*%>/g, '');
+  .replace(/<% for.*%>.*<% } %>/g, '')
+  .replace(/<% if.*%>.*<% } %>/g, '');
 };
 
 

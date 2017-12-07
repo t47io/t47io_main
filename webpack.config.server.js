@@ -14,7 +14,7 @@ const config = {
     ],
   },
   output: {
-    filename: 'ssr.min.js',
+    filename: 'tmp/_ssr.min.js',
     path: PATH.PUBLIC,
     publicPath: '/',
     libraryTarget: 'umd',
@@ -26,7 +26,7 @@ const config = {
   module: { rules: loaders(false, true) },
   plugins: [
     new ExtractTextPlugin({
-      filename: 'ssr.min.css',
+      filename: 'tmp/_ssr.min.css',
       allChunks: true,
     }),
     new StaticSiteGeneratorPlugin({
