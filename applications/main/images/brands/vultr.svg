@@ -1,4 +1,16 @@
-<svg version="1.1" viewBox="0 0 170 170" width="170" height="170" xmlns="http://www.w3.org/2000/svg">
-  <path class="brand-logo__extra" d="M98.4 139.3L147 18.2c1.8-4.3 4.4-6.4 7.9-6.4s6.1.9 7.7 2.7c1.6 1.8 2.5 3.7 2.5 5.8 0 2.1-.2 3.6-.6 4.5l-51 123.7c-2.9 6.3-7.2 9.5-12.8 9.5h-4.5c-5.7 0-9.9-3.1-12.8-9.5l-19.7-47.7H83l15.4 38.5z" />
-  <path class="brand-logo__filled" d="M50.1 19c-1.7-4.1-5.7-7-10.4-7H14c-5.1 0-9.1 4.1-9.1 9.1S9 30.3 14 30.3h20.4l10.4 25.3L56 83.2h19.8L50.1 19z" />
+<svg version="1.1" viewBox="0 0 1024 1024" width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <g fill-opacity=".5">
+    <g class="brand-logo__extra">
+      <path d="M886 28L518 922l116-12 324-757z" />
+      <path d="M489 610l126 306-125-37-122-315z" />
+      <path d="M875 48l105 42-340 801-82-53z" />
+      <path d="M489 578l-111 6 119 299 109 39zm370-477L652 610l-14 299 321-806z" />
+    </g>
+    <g class="brand-logo__filled">
+      <path d="M258 67L27 72l171 101 232 302z" />
+      <path d="M321 477L163 63l112 19 170 402z" />
+      <path d="M46 72L36 181l256-17-67-93z" />
+      <path d="M178 125l97-46 144 355-75 70z" />
+    </g>
+  </g>
 </svg>
