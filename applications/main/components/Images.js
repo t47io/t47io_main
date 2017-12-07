@@ -4,14 +4,12 @@ import {
   getContextObject,
 } from '../../common/util.js';
 
-import SvgAvatar from '../images/t47_avatar.svg';
 
+export imgName from '../images/t47_name.svg';
 
 const AVATARS = require.context('../images/', false, /avatar-[0-5]{1}\.svg$/);
 export const imgAvatars = getContextObject(AVATARS, svgAvatarRegex);
-export { SvgAvatar };
-
-export const imgName = require('../images/t47_name.svg');
+export SvgAvatar from '../images/t47_avatar.svg';
 
 export const imgThesis = [
   require('../images/t47_thesis-0.svg'),

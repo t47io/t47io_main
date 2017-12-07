@@ -1,12 +1,7 @@
-import SvgLogo from '../images/t47_logo.svg';
-import SvgLogoAlt from '../images/t47_logo_alt.svg';
+export SvgLogo from '../images/t47_logo.svg';
+export SvgLogoAlt from '../images/t47_logo_alt.svg';
 
-export {
-  SvgLogo,
-  SvgLogoAlt,
-};
-
-export const imgDivider = require('../images/fg_divider.svg');
+export imgDivider from '../images/fg_divider.svg';
 
 export const imgSEA = [
   require('../images/fg_city_sea-0.svg'),

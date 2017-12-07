@@ -1,8 +1,8 @@
-export const imgDaslab = require('../images/pm_daslab.jpg');
-export const imgPrimerize = require('../images/pm_primerize.jpg');
-export const imgRmdb = require('../images/pm_rmdb.jpg');
-export const imgEterna = require('../images/pm_eterna.jpg');
-export const imgHitrace = require('../images/pm_hitrace.jpg');
-export const imgSpindle = require('../images/pm_spindle.jpg');
-export const imgRibokit = require('../images/pm_ribokit.jpg');
-export const imgCelica = require('../images/pm_celica.jpg');
+export imgDaslab from '../images/pm_daslab.jpg';
+export imgPrimerize from '../images/pm_primerize.jpg';
+export imgRmdb from '../images/pm_rmdb.jpg';
+export imgEterna from '../images/pm_eterna.jpg';
+export imgHitrace from '../images/pm_hitrace.jpg';
+export imgSpindle from '../images/pm_spindle.jpg';
+export imgRibokit from '../images/pm_ribokit.jpg';
+export imgCelica from '../images/pm_celica.jpg';

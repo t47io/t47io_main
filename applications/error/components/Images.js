@@ -3,13 +3,8 @@ import {
   getContextObject,
 } from '../../common/util.js';
 
-import SvgCopyRight from '../images/fa-cr.svg';
-import SvgCreativeCommon from '../images/fa-cc.svg';
-
-export {
-  SvgCopyRight,
-  SvgCreativeCommon,
-};
+export SvgCopyRight from '../images/fa-cr.svg';
+export SvgCreativeCommon from '../images/fa-cc.svg';
 
 
 const ERROR_CODES = require.context('../images/digits/', false, /\.svg$/);
