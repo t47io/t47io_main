@@ -9,7 +9,7 @@ const { mode, port, email, chmod } = serverJSON;
 export const ROOT = path.join(__dirname, '../');
 export const PATH = {
   APP: path.join(ROOT, 'applications/'),
-  BACKUO: path.join(ROOT, 'backup/'),
+  BACKUP: path.join(ROOT, 'backup/'),
   CONFIG: path.join(ROOT, 'config/'),
   STATIC: path.join(ROOT, 'static/'),
   PUBLIC: path.join(ROOT, 'public/'),
