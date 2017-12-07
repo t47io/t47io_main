@@ -1,25 +1,18 @@
-const LABELS = {
+export const LABELS = {
   server: 'Server',
   prod: 'Production',
   demo: 'Demonstration',
   theme: 'Theme',
 };
-const COLORS = {
+export const COLORS = {
   server: 'yellow',
   prod: 'yellow',
   demo: 'gray',
   theme: 'purple',
 };
-const KEYS = [
+export const KEYS = [
   'server',
   'prod',
   'demo',
   'theme',
 ];
-
-
-export {
-  LABELS,
-  COLORS,
-  KEYS,
-};

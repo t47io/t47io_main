@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 
 
 class HomeTrigger extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { isTriggered: false };
-  }
+  state = { isTriggered: false }
 
   render() {
     if (this.props.disabled || this.state.isTriggered) { return null; }

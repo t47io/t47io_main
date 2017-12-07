@@ -6,12 +6,8 @@ import CarouselIndicator from './CarouselIndicator.jsx';
 
 
 class Carousel extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { current: 0 };
+  state = { current: 0 }
 
-    this.onClick = this.onClick.bind(this);
-  }
   componentDidMount() {
     this.onLoop();
   }
@@ -19,12 +15,12 @@ class Carousel extends React.PureComponent {
     clearInterval(this.timer);
   }
 
-  onClick(index) {
+  onClick = (index) => {
     clearInterval(this.timer);
     this.setState({ current: index });
     this.onLoop();
   }
-  onLoop() {
+  onLoop = () => {
     this.timer = setInterval(() => {
       const next = (this.state.current + 1) % this.props.items.length;
       this.setState({ current: next });

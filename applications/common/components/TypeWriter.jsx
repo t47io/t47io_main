@@ -5,15 +5,10 @@ import { formatHomeText } from '../../main/util.js';
 
 
 class TypeWriter extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isActive: props.shouldAnimate,
-      hasStarted: false,
-      currentText: '',
-    };
-
-    this.onTypeWrite = this.onTypeWrite.bind(this);
+  state = {
+    isActive: this.props.shouldAnimate,
+    hasStarted: false,
+    currentText: '',
   }
 
   componentDidMount() {
@@ -35,7 +30,7 @@ class TypeWriter extends React.PureComponent {
     clearInterval(this.timer);
   }
 
-  onTypeWrite() {
+  onTypeWrite = () => {
     const { fullText, interval, delay } = this.props;
     const steps = fullText.length;
 

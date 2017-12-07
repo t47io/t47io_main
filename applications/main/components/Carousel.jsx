@@ -10,15 +10,11 @@ import '../stylesheets/Carousel.scss';
 
 
 class Carousel extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      current: 0,
-      active: false,
-    };
-
-    this.onClick = this.onClick.bind(this);
+  state = {
+    current: 0,
+    active: false,
   }
+
   componentDidMount() {
     this.onLoop();
   }
@@ -26,7 +22,7 @@ class Carousel extends React.PureComponent {
     clearInterval(this.timer);
   }
 
-  onChange(index) {
+  onChange = (index) => {
     this.setState({
       current: index,
       active: false,
@@ -35,13 +31,13 @@ class Carousel extends React.PureComponent {
       this.setState({ active: true });
     }, this.props.interval / 10);
   }
-  onLoop() {
+  onLoop = () => {
     this.timer = setInterval(() => {
       const next = (this.state.current + 1) % this.props.items.length;
       this.onChange(next);
     }, this.props.interval);
   }
-  onClick(index) {
+  onClick = (index) => {
     clearInterval(this.timer);
     this.onChange(index);
     this.onLoop();

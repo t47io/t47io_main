@@ -6,10 +6,7 @@ import { getPlayState } from '../util.js';
 
 
 class WebAnimation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { playState: getPlayState(props.shouldAnimate) };
-  }
+  state = { playState: getPlayState(this.props.shouldAnimate) }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ playState: getPlayState(nextProps.shouldAnimate) });

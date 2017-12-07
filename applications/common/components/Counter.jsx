@@ -3,14 +3,9 @@ import PropTypes from 'prop-types';
 
 
 class Counter extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isActive: props.shouldAnimate,
-      currentValue: props.beginValue,
-    };
-
-    this.onCountUp = this.onCountUp.bind(this);
+  state = {
+    isActive: this.props.shouldAnimate,
+    currentValue: this.props.beginValue,
   }
 
   componentDidMount() {
@@ -32,7 +27,7 @@ class Counter extends React.PureComponent {
     clearInterval(this.timer);
   }
 
-  onCountUp() {
+  onCountUp = () => {
     const { beginValue, endValue, duration, interval } = this.props;
     const steps = Math.ceil(duration / interval);
     const increment = (endValue - beginValue) / steps;

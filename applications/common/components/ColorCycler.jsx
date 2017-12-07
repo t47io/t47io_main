@@ -3,14 +3,9 @@ import PropTypes from 'prop-types';
 
 
 class ColorCycler extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isActive: props.isActive,
-      index: 0,
-    };
-
-    this.onColorCycle = this.onColorCycle.bind(this);
+  state = {
+    isActive: this.props.isActive,
+    index: 0,
   }
 
   componentDidMount() {
@@ -25,7 +20,7 @@ class ColorCycler extends React.PureComponent {
     clearInterval(this.timer);
   }
 
-  onColorCycle() {
+  onColorCycle = () => {
     const { choices, interval, delay } = this.props;
 
     setTimeout(() => {
