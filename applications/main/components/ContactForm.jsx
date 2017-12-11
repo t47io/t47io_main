@@ -6,6 +6,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { contactPanel } from '../animations/contact.js';
 import { CONTACT_RIGHT } from '../constants/sectionTypes.js';
+import { EMAIL_ERROR_CODES } from '../constants/util.js';
 
 
 const ContactForm = ({
@@ -16,6 +17,7 @@ const ContactForm = ({
   isPending,
   isSuccess,
   isError,
+  errorCode,
   counter,
   onChangeField,
   onSubmitForm,
@@ -30,6 +32,14 @@ const ContactForm = ({
     btnIconClassName = 'fa-cancel-circled';
   } else if (isSuccess) {
     btnIconClassName = 'fa-ok-circled';
+  }
+  let btnDisplayText = 'Send';
+  if (errorCode) {
+    btnDisplayText = EMAIL_ERROR_CODES[errorCode];
+  } else if (isPending) {
+    btnDisplayText = 'Sending...';
+  } else if (isSuccess) {
+    btnDisplayText = 'Sent!';
   }
 
   return (
@@ -126,7 +136,7 @@ const ContactForm = ({
             disabled={shouldDisableForm}
           >
             <i className={`fa ${btnIconClassName} fa-lg fa-fw`} />
-            SEND
+            {btnDisplayText}
           </button>
         </WebAnimation>
       </form>
@@ -142,6 +152,7 @@ ContactForm.propTypes = {
   isPending: PropTypes.bool,
   isSuccess: PropTypes.bool,
   isError: PropTypes.bool,
+  errorCode: PropTypes.number,
   counter: PropTypes.bool,
   onChangeField: PropTypes.func,
   onSubmitForm: PropTypes.func,
@@ -155,6 +166,7 @@ ContactForm.defaultProps = {
   isPending: false,
   isSuccess: false,
   isError: false,
+  errorCode: NaN,
   counter: false,
   onChangeField: () => {},
   onSubmitForm: () => {},

@@ -30,3 +30,10 @@ export const FILE_NAMES = {
   SITEMAP: 'sitemap.xml',
   BACKUP: 'backup.tar.gz',
 };
+
+export const EMAIL_VALID_LEN = {
+  name: 3,
+  email: 8,
+  subject: 10,
+  message: 20,
+};

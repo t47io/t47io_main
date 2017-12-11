@@ -40,9 +40,13 @@ export const submitEmailReset = () => ({ type: SUBMIT_CONTACT_EMAIL_RESET });
 
 export const submitEmailSuccess = () => ({ type: SUBMIT_CONTACT_EMAIL_SUCCESS });
 
-export const submitEmailError = () => (
+export const submitEmailError = code => (
   (dispatch) => {
-    dispatch({ type: SUBMIT_CONTACT_EMAIL_ERROR });
+    const errorCode = Math.min(code, 500);
+    dispatch({
+      type: SUBMIT_CONTACT_EMAIL_ERROR,
+      payload: { status: errorCode },
+    });
     setTimeout(() => dispatch(submitEmailReset()), 4000);
   }
 );
@@ -68,7 +72,7 @@ export const submitEmail = () => (dispatch, getState) => {
       }, 1500);
       return dispatch(submitEmailSuccess());
     }
-    return dispatch(submitEmailError());
+    return dispatch(submitEmailError(response.status));
   })
   .catch((error) => {
     console.error(error);

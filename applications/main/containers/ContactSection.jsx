@@ -23,15 +23,7 @@ const ContactSection = ({
     backgrounds,
     resume,
   },
-  form: {
-    name,
-    email,
-    subject,
-    message,
-    isPending,
-    isSuccess,
-    isError,
-  },
+  form,
   animations: {
     header,
     icon,
@@ -87,13 +79,7 @@ const ContactSection = ({
             onToggleAnimation={animateLeftItems}
           />
           <ContactForm
-            name={name}
-            email={email}
-            subject={subject}
-            message={message}
-            isPending={isPending}
-            isSuccess={isSuccess}
-            isError={isError}
+            {...form}
             counter={right}
             onChangeField={changeEmailField}
             onSubmitForm={submitEmail}
@@ -119,6 +105,7 @@ ContactSection.propTypes = {
     isPending: PropTypes.bool,
     isSuccess: PropTypes.bool,
     isError: PropTypes.bool,
+    errorCode: PropTypes.number,
   }),
   animations: PropTypes.shape({
     header: PropTypes.bool,

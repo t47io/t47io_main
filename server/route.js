@@ -6,13 +6,13 @@ import sanitizer from 'sanitizer';
 import {
   PATH,
   DEBUG,
-  EMAIL_CONTENT_LEN,
   EMAIL_RECV,
   SMTP,
 } from './env.js';
 import {
   CACHE_MAX_AGE,
   FILE_NAMES,
+  EMAIL_VALID_LEN,
 } from './config.js';
 import { webpackMiddleware } from './middleware.js';
 import {
@@ -84,16 +84,22 @@ const routes = {
       return next(sendErrorResponse(code));
     },
     post: (req, res, next) => {
-      const form = Object.keys(req.body).map(key => sanitizer.escape(req.body[key]));
-      const [name, email, subject, message] = form;
+      const form = Object.keys(req.body).map(key => ({
+        [key]: sanitizer.escape(req.body[key]),
+      }))
+      .reduce((obj, item) => ({
+        ...obj,
+        ...item,
+      }), {});
+      const validFields = Object.keys(form).filter(key => (form[key].length >= EMAIL_VALID_LEN[key]));
 
-      if (form.filter(item => (item.length >= EMAIL_CONTENT_LEN)).length !== 4) {
+      if (form.subject.toLowerCase().startsWith('http') || !emailValidator.validate(form.email)) {
+        return next(sendErrorResponse(403));
+      } else if (validFields.length !== Object.keys(form).length) {
         return next(sendErrorResponse(400));
       }
-      if (subject.toLowerCase().startsWith('http') || !emailValidator.validate(email)) {
-        return next(sendErrorResponse(403));
-      }
 
+      const { name, email, subject, message } = form;
       return SMTP.sendMail({
         from: EMAIL_RECV,
         to: EMAIL_RECV,

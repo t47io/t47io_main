@@ -20,7 +20,6 @@ export const NGINX = mode.nginx;
 export const MAINTENANCE = mode.maintenance;
 export const PORT = port;
 
-export const EMAIL_CONTENT_LEN = 10;
 export const EMAIL_RECV = email.login;
 export const SMTP = emailer.createTransport(`${email.protocol}://${EMAIL_RECV.replace('@', '%40')}:${email.password}@${email.host}:${email.port}`);
 

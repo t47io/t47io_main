@@ -20,5 +20,11 @@ export const AUTHOR_NAME = 'Tian S.';
 export const MARKUP = '_';
 export const FIELD_MARKUP = `${MARKUP}1st${MARKUP}`;
 
+export const EMAIL_ERROR_CODES = {
+  400: 'Invalid Form Data',
+  403: 'Illegal Form Data',
+  500: 'Internal Server Error',
+};
+
 export const SVG_BG_INDICES = [0, 1, 2, 3];
 export const AVATAR_INDICES = [0, 1, 2, 3, 4];

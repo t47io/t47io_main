@@ -30,6 +30,7 @@ export const initialState = {
     isPending: false,
     isSuccess: false,
     isError: false,
+    errorCode: NaN,
   },
   animations: {
     header: false,
@@ -89,6 +90,7 @@ const reducer = (state = initialState, { type, payload }) => {
           isPending: false,
           isSuccess: false,
           isError: false,
+          errorCode: NaN,
         },
         animations: {
           ...state.animations,
@@ -119,6 +121,7 @@ const reducer = (state = initialState, { type, payload }) => {
           isPending: false,
           isSuccess: false,
           isError: true,
+          errorCode: payload.status,
         },
         animations: {
           ...state.animations,
