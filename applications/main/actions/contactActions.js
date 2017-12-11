@@ -37,9 +37,7 @@ export const changeEmailField = data => ({
 });
 
 export const submitEmailReset = () => ({ type: SUBMIT_CONTACT_EMAIL_RESET });
-
 export const submitEmailSuccess = () => ({ type: SUBMIT_CONTACT_EMAIL_SUCCESS });
-
 export const submitEmailError = code => (
   (dispatch) => {
     const errorCode = Math.min(code, 500);
