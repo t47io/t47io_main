@@ -22,7 +22,7 @@ const filterWords = (input, minLen, exclude = [], subset = NaN) => {
   let output = input.match(wordRegex)
     .map(word => word.toLowerCase())
     .filter(word => (word.length > minLen && !exclude.includes(word)));
-  if (!isNaN(subset)) { output = output.slice(0, subset); }
+  if (!Number.isNaN(subset)) { output = output.slice(0, subset); }
   return output.sort();
 };
 
@@ -51,6 +51,7 @@ const matchRecords = allRecords => ({
         if (isEqual(allRecords[i].title, title) && isEqual(allRecords[i].author, author)) {
           citation = allRecords[i].cite;
           allRecords.splice(i, 1);
+          console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: entry ${colors.blue(item.tag)} matched citation record.`);
           break;
         }
       }

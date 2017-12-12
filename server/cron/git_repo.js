@@ -29,7 +29,7 @@ const getContribOnce = (repo, repoName) => (
         resolve(json);
       } else {
         console.log(`${colors.magenta(`[${SCRIPT}]`)} Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
-        reject('Failed to fetch Github repository contrib');
+        throw new Error('Failed to fetch Github repository contrib');
       }
     })
     .catch(reject)
@@ -45,7 +45,7 @@ const getContribRetry = (repo, repoName, retry, interval) => (
         ), interval)
       ));
     }
-    return Promise.reject('retry maxed out.');
+    throw new Error('retry maxed out.');
   })
 );
 
@@ -183,7 +183,7 @@ REPOSITORY_LIST.forEach((repoName, i) => {
     .then((data) => { result = formatCalendar(data, result); })
     .then(() => {
       fs.writeJSONSync(path.join(PATH.CONFIG, 'repository/', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
-      console.log(`${colors.magenta(`[${SCRIPT}]`)} GitHub records updated for repository ${colors.blue(repoName)}.`);
+      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub records updated for repository ${colors.blue(repoName)}.`);
     })
     .catch((err) => { throw err; });
   } catch (err) {
