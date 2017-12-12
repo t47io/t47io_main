@@ -10,12 +10,12 @@ import errorJSON from '../../config/error.json';
 
 const codes = Object.keys(errorJSON).map(code => parseInt(code, 10));
 const errorHTMLs = codes.map(code => ({
-  [`tmp/_err${code}.html`]: renderToStaticMarkup(
+  [`tmp/_err${code}.html`]: renderToStaticMarkup((
     <ErrorPage
       {...(errorJSON[code])}
       code={code}
     />
-  ),
+  )),
 }))
 .reduce((obj, item) => ({
   ...obj,

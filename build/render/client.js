@@ -13,7 +13,8 @@ export const renderMainHTML = (baseHTML) => {
   const helixCSS = loadFileSync('public/tmp/_helix.css');
 
   return htmlMinifier.minify(
-    replaceHTML(baseHTML
+    replaceHTML(
+      baseHTML
       .replace('<meta />', mainMETA)
       .replace('<loader />', helixHTML)
       .replace('html{}', helixCSS)
@@ -27,7 +28,8 @@ export const renderProjectHTML = (baseHTML) => {
   const hexagonCSS = loadFileSync('public/tmp/_hexagon.css');
 
   return htmlMinifier.minify(
-    replaceHTML(baseHTML
+    replaceHTML(
+      baseHTML
       .replace('<meta />', projectMETA)
       .replace('<loader />', hexagonHTML)
       .replace('html{}', hexagonCSS)
@@ -37,7 +39,8 @@ export const renderProjectHTML = (baseHTML) => {
 
 export const renderErrorHTML = (baseHTML, bodyHTML, bodyMETA, bodyCSS) => (
   htmlMinifier.minify(
-    replaceHTML(baseHTML
+    replaceHTML(
+      baseHTML
       .replace('<meta />', bodyMETA)
       .replace('<app />', bodyHTML)
       .replace('{style}', bodyCSS)

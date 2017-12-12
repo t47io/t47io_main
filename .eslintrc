@@ -12,9 +12,12 @@
       "jsx": true
     }
   },
-  "plugins": ["react"],
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "react"
+  ],
   "rules": {
-    "class-methods-use-this": [1],
     "comma-dangle": [2, {
       "arrays": "always-multiline",
       "objects": "always-multiline",
@@ -22,7 +25,7 @@
       "exports": "always-multiline",
       "functions": "ignore"
     }],
-    "func-names": [0],
+    "function-paren-newline": [2, "consistent"],
     "global-require": [0],
     "indent": [2, 2, {
       "MemberExpression": "off",
@@ -33,6 +36,7 @@
     "no-mixed-operators": [0],
     "no-shadow": [2, { "allow": ["DEBUG"] }],
     "no-unused-vars": [2, { "argsIgnorePattern": "next" }],
+    "object-curly-newline": [0],
 
     "import/extensions": [0, { "extensions": [".js", ".jsx", ".json"] }],
     "import/no-extraneous-dependencies": [0],
@@ -41,15 +45,14 @@
     "import/prefer-default-export": [0],
 
     "jsx-a11y/anchor-is-valid": [1, { "aspects": ["invalidHref"] }],
-    "jsx-a11y/href-no-hash": [0],
+    "jsx-a11y/click-events-have-key-events": [0],
     "jsx-a11y/media-has-caption": [0],
 
     "react/forbid-prop-types": [1, { "forbid": ["any"] }],
     "react/jsx-max-props-per-line": [0],
     "react/no-array-index-key": [0],
     "react/no-danger": [0],
-    "react/no-danger-with-children": [0],
     "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
-    "react/prop-types": [1, {"ignore": ["children", "route"]}],
-  },
+    "react/prop-types": [1, {"ignore": ["children", "route"]}]
+  }
 }

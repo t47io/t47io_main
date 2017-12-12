@@ -35,7 +35,8 @@ const renderMainHTML = () => {
   mainMETA = DocumentMeta.renderAsHTML();
 
   return htmlMinifier.minify(
-    replaceHTML(baseHTML
+    replaceHTML(
+      baseHTML
       .replace('<meta />', mainMETA)
       .replace('<loader />', '')
       .replace('<div class="body" id="app"></div>', contentHTML)
