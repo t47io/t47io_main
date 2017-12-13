@@ -35,23 +35,24 @@ const extractData = (body) => {
   };
 };
 
-const combineData = (data1, data2) => {
-  if (data1.startDate !== data2.startDate) {
+const combineData = (...data) => {
+  if (new Set(data.map(d => d.startDate)).size > 1) {
     console.log(`${colors.magenta(`[${SCRIPT}]`)} Failed to update GitHub contribution records.`);
     throw new Error('Date mismatch on GitHub contribution data.');
-  } else if (data1.countArray.length !== data2.countArray.length) {
+  } else if (new Set(data.map(d => d.countArray.length)).size > 1) {
     console.log(`${colors.magenta(`[${SCRIPT}]`)} Failed to update GitHub contribution records.`);
     throw new Error('countArray length mismatch on GitHub contribution data.');
   }
 
   const combinedData = {
-    startDate: data1.startDate,
-    countArray: data1.countArray.map((count, i) => (
-      count + data2.countArray[i]
+    startDate: data[0].startDate,
+    countArray: data[0].countArray.map((count, i) => (
+      data.map(d => d.countArray[i])
+      .reduce((sum, d) => (sum + d), 0)
     )),
     indexArray: [],
     maxCount: 0,
-    monthText: data1.monthText,
+    monthText: data[0].monthText,
   };
 
   const maxCount = Math.max(...combinedData.countArray);
@@ -63,44 +64,50 @@ const combineData = (data1, data2) => {
   return combinedData;
 };
 
+const getContrib = async (account) => {
+  try {
+    const result = await axios.get(`${GITHUB.HOST}${account}`);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub records retreived for account ${colors.blue(account)}.`);
+    return result;
+  } catch (err) {
+    console.error(err);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to retrieve GitHub records for account ${colors.blue(account)}.`);
+    throw err;
+  }
+};
 
-try {
-  axios.all([
-    axios.get(`${GITHUB.HOST}/${statsJSON.links.github}`),
-    axios.get(`${GITHUB.HOST}/${statsJSON.links.githubMinted}`),
-  ])
-  .then(axios.spread((response1, response2) => {
-    const data1 = extractData(response1.data);
-    const data2 = extractData(response2.data);
-    const combinedData = combineData(data1, data2);
+(async () => {
+  try {
+    const data = await Promise.all(
+      statsJSON.accounts.map(account => getContrib(account))
+    );
+    const result = data.map(ajax => extractData(ajax.data));
+    const combinedData = combineData(...result);
 
-    const newJSON = {
+    const newStatsJSON = {
       ...statsJSON,
       gitContrib: combinedData,
     };
-    fs.writeJSONSync(path.join(PATH.CONFIG, 'main/stats.json'), newJSON, JSON_FORMAT);
-    return combinedData;
-  }))
-  .then((data) => {
+    await fs.writeJSON(path.join(PATH.CONFIG, 'main/stats.json'), newStatsJSON, JSON_FORMAT);
+
     const oldTotal = parseInt(cronJSON.gitContrib.total, 10) || 0;
-    const newTotal = data.countArray.reduce((x, y) => (x + y), 0);
+    const newTotal = combinedData.countArray.reduce((sum, d) => (sum + d), 0);
     const diffNumber = newTotal - oldTotal;
     const diffString = `(${(diffNumber > 0) ? '+' : ''}${diffNumber})`;
 
-    const newJSON = {
+    const newCronJSON = {
       ...cronJSON,
       gitContrib: {
         total: `${newTotal} ${diffString}`,
-        lastWeek: data.countArray.slice(data.countArray.length - 7),
+        lastWeek: combinedData.countArray.slice(combinedData.countArray.length - 7),
       },
     };
-    fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newJSON, JSON_FORMAT);
+    await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
 
     console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub contribution records updated.`);
-  })
-  .catch((err) => { throw err; });
-} catch (err) {
-  console.error(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
-  process.exit(1);
-}
+  } catch (err) {
+    console.error(err);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+    process.exit(1);
+  }
+})();

@@ -107,7 +107,7 @@ const formatTable = (data) => {
 const formatCalendar = (data) => {
   const contribs = data.filter(contrib => contrib.author.login === login)[0].weeks;
   const weeks = contribs.map(week => formatWeekMonth(week.w));
-  let months = weeks.filter((week, i, self) => (self.indexOf(week) === i));
+  let months = Array.from(new Set(weeks));
 
   const aggregatedData = {};
   contribs.forEach((week) => {
@@ -177,6 +177,7 @@ Promise.all(
     } catch (err) {
       console.error(err);
       console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
+      throw err;
     }
   })
 )

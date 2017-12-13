@@ -33,10 +33,10 @@
     "tunnel",
     "big_sur"
   ],
-  "links": {
-    "github": "t47io",
-    "githubMinted": "SiqiTian-minted"
-  },
+  "accounts": [
+    "t47io",
+    "SiqiTian-minted"
+  ],
   "gitContrib": {
     "startDate": "2016-07-03",
     "countArray": [

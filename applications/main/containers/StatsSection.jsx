@@ -21,7 +21,7 @@ const StatsSection = ({
   data: {
     items,
     backgrounds,
-    links,
+    accounts,
     gitContrib,
   },
   animations: {
@@ -72,19 +72,17 @@ const StatsSection = ({
       Contributions
       <small className="STATS__note-link">
         (
-        <a
-          href={`${GITHUB_HOST}/${links.github}`}
-          target="_blank" rel="noopener noreferrer external"
-        >
-          <i className="fa fa-fw fa-sm fa-link-ext" />
-        </a>
-        and
-        <a
-          href={`${GITHUB_HOST}/${links.githubMinted}`}
-          target="_blank" rel="noopener noreferrer external"
-        >
-          <i className="fa fa-fw fa-sm fa-link-ext" />
-        </a>
+        {accounts.map((account, i) => (
+          <span key={`STATS__github-${account}`}>
+            <a
+              href={`${GITHUB_HOST}${account}`}
+              target="_blank" rel="noopener noreferrer external"
+            >
+              <i className="fa fa-fw fa-sm fa-link-ext" />
+            </a>
+            {(i !== accounts.length - 1) && ','}
+          </span>
+        ))}
         )
       </small>
     </h3>
@@ -102,10 +100,7 @@ StatsSection.propTypes = {
   data: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.object),
     backgrounds: PropTypes.arrayOf(PropTypes.string),
-    links: PropTypes.shape({
-      github: PropTypes.string,
-      githubMinted: PropTypes.string,
-    }),
+    accounts: PropTypes.arrayOf(PropTypes.string),
     gitContrib: PropTypes.shape({
       startDate: PropTypes.string,
       countArray: PropTypes.arrayOf(PropTypes.number),

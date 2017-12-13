@@ -10,10 +10,7 @@ export const initialState = {
   data: {
     items: [],
     backgrounds: [],
-    links: {
-      github: '',
-      githubMitned: '',
-    },
+    accounts: [],
     gitContrib: {
       startDate: '',
       countArray: [],
