@@ -40,31 +40,32 @@ const emailAdmin = (content) => {
 };
 
 
-try {
-  const content = `
-${new Date().toISOString()}
+(async () => {
+  try {
+    const content = `
+  ${new Date().toISOString()}
 
-Google Scholar Citations:
-${JSON.stringify(cronJSON.citations, null, 2)}
-  ( total = ${formatPubs()} )
+  Google Scholar Citations:
+  ${JSON.stringify(cronJSON.citations, null, 2)}
+    ( total = ${formatPubs()} )
 
-GitHub Contributions:
-${JSON.stringify(cronJSON.gitContrib, null, 2)}
+  GitHub Contributions:
+  ${JSON.stringify(cronJSON.gitContrib, null, 2)}
 
-SSL Certificates:
-${JSON.stringify(cronJSON.https, null, 2)}
-  `;
+  SSL Certificates:
+  ${JSON.stringify(cronJSON.https, null, 2)}
+    `;
 
-  if (!DEBUG) {
-    emailAdmin(content)
-    .then((info) => {
+    if (!DEBUG) {
+      const info = await emailAdmin(content);
       console.log(info);
       console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Notified admin on cron data results.`);
-    })
-    .catch((err) => { throw err; });
+    } else {
+      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: Admin email notification disabled when DEBUG.`);
+    }
+  } catch (err) {
+    console.error(err);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to notify admin on cron data results.`);
+    process.exit(1);
   }
-} catch (err) {
-  console.error(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to notify admin on cron data results.`);
-  process.exit(1);
-}
+})();

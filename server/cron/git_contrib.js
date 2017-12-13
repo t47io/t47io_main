@@ -76,6 +76,7 @@ const getContrib = async (account) => {
   }
 };
 
+
 (async () => {
   try {
     const data = await Promise.all(

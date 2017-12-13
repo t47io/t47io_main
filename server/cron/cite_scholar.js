@@ -95,11 +95,11 @@ const diffCitations = (oldCitations, newCitations) => {
 };
 
 
-try {
-  axios.get(pubsJSON.links.googleScholar)
-  .then((response) => {
-    const allRecords = extractHTML(response.data);
-    const newJSON = matchRecords(allRecords);
+(async () => {
+  try {
+    const result = await axios.get(pubsJSON.links.googleScholar);
+    const allRecords = extractHTML(result.data);
+    const newPubsJSON = matchRecords(allRecords);
 
     if (allRecords.length) {
       console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: ${allRecords.length} record(s) from Google Scholar was not matched.`);
@@ -108,31 +108,26 @@ try {
       ));
     }
 
-    newJSON.items.forEach((obj) => {
+    newPubsJSON.items.forEach((obj) => {
       obj.items.filter(item => (item.citation === null))
       .forEach((item) => {
         console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: entry ${colors.blue(item.tag)} did not match any citation record.`);
       });
     });
+    await fs.writeJSON(path.join(PATH.CONFIG, 'main/pubs.json'), newPubsJSON, JSON_FORMAT);
 
-    fs.writeJSONSync(path.join(PATH.CONFIG, 'main/pubs.json'), newJSON, JSON_FORMAT);
-    return newJSON.items;
-  })
-  .then((items) => {
     const oldCitations = cronJSON.citations;
-    const newCitations = flattenCitations(items);
-
-    const newJSON = {
+    const newCitations = flattenCitations(newPubsJSON.items);
+    const newCronJSON = {
       ...cronJSON,
       citations: diffCitations(oldCitations, newCitations),
     };
-    fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newJSON, JSON_FORMAT);
+    await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
 
     console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
-  })
-  .catch((err) => { throw err; });
-} catch (err) {
-  console.error(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update Google Scholar citation.`);
-  process.exit(1);
-}
+  } catch (err) {
+    console.error(err);
+    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update Google Scholar citation.`);
+    process.exit(1);
+  }
+})();

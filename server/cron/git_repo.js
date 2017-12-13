@@ -171,8 +171,8 @@ Promise.all(
         authors: formatTable(contribs),
         contributions: formatCalendar(contribs),
       };
-
       await fs.writeJSON(path.join(PATH.CONFIG, 'repository/', `${repo}.json`), result, JSON_FORMAT);
+
       console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub records updated for repository ${colors.blue(repoName)}.`);
     } catch (err) {
       console.error(err);
