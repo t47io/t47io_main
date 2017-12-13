@@ -14,40 +14,38 @@ import {
   REPOSITORY_LIST,
 } from '../../applications/project/constants/repositoryTypes.js';
 
+import { delayFor } from '../../applications/common/util.js';
+
 import serverJSON from '../../config/server.json';
 
 const { git: { token, login } } = serverJSON;
 const SCRIPT = 'cron:repo';
 
 
-const getContribOnce = (repo, repoName) => (
-  new Promise((resolve, reject) => (
-    repo.getContributorStats()
-    .then((json) => {
-      // github may respond 202 while it executes query
-      if (json.status === 200) {
-        resolve(json);
-      } else {
-        console.log(`${colors.magenta(`[${SCRIPT}]`)} Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
-        throw new Error('Failed to fetch Github repository contrib');
-      }
-    })
-    .catch(reject)
-  ))
-);
-const getContribRetry = (repo, repoName, retry, interval) => (
-  getContribOnce(repo, repoName)
-  .catch(() => {
-    if (retry > 0) {
-      return new Promise(resolve => (
-        setTimeout(() => (
-          resolve(getContribRetry(repo, repoName, retry - 1, interval * 2))
-        ), interval)
-      ));
+const getContribOnce = async (repo, repoName) => {
+  const json = await repo.getContributorStats();
+  // github may respond 202 while it executes query
+  if (json.status === 200) {
+    return json;
+  }
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
+  throw new Error('Failed to fetch Github repository contrib');
+};
+const getContribRetry = async (repo, repoName, retry, interval) => {
+  let retries = retry;
+  let delay = interval;
+  while (retries > 0) {
+    try {
+      const result = await getContribOnce(repo, repoName);
+      return result;
+    } catch (err) {
+      retries -= 1;
+      delay *= 2;
+      await delayFor(delay);
     }
-    throw new Error('retry maxed out.');
-  })
-);
+  }
+  throw new Error('retry maxed out.');
+};
 
 const trimZeroContribs = (months, aggregatedData) => {
   let beginIdx = 0;
@@ -78,49 +76,44 @@ const formatWeekMonth = week => (
     year: 'numeric',
   })
 );
-const formatBasics = ({ data, pulls, branches, downloads }, result) => ({
-  ...result,
-  basics: {
-    name: data.full_name,
-    isPrivate: data.private,
-    createdAt: formatDateTime(data.created_at),
-    pushedAt: formatDateTime(data.pushed_at),
-    issues: data.open_issues_count,
-    downloads,
-    forks: data.forks_count,
-    pulls,
-    branches,
-    stars: data.stargazers_count,
-    watchers: data.watchers_count,
-  },
+const formatBasics = (basics, pulls, branches, downloads) => ({
+  name: basics.full_name,
+  isPrivate: basics.private,
+  createdAt: formatDateTime(basics.created_at),
+  pushedAt: formatDateTime(basics.pushed_at),
+  issues: basics.open_issues_count,
+  downloads: downloads.length,
+  forks: basics.forks_count,
+  pulls: pulls.length,
+  branches: branches.length,
+  stars: basics.stargazers_count,
+  watchers: basics.watchers_count,
 });
-const formatTable = (data, result) => {
-  const combinedResult = {
-    ...result,
-    contributors: data.map(contrib => ({
-      author: contrib.author ? contrib.author.login : GITHUB.DEFUALT_AUTHOR,
-      commits: contrib.total,
-      ...(
-        contrib.weeks.reduce((sum, week) => ({
-          additions: sum.additions + week.a,
-          deletions: sum.deletions + week.d,
-        }), {
-          additions: 0,
-          deletions: 0,
-        })
-      ),
-    })),
-  };
-  combinedResult.contributors.sort((a, b) => (b.commits - a.commits));
-  combinedResult.contributors.splice(GITHUB.TABLE_LIMIT);
+const formatTable = (data) => {
+  const combinedResult = data.map(contrib => ({
+    author: contrib.author ? contrib.author.login : GITHUB.DEFUALT_AUTHOR,
+    commits: contrib.total,
+    ...(
+      contrib.weeks.reduce((sum, week) => ({
+        additions: sum.additions + week.a,
+        deletions: sum.deletions + week.d,
+      }), {
+        additions: 0,
+        deletions: 0,
+      })
+    ),
+  }));
+  combinedResult.sort((a, b) => (b.commits - a.commits));
+  combinedResult.splice(GITHUB.TABLE_LIMIT);
   return combinedResult;
 };
-const formatCalendar = (data, result) => {
-  const weeks = data.map(week => formatWeekMonth(week.w));
+const formatCalendar = (data) => {
+  const contribs = data.filter(contrib => contrib.author.login === login)[0].weeks;
+  const weeks = contribs.map(week => formatWeekMonth(week.w));
   let months = weeks.filter((week, i, self) => (self.indexOf(week) === i));
 
   const aggregatedData = {};
-  data.forEach((week) => {
+  contribs.forEach((week) => {
     const month = formatWeekMonth(week.w);
 
     if (!(month in aggregatedData)) {
@@ -138,7 +131,6 @@ const formatCalendar = (data, result) => {
   months = trimZeroContribs(months, aggregatedData);
 
   return {
-    ...result,
     additions: months.map(month => aggregatedData[month].additions),
     deletions: months.map(month => aggregatedData[month].deletions),
     commits: months.map(month => aggregatedData[month].commits),
@@ -150,46 +142,49 @@ const formatCalendar = (data, result) => {
 let gh = null;
 try {
   gh = new Github({ token });
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} Connected to GitHub.`);
 } catch (err) {
   console.error(err);
   console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to connect to GitHub.`);
   process.exit(1);
 }
 
-REPOSITORY_LIST.forEach((repoName, i) => {
-  try {
-    const repo = gh.getRepo(...repoName.split('/'));
-    let result = {};
+Promise.all(
+  REPOSITORY_LIST.map(async (repoName, i) => {
+    try {
+      const repo = await gh.getRepo(...repoName.split('/'));
+      const data = await Promise.all([
+        repo.getDetails(),
+        axios.get(`${GITHUB.API}${repoName}/pulls?access_token=${token}`),
+        axios.get(`${GITHUB.API}${repoName}/branches?access_token=${token}`),
+        axios.get(`${GITHUB.API}${repoName}/downloads?access_token=${token}`),
+        getContribRetry(repo, repoName, GITHUB.RETRY, GITHUB.INTERVAL),
+      ]);
 
-    axios.all([
-      repo.getDetails(),
-      axios.get(`${GITHUB.API}${repoName}/pulls?access_token=${token}`),
-      axios.get(`${GITHUB.API}${repoName}/branches?access_token=${token}`),
-      axios.get(`${GITHUB.API}${repoName}/downloads?access_token=${token}`),
-    ])
-    .then(axios.spread((details, pulls, branches, downloads) => ({
-      data: details.data,
-      pulls: pulls.data.length,
-      branches: branches.data.length,
-      downloads: downloads.data.length,
-    })))
-    .then((data) => { result = formatBasics(data, result); })
-    .then(() => getContribRetry(repo, repoName, GITHUB.RETRY, GITHUB.INTERVAL))
-    .catch((err) => { throw err; })
-    .then(({ data }) => {
-      result = formatTable(data, result);
-      return data.filter(contrib => contrib.author.login === login)[0].weeks;
-    })
-    .then((data) => { result = formatCalendar(data, result); })
-    .then(() => {
-      fs.writeJSONSync(path.join(PATH.CONFIG, 'repository/', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
+      const [
+        { data: basics },
+        { data: pulls },
+        { data: branches },
+        { data: downloads },
+        { data: contribs },
+      ] = data;
+      const result = {
+        basics: formatBasics(basics, pulls, branches, downloads),
+        authors: formatTable(contribs),
+        contributions: formatCalendar(contribs),
+      };
+
+      await fs.writeJSON(path.join(PATH.CONFIG, 'repository/', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
       console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub records updated for repository ${colors.blue(repoName)}.`);
-    })
-    .catch((err) => { throw err; });
-  } catch (err) {
-    console.error(err);
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
-  }
+    } catch (err) {
+      console.error(err);
+      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
+    }
+  })
+)
+.then(() => {
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Updated GitHub records.`);
+})
+.catch(() => {
+  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub records.`);
 });
-
-console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Updated GitHub records.`);
