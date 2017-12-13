@@ -9,10 +9,7 @@ import {
   GITHUB,
   JSON_FORMAT,
 } from '../config.js';
-import {
-  REPOSITORY_INTERNAL_NAMES,
-  REPOSITORY_LIST,
-} from '../../applications/project/constants/repositoryTypes.js';
+import { REPOSITORY_LIST } from '../../applications/project/constants/repositoryTypes.js';
 
 import { delayFor } from '../../applications/common/util.js';
 
@@ -25,9 +22,8 @@ const SCRIPT = 'cron:repo';
 const getContribOnce = async (repo, repoName) => {
   const json = await repo.getContributorStats();
   // github may respond 202 while it executes query
-  if (json.status === 200) {
-    return json;
-  }
+  if (json.status === 200) { return json; }
+
   console.log(`${colors.magenta(`[${SCRIPT}]`)} Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
   throw new Error('Failed to fetch Github repository contrib');
 };
@@ -36,11 +32,12 @@ const getContribRetry = async (repo, repoName, retry, interval) => {
   let delay = interval;
   while (retries > 0) {
     try {
-      const result = await getContribOnce(repo, repoName);
-      return result;
+      // eslint-disable-next-line
+      return await getContribOnce(repo, repoName);
     } catch (err) {
       retries -= 1;
       delay *= 2;
+      // eslint-disable-next-line
       await delayFor(delay);
     }
   }
@@ -150,15 +147,16 @@ try {
 }
 
 Promise.all(
-  REPOSITORY_LIST.map(async (repoName, i) => {
+  Object.keys(REPOSITORY_LIST).map(async (repo) => {
+    const repoName = REPOSITORY_LIST[repo];
     try {
-      const repo = await gh.getRepo(...repoName.split('/'));
+      const gitRepo = await gh.getRepo(...repoName.split('/'));
       const data = await Promise.all([
-        repo.getDetails(),
+        gitRepo.getDetails(),
         axios.get(`${GITHUB.API}${repoName}/pulls?access_token=${token}`),
         axios.get(`${GITHUB.API}${repoName}/branches?access_token=${token}`),
         axios.get(`${GITHUB.API}${repoName}/downloads?access_token=${token}`),
-        getContribRetry(repo, repoName, GITHUB.RETRY, GITHUB.INTERVAL),
+        getContribRetry(gitRepo, repoName, GITHUB.RETRY, GITHUB.INTERVAL),
       ]);
 
       const [
@@ -174,7 +172,7 @@ Promise.all(
         contributions: formatCalendar(contribs),
       };
 
-      await fs.writeJSON(path.join(PATH.CONFIG, 'repository/', `${REPOSITORY_INTERNAL_NAMES[i]}.json`), result, JSON_FORMAT);
+      await fs.writeJSON(path.join(PATH.CONFIG, 'repository/', `${repo}.json`), result, JSON_FORMAT);
       console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub records updated for repository ${colors.blue(repoName)}.`);
     } catch (err) {
       console.error(err);

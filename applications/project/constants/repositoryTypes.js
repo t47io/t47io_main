@@ -11,32 +11,17 @@ export const RIBOKIT = 'ribokit/ribokit.github.io';
 export const JEKYLL = 'ribokit/ribokit-Jekyll-theme';
 export const SPHINX = 'ribokit/ribokit-Sphinx-theme';
 
-export const REPOSITORY_LIST = [
-  DASLAB,
-  PRIMERIZE,
-  NATHERMO,
-  RMDB,
-  RDATKIT,
-  HITRACE,
-  BIERS,
-  RIBOPAINT,
-  SPINDLE,
-  RIBOKIT,
-  JEKYLL,
-  SPHINX,
-];
-
-export const REPOSITORY_INTERNAL_NAMES = [
-  'daslab',
-  'primerize',
-  'nathermo',
-  'rmdb',
-  'rdatkit',
-  'hitrace',
-  'biers',
-  'ribopaint',
-  'spindle',
-  'ribokit',
-  'jekyll',
-  'sphinx',
-];
+export const REPOSITORY_LIST = {
+  daslab: DASLAB,
+  primerize: PRIMERIZE,
+  nathermo: NATHERMO,
+  rmdb: RMDB,
+  rdatkit: RDATKIT,
+  hitrace: HITRACE,
+  biers: BIERS,
+  ribopaint: RIBOPAINT,
+  spindle: SPINDLE,
+  ribokit: RIBOKIT,
+  jekyll: JEKYLL,
+  sphinx: SPHINX,
+};

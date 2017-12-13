@@ -11,7 +11,7 @@ import {
 } from './config.js';
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
-import { REPOSITORY_INTERNAL_NAMES } from '../applications/project/constants/repositoryTypes.js';
+import { REPOSITORY_LIST } from '../applications/project/constants/repositoryTypes.js';
 
 const mainJSON = SECTION_LIST
   .map(section => ({
@@ -29,7 +29,7 @@ const projectJSON = PROJECT_LIST
     ...obj,
     ...item,
   }), {});
-const repositoryJSON = REPOSITORY_INTERNAL_NAMES
+const repositoryJSON = Object.keys(REPOSITORY_LIST)
   .map(repository => ({
     [repository]: require(`../config/repository/${repository}.json`),
   }))

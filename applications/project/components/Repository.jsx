@@ -7,11 +7,8 @@ import RepositoryStats from './RepositoryStats.jsx';
 
 const Repository = ({
   basics,
-  contributors,
-  additions,
-  deletions,
-  commits,
-  months,
+  authors,
+  contributions,
 }) => {
   if (!basics.name) { return null; }
 
@@ -20,16 +17,11 @@ const Repository = ({
       <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <RepositoryStats
           basics={basics}
-          contributors={contributors}
+          contributors={authors}
         />
       </div>
       <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <RepositoryCharts
-          additions={additions}
-          deletions={deletions}
-          commits={commits}
-          months={months}
-        />
+        <RepositoryCharts {...contributions} />
       </div>
     </div>
   );
@@ -37,19 +29,23 @@ const Repository = ({
 
 Repository.propTypes = {
   basics: PropTypes.object,
-  contributors: PropTypes.arrayOf(PropTypes.object),
-  additions: PropTypes.arrayOf(PropTypes.number),
-  deletions: PropTypes.arrayOf(PropTypes.number),
-  commits: PropTypes.arrayOf(PropTypes.number),
-  months: PropTypes.arrayOf(PropTypes.string),
+  authors: PropTypes.arrayOf(PropTypes.object),
+  contributions: PropTypes.shape({
+    additions: PropTypes.arrayOf(PropTypes.number),
+    deletions: PropTypes.arrayOf(PropTypes.number),
+    commits: PropTypes.arrayOf(PropTypes.number),
+    months: PropTypes.arrayOf(PropTypes.string),
+  }),
 };
 Repository.defaultProps = {
   basics: {},
-  contributors: [],
-  additions: [],
-  deletions: [],
-  commits: [],
-  months: [],
+  authors: [],
+  contributions: {
+    additions: [],
+    deletions: [],
+    commits: [],
+    months: [],
+  },
 };
 
 

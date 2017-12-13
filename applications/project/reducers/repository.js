@@ -1,7 +1,7 @@
-import { REPOSITORY_INTERNAL_NAMES } from '../constants/repositoryTypes.js';
+import { REPOSITORY_LIST } from '../constants/repositoryTypes.js';
 
 
-const initialState = REPOSITORY_INTERNAL_NAMES.map(repo => ({
+const initialState = Object.keys(REPOSITORY_LIST).map(repo => ({
   [repo]: {},
 }))
 .reduce((obj, item) => ({
