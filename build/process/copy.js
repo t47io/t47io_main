@@ -6,13 +6,16 @@ import shell from 'shelljs';
 
 import { PATH } from '../../server/env.js';
 import { FILE_NAMES } from '../../server/config.js';
-import { resumeVersion } from '../../server/util.js';
+import {
+  logger,
+  resumeVersion,
+} from '../../server/util.js';
 import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
 
-const SCRIPT = 'process:copy';
+const log = logger('process:copy');
 
 
 const copyImages = () => {
@@ -25,13 +28,13 @@ const copyImages = () => {
       path.join(PATH.PUBLIC, file)
     )
   ));
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Image files copied to public.`);
+  log.info('Image files copied to public.');
 };
 
 const copyRobots = () => {
   const robotsTXT = loadFileSync(`static/${FILE_NAMES.ROBOTS}`);
   saveFileSync(`public/${FILE_NAMES.ROBOTS}`, robotsTXT);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Robots.txt copied to public.`);
+  log.info('Robots.txt copied to public.');
 };
 
 const copyPubs = () => {
@@ -43,7 +46,7 @@ const copyPubs = () => {
       path.join(PATH.PUBLIC, `docs/${file}`)
     )
   ));
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Pubs PDF files copied to public.`);
+  log.info('Pubs PDF files copied to public.');
 };
 
 const copyResume = () => {
@@ -51,7 +54,7 @@ const copyResume = () => {
     path.join(PATH.STATIC, `resume/${resumeVersion}.pdf`),
     path.join(PATH.PUBLIC, 'docs/resume.pdf')
   );
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
+  log.info(`Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
 };
 
 const copyThesis = () => {
@@ -63,7 +66,7 @@ const copyThesis = () => {
       path.join(PATH.PUBLIC, `docs/${file}`)
     )
   ));
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Thesis PDF files copied to public.`);
+  log.info('Thesis PDF files copied to public.');
 };
 
 
@@ -76,9 +79,9 @@ try {
   copyThesis();
   copyResume();
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Static files copied to public.`);
+  log.success('tatic files copied to public.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to copy static files to public.`);
+  console.error(err);
+  log.error('Failed to copy static files to public.');
   process.exit(1);
 }

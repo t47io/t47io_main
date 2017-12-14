@@ -1,13 +1,13 @@
-import colors from 'colors';
 import path from 'path';
 import shell from 'shelljs';
 
 import { DAY_MILLISECONDS } from '../../applications/main/constants/util.js';
 import { ROOT } from '../env.js';
+import { logger } from '../util.js';
 
 import cronJSON from '../../config/cron.json';
 
-const SCRIPT = 'cron:renew';
+const log = logger('cron:renew');
 
 
 const checkExpire = () => {
@@ -28,10 +28,10 @@ try {
     runLetsencrypt();
     shell.exec('service nginx start');
 
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: SSL Certificate renewed.`);
+    log.success('SSL Certificate renewed.');
   }
 } catch (err) {
-  console.error(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to renew SSL Certificate.`);
-  console.log(err);
+  console.error(err);
+  log.error('Failed to renew SSL Certificate.');
   process.exit(1);
 }

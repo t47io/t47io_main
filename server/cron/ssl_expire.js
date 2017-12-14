@@ -5,10 +5,11 @@ import path from 'path';
 
 import { PATH } from '../env.js';
 import { JSON_FORMAT } from '../config.js';
+import { logger } from '../util.js';
 
 import cronJSON from '../../config/cron.json';
 
-const SCRIPT = 'cron:https';
+const log = logger('cron:https');
 
 
 const checkCertificate = host => (
@@ -20,7 +21,7 @@ const checkCertificate = host => (
 
     req.on('error', (error) => {
       console.error(error);
-      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to check SSL Certificate of ${colors.blue(host)}.`);
+      log.error(`Failed to check SSL Certificate of ${colors.blue(host)}.`);
       req.end();
       reject(new Error('HTTPS failure.'));
     });
@@ -46,10 +47,10 @@ const checkCertificate = host => (
     };
     await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newJSON, JSON_FORMAT);
 
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: SSL Certificate expiration checked.`);
+    log.success('SSL Certificate expiration checked.');
   } catch (err) {
-    console.log(err);
-    console.error(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to check SSL Certificate expiration.`);
+    console.error(err);
+    log.error('Failed to check SSL Certificate expiration.');
     process.exit(1);
   }
 })();

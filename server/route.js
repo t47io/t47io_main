@@ -16,6 +16,7 @@ import {
 } from './config.js';
 import { webpackMiddleware } from './middleware.js';
 import {
+  logger,
   getPubFile,
   getThesisFile,
   getZipExt,
@@ -26,6 +27,8 @@ import {
   renderMainHTML,
   renderProjectHTML,
 } from '../build/render/client.js';
+
+const log = logger('server:route');
 
 
 export const sendHtmlFromCache = (name, render, req, res) => {
@@ -91,7 +94,8 @@ const routes = {
         ...obj,
         ...item,
       }), {});
-      const validFields = Object.keys(form).filter(key => (form[key].length >= EMAIL_VALID_LEN[key]));
+      const validFields = Object.keys(form)
+      .filter(key => (form[key].length >= EMAIL_VALID_LEN[key]));
 
       if (form.subject.toLowerCase().startsWith('http') || !emailValidator.validate(form.email)) {
         return next(sendErrorResponse(403));
@@ -113,12 +117,12 @@ const routes = {
       })
       .then((info) => {
         console.log(info);
-        console.log(`${colors.green('SUCCESS')}: Message sent on behalf of ${colors.blue(email)}.`);
+        log.success(`Message sent on behalf of ${colors.blue(email)}.`);
         next(sendErrorResponse(201));
       })
       .catch((err) => {
         console.error(err);
-        console.log(`${colors.red('ERROR')}: Failed to send email for client ${colors.blue(email)}.`);
+        log.error(`Failed to send email for client ${colors.blue(email)}.`);
         next(sendErrorResponse(500));
       });
     },

@@ -1,11 +1,11 @@
-import colors from 'colors';
 import shell from 'shelljs';
 
 import { PATH } from '../env.js';
 import { FILE_NAMES } from '../config.js';
+import { logger } from '../util.js';
 
+const log = logger('cron:backup');
 
-const SCRIPT = 'cron:backup';
 
 const prepareFolder = () => {
   shell.rm('-rf', PATH.BACKUP);
@@ -20,14 +20,14 @@ const backupJSON = () => {
   shell.cp('-R', 'config/repository/*.json', `${PATH.BACKUP}/json/repository`);
   shell.rm('-rf', `${PATH.BACKUP}/**/*.example.json`);
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} JSON config backed up.`);
+  log.info('JSON config backed up.');
 };
 
 const backupNginx = () => {
   shell.cp('-R', '/etc/nginx/nginx.conf', `${PATH.BACKUP}/nginx`);
   shell.cp('-R', '/etc/nginx/t47io/*.conf', `${PATH.BACKUP}/nginx`);
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Nginx config backed up.`);
+  log.info('NGINX config backed up.');
 };
 
 const backupMisc = () => {
@@ -38,7 +38,7 @@ const backupMisc = () => {
   shell.cp('/home/admin/.dircolors', `${PATH.BACKUP}/dircolors`);
   shell.cp('/home/admin/.nanorc', `${PATH.BACKUP}/nanorc`);
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Misc system config backed up.`);
+  log.info('System config backed up.');
 };
 
 const createTgz = () => {
@@ -50,7 +50,7 @@ const createTgz = () => {
   shell.exec(`zopfli ${tarFilename}`);
   shell.rm('-rf', tarFilename);
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Backup TGZ file created.`);
+  log.info('Backup TGZ file created.');
 };
 
 
@@ -61,9 +61,9 @@ try {
   backupMisc();
   createTgz();
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: System settings and data backed up.`);
+  log.success('System settings and data backed up.');
 } catch (err) {
   console.error(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to backup System settings and data.`);
+  log.error('Failed to backup System settings and data.');
   process.exit(1);
 }

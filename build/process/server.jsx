@@ -1,4 +1,3 @@
-import colors from 'colors';
 import fs from 'fs-extra';
 import glob from 'glob';
 import htmlMinifier from 'html-minifier';
@@ -18,8 +17,9 @@ import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
+import { logger } from '../../server/util.js';
 
-const SCRIPT = 'process:server';
+const log = logger('process:server');
 
 
 const renderMainHTML = () => {
@@ -51,15 +51,15 @@ const renderMainHTML = () => {
 try {
   const finalHTML = renderMainHTML();
   saveFileSync('public/index.html', finalHTML);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Index Page SSR created.`);
+  log.info('Index Page SSR created.');
 
   const ssrFiles = glob.sync(path.join(PATH.PUBLIC, 'ssr.*'));
   ssrFiles.forEach(ssr => fs.removeSync(ssr));
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} SSR temporary files deleted.`);
+  log.info('SSR temporary files deleted.');
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Index Page SSR finished.`);
+  log.success('Index Page SSR finished.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to SSR on Index Page.`);
+  console.error(err);
+  log.error('Failed to SSR on Index Page.');
   process.exit(1);
 }

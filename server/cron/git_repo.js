@@ -10,13 +10,13 @@ import {
   JSON_FORMAT,
 } from '../config.js';
 import { REPOSITORY_LIST } from '../../applications/project/constants/repositoryTypes.js';
-
 import { delayFor } from '../../applications/common/util.js';
+import { logger } from '../util.js';
 
 import serverJSON from '../../config/server.json';
 
 const { git: { token, login } } = serverJSON;
-const SCRIPT = 'cron:repo';
+const log = logger('cron:repo');
 
 
 const getContribOnce = async (repo, repoName) => {
@@ -24,7 +24,7 @@ const getContribOnce = async (repo, repoName) => {
   // github may respond 202 while it executes query
   if (json.status === 200) { return json; }
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
+  log.info(`Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
   throw new Error('Failed to fetch Github repository contrib');
 };
 const getContribRetry = async (repo, repoName, retry, interval) => {
@@ -139,10 +139,10 @@ const formatCalendar = (data) => {
 let gh = null;
 try {
   gh = new Github({ token });
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Connected to GitHub.`);
+  log.info('Connected to GitHub.');
 } catch (err) {
   console.error(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to connect to GitHub.`);
+  log.error('Failed to connect to GitHub.');
   process.exit(1);
 }
 
@@ -173,17 +173,17 @@ Promise.all(
       };
       await fs.writeJSON(path.join(PATH.CONFIG, 'repository/', `${repo}.json`), result, JSON_FORMAT);
 
-      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub records updated for repository ${colors.blue(repoName)}.`);
+      log.info(`GitHub records updated for repository ${colors.blue(repoName)}.`);
     } catch (err) {
       console.error(err);
-      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
+      log.error(`Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
       throw err;
     }
   })
 )
 .then(() => {
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Updated GitHub records.`);
+  log.success('Updated GitHub records.');
 })
 .catch(() => {
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub records.`);
+  log.error('Failed to update GitHub records.');
 });

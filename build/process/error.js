@@ -8,10 +8,11 @@ import {
   renderSassSync,
   replaceBgRNA,
 } from '../render/util.js';
+import { logger } from '../../server/util.js';
 
 import errorJSON from '../../config/error.json';
 
-const SCRIPT = 'process:error';
+const log = logger('process:error');
 
 
 const codes = Object.keys(errorJSON).map(code => parseInt(code, 10));
@@ -22,7 +23,7 @@ const processErrorHTML = (code, baseHTML, rawCSS, bodyMETA) => {
   const finalHTML = renderErrorHTML(baseHTML, bodyHTML, bodyMETA, bodyCSS);
 
   saveFileSync(`public/e.${code}.html`, finalHTML);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Custom ${colors.blue(code)} Error Page created.`);
+  log.info(`Custom ${colors.blue(code)} Error Page created.`);
 };
 
 try {
@@ -31,9 +32,9 @@ try {
   const rawCSS = renderSassSync('applications/error/stylesheets/index.scss');
 
   codes.map(code => processErrorHTML(code, baseHTML, rawCSS, bodyMETA));
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Custom Error Pages created.`);
+  log.success('Custom Error Pages created.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to create Custom Error Pages.`);
+  console.error(err);
+  log.error('Failed to create Custom Error Pages.');
   process.exit(1);
 }

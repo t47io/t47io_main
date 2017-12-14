@@ -1,9 +1,10 @@
-import colors from 'colors';
 import glob from 'glob';
 import path from 'path';
 import shell from 'shelljs';
 
-const SCRIPT = 'update:nginx';
+import { logger } from '../util.js';
+
+const log = logger('update:nginx');
 
 
 const buildNgxBrotli = () => {
@@ -33,9 +34,9 @@ const buildNginx = () => {
 try {
   buildNgxBrotli();
   buildNginx();
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Nginx with Brotli module rebuilt.`);
+  log.success('Nginx with Brotli module rebuilt.');
 } catch (err) {
-  console.error(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to rebuild Nginx with Brotli module.`);
-  console.log(err);
+  console.error(err);
+  log.error('Failed to rebuild Nginx with Brotli module.');
   process.exit(1);
 }

@@ -1,17 +1,16 @@
-import colors from 'colors';
-
 import { SITEMAP_HEAD } from '../config.js';
 import { HOST } from '../../applications/config.js';
 import { FILE_NAMES } from '../../server/config.js';
 import { PROJECT_LIST } from '../../applications/project/constants/projectTypes.js';
 import {
+  logger,
   resumeVersion,
   pubTags,
   today,
 } from '../../server/util.js';
 import { saveFileSync } from '../render/util.js';
 
-const SCRIPT = 'process:sitemap';
+const log = logger('process:sitemap');
 
 
 const addRecord = (location, lastModify, changeFreq = 'never', priority = null) => {
@@ -50,9 +49,9 @@ try {
   sitemapXML += '</urlset>';
 
   saveFileSync(`public/${FILE_NAMES.SITEMAP}`, sitemapXML);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Sitemap XML file generated.`);
+  log.success('Sitemap XML file generated.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to generate sitemap XML file.`);
+  console.error(err);
+  log.error('Failed to generate sitemap XML file.');
   process.exit(1);
 }

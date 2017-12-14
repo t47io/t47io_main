@@ -1,4 +1,3 @@
-import colors from 'colors';
 import shell from 'shelljs';
 
 import {
@@ -6,8 +5,9 @@ import {
   PATH,
   CHMOD,
 } from '../env.js';
+import { logger } from '../util.js';
 
-const SCRIPT = 'cron:chmod';
+const log = logger('cron:chmod');
 
 
 const excludeFind = () => (
@@ -32,9 +32,9 @@ try {
   chmodRoot();
   chmodPublic();
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Permission changed for directories and files.`);
+  log.success('Permission changed for directories and files.');
 } catch (err) {
   console.error(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to change permission for directories and files.`);
+  log.error('Failed to change permission for directories and files.');
   process.exit(1);
 }

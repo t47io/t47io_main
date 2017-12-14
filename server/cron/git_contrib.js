@@ -9,11 +9,12 @@ import {
   GITHUB,
   JSON_FORMAT,
 } from '../config.js';
+import { logger } from '../util.js';
 
 import statsJSON from '../../config/main/stats.json';
 import cronJSON from '../../config/cron.json';
 
-const SCRIPT = 'cron:contrib';
+const log = logger('cron:contrib');
 
 
 const extractData = (body) => {
@@ -37,10 +38,10 @@ const extractData = (body) => {
 
 const combineData = (...data) => {
   if (new Set(data.map(d => d.startDate)).size > 1) {
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} Failed to update GitHub contribution records.`);
+    log.error('Date mismatch on GitHub contribution data.');
     throw new Error('Date mismatch on GitHub contribution data.');
   } else if (new Set(data.map(d => d.countArray.length)).size > 1) {
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} Failed to update GitHub contribution records.`);
+    log.error('countArray length mismatch on GitHub contribution data.');
     throw new Error('countArray length mismatch on GitHub contribution data.');
   }
 
@@ -67,11 +68,11 @@ const combineData = (...data) => {
 const getContrib = async (account) => {
   try {
     const result = await axios.get(`${GITHUB.HOST}${account}`);
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub records retreived for account ${colors.blue(account)}.`);
+    log.info(`GitHub records retreived for account ${colors.blue(account)}.`);
     return result;
   } catch (err) {
     console.error(err);
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to retrieve GitHub records for account ${colors.blue(account)}.`);
+    log.error(`Failed to retrieve GitHub records for account ${colors.blue(account)}.`);
     throw err;
   }
 };
@@ -105,10 +106,10 @@ const getContrib = async (account) => {
     };
     await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
 
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: GitHub contribution records updated.`);
+    log.success('GitHub contribution records updated.');
   } catch (err) {
     console.error(err);
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update GitHub contribution records.`);
+    log.error('Failed to update GitHub contribution records.');
     process.exit(1);
   }
 })();

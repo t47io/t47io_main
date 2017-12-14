@@ -12,6 +12,7 @@ import {
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_LIST } from '../applications/project/constants/repositoryTypes.js';
+import { logger } from './util.js';
 
 const mainJSON = SECTION_LIST
   .map(section => ({
@@ -38,8 +39,8 @@ const repositoryJSON = Object.keys(REPOSITORY_LIST)
     ...item,
   }), {});
 
-const SCRIPT = 'server:json';
-console.log(`${colors.magenta(`[${SCRIPT}]`)} All config JSON files loaded.`);
+const log = logger('server:json');
+log.info('All config JSON files loaded.');
 
 
 const getResume = () => {
@@ -54,7 +55,7 @@ const getFileSize = (fileName) => {
     return `${(byteSize / 1e6).toFixed(1)} MB`;
   } catch (err) {
     console.error(err);
-    console.log(`${colors.red('ERROR')}: Failed to get size of file ${colors.blue(fileName)}.`);
+    log.error(`Failed to get size of file ${colors.blue(fileName)}.`);
   }
   return 'unavailable';
 };
@@ -124,7 +125,7 @@ const concatMainJSON = () => {
   config.stats.items[2].value = pubsCounter;
 
   fs.writeJSONSync(path.join(PATH.CONFIG, 'main.json'), config);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Main JSON compiled.`);
+  log.success('Main JSON compiled.');
 };
 
 const concatProjectJSON = () => {
@@ -153,7 +154,7 @@ const concatProjectJSON = () => {
     repository: repositoryJSON,
   };
   fs.writeJSONSync(path.join(PATH.CONFIG, 'project.json'), data);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Project JSON compiled.`);
+  log.success('Project JSON compiled.');
 };
 
 
@@ -161,9 +162,9 @@ try {
   concatMainJSON();
   concatProjectJSON();
 
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Data JSON files compiled.`);
+  log.success('Data JSON files compiled.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to compile main and/or project JSON.`);
+  console.error(err);
+  log.error('Failed to compile main and/or project JSON.');
   process.exit(1);
 }

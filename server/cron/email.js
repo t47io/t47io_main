@@ -1,4 +1,3 @@
-import colors from 'colors';
 import path from 'path';
 
 import {
@@ -8,11 +7,14 @@ import {
   SMTP,
 } from '../env.js';
 import { FILE_NAMES } from '../config.js';
-import { today } from '../util.js';
+import {
+  logger,
+  today,
+} from '../util.js';
 
 import cronJSON from '../../config/cron.json';
 
-const SCRIPT = 'cron:email';
+const log = logger('cron:email');
 
 
 const formatPubs = () => {
@@ -59,13 +61,13 @@ const emailAdmin = (content) => {
     if (!DEBUG) {
       const info = await emailAdmin(content);
       console.log(info);
-      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Notified admin on cron data results.`);
+      log.success('Notified admin on cron data results.');
     } else {
-      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: Admin email notification disabled when DEBUG.`);
+      log.warning('Admin email notification disabled when DEBUG.');
     }
   } catch (err) {
     console.error(err);
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to notify admin on cron data results.`);
+    log.error('Failed to notify admin on cron data results.');
     process.exit(1);
   }
 })();

@@ -1,4 +1,3 @@
-import colors from 'colors';
 import fs from 'fs-extra';
 import path from 'path';
 import shell from 'shelljs';
@@ -9,8 +8,11 @@ import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
+import { logger } from '../../server/util.js';
 
-const SCRIPT = 'process:manifest';
+const log = logger('process:manifest');
+
+
 let chunkManifest;
 
 try {
@@ -32,10 +34,10 @@ try {
     ...obj,
     ...item,
   }), {});
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Manifest JSON parsed.`);
+  log.info('Manifest JSON parsed.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to parse Manifest JSON.`);
+  console.error(err);
+  log.error('Failed to parse Manifest JSON.');
   process.exit(1);
 }
 
@@ -47,9 +49,9 @@ try {
 
   saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
   fs.writeJSONSync(path.join(PATH.CONFIG, 'manifest.json'), chunkManifest);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Manifest JSON injected.`);
+  log.success('Manifest JSON injected.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to inject Manifest JSON.`);
+  console.error(err);
+  log.error('Failed to inject Manifest JSON.');
   process.exit(1);
 }

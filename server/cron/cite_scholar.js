@@ -6,11 +6,12 @@ import path from 'path';
 
 import { PATH } from '../env.js';
 import { JSON_FORMAT } from '../config.js';
+import { logger } from '../util.js';
 
 import pubsJSON from '../../config/main/pubs.json';
 import cronJSON from '../../config/cron.json';
 
-const SCRIPT = 'cron:scholar';
+const log = logger('cron:scholar');
 
 
 const wordRegex = /[a-zA-Z]+/g;
@@ -51,7 +52,7 @@ const matchRecords = allRecords => ({
         if (isEqual(allRecords[i].title, title) && isEqual(allRecords[i].author, author)) {
           citation = allRecords[i].cite;
           allRecords.splice(i, 1);
-          console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: entry ${colors.blue(item.tag)} matched citation record.`);
+          log.info(`entry ${colors.blue(item.tag)} matched citation record.`);
           break;
         }
       }
@@ -102,16 +103,16 @@ const diffCitations = (oldCitations, newCitations) => {
     const newPubsJSON = matchRecords(allRecords);
 
     if (allRecords.length) {
-      console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: ${allRecords.length} record(s) from Google Scholar was not matched.`);
+      log.warning(`${allRecords.length} record(s) from Google Scholar was not matched.`);
       allRecords.forEach(item => (
-        console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: entry ${colors.blue(`${item.year} / ${item.author.join()} / ${item.title.join(' ')}`)}`)
+        log.warning(`entry ${colors.blue(`${item.year} / ${item.author.join()} / ${item.title.join(' ')}`)}`)
       ));
     }
 
     newPubsJSON.items.forEach((obj) => {
       obj.items.filter(item => (item.citation === null))
       .forEach((item) => {
-        console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.yellow('WARNING')}: entry ${colors.blue(item.tag)} did not match any citation record.`);
+        log.warning(`entry ${colors.blue(item.tag)} did not match any citation record.`);
       });
     });
     await fs.writeJSON(path.join(PATH.CONFIG, 'main/pubs.json'), newPubsJSON, JSON_FORMAT);
@@ -124,10 +125,10 @@ const diffCitations = (oldCitations, newCitations) => {
     };
     await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
 
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Google Scholar citation records updated.`);
+    log.success('Google Scholar citation records updated.');
   } catch (err) {
     console.error(err);
-    console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to update Google Scholar citation.`);
+    log.error('Failed to update Google Scholar citation.');
     process.exit(1);
   }
 })();

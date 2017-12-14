@@ -1,5 +1,3 @@
-import colors from 'colors';
-
 import {
   renderMainHTML,
   renderProjectHTML,
@@ -8,8 +6,9 @@ import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
+import { logger } from '../../server/util.js';
 
-const SCRIPT = 'process:client';
+const log = logger('process:client');
 
 
 try {
@@ -17,10 +16,10 @@ try {
   const finalHTML = renderMainHTML(baseHTML);
 
   saveFileSync('public/main.html', finalHTML);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Main Page DOM/JS/CSS inlined.`);
+  log.success('Main Page DOM/JS/CSS inlined.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Main Page.`);
+  console.error(err);
+  log.error('Failed to inline DOM/JS/CSS on Main Page.');
   process.exit(1);
 }
 
@@ -29,9 +28,9 @@ try {
   const finalHTML = renderProjectHTML(baseHTML);
 
   saveFileSync('public/project.html', finalHTML);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Project Page DOM/JS/CSS inlined.`);
+  log.success('Project Page DOM/JS/CSS inlined.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to inline DOM/JS/CSS on Project Page.`);
+  console.error(err);
+  log.error('Failed to inline DOM/JS/CSS on Project Page.');
   process.exit(1);
 }

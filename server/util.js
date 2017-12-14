@@ -1,3 +1,4 @@
+import colors from 'colors';
 import path from 'path';
 
 import {
@@ -12,6 +13,25 @@ import {
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 
 import mainJSON from '../config/main.json';
+
+
+const SUCCESS = colors.green('SUCCESS');
+const WARNING = colors.yellow('WARNING');
+const ERROR = colors.red('ERROR');
+export const logger = script => ({
+  info: (msg) => {
+    console.log(`${colors.magenta(`[${script}]`)} ${msg}`);
+  },
+  success: (msg) => {
+    console.log(`${colors.magenta(`[${script}]`)} ${SUCCESS}: ${msg}`);
+  },
+  warning: (msg) => {
+    console.log(`${colors.magenta(`[${script}]`)} ${WARNING}: ${msg}`);
+  },
+  error: (msg) => {
+    console.log(`${colors.magenta(`[${script}]`)} ${ERROR}: ${msg}`);
+  },
+});
 
 
 export const resumeVersion = mainJSON.contact.resume;

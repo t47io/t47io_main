@@ -8,8 +8,9 @@ import {
   renderSassSync,
   replaceBgRNA,
 } from '../render/util.js';
+import { logger } from '../../server/util.js';
 
-const SCRIPT = 'process:temp';
+const log = logger('process:temp');
 
 
 const processTempCSS = (inputHTML, inputCSS, outputCSS, tag) => {
@@ -20,15 +21,15 @@ const processTempCSS = (inputHTML, inputCSS, outputCSS, tag) => {
     { minify: true }
   ));
   saveFileSync(path.join('public/tmp/', outputCSS), contentCSS);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} Temp CSS (${colors.blue(`<${tag} />`)}) created.`);
+  log.info(`Temp CSS (${colors.blue(`<${tag} />`)}) created.`);
 };
 
 try {
   processTempCSS('_helix.html', 'loading/stylesheets/main.scss', '_helix.css', 'Helix');
   processTempCSS('_hexagon.html', 'loading/stylesheets/project.scss', '_hexagon.css', 'Hexagon');
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Temp CSS finished.`);
+  log.success('Temp CSS finished.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to create Temp CSS.`);
+  console.error(err);
+  log.error('Failed to create Temp CSS.');
   process.exit(1);
 }

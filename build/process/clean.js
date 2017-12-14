@@ -1,4 +1,3 @@
-import colors from 'colors';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
@@ -9,8 +8,9 @@ import {
   PATH,
 } from '../../server/env.js';
 import { GZIP_FILE_TYPES } from '../config.js';
+import { logger } from '../../server/util.js';
 
-const SCRIPT = 'process:clean';
+const log = logger('process:clean');
 
 
 try {
@@ -25,9 +25,9 @@ try {
   shell.cd(ROOT);
   shell.rm('-rf', 'public/tmp');
   shell.exec('find . -name ".DS_Store" -type f -delete');
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.green('SUCCESS')}: Build temporary files deleted.`);
+  log.success('Build temporary files deleted.');
 } catch (err) {
-  console.log(err);
-  console.log(`${colors.magenta(`[${SCRIPT}]`)} ${colors.red('ERROR')}: Failed to delete Build temporary files.`);
+  console.error(err);
+  log.error('Failed to delete Build temporary files.');
   process.exit(1);
 }
