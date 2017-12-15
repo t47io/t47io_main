@@ -5,7 +5,7 @@ import {
   PATH,
   CHMOD,
 } from '../env.js';
-import { logger } from '../util.js';
+import logger from '../logger.js';
 
 const log = logger('cron:chmod');
 
@@ -32,7 +32,7 @@ try {
   chmodRoot();
   chmodPublic();
 
-  log.success('Permission changed for directories and files.');
+  log.info('Permission changed for directories and files.');
 } catch (err) {
   console.error(err);
   log.error('Failed to change permission for directories and files.');

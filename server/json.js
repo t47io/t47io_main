@@ -12,7 +12,7 @@ import {
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_LIST } from '../applications/project/constants/repositoryTypes.js';
-import { logger } from './util.js';
+import logger from './logger.js';
 
 const mainJSON = SECTION_LIST
   .map(section => ({
@@ -40,7 +40,7 @@ const repositoryJSON = Object.keys(REPOSITORY_LIST)
   }), {});
 
 const log = logger('server:json');
-log.info('All config JSON files loaded.');
+log.debug('All config JSON files loaded.');
 
 
 const getResume = () => {
@@ -125,7 +125,7 @@ const concatMainJSON = () => {
   config.stats.items[2].value = pubsCounter;
 
   fs.writeJSONSync(path.join(PATH.CONFIG, 'main.json'), config);
-  log.success('Main JSON compiled.');
+  log.info('Main JSON compiled.');
 };
 
 const concatProjectJSON = () => {
@@ -154,7 +154,7 @@ const concatProjectJSON = () => {
     repository: repositoryJSON,
   };
   fs.writeJSONSync(path.join(PATH.CONFIG, 'project.json'), data);
-  log.success('Project JSON compiled.');
+  log.info('Project JSON compiled.');
 };
 
 
@@ -162,7 +162,7 @@ try {
   concatMainJSON();
   concatProjectJSON();
 
-  log.success('Data JSON files compiled.');
+  log.info('Data JSON files compiled.');
 } catch (err) {
   console.error(err);
   log.error('Failed to compile main and/or project JSON.');

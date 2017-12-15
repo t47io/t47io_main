@@ -8,7 +8,7 @@ import {
   renderSassSync,
   replaceBgRNA,
 } from '../render/util.js';
-import { logger } from '../../server/util.js';
+import logger from '../../server/logger.js';
 
 import errorJSON from '../../config/error.json';
 
@@ -23,7 +23,7 @@ const processErrorHTML = (code, baseHTML, rawCSS, bodyMETA) => {
   const finalHTML = renderErrorHTML(baseHTML, bodyHTML, bodyMETA, bodyCSS);
 
   saveFileSync(`public/e.${code}.html`, finalHTML);
-  log.info(`Custom ${colors.blue(code)} Error Page created.`);
+  log.debug(`Custom ${colors.blue(code)} Error Page created.`);
 };
 
 try {
@@ -32,7 +32,7 @@ try {
   const rawCSS = renderSassSync('applications/error/stylesheets/index.scss');
 
   codes.map(code => processErrorHTML(code, baseHTML, rawCSS, bodyMETA));
-  log.success('Custom Error Pages created.');
+  log.info('Custom Error Pages created.');
 } catch (err) {
   console.error(err);
   log.error('Failed to create Custom Error Pages.');

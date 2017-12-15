@@ -55,6 +55,12 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@remy/pstree@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@remy/pstree/-/pstree-1.0.1.tgz#420abb613c72cd29f8c595bd7d6c55691bb96910"
+  dependencies:
+    ps-tree "^1.1.0"
+
 JSONStream@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-0.8.4.tgz#91657dfe6ff857483066132b4618b62e8f4887bd"
@@ -1907,11 +1913,11 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@2.11.0, commander@2.11.x, commander@^2.11.0, commander@^2.8.1, commander@^2.9.0, commander@~2.11.0:
+commander@2.11.x, commander@^2.11.0, commander@^2.8.1, commander@^2.9.0, commander@~2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
-commander@2.12.x, commander@~2.12.1:
+commander@2.12.2, commander@2.12.x, commander@~2.12.1:
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.2.tgz#0f5946c427ed9ec0d91a46bb9def53e54650e555"
 
@@ -3062,9 +3068,9 @@ exports-loader@^0.6.3:
     loader-utils "^1.0.2"
     source-map "0.5.x"
 
-express-static-gzip@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/express-static-gzip/-/express-static-gzip-0.3.1.tgz#2ca516232346f7933eb09379e769a95e1f67f3df"
+express-static-gzip@0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/express-static-gzip/-/express-static-gzip-0.3.2.tgz#89ede84547a5717de3146315f62dc996c071a88d"
   dependencies:
     serve-static "^1.12.3"
 
@@ -4663,6 +4669,20 @@ log-symbols@^1.0.2:
   dependencies:
     chalk "^1.0.0"
 
+log-symbols@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-2.1.0.tgz#f35fa60e278832b538dc4dddcbb478a45d3e3be6"
+  dependencies:
+    chalk "^2.0.1"
+
+loglevel-plugin-prefix@0.5.3, loglevel-plugin-prefix@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/loglevel-plugin-prefix/-/loglevel-plugin-prefix-0.5.3.tgz#8e9131b96e4697a0dba517996f76b9e6c3f43210"
+
+loglevel@1.6.0, loglevel@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.6.0.tgz#ae0caa561111498c5ba13723d6fb631d24003934"
+
 longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
@@ -4673,7 +4693,7 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   dependencies:
     js-tokens "^3.0.0"
 
-loud-rejection@^1.0.0:
+loud-rejection@^1.0.0, loud-rejection@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/loud-rejection/-/loud-rejection-1.6.0.tgz#5b46f80147edee578870f086d04821cf998e551f"
   dependencies:
@@ -4817,9 +4837,9 @@ mime@1.4.1, mime@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
 
-mime@^1.5.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
+mime@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.0.3.tgz#4353337854747c48ea498330dc034f9f4bbbcc0b"
 
 mimic-fn@^1.0.0:
   version "1.1.0"
@@ -4872,9 +4892,13 @@ moment-timezone@^0.5.x:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.18:
+"moment@>= 2.9.0":
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+
+moment@^2.19:
+  version "2.19.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.4.tgz#17e5e2c6ead8819c8ecfad83a0acccb312e94682"
 
 ms@2.0.0:
   version "2.0.0"
@@ -5041,17 +5065,17 @@ nodemailer@4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-4.4.1.tgz#ce480eb3db7b949b3366e301b8f0af1c1248025e"
 
-nodemon@1.12.7:
-  version "1.12.7"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.12.7.tgz#4d0fa8386291c4f532f583cc102c05350722f647"
+nodemon@1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.13.2.tgz#4f772d8e68ecbd9792d5af39f0dad6f708e46ef1"
   dependencies:
+    "@remy/pstree" "^1.0.1"
     chokidar "^1.7.0"
     debug "^2.6.8"
     es6-promise "^3.3.1"
     ignore-by-default "^1.0.1"
     lodash.defaults "^3.1.2"
     minimatch "^3.0.4"
-    ps-tree "^1.1.0"
     touch "^3.1.0"
     undefsafe "0.0.3"
     update-notifier "^2.3.0"
@@ -5394,9 +5418,9 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
-pidusage@^1.1.0:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/pidusage/-/pidusage-1.1.6.tgz#d708d8e38cc7ccfaa191fb6adac1fd674a4be184"
+pidusage@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/pidusage/-/pidusage-1.2.0.tgz#65ee96ace4e08a4cd3f9240996c85b367171ee92"
 
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
@@ -5471,12 +5495,12 @@ pm2-axon@3.1.0:
     debug "^3.0"
     escape-regexp "0.0.1"
 
-pm2-deploy@^0.3.8:
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/pm2-deploy/-/pm2-deploy-0.3.8.tgz#233eec0103bba0700b9e0e0eafb6e5d006a55b04"
+pm2-deploy@^0.3.9:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/pm2-deploy/-/pm2-deploy-0.3.9.tgz#adeee775c56d52b8f251ba9b0abe0db50a01dfc7"
   dependencies:
     async "^1.5"
-    tv4 "^1.2"
+    tv4 "^1.3"
 
 pm2-multimeter@^0.1.2:
   version "0.1.2"
@@ -5484,28 +5508,28 @@ pm2-multimeter@^0.1.2:
   dependencies:
     charm "~0.1.1"
 
-pm2@2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/pm2/-/pm2-2.8.0.tgz#6e5b421b56b5e05c1ef095ecda40054fa8173909"
+pm2@2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/pm2/-/pm2-2.9.1.tgz#1da402931be80f87208bd3fb50bc2cfa7d486335"
   dependencies:
     async "^2.5"
     blessed "^0.1.81"
     chalk "^1.1"
     chokidar "^1.7"
     cli-table-redemption "^1.0.0"
-    commander "2.11.0"
+    commander "2.12.2"
     cron "^1.3"
     debug "^3.0"
     eventemitter2 "1.0.5"
     fclone "1.0.11"
     mkdirp "0.5.1"
-    moment "^2.18"
+    moment "^2.19"
     needle "1.6.0"
     nssocket "0.6.0"
-    pidusage "^1.1.0"
+    pidusage "^1.2.0"
     pm2-axon "3.1.0"
     pm2-axon-rpc "0.5.0"
-    pm2-deploy "^0.3.8"
+    pm2-deploy "^0.3.9"
     pm2-multimeter "^0.1.2"
     pmx "^1.5"
     promptly "2.2.0"
@@ -5514,7 +5538,7 @@ pm2@2.8.0:
     source-map-support "^0.5"
     sprintf-js "1.1.1"
     vizion "^0.2"
-    yamljs "0.3.0"
+    yamljs "^0.3.0"
   optionalDependencies:
     gkt "https://tgz.pm2.io/gkt-1.0.0.tgz"
 
@@ -6214,9 +6238,9 @@ react-transform-hmr@^1.0.3:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react-waypoint@7.3.2:
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/react-waypoint/-/react-waypoint-7.3.2.tgz#11ec5cfa0b5acb1cc95f7f8fb82e194170d95ecf"
+react-waypoint@7.3.3:
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/react-waypoint/-/react-waypoint-7.3.3.tgz#49ad8e69cca4ae80f2f19608e5d6cf05d75c607e"
   dependencies:
     consolidated-events "^1.1.0"
     prop-types "^15.0.0"
@@ -7170,9 +7194,9 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-loader@0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.19.0.tgz#7258e788f0fee6a42d710eaf7d6c2412a4c50759"
+style-loader@0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.19.1.tgz#591ffc80bcefe268b77c5d9ebc0505d772619f85"
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
@@ -7485,7 +7509,7 @@ tunnel-agent@~0.4.1:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.4.3.tgz#6373db76909fe570e08d73583365ed828a74eeeb"
 
-tv4@^1.2:
+tv4@^1.3:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/tv4/-/tv4-1.3.0.tgz#d020c846fadd50c855abb25ebaecc68fc10f7963"
 
@@ -7618,6 +7642,10 @@ upper-case@^1.1.1:
 urix@^0.1.0, urix@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
+
+url-join@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/url-join/-/url-join-2.0.2.tgz#c072756967ad24b8b59e5741551caac78f50b8b7"
 
 url-loader@0.6.2:
   version "0.6.2"
@@ -7759,15 +7787,22 @@ webpack-bundle-analyzer@2.9.1:
     opener "^1.4.3"
     ws "^3.3.1"
 
-webpack-dev-middleware@1.12.2:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-1.12.2.tgz#f8fc1120ce3b4fc5680ceecb43d777966b21105e"
+webpack-dev-middleware@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-2.0.1.tgz#22c8ecef27f08fca6dfa95504d57f66a8f37cc13"
   dependencies:
+    chalk "^2.3.0"
+    log-symbols "^2.1.0"
+    loglevel "^1.6.0"
+    loglevel-plugin-prefix "^0.5.3"
+    loud-rejection "^1.6.0"
     memory-fs "~0.4.1"
-    mime "^1.5.0"
+    mime "^2.0.3"
     path-is-absolute "^1.0.0"
     range-parser "^1.0.3"
     time-stamp "^2.0.0"
+    url-join "^2.0.2"
+    uuid "^3.1.0"
 
 webpack-hot-middleware@2.21.0:
   version "2.21.0"
@@ -7951,7 +7986,7 @@ yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
-yamljs@0.3.0:
+yamljs@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/yamljs/-/yamljs-0.3.0.tgz#dc060bf267447b39f7304e9b2bfbe8b5a7ddb03b"
   dependencies:

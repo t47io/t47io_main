@@ -7,10 +7,8 @@ import {
   SMTP,
 } from '../env.js';
 import { FILE_NAMES } from '../config.js';
-import {
-  logger,
-  today,
-} from '../util.js';
+import { today } from '../util.js';
+import logger from '../logger.js';
 
 import cronJSON from '../../config/cron.json';
 
@@ -61,9 +59,9 @@ const emailAdmin = (content) => {
     if (!DEBUG) {
       const info = await emailAdmin(content);
       console.log(info);
-      log.success('Notified admin on cron data results.');
+      log.info('Notified admin on cron data results.');
     } else {
-      log.warning('Admin email notification disabled when DEBUG.');
+      log.warn('Admin email notification disabled when DEBUG.');
     }
   } catch (err) {
     console.error(err);

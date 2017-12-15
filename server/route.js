@@ -16,17 +16,17 @@ import {
 } from './config.js';
 import { webpackMiddleware } from './middleware.js';
 import {
-  logger,
+  renderMainHTML,
+  renderProjectHTML,
+} from '../build/render/client.js';
+import {
   getPubFile,
   getThesisFile,
   getZipExt,
   getHeader,
   sendErrorResponse,
 } from './util.js';
-import {
-  renderMainHTML,
-  renderProjectHTML,
-} from '../build/render/client.js';
+import logger from './logger.js';
 
 const log = logger('server:route');
 
@@ -117,7 +117,7 @@ const routes = {
       })
       .then((info) => {
         console.log(info);
-        log.success(`Message sent on behalf of ${colors.blue(email)}.`);
+        log.info(`Message sent on behalf of ${colors.blue(email)}.`);
         next(sendErrorResponse(201));
       })
       .catch((err) => {

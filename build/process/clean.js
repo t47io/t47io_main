@@ -8,7 +8,7 @@ import {
   PATH,
 } from '../../server/env.js';
 import { GZIP_FILE_TYPES } from '../config.js';
-import { logger } from '../../server/util.js';
+import logger from '../../server/logger.js';
 
 const log = logger('process:clean');
 
@@ -25,7 +25,7 @@ try {
   shell.cd(ROOT);
   shell.rm('-rf', 'public/tmp');
   shell.exec('find . -name ".DS_Store" -type f -delete');
-  log.success('Build temporary files deleted.');
+  log.info('Build temporary files deleted.');
 } catch (err) {
   console.error(err);
   log.error('Failed to delete Build temporary files.');

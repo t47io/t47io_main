@@ -3,12 +3,12 @@ import { HOST } from '../../applications/config.js';
 import { FILE_NAMES } from '../../server/config.js';
 import { PROJECT_LIST } from '../../applications/project/constants/projectTypes.js';
 import {
-  logger,
   resumeVersion,
   pubTags,
   today,
 } from '../../server/util.js';
 import { saveFileSync } from '../render/util.js';
+import logger from '../../server/logger.js';
 
 const log = logger('process:sitemap');
 
@@ -49,7 +49,7 @@ try {
   sitemapXML += '</urlset>';
 
   saveFileSync(`public/${FILE_NAMES.SITEMAP}`, sitemapXML);
-  log.success('Sitemap XML file generated.');
+  log.info('Sitemap XML file generated.');
 } catch (err) {
   console.error(err);
   log.error('Failed to generate sitemap XML file.');

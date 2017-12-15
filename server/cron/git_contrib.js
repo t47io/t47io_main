@@ -9,7 +9,7 @@ import {
   GITHUB,
   JSON_FORMAT,
 } from '../config.js';
-import { logger } from '../util.js';
+import logger from '../logger.js';
 
 import statsJSON from '../../config/main/stats.json';
 import cronJSON from '../../config/cron.json';
@@ -68,7 +68,7 @@ const combineData = (...data) => {
 const getContrib = async (account) => {
   try {
     const result = await axios.get(`${GITHUB.HOST}${account}`);
-    log.info(`GitHub records retreived for account ${colors.blue(account)}.`);
+    log.debug(`GitHub records retreived for account ${colors.blue(account)}.`);
     return result;
   } catch (err) {
     console.error(err);
@@ -106,7 +106,7 @@ const getContrib = async (account) => {
     };
     await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
 
-    log.success('GitHub contribution records updated.');
+    log.info('GitHub contribution records updated.');
   } catch (err) {
     console.error(err);
     log.error('Failed to update GitHub contribution records.');

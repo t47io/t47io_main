@@ -6,7 +6,7 @@ import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
-import { logger } from '../../server/util.js';
+import logger from '../../server/logger.js';
 
 const log = logger('process:client');
 
@@ -16,7 +16,7 @@ try {
   const finalHTML = renderMainHTML(baseHTML);
 
   saveFileSync('public/main.html', finalHTML);
-  log.success('Main Page DOM/JS/CSS inlined.');
+  log.info('Main Page DOM/JS/CSS inlined.');
 } catch (err) {
   console.error(err);
   log.error('Failed to inline DOM/JS/CSS on Main Page.');
@@ -28,7 +28,7 @@ try {
   const finalHTML = renderProjectHTML(baseHTML);
 
   saveFileSync('public/project.html', finalHTML);
-  log.success('Project Page DOM/JS/CSS inlined.');
+  log.info('Project Page DOM/JS/CSS inlined.');
 } catch (err) {
   console.error(err);
   log.error('Failed to inline DOM/JS/CSS on Project Page.');

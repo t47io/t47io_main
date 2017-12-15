@@ -22,6 +22,9 @@ import {
   CACHE_MAX_AGE,
   FILE_NAMES,
 } from './config.js';
+import logger from './logger.js';
+
+const log = logger('server:middleware');
 
 
 const middlewares = [
@@ -65,14 +68,12 @@ if (DEBUG) {
     publicPath: webpackConfig.output.publicPath,
     index: '/',
 
-    noInfo: false,
-    quiet: false,
     lazy: false,
+    logger: log,
     watchOptions: {
       aggregateTimeout: 2500,
       poll: true,
     },
-    serverSideRender: false,
     stats: { colors: true },
   });
 

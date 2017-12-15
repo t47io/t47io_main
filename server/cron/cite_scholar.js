@@ -6,7 +6,7 @@ import path from 'path';
 
 import { PATH } from '../env.js';
 import { JSON_FORMAT } from '../config.js';
-import { logger } from '../util.js';
+import logger from '../logger.js';
 
 import pubsJSON from '../../config/main/pubs.json';
 import cronJSON from '../../config/cron.json';
@@ -52,7 +52,7 @@ const matchRecords = allRecords => ({
         if (isEqual(allRecords[i].title, title) && isEqual(allRecords[i].author, author)) {
           citation = allRecords[i].cite;
           allRecords.splice(i, 1);
-          log.info(`entry ${colors.blue(item.tag)} matched citation record.`);
+          log.debug(`entry ${colors.blue(item.tag)} matched citation record.`);
           break;
         }
       }
@@ -103,16 +103,16 @@ const diffCitations = (oldCitations, newCitations) => {
     const newPubsJSON = matchRecords(allRecords);
 
     if (allRecords.length) {
-      log.warning(`${allRecords.length} record(s) from Google Scholar was not matched.`);
+      log.warn(`${allRecords.length} record(s) from Google Scholar was not matched.`);
       allRecords.forEach(item => (
-        log.warning(`entry ${colors.blue(`${item.year} / ${item.author.join()} / ${item.title.join(' ')}`)}`)
+        log.warn(`entry ${colors.blue(`${item.year} / ${item.author.join()} / ${item.title.join(' ')}`)}`)
       ));
     }
 
     newPubsJSON.items.forEach((obj) => {
       obj.items.filter(item => (item.citation === null))
       .forEach((item) => {
-        log.warning(`entry ${colors.blue(item.tag)} did not match any citation record.`);
+        log.warn(`entry ${colors.blue(item.tag)} did not match any citation record.`);
       });
     });
     await fs.writeJSON(path.join(PATH.CONFIG, 'main/pubs.json'), newPubsJSON, JSON_FORMAT);
@@ -125,7 +125,7 @@ const diffCitations = (oldCitations, newCitations) => {
     };
     await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
 
-    log.success('Google Scholar citation records updated.');
+    log.info('Google Scholar citation records updated.');
   } catch (err) {
     console.error(err);
     log.error('Failed to update Google Scholar citation.');

@@ -11,7 +11,7 @@ import {
 } from '../config.js';
 import { REPOSITORY_LIST } from '../../applications/project/constants/repositoryTypes.js';
 import { delayFor } from '../../applications/common/util.js';
-import { logger } from '../util.js';
+import logger from '../logger.js';
 
 import serverJSON from '../../config/server.json';
 
@@ -24,7 +24,7 @@ const getContribOnce = async (repo, repoName) => {
   // github may respond 202 while it executes query
   if (json.status === 200) { return json; }
 
-  log.info(`Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
+  log.debug(`Fetching Github records for repository ${colors.blue(repoName)} returned ${colors.red(json.status)}, retrying...`);
   throw new Error('Failed to fetch Github repository contrib');
 };
 const getContribRetry = async (repo, repoName, retry, interval) => {
@@ -139,7 +139,7 @@ const formatCalendar = (data) => {
 let gh = null;
 try {
   gh = new Github({ token });
-  log.info('Connected to GitHub.');
+  log.debug('Connected to GitHub.');
 } catch (err) {
   console.error(err);
   log.error('Failed to connect to GitHub.');
@@ -173,7 +173,7 @@ Promise.all(
       };
       await fs.writeJSON(path.join(PATH.CONFIG, 'repository/', `${repo}.json`), result, JSON_FORMAT);
 
-      log.info(`GitHub records updated for repository ${colors.blue(repoName)}.`);
+      log.debug(`GitHub records updated for repository ${colors.blue(repoName)}.`);
     } catch (err) {
       console.error(err);
       log.error(`Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
@@ -182,7 +182,7 @@ Promise.all(
   })
 )
 .then(() => {
-  log.success('Updated GitHub records.');
+  log.info('Updated GitHub records.');
 })
 .catch(() => {
   log.error('Failed to update GitHub records.');

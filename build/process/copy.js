@@ -6,14 +6,12 @@ import shell from 'shelljs';
 
 import { PATH } from '../../server/env.js';
 import { FILE_NAMES } from '../../server/config.js';
-import {
-  logger,
-  resumeVersion,
-} from '../../server/util.js';
+import { resumeVersion } from '../../server/util.js';
 import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
+import logger from '../../server/logger.js';
 
 const log = logger('process:copy');
 
@@ -28,13 +26,13 @@ const copyImages = () => {
       path.join(PATH.PUBLIC, file)
     )
   ));
-  log.info('Image files copied to public.');
+  log.debug('Image files copied to public.');
 };
 
 const copyRobots = () => {
   const robotsTXT = loadFileSync(`static/${FILE_NAMES.ROBOTS}`);
   saveFileSync(`public/${FILE_NAMES.ROBOTS}`, robotsTXT);
-  log.info('Robots.txt copied to public.');
+  log.debug('Robots.txt copied to public.');
 };
 
 const copyPubs = () => {
@@ -46,7 +44,7 @@ const copyPubs = () => {
       path.join(PATH.PUBLIC, `docs/${file}`)
     )
   ));
-  log.info('Pubs PDF files copied to public.');
+  log.debug('Pubs PDF files copied to public.');
 };
 
 const copyResume = () => {
@@ -54,7 +52,7 @@ const copyResume = () => {
     path.join(PATH.STATIC, `resume/${resumeVersion}.pdf`),
     path.join(PATH.PUBLIC, 'docs/resume.pdf')
   );
-  log.info(`Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
+  log.debug(`Resume PDF ${colors.blue(resumeVersion)} copied to public.`);
 };
 
 const copyThesis = () => {
@@ -66,7 +64,7 @@ const copyThesis = () => {
       path.join(PATH.PUBLIC, `docs/${file}`)
     )
   ));
-  log.info('Thesis PDF files copied to public.');
+  log.debug('Thesis PDF files copied to public.');
 };
 
 
@@ -79,7 +77,7 @@ try {
   copyThesis();
   copyResume();
 
-  log.success('tatic files copied to public.');
+  log.info('tatic files copied to public.');
 } catch (err) {
   console.error(err);
   log.error('Failed to copy static files to public.');

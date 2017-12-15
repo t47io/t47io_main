@@ -2,7 +2,7 @@ import glob from 'glob';
 import path from 'path';
 import shell from 'shelljs';
 
-import { logger } from '../util.js';
+import logger from '../logger.js';
 
 const log = logger('update:nginx');
 
@@ -34,7 +34,7 @@ const buildNginx = () => {
 try {
   buildNgxBrotli();
   buildNginx();
-  log.success('Nginx with Brotli module rebuilt.');
+  log.info('Nginx with Brotli module rebuilt.');
 } catch (err) {
   console.error(err);
   log.error('Failed to rebuild Nginx with Brotli module.');

@@ -8,7 +8,7 @@ import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
-import { logger } from '../../server/util.js';
+import logger from '../../server/logger.js';
 
 const log = logger('process:manifest');
 
@@ -34,7 +34,7 @@ try {
     ...obj,
     ...item,
   }), {});
-  log.info('Manifest JSON parsed.');
+  log.debug('Manifest JSON parsed.');
 } catch (err) {
   console.error(err);
   log.error('Failed to parse Manifest JSON.');
@@ -49,7 +49,7 @@ try {
 
   saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
   fs.writeJSONSync(path.join(PATH.CONFIG, 'manifest.json'), chunkManifest);
-  log.success('Manifest JSON injected.');
+  log.info('Manifest JSON injected.');
 } catch (err) {
   console.error(err);
   log.error('Failed to inject Manifest JSON.');

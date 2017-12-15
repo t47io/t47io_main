@@ -17,7 +17,7 @@ import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
-import { logger } from '../../server/util.js';
+import logger from '../../server/logger.js';
 
 const log = logger('process:server');
 
@@ -51,13 +51,13 @@ const renderMainHTML = () => {
 try {
   const finalHTML = renderMainHTML();
   saveFileSync('public/index.html', finalHTML);
-  log.info('Index Page SSR created.');
+  log.debug('Index Page SSR created.');
 
   const ssrFiles = glob.sync(path.join(PATH.PUBLIC, 'ssr.*'));
   ssrFiles.forEach(ssr => fs.removeSync(ssr));
-  log.info('SSR temporary files deleted.');
+  log.debug('SSR temporary files deleted.');
 
-  log.success('Index Page SSR finished.');
+  log.info('Index Page SSR finished.');
 } catch (err) {
   console.error(err);
   log.error('Failed to SSR on Index Page.');

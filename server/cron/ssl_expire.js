@@ -5,7 +5,7 @@ import path from 'path';
 
 import { PATH } from '../env.js';
 import { JSON_FORMAT } from '../config.js';
-import { logger } from '../util.js';
+import logger from '../logger.js';
 
 import cronJSON from '../../config/cron.json';
 
@@ -47,7 +47,7 @@ const checkCertificate = host => (
     };
     await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newJSON, JSON_FORMAT);
 
-    log.success('SSL Certificate expiration checked.');
+    log.info('SSL Certificate expiration checked.');
   } catch (err) {
     console.error(err);
     log.error('Failed to check SSL Certificate expiration.');

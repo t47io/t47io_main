@@ -3,7 +3,7 @@ import shell from 'shelljs';
 
 import { DAY_MILLISECONDS } from '../../applications/main/constants/util.js';
 import { ROOT } from '../env.js';
-import { logger } from '../util.js';
+import logger from '../logger.js';
 
 import cronJSON from '../../config/cron.json';
 
@@ -28,7 +28,7 @@ try {
     runLetsencrypt();
     shell.exec('service nginx start');
 
-    log.success('SSL Certificate renewed.');
+    log.info('SSL Certificate renewed.');
   }
 } catch (err) {
   console.error(err);

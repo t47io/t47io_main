@@ -8,7 +8,7 @@ import {
   renderSassSync,
   replaceBgRNA,
 } from '../render/util.js';
-import { logger } from '../../server/util.js';
+import logger from '../../server/logger.js';
 
 const log = logger('process:temp');
 
@@ -21,13 +21,13 @@ const processTempCSS = (inputHTML, inputCSS, outputCSS, tag) => {
     { minify: true }
   ));
   saveFileSync(path.join('public/tmp/', outputCSS), contentCSS);
-  log.info(`Temp CSS (${colors.blue(`<${tag} />`)}) created.`);
+  log.debug(`Temp CSS (${colors.blue(`<${tag} />`)}) created.`);
 };
 
 try {
   processTempCSS('_helix.html', 'loading/stylesheets/main.scss', '_helix.css', 'Helix');
   processTempCSS('_hexagon.html', 'loading/stylesheets/project.scss', '_hexagon.css', 'Hexagon');
-  log.success('Temp CSS finished.');
+  log.info('Temp CSS finished.');
 } catch (err) {
   console.error(err);
   log.error('Failed to create Temp CSS.');
