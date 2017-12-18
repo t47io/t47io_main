@@ -61,6 +61,7 @@ const middlewares = [
 ].filter(Boolean);
 
 
+// eslint-disable-next-line import/no-mutable-exports
 let webpackMiddleware = null;
 if (DEBUG) {
   const compiler = webpack(webpackConfig);

@@ -58,7 +58,7 @@ const emailAdmin = (content) => {
 
     if (!DEBUG) {
       const info = await emailAdmin(content);
-      console.log(info);
+      log.debug(info);
       log.info('Notified admin on cron data results.');
     } else {
       log.warn('Admin email notification disabled when DEBUG.');

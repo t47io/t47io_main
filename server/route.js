@@ -116,7 +116,7 @@ const routes = {
         `,
       })
       .then((info) => {
-        console.log(info);
+        log.debug(info);
         log.info(`Message sent on behalf of ${colors.blue(email)}.`);
         next(sendErrorResponse(201));
       })

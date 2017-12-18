@@ -16,6 +16,7 @@ import logger from './logger.js';
 
 const mainJSON = SECTION_LIST
   .map(section => ({
+    // eslint-disable-next-line import/no-dynamic-require
     [section]: require(`../config/main/${section}.json`),
   }))
   .reduce((obj, item) => ({
@@ -24,6 +25,7 @@ const mainJSON = SECTION_LIST
   }), {});
 const projectJSON = PROJECT_LIST
   .map(project => ({
+    // eslint-disable-next-line import/no-dynamic-require
     [project]: require(`../config/project/${project}.json`),
   }))
   .reduce((obj, item) => ({
@@ -32,6 +34,7 @@ const projectJSON = PROJECT_LIST
   }), {});
 const repositoryJSON = Object.keys(REPOSITORY_LIST)
   .map(repository => ({
+    // eslint-disable-next-line import/no-dynamic-require
     [repository]: require(`../config/repository/${repository}.json`),
   }))
   .reduce((obj, item) => ({

@@ -21,6 +21,7 @@ export const delayFor = (time = 0, callback) => (
         resolve();
       }, time);
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
       reject(err);
     }

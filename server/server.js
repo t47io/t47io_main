@@ -26,6 +26,7 @@ import {
 
 const app = express();
 app.disable('x-powered-by');
+// eslint-disable-next-line no-console
 app.listen(PORT, () => console.log(`${colors.rainbow('t47io Main Site')} listening on port: ${colors.red(PORT)} ...`));
 
 middlewares.forEach((middleware) => {

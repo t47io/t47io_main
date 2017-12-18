@@ -14,10 +14,11 @@ import {
 const DEBUG = !(process.argv.includes('--production') || (process.env.BABEL_ENV === 'production') || process.env.PM2_USAGE);
 const DEBUG_PRINT = (DEBUG && DEBUG_CONFIG);
 
+/* eslint-disable no-console */
 console.log(colors.magenta('*********************************'));
 console.log(`${DEBUG_PRINT ? ' ' : ''}${colors.blue('DEBUG')} mode applied: ${DEBUG_PRINT ? colors.green(DEBUG_PRINT) : colors.red(DEBUG_PRINT)} => ${colors.yellow(DEBUG_PRINT ? 'DEV' : 'PROD')}`);
 console.log(colors.magenta('*********************************'));
-
+/* eslint-enable */
 
 const config = {
   entry: entries(DEBUG),

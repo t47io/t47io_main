@@ -1,1 +1,1 @@
-export const audName = require('../audio/t47_pronunciation.mp3');
+export audName from '../audio/t47_pronunciation.mp3';

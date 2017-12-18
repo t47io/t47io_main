@@ -37,6 +37,7 @@ class Audio extends React.Component {
   render() {
     const { src, loop } = this.props;
 
+    /* eslint-disable jsx-a11y/media-has-caption */
     return (
       <audio
         ref={(c) => { this.setState({ audio: c }); }}

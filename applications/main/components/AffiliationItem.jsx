@@ -24,13 +24,11 @@ const AffiliationItem = ({
           topOffset="80px"
           bottomOffset="-20px"
           onEnter={({ previousPosition, currentPosition }) => {
-            // console.log(year, 'enter top: now=', currentPosition, ', before=', previousPosition);
             if (currentPosition === Waypoint.inside && previousPosition === Waypoint.above) {
               onToggleAnimation(index);
             }
           }}
           onLeave={({ previousPosition, currentPosition }) => {
-            // console.log(year, 'leave top: now=', currentPosition, ', before=', previousPosition);
             if (currentPosition === Waypoint.above && previousPosition === Waypoint.inside) {
               onToggleAnimation(index + 1);
             }
@@ -59,13 +57,11 @@ const AffiliationItem = ({
           topOffset="20px"
           bottomOffset="20px"
           onEnter={({ previousPosition, currentPosition }) => {
-            // console.log(year, 'enter bottom: now=', currentPosition, ', before=', previousPosition);
             if (currentPosition === Waypoint.inside && previousPosition === Waypoint.below) {
               onToggleAnimation(index);
             }
           }}
           onLeave={({ previousPosition, currentPosition }) => {
-            // console.log(year, 'leave bottom: now=', currentPosition, ', before=', previousPosition);
             if (currentPosition === Waypoint.below && previousPosition === Waypoint.inside) {
               onToggleAnimation(index - 1);
             }
