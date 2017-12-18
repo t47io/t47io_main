@@ -5,6 +5,7 @@ backup.tar.gz
 config/**/*.json
 !config/**/*.example.json
 config/stats.*
+config/counsyl.html
 public/
 !public/.gitignore
 static/**/*.pdf

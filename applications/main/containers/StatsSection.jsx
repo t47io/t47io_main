@@ -80,7 +80,9 @@ const StatsSection = ({
             >
               <i className="fa fa-fw fa-sm fa-link-ext" />
             </a>
-            {(i !== accounts.length - 1) && ','}
+            {(i !== accounts.length - 1) && (
+              <small>&</small>
+            )}
           </span>
         ))}
         )

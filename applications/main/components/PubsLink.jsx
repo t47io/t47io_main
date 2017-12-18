@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const PubsFileLink = ({
+const PubsLink = ({
   url,
   isPreprint,
   icon,
@@ -35,13 +35,13 @@ const PubsFileLink = ({
   return iconElement;
 };
 
-PubsFileLink.propTypes = {
+PubsLink.propTypes = {
   url: PropTypes.string,
   isPreprint: PropTypes.bool,
   icon: PropTypes.string,
   size: PropTypes.string,
 };
-PubsFileLink.defaultProps = {
+PubsLink.defaultProps = {
   url: '',
   isPreprint: false,
   icon: '',
@@ -49,4 +49,4 @@ PubsFileLink.defaultProps = {
 };
 
 
-export default PubsFileLink;
+export default PubsLink;

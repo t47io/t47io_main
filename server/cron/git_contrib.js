@@ -67,7 +67,13 @@ const combineData = (...data) => {
 
 const getContrib = async (account) => {
   try {
-    const result = await axios.get(`${GITHUB.HOST}${account}`);
+    let result;
+    if (account.startsWith('@')) {
+      result = await fs.readFile(path.join(PATH.CONFIG, `${account.slice(1)}.html`), 'utf8');
+      result = { data: result };
+    } else {
+      result = await axios.get(`${GITHUB.HOST}${account}`);
+    }
     log.debug(`GitHub records retreived for account ${colors.blue(account)}.`);
     return result;
   } catch (err) {
