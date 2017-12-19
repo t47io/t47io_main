@@ -23,9 +23,13 @@ const extractData = (body) => {
 
   return {
     startDate: $('rect.day').first().attr('data-date'),
-    countArray: $('rect.day').map((i, rect) => (
-      parseInt($(rect).attr('data-count'), 10)
-    )).get(),
+    contribs: $('rect.day').map((i, rect) => ({
+      [$(rect).attr('data-date')]: parseInt($(rect).attr('data-count'), 10),
+    })).get()
+    .reduce((obj, item) => ({
+      ...obj,
+      ...item,
+    }), {}),
     monthText: $('text.month').map((i, month) => ({
       [$(month).text()]: parseInt($(month).attr('x'), 10),
     })).get()
@@ -37,42 +41,32 @@ const extractData = (body) => {
 };
 
 const combineData = (...data) => {
-  if (new Set(data.map(d => d.startDate)).size > 1) {
-    log.error('Date mismatch on GitHub contribution data.');
-    throw new Error('Date mismatch on GitHub contribution data.');
-  } else if (new Set(data.map(d => d.countArray.length)).size > 1) {
-    log.error('countArray length mismatch on GitHub contribution data.');
-    throw new Error('countArray length mismatch on GitHub contribution data.');
-  }
+  const countDates = Object.keys(data[0].contribs).sort();
+  const combinedCounts = countDates.map(date => (
+    data.map(d => d.contribs[date] || 0)
+    .reduce((sum, d) => (sum + d), 0)
+  ));
+  const maxCount = Math.max(...combinedCounts);
 
-  const combinedData = {
+  return {
     startDate: data[0].startDate,
-    countArray: data[0].countArray.map((count, i) => (
-      data.map(d => d.countArray[i])
-      .reduce((sum, d) => (sum + d), 0)
+    countArray: combinedCounts,
+    indexArray: combinedCounts.map(count => (
+      (count === 0) ? 0 : Math.min(Math.floor(count / maxCount * 5 + 1), 4)
     )),
-    indexArray: [],
-    maxCount: 0,
+    maxCount,
     monthText: data[0].monthText,
   };
-
-  const maxCount = Math.max(...combinedData.countArray);
-  combinedData.indexArray = combinedData.countArray.map(count => (
-    (count === 0) ? 0 : Math.min(Math.floor(count / maxCount * 5 + 1), 4)
-  ));
-  combinedData.maxCount = maxCount;
-
-  return combinedData;
 };
 
 const getContrib = async (account) => {
   try {
     let result;
     if (account.startsWith('@')) {
-      result = await fs.readFile(path.join(PATH.CONFIG, `${account.slice(1)}.html`), 'utf8');
+      result = await fs.readFile(path.join(PATH.CONFIG, `${account.slice(1)}.svg`), 'utf8');
       result = { data: result };
     } else {
-      result = await axios.get(`${GITHUB.HOST}${account}`);
+      result = await axios.get(`${GITHUB.HOST}users/${account}/contributions`);
     }
     log.debug(`GitHub records retreived for account ${colors.blue(account)}.`);
     return result;
