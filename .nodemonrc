@@ -4,9 +4,12 @@
   "verbose": true,
   "ignore": [
     "applications/deprecated/",
+    "config/*.svg",
+    "config/**/*.example.json",
     "config/main.json",
     "config/project.json",
     "config/manifest.json",
+    "config/stats.json",
     "public/",
     "static/"
   ],

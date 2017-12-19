@@ -4,11 +4,14 @@ import shell from 'shelljs';
 
 import { PATH } from '../../server/env.js';
 import { MANIFEST_JS } from '../config.js';
+import { JSON_FORMAT } from '../../server/config.js';
 import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
 import logger from '../../server/logger.js';
+
+import cronJSON from '../../config/cron.json';
 
 const log = logger('process:manifest');
 
@@ -16,13 +19,7 @@ const log = logger('process:manifest');
 let chunkManifest;
 
 try {
-  fs.moveSync(
-    path.join(PATH.PUBLIC, 'manifest.json'),
-    path.join(PATH.CONFIG, 'manifest.json'),
-    { overwrite: true }
-  );
-  const manifest = JSON.parse(loadFileSync('config/manifest.json'));
-
+  const manifest = JSON.parse(loadFileSync('public/manifest.json'));
   const chunkKeys = Object.keys(manifest).filter(key => key.includes('.js'));
   chunkManifest = chunkKeys.map((key) => {
     const chunk = key.replace('.js', '');
@@ -48,7 +45,11 @@ try {
   const fullManifestJs = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJs}`;
 
   saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
-  fs.writeJSONSync(path.join(PATH.CONFIG, 'manifest.json'), chunkManifest);
+  const newCronJSON = {
+    ...cronJSON,
+    manifest: chunkManifest,
+  };
+  fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
   log.info('Manifest JSON injected.');
 } catch (err) {
   console.error(err);
