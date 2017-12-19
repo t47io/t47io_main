@@ -71,21 +71,12 @@ const StatsSection = ({
       <i className="fa fa-fw fa-github-circled" />
       Contributions
       <small className="STATS__note-link">
-        (
-        {accounts.map((account, i) => (
-          <span key={`STATS__github-${account}`}>
-            <a
-              href={`${GITHUB_HOST}${account}`}
-              target="_blank" rel="noopener noreferrer external"
-            >
-              <i className="fa fa-fw fa-sm fa-link-ext" />
-            </a>
-            {(i !== accounts.length - 1) && (
-              <small>&</small>
-            )}
-          </span>
-        ))}
-        )
+        <a
+          href={`${GITHUB_HOST}${accounts[0]}`}
+          target="_blank" rel="noopener noreferrer external"
+        >
+          <i className="fa fa-fw fa-sm fa-link-ext" />
+        </a>
       </small>
     </h3>
 

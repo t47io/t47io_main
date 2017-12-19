@@ -8,7 +8,7 @@ const GithubLegend = () => (
     <text y="8">
       # Includes contributions from
       <tspan className="private"> private </tspan>
-      repositories
+      sources
     </text>
     <g transform="translate(555, 0)">
       {AVATAR_INDICES.map(i => (
