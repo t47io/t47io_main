@@ -22,7 +22,7 @@ class FrappeChart extends React.PureComponent {
     },
     title: '',
     colors: [],
-    height: 150,
+    height: 128,
     logScale: false,
     className: '',
   };
@@ -40,6 +40,7 @@ class FrappeChart extends React.PureComponent {
     this.chart = new Chart({
       parent: this.state.chart,
       type: 'line',
+      dot_radius: 3,
       is_series: true,
       region_fill: true,
       ...formatYAxis,
@@ -47,13 +48,15 @@ class FrappeChart extends React.PureComponent {
     });
   }
   componentWillReceiveProps(nextProps) {
-    console.error('wrp')
     if (nextProps && !nextProps.data || this.props.data !== nextProps.data) {
       this.chart.update_values(
         nextProps.data.datasets,
         nextProps.data.labels
       );
     }
+  }
+  componentWillUnmount() {
+    this.chart = null;
   }
 
   render() {
