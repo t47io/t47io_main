@@ -30,7 +30,14 @@ class FrappeChart extends React.PureComponent {
   state = { chart: null };
 
   componentDidMount() {
-    const formatYAxis = this.props.logScale ? {
+    const {
+      title,
+      colors,
+      height,
+      logScale,
+      ...props
+    } = this.props;
+    const formatYAxis = logScale ? {
       format_tooltip_y: d => (
         // eslint-disable-next-line no-restricted-properties
         d ? Math.round(Math.pow(10, Math.abs(d))) : 0
@@ -39,12 +46,15 @@ class FrappeChart extends React.PureComponent {
 
     this.chart = new Chart({
       parent: this.state.chart,
+      title,
+      colors,
+      height,
       type: 'line',
       dot_radius: 3,
       is_series: true,
       region_fill: true,
       ...formatYAxis,
-      ...this.props,
+      ...props,
     });
   }
   componentWillReceiveProps(nextProps) {
