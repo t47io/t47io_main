@@ -85,7 +85,7 @@ const plugins = (DEBUG = true) => {
       name: chunkNames.vendor,
       filename: CHUNK_FILE_NAME(DEBUG),
       minChunks: module => (
-        module.resource && (
+        module.resource && !module.resource.includes('frappe') && (
           module.resource.includes('node_modules/') ||
           (module.resource.includes('applications/vendor/') && module.resource.endsWith('css'))
         )

@@ -27,6 +27,7 @@ import { scrollToSection } from '../../common/actions/navbarActions.js';
 import { animateReady } from '../actions/dataActions.js';
 
 import '../../vendor/index.scss';
+import '../../vendor/frappe.scss';
 import '../stylesheets/index.scss';
 
 
