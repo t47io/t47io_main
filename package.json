@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "3.4.5",
+  "version": "3.4.6",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
@@ -92,7 +92,7 @@
     "html-webpack-plugin": "2.30.1",
     "lodash-webpack-plugin": "0.11.4",
     "node-sass": "4.7.2",
-    "nodemon": "1.13.3",
+    "nodemon": "1.14.0",
     "null-loader": "0.1.1",
     "postcss": "6.0.14",
     "postcss-csso": "3.0.0",
@@ -122,7 +122,7 @@
     "static-site-generator-webpack-plugin": "3.4.1",
     "style-loader": "0.19.1",
     "stylefmt": "6.0.0",
-    "svg-url-loader": "2.3.0",
+    "svg-url-loader": "2.3.1",
     "url-loader": "0.6.2",
     "web-animations-js": "2.3.1",
     "webpack": "3.10.0",
