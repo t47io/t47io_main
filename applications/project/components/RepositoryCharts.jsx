@@ -1,6 +1,7 @@
 import React from 'react';
-import { Chart } from 'react-google-charts';
 import PropTypes from 'prop-types';
+
+import Chart from './Chart.jsx';
 
 import { getChartData } from '../util.js';
 import {
@@ -15,30 +16,23 @@ const RepositoryCharts = ({
   commits,
   months,
 }) => {
-  const { commitData, addDelData } = getChartData(months, commits, additions, deletions);
+  const {
+    commitData,
+    addDelData,
+  } = getChartData(months, commits, additions, deletions);
 
   return (
     <div>
-      <div className="PROJECT__thumbnail">
-        <Chart
-          chartType="AreaChart"
-          data={commitData}
-          options={COMMIT_CHART_OPTIONS}
-          width="100%"
-          height="175px"
-          loader={<span />}
-        />
-      </div>
-      <div className="PROJECT__thumbnail">
-        <Chart
-          chartType="AreaChart"
-          data={addDelData}
-          options={ADD_DEL_CHART_OPTIONS}
-          width="100%"
-          height="175px"
-          loader={<span />}
-        />
-      </div>
+      <Chart
+        className="PROJECT__thumbnail PROECT__repo-chart"
+        data={commitData}
+        {...COMMIT_CHART_OPTIONS}
+      />
+      <Chart
+        className="PROJECT__thumbnail PROECT__repo-chart"
+        data={addDelData}
+        {...ADD_DEL_CHART_OPTIONS}
+      />
     </div>
   );
 };

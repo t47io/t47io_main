@@ -1,3 +1,4 @@
+@import '../../common/mixins/colors';
 @import '../../common/mixins/media';
 @import '../../common/mixins/palette';
 
@@ -39,7 +40,7 @@
     }
 
     &.PROJECT__number--green {
-      color: $colorMain;
+      color: $colorGreen;
     }
 
     &.PROJECT__number--red {
@@ -49,6 +50,48 @@
 
   .PROJECT__repo-table-bottom {
     padding: 0;
+  }
+}
+
+.PROECT__repo-chart {
+  .chart-container {
+    font-family: inherit;
+  }
+
+  h6.title {
+    margin: 0.5rem 0 0 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $colorBlack;
+  }
+
+  h6.sub-title {
+    display: none;
+  }
+
+  .frappe-chart.graphics {
+    margin-top: 0;
+
+    .axis {
+      fill: $colorGrayDark;
+
+      line {
+        stroke: $colorGray;
+      }
+
+      .x-value-text {
+        font-style: italic;
+      }
+    }
+
+    .data-points circle {
+      stroke: none;
+      r: 3;
+    }
+  }
+
+  .graph-stats-container {
+    display: none;
   }
 }
 

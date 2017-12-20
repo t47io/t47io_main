@@ -20,25 +20,32 @@ export const getPageProps = (state, project) => {
 };
 
 export const getChartData = (months, commits, additions, deletions) => {
-  const commitData = [];
-  const addDelData = [];
-  months.forEach((month, i) => {
+  const labels = months.map((month) => {
     const date = month.split('/').reverse().map(num => parseInt(num, 10));
-    commitData.push([
-      new Date(date[0], date[1] - 1),
-      commits[i],
-    ]);
-    addDelData.push([
-      new Date(date[0], date[1] - 1),
-      additions[i],
-      -deletions[i],
-    ]);
+    return new Date(date[0], date[1] - 1)
+    .toLocaleString('en-us', {
+      month: 'short',
+      year: 'numeric',
+    });
   });
-  commitData.unshift(['month', 'commits']);
-  addDelData.unshift(['month', 'additions', 'deletions']);
 
   return {
-    commitData,
-    addDelData,
+    commitData: {
+      labels,
+      datasets: [{
+        title: 'Commits',
+        values: commits,
+      }],
+    },
+    addDelData: {
+      labels,
+      datasets: [{
+        title: 'Additions',
+        values: additions.map(d => (d ? Math.log10(d) : 0)),
+      }, {
+        title: 'Deletions',
+        values: deletions.map(d => (d ? -Math.log10(d) : 0)),
+      }],
+    },
   };
 };
