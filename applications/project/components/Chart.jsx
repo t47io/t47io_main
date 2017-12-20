@@ -33,9 +33,8 @@ class FrappeChart extends React.PureComponent {
     const formatYAxis = this.props.logScale ? {
       format_tooltip_y: d => (
         // eslint-disable-next-line no-restricted-properties
-        Math.round(Math.pow(10, Math.abs(d)))
+        d ? Math.round(Math.pow(10, Math.abs(d))) : 0
       ),
-      y_axis_mode: 'span',
     } : {};
 
     this.chart = new Chart({
@@ -48,6 +47,7 @@ class FrappeChart extends React.PureComponent {
     });
   }
   componentWillReceiveProps(nextProps) {
+    console.error('wrp')
     if (nextProps && !nextProps.data || this.props.data !== nextProps.data) {
       this.chart.update_values(
         nextProps.data.datasets,

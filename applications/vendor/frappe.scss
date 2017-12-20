@@ -1,0 +1,121 @@
+@import '../common/mixins/colors';
+
+.chart-container {
+  & > .title {
+    margin: 0.5rem 0 0 2rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $colorBlack;
+  }
+
+  .sub-title {
+    display: none;
+  }
+
+  .graphics {
+    margin-top: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .graph-stats-container {
+    display: none;
+  }
+
+  .axis,
+  .chart-label {
+    font-size: 0.75rem;
+    fill: $colorGrayDark;
+
+    line {
+      stroke: $colorGray;
+    }
+  }
+
+  .data-points {
+    circle {
+      stroke: none;
+      r: 3;
+    }
+  }
+
+  .path-group {
+    path {
+      fill: none;
+      stroke-opacity: 1;
+      stroke-width: 2px;
+    }
+  }
+
+  .tick {
+    &.x-axis-label {
+      display: block;
+    }
+
+    .y-value-text {
+      text-anchor: end;
+    }
+
+    .x-value-text {
+      text-anchor: middle;
+      font-style: italic;
+    }
+  }
+
+  .graph-svg-tip {
+    position: absolute;
+    z-index: 99999;
+    padding: 0;
+
+    font-size: 0.75rem;
+    text-align: left;
+    pointer-events: none;
+
+    color: $colorGray;
+    background: rgba(0, 7, 11, 0.75);
+    border-radius: 3px;
+
+    .title {
+      display: block;
+      padding: 0.5rem 1rem;
+      margin: 0;
+      font-weight: bold;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .data-point-list {
+      display: flex;
+      padding-left: 0;
+      margin: 0;
+
+      white-space: nowrap;
+      list-style: none;
+
+      li {
+        flex: 1;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        min-width: 6rem;
+        font-weight: bold;
+
+        strong {
+          color: $colorWhite;
+          font-weight: bold;
+          padding-bottom: 0.25rem;
+        }
+      }
+    }
+
+    .svg-pointer {
+      content: " ";
+      position: absolute;
+
+      height: 0.5rem;
+      margin: 0 0 0 -0.5rem;
+      border: 0.5rem solid transparent;
+      border-top-color: rgba(0, 7, 11, 0.75);
+    }
+  }
+}

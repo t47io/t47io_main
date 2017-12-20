@@ -53,48 +53,6 @@
   }
 }
 
-.PROECT__repo-chart {
-  .chart-container {
-    font-family: inherit;
-  }
-
-  h6.title {
-    margin: 0.5rem 0 0 2rem;
-    font-weight: bold;
-    font-size: 1rem;
-    color: $colorBlack;
-  }
-
-  h6.sub-title {
-    display: none;
-  }
-
-  .frappe-chart.graphics {
-    margin-top: 0;
-
-    .axis {
-      fill: $colorGrayDark;
-
-      line {
-        stroke: $colorGray;
-      }
-
-      .x-value-text {
-        font-style: italic;
-      }
-    }
-
-    .data-points circle {
-      stroke: none;
-      r: 3;
-    }
-  }
-
-  .graph-stats-container {
-    display: none;
-  }
-}
-
 @include media_width_lt(511px) {
   .PROJECT__repo-basics {
     text-align: center;
