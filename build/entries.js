@@ -10,7 +10,6 @@ const entries = (DEBUG = true) => {
       './applications/main/index.jsx',
     ],
     [chunkNames.projectApp]: [
-      'web-animations-js/web-animations.min.js',
       'bootstrap-loader',
       './applications/project/index.jsx',
     ],

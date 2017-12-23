@@ -6,7 +6,10 @@
     <ga />
 
     <% if (!htmlWebpackPlugin.options.args.debug) { %>
-      <script type="application/javascript" src="/<%= htmlWebpackPlugin.options.args.manifest %>"></script>
+      <script
+        type="application/javascript"
+        src="/<%= htmlWebpackPlugin.options.args.manifest %>"
+      ></script>
       <script type="application/javascript">
         !(function loadEntryChunks() {
           var jsEntries = '<%= htmlWebpackPlugin.options.args.js %>'.split(',');
@@ -41,12 +44,8 @@
               script.type = 'application/javascript';
               script.async = script.defer = true;
               script.src = '/scripts/' + chunk + '.' + hash + '.min.js';
-              script.onload = function () {
-                resolve();
-              };
-              script.onerror = function () {
-                reject();
-              };
+              script.onload = function () { resolve(); };
+              script.onerror = function () { reject(); };
               appendHead(script);
             });
           }
@@ -75,12 +74,18 @@
     <div class="body" id="app"></div>
 
     <% if (htmlWebpackPlugin.options.args.debug) { %>
-      <% for (item of htmlWebpackPlugin.files.css) { %>
-        <link type="text/css" rel="stylesheet" href="<%= item %>" media="none" onload="if(media!=='all'){media='all';}" />
-        <noscript><link type="text/css" rel="stylesheet" href="<%= item %>" /></noscript>
+      <% for (item of htmlWebpackPlugin.options.args.css) { %>
+        <link
+          type="text/css" rel="stylesheet"
+          href="/styles/<%= item %>.css"
+          media="none" onload="if (media !== 'all') { media = 'all'; }"
+        />
       <% } %>
-      <% for (item of htmlWebpackPlugin.files.js) { %>
-        <script type="application/javascript" src="<%= item %>"></script>
+      <% for (item of htmlWebpackPlugin.options.args.js) { %>
+        <script
+          type="application/javascript"
+          src="/scripts/<%= item %>.js"
+        ></script>
       <% } %>
     <% } %>
   </body>

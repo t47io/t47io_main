@@ -29,6 +29,31 @@ const compressionRegex = new RegExp(`.(${GZIP_FILE_TYPES.join('|')})$`);
 
 const plugins = (DEBUG = true) => {
   const chunkNames = CHUNK_NAMES(DEBUG);
+  const CSS_CHUNKS = [
+    chunkNames.mainApp,
+    chunkNames.projectApp,
+    chunkNames.vendor,
+  ];
+  const MAIN_CHUNKS = [
+    chunkNames.manifest,
+    chunkNames.vendor,
+    chunkNames.mainImage,
+    chunkNames.mainApp,
+  ];
+  const PROJECT_CHUNKS = [
+    chunkNames.manifest,
+    chunkNames.vendor,
+    chunkNames.projectApp,
+  ];
+
+  const getJSChunks = chunks => (chunks.filter(chunk => chunk !== chunkNames.manifest));
+  const getCSSChunks = chunks => (chunks.filter(chunk => CSS_CHUNKS.includes(chunk)));
+  const getChunkArgs = chunks => ({
+    js: getJSChunks(chunks),
+    css: getCSSChunks(chunks),
+    manifest: MANIFEST_JS,
+    debug: DEBUG,
+  });
 
   const plugin = [
     new webpack.LoaderOptionsPlugin({
@@ -36,50 +61,18 @@ const plugins = (DEBUG = true) => {
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
-      chunks: [
-        chunkNames.mainApp,
-        chunkNames.mainImage,
-        chunkNames.vendor,
-        chunkNames.manifest,
-      ],
+      chunks: MAIN_CHUNKS,
       template: path.join(ROOT, HTML_TEMPLATE),
       filename: path.join(PATH.PUBLIC, 'main.html'),
       inject: false,
-      args: {
-        js: [
-          chunkNames.vendor,
-          chunkNames.mainImage,
-          chunkNames.mainApp,
-        ],
-        css: [
-          chunkNames.vendor,
-          chunkNames.mainApp,
-        ],
-        manifest: MANIFEST_JS,
-        debug: DEBUG,
-      },
+      args: getChunkArgs(MAIN_CHUNKS),
     }),
     new HtmlWebpackPlugin({
-      chunks: [
-        chunkNames.projectApp,
-        chunkNames.vendor,
-        chunkNames.manifest,
-      ],
+      chunks: PROJECT_CHUNKS,
       template: path.join(ROOT, HTML_TEMPLATE),
       filename: path.join(PATH.PUBLIC, 'project.html'),
       inject: false,
-      args: {
-        js: [
-          chunkNames.vendor,
-          chunkNames.projectApp,
-        ],
-        css: [
-          chunkNames.vendor,
-          chunkNames.projectApp,
-        ],
-        manifest: MANIFEST_JS,
-        debug: DEBUG,
-      },
+      args: getChunkArgs(PROJECT_CHUNKS),
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: chunkNames.vendor,
