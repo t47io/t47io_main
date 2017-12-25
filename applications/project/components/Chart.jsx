@@ -57,14 +57,6 @@ class FrappeChart extends React.PureComponent {
       ...props,
     });
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps && !nextProps.data || this.props.data !== nextProps.data) {
-      this.chart.update_values(
-        nextProps.data.datasets,
-        nextProps.data.labels
-      );
-    }
-  }
   componentWillUnmount() {
     this.chart = null;
   }
