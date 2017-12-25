@@ -18,7 +18,6 @@ export const CHUNK_NAMES = (DEBUG = true) => ({
   mainImage: CHUNK_NAME('image', DEBUG),
   projectApp: CHUNK_NAME('project', DEBUG),
   projectData: CHUNK_NAME('repo', DEBUG),
-  projectImage: CHUNK_NAME('svg', DEBUG),
   vendor: CHUNK_NAME('vendor', DEBUG),
   manifest: DEBUG ? 'manifest' : 'f',
 });

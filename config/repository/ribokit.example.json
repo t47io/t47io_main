@@ -3,21 +3,27 @@
     "name": "ribokit/ribokit.github.io",
     "isPrivate": false,
     "createdAt": "2016-04-12 01:08:20",
-    "pushedAt": "2016-12-12 00:34:00",
+    "pushedAt": "2017-08-03 03:26:53",
     "issues": 0,
     "downloads": 0,
     "forks": 1,
     "pulls": 0,
     "branches": 3,
-    "stars": 0,
-    "watchers": 0
+    "stars": 1,
+    "watchers": 1
   },
-  "contributors": [
+  "authors": [
     {
       "author": "t47io",
-      "commits": 149,
-      "additions": 69824,
-      "deletions": 50628
+      "commits": 163,
+      "additions": 70615,
+      "deletions": 51263
+    },
+    {
+      "author": "rhiju",
+      "commits": 44,
+      "additions": 2462,
+      "deletions": 403
     },
     {
       "author": "calebgeniesse",
@@ -26,60 +32,80 @@
       "deletions": 73
     },
     {
-      "author": "rhiju",
-      "commits": 26,
-      "additions": 507,
-      "deletions": 181
-    },
-    {
       "author": "jyesselm",
       "commits": 15,
       "additions": 334,
       "deletions": 147
     }
   ],
-  "additions": [
-    54051,
-    15668,
-    46,
-    0,
-    4,
-    14,
-    16,
-    18,
-    7
-  ],
-  "deletions": [
-    49938,
-    652,
-    2,
-    0,
-    4,
-    14,
-    8,
-    3,
-    7
-  ],
-  "commits": [
-    80,
-    56,
-    2,
-    0,
-    1,
-    1,
-    2,
-    1,
-    6
-  ],
-  "months": [
-    "4/2016",
-    "5/2016",
-    "6/2016",
-    "7/2016",
-    "8/2016",
-    "9/2016",
-    "10/2016",
-    "11/2016",
-    "12/2016"
-  ]
+  "contributions": {
+    "additions": [
+      54051,
+      15668,
+      46,
+      0,
+      4,
+      14,
+      16,
+      18,
+      7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      791
+    ],
+    "deletions": [
+      49938,
+      652,
+      2,
+      0,
+      4,
+      14,
+      8,
+      3,
+      7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      635
+    ],
+    "commits": [
+      80,
+      56,
+      2,
+      0,
+      1,
+      1,
+      2,
+      1,
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      14
+    ],
+    "months": [
+      "4/2016",
+      "5/2016",
+      "6/2016",
+      "7/2016",
+      "8/2016",
+      "9/2016",
+      "10/2016",
+      "11/2016",
+      "12/2016",
+      "1/2017",
+      "2/2017",
+      "3/2017",
+      "4/2017",
+      "5/2017",
+      "6/2017"
+    ]
+  }
 }
