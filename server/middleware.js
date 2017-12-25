@@ -41,13 +41,16 @@ const middlewares = [
   helmet({
     contentSecurityPolicy: {
       directives: {
+        styleSrc: [
+          '\'self\'',
+          '\'unsafe-inline\'',
+        ],
         scriptSrc: [
           '\'self\'',
           '\'unsafe-inline\'',
-          '\'unsafe-eval\'',
           'www.google-analytics.com',
-          'www.gstatic.com',
         ],
+        upgradeInsecureRequests: true,
       },
     },
     hsts: {
