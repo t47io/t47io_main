@@ -92,10 +92,11 @@
           ],
           "title": "Updates to the RNA mapping database (RMDB), version 2",
           "journal": "Nucleic Acid Research",
-          "issue": "in press",
-          "citation": null,
+          "issue": "46 (D1)",
+          "page": "D375 - D379",
+          "citation": 1,
           "tag": "2017_Yesselman_NAR",
-          "url": "https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkx873/4372478"
+          "url": "https://academic.oup.com/nar/article/46/D1/D375/4372478"
         },
         {
           "authors": [
@@ -150,7 +151,7 @@
           "journal": "RNA",
           "issue": "23 (5)",
           "page": "655 - 672",
-          "citation": 5,
+          "citation": 16,
           "tag": "2017_Miao_RNA",
           "url": "http://rnajournal.cshlp.org/content/early/2017/01/30/rna.060368.116"
         },
@@ -182,7 +183,7 @@
           "journal": "Quarterly Review of Biophysics",
           "issue": "49 (e7)",
           "page": "1 - 30",
-          "citation": 6,
+          "citation": 8,
           "tag": "2016_Tian_QRB",
           "url": "https://www.cambridge.org/core/journals/quarterly-reviews-of-biophysics/article/rna-structure-through-multidimensional-chemical-mapping/1D773A4C81E046E6BA4521BAF688E0DC"
         }
@@ -204,7 +205,7 @@
           "journal": "eLife",
           "issue": "4",
           "page": "e07600",
-          "citation": 21,
+          "citation": 25,
           "tag": "2015_Cheng_eLife",
           "url": "https://elifesciences.org/content/4/e07600",
           "code": "https://rmdb.stanford.edu/mapseeker/"
@@ -220,7 +221,7 @@
           "journal": "Nucleic Acid Research",
           "issue": "43 (W1)",
           "page": "W522 - W526",
-          "citation": 5,
+          "citation": 6,
           "tag": "2015_Tian_NAR",
           "url": "https://academic.oup.com/nar/article/43/W1/W522/2467987",
           "code": "https://primerize.stanford.edu/"
@@ -238,7 +239,7 @@
           "journal": "Bioinformatics",
           "issue": "31 (17)",
           "page": "2808 - 2815",
-          "citation": 1,
+          "citation": 2,
           "tag": "2015_Lee_Bioinfomatics",
           "url": "https://academic.oup.com/bioinformatics/article/31/17/2808/183519",
           "code": "https://rmdb.stanford.edu/hitrace/"
@@ -290,7 +291,7 @@
           "journal": "RNA",
           "issue": "21 (6)",
           "page": "1066 - 1084",
-          "citation": 55,
+          "citation": 66,
           "tag": "2015_Miao_RNA",
           "url": "http://rnajournal.cshlp.org/content/21/6/1066"
         },
@@ -307,7 +308,7 @@
           "journal": "Nature",
           "issue": "517",
           "page": "33 - 38",
-          "citation": 78,
+          "citation": 92,
           "tag": "2015_Xue_Nature",
           "url": "http://www.nature.com/nature/journal/v517/n7532/full/nature14010.html"
         }
@@ -327,7 +328,7 @@
           "journal": "RNA",
           "issue": "20 (11)",
           "page": "1815 - 1826",
-          "citation": 21,
+          "citation": 23,
           "tag": "2014_Tian_RNA",
           "url": "http://rnajournal.cshlp.org/content/20/11/1815"
         },
@@ -345,7 +346,7 @@
           "journal": "Biochemistry",
           "issue": "53 (19)",
           "page": "3063 - 3065",
-          "citation": 22,
+          "citation": 26,
           "tag": "2014_Kladwang_Biochemistry",
           "url": "https://pubs.acs.org/doi/abs/10.1021/bi5003426"
         }
@@ -367,7 +368,7 @@
           "journal": "New Phytologist",
           "issue": "199 (1)",
           "page": "135 - 150",
-          "citation": 15,
+          "citation": 17,
           "tag": "2013_Shi_NewPhytol",
           "url": "https://onlinelibrary.wiley.com/doi/10.1111/nph.12275/abstract"
         }
