@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "3.4.12",
+  "version": "3.4.13",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
@@ -62,7 +62,7 @@
     "portfolio"
   ],
   "devDependencies": {
-    "autoprefixer": "7.2.4",
+    "autoprefixer": "7.2.5",
     "babel-core": "6.26.0",
     "babel-eslint": "8.2.1",
     "babel-loader": "7.1.2",
@@ -77,7 +77,7 @@
     "bootstrap-sass": "3.3.7",
     "brotli-webpack-plugin": "0.5.0",
     "compression": "1.7.1",
-    "css-loader": "0.28.8",
+    "css-loader": "0.28.9",
     "eslint": "4.15.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-loader": "1.9.0",
@@ -92,7 +92,7 @@
     "html-webpack-plugin": "2.30.1",
     "lodash-webpack-plugin": "0.11.4",
     "node-sass": "4.7.2",
-    "nodemon": "1.14.9",
+    "nodemon": "1.14.11",
     "null-loader": "0.1.1",
     "postcss": "6.0.16",
     "postcss-csso": "3.0.0",
@@ -109,7 +109,7 @@
     "react-redux": "5.0.6",
     "react-svg-loader": "2.1.0",
     "react-tooltip": "3.4.0",
-    "react-waypoint": "7.3.4",
+    "react-waypoint": "8.0.0",
     "react-web-animation": "0.6.1",
     "reduce-reducers": "0.1.2",
     "redux": "3.7.2",
@@ -148,13 +148,13 @@
     "glob": "7.1.2",
     "helmet": "3.9.0",
     "https": "1.0.0",
-    "loglevel": "1.6.0",
-    "loglevel-plugin-prefix": "0.6.0",
+    "loglevel": "1.6.1",
+    "loglevel-plugin-prefix": "0.7.2",
     "ms": "2.1.1",
     "nodemailer": "4.4.1",
     "pm2": "2.9.1",
     "sanitizer": "0.1.3",
-    "shelljs": "0.7.8"
+    "shelljs": "0.8.0"
   },
   "os": [
     "darwin",
