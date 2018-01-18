@@ -50,7 +50,9 @@ const middlewares = [
           '\'unsafe-inline\'',
           'www.google-analytics.com',
         ],
-        upgradeInsecureRequests: true,
+        ...(NGINX ? {
+          upgradeInsecureRequests: true,
+        } : {}),
       },
     },
     hsts: {
