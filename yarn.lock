@@ -6551,9 +6551,9 @@ react-waypoint@8.0.0:
     consolidated-events "^1.1.0"
     prop-types "^15.0.0"
 
-react-web-animation@0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/react-web-animation/-/react-web-animation-0.6.1.tgz#b605d28ab25fd4353c3935f20ff2e257bd2ad5e1"
+react-web-animation@0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-web-animation/-/react-web-animation-0.7.0.tgz#8cae275c9f90b4a876952b93356ee7f40b914480"
   dependencies:
     babel-plugin-transform-class-properties "^6.24.1"
     babel-plugin-transform-object-rest-spread "^6.26.0"

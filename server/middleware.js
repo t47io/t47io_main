@@ -48,8 +48,9 @@ const middlewares = [
         scriptSrc: [
           '\'self\'',
           '\'unsafe-inline\'',
+          DEBUG ? '\'unsafe-eval\'' : null,
           'www.google-analytics.com',
-        ],
+        ].filter(Boolean),
         ...(NGINX ? {
           upgradeInsecureRequests: true,
         } : {}),
