@@ -31,7 +31,15 @@ const config = {
   },
 
   devtool: `cheap-module-${DEBUG ? 'eval-' : ''}source-map`,
-  resolve: { alias: aliases() },
+  performance: {
+    assetFilter: asset => (/\.(js|css)/.test(asset)),
+    maxAssetSize: 128 * 1024,
+    maxEntrypointSize: (DEBUG ? 1000 : 50) * 1024,
+  },
+  resolve: {
+    alias: aliases(),
+    symlinks: false,
+  },
 
   module: { rules: loaders(DEBUG, false) },
   plugins: plugins(DEBUG),

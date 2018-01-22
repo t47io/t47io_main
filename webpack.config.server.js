@@ -21,7 +21,15 @@ const config = {
   },
 
   devtool: 'cheap-module-source-map',
-  resolve: { alias: aliases() },
+  performance: {
+    assetFilter: asset => (asset.includes('.html')),
+    maxAssetSize: 1000 * 1024,
+    maxEntrypointSize: Infinity,
+  },
+  resolve: {
+    alias: aliases(),
+    symlinks: false,
+  },
 
   module: { rules: loaders(false, true) },
   plugins: [
