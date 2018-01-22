@@ -79,6 +79,7 @@ if (DEBUG) {
     logger: log,
     watchOptions: {
       aggregateTimeout: 2500,
+      ignored: /node_modules/,
       poll: true,
     },
     stats: { colors: true },
