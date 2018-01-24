@@ -51,9 +51,7 @@ const middlewares = [
           DEBUG ? '\'unsafe-eval\'' : null,
           'www.google-analytics.com',
         ].filter(Boolean),
-        ...(NGINX ? {
-          upgradeInsecureRequests: true,
-        } : {}),
+        upgradeInsecureRequests: NGINX,
       },
     },
     hsts: {
