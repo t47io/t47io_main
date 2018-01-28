@@ -12,7 +12,6 @@ import {
 import logger from '../logger.js';
 
 import statsJSON from '../../config/main/stats.json';
-import cronJSON from '../../config/cron.json';
 
 const log = logger('cron:contrib');
 
@@ -92,6 +91,7 @@ const getContrib = async (account) => {
     };
     await fs.writeJSON(path.join(PATH.CONFIG, 'main/stats.json'), newStatsJSON, JSON_FORMAT);
 
+    const cronJSON = await fs.readJSON(path.join(PATH.CONFIG, 'cron.json'));
     const oldTotal = parseInt(cronJSON.gitContrib.total, 10) || 0;
     const newTotal = combinedData.countArray.reduce((sum, d) => (sum + d), 0);
     const diffNumber = newTotal - oldTotal;

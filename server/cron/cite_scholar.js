@@ -9,7 +9,6 @@ import { JSON_FORMAT } from '../config.js';
 import logger from '../logger.js';
 
 import pubsJSON from '../../config/main/pubs.json';
-import cronJSON from '../../config/cron.json';
 
 const log = logger('cron:scholar');
 
@@ -117,6 +116,7 @@ const diffCitations = (oldCitations, newCitations) => {
     });
     await fs.writeJSON(path.join(PATH.CONFIG, 'main/pubs.json'), newPubsJSON, JSON_FORMAT);
 
+    const cronJSON = await fs.readJSON(path.join(PATH.CONFIG, 'cron.json'));
     const oldCitations = cronJSON.citations;
     const newCitations = flattenCitations(newPubsJSON.items);
     const newCronJSON = {
