@@ -11,6 +11,7 @@ const LOG_LEVELS = {
 };
 
 const logger = (prefix = 'root') => {
+  logPrefix.reg(log);
   logPrefix.apply(log, {
     template: '%t%n%l',
     timestampFormatter: ts => colors.gray(ts.toISOString()),

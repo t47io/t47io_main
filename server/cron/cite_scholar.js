@@ -104,7 +104,7 @@ const diffCitations = (oldCitations, newCitations) => {
     if (allRecords.length) {
       log.warn(`${allRecords.length} record(s) from Google Scholar was not matched.`);
       allRecords.forEach(item => (
-        log.warn(`entry ${colors.blue(`${item.year} / ${item.author.join()} / ${item.title.join(' ')}`)}`)
+        log.warn(`entry ${colors.blue(`${item.year} | ${item.author.join()} | ${item.title.join(' ')}`)}`)
       ));
     }
 
