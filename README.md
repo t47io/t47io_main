@@ -93,7 +93,7 @@ Use `yarn` scripts with `yarn run <cmd>`.
 
 <div align="center">
   <h2>License</h2>
-  <p><b>Copyright &copy; 2014-2017: Siqi Tian. All Rights Reserved.</b></p>
+  <p><b>Copyright &copy; 2014-2018: Siqi Tian. All Rights Reserved.</b></p>
   <p>
     Code and content are licensed under
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
