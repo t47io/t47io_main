@@ -62,25 +62,25 @@
           "isHidden": true,
           "citation": null,
           "tag": "2018_Hagey_unknown"
-        }
-      ]
-    },
-    {
-      "year": 2017,
-      "items": [
+        },
         {
           "authors": [
             "Tian S.",
             "Kladwang W.",
             "Das R."
           ],
-          "title": "Allosteric logic of the _V_. _vulnificus_ adenine riboswitch resolved by four-dimensional chemical mapping",
+          "title": "Allosteric mechanism of the _V_. _vulnificus_ adenine riboswitch resolved by four-dimensional chemical mapping",
           "journal": "eLife",
           "issue": "submitted",
           "isPreprint": true,
           "citation": null,
-          "tag": "2017_Tian_eLife"
-        },
+          "tag": "2018_Tian_eLife"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "items": [
         {
           "authors": [
             "Yesselman J.D.*",
@@ -94,7 +94,7 @@
           "journal": "Nucleic Acid Research",
           "issue": "46 (D1)",
           "page": "D375 - D379",
-          "citation": 1,
+          "citation": 2,
           "tag": "2017_Yesselman_NAR",
           "url": "https://academic.oup.com/nar/article/46/D1/D375/4372478"
         },
@@ -151,7 +151,7 @@
           "journal": "RNA",
           "issue": "23 (5)",
           "page": "655 - 672",
-          "citation": 16,
+          "citation": 18,
           "tag": "2017_Miao_RNA",
           "url": "http://rnajournal.cshlp.org/content/early/2017/01/30/rna.060368.116"
         },
@@ -183,7 +183,7 @@
           "journal": "Quarterly Review of Biophysics",
           "issue": "49 (e7)",
           "page": "1 - 30",
-          "citation": 8,
+          "citation": 9,
           "tag": "2016_Tian_QRB",
           "url": "https://www.cambridge.org/core/journals/quarterly-reviews-of-biophysics/article/rna-structure-through-multidimensional-chemical-mapping/1D773A4C81E046E6BA4521BAF688E0DC"
         }
@@ -205,7 +205,7 @@
           "journal": "eLife",
           "issue": "4",
           "page": "e07600",
-          "citation": 25,
+          "citation": 26,
           "tag": "2015_Cheng_eLife",
           "url": "https://elifesciences.org/content/4/e07600",
           "code": "https://rmdb.stanford.edu/mapseeker/"
@@ -239,7 +239,7 @@
           "journal": "Bioinformatics",
           "issue": "31 (17)",
           "page": "2808 - 2815",
-          "citation": 2,
+          "citation": 4,
           "tag": "2015_Lee_Bioinfomatics",
           "url": "https://academic.oup.com/bioinformatics/article/31/17/2808/183519",
           "code": "https://rmdb.stanford.edu/hitrace/"
@@ -291,7 +291,7 @@
           "journal": "RNA",
           "issue": "21 (6)",
           "page": "1066 - 1084",
-          "citation": 66,
+          "citation": 67,
           "tag": "2015_Miao_RNA",
           "url": "http://rnajournal.cshlp.org/content/21/6/1066"
         },
@@ -308,7 +308,7 @@
           "journal": "Nature",
           "issue": "517",
           "page": "33 - 38",
-          "citation": 92,
+          "citation": 95,
           "tag": "2015_Xue_Nature",
           "url": "http://www.nature.com/nature/journal/v517/n7532/full/nature14010.html"
         }
@@ -346,7 +346,7 @@
           "journal": "Biochemistry",
           "issue": "53 (19)",
           "page": "3063 - 3065",
-          "citation": 26,
+          "citation": 27,
           "tag": "2014_Kladwang_Biochemistry",
           "url": "https://pubs.acs.org/doi/abs/10.1021/bi5003426"
         }
@@ -368,7 +368,7 @@
           "journal": "New Phytologist",
           "issue": "199 (1)",
           "page": "135 - 150",
-          "citation": 17,
+          "citation": 19,
           "tag": "2013_Shi_NewPhytol",
           "url": "https://onlinelibrary.wiley.com/doi/10.1111/nph.12275/abstract"
         }
