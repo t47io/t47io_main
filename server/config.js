@@ -2,6 +2,7 @@ export const HTTP_CODES = [201, 400, 401, 403, 404, 405, 500, 502, 503];
 export const HTML_HEADER = {
   'Content-Type': 'text/html; charset=UTF-8',
   'X-UA-Compatible': 'IE=edge',
+  'X-Robots-Tag': 'index, follow, noarchive, nocache, notranslate',
 };
 export const CACHE_MAX_AGE = 120;
 
