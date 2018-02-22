@@ -2,25 +2,37 @@ import serverJSON from '../config/server.json';
 
 
 export const MANIFEST_JS = 'scripts/f.012345.min.js';
-export const CHUNK_FILE_NAME = (DEBUG = true, ext = 'js') => {
-  const dir = (ext === 'js') ? 'scripts' : 'styles';
-  const name = DEBUG ? '[name]' : '[name].[chunkhash].min';
-  return `${dir}/${name}.${ext}`;
-};
 export const ASSET_FILE_NAME = (dir = '') => (`${dir}/[hash:6].[ext]`);
 
-const CHUNK_NAME = (chunk, DEBUG = true) => (
-  DEBUG ? chunk : chunk.slice(0, 1)
+const CHUNKS = {
+  mainApp: 'main',
+  mainData: 'data',
+  mainImage: 'image',
+  projectApp: 'project',
+  projectData: 'repo',
+  vendor: 'vendor',
+  manifest: 'manifest',
+};
+const CHUNK_NAME = (chunk, DEBUG = true, isCSS = false) => {
+  if (!DEBUG && chunk === 'manifest') {
+    return MANIFEST_JS;
+  }
+  const chunkName = DEBUG ? chunk : chunk.slice(0, 1);
+  const ext = isCSS ? 'css' : 'js';
+  const hash = isCSS ? '[contenthash:6]' : '[chunkhash]';
+  const dir = isCSS ? 'styles' : 'scripts';
+  const prefix = `${dir}/${chunkName}`;
+  return DEBUG ? `${prefix}.${ext}` : `${prefix}.${hash}.min.${ext}`;
+};
+export const CHUNK_NAMES = (DEBUG = true, isCSS = false) => (
+  Object.keys(CHUNKS).map(key => ({
+    [key]: CHUNK_NAME(CHUNKS[key], DEBUG, isCSS),
+  }))
+  .reduce((obj, item) => ({
+    ...obj,
+    ...item,
+  }), {})
 );
-export const CHUNK_NAMES = (DEBUG = true) => ({
-  mainApp: CHUNK_NAME('main', DEBUG),
-  mainData: CHUNK_NAME('data', DEBUG),
-  mainImage: CHUNK_NAME('image', DEBUG),
-  projectApp: CHUNK_NAME('project', DEBUG),
-  projectData: CHUNK_NAME('repo', DEBUG),
-  vendor: CHUNK_NAME('vendor', DEBUG),
-  manifest: DEBUG ? 'manifest' : 'f',
-});
 
 export const GZIP_FILE_TYPES = ['html', 'js', 'css', 'map', 'eot', 'ttf', 'woff', 'woff2', 'mp3', 'svg', 'xml', 'txt'];
 
