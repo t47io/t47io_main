@@ -2,31 +2,35 @@ import serverJSON from '../config/server.json';
 
 
 export const MANIFEST_JS = 'scripts/f.012345.min.js';
-export const ASSET_FILE_NAME = (dir = '') => (`${dir}/[hash:6].[ext]`);
+export const ASSET_FILE_NAME = (dir = '') => `${dir}/[hash:6].[ext]`;
 
-const CHUNKS = {
-  mainApp: 'main',
-  mainData: 'data',
-  mainImage: 'image',
-  projectApp: 'project',
-  projectData: 'repo',
-  vendor: 'vendor',
-  manifest: 'manifest',
+export const CHUNKS = {
+  mainApp: ['m', 'main'],
+  mainData: ['d', 'data'],
+  mainImage: ['i', 'image'],
+  projectApp: ['p', 'project'],
+  projectData: ['r', 'repo'],
+  vendor: ['v', 'vendor'],
+  manifest: ['f', 'manifest'],
 };
-const CHUNK_NAME = (chunk, DEBUG = true, isCSS = false) => {
+
+export const getChunkName = (chunk, DEBUG = true) => (
+  DEBUG ? CHUNKS[chunk][1] : CHUNKS[chunk][0]
+);
+export const getChunkFileName = (chunk, DEBUG = true, isCSS = false) => {
   if (!DEBUG && chunk === 'manifest') {
     return MANIFEST_JS;
   }
-  const chunkName = DEBUG ? chunk : chunk.slice(0, 1);
+  const chunkName = getChunkName(chunk, DEBUG);
   const ext = isCSS ? 'css' : 'js';
   const hash = isCSS ? '[contenthash:6]' : '[chunkhash]';
   const dir = isCSS ? 'styles' : 'scripts';
   const prefix = `${dir}/${chunkName}`;
   return DEBUG ? `${prefix}.${ext}` : `${prefix}.${hash}.min.${ext}`;
 };
-export const CHUNK_NAMES = (DEBUG = true, isCSS = false) => (
+export const CHUNK_FILENAME_MAP = (DEBUG = true, isCSS = false) => (
   Object.keys(CHUNKS).map(key => ({
-    [key]: CHUNK_NAME(CHUNKS[key], DEBUG, isCSS),
+    [key]: getChunkFileName(key, DEBUG, isCSS),
   }))
   .reduce((obj, item) => ({
     ...obj,
