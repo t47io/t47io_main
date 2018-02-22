@@ -18,19 +18,19 @@
           function appendHead(element) {
             document.head.appendChild(element);
           }
-          function appendPreload(chunk, hash, type, extension) {
+          function appendPreload(src, type) {
             var link = document.createElement('link');
             link.rel = 'preload';
             link.as = type;
-            link.href = '/' + type + 's/' + chunk + '.' + hash + '.min.' + extension;
+            link.href = '/' + src;
             appendHead(link);
           }
-          function appendStyleTag(chunk, hash) {
+          function appendStyleTag(src) {
             var link = document.createElement('link');
             link.type = 'text/css';
             link.rel = 'stylesheet';
             link.media = 'none';
-            link.href = '/styles/' + chunk + '.' + hash + '.min.css';
+            link.href = '/' + src;
             link.onload = function () {
               if (this.media !== 'all') {
                 this.media = 'all';
@@ -38,12 +38,12 @@
             };
             appendHead(link);
           }
-          function appendScriptTag(chunk, hash) {
+          function appendScriptTag(src) {
             return new Promise(function (resolve, reject) {
               var script = document.createElement('script');
               script.type = 'application/javascript';
               script.async = script.defer = true;
-              script.src = '/scripts/' + chunk + '.' + hash + '.min.js';
+              script.src = '/' + src;
               script.onload = function () { resolve(); };
               script.onerror = function () { reject(); };
               appendHead(script);
@@ -51,18 +51,18 @@
           }
 
           jsEntries.forEach(function (entry) {
-            appendPreload(entry, window.manifest[entry], 'script', 'js');
+            appendPreload(window.manifest.js[entry], 'script');
           });
           cssEntries.forEach(function (entry) {
-            appendPreload(entry, window.manifest[entry], 'style', 'css');
+            appendPreload(window.manifest.css[entry], 'style');
           });
           jsEntries.reduce(function (promise, entry) {
             return promise.then(function () {
-              return appendScriptTag(entry, window.manifest[entry]);
+              return appendScriptTag(window.manifest.js[entry]);
             });
           }, Promise.resolve());
           cssEntries.forEach(function (entry) {
-            appendStyleTag(entry, window.manifest[entry]);
+            appendStyleTag(window.manifest.css[entry]);
           });
         })();
       </script>
