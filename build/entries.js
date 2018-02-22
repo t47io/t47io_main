@@ -1,15 +1,11 @@
-import { CHUNK_NAMES } from './config.js';
-
-
 const entries = (DEBUG = true) => {
-  const chunkNames = CHUNK_NAMES(DEBUG);
   const entry = {
-    [chunkNames.mainApp]: [
+    mainApp: [
       'web-animations-js/web-animations.min.js',
       'bootstrap-loader',
       './applications/main/index.jsx',
     ],
-    [chunkNames.projectApp]: [
+    projectApp: [
       'bootstrap-loader',
       './applications/project/index.jsx',
     ],

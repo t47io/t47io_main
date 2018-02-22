@@ -5,6 +5,7 @@ import webpack from 'webpack';
 import BabelMinifyPlugin from 'babel-minify-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import ChunkRenamePlugin from 'chunk-rename-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
@@ -17,7 +18,6 @@ import {
   PATH,
 } from '../server/env.js';
 import {
-  CHUNK_FILE_NAME,
   CHUNK_NAMES,
   MANIFEST_JS,
   HTML_TEMPLATE,
@@ -28,25 +28,24 @@ import {
 const compressionRegex = new RegExp(`.(${GZIP_FILE_TYPES.join('|')})$`);
 
 const plugins = (DEBUG = true) => {
-  const chunkNames = CHUNK_NAMES(DEBUG);
   const CSS_CHUNKS = [
-    chunkNames.mainApp,
-    chunkNames.projectApp,
-    chunkNames.vendor,
+    'mainApp',
+    'projectApp',
+    'vendor',
   ];
   const MAIN_CHUNKS = [
-    chunkNames.manifest,
-    chunkNames.vendor,
-    chunkNames.mainImage,
-    chunkNames.mainApp,
+    'manifest',
+    'vendor',
+    'mainImage',
+    'mainApp',
   ];
   const PROJECT_CHUNKS = [
-    chunkNames.manifest,
-    chunkNames.vendor,
-    chunkNames.projectApp,
+    'manifest',
+    'vendor',
+    'projectApp',
   ];
 
-  const getJSChunks = chunks => (chunks.filter(chunk => chunk !== chunkNames.manifest));
+  const getJSChunks = chunks => (chunks.filter(chunk => chunk !== 'manifest'));
   const getCSSChunks = chunks => (chunks.filter(chunk => CSS_CHUNKS.includes(chunk)));
   const getChunkArgs = chunks => ({
     js: getJSChunks(chunks),
@@ -75,8 +74,7 @@ const plugins = (DEBUG = true) => {
       args: getChunkArgs(PROJECT_CHUNKS),
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: chunkNames.vendor,
-      filename: CHUNK_FILE_NAME(DEBUG),
+      name: 'vendor',
       minChunks: module => (
         module.resource && !module.resource.includes('frappe') && (
           module.resource.includes('node_modules/') ||
@@ -85,9 +83,8 @@ const plugins = (DEBUG = true) => {
       ),
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: chunkNames.mainImage,
-      filename: CHUNK_FILE_NAME(DEBUG),
-      chunks: [chunkNames.mainApp],
+      name: 'mainImage',
+      chunks: ['mainApp'],
       minChunks: module => (
         module.resource && (
           module.resource.includes('applications/main/images/') ||
@@ -96,7 +93,7 @@ const plugins = (DEBUG = true) => {
       ),
     }),
     new ExtractTextPlugin({
-      filename: CHUNK_FILE_NAME(DEBUG, 'css'),
+      filename: `styles/[name]${DEBUG ? '' : '.[chunkhash].min'}.css`,
       allChunks: true,
     }),
     new PurifyCSSPlugin({
@@ -125,19 +122,18 @@ const plugins = (DEBUG = true) => {
     ];
   }
   return [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"',
-        BABEL_ENV: '"production"',
-      },
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'production',
+      BABEL_ENV: 'production',
     }),
     ...plugin,
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      name: chunkNames.manifest,
+      name: 'manifest',
       filename: MANIFEST_JS,
     }),
     new ManifestPlugin(),
+    new ChunkRenamePlugin(CHUNK_NAMES(DEBUG)),
     new BabelMinifyPlugin({
       removeConsole: true,
       removeDebugger: true,

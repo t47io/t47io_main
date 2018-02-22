@@ -4,7 +4,6 @@ import aliases from './build/aliases.js';
 import entries from './build/entries.js';
 import loaders from './build/loaders.js';
 import plugins from './build/plugins.js';
-import { CHUNK_FILE_NAME } from './build/config.js';
 import {
   PATH,
   DEBUG as DEBUG_CONFIG,
@@ -23,8 +22,8 @@ console.log(colors.magenta('*********************************'));
 const config = {
   entry: entries(DEBUG),
   output: {
-    filename: CHUNK_FILE_NAME(DEBUG),
-    chunkFilename: CHUNK_FILE_NAME(DEBUG),
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     hashDigestLength: 6,
     path: PATH.PUBLIC,
     publicPath: '/',
