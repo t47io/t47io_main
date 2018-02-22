@@ -3,7 +3,10 @@ import path from 'path';
 import shell from 'shelljs';
 
 import { PATH } from '../../server/env.js';
-import { MANIFEST_JS } from '../config.js';
+import {
+  MANIFEST_JS,
+  CHUNKS,
+} from '../config.js';
 import { JSON_FORMAT } from '../../server/config.js';
 import {
   loadFileSync,
@@ -16,21 +19,27 @@ import cronJSON from '../../config/cron.json';
 const log = logger('process:manifest');
 
 
-let chunkManifest;
-
-try {
-  const manifest = JSON.parse(loadFileSync('public/manifest.json'));
-  const chunkKeys = Object.keys(manifest).filter(key => key.includes('.js'));
-  chunkManifest = chunkKeys.map((key) => {
-    const chunk = key.replace('.js', '');
-    return {
-      [chunk]: manifest[key].replace(`${chunk}.`, '').replace('scripts/', '').replace('.min.js', ''),
-    };
+const parseChunks = (manifest, isCSS = false) => {
+  const ext = isCSS ? '.css' : '.js';
+  const chunkKeys = Object.keys(manifest).filter(key => key.endsWith(ext));
+  return chunkKeys.map((key) => {
+    const chunk = CHUNKS[key.replace(ext, '')][0];
+    return { [chunk]: manifest[key] };
   })
   .reduce((obj, item) => ({
     ...obj,
     ...item,
   }), {});
+};
+
+let chunkManifest;
+
+try {
+  const manifest = JSON.parse(loadFileSync('public/manifest.json'));
+  chunkManifest = {
+    js: parseChunks(manifest, false),
+    css: parseChunks(manifest, true),
+  };
   log.debug('Manifest JSON parsed.');
 } catch (err) {
   console.error(err);

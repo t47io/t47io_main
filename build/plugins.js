@@ -18,7 +18,8 @@ import {
   PATH,
 } from '../server/env.js';
 import {
-  CHUNK_NAMES,
+  getChunkName,
+  CHUNK_FILENAME_MAP,
   MANIFEST_JS,
   HTML_TEMPLATE,
   GZIP_FILE_TYPES,
@@ -45,11 +46,11 @@ const plugins = (DEBUG = true) => {
     'projectApp',
   ];
 
-  const CSS_CHUNK_MAPS = CHUNK_NAMES(DEBUG, true);
-  const JS_CHUNK_MAPS = CHUNK_NAMES(DEBUG, false);
+  const CSS_CHUNK_MAPS = CHUNK_FILENAME_MAP(DEBUG, true);
+  const JS_CHUNK_MAPS = CHUNK_FILENAME_MAP(DEBUG, false);
   const getChunkArgs = chunks => ({
-    js: chunks.filter(chunk => chunk !== 'manifest'),
-    css: chunks.filter(chunk => CSS_CHUNKS.includes(chunk)),
+    js: chunks.filter(chunk => chunk !== 'manifest').map(chunk => getChunkName(chunk, DEBUG)),
+    css: chunks.filter(chunk => CSS_CHUNKS.includes(chunk)).map(chunk => getChunkName(chunk, DEBUG)),
     manifest: MANIFEST_JS,
     debug: DEBUG,
   });
