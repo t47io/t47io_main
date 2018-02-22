@@ -45,11 +45,11 @@ const plugins = (DEBUG = true) => {
     'projectApp',
   ];
 
-  const getJSChunks = chunks => (chunks.filter(chunk => chunk !== 'manifest'));
-  const getCSSChunks = chunks => (chunks.filter(chunk => CSS_CHUNKS.includes(chunk)));
+  const CSS_CHUNK_MAPS = CHUNK_NAMES(DEBUG, true);
+  const JS_CHUNK_MAPS = CHUNK_NAMES(DEBUG, false);
   const getChunkArgs = chunks => ({
-    js: getJSChunks(chunks),
-    css: getCSSChunks(chunks),
+    js: chunks.filter(chunk => chunk !== 'manifest'),
+    css: chunks.filter(chunk => CSS_CHUNKS.includes(chunk)),
     manifest: MANIFEST_JS,
     debug: DEBUG,
   });
@@ -93,7 +93,7 @@ const plugins = (DEBUG = true) => {
       ),
     }),
     new ExtractTextPlugin({
-      filename: `styles/[name]${DEBUG ? '' : '.[chunkhash].min'}.css`,
+      filename: getPath => getPath(CSS_CHUNK_MAPS[getPath('[name]')]),
       allChunks: true,
     }),
     new PurifyCSSPlugin({
@@ -121,6 +121,7 @@ const plugins = (DEBUG = true) => {
       new webpack.NamedModulesPlugin(),
     ];
   }
+
   return [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production',
@@ -133,7 +134,7 @@ const plugins = (DEBUG = true) => {
       filename: MANIFEST_JS,
     }),
     new ManifestPlugin(),
-    new ChunkRenamePlugin(CHUNK_NAMES(DEBUG)),
+    new ChunkRenamePlugin(JS_CHUNK_MAPS),
     new BabelMinifyPlugin({
       removeConsole: true,
       removeDebugger: true,
