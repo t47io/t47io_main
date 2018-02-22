@@ -9,7 +9,8 @@
     "react"
   ],
   "plugins": [
-    "lodash"
+    "lodash",
+    "syntax-dynamic-import"
   ],
   "env": {
     "development": {
@@ -17,14 +18,6 @@
         "react-hmre"
       ]
     },
-    "production": {
-      "presets": [
-        [
-          "minify", {
-            "mangle": false
-          }
-        ]
-      ]
-    }
+    "production": {}
   }
 }

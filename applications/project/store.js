@@ -15,23 +15,16 @@ const store = createStore(
   applyMiddleware(...middleware)
 );
 
-if (process.env.NODE_ENV !== 'production') {
-  require.ensure([], (require) => {
-    const json = require('../../config/project.json');
-    store.dispatch({
-      type: LOAD_JSON_DATA,
-      payload: { ...json },
-    });
-  }, 'repo');
-} else {
-  require.ensure([], (require) => {
-    const json = require('../../config/project.json');
-    store.dispatch({
-      type: LOAD_JSON_DATA,
-      payload: { ...json },
-    });
-  }, 'r');
-}
+import(
+  /* webpackChunkName: "projectData" */
+  '../../config/project.json'
+)
+.then((json) => {
+  store.dispatch({
+    type: LOAD_JSON_DATA,
+    payload: { ...json },
+  });
+});
 
 
 export default store;

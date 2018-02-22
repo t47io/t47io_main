@@ -24,17 +24,11 @@ const loadData = (data) => {
   window.onload = () => animateReady()(store.dispatch);
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  require.ensure([], (require) => {
-    const json = require('../../config/main.json');
-    loadData(json);
-  }, 'data');
-} else {
-  require.ensure([], (require) => {
-    const json = require('../../config/main.json');
-    loadData(json);
-  }, 'd');
-}
+import(
+  /* webpackChunkName: "mainData" */
+  '../../config/main.json'
+)
+.then(json => loadData(json));
 
 
 export default store;
