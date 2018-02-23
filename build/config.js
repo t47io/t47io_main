@@ -5,17 +5,17 @@ export const MANIFEST_JS = 'scripts/f.012345.min.js';
 export const ASSET_FILE_NAME = (dir = '') => `${dir}/[hash:6].[ext]`;
 
 export const CHUNKS = {
-  mainApp: ['m', 'main'],
-  mainData: ['d', 'data'],
-  mainImage: ['i', 'image'],
-  projectApp: ['p', 'project'],
-  projectData: ['r', 'repo'],
-  vendor: ['v', 'vendor'],
-  manifest: ['f', 'manifest'],
+  mainApp: 'm',
+  mainData: 'd',
+  mainImage: 'i',
+  projectApp: 'p',
+  projectData: 'r',
+  vendor: 'v',
+  manifest: 'f',
 };
 
 export const getChunkName = (chunk, DEBUG = true) => (
-  DEBUG ? CHUNKS[chunk][1] : CHUNKS[chunk][0]
+  DEBUG ? chunk : CHUNKS[chunk]
 );
 export const getChunkFileName = (chunk, DEBUG = true, isCSS = false) => {
   if (!DEBUG && chunk === 'manifest') {
@@ -23,10 +23,10 @@ export const getChunkFileName = (chunk, DEBUG = true, isCSS = false) => {
   }
   const chunkName = getChunkName(chunk, DEBUG);
   const ext = isCSS ? 'css' : 'js';
-  const hash = isCSS ? '[contenthash:6]' : '[chunkhash]';
+  const hash = isCSS ? 'content' : 'chunk';
   const dir = isCSS ? 'styles' : 'scripts';
   const prefix = `${dir}/${chunkName}`;
-  return DEBUG ? `${prefix}.${ext}` : `${prefix}.${hash}.min.${ext}`;
+  return DEBUG ? `${prefix}.${ext}` : `${prefix}.[${hash}hash:6].min.${ext}`;
 };
 export const CHUNK_FILENAME_MAP = (DEBUG = true, isCSS = false) => (
   Object.keys(CHUNKS).map(key => ({

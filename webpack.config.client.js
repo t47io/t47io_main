@@ -24,7 +24,6 @@ const config = {
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js',
-    hashDigestLength: 6,
     path: PATH.PUBLIC,
     publicPath: '/',
   },
