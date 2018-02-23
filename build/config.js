@@ -1,8 +1,18 @@
+import path from 'path';
+
 import serverJSON from '../config/server.json';
 
 
 export const MANIFEST_JS = 'scripts/f.012345.min.js';
-export const ASSET_FILE_NAME = (dir = '') => `${dir}/[hash:6].[ext]`;
+export const ASSET_FILE_NAME = (dir = '', DEBUG) => {
+  if (DEBUG) {
+    return '[name].[ext]';
+  }
+  return (resource) => {
+    const filename = path.basename(resource);
+    return `${dir}/${filename.slice(0, 1)}.[hash:6].[ext]`;
+  };
+};
 
 export const CHUNKS = {
   mainApp: 'm',
