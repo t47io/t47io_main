@@ -35,14 +35,14 @@ const plugins = (DEBUG = true) => {
     'vendor',
   ];
   const MAIN_CHUNKS = [
-    'manifest',
     'vendor',
+    'mainData',
     'mainImage',
     'mainApp',
   ];
   const PROJECT_CHUNKS = [
-    'manifest',
     'vendor',
+    'projectData',
     'projectApp',
   ];
 
@@ -84,13 +84,27 @@ const plugins = (DEBUG = true) => {
       ),
     }),
     new webpack.optimize.CommonsChunkPlugin({
+      name: 'mainData',
+      chunks: ['mainApp'],
+      minChunks: module => (
+        module.resource && module.resource.endsWith('.json')
+      ),
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
       name: 'mainImage',
       chunks: ['mainApp'],
       minChunks: module => (
         module.resource && (
           module.resource.includes('applications/main/images/') ||
-          module.resource.endsWith('mp3')
+          module.resource.endsWith('.mp3')
         )
+      ),
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'projectData',
+      chunks: ['projectApp'],
+      minChunks: module => (
+        module.resource && module.resource.endsWith('.json')
       ),
     }),
     new ExtractTextPlugin({
@@ -130,10 +144,7 @@ const plugins = (DEBUG = true) => {
     }),
     ...plugin,
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      filename: MANIFEST_JS,
-    }),
+    new webpack.optimize.CommonsChunkPlugin('manifest'),
     new ManifestPlugin(),
     new ChunkRenamePlugin(JS_CHUNK_MAPS),
     new BabelMinifyPlugin({

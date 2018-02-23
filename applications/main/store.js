@@ -6,6 +6,8 @@ import reducer from './reducers/index.js';
 import { LOAD_JSON_DATA } from './constants/actionTypes.js';
 import { animateReady } from './actions/homeActions.js';
 
+import json from '../../config/main.json';
+
 
 const middleware = [
   thunk,
@@ -23,12 +25,7 @@ const loadData = (data) => {
   });
   window.onload = () => animateReady()(store.dispatch);
 };
-
-import(
-  /* webpackChunkName: "mainData" */
-  '../../config/main.json'
-)
-.then(json => loadData(json));
+loadData(json);
 
 
 export default store;

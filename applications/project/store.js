@@ -5,6 +5,8 @@ import thunk from 'redux-thunk';
 import reducer from './reducers/index.js';
 import { LOAD_JSON_DATA } from './constants/actionTypes.js';
 
+import json from '../../config/project.json';
+
 
 const middleware = [
   thunk,
@@ -14,16 +16,9 @@ const store = createStore(
   reducer,
   applyMiddleware(...middleware)
 );
-
-import(
-  /* webpackChunkName: "projectData" */
-  '../../config/project.json'
-)
-.then((json) => {
-  store.dispatch({
-    type: LOAD_JSON_DATA,
-    payload: { ...json },
-  });
+store.dispatch({
+  type: LOAD_JSON_DATA,
+  payload: { ...json },
 });
 
 
