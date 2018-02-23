@@ -19,6 +19,9 @@ import {
 } from '../server/env.js';
 import {
   getChunkName,
+  CSS_CHUNKS,
+  MAIN_CHUNKS,
+  PROJECT_CHUNKS,
   CHUNK_FILENAME_MAP,
   MANIFEST_JS,
   HTML_TEMPLATE,
@@ -29,23 +32,6 @@ import {
 const compressionRegex = new RegExp(`.(${GZIP_FILE_TYPES.join('|')})$`);
 
 const plugins = (DEBUG = true) => {
-  const CSS_CHUNKS = [
-    'mainApp',
-    'projectApp',
-    'vendor',
-  ];
-  const MAIN_CHUNKS = [
-    'vendor',
-    'mainData',
-    'mainImage',
-    'mainApp',
-  ];
-  const PROJECT_CHUNKS = [
-    'vendor',
-    'projectData',
-    'projectApp',
-  ];
-
   const CSS_CHUNK_MAPS = CHUNK_FILENAME_MAP(DEBUG, true);
   const JS_CHUNK_MAPS = CHUNK_FILENAME_MAP(DEBUG, false);
   const getChunkArgs = chunks => ({
@@ -74,11 +60,11 @@ const plugins = (DEBUG = true) => {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: module => (
-        module.resource && !module.resource.includes('frappe') && (
-          module.resource.includes('node_modules/') ||
-          (module.resource.includes('applications/vendor/') &&
-            (module.resource.endsWith('.css') || module.resource.endsWith('.scss'))
+      minChunks: ({ resource = '' }) => (
+        !resource.includes('frappe') && (
+          path.dirname(resource).includes('node_modules') ||
+          (path.dirname(resource).includes('vendor') &&
+            (path.extname(resource) === '.css' || path.extname(resource) === '.scss')
           )
         )
       ),
@@ -86,26 +72,20 @@ const plugins = (DEBUG = true) => {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'mainData',
       chunks: ['mainApp'],
-      minChunks: module => (
-        module.resource && module.resource.endsWith('.json')
-      ),
+      minChunks: ({ resource = '' }) => (path.extname(resource) === '.json'),
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'mainImage',
       chunks: ['mainApp'],
-      minChunks: module => (
-        module.resource && (
-          module.resource.includes('applications/main/images/') ||
-          module.resource.endsWith('.mp3')
-        )
+      minChunks: ({ resource = '' }) => (
+        path.dirname(resource).includes('main/images') ||
+        path.extname(resource) === '.mp3'
       ),
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'projectData',
       chunks: ['projectApp'],
-      minChunks: module => (
-        module.resource && module.resource.endsWith('.json')
-      ),
+      minChunks: ({ resource = '' }) => (path.extname(resource) === '.json'),
     }),
     new ExtractTextPlugin({
       filename: getPath => getPath(CSS_CHUNK_MAPS[getPath('[name]')]),

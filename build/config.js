@@ -23,6 +23,22 @@ export const CHUNKS = {
   vendor: 'v',
   manifest: 'f',
 };
+export const CSS_CHUNKS = [
+  'mainApp',
+  'projectApp',
+  'vendor',
+];
+export const MAIN_CHUNKS = [
+  'vendor',
+  'mainData',
+  'mainImage',
+  'mainApp',
+];
+export const PROJECT_CHUNKS = [
+  'vendor',
+  'projectData',
+  'projectApp',
+];
 
 export const getChunkName = (chunk, DEBUG = true) => (
   DEBUG ? chunk : CHUNKS[chunk]
