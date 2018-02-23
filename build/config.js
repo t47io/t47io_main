@@ -24,9 +24,8 @@ export const getChunkFileName = (chunk, DEBUG = true, isCSS = false) => {
   const chunkName = getChunkName(chunk, DEBUG);
   const ext = isCSS ? 'css' : 'js';
   const hash = isCSS ? 'content' : 'chunk';
-  const dir = isCSS ? 'styles' : 'scripts';
-  const prefix = `${dir}/${chunkName}`;
-  return DEBUG ? `${prefix}.${ext}` : `${prefix}.[${hash}hash:6].min.${ext}`;
+  const dir = isCSS ? 'styles/' : 'scripts/';
+  return DEBUG ? `${chunkName}.${ext}` : `${dir}/${chunkName}.[${hash}hash:6].min.${ext}`;
 };
 export const CHUNK_FILENAME_MAP = (DEBUG = true, isCSS = false) => (
   Object.keys(CHUNKS).map(key => ({

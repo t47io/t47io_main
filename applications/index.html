@@ -77,14 +77,14 @@
       <% for (item of htmlWebpackPlugin.options.args.css) { %>
         <link
           type="text/css" rel="stylesheet"
-          href="/styles/<%= item %>.css"
+          href="/<%= item %>.css"
           media="none" onload="if (media !== 'all') { media = 'all'; }"
         />
       <% } %>
       <% for (item of htmlWebpackPlugin.options.args.js) { %>
         <script
           type="application/javascript"
-          src="/scripts/<%= item %>.js"
+          src="/<%= item %>.js"
         ></script>
       <% } %>
     <% } %>
