@@ -1,11 +1,17 @@
+import {
+  CHUNK_MAIN_APP,
+  CHUNK_PROJ_APP,
+} from './chunks.js';
+
+
 const entries = (DEBUG = true) => {
   const entry = {
-    mainApp: [
+    [CHUNK_MAIN_APP]: [
       'web-animations-js/web-animations.min.js',
       'bootstrap-loader',
       './applications/main/index.jsx',
     ],
-    projectApp: [
+    [CHUNK_PROJ_APP]: [
       'bootstrap-loader',
       './applications/project/index.jsx',
     ],

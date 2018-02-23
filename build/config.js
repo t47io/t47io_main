@@ -13,58 +13,7 @@ export const ASSET_FILE_NAME = (dir = '', DEBUG) => {
     return `${dir}/${filename.slice(0, 1)}.[hash:6].[ext]`;
   };
 };
-
-export const CHUNKS = {
-  mainApp: 'm',
-  mainData: 'd',
-  mainImage: 'i',
-  projectApp: 'p',
-  projectData: 'r',
-  vendor: 'v',
-  manifest: 'f',
-};
-export const CSS_CHUNKS = [
-  'mainApp',
-  'projectApp',
-  'vendor',
-];
-export const MAIN_CHUNKS = [
-  'vendor',
-  'mainData',
-  'mainImage',
-  'mainApp',
-];
-export const PROJECT_CHUNKS = [
-  'vendor',
-  'projectData',
-  'projectApp',
-];
-
-export const getChunkName = (chunk, DEBUG = true) => (
-  DEBUG ? chunk : CHUNKS[chunk]
-);
-export const getChunkFileName = (chunk, DEBUG = true, isCSS = false) => {
-  if (!DEBUG && chunk === 'manifest') {
-    return MANIFEST_JS;
-  }
-  const chunkName = getChunkName(chunk, DEBUG);
-  const ext = isCSS ? 'css' : 'js';
-  const hash = isCSS ? 'content' : 'chunk';
-  const dir = isCSS ? 'styles' : 'scripts';
-  return DEBUG ? `${chunkName}.${ext}` : `${dir}/${chunkName}.[${hash}hash:6].min.${ext}`;
-};
-export const CHUNK_FILENAME_MAP = (DEBUG = true, isCSS = false) => (
-  Object.keys(CHUNKS).map(key => ({
-    [key]: getChunkFileName(key, DEBUG, isCSS),
-  }))
-  .reduce((obj, item) => ({
-    ...obj,
-    ...item,
-  }), {})
-);
-
 export const GZIP_FILE_TYPES = ['html', 'js', 'css', 'map', 'eot', 'ttf', 'woff', 'woff2', 'mp3', 'svg', 'xml', 'txt'];
-
 
 export const GA_TRACKER = `
   <script type="application/javascript">

@@ -3,10 +3,8 @@ import path from 'path';
 import shell from 'shelljs';
 
 import { PATH } from '../../server/env.js';
-import {
-  MANIFEST_JS,
-  CHUNKS,
-} from '../config.js';
+import { CHUNKS } from '../chunks.js';
+import { MANIFEST_JS } from '../config.js';
 import { JSON_FORMAT } from '../../server/config.js';
 import {
   loadFileSync,

@@ -18,12 +18,19 @@ import {
   PATH,
 } from '../server/env.js';
 import {
-  getChunkName,
-  CSS_CHUNKS,
-  MAIN_CHUNKS,
-  PROJECT_CHUNKS,
-  CHUNK_FILENAME_MAP,
-  MANIFEST_JS,
+  getChunkFilenameMap,
+  getChunkArgs,
+  CHUNK_MAIN_APP,
+  CHUNK_MAIN_DAT,
+  CHUNK_MAIN_IMG,
+  CHUNK_PROJ_APP,
+  CHUNK_PROJ_DAT,
+  CHUNK_VENDOR,
+  CHUNK_MANIFEST,
+  CHUNKS_MAIN,
+  CHUNKS_PROJECT,
+} from './chunks.js';
+import {
   HTML_TEMPLATE,
   GZIP_FILE_TYPES,
 } from './config.js';
@@ -32,14 +39,8 @@ import {
 const compressionRegex = new RegExp(`.(${GZIP_FILE_TYPES.join('|')})$`);
 
 const plugins = (DEBUG = true) => {
-  const CSS_CHUNK_MAPS = CHUNK_FILENAME_MAP(DEBUG, true);
-  const JS_CHUNK_MAPS = CHUNK_FILENAME_MAP(DEBUG, false);
-  const getChunkArgs = chunks => ({
-    debug: DEBUG,
-    manifest: MANIFEST_JS,
-    js: chunks.map(chunk => getChunkName(chunk, DEBUG)),
-    css: chunks.filter(chunk => CSS_CHUNKS.includes(chunk)).map(chunk => getChunkName(chunk, DEBUG)),
-  });
+  const CSS_CHUNK_MAPS = getChunkFilenameMap(DEBUG, true);
+  const JS_CHUNK_MAPS = getChunkFilenameMap(DEBUG, false);
 
   const plugin = [
     new webpack.LoaderOptionsPlugin({
@@ -50,16 +51,16 @@ const plugins = (DEBUG = true) => {
       template: path.join(ROOT, HTML_TEMPLATE),
       filename: path.join(PATH.PUBLIC, 'main.html'),
       inject: false,
-      args: getChunkArgs(MAIN_CHUNKS),
+      args: getChunkArgs(CHUNKS_MAIN, DEBUG),
     }),
     new HtmlWebpackPlugin({
       template: path.join(ROOT, HTML_TEMPLATE),
       filename: path.join(PATH.PUBLIC, 'project.html'),
       inject: false,
-      args: getChunkArgs(PROJECT_CHUNKS),
+      args: getChunkArgs(CHUNKS_PROJECT, DEBUG),
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
+      name: CHUNK_VENDOR,
       minChunks: ({ resource = '' }) => {
         if (resource.includes('frappe')) {
           return false;
@@ -72,21 +73,21 @@ const plugins = (DEBUG = true) => {
       },
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'mainData',
-      chunks: ['mainApp'],
+      name: CHUNK_MAIN_DAT,
+      chunks: [CHUNK_MAIN_APP],
       minChunks: ({ resource = '' }) => (path.extname(resource) === '.json'),
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'mainImage',
-      chunks: ['mainApp'],
+      name: CHUNK_MAIN_IMG,
+      chunks: [CHUNK_MAIN_APP],
       minChunks: ({ resource = '' }) => (
         path.dirname(resource).includes('main/images') ||
         path.extname(resource) === '.mp3'
       ),
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'projectData',
-      chunks: ['projectApp'],
+      name: CHUNK_PROJ_DAT,
+      chunks: [CHUNK_PROJ_APP],
       minChunks: ({ resource = '' }) => (path.extname(resource) === '.json'),
     }),
     new ExtractTextPlugin({
@@ -127,7 +128,7 @@ const plugins = (DEBUG = true) => {
     ...plugin,
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
+      name: CHUNK_MANIFEST,
       minChunks: Infinity,
     }),
     new ManifestPlugin(),
