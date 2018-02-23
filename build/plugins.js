@@ -60,14 +60,16 @@ const plugins = (DEBUG = true) => {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: ({ resource = '' }) => (
-        !resource.includes('frappe') && (
-          path.dirname(resource).includes('node_modules') ||
-          (path.dirname(resource).includes('vendor') &&
-            (path.extname(resource) === '.css' || path.extname(resource) === '.scss')
-          )
-        )
-      ),
+      minChunks: ({ resource = '' }) => {
+        if (resource.includes('frappe')) {
+          return false;
+        }
+        const dir = path.dirname(resource);
+        const ext = path.extname(resource);
+        return (dir.includes('node_modules') || (
+          dir.includes('vendor') && (ext === '.css' || ext === '.scss')
+        ));
+      },
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'mainData',

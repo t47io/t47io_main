@@ -19,6 +19,7 @@ try {
     ...glob.sync(path.join(PATH.PUBLIC, '**/*.map.*')),
     ...glob.sync(path.join(PATH.PUBLIC, '**/e.*.min.js.*')),
     ...glob.sync(path.join(PATH.PUBLIC, 'error.*')),
+    ...glob.sync(path.join(PATH.PUBLIC, '**/*.json')),
     ...glob.sync(path.join(PATH.CONFIG, 'manifest.json')),
     ...glob.sync(path.join(PATH.CONFIG, 'stats.json')),
   ];
