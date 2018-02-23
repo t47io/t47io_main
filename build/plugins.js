@@ -49,10 +49,10 @@ const plugins = (DEBUG = true) => {
   const CSS_CHUNK_MAPS = CHUNK_FILENAME_MAP(DEBUG, true);
   const JS_CHUNK_MAPS = CHUNK_FILENAME_MAP(DEBUG, false);
   const getChunkArgs = chunks => ({
-    js: chunks.filter(chunk => chunk !== 'manifest').map(chunk => getChunkName(chunk, DEBUG)),
-    css: chunks.filter(chunk => CSS_CHUNKS.includes(chunk)).map(chunk => getChunkName(chunk, DEBUG)),
-    manifest: MANIFEST_JS,
     debug: DEBUG,
+    manifest: MANIFEST_JS,
+    js: chunks.map(chunk => getChunkName(chunk, DEBUG)),
+    css: chunks.filter(chunk => CSS_CHUNKS.includes(chunk)).map(chunk => getChunkName(chunk, DEBUG)),
   });
 
   const plugin = [
@@ -61,14 +61,12 @@ const plugins = (DEBUG = true) => {
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
-      chunks: MAIN_CHUNKS,
       template: path.join(ROOT, HTML_TEMPLATE),
       filename: path.join(PATH.PUBLIC, 'main.html'),
       inject: false,
       args: getChunkArgs(MAIN_CHUNKS),
     }),
     new HtmlWebpackPlugin({
-      chunks: PROJECT_CHUNKS,
       template: path.join(ROOT, HTML_TEMPLATE),
       filename: path.join(PATH.PUBLIC, 'project.html'),
       inject: false,
@@ -79,7 +77,9 @@ const plugins = (DEBUG = true) => {
       minChunks: module => (
         module.resource && !module.resource.includes('frappe') && (
           module.resource.includes('node_modules/') ||
-          (module.resource.includes('applications/vendor/') && module.resource.endsWith('css'))
+          (module.resource.includes('applications/vendor/') &&
+            (module.resource.endsWith('.css') || module.resource.endsWith('.scss'))
+          )
         )
       ),
     }),
@@ -144,7 +144,10 @@ const plugins = (DEBUG = true) => {
     }),
     ...plugin,
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('manifest'),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity,
+    }),
     new ManifestPlugin(),
     new ChunkRenamePlugin(JS_CHUNK_MAPS),
     new BabelMinifyPlugin({

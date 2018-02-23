@@ -23,7 +23,6 @@ const config = {
   entry: entries(DEBUG),
   output: {
     filename: '[name].js',
-    chunkFilename: '[name].js',
     path: PATH.PUBLIC,
     publicPath: '/',
   },
