@@ -134,6 +134,7 @@ const plugins = (DEBUG = true) => {
       new webpack.HotModuleReplacementPlugin(),
       ...plugin,
       new webpack.NamedModulesPlugin(),
+      new ChunkRenamePlugin(JS_CHUNK_MAPS),
     ];
   }
 

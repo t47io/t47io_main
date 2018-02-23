@@ -50,8 +50,8 @@ try {
 try {
   shell.exec(`gzip -df ${path.join(PATH.PUBLIC, `${MANIFEST_JS}.gz`)}`);
 
-  const manifestJs = loadFileSync(`public/${MANIFEST_JS}`);
-  const fullManifestJs = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJs}`;
+  const manifestJS = loadFileSync(`public/${MANIFEST_JS}`);
+  const fullManifestJs = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJS}`;
 
   saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
   const newCronJSON = {
