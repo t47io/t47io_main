@@ -33,7 +33,10 @@ import {
   footerHeader,
   footerGif,
 } from '../animations/footer.js';
-import { year } from '../../common/util.js';
+import {
+  noOp,
+  year,
+} from '../util.js';
 
 import '../stylesheets/Footer.scss';
 
@@ -140,7 +143,7 @@ Footer.propTypes = {
 Footer.defaultProps = {
   ...footerProps,
   actions: {
-    animateFooter: () => {},
+    animateFooter: noOp,
   },
   disabled: false,
 };

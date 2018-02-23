@@ -14,6 +14,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 import { imgHitrace } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
 import { getPageProps } from '../util.js';
+import { noOp } from '../../common/util.js';
 import { HITRACE } from '../constants/projectTypes.js';
 
 
@@ -99,7 +100,7 @@ HitracePage.defaultProps = {
   carousels: [],
   lists: [],
   repos: [],
-  onScroll: () => {},
+  onScroll: noOp,
 };
 
 

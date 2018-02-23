@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { portfolioFilterItem } from '../animations/portfolio.js';
+import { noOp } from '../../common/util.js';
 
 
 const PortfolioFilterItem = ({
@@ -47,7 +48,7 @@ PortfolioFilterItem.defaultProps = {
   selectedCategory: 'all',
   shouldAnimate: false,
   index: 0,
-  onClick: () => {},
+  onClick: noOp,
 };
 
 

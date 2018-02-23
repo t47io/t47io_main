@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DropdownItem from './DropdownItem.jsx';
+
+import { noOp } from '../util.js';
 import { PORTFOLIO } from '../../main/constants/sectionTypes.js';
 
 
@@ -53,7 +55,7 @@ NavbarItem.defaultProps = {
   name: '',
   dropdown: [],
   isActive: false,
-  onClick: () => {},
+  onClick: noOp,
 };
 
 

@@ -11,6 +11,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as portfolioActions from '../actions/portfolioActions.js';
 import { initialState as portfolioProps } from '../reducers/portfolio.js';
+import { noOp } from '../../common/util.js';
 import { PORTFOLIO } from '../constants/sectionTypes.js';
 
 import '../stylesheets/PortfolioSection.scss';
@@ -143,10 +144,10 @@ PortfolioSection.propTypes = {
 PortfolioSection.defaultProps = {
   ...portfolioProps,
   actions: {
-    animateHeader: () => {},
-    animateFilters: () => {},
-    animateThumbnails: () => {},
-    changeFilter: () => {},
+    animateHeader: noOp,
+    animateFilters: noOp,
+    animateThumbnails: noOp,
+    changeFilter: noOp,
   },
 };
 

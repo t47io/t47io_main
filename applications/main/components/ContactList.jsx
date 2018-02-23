@@ -7,6 +7,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { audName } from '../components/Audio.js';
 import { contactPanel } from '../animations/contact.js';
+import { noOp } from '../../common/util.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 import { EMAIL } from '../../config.js';
 
@@ -164,8 +165,8 @@ ContactList.defaultProps = {
   resume: '',
   audio: false,
   counter: false,
-  onToggleAudio: () => {},
-  onToggleAnimation: () => {},
+  onToggleAudio: noOp,
+  onToggleAnimation: noOp,
 };
 
 

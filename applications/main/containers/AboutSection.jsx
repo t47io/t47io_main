@@ -9,6 +9,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as aboutActions from '../actions/aboutActions.js';
 import { initialState as aboutProps } from '../reducers/about.js';
+import { noOp } from '../../common/util.js';
 import { ABOUT } from '../constants/sectionTypes.js';
 
 import '../stylesheets/AboutSection.scss';
@@ -68,8 +69,8 @@ AboutSection.propTypes = {
 AboutSection.defaultProps = {
   ...aboutProps,
   actions: {
-    animateHeader: () => {},
-    animateIcons: () => {},
+    animateHeader: noOp,
+    animateIcons: noOp,
   },
 };
 

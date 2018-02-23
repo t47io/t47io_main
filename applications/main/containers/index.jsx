@@ -23,6 +23,7 @@ import {
   scrollToSection,
   updateNavbarScrollspy,
 } from '../../common/actions/navbarActions.js';
+import { noOp } from '../../common/util.js';
 import {
   NAVBAR,
   FOOTER,
@@ -99,8 +100,8 @@ Main.propTypes = {
 Main.defaultProps = {
   isLoaded: false,
   hideScrollTop: true,
-  onUpdateScroll: () => {},
-  onScrollTop: () => {},
+  onUpdateScroll: noOp,
+  onScrollTop: noOp,
 };
 
 

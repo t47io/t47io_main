@@ -9,6 +9,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as skillsActions from '../actions/skillsActions.js';
 import { initialState as skillsProps } from '../reducers/skills.js';
+import { noOp } from '../../common/util.js';
 import {
   SKILLS,
   SKILLS_LEFT,
@@ -100,9 +101,9 @@ SkillsSection.propTypes = {
 SkillsSection.defaultProps = {
   ...skillsProps,
   actions: {
-    animateHeader: () => {},
-    animateLeftBars: () => {},
-    animateRightBars: () => {},
+    animateHeader: noOp,
+    animateLeftBars: noOp,
+    animateRightBars: noOp,
   },
 };
 

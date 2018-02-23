@@ -6,6 +6,8 @@ import FeatureList from './FeatureList.jsx';
 import Headline from './Headline.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 
+import { noOp } from '../../common/util.js';
+
 import '../stylesheets/FeatureSection.scss';
 
 
@@ -84,7 +86,7 @@ FeatureSection.defaultProps = {
   lists: [],
   isStory: false,
   isRow: true,
-  onScroll: () => {},
+  onScroll: noOp,
 };
 
 

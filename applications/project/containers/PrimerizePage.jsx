@@ -13,6 +13,7 @@ import TitleSection from '../components/TitleSection.jsx';
 import { imgPrimerize } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
 import { getPageProps } from '../util.js';
+import { noOp } from '../../common/util.js';
 import { PRIMERIZE } from '../constants/projectTypes.js';
 
 
@@ -89,7 +90,7 @@ PrimerizePage.defaultProps = {
   carousels: [],
   lists: [],
   repos: [],
-  onScroll: () => {},
+  onScroll: noOp,
 };
 
 

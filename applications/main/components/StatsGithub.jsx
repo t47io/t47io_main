@@ -7,6 +7,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { statsGithub } from '../animations/stats.js';
+import { noOp } from '../../common/util.js';
 
 
 const StatsGithub = ({
@@ -53,7 +54,7 @@ StatsGithub.defaultProps = {
     monthText: {},
   },
   shouldAnimate: false,
-  onToggleAnimation: () => {},
+  onToggleAnimation: noOp,
 };
 
 

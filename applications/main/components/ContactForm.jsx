@@ -5,6 +5,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { contactPanel } from '../animations/contact.js';
+import { noOp } from '../../common/util.js';
 import { CONTACT_RIGHT } from '../constants/sectionTypes.js';
 import { EMAIL_ERROR_CODES } from '../constants/util.js';
 
@@ -168,9 +169,9 @@ ContactForm.defaultProps = {
   isError: false,
   errorCode: NaN,
   counter: false,
-  onChangeField: () => {},
-  onSubmitForm: () => {},
-  onToggleAnimation: () => {},
+  onChangeField: noOp,
+  onSubmitForm: noOp,
+  onToggleAnimation: noOp,
 };
 
 

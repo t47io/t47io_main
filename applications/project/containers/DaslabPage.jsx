@@ -14,6 +14,7 @@ import { daslabNotes } from '../components/AccessNotes.jsx';
 import { imgDaslab } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
 import { getPageProps } from '../util.js';
+import { noOp } from '../../common/util.js';
 import { DASLAB } from '../constants/projectTypes.js';
 
 
@@ -93,7 +94,7 @@ DaslabPage.defaultProps = {
   carousels: [],
   lists: [],
   repos: [],
-  onScroll: () => {},
+  onScroll: noOp,
 };
 
 

@@ -8,6 +8,7 @@ import NavbarItem from '../components/NavbarItem.jsx';
 
 import * as navbarActions from '../actions/navbarActions.js';
 import { initialState as navbarProps } from '../reducers/navbar.js';
+import { noOp } from '../util.js';
 import { NAVBAR } from '../constants/sectionTypes.js';
 import { HOME } from '../../main/constants/sectionTypes.js';
 
@@ -89,8 +90,8 @@ Navbar.propTypes = {
 Navbar.defaultProps = {
   ...navbarProps,
   actions: {
-    scrollToSection: () => {},
-    toggleMobileCollapse: () => {},
+    scrollToSection: noOp,
+    toggleMobileCollapse: noOp,
   },
 };
 

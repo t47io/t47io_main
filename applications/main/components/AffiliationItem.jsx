@@ -6,6 +6,7 @@ import AffiliationPanel from './AffiliationPanel.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { affiliationPanel } from '../animations/affiliation.js';
+import { noOp } from '../../common/util.js';
 
 
 const AffiliationItem = ({
@@ -84,7 +85,7 @@ AffiliationItem.defaultProps = {
   year: NaN,
   items: [],
   shouldAnimate: false,
-  onToggleAnimation: () => {},
+  onToggleAnimation: noOp,
   index: 0,
 };
 

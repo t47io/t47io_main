@@ -25,6 +25,7 @@ import ScrollTop from '../../common/components/ScrollTop.jsx';
 import { initialState as dataProps } from '../reducers/data.js';
 import { scrollToSection } from '../../common/actions/navbarActions.js';
 import { animateReady } from '../actions/dataActions.js';
+import { noOp } from '../../common/util.js';
 
 import '../../vendor/index.scss';
 import '../../vendor/frappe.scss';
@@ -95,8 +96,8 @@ Project.propTypes = {
 Project.defaultProps = {
   data: dataProps,
   actions: {
-    onReady: () => {},
-    onScrollTop: () => {},
+    onReady: noOp,
+    onScrollTop: noOp,
   },
 };
 

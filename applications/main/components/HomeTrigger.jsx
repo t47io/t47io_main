@@ -2,6 +2,8 @@ import React from 'react';
 import Waypoint from 'react-waypoint';
 import PropTypes from 'prop-types';
 
+import { noOp } from '../../common/util.js';
+
 
 class HomeTrigger extends React.PureComponent {
   static propTypes = {
@@ -11,7 +13,7 @@ class HomeTrigger extends React.PureComponent {
   };
   static defaultProps = {
     disabled: false,
-    onToggleAnimation: () => {},
+    onToggleAnimation: noOp,
     debug: false,
   };
 

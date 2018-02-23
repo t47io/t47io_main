@@ -12,6 +12,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as contactActions from '../actions/contactActions.js';
 import { initialState as contactProps } from '../reducers/contact.js';
+import { noOp } from '../../common/util.js';
 import { CONTACT } from '../constants/sectionTypes.js';
 
 import '../stylesheets/ContactSection.scss';
@@ -127,13 +128,13 @@ ContactSection.propTypes = {
 ContactSection.defaultProps = {
   ...contactProps,
   actions: {
-    animateHeader: () => {},
-    animateIcons: () => {},
-    animateLeftItems: () => {},
-    animateRightItems: () => {},
-    changeEmailField: () => {},
-    submitEmail: () => {},
-    playAudio: () => {},
+    animateHeader: noOp,
+    animateIcons: noOp,
+    animateLeftItems: noOp,
+    animateRightItems: noOp,
+    changeEmailField: noOp,
+    submitEmail: noOp,
+    playAudio: noOp,
   },
 };
 

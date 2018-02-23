@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { noOp } from '../../common/util.js';
+
 
 const CarouselIndicator = ({
   index,
@@ -26,7 +28,7 @@ CarouselIndicator.propTypes = {
 CarouselIndicator.defaultProps = {
   index: NaN,
   isActive: false,
-  onClick: () => {},
+  onClick: noOp,
 };
 
 

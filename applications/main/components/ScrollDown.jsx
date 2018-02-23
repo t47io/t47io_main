@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { noOp } from '../../common/util.js';
 import { ABOUT } from '../constants/sectionTypes.js';
 
 
@@ -19,7 +20,7 @@ ScrollDown.propTypes = {
   onScrollTop: PropTypes.func,
 };
 ScrollDown.defaultProps = {
-  onScrollTop: () => {},
+  onScrollTop: noOp,
 };
 
 

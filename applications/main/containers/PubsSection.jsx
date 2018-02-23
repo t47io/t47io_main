@@ -11,6 +11,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 
 import * as pubsActions from '../actions/pubsActions.js';
 import { initialState as pubsProps } from '../reducers/pubs.js';
+import { noOp } from '../../common/util.js';
 import { PUBS } from '../constants/sectionTypes.js';
 
 import '../stylesheets/PubsSection.scss';
@@ -136,9 +137,9 @@ PubsSection.propTypes = {
 PubsSection.defaultProps = {
   ...pubsProps,
   actions: {
-    animateHeader: () => {},
-    animateEntries: () => {},
-    animateThesis: () => {},
+    animateHeader: noOp,
+    animateEntries: noOp,
+    animateThesis: noOp,
   },
 };
 

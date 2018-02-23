@@ -8,6 +8,7 @@ import Carousel from '../components/Carousel.jsx';
 import SectionHeader from '../../common/components/SectionHeader.jsx';
 
 import * as affiliationActions from '../actions/affiliationActions.js';
+import { noOp } from '../../common/util.js';
 
 import '../stylesheets/AffiliationSection.scss';
 
@@ -87,8 +88,8 @@ AffiliationSection.defaultProps = {
     panel: 0,
   },
   actions: {
-    animateHeader: () => {},
-    animatePanels: () => {},
+    animateHeader: noOp,
+    animatePanels: noOp,
   },
 };
 

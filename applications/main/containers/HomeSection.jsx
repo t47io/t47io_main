@@ -8,16 +8,16 @@ import HomeName from '../components/HomeName.jsx';
 import HomeTrigger from '../components/HomeTrigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import * as homeActions from '../actions/homeActions.js';
-import { initialState as homeProps } from '../reducers/home.js';
-import { HOME } from '../constants/sectionTypes.js';
-import { AVATAR_INDICES } from '../constants/util.js';
-
 import {
   SvgAvatar,
   imgAvatars,
 } from '../components/Images.js';
+import * as homeActions from '../actions/homeActions.js';
+import { initialState as homeProps } from '../reducers/home.js';
 import { homeShade } from '../animations/home.js';
+import { noOp } from '../../common/util.js';
+import { HOME } from '../constants/sectionTypes.js';
+import { AVATAR_INDICES } from '../constants/util.js';
 
 import '../stylesheets/HomeSection.scss';
 
@@ -110,7 +110,7 @@ HomeSection.propTypes = {
 HomeSection.defaultProps = {
   ...homeProps,
   actions: {
-    animateHome: () => {},
+    animateHome: noOp,
   },
 };
 

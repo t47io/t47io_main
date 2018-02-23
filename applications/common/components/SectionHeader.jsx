@@ -6,6 +6,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { imgDivider } from './Images.js';
 import { sectionHeader } from '../animations/sectionHeader.js';
+import { noOp } from '../util.js';
 
 import '../stylesheets/SectionHeader.scss';
 
@@ -46,7 +47,7 @@ SectionHeader.defaultProps = {
   title: '',
   subtitle: '',
   shouldAnimate: false,
-  onToggleAnimation: () => {},
+  onToggleAnimation: noOp,
 };
 
 

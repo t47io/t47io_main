@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { noOp } from '../util.js';
+
 
 class Audio extends React.Component {
   static propTypes = {
@@ -12,7 +14,7 @@ class Audio extends React.Component {
   static defaultProps = {
     play: false,
     loop: false,
-    onFinish: () => {},
+    onFinish: noOp,
   };
 
   state = { audio: null };

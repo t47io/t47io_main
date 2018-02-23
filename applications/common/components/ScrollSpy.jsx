@@ -2,6 +2,8 @@ import React from 'react';
 import Waypoint from 'react-waypoint';
 import PropTypes from 'prop-types';
 
+import { noOp } from '../util.js';
+
 
 const ScrollSpy = ({
   section,
@@ -52,7 +54,7 @@ ScrollSpy.defaultProps = {
   section: NaN,
   topOffset: 0,
   bottomOffset: window.innerHeight - 108,
-  onUpdateScroll: () => {},
+  onUpdateScroll: noOp,
   debug: false,
   className: '',
 };

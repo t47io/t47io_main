@@ -2,6 +2,8 @@ import React from 'react';
 import Waypoint from 'react-waypoint';
 import PropTypes from 'prop-types';
 
+import { noOp } from '../util.js';
+
 
 const Trigger = ({
   disabled,
@@ -52,7 +54,7 @@ Trigger.defaultProps = {
   delay: 250,
   topOffset: 0,
   bottomOffset: 0,
-  onToggleAnimation: () => {},
+  onToggleAnimation: noOp,
   debug: false,
 };
 

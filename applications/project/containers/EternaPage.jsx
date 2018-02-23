@@ -12,6 +12,7 @@ import { eternaNotes } from '../components/AccessNotes.jsx';
 import { imgEterna } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
 import { getPageProps } from '../util.js';
+import { noOp } from '../../common/util.js';
 import { ETERNA } from '../constants/projectTypes.js';
 
 
@@ -77,7 +78,7 @@ EternaPage.defaultProps = {
   },
   carousels: [],
   lists: [],
-  onScroll: () => {},
+  onScroll: noOp,
 };
 
 

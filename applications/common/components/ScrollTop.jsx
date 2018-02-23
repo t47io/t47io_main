@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { noOp } from '../util.js';
 import { HOME } from '../../main/constants/sectionTypes.js';
 
 import '../stylesheets/ScrollTop.scss';
@@ -29,7 +30,7 @@ ScrollTop.propTypes = {
 };
 ScrollTop.defaultProps = {
   isHidden: false,
-  onScrollTop: () => {},
+  onScrollTop: noOp,
 };
 
 

@@ -10,6 +10,7 @@ import TitleSection from '../components/TitleSection.jsx';
 import { imgCelica } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
 import { getPageProps } from '../util.js';
+import { noOp } from '../../common/util.js';
 import { CELICA } from '../constants/projectTypes.js';
 
 
@@ -57,7 +58,7 @@ CelicaPage.defaultProps = {
   description: '',
   carousels: [],
   lists: [],
-  onScroll: () => {},
+  onScroll: noOp,
 };
 
 

@@ -1,3 +1,5 @@
+export const noOp = () => {};
+
 export const svgUrlRegex = /\.\/(.*)-.*$/g;
 export const svgReactRegex = /\.\/(.*)\.svg/g;
 export const svgAvatarRegex = /\.\/t47_avatar-([0-5])\.svg/g;

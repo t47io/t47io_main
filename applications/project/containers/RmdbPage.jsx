@@ -13,6 +13,7 @@ import TitleSection from '../components/TitleSection.jsx';
 import { imgRmdb } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
 import { getPageProps } from '../util.js';
+import { noOp } from '../../common/util.js';
 import { RMDB } from '../constants/projectTypes.js';
 
 
@@ -89,7 +90,7 @@ RmdbPage.defaultProps = {
   carousels: [],
   lists: [],
   repos: [],
-  onScroll: () => {},
+  onScroll: noOp,
 };
 
 

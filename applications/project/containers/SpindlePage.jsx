@@ -11,6 +11,7 @@ import TitleSection from '../components/TitleSection.jsx';
 import { imgSpindle } from '../components/Images.js';
 import { aniamteScrollTop } from '../actions/dataActions.js';
 import { getPageProps } from '../util.js';
+import { noOp } from '../../common/util.js';
 import { SPINDLE } from '../constants/projectTypes.js';
 
 
@@ -72,7 +73,7 @@ SpindlePage.defaultProps = {
   },
   carousels: [],
   lists: [],
-  onScroll: () => {},
+  onScroll: noOp,
 };
 
 
