@@ -37,7 +37,7 @@ class FrappeChart extends React.PureComponent {
       logScale,
       ...props
     } = this.props;
-    const formatYAxis = logScale ? {
+    const tooltipOptions = logScale ? {
       formatTooltipY: d => (
         // eslint-disable-next-line no-restricted-properties
         d ? Math.round(Math.pow(10, Math.abs(d))) : 0
@@ -57,7 +57,7 @@ class FrappeChart extends React.PureComponent {
         xAxisMode: 'tick',
         xIsSeries: true,
       },
-      tooltipOptions: { ...formatYAxis },
+      tooltipOptions,
       ...props,
     });
   }
