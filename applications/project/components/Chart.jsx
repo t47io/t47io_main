@@ -38,22 +38,26 @@ class FrappeChart extends React.PureComponent {
       ...props
     } = this.props;
     const formatYAxis = logScale ? {
-      format_tooltip_y: d => (
+      formatTooltipY: d => (
         // eslint-disable-next-line no-restricted-properties
         d ? Math.round(Math.pow(10, Math.abs(d))) : 0
       ),
     } : {};
 
-    this.chart = new Chart({
-      parent: this.state.chart,
+    this.chart = new Chart(this.state.chart, {
       title,
       colors,
       height,
       type: 'line',
-      dot_radius: 3,
-      is_series: true,
-      region_fill: true,
-      ...formatYAxis,
+      lineOptions: {
+        dotSize: 3,
+        regionFill: true,
+      },
+      axisOptions: {
+        xAxisMode: 'tick',
+        xIsSeries: true,
+      },
+      tooltipOptions: { ...formatYAxis },
       ...props,
     });
   }

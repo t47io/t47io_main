@@ -33,17 +33,17 @@ export const getChartData = (months, commits, additions, deletions) => {
     commitData: {
       labels,
       datasets: [{
-        title: 'Commits',
+        name: 'Commits',
         values: commits,
       }],
     },
     addDelData: {
       labels,
       datasets: [{
-        title: 'Additions',
+        name: 'Additions',
         values: additions.map(d => (d ? Math.log10(d) : 0)),
       }, {
-        title: 'Deletions',
+        name: 'Deletions',
         values: deletions.map(d => (d ? -Math.log10(d) : 0)),
       }],
     },
