@@ -7,7 +7,10 @@ class FrappeChart extends React.PureComponent {
   static propTypes = {
     data: PropTypes.shape({
       labels: PropTypes.arrayOf(PropTypes.any),
-      datasets: PropTypes.arrayOf(PropTypes.object),
+      datasets: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+        values: PropTypes.arrayOf(PropTypes.number),
+      })),
     }),
     title: PropTypes.string,
     colors: PropTypes.arrayOf(PropTypes.string),
@@ -18,7 +21,7 @@ class FrappeChart extends React.PureComponent {
   static defaultProps = {
     data: {
       labels: [],
-      datasets: [{}],
+      datasets: [],
     },
     title: '',
     colors: [],
