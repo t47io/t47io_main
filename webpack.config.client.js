@@ -1,4 +1,5 @@
 import colors from 'colors';
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 
 import aliases from './build/aliases.js';
 import entries from './build/entries.js';
@@ -42,5 +43,8 @@ const config = {
   plugins: plugins(DEBUG),
 };
 
+const smp = new SpeedMeasurePlugin();
+const webpackConfig = DEBUG ? config : smp.wrap(config);
 
-export default config;
+
+export default webpackConfig;
