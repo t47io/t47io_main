@@ -119,7 +119,7 @@
     "sass-loader": "6.0.7",
     "serve-favicon": "2.4.5",
     "smoothscroll": "0.4.0",
-    "speed-measure-webpack-plugin": "1.1.1",
+    "speed-measure-webpack-plugin": "1.1.2",
     "static-site-generator-webpack-plugin": "3.4.1",
     "style-loader": "0.20.3",
     "stylefmt": "6.0.0",
@@ -152,7 +152,7 @@
     "loglevel": "1.6.1",
     "loglevel-plugin-prefix": "0.8.3",
     "ms": "2.1.1",
-    "nodemailer": "4.6.2",
+    "nodemailer": "4.6.3",
     "pm2": "2.10.1",
     "sanitizer": "0.1.3",
     "shelljs": "0.8.1"
