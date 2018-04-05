@@ -3,7 +3,6 @@ import shell from 'shelljs';
 
 import { DAY_MILLISECONDS } from '../../applications/main/constants/util.js';
 import { ROOT } from '../env.js';
-import { HOST } from '../../applications/config.js';
 import logger from '../logger.js';
 
 import cronJSON from '../../config/cron.json';
@@ -12,8 +11,7 @@ const log = logger('cron:renew');
 
 
 const checkExpire = () => {
-  const rootHost = HOST.split('//')[1];
-  const expireDate = new Date(cronJSON.httpsCert[rootHost].validTo).getTime();
+  const expireDate = new Date(cronJSON.httpsCert.validTo).getTime();
   const currentDate = new Date().getTime();
   return (expireDate - currentDate < DAY_MILLISECONDS * 10);
 };

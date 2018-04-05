@@ -53,7 +53,7 @@ const emailAdmin = (content) => {
   ${JSON.stringify(cronJSON.gitContrib, null, 2)}
 
   SSL Certificates:
-  ${JSON.stringify(cronJSON.https, null, 2)}
+  ${JSON.stringify(cronJSON.httpsCert, null, 2)}
     `;
 
     if (!DEBUG) {
