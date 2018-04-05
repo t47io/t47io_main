@@ -18,8 +18,9 @@ const checkCertificate = host => (
     const req = https.request({ host }, (res) => {
       const cert = res.socket.getPeerCertificate();
       resolve({
-        fingerprint: cert.fingerprint256,
+        subject: cert.subjectaltname,
         issuer: cert.issuer.CN,
+        fingerprint: cert.fingerprint,
         serialNumber: cert.serialNumber,
         validFrom: new Date(cert.valid_from).toISOString(),
         validTo: new Date(cert.valid_to).toISOString(),
