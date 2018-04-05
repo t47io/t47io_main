@@ -5,6 +5,7 @@ import path from 'path';
 
 import { PATH } from '../env.js';
 import { JSON_FORMAT } from '../config.js';
+import { HOST } from '../../applications/config.js';
 import logger from '../logger.js';
 
 import cronJSON from '../../config/cron.json';
@@ -16,7 +17,13 @@ const checkCertificate = host => (
   new Promise((resolve, reject) => {
     const req = https.request({ host }, (res) => {
       const cert = res.socket.getPeerCertificate();
-      resolve(new Date(cert.valid_to).toISOString());
+      resolve({
+        fingerprint: cert.fingerprint256,
+        issuer: cert.issuer.CN,
+        serialNumber: cert.serialNumber,
+        validFrom: new Date(cert.valid_from).toISOString(),
+        validTo: new Date(cert.valid_to).toISOString(),
+      });
     });
 
     req.on('error', (error) => {
@@ -32,18 +39,10 @@ const checkCertificate = host => (
 
 (async () => {
   try {
-    const hostList = Object.keys(cronJSON.https);
-    const data = await Promise.all(
-      hostList.map(host => checkCertificate(host))
-    );
-    const result = hostList.map((host, i) => ({ [host]: data[i] }))
-    .reduce((obj, item) => ({
-      ...obj,
-      ...item,
-    }), {});
+    const rootHost = HOST.split('//')[1];
     const newJSON = {
       ...cronJSON,
-      https: result,
+      httpsCert: await checkCertificate(rootHost),
     };
     await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newJSON, JSON_FORMAT);
 

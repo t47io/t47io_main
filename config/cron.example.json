@@ -1,35 +1,55 @@
 {
   "citations": {
-    "2017_Tian_eLife": null,
-    "2017_Chen_Science": null,
-    "2017_Hagey_NatMed": null,
-    "2017_Miao_RNA": "2",
-    "2017_Tian_Bioinformatics": null,
-    "2016_Tian_QRB": "5",
-    "2015_Cheng_eLife": "18",
-    "2015_Tian_NAR": "4",
-    "2015_Lee_Bioinfomatics": "1",
-    "2015_Miao_RNA": "47 (+1)",
-    "2015_Xue_Nature": "64",
-    "2014_Tian_RNA": "17",
-    "2014_Kladwang_Biochemistry": "23",
-    "2013_Shi_NewPhytol": "15"
+    "2018_Hartwick_unknown": null,
+    "2018_Chen_unknown": null,
+    "2018_Hagey_unknown": null,
+    "2018_Tian_eLife": null,
+    "2017_Yesselman_NAR": "2",
+    "2017_Miao_RNA": "20 (+2)",
+    "2017_Tian_Bioinformatics": "2 (+2)",
+    "2016_Tian_QRB": "12 (+3)",
+    "2015_Cheng_eLife": "26",
+    "2015_Tian_NAR": "6",
+    "2015_Lee_Bioinfomatics": "6 (+2)",
+    "2015_Miao_RNA": "69 (+2)",
+    "2015_Xue_Nature": "96 (+1)",
+    "2014_Tian_RNA": "25 (+2)",
+    "2014_Kladwang_Biochemistry": "29 (+2)",
+    "2013_Shi_NewPhytol": "19"
   },
   "gitContrib": {
-    "total": "2117 (+102)",
+    "total": "3637 (-426)",
     "lastWeek": [
-      6,
-      15,
-      14,
-      19,
-      22,
-      24,
-      6
+      0,
+      0,
+      0,
+      0,
+      10,
+      8,
+      0
     ]
   },
-  "https": {
-    "t47.io": "2017-01-01T00:00:00.000Z",
-    "demo.t47.io": "2017-01-01T00:00:00.000Z",
-    "data.t47.io": "2017-01-01T00:00:00.000Z"
+  "httpsCert": {
+    "fingerprint": "",
+    "issuer": "Let's Encrypt Authority X3",
+    "serialNumber": "",
+    "validFrom": "2018-05-04T02:29:23.000Z",
+    "validTo": "2018-08-04T02:29:23.000Z"
+  },
+  "manifest": {
+    "js": {
+      "m": "scripts/m.26b853.min.js",
+      "d": "scripts/d.0547dd.min.js",
+      "i": "scripts/i.b07a9a.min.js",
+      "f": "scripts/f.012345.min.js",
+      "p": "scripts/p.8101cf.min.js",
+      "r": "scripts/r.cf599b.min.js",
+      "v": "scripts/v.2893c1.min.js"
+    },
+    "css": {
+      "m": "styles/m.b1ecee.min.css",
+      "p": "styles/p.4ce568.min.css",
+      "v": "styles/v.ecc4cb.min.css"
+    }
   }
 }
