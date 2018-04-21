@@ -1,26 +1,14 @@
 @import '../common/mixins/colors';
 
 .chart-container {
-  & > .title {
+  position: relative;
+
+  text.title {
     margin: 0.5rem 0 0 2rem;
     text-align: left;
     font-weight: bold;
     font-size: 1rem;
-    color: $colorBlack;
-  }
-
-  .sub-title {
-    display: none;
-  }
-
-  .graphics {
-    margin-top: 0;
-    padding: 0;
-    position: relative;
-  }
-
-  .graph-stats-container {
-    display: none;
+    fill: $colorBlack;
   }
 
   .axis,
@@ -31,11 +19,9 @@
     line {
       stroke: $colorGray;
     }
-  }
 
-  .data-points {
-    circle {
-      stroke: none;
+    &.x text {
+      font-style: italic
     }
   }
 
@@ -47,19 +33,8 @@
     }
   }
 
-  .tick {
-    &.x-axis-label {
-      display: block;
-    }
-
-    .y-value-text {
-      text-anchor: end;
-    }
-
-    .x-value-text {
-      text-anchor: middle;
-      font-style: italic;
-    }
+  .chart-legend {
+    display: none;
   }
 
   .graph-svg-tip {
@@ -80,7 +55,7 @@
       display: block;
       padding: 0.5rem 1rem;
       margin: 0;
-      font-weight: bold;
+      font-style: italic;
       line-height: 1;
       pointer-events: none;
     }
