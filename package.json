@@ -1,6 +1,6 @@
 {
   "name": "t47io_main",
-  "version": "3.5.10",
+  "version": "3.5.11",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
@@ -87,7 +87,7 @@
     "express-static-gzip": "0.3.2",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.11",
-    "frappe-charts": "1.0.0",
+    "frappe-charts": "1.1.0",
     "html-minifier": "3.5.15",
     "html-webpack-plugin": "2.30.1",
     "lodash-webpack-plugin": "0.11.5",
@@ -124,7 +124,7 @@
     "style-loader": "0.21.0",
     "stylefmt": "6.0.0",
     "svg-url-loader": "2.3.2",
-    "url-loader": "0.6.2",
+    "url-loader": "1.0.1",
     "web-animations-js": "2.3.1",
     "webpack": "3.11.0",
     "webpack-bundle-analyzer": "2.11.1",
