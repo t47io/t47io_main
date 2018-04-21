@@ -54,9 +54,10 @@ const routes = {
     } else {
       const { isBot, browser } = req.useragent;
       const isIE = (browser === 'IE');
+      const isSave = (req.headers['save-data'] === 'on');
       const isStatic = ('static' in req.query && req.query.static === '1');
 
-      const htmlFile = (isBot || isIE || isStatic) ? 'index' : 'main';
+      const htmlFile = (isBot || isIE || isSave || isStatic) ? 'index' : 'main';
       sendHtmlFromDisk(htmlFile, req, res);
     }
   },

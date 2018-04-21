@@ -33,13 +33,15 @@ export const getZipExt = (headers, length = 4) => {
   return zipType.slice(0, length);
 };
 export const getHeader = (req, forceHeader = false) => {
-  const encoding = (!forceHeader && DEBUG) ? {} : {
-    'Content-Encoding': getZipExt(req.headers),
-    Vary: 'Accept-Encoding',
+  const saveData = (req.headers['save-data'] === 'on') && 'Save-Data';
+  const encoding = getZipExt(req.headers);
+  const header = (!forceHeader && DEBUG) ? {} : {
+    'Content-Encoding': encoding,
+    Vary: ['Accept-Encoding', saveData].filter(Boolean),
   };
   return {
     ...HTML_HEADER,
-    ...encoding,
+    ...header,
   };
 };
 
