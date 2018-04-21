@@ -24,12 +24,12 @@ const RepositoryCharts = ({
   return (
     <div>
       <Chart
-        className="PROJECT__thumbnail PROECT__repo-chart"
+        className="PROJECT__thumbnail PROJECT__repo-chart"
         data={commitData}
         {...COMMIT_CHART_OPTIONS}
       />
       <Chart
-        className="PROJECT__thumbnail PROECT__repo-chart"
+        className="PROJECT__thumbnail PROJECT__repo-chart"
         data={addDelData}
         {...ADD_DEL_CHART_OPTIONS}
       />

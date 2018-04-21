@@ -26,7 +26,7 @@ const RepositoryBasic = ({
         <mark className="lead PROJECT__repo-name">{name}</mark>
         <span className="label PROJECT__label--red">{privateLabel}</span>
       </p>
-      <p className="PROECT__repo-link">
+      <p className="PROJECT__repo-link">
         <a
           href={url}
           target="_blank" rel="noopener noreferrer external"
@@ -35,14 +35,14 @@ const RepositoryBasic = ({
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
       </p>
-      <p className="PROECT__repo-stats">
+      <p className="PROJECT__repo-stats">
         <span className="label PROJECT__label--green">created</span>
         <span className="label PROJECT__label--gray">{createdAt}</span>
         <br className="hidden-lg hidden-md hidden-sm" />
         <span className="label PROJECT__label--green">last pushed</span>
         <span className="label PROJECT__label--gray">{pushedAt}</span>
       </p>
-      <p className="PROECT__repo-stats">
+      <p className="PROJECT__repo-stats">
         <span className="label PROJECT__label--yellow">issue</span>
         <span className="PROJECT__repo-stats-number">{issues}</span>
         <span className="label PROJECT__label--yellow">download</span>

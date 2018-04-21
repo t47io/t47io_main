@@ -9,7 +9,7 @@ const RepositoryTableItem = ({
   deletions,
 }) => (
   <tr>
-    <td className="PROECT__repo-table-author">{author}</td>
+    <td className="PROJECT__repo-table-author">{author}</td>
     <td className="PROJECT__repo-table-number PROJECT__number--cyan">
       <span className="pull-right">{commits}</span>
     </td>

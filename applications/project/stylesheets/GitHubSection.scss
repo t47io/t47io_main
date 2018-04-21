@@ -11,11 +11,11 @@
     text-decoration: underline;
   }
 
-  .PROECT__repo-link {
+  .PROJECT__repo-link {
     padding-bottom: 0.5rem;
   }
 
-  .PROECT__repo-stats {
+  .PROJECT__repo-stats {
     word-break: break-word;
     line-height: 1.5;
   }
@@ -27,7 +27,7 @@
 }
 
 .PROJECT__repo-table {
-  .PROECT__repo-table-author {
+  .PROJECT__repo-table-author {
     font-weight: bold;
     font-style: italic;
   }
@@ -53,13 +53,18 @@
   }
 }
 
+.PROJECT__repo-chart {
+  padding: 0.75rem 0 0 0;
+  height: 12.5rem;
+}
+
 @include media_width_lt(511px) {
   .PROJECT__repo-basics {
     text-align: center;
   }
 
   .PROJECT__repo-table {
-    .PROECT__repo-table-author,
+    .PROJECT__repo-table-author,
     .PROJECT__repo-table-number {
       font-size: 0.8rem;
     }
