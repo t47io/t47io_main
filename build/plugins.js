@@ -131,7 +131,7 @@ const plugins = (DEBUG = true) => {
       name: CHUNK_MANIFEST,
       minChunks: Infinity,
     }),
-    new ManifestPlugin(),
+    new ManifestPlugin({ publicPath: '' }),
     new ChunkRenamePlugin(JS_CHUNK_MAPS),
     new BabelMinifyPlugin({
       removeConsole: true,
