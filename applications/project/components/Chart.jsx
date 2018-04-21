@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Chart from 'frappe-charts/dist/frappe-charts.esm.js';
+import { Chart } from 'frappe-charts/dist/frappe-charts.esm.js';
 
 
 class FrappeChart extends React.PureComponent {
@@ -25,7 +25,7 @@ class FrappeChart extends React.PureComponent {
     },
     title: '',
     colors: [],
-    height: 128,
+    height: 160,
     logScale: false,
     className: '',
   };
@@ -65,6 +65,7 @@ class FrappeChart extends React.PureComponent {
     });
   }
   componentWillUnmount() {
+    this.chart.unbindWindowEvents();
     this.chart = null;
   }
 
