@@ -101,7 +101,7 @@ const plugins = (DEBUG = true) => {
         path.join(PATH.CONFIG, 'main.json'),
         path.join(PATH.CONFIG, 'project.json'),
       ],
-      styleExtensions: ['.scss'],
+      styleExtensions: ['.css', '.scss'],
       moduleExtensions: ['.html'],
       purifyOptions: {
         minify: !DEBUG,

@@ -39,7 +39,6 @@ const renderMainHTML = () => {
     replaceHTML(
       baseHTML
       .replace('<meta />', mainMETA)
-      .replace(/<noscript>.*<\/noscript>/, '')
       .replace('<loader />', '')
       .replace('<div class="body" id="app"></div>', contentHTML)
       .replace('html{}', mainCSS)
@@ -49,7 +48,7 @@ const renderMainHTML = () => {
   while (templatePairRegex.test(outputHTML)) {
     outputHTML = outputHTML.replace(templatePairRegex, '');
   }
-  return outputHTML;
+  return outputHTML.replace(/<noscript>.*<\/noscript>/, '');
 };
 
 
