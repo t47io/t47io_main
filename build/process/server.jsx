@@ -13,6 +13,7 @@ import MainMeta from '../../applications/main/components/Meta.jsx';
 import { PATH } from '../../server/env.js';
 import { HTML_MINIFIER } from '../config.js';
 import {
+  templatePairRegex,
   replaceHTML,
   loadFileSync,
   saveFileSync,
@@ -34,16 +35,21 @@ const renderMainHTML = () => {
   let mainMETA = renderToStaticMarkup(<MainMeta />);
   mainMETA = DocumentMeta.renderAsHTML();
 
-  return htmlMinifier.minify(
+  let outputHTML = htmlMinifier.minify(
     replaceHTML(
       baseHTML
       .replace('<meta />', mainMETA)
+      .replace(/<noscript>.*<\/noscript>/, '')
       .replace('<loader />', '')
       .replace('<div class="body" id="app"></div>', contentHTML)
       .replace('html{}', mainCSS)
     ), HTML_MINIFIER
-  )
-  .replace(/<% .* { %>.*<% } %>/g, '');
+  );
+
+  while (templatePairRegex.test(outputHTML)) {
+    outputHTML = outputHTML.replace(templatePairRegex, '');
+  }
+  return outputHTML;
 };
 
 

@@ -13,6 +13,11 @@ import {
 import { THEME_COLORS } from '../../applications/main/constants/util.js';
 
 
+const templateClauseStart = '<% (?:if|for) \\([a-zA-Z\\. !]*?\\) { %>';
+const templateClauseEnd = '<% } %>';
+const templateClausePair = `${templateClauseStart}(?:(?!${templateClauseStart}|${templateClauseEnd}).)*?${templateClauseEnd}`;
+export const templatePairRegex = new RegExp(templateClausePair, 'g');
+
 export const replaceHTML = inputHTML => (
   inputHTML
     .replace('<meta data-rdm/>', '<meta charset="utf-8" data-rdm />')
