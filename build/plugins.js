@@ -68,7 +68,7 @@ const plugins = (DEBUG = true) => {
         const dir = path.dirname(resource);
         const ext = path.extname(resource);
         return (dir.includes('node_modules') || (
-          dir.includes('vendor') && (ext === '.css' || ext === '.scss')
+          dir.includes('vendor') && ext === '.scss'
         ));
       },
     }),
@@ -101,7 +101,7 @@ const plugins = (DEBUG = true) => {
         path.join(PATH.CONFIG, 'main.json'),
         path.join(PATH.CONFIG, 'project.json'),
       ],
-      styleExtensions: ['.css', '.scss'],
+      styleExtensions: ['.scss'],
       moduleExtensions: ['.html'],
       purifyOptions: {
         minify: !DEBUG,
