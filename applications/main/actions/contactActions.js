@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 import { toggleHeaderAnimation } from '../../common/actions/sectionHeaderActions.js';
 import {
   TOGGLE_CONTACT_ICON_ANIMATION,
