@@ -42,29 +42,19 @@ const ContactList = ({
       <ul className="CONTACT__address">
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item padding"
+          className="CONTACT__list-item"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(1)}
           shouldAnimate={counter}
         >
           <i className="fa fa-location fa-lg fa-fw" />
-          279 Campus Drive West, Room B419
+          San Francisco Bay Area, California, USA
         </WebAnimation>
         <WebAnimation
           tagName="li"
           className="CONTACT__list-item"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(2)}
-          shouldAnimate={counter}
-        >
-          <i className="fa fa-location fa-lg fa-fw invisible" />
-          Stanford, CA 94305, USA
-        </WebAnimation>
-        <WebAnimation
-          tagName="li"
-          className="CONTACT__list-item"
-          keyframes={contactPanel.keyframes(CONTACT_LEFT)}
-          timing={contactPanel.timing(3)}
           shouldAnimate={counter}
         >
           <i className="fa fa-phone fa-lg fa-fw" />
@@ -74,7 +64,7 @@ const ContactList = ({
           tagName="li"
           className="CONTACT__list-item padding"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
-          timing={contactPanel.timing(4)}
+          timing={contactPanel.timing(3)}
           shouldAnimate={counter}
         >
           <i className="fa fa-mail-alt fa-lg fa-fw" />
@@ -92,7 +82,7 @@ const ContactList = ({
           tagName="li"
           className="CONTACT__list-item"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
-          timing={contactPanel.timing(5)}
+          timing={contactPanel.timing(4)}
           shouldAnimate={counter}
         >
           <i className="fa fa-mail-alt fa-lg fa-fw invisible" />
@@ -108,7 +98,7 @@ const ContactList = ({
           tagName="li"
           className="CONTACT__list-item padding"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
-          timing={contactPanel.timing(4)}
+          timing={contactPanel.timing(5)}
           shouldAnimate={counter}
           propsForceUpdate={audio}
         >
