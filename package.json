@@ -1,11 +1,11 @@
 {
   "name": "t47io_main",
-  "version": "3.5.16",
+  "version": "3.5.17",
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
     "node": "^8.11.2",
-    "yarn": "^1.6.0"
+    "yarn": "^1.7.0"
   },
   "scripts": {
     "dev": "yarn prep && yarn nodemon",
