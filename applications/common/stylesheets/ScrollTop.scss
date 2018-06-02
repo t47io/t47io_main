@@ -15,18 +15,19 @@
 
   transition-duration: 0.5s;
   transform: rotate(45deg);
+  will-change: visibility, opacity;
 
-  .fa {
+  :global .fa {
     transition-duration: 0.5s;
     transform: rotate(-45deg) translate(.125rem, -.125rem);
   }
 
   &:hover {
     background-color: $colorMain;
-  }
 
-  &:hover .fa {
-    color: $colorWhite;
+    :global .fa {
+      color: $colorWhite;
+    }
   }
 
   &.invisible {

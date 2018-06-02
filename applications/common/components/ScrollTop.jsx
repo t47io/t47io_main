@@ -4,18 +4,19 @@ import PropTypes from 'prop-types';
 import { noOp } from '../util.js';
 import { HOME } from '../../main/constants/sectionTypes.js';
 
-import '../stylesheets/ScrollTop.scss';
+import cssTop from '../stylesheets/ScrollTop.scss';
 
 
 const ScrollTop = ({
   isHidden,
   onScrollTop,
 }) => {
-  const hiddenClassName = isHidden ? 'invisible' : '';
+  const hiddenClassName = isHidden ? cssTop.invisible : '';
 
   return (
     <a
-      className={`scrollTop ${hiddenClassName}`}
+      styleName="cssTop.scrollTop"
+      className={hiddenClassName}
       onClick={() => onScrollTop(HOME)}
       role="presentation"
     >

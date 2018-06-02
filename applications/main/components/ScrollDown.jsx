@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import { noOp } from '../../common/util.js';
 import { ABOUT } from '../constants/sectionTypes.js';
 
+import '../../main/stylesheets/HomeSection.scss';
+
 
 const ScrollDown = ({ onScrollTop }) => (
-  <div className="HOME__scroll-down">
+  <div styleName="HOME__scroll-down">
     <a
       onClick={() => onScrollTop(ABOUT)}
       role="presentation"

@@ -8,7 +8,10 @@ import { imgDivider } from './Images.js';
 import { sectionHeader } from '../animations/sectionHeader.js';
 import { noOp } from '../util.js';
 
-import '../stylesheets/SectionHeader.scss';
+/* eslint-disable */
+import cssUtil from '../../main/stylesheets/util.scss';
+import cssSection from '../stylesheets/SectionHeader.scss';
+/* eslint-enable */
 
 
 const SectionHeader = ({
@@ -17,20 +20,21 @@ const SectionHeader = ({
   shouldAnimate,
   onToggleAnimation,
 }) => (
-  <div className="UTIL__section-header">
+  <div styleName="cssSection.UTIL__section-header cssUtil.UTIL__section-header">
     <Trigger onToggleAnimation={onToggleAnimation} />
     <WebAnimation
+      styleName="cssSection.UTIL__section-div"
       keyframes={sectionHeader.keyframes}
       timing={sectionHeader.timing}
       shouldAnimate={shouldAnimate}
     >
-      <h2 className="UTIL__section-title">{title}</h2>
+      <h2 className="cssSection.UTIL__section-title">{title}</h2>
       <img
-        className="UTIL__divider"
+        styleName="cssUtil.UTIL__divider"
         src={imgDivider}
         alt="divider"
       />
-      <p className="UTIL__section-subtitle">
+      <p styleName="cssSection.UTIL__section-subtitle">
         {subtitle}
       </p>
     </WebAnimation>
