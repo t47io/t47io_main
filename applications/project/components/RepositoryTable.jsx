@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 import RepositoryTableItem from './RepositoryTableItem.jsx';
 
+import '../stylesheets/GitHubSection.scss';
+
 
 const RepositoryTable = ({ items }) => (
-  <table className="PROJECT__repo-table table table-hover">
+  <table styleName="PROJECT__repo-table" className="table table-hover">
     <thead>
       <tr className="active">
         <th className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -34,7 +36,7 @@ const RepositoryTable = ({ items }) => (
         />
       ))}
       <tr>
-        <td colSpan="4" className="PROJECT__repo-table-bottom" />
+        <td colSpan="4" styleName="PROJECT__repo-table-bottom" />
       </tr>
     </tbody>
   </table>

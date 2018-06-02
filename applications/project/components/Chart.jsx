@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Chart } from 'frappe-charts/dist/frappe-charts.esm.js';
 
+import '../../vendor/frappe.scss';
+
 
 class FrappeChart extends React.PureComponent {
   static propTypes = {

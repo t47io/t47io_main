@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../stylesheets/FeatureSection.scss';
+
 
 const FeatureListItem = ({
   text,
@@ -8,12 +10,12 @@ const FeatureListItem = ({
 }) => {
   if (!link.length) {
     return (
-      <li className="PROJECT__feature-item">{text}</li>
+      <li styleName="PROJECT__feature-item">{text}</li>
     );
   }
 
   return (
-    <li className="PROJECT__feature-item">
+    <li styleName="PROJECT__feature-item">
       <a
         href={link}
         target="_blank" rel="noopener noreferrer external"

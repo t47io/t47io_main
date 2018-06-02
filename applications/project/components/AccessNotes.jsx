@@ -1,36 +1,41 @@
 import React from 'react';
 
+/* eslint-disable */
+import cssType from '../stylesheets/typography.scss';
+import cssAccess from '../stylesheets/AccessSection.scss';
+/* eslint-enable */
+
 
 const DaslabServerNote = () => (
-  <p className="PROJECT__access-note">
+  <p styleName="cssAccess.PROJECT__access-note">
     Internal Site
-    <span className="label PROJECT__label--red">not</span>
+    <span styleName="cssType.PROJECT__label cssType.PROJECT__label--red" className="label">not</span>
     accessible to <u>public</u>
-    (<span className="label PROJECT__label--blue">WebAuth</span> gated).
+    (<span styleName="cssType.PROJECT__label cssType.PROJECT__label--blue" className="label">WebAuth</span> gated).
   </p>
 );
 
 const DaslabDemoNote = () => (
-  <p className="PROJECT__access-note">
+  <p styleName="cssAccess.PROJECT__access-note">
     Internal Site with
-    <span className="label PROJECT__label--green">mock-up</span>
+    <span styleName="cssType.PROJECT__label cssType.PROJECT__label--green" className="label">mock-up</span>
     data for <u>public</u> view.
   </p>
 );
 
 const EternaServerNote = () => (
-  <p className="PROJECT__access-note">
+  <p styleName="cssAccess.PROJECT__access-note">
     Brower page
-    <span className="label PROJECT__label--red">only</span>
+    <span styleName="cssType.PROJECT__label cssType.PROJECT__label--red" className="label">only</span>
     accessible to <u>community</u>
-    (requires <span className="label PROJECT__label--blue">login</span>).
+    (requires <span styleName="cssType.PROJECT__label cssType.PROJECT__label--blue" className="label">login</span>).
   </p>
 );
 
 const EternaDemoNote = () => (
-  <p className="PROJECT__access-note">
+  <p styleName="cssAccess.PROJECT__access-note">
     Prototype with
-    <span className="label PROJECT__label--green">static</span>
+    <span styleName="cssType.PROJECT__label cssType.PROJECT__label--green" className="label">static</span>
     data for <u>public</u> view.
   </p>
 );

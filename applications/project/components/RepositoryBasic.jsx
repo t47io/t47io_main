@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 
 import { GITHUB_HOST } from '../../config.js';
 
+/* eslint-disable */
+import cssType from '../stylesheets/typography.scss';
+import cssRepo from '../stylesheets/GitHubSection.scss';
+/* eslint-enable */
+
 
 const RepositoryBasic = ({
   name,
@@ -21,12 +26,12 @@ const RepositoryBasic = ({
   const url = `${GITHUB_HOST}${name}`;
 
   return (
-    <div className="PROJECT__repo-basics">
+    <div styleName="cssRepo.PROJECT__repo-basics">
       <p>
-        <mark className="lead PROJECT__repo-name">{name}</mark>
-        <span className="label PROJECT__label--red">{privateLabel}</span>
+        <mark styleName="cssRepo.PROJECT__repo-name" className="lead">{name}</mark>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--red" className="label">{privateLabel}</span>
       </p>
-      <p className="PROJECT__repo-link">
+      <p styleName="cssRepo.ROJECT__repo-link">
         <a
           href={url}
           target="_blank" rel="noopener noreferrer external"
@@ -35,30 +40,30 @@ const RepositoryBasic = ({
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
       </p>
-      <p className="PROJECT__repo-stats">
-        <span className="label PROJECT__label--green">created</span>
-        <span className="label PROJECT__label--gray">{createdAt}</span>
+      <p styleName="cssRepo.PROJECT__repo-stats">
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--green" className="label">created</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--gray" className="label">{createdAt}</span>
         <br className="hidden-lg hidden-md hidden-sm" />
-        <span className="label PROJECT__label--green">last pushed</span>
-        <span className="label PROJECT__label--gray">{pushedAt}</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--green" className="label">last pushed</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--gray" className="label">{pushedAt}</span>
       </p>
-      <p className="PROJECT__repo-stats">
-        <span className="label PROJECT__label--yellow">issue</span>
-        <span className="PROJECT__repo-stats-number">{issues}</span>
-        <span className="label PROJECT__label--yellow">download</span>
-        <span className="PROJECT__repo-stats-number">{downloads}</span>
+      <p styleName="cssRepo.PROJECT__repo-stats">
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--yellow" className="label">issue</span>
+        <span styleName="cssRepo.ROJECT__repo-stats-number">{issues}</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--yellow" className="label">download</span>
+        <span styleName="cssRepo.PROJECT__repo-stats-number">{downloads}</span>
         <br className="hidden-lg hidden-md hidden-sm" />
-        <span className="label PROJECT__label--blue">fork</span>
-        <span className="PROJECT__repo-stats-number">{forks}</span>
-        <span className="label PROJECT__label--blue">pull</span>
-        <span className="PROJECT__repo-stats-number">{pulls}</span>
-        <span className="label PROJECT__label--blue">branch</span>
-        <span className="PROJECT__repo-stats-number">{branches}</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--blue" className="label">fork</span>
+        <span styleName="cssRepo.PROJECT__repo-stats-number">{forks}</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--blue" className="label">pull</span>
+        <span styleName="cssRepo.PROJECT__repo-stats-number">{pulls}</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--blue" className="label">branch</span>
+        <span styleName="cssRepo.PROJECT__repo-stats-number">{branches}</span>
         <br className="hidden-lg hidden-md hidden-sm" />
-        <span className="label PROJECT__label--purple">watcher</span>
-        <span className="PROJECT__repo-stats-number">{watchers}</span>
-        <span className="label PROJECT__label--purple">star</span>
-        <span className="PROJECT__repo-stats-number">{stars}</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--purple" className="label">watcher</span>
+        <span styleName="cssRepo.PROJECT__repo-stats-number">{watchers}</span>
+        <span styleName="cssType.PROJECT__label cssType.PROJECT__label--purple" className="label">star</span>
+        <span styleName="cssRepo.PROJECT__repo-stats-number">{stars}</span>
       </p>
     </div>
   );

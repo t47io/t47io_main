@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../stylesheets/TitleSection.scss';
+
 
 const TitleImage = ({
   title,
   image,
 }) => (
-  <p className="PROJECT__title thumbnail text-center">
+  <p styleName="PROJECT__title" className="thumbnail text-center">
     <a
       href={image}
       target="_blank" rel="noopener noreferrer"
     >
       <img
-        className="PROJECT__title-image"
+        styleName="PROJECT__title-image"
         alt={title}
         src={image}
       />

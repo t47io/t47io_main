@@ -9,6 +9,11 @@ import {
   COMMIT_CHART_OPTIONS,
 } from '../constants/util.js';
 
+/* eslint-disable */
+import cssFeat from '../stylesheets/typography.scss';
+import cssRepo from '../stylesheets/GitHubSection.scss';
+/* eslint-enable */
+
 
 const RepositoryCharts = ({
   additions,
@@ -24,12 +29,12 @@ const RepositoryCharts = ({
   return (
     <div>
       <Chart
-        className="PROJECT__thumbnail PROJECT__repo-chart"
+        styleName="cssFeat.PROJECT__thumbnail cssRepo.PROJECT__repo-chart"
         data={commitData}
         {...COMMIT_CHART_OPTIONS}
       />
       <Chart
-        className="PROJECT__thumbnail PROJECT__repo-chart"
+        styleName="cssFeat.PROJECT__thumbnail cssRepo.PROJECT__repo-chart"
         data={addDelData}
         {...ADD_DEL_CHART_OPTIONS}
       />

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../stylesheets/typography.scss';
+
 
 const UrlLabel = ({
   url,
@@ -15,7 +17,9 @@ const UrlLabel = ({
     return (
       <p className="text-center">
         <span className="lead">
-          <span className={`label PROJECT__label--${className}`}>{label}</span>
+          <span styleName={`PROJECT__label PROJECT__label--${className}`} className="label">
+            {label}
+          </span>
         </span>
         <a
           href={url}
@@ -32,7 +36,9 @@ const UrlLabel = ({
   return (
     <div>
       <h3>
-        <span className={`label PROJECT__label--${className}`}>{label}</span>
+        <span styleName={`PROJECT__label PROJECT__label--${className}`} className="label">
+          {label}
+        </span>
       </h3>
       <p className="text-center lead">
         <a

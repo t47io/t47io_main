@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../stylesheets/TitleSection.scss';
+
 
 const Headline = ({
   title,
   icon,
 }) => (
-  <h2 className="PROJECT__headline text-center">
+  <h2 styleName="PROJECT__headline" className="text-center">
     <i className={`fa fa-fw fa-${icon}`} />
     {title}
   </h2>

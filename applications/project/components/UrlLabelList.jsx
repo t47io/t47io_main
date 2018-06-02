@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { GITHUB_HOST } from '../../config.js';
 
+import '../stylesheets/typography.scss';
+
 
 const UrlLabelList = ({
   urls,
@@ -16,7 +18,9 @@ const UrlLabelList = ({
   return (
     <div>
       <h3>
-        <span className={`label PROJECT__label--${className}`}>{label}</span>
+        <span styleName={`PROJECT__label PROJECT__label--${className}`} className="label">
+          {label}
+        </span>
       </h3>
       {urls.map(url => (
         <p className={`text-center ${leadClassName}`}>

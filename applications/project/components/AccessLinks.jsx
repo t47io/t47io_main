@@ -11,6 +11,8 @@ import {
 } from '../constants/labelTypes.js';
 import { getColumn } from '../util.js';
 
+import '../stylesheets/AccessSection.scss';
+
 
 const AccessLinks = ({
   urls,
@@ -37,7 +39,7 @@ const AccessLinks = ({
                 isLead={key !== 'theme'}
               />
             ) : (
-              <div className="PROJECT__access-link">
+              <div styleName="PROJECT__access-link">
                 <UrlLabel
                   url={urls[key]}
                   label={LABELS[key]}

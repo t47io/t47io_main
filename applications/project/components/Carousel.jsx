@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 
 import CarouselIndicator from './CarouselIndicator.jsx';
 
+/* eslint-disable */
+import cssFeat from '../stylesheets/FeatureSection.scss';
+import cssSprite from '../stylesheets/sprites.scss';
+/* eslint-enable */
+
 
 class Carousel extends React.PureComponent {
   static propTypes = {
@@ -49,12 +54,12 @@ class Carousel extends React.PureComponent {
   render() {
     const { project, items, className, index } = this.props;
     const { current } = this.state;
-    const spriteName = `SPRITE__${project}-${index}_${items[current].tag}`;
+    const spriteName = cssSprite[`SPRITE__${project}-${index}_${items[current].tag}`];
 
     return (
       <div className={className}>
-        <div className="PROJECT__carousel">
-          <ol className="PROJECT__carousel-indicators carousel-indicators">
+        <div styleName="cssFeat.PROJECT__carousel">
+          <ol styleName="cssFeat.PROJECT__carousel-indicators" className="carousel-indicators">
             {items.map((item, i) => (
               <CarouselIndicator
                 key={`PROJECT__carousel-indicator-${item.tag}`}
@@ -69,8 +74,8 @@ class Carousel extends React.PureComponent {
             data-for="PROJECT__tooltip"
             data-tip={items[current].label}
           >
-            <div className="thumbnail PROJECT__thumbnail">
-              <div className={`${spriteName} PROJECT__carousel-item`} />
+            <div styleName="cssFeat.PROJECT__thumbnail" className="thumbnail">
+              <div styleName="cssFeat.PROJECT__carousel-item" className={spriteName} />
             </div>
           </div>
         </div>

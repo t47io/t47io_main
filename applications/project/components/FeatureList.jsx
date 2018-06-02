@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import FeatureListItem from './FeatureListItem.jsx';
 
+import '../stylesheets/FeatureSection.scss';
+
 
 const FeatureList = ({
   title,
@@ -12,11 +14,11 @@ const FeatureList = ({
   className,
 }) => (
   <div className={className}>
-    <h3 className="PROJECT__features-title">
+    <h3 styleName="PROJECT__features-title">
       <i className={`fa fa-fw fa-${icon}`} />
       {title}
     </h3>
-    <ul className="PROJECT__features lead">
+    <ul styleName="PROJECT__features" className="lead">
       {items.map((item, i) => (
         <FeatureListItem
           key={`PROJECT__feature-${icon}-${i}`}

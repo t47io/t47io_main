@@ -5,8 +5,6 @@ import AccessLinks from './AccessLinks.jsx';
 import Headline from './Headline.jsx';
 import UrlLabel from './UrlLabel.jsx';
 
-import '../stylesheets/AccessSection.scss';
-
 
 const AccessSection = ({
   urls,
