@@ -10,7 +10,11 @@ import SectionHeader from '../../common/components/SectionHeader.jsx';
 import * as affiliationActions from '../actions/affiliationActions.js';
 import { noOp } from '../../common/util.js';
 
-import '../stylesheets/AffiliationSection.scss';
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssUtil from '../stylesheets/util.scss';
+import cssAff from '../stylesheets/AffiliationSection.scss';
+/* eslint-enable */
 
 
 const AffiliationSection = ({
@@ -27,13 +31,12 @@ const AffiliationSection = ({
     animatePanels,
   },
 }) => (
-  <section id="AFFILIATION__section" className="text-center">
+  <section id="AFFILIATION__section" styleName="cssType.text-white" className="text-center">
     <Carousel
-      className="text-white"
       items={backgrounds}
       interval={4000}
     >
-      <div className="UTIL__spacer-lg AFFILIATION__trigger" />
+      <div styleName="cssUtil.UTIL__spacer-lg" />
       <SectionHeader
         title="who i am"
         subtitle="where I have been"
@@ -41,11 +44,11 @@ const AffiliationSection = ({
         onToggleAnimation={animateHeader}
       />
 
-      <div className="UTIL__spacer-lg" />
+      <div styleName="cssUtil.UTIL__spacer-lg" />
       <div className="row">
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <div className="AFFILIATION__story">
-            <div className="AFFILIATION__timeline" />
+          <div styleName="cssAff.AFFILIATION__story">
+            <div styleName="cssAff.AFFILIATION__timeline" />
 
             {items.map((item, i) => (
               <AffiliationItem
@@ -59,7 +62,7 @@ const AffiliationSection = ({
           </div>
         </div>
       </div>
-      <div className="UTIL__spacer-lg" />
+      <div styleName="cssUtil.UTIL__spacer-lg" />
     </Carousel>
   </section>
 );

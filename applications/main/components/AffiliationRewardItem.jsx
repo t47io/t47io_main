@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssUtil from '../stylesheets/util.scss';
+import cssAff from '../stylesheets/AffiliationSection.scss';
+/* eslint-enable */
+
 
 const AffiliationRewardItem = ({
   year,
@@ -8,14 +14,14 @@ const AffiliationRewardItem = ({
 }) => {
   if (!year) {
     return (
-      <tr className="UTIL__spacer-sm" />
+      <tr styleName="cssUtil.UTIL__spacer-sm" />
     );
   }
 
   return (
     <tr>
-      <td className="AFFILIATION__reward">
-        <i className="text-gray">{year}</i>
+      <td styleName="cssAff.AFFILIATION__reward">
+        <i styleName="cssType.text-gray">{year}</i>
       </td>
       <td dangerouslySetInnerHTML={{ __html: title }} />
     </tr>

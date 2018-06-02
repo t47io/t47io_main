@@ -8,6 +8,8 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import { affiliationPanel } from '../animations/affiliation.js';
 import { noOp } from '../../common/util.js';
 
+import cssAff from '../stylesheets/AffiliationSection.scss';
+
 
 const AffiliationItem = ({
   year,
@@ -16,11 +18,11 @@ const AffiliationItem = ({
   onToggleAnimation,
   index,
 }) => {
-  const contentClassName = shouldAnimate ? 'active' : '';
+  const contentClassName = shouldAnimate ? cssAff.active : '';
 
   return (
-    <div className="AFFILIATION__entry">
-      <div className={`AFFILIATION__content ${contentClassName}`}>
+    <div styleName="cssAff.AFFILIATION__entry">
+      <div styleName="cssAff.AFFILIATION__content" className={contentClassName}>
         <Waypoint
           topOffset="80px"
           bottomOffset="-20px"
@@ -37,8 +39,8 @@ const AffiliationItem = ({
           fireOnRapidScroll={false}
         />
 
-        <span className="AFFILIATION__year">
-          <span className="AFFILIATION__year-text">{year}</span>
+        <span styleName="cssAff.AFFILIATION__year">
+          <span styleName="cssAff.AFFILIATION__year-text">{year}</span>
         </span>
         <WebAnimation
           keyframes={affiliationPanel.keyframes(shouldAnimate)}

@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssAff from '../stylesheets/AffiliationSection.scss';
+/* eslint-enable */
+
 
 const AffiliationRole = ({
   title,
   position,
   team,
 }) => (
-  <p className="AFFILIATION__role">
+  <p styleName="cssAff.AFFILIATION__role">
     <b>{position}</b>
     <span> {title}</span>
     <br className="hidden-lg hidden-md" />
-    <span className="text-main"> @ </span>
+    <span styleName="cssType.text-main"> @ </span>
     <u>{team}</u>
   </p>
 );
