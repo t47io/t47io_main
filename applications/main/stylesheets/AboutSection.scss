@@ -25,8 +25,9 @@
 
     transition-duration: 0.25s;
     transform: rotate(45deg);
+    will-change: transform, opacity;
 
-    .fa {
+    :global .fa {
       transition-duration: 0.25s;
       transform: rotate(-45deg);
     }
@@ -60,7 +61,7 @@
       background-color: $colorMain;
       transition-duration: 0.25s;
 
-      .fa {
+      :global .fa {
         transition-duration: 0.25s;
         transform: scale(2, 1.41) rotate(90deg) rotateX(225deg);
         transform-origin: 50% 50%;

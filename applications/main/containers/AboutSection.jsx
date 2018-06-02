@@ -12,7 +12,10 @@ import { initialState as aboutProps } from '../reducers/about.js';
 import { noOp } from '../../common/util.js';
 import { ABOUT } from '../constants/sectionTypes.js';
 
-import '../stylesheets/AboutSection.scss';
+/* eslint-disable */
+import cssUtil from '../stylesheets/util.scss';
+import cssAbout from '../stylesheets/AboutSection.scss';
+/* eslint-enable */
 
 
 const AboutSection = ({
@@ -27,7 +30,7 @@ const AboutSection = ({
   },
 }) => (
   <section id="ABOUT__section" className="text-center">
-    <div className="UTIL__spacer-md ABOUT__trigger" />
+    <div styleName="cssUtil.UTIL__spacer-md" />
     <SectionHeader
       title="what i do"
       subtitle="what I enjoy & good at"
@@ -35,7 +38,7 @@ const AboutSection = ({
       onToggleAnimation={animateHeader}
     />
 
-    <div className="ABOUT__content">
+    <div styleName="cssAbout.ABOUT__content">
       <div className="container">
         <Trigger onToggleAnimation={animateIcons} />
         <div className="row">

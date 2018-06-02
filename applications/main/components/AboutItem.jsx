@@ -5,6 +5,8 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { aboutItem } from '../animations/about.js';
 
+import '../stylesheets/AboutSection.scss';
+
 
 const AboutItem = ({
   title,
@@ -14,19 +16,19 @@ const AboutItem = ({
   index,
 }) => (
   <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-    <a className="ABOUT__box text-center">
+    <a styleName="ABOUT__box" className="text-center">
       <WebAnimation
-        className="ABOUT__icon"
+        styleName="ABOUT__icon"
         keyframes={aboutItem.keyframes}
         timing={aboutItem.timing(index)}
         shouldAnimate={shouldAnimate}
       >
         <i className={`fa fa-fw fa-${icon}`} />
       </WebAnimation>
-      <div className="ABOUT__text">
-        <h4 className="ABOUT__title">{title}</h4>
+      <div styleName="ABOUT__text">
+        <h4 styleName="ABOUT__title">{title}</h4>
         <p
-          className="ABOUT__detail"
+          styleName="ABOUT__detail"
           dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br/>') }}
         />
       </div>
