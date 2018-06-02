@@ -9,6 +9,8 @@
     overflow: hidden;
   }
 
+  .UTIL__carousel-indicators {}
+
   .UTIL__carousel-indicator {
     margin: 0 0.5rem;
     border: 3px solid $colorGray;
@@ -35,6 +37,8 @@
     }
 
     &.active {
+      .SVG--0 {}
+
       .SVG--1,
       .SVG--2,
       .SVG--3 {

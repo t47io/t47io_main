@@ -3,17 +3,20 @@ import PropTypes from 'prop-types';
 
 import { noOp } from '../../common/util.js';
 
+import cssCarousel from '../stylesheets/Carousel.scss';
+
 
 const CarouselIndicator = ({
   index,
   isActive,
   onClick,
 }) => {
-  const activeClassName = isActive ? 'active' : '';
+  const activeClassName = isActive ? cssCarousel.active : '';
 
   return (
     <li
-      className={`UTIL__carousel-indicator ${activeClassName}`}
+      styleName="cssCarousel.UTIL__carousel-indicator"
+      className={activeClassName}
       onClick={() => onClick(index)}
       role="presentation"
     />

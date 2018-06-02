@@ -6,13 +6,16 @@ import CarouselIndicator from './CarouselIndicator.jsx';
 
 import { SVG_BG_INDICES } from '../constants/util.js';
 
-import '../stylesheets/Carousel.scss';
+/* eslint-disable */
+import cssSvg from '../stylesheets/svg.scss';
+import cssUtil from '../stylesheets/util.scss';
+import cssCarousel from '../stylesheets/Carousel.scss';
+/* eslint-enable */
 
 
 class Carousel extends React.PureComponent {
   static propTypes = {
     items: PropTypes.arrayOf(PropTypes.string),
-    className: PropTypes.string,
     interval: PropTypes.number,
     children: PropTypes.oneOfType([
       PropTypes.node,
@@ -21,7 +24,6 @@ class Carousel extends React.PureComponent {
   };
   static defaultProps = {
     items: [],
-    className: '',
     interval: 2000,
   };
 
@@ -59,23 +61,23 @@ class Carousel extends React.PureComponent {
   };
 
   render() {
-    const { items, className, children } = this.props;
+    const { items, children } = this.props;
     const { current, active } = this.state;
-    const svgClassName = active ? 'active' : '';
+    const svgClassName = active ? cssCarousel.active : '';
     const tag = items[current];
 
     return (
-      <div className={`${className} SVG UTIL__carousel UTIL__background`}>
-        <div className={`SVG__background ${svgClassName} UTIL__carousel--fade`}>
+      <div styleName="cssSvg.SVG cssCarousel.UTIL__carousel cssUtil.UTIL__background">
+        <div styleName="cssCarousel.SVG__background cssCarousel.UTIL__carousel--fade" className={svgClassName}>
           {SVG_BG_INDICES.map(i => (
             <img
               key={`SVG__background-${tag}--${i}`}
-              className={`SVG--${i}`}
+              styleName={`cssSvg.SVG--${i} cssCarousel.SVG--${i}`}
               src={imgBackgrounds[i][tag]}
               alt={tag}
             />
           ))}
-          <ol className="UTIL__carousel-indicators carousel-indicators">
+          <ol styleName="cssCarousel.UTIL__carousel-indicators" className="carousel-indicators">
             {items.map((item, i) => (
               <CarouselIndicator
                 key={`UTIL__carousel-indicator-${items[i]}`}
@@ -86,7 +88,7 @@ class Carousel extends React.PureComponent {
             ))}
           </ol>
         </div>
-        <div className="UTIL__cover" />
+        <div styleName="cssUtil.UTIL__cover" />
 
         {children}
       </div>
