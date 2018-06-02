@@ -7,6 +7,8 @@ import {
 } from '../constants/util.js';
 import { fieldRegex } from '../util.js';
 
+import '../stylesheets/PortfolioSection.scss';
+
 
 const PortfolioDescription = ({ description }) => {
   const despChunks = description.split(MARKUP);
@@ -14,12 +16,12 @@ const PortfolioDescription = ({ description }) => {
 
   if (replaceChunks === null) {
     return (
-      <span className="PORTFILIO__text-description">{description}</span>
+      <span styleName="PORTFILIO__text-description">{description}</span>
     );
   }
 
   return (
-    <span className="PORTFILIO__text-description">
+    <span styleName="PORTFILIO__text-description">
       {despChunks.map((chunk) => {
         if (`${MARKUP}${chunk}${MARKUP}` === FIELD_MARKUP) {
           return (

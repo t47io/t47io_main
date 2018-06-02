@@ -8,6 +8,11 @@ import { imgPortfolio } from './Images.js';
 import { portfolioItem } from '../animations/portfolio.js';
 import { SVG_INDICES } from '../../common/constants/util.js';
 
+/* eslint-disable */
+import cssSvg from '../stylesheets/svg.scss';
+import cssPort from '../stylesheets/PortfolioSection.scss';
+/* eslint-enable */
+
 
 const PortfolioItem = ({
   name,
@@ -17,26 +22,26 @@ const PortfolioItem = ({
   shouldAnimate,
   index,
 }) => (
-  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 PORTFOLIO__entry">
+  <div styleName="cssPort.PORTFOLIO__entry" className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
     <WebAnimation
-      className="PORTFOLIO__item"
+      styleName="cssPort.PORTFOLIO__item"
       keyframes={portfolioItem.keyframes}
       timing={portfolioItem.timing(index)}
       shouldAnimate={shouldAnimate}
     >
-      <div className="SVG SVG--hover SVG--reverse">
+      <div styleName="cssSvg.SVG cssSvg.SVG--hover cssSvg.SVG--reverse cssPort.SVG">
         {SVG_INDICES.map(i => (
           <img
             key={`PORTFOLIO__item--${i}`}
-            className={`SVG--${i}`}
+            styleName={`cssSvg.SVG--${i} cssPort.SVG--${i}`}
             src={imgPortfolio[i][name]}
             alt={name}
           />
         ))}
       </div>
-      <div className="PORTFOLIO__text">
+      <div styleName="cssPort.PORTFOLIO__text">
         <a
-          className="PORTFILIO__text-link"
+          styleName="cssPort.PORTFILIO__text-link"
           href={url || `/project/${name}`}
           target="_blank" rel="noopener noreferrer"
         >

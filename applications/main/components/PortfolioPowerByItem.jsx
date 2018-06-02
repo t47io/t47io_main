@@ -6,6 +6,8 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import { imgBrands } from './Images.js';
 import { portfolioBrandItem } from '../animations/portfolio.js';
 
+import '../stylesheets/PortfolioSection.scss';
+
 
 const PortfolioPowerByItem = ({
   name,
@@ -18,7 +20,7 @@ const PortfolioPowerByItem = ({
   return (
     <WebAnimation
       tagName="li"
-      className="PORTFOLIO__brand-item"
+      styleName="PORTFOLIO__brand-item"
       keyframes={portfolioBrandItem.keyframes}
       timing={portfolioBrandItem.timing(index)}
       shouldAnimate={shouldAnimate}

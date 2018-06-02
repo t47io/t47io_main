@@ -6,6 +6,8 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import { portfolioFilterItem } from '../animations/portfolio.js';
 import { noOp } from '../../common/util.js';
 
+import cssPort from '../stylesheets/PortfolioSection.scss';
+
 
 const PortfolioFilterItem = ({
   category,
@@ -14,19 +16,20 @@ const PortfolioFilterItem = ({
   index,
   onClick,
 }) => {
-  const activeClassName = (category === selectedCategory) ? 'active' : '';
+  const activeClassName = (category === selectedCategory) ? cssPort.active : '';
 
   return (
     <WebAnimation
       tagName="li"
-      className={`PORTFOLIO__filter-item ${activeClassName}`}
+      styleName="cssPort.PORTFOLIO__filter-item"
+      className={activeClassName}
       keyframes={portfolioFilterItem.keyframes}
       timing={portfolioFilterItem.timing(index)}
       shouldAnimate={shouldAnimate}
       propsForceUpdate={activeClassName}
     >
       <a
-        className="PORTFOLIO__filter-link"
+        styleName="cssPort.PORTFOLIO__filter-link"
         onClick={onClick}
         role="presentation"
       >

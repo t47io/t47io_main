@@ -13,6 +13,8 @@
 
     .PORTFOLIO__filter-item {
       display: inline-block;
+      cursor: pointer;
+      will-change: transform, opacity;
 
       &.active .PORTFOLIO__filter-link {
         background: $colorDark;
@@ -72,6 +74,7 @@
   width: 100%;
   z-index: 5;
   overflow: hidden;
+  will-change: transform, opacity;
 
   .SVG {
     border: 1px solid $colorGray;
@@ -84,6 +87,10 @@
     z-index: 6;
     cursor: pointer;
     transition-duration: 1s;
+
+    .SVG--0,
+    .SVG--1,
+    .SVG--2 {}
   }
 
   .PORTFOLIO__text {
@@ -104,6 +111,8 @@
   &:hover {
     .SVG {
       transform: scale(1.5);
+
+      .SVG--0 {}
 
       .SVG--1,
       .SVG--2 {
@@ -154,6 +163,7 @@
   .PORTFOLIO__brand-item {
     list-style: none;
     display: inline-block;
+    will-change: transform, opacity;
   }
 
   svg {
@@ -161,36 +171,40 @@
     width: 2.5rem;
     margin: 0 0.5rem;
 
-    .brand-logo__open,
-    .brand-logo__filled,
-    .brand-logo__extra {
-      transition-duration: 0.25s;
-    }
-
-    .brand-logo__open {
-      fill: $colorGrayLight;
-      stroke: $colorGrayLight;
-    }
-
-    .brand-logo__filled {
-      fill: $colorMain;
-      stroke: $colorMain;
-    }
-
-    .brand-logo__extra {
-      fill: $colorGrayDark;
-    }
-
-    &:hover {
+    :global {
       .brand-logo__open,
+      .brand-logo__filled,
       .brand-logo__extra {
+        transition-duration: 0.25s;
+      }
+
+      .brand-logo__open {
+        fill: $colorGrayLight;
+        stroke: $colorGrayLight;
+      }
+
+      .brand-logo__filled {
         fill: $colorMain;
         stroke: $colorMain;
       }
 
-      .brand-logo__filled {
+      .brand-logo__extra {
         fill: $colorGrayDark;
-        stroke: $colorGrayDark;
+      }
+    }
+
+    &:hover {
+      :global {
+        .brand-logo__open,
+        .brand-logo__extra {
+          fill: $colorMain;
+          stroke: $colorMain;
+        }
+
+        .brand-logo__filled {
+          fill: $colorGrayDark;
+          stroke: $colorGrayDark;
+        }
       }
     }
   }

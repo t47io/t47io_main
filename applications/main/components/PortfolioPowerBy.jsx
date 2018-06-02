@@ -9,23 +9,28 @@ import {
   REPOSITORY,
 } from '../../config.js';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssPort from '../stylesheets/PortfolioSection.scss';
+/* eslint-enable */
+
 
 const PortfolioPowerBy = ({
   items,
   shouldAnimate,
 }) => (
-  <div className="PORTFOLIO__power-by">
-    <h5 className="PORTFOLIO__find-more text-gray text-center">
+  <div styleName="cssPort.PORTFOLIO__power-by">
+    <h5 styleName="cssPort.PORTFOLIO__find-more cssType.text-gray" className="text-center">
       <span className="fa-stack">
-        <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
-        <i className="fa fa-fw fa-coffee fa-stack-1x text-white" />
+        <i styleName="cssType.text-main-light" className="fa fa-fw fa-blank fa-stack-2x" />
+        <i styleName="cssType.text-white" className="fa fa-fw fa-coffee fa-stack-1x" />
       </span>
       This site is
       <i> (proudly) </i>
-      <b className="text-black">Powered By</b>
+      <b styleName="cssType.text-black">Powered By</b>
     </h5>
 
-    <ul className="PORTFOLIO__brands text-center">
+    <ul styleName="cssPort.PORTFOLIO__brands" className="text-center">
       {items.map((item, i) => (
         <PortfolioPowerByItem
           key={`PORTFOLIO__brand-${item.name}`}
@@ -36,7 +41,7 @@ const PortfolioPowerBy = ({
       ))}
     </ul>
 
-    <p className="PORTFOLIO__find-more text-center">
+    <p styleName="cssPort.PORTFOLIO__find-more" className="text-center">
       <a
         href={REPOSITORY}
         target="_blank" rel="noopener noreferrer external"
