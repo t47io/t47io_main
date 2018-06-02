@@ -12,6 +12,11 @@ import {
 } from '../animations/home.js';
 import { formatHomeText } from '../util.js';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssHome from '../stylesheets/HomeSection.scss';
+/* eslint-enable */
+
 
 const HomeDescription = ({
   title,
@@ -23,14 +28,14 @@ const HomeDescription = ({
   if (isServer) {
     return (
       <p
-        className="HOME__typewrite text-main-light"
+        styleName="cssHome.HOME__typewrite cssType.text-main-light"
         dangerouslySetInnerHTML={{ __html: displayHTML }}
       />
     );
   } else if (shouldCycle) {
     return (
       <ColorCycler
-        className="HOME__typewrite"
+        styleName="cssHome.HOME__typewrite"
         fullText={displayHTML}
         choices={TEXT_COLORS}
         interval={COLOR_CYCLER_INTERVAL}
@@ -41,8 +46,10 @@ const HomeDescription = ({
 
   return (
     <TypeWriter
-      className="HOME__typewrite"
-      cursorClassName="HOME__cursor"
+      styleName="cssHome.HOME__typewrite"
+      cursorClassName={cssHome.HOME__cursor}
+      cursorBlinkClassName={cssHome.blink}
+      cursorHiddenClassName={cssHome.hidden}
       fullText={title}
       delay={TYPE_WRITER_DELAY}
       interval={TYPE_WRITER_SPEED}

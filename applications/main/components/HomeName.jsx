@@ -6,6 +6,8 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import { imgName } from '../components/Images.js';
 import { homeName } from '../animations/home.js';
 
+import '../stylesheets/HomeSection.scss';
+
 
 const HomeName = ({
   shouldAnimate,
@@ -13,19 +15,19 @@ const HomeName = ({
 }) => (
   isServer ? (
     <img
-      className="HOME__name"
+      styleName="HOME__name"
       src={imgName}
       alt="Siqi Tian"
     />
   ) : (
     <WebAnimation
-      className="HOME__title"
+      styleName="HOME__title"
       keyframes={homeName.keyframes}
       timing={homeName.timing}
       shouldAnimate={shouldAnimate}
     >
       <img
-        className="HOME__name"
+        styleName="HOME__name"
         src={imgName}
         alt="Siqi Tian"
       />

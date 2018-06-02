@@ -2,7 +2,7 @@
 @import '../../common/mixins/media';
 @import '../../common/mixins/palette';
 
-#HOME__section {
+.HOME__section {
   height: 100vh;
   width: 100vw;
   max-width: 100%;
@@ -45,7 +45,7 @@
     @for $i from 1 through 4 {
       .SVG--#{$i} {
         transition-delay: #{$i * 0.5s + $draws * 0.05s + 1s};
-      }    
+      }
     }
 
     &.active {
@@ -64,7 +64,7 @@
         .SVG--#{$i} {
           opacity: 1;
           visibility: visible;
-        }    
+        }
       }
     }
 
@@ -72,7 +72,7 @@
       .SVG--drawing {
         display: none;
       }
-      
+
       .SVG--0 {
         display: inline;
       }
@@ -82,7 +82,7 @@
           opacity: 1;
           visibility: visible;
           transition-delay: 0s;
-        }    
+        }
       }
     }
   }
@@ -99,6 +99,7 @@
   .HOME__title {
     width: 100%;
     opacity: 0;
+    will-change: transform, opacity, filter;
   }
 
   .HOME__name {
@@ -156,11 +157,13 @@
   line-height: 2.5rem;
   height: 5rem;
   transition-duration: 1s;
+  will-change: color;
 }
 
 .HOME__cursor {
   color: $colorRed;
   font-weight: bold;
+  will-change: opacity;
 
   &.hidden {
     opacity: 0;
@@ -192,25 +195,31 @@
   position: absolute;
   top: 90%;
   right: 2rem;
+  cursor: row-resize;
+  will-change: color;
 
-  .fa {
-    color: $colorMain;
-    transition-duration: 0.5s;
-    animation: pulse 1s ease-in-out infinite alternate;
-  }
-
-  &:hover .fa {
-    opacity: 0.75;
-    animation: none;
-  }
-
-  @keyframes pulse {
-    0% {
-      opacity: 0.5;
+  :global {
+    .fa :local {
+      color: $colorMain;
+      transition-duration: 0.5s;
+      animation: pulse 1s ease-in-out infinite alternate;
     }
 
-    100% {
+    @keyframes pulse {
+      0% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  &:hover {
+    :global .fa {
       opacity: 0.75;
+      animation: none;
     }
   }
 }

@@ -19,7 +19,13 @@ import { noOp } from '../../common/util.js';
 import { HOME } from '../constants/sectionTypes.js';
 import { AVATAR_INDICES } from '../constants/util.js';
 
-import '../stylesheets/HomeSection.scss';
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssSvg from '../stylesheets/svg.scss';
+import cssUtil from '../stylesheets/util.scss';
+import cssHome from '../stylesheets/HomeSection.scss';
+import cssCarousel from '../stylesheets/Carousel.scss';
+/* eslint-enable */
 
 
 const HomeSection = ({
@@ -37,29 +43,29 @@ const HomeSection = ({
 }) => {
   let svgClassName;
   if (intro) {
-    svgClassName = 'finished';
+    svgClassName = cssHome.finished;
   } else {
-    svgClassName = (ready && avatar) ? 'active' : '';
+    svgClassName = (ready && avatar) ? cssHome.active : '';
   }
 
   return (
-    <section id="HOME__section">
+    <section id="HOME__section" styleName="cssHome.HOME__section">
       <HomeTrigger
         disabled={!ready}
         onToggleAnimation={animateHome}
       />
-      <h1 className="HOME__name--seo">SIQI TIAN</h1>
-      <div className={`SVG SVG--home ${svgClassName} SVG__background`}>
-        {(svgClassName !== 'finished') && (
+      <h1 styleName="cssHome.HOME__name--seo">SIQI TIAN</h1>
+      <div styleName="cssSvg.SVG cssHome.SVG cssHome.SVG--home cssCarousel.SVG__background" className={svgClassName}>
+        {!intro && (
           <SvgAvatar
-            className="SVG--drawing"
+            styleName="cssHome.SVG--drawing"
             preserveAspectRatio="xMidYMid slice"
           />
         )}
         {AVATAR_INDICES.map(i => (
           <img
             key={`HOME__avatar--${i}`}
-            className={`SVG--${i}`}
+            styleName={`cssSvg.SVG--${i} cssHome.SVG--${i}`}
             src={imgAvatars[i.toString()]}
             alt="Siqi Tian"
           />
@@ -67,19 +73,19 @@ const HomeSection = ({
       </div>
 
       <WebAnimation
-        className="UTIL__cover HOME__shade"
+        styleName="cssUtil.UTIL__cover cssHome.HOME__shade"
         keyframes={homeShade.keyframes}
         timing={homeShade.timing}
         shouldAnimate={avatar}
       />
 
       <div className="container" >
-        <div className="HOME__content text-white">
+        <div styleName="cssHome.HOME__content cssType.text-white">
           <HomeName
             shouldAnimate={avatar}
             isServer={server}
           />
-          <p className="text-white HOME__placeholder" />
+          <p styleName="cssHome.HOME__placeholder cssType.text-white" />
           <HomeDescription
             title={title}
             shouldAnimate={avatar}
