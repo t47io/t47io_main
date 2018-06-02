@@ -19,11 +19,19 @@ const loaders = (DEBUG = true, SSR = false) => {
     use: ExtractTextPlugin.extract({
       fallback: 'style-loader',
       use: [
-        'css-loader?importLoaders=1',
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: true,
+            localIdentName: '[local]__[hash:base62:5]',
+          },
+        },
         {
           loader: 'postcss-loader',
           options: { plugins: () => ([autoprefixer, csso]) },
         },
+        'fix-global-font-face-loader',
         'resolve-url-loader?-sourceMap',
         {
           loader: 'sass-loader',

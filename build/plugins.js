@@ -104,6 +104,7 @@ const plugins = (DEBUG = true) => {
       styleExtensions: ['.css', '.scss'],
       moduleExtensions: ['.html'],
       purifyOptions: {
+        whitelist: ['*__*'],
         minify: !DEBUG,
         info: !DEBUG,
         rejected: false,

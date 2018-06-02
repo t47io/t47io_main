@@ -38,6 +38,9 @@ const config = {
     alias: aliases(),
     symlinks: false,
   },
+  resolveLoader: {
+    modules: ['node_modules', PATH.BUILD],
+  },
 
   module: { rules: loaders(DEBUG, false) },
   plugins: plugins(DEBUG),

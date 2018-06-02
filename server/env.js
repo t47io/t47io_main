@@ -10,6 +10,7 @@ export const ROOT = path.join(__dirname, '../');
 export const PATH = {
   APP: path.join(ROOT, 'applications/'),
   BACKUP: path.join(ROOT, 'backup/'),
+  BUILD: path.join(ROOT, 'build/'),
   CONFIG: path.join(ROOT, 'config/'),
   STATIC: path.join(ROOT, 'static/'),
   PUBLIC: path.join(ROOT, 'public/'),
