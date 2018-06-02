@@ -1,6 +1,4 @@
-@import '../../common/stylesheets/index';
-@import '../../common/stylesheets/Logo';
-
-@import './anim';
-@import './svg';
-@import './util';
+:global {
+  @import '../../common/stylesheets/index';
+  @import '../../common/stylesheets/Logo';
+}
