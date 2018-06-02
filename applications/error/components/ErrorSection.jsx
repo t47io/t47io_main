@@ -29,7 +29,7 @@ const ErrorSection = ({
     </div>
     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <h2 className="ERROR__title">
-        <span className={`label PROJECT__label--${color}`} >
+        <span className={`label PROJECT__label PROJECT__label--${color}`} >
           {title.custom}
         </span>
       </h2>
@@ -40,7 +40,7 @@ const ErrorSection = ({
         <i>In other words,</i>
       </p>
       <h3>
-        <span className={`label PROJECT__label--${color}`}>
+        <span className={`label PROJECT__label PROJECT__label--${color}`}>
           {code}: {title.standard}
         </span>
       </h3>
