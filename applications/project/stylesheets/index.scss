@@ -1,8 +1,6 @@
-@import '../../common/stylesheets/index';
-@import '../../common/stylesheets/Logo';
-
-@import './typography';
-@import './sprites';
+:global {
+  @import '../../common/stylesheets/index';
+}
 
 #HOME__section {
   transition-duration: 0.5s;
@@ -10,4 +8,16 @@
   &.fade {
     filter: blur(3em);
   }
+}
+
+html {
+  overflow-y: scroll;
+}
+
+hr {
+  margin: 1rem 0;
+}
+
+.PROJECT__body {
+  padding: 6rem 1rem 1rem 1rem;
 }

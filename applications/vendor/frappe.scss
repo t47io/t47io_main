@@ -1,6 +1,6 @@
 @import '../common/mixins/colors';
 
-.chart-container {
+:global .chart-container {
   position: relative;
 
   text.title {

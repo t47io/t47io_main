@@ -1,7 +1,7 @@
 @import '../../common/mixins/media';
 @import '../../common/mixins/palette';
 
-.label {
+.PROJECT__label {
   margin: 0 0.25em;
 
   &.PROJECT__label--green {
@@ -30,7 +30,7 @@
   }
 }
 
-.lead {
+:global .lead {
   margin: 0 0.5rem;
 }
 
