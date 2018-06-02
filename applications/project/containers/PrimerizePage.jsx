@@ -30,7 +30,7 @@ const PrimerizePage = ({
   if (!title) { return null; }
 
   return (
-    <div className="PROJECT__body">
+    <div>
       <MetaSection
         title={title}
         description={description}

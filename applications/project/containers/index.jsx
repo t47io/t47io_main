@@ -27,9 +27,10 @@ import { scrollToSection } from '../../common/actions/navbarActions.js';
 import { animateReady } from '../actions/dataActions.js';
 import { noOp } from '../../common/util.js';
 
-import '../../vendor/index.scss';
-import '../../vendor/frappe.scss';
-import '../stylesheets/index.scss';
+/* eslint-disable */
+import cssVendor from '../../vendor/index.scss';
+import cssProject from '../stylesheets/index.scss';
+/* eslint-enable */
 
 
 const Project = ({
@@ -54,7 +55,7 @@ const Project = ({
       <Meta />
       <Navbar />
 
-      <div className="container">
+      <div styleName="cssProject.PROJECT__body" className="container">
         <Router>
           <Route component={DaslabPage} path="/project/daslab" />
           <Route component={PrimerizePage} path="/project/primerize" />
