@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../stylesheets/StatsSection.scss';
+
 
 const GithubAxes = ({
   monthText,
@@ -11,7 +13,7 @@ const GithubAxes = ({
       {weekdayText.map((wday, i) => (
         <text
           key={`axes-${wday}`}
-          className="wday"
+          styleName="wday"
           textAnchor="end"
           y={i * 24}
         >
@@ -23,7 +25,7 @@ const GithubAxes = ({
       {Object.keys(monthText).map(month => (
         <text
           key={`axes-${month}`}
-          className="month"
+          styleName="month"
           x={monthText[month]}
         >
           {month}

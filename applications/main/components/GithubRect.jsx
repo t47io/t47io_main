@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../stylesheets/StatsSection.scss';
+
 
 const GithubRect = ({
   x,
@@ -19,7 +21,7 @@ const GithubRect = ({
 
   return (
     <rect
-      className={`day day_${day}`}
+      styleName={`day day_${day}`}
       x={x}
       y={y}
       height="11"
