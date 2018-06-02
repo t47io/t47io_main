@@ -26,7 +26,7 @@
   @for $i from 1 through 3 {
     .SVG--#{$i} {
       transition-delay: #{$i * 0.25s};
-    }    
+    }
   }
 
   &.SVG--hover:hover {
@@ -41,7 +41,7 @@
     @for $i from 1 through 3 {
       .SVG--#{$i} {
         transition-delay: #{($i + 1) * 0.25s};
-      }    
+      }
     }
   }
 
@@ -57,7 +57,7 @@
     @for $i from 1 through 3 {
       .SVG--#{$i} {
         transition-delay: #{(3 - $i) * 0.25s};
-      }    
+      }
     }
 
     &.SVG--hover:hover {
