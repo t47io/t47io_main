@@ -1,4 +1,5 @@
 !.gitignore
+*.scss.json
 
 backup/
 backup.tar.gz

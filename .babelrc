@@ -9,7 +9,25 @@
     "react"
   ],
   "plugins": [
-    "lodash"
+    "lodash",
+    [
+      "react-css-modules", {
+        "filetypes": {
+          ".scss": {
+            "syntax": "postcss-scss",
+            "plugins": [
+              [
+                "postcss-nested", {
+                  "preserveEmpty": true
+                }
+              ]
+            ]
+          }
+        },
+        "generateScopedName": "[local]__[hash:base62:5]",
+        "handleMissingStyleName": "warn"
+      }
+    ]
   ],
   "env": {
     "development": {
