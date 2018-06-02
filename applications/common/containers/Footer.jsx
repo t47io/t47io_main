@@ -38,7 +38,11 @@ import {
   year,
 } from '../util.js';
 
-import '../stylesheets/Footer.scss';
+/* eslint-disable */
+import cssType from '../mixins/typography.scss';
+import cssSvg from '../../main/stylesheets/svg.scss';
+import cssFooter from '../stylesheets/Footer.scss';
+/* eslint-enable */
 
 
 const Footer = ({
@@ -46,13 +50,14 @@ const Footer = ({
   actions: { animateFooter },
   disabled,
 }) => (
-  <footer className="FOOTER text-off-white">
+  <footer styleName="cssFooter.FOOTER cssType.text-off-white">
     <Trigger
       disabled={disabled}
       onToggleAnimation={animateFooter}
     />
     <WebAnimation
-      className="FOOTTER__city SVG SVG--hover hidden-sm hidden-xs"
+      styleName="cssFooter.FOOTTER__city cssSvg.SVG cssSvg.SVG--hover"
+      className="hidden-sm hidden-xs"
       keyframes={footerGif.keyframes(FOOTER_LEFT)}
       timing={footerGif.timing}
       shouldAnimate={footer}
@@ -64,7 +69,7 @@ const Footer = ({
         {SVG_INDICES.map(i => (
           <img
             key={`FOOTTER__city-SFO--${i}`}
-            className={`FOOTER__city-gif SVG--${i}`}
+            styleName={`cssFooter.FOOTER__city-gif cssSvg.SVG--${i}`}
             src={imgSFO[i]}
             alt="Minimal City SFO"
           />
@@ -72,27 +77,29 @@ const Footer = ({
       </a>
     </WebAnimation>
     <WebAnimation
-      className="container text-center FOOTER__header"
+      styleName="cssFooter.FOOTER__header"
+      className="container text-center"
       keyframes={footerHeader.keyframes}
       timing={footerHeader.timing}
       shouldAnimate={footer}
     >
-      <div className="FOOTER__copyright text-center">
+      <div styleName="cssFooter.FOOTER__copyright" className="text-center">
         Copyright
         <i className="fa fa-fw fa-copyright" />
-        <a className="FOOTER__year">2015 - {year}</a>
+        <a styleName="cssFooter.FOOTER__year">2015 - {year}</a>
         Designed, built & managed by
         <LogoAlt
           href={`mailto:${EMAIL}`}
-          className="COMMON__footer_logo filled-transparent"
+          styleName="cssFooter.COMMON__footer_logo"
+          className="filled-transparent"
         />
         . All rights reserverd.
       </div>
-      <p className="FOOTER__copyright">
+      <p styleName="cssFooter.FOOTER__copyright">
         <a
           href={REPOSITORY}
           target="_blank" rel="noopener noreferrer external"
-          className="text-gray"
+          styleName="cssType.text-gray"
         >
           Code and content
           <i className="fa fa-fw fa-sm fa-link-ext" />
@@ -109,7 +116,8 @@ const Footer = ({
       </p>
     </WebAnimation>
     <WebAnimation
-      className="FOOTTER__city SVG SVG--hover hidden-sm hidden-xs"
+      styleName="cssFooter.FOOTTER__city cssSvg.SVG cssSvg.SVG--hover"
+      className="hidden-sm hidden-xs"
       keyframes={footerGif.keyframes(FOOTER_RIGHT)}
       timing={footerGif.timing}
       shouldAnimate={footer}
@@ -121,7 +129,7 @@ const Footer = ({
         {SVG_INDICES.map(i => (
           <img
             key={`FOOTTER__city-SEA--${i}`}
-            className={`FOOTER__city-gif SVG--${i}`}
+            styleName={`cssFooter.FOOTER__city-gif cssSvg.SVG--${i}`}
             src={imgSEA[i]}
             alt="Minimal City SEA"
           />

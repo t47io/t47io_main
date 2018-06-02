@@ -6,6 +6,9 @@ import DropdownItem from './DropdownItem.jsx';
 import { noOp } from '../util.js';
 import { PORTFOLIO } from '../../main/constants/sectionTypes.js';
 
+import cssNav from '../stylesheets/Navbar.scss';
+import cssDrop from '../stylesheets/Dropdown.scss';
+
 
 const NavbarItem = ({
   name,
@@ -14,16 +17,16 @@ const NavbarItem = ({
   onClick,
 }) => {
   const isDropdown = (dropdown && dropdown.length > 0);
-  const dropdownClassName = isDropdown ? 'dropdown COMMON__dropdown' : '';
-  const activeClassName = isActive ? 'active' : '';
+  const dropdownClassName = isDropdown ? `dropdown ${cssDrop.COMMON__dropdown}` : '';
+  const activeClassName = isActive ? `${cssNav.active} ${cssDrop.active}` : '';
   const hrefObj = !isDropdown ? { onClick } : {
     href: (isActive ? `/#${PORTFOLIO}__section` : '/'),
   };
 
   return (
-    <li className={`COMMON__navbar-item ${activeClassName} ${dropdownClassName}`}>
+    <li styleName="cssNav.COMMON__navbar-item" className={`${activeClassName} ${dropdownClassName}`}>
       <a
-        className="COMMON__navbar-link"
+        styleName="cssNav.COMMON__navbar-link"
         {...hrefObj}
       >
         {name}
@@ -32,7 +35,7 @@ const NavbarItem = ({
         )}
       </a>
       {isDropdown && isActive && (
-        <ul className="dropdown-menu COMMON__dropdown-menu nav nav-pills nav-stacked">
+        <ul styleName="cssDrop.COMMON__dropdown-menu" className="dropdown-menu nav nav-pills nav-stacked">
           {dropdown.map(title => (
             <DropdownItem
               key={title}

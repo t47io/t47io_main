@@ -27,6 +27,7 @@
     .FOOTER__city-gif {
       @extend .FOOTTER__city;
       vertical-align: text-bottom;
+      will-change: transform, opacity;
     }
   }
 
@@ -38,6 +39,7 @@
 .FOOTER__header {
   padding-top: 1rem;
   width: auto;
+  will-change: transform, opacity;
 }
 
 .FOOTER__year {
@@ -62,6 +64,6 @@
   }
 
   .FOOTER__header {
-    padding: 1rem 1.5rem;    
+    padding: 1rem 1.5rem;
   }
 }

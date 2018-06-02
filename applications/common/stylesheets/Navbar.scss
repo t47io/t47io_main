@@ -19,6 +19,7 @@
       font-weight: 600;
       line-height: 20px;
       text-transform: uppercase;
+      cursor: pointer;
     }
 
     &:hover {
@@ -38,6 +39,7 @@
     height: auto;
     padding: 0;
     transition-duration: 0.2s;
+    cursor: help;
 
     svg {
       width: 100%;
@@ -78,7 +80,7 @@
     opacity: 0.5;
   }
 
-  .container {
+  :global .container {
     padding-top: 30px;
   }
 
@@ -133,7 +135,7 @@
         background-color: rgba(0, 7, 11, 0);
       }
 
-      .icon-bar {
+      :global .icon-bar {
         background-color: $colorWhite;
         height: 3px;
       }

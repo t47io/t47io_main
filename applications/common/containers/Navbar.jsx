@@ -12,7 +12,7 @@ import { noOp } from '../util.js';
 import { NAVBAR } from '../constants/sectionTypes.js';
 import { HOME } from '../../main/constants/sectionTypes.js';
 
-import '../stylesheets/Navbar.scss';
+import cssNav from '../stylesheets/Navbar.scss';
 
 
 const Navbar = ({
@@ -29,17 +29,19 @@ const Navbar = ({
     toggleMobileCollapse,
   },
 }) => {
-  const navbarClassName = (activeSection === HOME) ? 'COMMON__navbar--transparent' : 'navbar-shrink COMMON__navbar--default';
+  const navbarClassName = (activeSection === HOME) ?
+    cssNav['COMMON__navbar--transparent'] : `navbar-shrink ${cssNav['COMMON__navbar--default']}`;
   const buttonClassName = isMobileCollapsed ? 'collapsed' : '';
   const logoClassName = (activeSection === HOME) ? 'filled' : 'white';
-  const collapseClassName = isMobileCollapsed ? 'display' : '';
+  const collapseClassName = isMobileCollapsed ? cssNav.display : '';
 
   return (
-    <nav className={`COMMON__navbar navbar navbar-fixed-top ${navbarClassName}`}>
+    <nav styleName="cssNav.COMMON__navbar" className={`navbar navbar-fixed-top ${navbarClassName}`}>
       <div className="container">
-        <div className="COMMON__navbar-header navbar-header">
+        <div styleName="cssNav.COMMON__navbar-header" className="navbar-header">
           <button
-            className={`COMMON__navbar-toggle navbar-toggle ${buttonClassName}`}
+            styleName="cssNav.COMMON__navbar-toggle"
+            className={`navbar-toggle ${buttonClassName}`}
             type="button"
             onClick={toggleMobileCollapse}
           >
@@ -51,12 +53,13 @@ const Navbar = ({
           <Logo
             href="/"
             isTargetBlank={false}
-            className={`COMMON__navbar-logo ${logoClassName}`}
+            styleName="cssNav.COMMON__navbar-logo"
+            className={`${logoClassName}`}
           />
         </div>
 
-        <div className={`COMMON__navbar--collapse navbar-collapse ${collapseClassName}`} >
-          <ul className="nav navbar-right COMMON__navbar-dropdown">
+        <div styleName="cssNav.COMMON__navbar--collapse" className={`navbar-collapse ${collapseClassName}`} >
+          <ul styleName="cssNav.COMMON__navbar-dropdown" className="nav navbar-right">
             {items.map((item, i) => (
               <NavbarItem
                 key={`COMMON__navbar-${i}`}

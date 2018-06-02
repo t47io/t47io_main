@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'preact-router/match';
 import PropTypes from 'prop-types';
 
+import cssDrop from '../stylesheets/Dropdown.scss';
+
 
 const DropdownItem = ({ title }) => (
-  <li className="COMMON__dropdown-item">
+  <li styleName="cssDrop.COMMON__dropdown-item">
     <Link
       href={`/project/${title}`}
-      className="COMMON__dropdown-link"
-      activeClassName="active"
+      styleName="cssDrop.COMMON__dropdown-link"
+      activeClassName={cssDrop.active}
     >
       {title}
     </Link>
