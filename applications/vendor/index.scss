@@ -1,5 +1,7 @@
-@import './font-awesome/typography';
-@import './tenor-sans/typography';
+:global {
+  @import './font-awesome/typography';
+  @import './tenor-sans/typography';
 
-@import './reset';
-@import './tooltip';
+  @import './reset';
+  @import './tooltip';
+}
