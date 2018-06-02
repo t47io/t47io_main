@@ -9,6 +9,8 @@ import {
   SKILLS_RIGHT,
 } from '../constants/sectionTypes.js';
 
+import '../stylesheets/SkillsSection.scss';
+
 
 const SkillsProgressBar = ({
   title,
@@ -18,13 +20,14 @@ const SkillsProgressBar = ({
   index,
 }) => (
   <WebAnimation
-    className={`SKILLS__progress ${side}`}
+    styleName="SKILLS__progress"
+    className={side}
     keyframes={skillsItem.keyframes(side)}
     timing={skillsItem.timing(index)}
     shouldAnimate={shouldAnimate}
   >
     <div
-      className="SKILLS__bar" role="progressbar"
+      styleName="SKILLS__bar" role="progressbar"
       aria-valuenow={value} aria-valuemin="0" aria-valuemax="100"
       style={{ width: `${value}%` }}
     >

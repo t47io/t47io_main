@@ -16,7 +16,12 @@ import {
   SKILLS_RIGHT,
 } from '../constants/sectionTypes.js';
 
-import '../stylesheets/SkillsSection.scss';
+
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssUtil from '../stylesheets/util.scss';
+import cssSkills from '../stylesheets/SkillsSection.scss';
+/* eslint-enable */
 
 
 const SkillsSection = ({
@@ -33,7 +38,7 @@ const SkillsSection = ({
   },
 }) => (
   <section id="SKILLS__section">
-    <div className="UTIL__spacer-hg SKILLS__trigger" />
+    <div styleName="cssUtil.UTIL__spacer-hg cssSkills.SKILLS__trigger" />
     <SectionHeader
       title="my skills"
       subtitle="what I learned"
@@ -48,7 +53,7 @@ const SkillsSection = ({
             delay={0}
             onToggleAnimation={animateLeftBars}
           />
-          <div className="SKILLS__panel left">
+          <div styleName="cssSkills.SKILLS__panel">
             {items.left.map((panel, i) => (
               <SkillsPanel
                 key={`SKILLS__chapter-left-${i}`}
@@ -64,7 +69,7 @@ const SkillsSection = ({
             delay={0}
             onToggleAnimation={animateRightBars}
           />
-          <div className="SKILLS__panel right">
+          <div styleName="cssSkills.SKILLS__panel">
             {items.right.map((panel, i) => (
               <SkillsPanel
                 key={`SKILLS__chapter-right-${i}`}

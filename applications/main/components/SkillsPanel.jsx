@@ -8,6 +8,8 @@ import {
   SKILLS_RIGHT,
 } from '../constants/sectionTypes.js';
 
+import '../stylesheets/SkillsSection.scss';
+
 
 const SkillsPanel = ({
   title,
@@ -17,8 +19,8 @@ const SkillsPanel = ({
   counter,
   offset,
 }) => (
-  <div className="SKILLS__chapter">
-    <h6 className="SKILLS__title">
+  <div styleName="SKILLS__chapter">
+    <h6 styleName="SKILLS__title">
       <i className={`fa fa-fw fa-lg fa-${icon}`} />
       {title}
     </h6>
