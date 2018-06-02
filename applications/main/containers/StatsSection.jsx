@@ -15,7 +15,11 @@ import { noOp } from '../../common/util.js';
 import { STATS } from '../constants/sectionTypes.js';
 import { GITHUB_HOST } from '../../config.js';
 
-import '../stylesheets/StatsSection.scss';
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssUtil from '../stylesheets/util.scss';
+import cssStats from '../stylesheets/StatsSection.scss';
+/* eslint-enable */
 
 
 const StatsSection = ({
@@ -38,40 +42,41 @@ const StatsSection = ({
 }) => (
   <section id="STATS__section">
     <Carousel
-      className="STATS__area text-white"
       items={backgrounds}
       interval={4000}
     >
-      <div className="UTIL__spacer-lg STATS__trigger" />
-      <SectionHeader
-        title="my stats"
-        subtitle="what I achieved"
-        shouldAnimate={header}
-        onToggleAnimation={animateHeader}
-      />
-      <div className="UTIL__spacer-lg" />
+      <div styleName="cssStats.STATS__area cssType.text-white">
+        <div styleName="cssUtil.UTIL__spacer-lg" />
+        <SectionHeader
+          title="my stats"
+          subtitle="what I achieved"
+          shouldAnimate={header}
+          onToggleAnimation={animateHeader}
+        />
+        <div styleName="cssUtil.UTIL__spacer-lg" />
 
-      <div className="container">
-        <Trigger onToggleAnimation={animateCounters} />
-        <div className="row">
-          {items.map((item, i) => (
-            <StatsItem
-              key={`STATS__counter-${i}`}
-              shouldAnimate={counter}
-              index={i}
-              {...item}
-            />
-          ))}
+        <div className="container">
+          <Trigger onToggleAnimation={animateCounters} />
+          <div className="row">
+            {items.map((item, i) => (
+              <StatsItem
+                key={`STATS__counter-${i}`}
+                shouldAnimate={counter}
+                index={i}
+                {...item}
+              />
+            ))}
+          </div>
         </div>
+        <div styleName="cssUtil.UTIL__spacer-lg" />
       </div>
-      <div className="UTIL__spacer-lg" />
     </Carousel>
 
-    <div className="UTIL__spacer-xl" />
+    <div styleName="cssUtil.UTIL__spacer-xl" />
     <h3 className="text-center">
       <i className="fa fa-fw fa-github-circled" />
       Contributions
-      <small className="STATS__note-link">
+      <small styleName="cssStats.STATS__note-link">
         <a
           href={`${GITHUB_HOST}${accounts[0]}`}
           target="_blank" rel="noopener noreferrer external"
@@ -81,7 +86,7 @@ const StatsSection = ({
       </small>
     </h3>
 
-    <div className="UTIL__spacer-md" />
+    <div styleName="cssUtil.UTIL__spacer-md" />
     <StatsGithub
       gitContrib={gitContrib}
       shouldAnimate={github}

@@ -9,6 +9,8 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import { statsGithub } from '../animations/stats.js';
 import { noOp } from '../../common/util.js';
 
+import '../stylesheets/StatsSection.scss';
+
 
 const StatsGithub = ({
   gitContrib,
@@ -18,7 +20,8 @@ const StatsGithub = ({
   <div>
     <Trigger onToggleAnimation={onToggleAnimation} />
     <WebAnimation
-      className="text-center STATS__github"
+      styleName="STATS__github"
+      className="text-center"
       keyframes={statsGithub.keyframes}
       timing={statsGithub.timing}
       shouldAnimate={shouldAnimate}

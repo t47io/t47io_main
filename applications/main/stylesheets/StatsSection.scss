@@ -7,9 +7,12 @@
 
   .STATS__counter {
     padding-bottom: 2.25rem;
+    will-change: transform, opacity;
 
-    &:hover .fa {
-      color: $colorMain;
+    &:hover {
+      :global .fa {
+        color: $colorMain;
+      }
     }
 
     .STATS__num {
@@ -26,51 +29,55 @@
   margin-left: 0.5rem;
 }
 
-.STATS__github svg {
-  overflow: visible;
+.STATS__github {
+  will-change: transform, opacity;
 
-  .private {
-    font-style: italic;
-  }
+  svg {
+    overflow: visible;
 
-  .month,
-  .wday {
-    fill: $colorGrayDark;
-    font-size: 0.8rem;
-  }
-
-  .legend {
-    fill: $colorGrayDark;
-    font-size: 0.9rem;
-  }
-
-  .day {
-    shape-rendering: crispedges;
-    height: 0.8rem;
-    width: 0.8rem;
-
-    &:hover {
-      stroke: $colorBlack;
+    .private {
+      font-style: italic;
     }
 
-    &.day_0 {
-      fill: $colorGrayLight;
+    .month,
+    .wday {
+      fill: $colorGrayDark;
+      font-size: 0.8rem;
     }
 
-    &.day_1 {
-      fill: $colorLight;
+    .legend {
+      fill: $colorGrayDark;
+      font-size: 0.9rem;
     }
 
-    &.day_2 {
-      fill: $colorMain;
-    }
+    .day {
+      shape-rendering: crispedges;
+      height: 0.8rem;
+      width: 0.8rem;
 
-    &.day_3 {
-      fill: $colorDark;
-    }
+      &:hover {
+        stroke: $colorBlack;
+      }
 
-    &.day_4 {
-      fill: $colorHeavy;
+      &.day_0 {
+        fill: $colorGrayLight;
+      }
+
+      &.day_1 {
+        fill: $colorLight;
+      }
+
+      &.day_2 {
+        fill: $colorMain;
+      }
+
+      &.day_3 {
+        fill: $colorDark;
+      }
+
+      &.day_4 {
+        fill: $colorHeavy;
+      }
     }
   }
 }

@@ -6,6 +6,11 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { statsItem } from '../animations/stats.js';
 
+/* eslint-disable */
+import cssUtil from '../stylesheets/util.scss';
+import cssStats from '../stylesheets/StatsSection.scss';
+/* eslint-enable */
+
 
 const StatsItem = ({
   icon,
@@ -14,22 +19,23 @@ const StatsItem = ({
   shouldAnimate,
   index,
 }) => (
-  <div className="STATS__item text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
+  <div styleName="cssStats.STATS__item" className="text-center col-xs-6 col-sm-6 col-md-3 col-lg-3">
     <WebAnimation
-      className="STATS__counter"
+      styleName="cssStats.STATS__counter"
       keyframes={statsItem.keyframes}
       timing={statsItem.timing(index)}
       shouldAnimate={shouldAnimate}
     >
       <i className={`fa fa-${icon} fa-3x fa-fw`} />
-      <div className="UTIL__spacer-md" />
+      <div styleName="cssUtil.UTIL__spacer-md" />
       <Counter
-        className="STATS__num"
+        className={cssStats.STATS__num}
+        doneClassName={cssStats.done}
         endValue={value}
         shouldAnimate={shouldAnimate}
       />
-      <div className="UTIL__spacer-md" />
-      <p className="lead STATS__text">
+      <div styleName="cssUtil.UTIL__spacer-md" />
+      <p styleName="cssStats.STATS__text" className="lead">
         <b>{title}</b>
       </p>
     </WebAnimation>
