@@ -11,6 +11,11 @@ import { noOp } from '../../common/util.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 import { EMAIL } from '../../config.js';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssContact from '../stylesheets/ContactSection.scss';
+/* eslint-enable */
+
 
 const ContactList = ({
   resume,
@@ -31,7 +36,7 @@ const ContactList = ({
       <Trigger onToggleAnimation={onToggleAnimation} />
       <WebAnimation
         tagName="h4"
-        className="CONTACT__title CONTACT__list-item"
+        styleName="cssContact.CONTACT__title cssContact.CONTACT__list-item"
         keyframes={contactPanel.keyframes(CONTACT_LEFT)}
         timing={contactPanel.timing(0)}
         shouldAnimate={counter}
@@ -39,10 +44,10 @@ const ContactList = ({
         <i className="fa fa-street-view fa-lg fa-fw" />
         Find Me
       </WebAnimation>
-      <ul className="CONTACT__address">
+      <ul styleName="cssContact.CONTACT__address">
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item"
+          styleName="cssContact.CONTACT__list-item"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(1)}
           shouldAnimate={counter}
@@ -52,7 +57,7 @@ const ContactList = ({
         </WebAnimation>
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item"
+          styleName="cssContact.CONTACT__list-item"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(2)}
           shouldAnimate={counter}
@@ -62,7 +67,7 @@ const ContactList = ({
         </WebAnimation>
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item padding"
+          styleName="cssContact.CONTACT__list-item cssContact.padding"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(3)}
           shouldAnimate={counter}
@@ -70,7 +75,7 @@ const ContactList = ({
           <i className="fa fa-mail-alt fa-lg fa-fw" />
           <b>
             <a
-              className="text-main-light"
+              styleName="cssType.text-main-light"
               href="mailto:t47@alumni.stanford.edu"
               target="_blank" rel="noopener noreferrer external"
             >
@@ -80,14 +85,14 @@ const ContactList = ({
         </WebAnimation>
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item"
+          styleName="cssContact.CONTACT__list-item"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(4)}
           shouldAnimate={counter}
         >
           <i className="fa fa-mail-alt fa-lg fa-fw invisible" />
           <a
-            className="text-gray-light"
+            styleName="cssType.text-gray-light"
             href={`mailto:${EMAIL}`}
             target="_blank" rel="noopener noreferrer external"
           >
@@ -96,7 +101,7 @@ const ContactList = ({
         </WebAnimation>
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item padding"
+          styleName="cssContact.CONTACT__list-item cssContact.padding"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(5)}
           shouldAnimate={counter}
@@ -104,12 +109,13 @@ const ContactList = ({
         >
           <i className="fa fa-megaphone fa-lg fa-fw" />
           <button
-            className="CONTACT__button long btn btn-default"
+            styleName="cssContact.CONTACT__button cssContact.long"
+            className="btn btn-default"
             onClick={onToggleAudio}
           >
             <i className="fa fa-file-audio fa-fw" />
             Proununciation
-            <span className="text-black CONTACT__resume">
+            <span styleName="cssContact.CONTACT__resume cssType.text-black">
               <i className={`fa fa-${audioPlayClassName} fa-fw`} />
             </span>
           </button>
@@ -120,20 +126,21 @@ const ContactList = ({
         </WebAnimation>
         <WebAnimation
           tagName="li"
-          className="CONTACT__list-item padding"
+          styleName="cssContact.CONTACT__list-item cssContact.padding"
           keyframes={contactPanel.keyframes(CONTACT_LEFT)}
           timing={contactPanel.timing(6)}
           shouldAnimate={counter}
         >
           <i className="fa fa-download fa-lg fa-fw" />
           <a
-            className="CONTACT__button btn btn-default"
+            styleName="cssContact.CONTACT__button"
+            className="btn btn-default"
             href="/resume/"
             target="_blank" rel="noopener noreferrer"
           >
             <i className="fa fa-file-pdf fa-fw" />
             Résumé
-            <span className="text-black CONTACT__resume">
+            <span styleName="cssContact.CONTACT__resume cssType.text-black">
               <i className="fa fa-clock fa-fw" />
               <small>{objDate}</small>
             </span>

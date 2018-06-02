@@ -15,7 +15,11 @@ import { initialState as contactProps } from '../reducers/contact.js';
 import { noOp } from '../../common/util.js';
 import { CONTACT } from '../constants/sectionTypes.js';
 
-import '../stylesheets/ContactSection.scss';
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssUtil from '../stylesheets/util.scss';
+import cssContact from '../stylesheets/ContactSection.scss';
+/* eslint-enable */
 
 
 const ContactSection = ({
@@ -42,12 +46,12 @@ const ContactSection = ({
     playAudio,
   },
 }) => (
-  <section id="CONTACT__section" className="text-white">
+  <section id="CONTACT__section" styleName="cssContact.CONTACT__section cssType.text-white">
     <Carousel
       items={backgrounds}
       interval={4000}
     >
-      <div className="UTIL__spacer-lg" />
+      <div styleName="cssUtil.UTIL__spacer-lg" />
       <SectionHeader
         title="contact me"
         subtitle="let's chat"
@@ -57,7 +61,7 @@ const ContactSection = ({
 
       <div className="container">
         <Trigger onToggleAnimation={animateIcons} />
-        <ul className="CONTACT__social">
+        <ul styleName="cssContact.CONTACT__social">
           {items.map((item, i) => (
             <ContactItem
               key={`CONTACT__icon-${i}`}
@@ -68,7 +72,7 @@ const ContactSection = ({
           ))}
         </ul>
       </div>
-      <div className="UTIL__spacer-lg" />
+      <div styleName="cssUtil.UTIL__spacer-lg" />
 
       <div className="container">
         <div className="row">

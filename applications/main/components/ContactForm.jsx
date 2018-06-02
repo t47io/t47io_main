@@ -9,6 +9,8 @@ import { noOp } from '../../common/util.js';
 import { CONTACT_RIGHT } from '../constants/sectionTypes.js';
 import { EMAIL_ERROR_CODES } from '../constants/util.js';
 
+import '../stylesheets/ContactSection.scss';
+
 
 const ContactForm = ({
   name,
@@ -48,7 +50,7 @@ const ContactForm = ({
       <Trigger onToggleAnimation={onToggleAnimation} />
       <WebAnimation
         tagName="h4"
-        className="CONTACT__title CONTACT__form-item"
+        styleName="CONTACT__title CONTACT__form-item"
         keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
         timing={contactPanel.timing(0)}
         shouldAnimate={counter}
@@ -58,7 +60,7 @@ const ContactForm = ({
       </WebAnimation>
 
       <form
-        className="CONTACT__form"
+        styleName="CONTACT__form"
         onSubmit={(event) => {
           event.preventDefault();
           onSubmitForm();
@@ -72,7 +74,8 @@ const ContactForm = ({
           propsForceUpdate={shouldDisableForm}
         >
           <input
-            className="CONTACT__form-item form-control input-lg"
+            styleName="CONTACT__form-item"
+            className="form-control input-lg"
             type="text" name="name" placeholder="Your Name"
             value={name} required
             disabled={shouldDisableForm}
@@ -80,7 +83,8 @@ const ContactForm = ({
           />
         </WebAnimation>
         <WebAnimation
-          className="CONTACT__form-item form-group"
+          styleName="CONTACT__form-item"
+          className="form-group"
           keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
           timing={contactPanel.timing(2)}
           shouldAnimate={counter}
@@ -95,7 +99,8 @@ const ContactForm = ({
           />
         </WebAnimation>
         <WebAnimation
-          className="CONTACT__form-item form-group"
+          styleName="CONTACT__form-item"
+          className="form-group"
           keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
           timing={contactPanel.timing(3)}
           shouldAnimate={counter}
@@ -110,14 +115,16 @@ const ContactForm = ({
           />
         </WebAnimation>
         <WebAnimation
-          className="CONTACT__form-item form-group"
+          styleName="CONTACT__form-item"
+          className="form-group"
           keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
           timing={contactPanel.timing(4)}
           shouldAnimate={counter}
           propsForceUpdate={shouldDisableForm}
         >
           <textarea
-            className="CONTACT__form-textarea form-control input-lg"
+            styleName="CONTACT__form-textarea"
+            className="form-control input-lg"
             name="message" rows="5" placeholder="Message"
             value={message} required
             disabled={shouldDisableForm}
@@ -125,14 +132,16 @@ const ContactForm = ({
           />
         </WebAnimation>
         <WebAnimation
-          className="CONTACT__form-item form-group"
+          styleName="CONTACT__form-item"
+          className="form-group"
           keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
           timing={contactPanel.timing(5)}
           shouldAnimate={counter}
           propsForceUpdate={`${shouldDisableForm} ${btnClassName} ${btnIconClassName}`}
         >
           <button
-            className={`CONTACT__form-button btn btn-${btnClassName} btn-block`}
+            styleName="CONTACT__form-button"
+            className={`btn btn-${btnClassName} btn-block`}
             type="submit"
             disabled={shouldDisableForm}
           >

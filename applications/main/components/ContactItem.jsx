@@ -5,6 +5,8 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { contactItem } from '../animations/contact.js';
 
+import '../stylesheets/ContactSection.scss';
+
 
 const ContactItem = ({
   icon,
@@ -14,7 +16,7 @@ const ContactItem = ({
 }) => (
   <WebAnimation
     tagName="li"
-    className="CONTACT__item"
+    styleName="CONTACT__item"
     keyframes={contactItem.keyframes}
     timing={contactItem.timing(index)}
     shouldAnimate={shouldAnimate}
@@ -22,9 +24,10 @@ const ContactItem = ({
     <a
       href={url}
       target="_blank" rel="noopener noreferrer external"
-      className="CONTACT__box text-center"
+      styleName="CONTACT__box"
+      className="text-center"
     >
-      <span className="CONTACT__icon">
+      <span styleName="CONTACT__icon">
         <i className={`fa fa-${icon}`} />
       </span>
     </a>

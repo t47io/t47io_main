@@ -1,8 +1,10 @@
 @import '../../common/mixins/colors';
 @import '../../common/mixins/media';
-@import './ContactForm';
+:global {
+  @import './ContactForm';
+}
 
-#CONTACT__section {
+.CONTACT__section {
   position: relative;
   width: 100%;
   padding: 0;
@@ -11,7 +13,7 @@
 }
 
 @include media_width_lt(767px) {
-  #CONTACT__section {
+  .CONTACT__section {
     text-align: center;
   }
 }
@@ -42,7 +44,7 @@
     transition-duration: 0.25s;
     transform: rotate(45deg);
 
-    .fa {
+    :global .fa {
       transition-duration: 0.25s;
       transform: rotate(-45deg);
     }
@@ -63,7 +65,7 @@
       background-color: $colorMain;
       transition-duration: 0.25s;
 
-      .fa {
+      :global .fa {
         transition-duration: 0.25s;
         transform-origin: 50% 50%;
         transform: scale(2, 1.41) rotate(90deg) rotateX(225deg);
@@ -91,12 +93,13 @@
   .CONTACT__item {
     display: inline-block;
     margin-right: 1.5rem;
+    will-change: transform, opacity;
 
     .CONTACT__box {
       margin: 0;
     }
 
-    .fa {
+    :global .fa {
       color: $colorWhite;
     }
   }
@@ -122,8 +125,9 @@
     padding: 0 0 1.75rem;
     margin: 0;
     list-style: none;
+    will-change: transform, opacity;
 
-    .fa {
+    :global .fa {
       margin-right: 0.75rem;
 
       &.invisible {
@@ -136,7 +140,7 @@
     }
 
     &:hover {
-      .fa {
+      :global .fa {
         color: $colorMain;
       }
     }
@@ -165,7 +169,7 @@
             transition-duration: 0.5s;
           }
 
-          .fa {
+          :global .fa {
             color: $colorBlack;
           }
         }
@@ -176,7 +180,7 @@
   .CONTACT__resume {
     opacity: 0;
 
-    .fa {
+    :global .fa {
       margin-right: 0;
     }
   }
@@ -184,6 +188,10 @@
 
 .CONTACT__form {
   margin-bottom: 2.5rem;
+
+  .CONTACT__form-item {
+    will-change: transform, opacity;
+  }
 
   .CONTACT__form-button {
     height: 3rem;
@@ -196,11 +204,6 @@
 
   .CONTACT__form-textarea {
     resize: vertical;
-  }
-
-  .input-lg {
-    font-size: 1rem;
-    border-radius: 0;
   }
 }
 
