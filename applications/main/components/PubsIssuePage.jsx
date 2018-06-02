@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssPubs from '../stylesheets/PubsSection.scss';
+/* eslint-enable */
+
 
 const PubsIssuePage = ({
   issue,
@@ -9,14 +14,14 @@ const PubsIssuePage = ({
 }) => {
   if (isPreprint) {
     return (
-      <span className="PUBS__issue">
-        , <span className="text-gray">{issue}</span>.
+      <span styleName="cssPubs.PUBS__issue">
+        , <span styleName="cssType.text-gray">{issue}</span>.
       </span>
     );
   }
 
   return (
-    <span className="PUBS__issue">
+    <span styleName="cssPubs.PUBS__issue">
       <b>{issue}</b>: {page}.
     </span>
   );

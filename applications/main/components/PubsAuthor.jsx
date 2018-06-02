@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { AUTHOR_NAME } from '../constants/util.js';
 
+import '../../common/mixins/typography.scss';
+
 
 const PubsAuthor = ({ authors }) => {
   const numAuthors = authors.length;
@@ -19,7 +21,7 @@ const PubsAuthor = ({ authors }) => {
         if (author.startsWith(AUTHOR_NAME)) {
           return (
             <span key={author}>
-              <u className="text-black bg-gray-light">
+              <u styleName="text-black bg-gray-light">
                 Tian, S.
                 {author.endsWith('*') && '*'}
                 {(i <= numAuthors - 2) && ','}

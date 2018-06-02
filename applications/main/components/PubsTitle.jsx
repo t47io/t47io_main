@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { MARKUP } from '../constants/util.js';
 import { italicRegex } from '../util.js';
 
+import '../stylesheets/PubsSection.scss';
+
 
 const PubsTitle = ({ title }) => {
   const titleChunks = title.split(MARKUP);
@@ -11,12 +13,12 @@ const PubsTitle = ({ title }) => {
 
   if (italicChunks === null) {
     return (
-      <b className="PUBS__title">{title}</b>
+      <b styleName="PUBS__title">{title}</b>
     );
   }
 
   return (
-    <b className="PUBS__title">
+    <b styleName="PUBS__title">
       {titleChunks.map((chunk) => {
         if (italicChunks.includes(`${MARKUP}${chunk}${MARKUP}`)) {
           return (

@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssPubs from '../stylesheets/PubsSection.scss';
+/* eslint-enable */
+
 
 const PubsLink = ({
   url,
@@ -11,7 +16,8 @@ const PubsLink = ({
 }) => {
   const isAvailable = size ? (size !== 'unavailable') : (url && !isPreprint);
   const href = isAvailable ? { href: url } : {};
-  let iconClassName = isAvailable ? 'text-main-dark bg-main-light' : 'text-gray-light';
+  let iconClassName = isAvailable ?
+    `${cssType['text-main-dark']} ${cssType['bg-main-light']}` : cssType['text-gray-light'];
   if (size) { iconClassName += ' lead'; }
 
   const iconElement = (
@@ -28,7 +34,7 @@ const PubsLink = ({
     return (
       <span {...props}>
         {iconElement}
-        <span className="PUBS__link-text text-gray">{size}</span>
+        <span styleName="cssPubs.PUBS__link-text cssType.text-gray">{size}</span>
       </span>
     );
   }

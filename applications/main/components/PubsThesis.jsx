@@ -9,6 +9,12 @@ import { imgThesis } from './Images.js';
 import { pubsThesis } from '../animations/pubs.js';
 import { SVG_INDICES } from '../../common/constants/util.js';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssSvg from '../stylesheets/svg.scss';
+import cssPubs from '../stylesheets/PubsSection.scss';
+/* eslint-enable */
+
 
 const PubsThesis = ({
   title,
@@ -17,32 +23,33 @@ const PubsThesis = ({
   shouldAnimate,
 }) => (
   <WebAnimation
-    className="row PUBS__entry PUBS__thesis"
+    styleName="cssPubs.PUBS__entry cssPubs.PUBS__thesis"
+    className="row"
     keyframes={pubsThesis.keyframes}
     timing={pubsThesis.timing}
     shouldAnimate={shouldAnimate}
   >
     <div className="col-lg-1 col-md-1 hidden-sm hidden-xs" />
-    <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12 PUBS__text">
-      <h5 className="PUBS__find-more text-center">
+    <div styleName="cssPubs.PUBS__text" className="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+      <h5 styleName="cssPubs.PUBS__find-more" className="text-center">
         <span className="fa-stack">
-          <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
-          <i className="fa fa-fw fa-graduation-cap fa-stack-1x text-white" />
+          <i styleName="cssType.text-main-light" className="fa fa-fw fa-blank fa-stack-2x" />
+          <i styleName="cssType.text-white" className="fa fa-fw fa-graduation-cap fa-stack-1x" />
         </span>
         Ph.D. Dissertation
       </h5>
-      <div className="SVG SVG--hover PUBS__thesis-flyer">
+      <div styleName="cssSvg.SVG cssSvg.SVG--hover cssPubs.SVG cssPubs.PUBS__thesis-flyer">
         {SVG_INDICES.map(i => (
           <img
             key={`PUBS__thesis-flyer--${i}`}
-            className={`SVG--${i}`}
+            styleName={`cssSvg.SVG--${i} cssPubs.SVG--${i}`}
             src={imgThesis[i]}
             alt="PhD Thesis Flyer"
           />
         ))}
       </div>
 
-      <h3 className="PUBS__thesis-title">
+      <h3 styleName="cssPubs.PUBS__thesis-title">
         <PubsTitle title={title} />
         <a
           href={url}
@@ -51,17 +58,17 @@ const PubsThesis = ({
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
       </h3>
-      <p className="PUBS__issue">
+      <p styleName="cssPubs.PUBS__issue">
         <b>Siqi Tian</b>
         <span> (</span>
-        <b className="text-main-light">Dec 2016</b>
+        <b styleName="cssType.text-main-light">Dec 2016</b>
         <span>) </span>
       </p>
-      <p className="PUBS__issue">
+      <p styleName="cssPubs.PUBS__issue">
         Department of Biochemistry, Stanford University
       </p>
 
-      <p className="PUBS__thesis-links">
+      <p styleName="cssPubs.PUBS__thesis-links">
         {links.map(link => (
           <PubsLink
             key={link.title}
@@ -70,7 +77,7 @@ const PubsThesis = ({
             size={link.isHidden ? 'unavailable' : link.size}
             data-tip={link.title}
             data-for="PUBS__tooltip"
-            className="PUBS__thesis-link-item"
+            styleName="cssPubs.PUBS__thesis-link-item"
           />
         ))}
       </p>

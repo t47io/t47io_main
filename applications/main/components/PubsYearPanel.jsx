@@ -6,6 +6,8 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { pubsYear } from '../animations/pubs.js';
 
+import '../stylesheets/PubsSection.scss';
+
 
 const PubsYearPanel = ({
   year,
@@ -13,16 +15,17 @@ const PubsYearPanel = ({
   counter,
   offset,
 }) => (
-  <div className="row PUBS__row">
+  <div styleName="PUBS__row" className="row">
     <WebAnimation
-      className="col-lg-1 col-md-1 col-sm-2 col-xs-2 PUBS__year"
+      styleName="PUBS__year"
+      className="col-lg-1 col-md-1 col-sm-2 col-xs-2"
       keyframes={pubsYear.keyframes}
       timing={pubsYear.timing(offset)}
       shouldAnimate={counter}
     >
-      <span className="PUBS__year-text">{year}</span>
+      <span styleName="PUBS__year-text">{year}</span>
     </WebAnimation>
-    <div className="col-lg-11 col-md-11 col-sm-10 col-xs-10 PUBS__content">
+    <div styleName="PUBS__content" className="col-lg-11 col-md-11 col-sm-10 col-xs-10">
       {items.filter(item => (!item.isHidden)).map((item, i) => (
         <PubsItem
           key={`PUBS__entry-${year}-${i}`}

@@ -14,7 +14,11 @@ import { initialState as pubsProps } from '../reducers/pubs.js';
 import { noOp } from '../../common/util.js';
 import { PUBS } from '../constants/sectionTypes.js';
 
-import '../stylesheets/PubsSection.scss';
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssUtil from '../stylesheets/util.scss';
+import cssPubs from '../stylesheets/PubsSection.scss';
+/* eslint-enable */
 
 
 const PubsSection = ({
@@ -42,7 +46,7 @@ const PubsSection = ({
   },
 }) => (
   <section id="PUBS__section">
-    <div className="UTIL__spacer-md PUBS__trigger" />
+    <div styleName="cssUtil.UTIL__spacer-md cssPubs.PUBS__trigger" />
     <SectionHeader
       title="my research"
       subtitle="what I published"
@@ -53,16 +57,16 @@ const PubsSection = ({
     <div className="row">
       <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
       <div className="col-lg-10 col-md-10 col-sm-8 col-xs-8">
-        <p className="PUBS__find-more text-gray text-center">
+        <p styleName="cssPubs.PUBS__find-more cssType.text-gray" className="text-center">
           <span className="fa-stack">
-            <i className="fa fa-fw fa-blank fa-stack-2x text-main-light" />
-            <i className="fa fa-fw fa-search fa-stack-1x text-white" />
+            <i styleName="cssType.text-main-light" className="fa fa-fw fa-blank fa-stack-2x" />
+            <i styleName="cssType.text-white" className="fa fa-fw fa-search fa-stack-1x" />
           </span>
           Find more on
           <a
             href={googleScholar}
             target="_blank" rel="noopener noreferrer external"
-            className="PUBS__link"
+            styleName="cssPubs.PUBS__link"
           >
             Google Scholar
             <i className="fa fa-fw fa-sm fa-link-ext" />
@@ -71,7 +75,7 @@ const PubsSection = ({
           <a
             href={pubmed}
             target="_blank" rel="noopener noreferrer external"
-            className="PUBS__link"
+            styleName="cssPubs.PUBS__link"
           >
             PubMed
             <i className="fa fa-fw fa-sm fa-link-ext" />
@@ -81,7 +85,7 @@ const PubsSection = ({
       <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2" />
     </div>
 
-    <div className="UTIL__spacer-md" />
+    <div styleName="cssUtil.UTIL__spacer-md" />
     <div className="container">
       <Trigger onToggleAnimation={animateEntries} />
       {items.map(item => (
@@ -98,7 +102,7 @@ const PubsSection = ({
       />
     </div>
 
-    <div className="UTIL__spacer-lg" />
+    <div styleName="cssUtil.UTIL__spacer-lg" />
     <Trigger onToggleAnimation={animateThesis} />
     <PubsThesis
       title={title}
@@ -106,7 +110,7 @@ const PubsSection = ({
       links={links}
       shouldAnimate={thesis}
     />
-    <div className="UTIL__spacer-xl CONTACT__trigger" />
+    <div styleName="cssUtil.UTIL__spacer-xl" />
   </section>
 );
 

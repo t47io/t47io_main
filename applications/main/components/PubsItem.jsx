@@ -12,6 +12,12 @@ import { imgPublications } from './Images.js';
 import { pubsItem } from '../animations/pubs.js';
 import { SVG_INDICES } from '../../common/constants/util.js';
 
+/* eslint-disable */
+import cssType from '../../common/mixins/typography.scss';
+import cssSvg from '../stylesheets/svg.scss';
+import cssPubs from '../stylesheets/PubsSection.scss';
+/* eslint-enable */
+
 
 const PubsItem = ({
   year,
@@ -36,23 +42,24 @@ const PubsItem = ({
 
   return (
     <WebAnimation
-      className="row PUBS__entry"
+      styleName="cssPubs.PUBS__entry"
+      className="row"
       keyframes={pubsItem.keyframes}
       timing={pubsItem.timing(index)}
       shouldAnimate={shouldAnimate}
     >
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-        <div className="PUBS__image">
+        <div styleName="cssPubs.PUBS__image">
           <a {...href}>
             <div
-              className="SVG SVG--hover"
+              styleName="cssSvg.SVG cssSvg.SVG--hover cssPubs.SVG"
               data-tip={tag}
               data-for="PUBS__tooltip"
             >
               {SVG_INDICES.map(i => (
                 <img
                   key={`PUBS__entry--${i}`}
-                  className={`SVG--${i}`}
+                  styleName={`cssSvg.SVG--${i} cssPubs.SVG--${i}`}
                   src={imgPublications[i][tag]}
                   alt={tag}
                 />
@@ -61,11 +68,11 @@ const PubsItem = ({
           </a>
         </div>
       </div>
-      <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12 PUBS__text">
-        <p className="text-gray">
+      <div styleName="cssPubs.PUBS__text" className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <p styleName="cssType.text-gray">
           <PubsAuthor authors={authors} />
           <span> (</span>
-          <b className="text-main-light">{year}</b>
+          <b styleName="cssType.text-main-light">{year}</b>
           <span>) </span>
         </p>
         <p>
@@ -74,7 +81,7 @@ const PubsItem = ({
           <b>&quot;</b>
         </p>
         <p>
-          <i className="main">{journal}</i>
+          <i styleName="cssType.text-main">{journal}</i>
           <PubsIssuePage
             issue={issue}
             page={page}
@@ -99,7 +106,7 @@ const PubsItem = ({
           <PubsCitation citation={citation} />
         </p>
         <br className="hidden-lg hidden-md" />
-        <hr className="hidden-lg hidden-md PUBS__hr" />
+        <hr styleName="cssPubs.PUBS__hr" className="hidden-lg hidden-md" />
       </div>
     </WebAnimation>
   );
