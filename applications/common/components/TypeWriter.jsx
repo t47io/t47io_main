@@ -10,6 +10,8 @@ class TypeWriter extends React.PureComponent {
     fullText: PropTypes.string,
     cursorCharacter: PropTypes.string,
     cursorClassName: PropTypes.string,
+    cursorBlinkClassName: PropTypes.string,
+    cursorHiddenClassName: PropTypes.string,
     interval: PropTypes.number,
     delay: PropTypes.number,
     shouldAnimate: PropTypes.bool,
@@ -18,7 +20,9 @@ class TypeWriter extends React.PureComponent {
     className: '',
     fullText: '',
     cursorCharacter: '|',
-    cursorClassName: 'blink',
+    cursorClassName: '',
+    cursorBlinkClassName: '',
+    cursorHiddenClassName: '',
     interval: 125,
     delay: 0,
     shouldAnimate: false,
@@ -72,20 +76,26 @@ class TypeWriter extends React.PureComponent {
   };
 
   render() {
-    const { className, cursorCharacter, cursorClassName } = this.props;
+    const {
+      className,
+      cursorCharacter,
+      cursorClassName,
+      cursorBlinkClassName,
+      cursorHiddenClassName,
+    } = this.props;
     const { isActive, hasStarted, currentText } = this.state;
     const cursor = isActive ? cursorCharacter : '';
-    let cursorBlinkClassName;
+    let cursorStatusClassName;
     if (hasStarted) {
-      cursorBlinkClassName = isActive ? 'blink' : '';
+      cursorStatusClassName = isActive ? cursorBlinkClassName : '';
     } else {
-      cursorBlinkClassName = 'hidden';
+      cursorStatusClassName = cursorHiddenClassName;
     }
 
     return (
       <p className={className}>
         <span dangerouslySetInnerHTML={{ __html: currentText }} />
-        <b className={`${cursorClassName} ${cursorBlinkClassName}`}>
+        <b className={`${cursorClassName} ${cursorStatusClassName}`}>
           {cursor}
         </b>
       </p>

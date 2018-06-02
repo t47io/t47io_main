@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class Counter extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
+    doneClassName: PropTypes.string,
     beginValue: PropTypes.number,
     endValue: PropTypes.number,
     duration: PropTypes.number,
@@ -13,6 +14,7 @@ class Counter extends React.PureComponent {
   };
   static defaultProps = {
     className: '',
+    doneClassName: '',
     beginValue: 0,
     endValue: NaN,
     duration: 2000,
@@ -64,13 +66,13 @@ class Counter extends React.PureComponent {
   };
 
   render() {
-    const { className, endValue } = this.props;
+    const { className, doneClassName, endValue } = this.props;
     const { isActive, currentValue } = this.state;
     const displayValue = isActive ? currentValue : endValue;
-    const doneClassName = isActive ? '' : 'done';
+    const statusClassName = isActive ? '' : doneClassName;
 
     return (
-      <span className={`${className} ${doneClassName}`}>
+      <span className={`${className} ${statusClassName}`}>
         {displayValue}
       </span>
     );
