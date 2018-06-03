@@ -55,7 +55,7 @@ const HomeSection = ({
         onToggleAnimation={animateHome}
       />
       <h1 styleName="cssHome.HOME__name--seo">SIQI TIAN</h1>
-      <div styleName="cssSvg.SVG cssHome.SVG cssHome.SVG--home cssCarousel.SVG__background" className={svgClassName}>
+      <div styleName="cssSvg.SVG cssHome.SVG--home cssCarousel.SVG__background" className={svgClassName}>
         {!intro && (
           <SvgAvatar
             styleName="cssHome.SVG--drawing"
