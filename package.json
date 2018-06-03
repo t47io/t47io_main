@@ -62,7 +62,7 @@
     "portfolio"
   ],
   "devDependencies": {
-    "autoprefixer": "8.5.2",
+    "autoprefixer": "8.6.0",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.3",
     "babel-loader": "7.1.4",
@@ -120,7 +120,7 @@
     "redux-logger": "3.0.6",
     "redux-thunk": "2.3.0",
     "resolve-url-loader": "2.3.0",
-    "sass-loader": "7.0.1",
+    "sass-loader": "7.0.2",
     "serve-favicon": "2.5.0",
     "smoothscroll": "0.4.0",
     "speed-measure-webpack-plugin": "1.2.2",
