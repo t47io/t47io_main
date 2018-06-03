@@ -5,7 +5,7 @@ import { PROJECT_LIST } from '../../applications/project/constants/projectTypes.
 import {
   resumeVersion,
   pubTags,
-  today,
+  getToday,
 } from '../../server/util.js';
 import { saveFileSync } from '../render/util.js';
 import logger from '../../server/logger.js';
@@ -27,6 +27,7 @@ const addRecord = (location, lastModify, changeFreq = 'never', priority = null) 
 
 
 try {
+  const today = getToday();
   const projectDate = `${today.slice(0, 7)}-01`;
   const resumeDate = `${resumeVersion.slice(0, 4)}-${resumeVersion.slice(4, 6)}-${resumeVersion.slice(6, 8)}`;
 

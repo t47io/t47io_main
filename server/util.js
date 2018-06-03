@@ -58,4 +58,9 @@ export const sendErrorResponse = (code) => {
   return err;
 };
 
-export const today = new Date().toISOString().slice(0, 10);
+export const getToday = (regex = '', end = 10) => (
+  new Date().toISOString().slice(0, end).replace(regex, '')
+);
+export const getNow = (regex = '', end = -1) => (
+  new Date().toISOString().slice(0, end).replace(regex, '')
+);
