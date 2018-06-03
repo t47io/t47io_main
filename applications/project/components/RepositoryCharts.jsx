@@ -10,7 +10,7 @@ import {
 } from '../constants/util.js';
 
 /* eslint-disable */
-import cssFeat from '../stylesheets/typography.scss';
+import cssFeat from '../stylesheets/FeatureSection.scss';
 import cssRepo from '../stylesheets/GitHubSection.scss';
 /* eslint-enable */
 

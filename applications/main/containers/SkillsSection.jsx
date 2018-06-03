@@ -38,7 +38,7 @@ const SkillsSection = ({
   },
 }) => (
   <section id="SKILLS__section">
-    <div styleName="cssUtil.UTIL__spacer-hg cssSkills.SKILLS__trigger" />
+    <div styleName="cssUtil.UTIL__spacer-hg" />
     <SectionHeader
       title="my skills"
       subtitle="what I learned"

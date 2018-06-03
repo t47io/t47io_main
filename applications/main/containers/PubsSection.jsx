@@ -46,7 +46,7 @@ const PubsSection = ({
   },
 }) => (
   <section id="PUBS__section">
-    <div styleName="cssUtil.UTIL__spacer-md cssPubs.PUBS__trigger" />
+    <div styleName="cssUtil.UTIL__spacer-md" />
     <SectionHeader
       title="my research"
       subtitle="what I published"

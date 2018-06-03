@@ -1,6 +1,8 @@
 @import '../../common/mixins/colors';
 @import '../../common/mixins/media';
 
+.PORTFOLIO__area {}
+
 .PORTFOLIO__menu {
   text-align: center;
   overflow: hidden;
@@ -44,9 +46,13 @@
   overflow: hidden;
 }
 
-.PORTFOLIO__div div {
-  padding: 0;
-  margin: 0 auto;
+.PORTFOLIO__div {
+  .PORTFOLIO__entry {}
+
+  div {
+    padding: 0;
+    margin: 0 auto;
+  }
 }
 
 // .PORTFOLIO__div-enter {

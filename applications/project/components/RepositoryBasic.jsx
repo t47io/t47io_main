@@ -31,7 +31,7 @@ const RepositoryBasic = ({
         <mark styleName="cssRepo.PROJECT__repo-name" className="lead">{name}</mark>
         <span styleName="cssType.PROJECT__label cssType.PROJECT__label--red" className="label">{privateLabel}</span>
       </p>
-      <p styleName="cssRepo.ROJECT__repo-link">
+      <p styleName="cssRepo.PROJECT__repo-link">
         <a
           href={url}
           target="_blank" rel="noopener noreferrer external"
@@ -49,7 +49,7 @@ const RepositoryBasic = ({
       </p>
       <p styleName="cssRepo.PROJECT__repo-stats">
         <span styleName="cssType.PROJECT__label cssType.PROJECT__label--yellow" className="label">issue</span>
-        <span styleName="cssRepo.ROJECT__repo-stats-number">{issues}</span>
+        <span styleName="cssRepo.PROJECT__repo-stats-number">{issues}</span>
         <span styleName="cssType.PROJECT__label cssType.PROJECT__label--yellow" className="label">download</span>
         <span styleName="cssRepo.PROJECT__repo-stats-number">{downloads}</span>
         <br className="hidden-lg hidden-md hidden-sm" />
