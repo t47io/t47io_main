@@ -2,32 +2,32 @@
 $w: 1200px;
 $h: 675px;
 
-@include img_sprites("./images/sp_daslab-1.jpg", $w, $h, ( "SPRITE__daslab-1_slide", "SPRITE__daslab-1_journal", "SPRITE__daslab-1_contact", "SPRITE__daslab-1_calendar",), false);
-@include img_sprites("./images/sp_daslab-2.jpg", $w, $h, ( "SPRITE__daslab-2_analytic", "SPRITE__daslab-2_aws", "SPRITE__daslab-2_github", "SPRITE__daslab-2_version", "SPRITE__daslab-2_slack",), false);
-@include img_sprites("./images/sp_daslab-3.jpg", $w, $h, ( "SPRITE__daslab-3_meeting", "SPRITE__daslab-3_reminder", "SPRITE__daslab-3_config", "SPRITE__daslab-3_backup",), false);
-@include img_sprites("./images/sp_daslab-4.jpg", $w, $h, ( "SPRITE__daslab-4_publication", "SPRITE__daslab-4_export", "SPRITE__daslab-4_profile", "SPRITE__daslab-4_webauth", "SPRITE__daslab-4_admin",), false);
-@include img_sprites("./images/sp_daslab-5.jpg", $w, $h, ( "SPRITE__daslab-5_500", "SPRITE__daslab-5_404", "SPRITE__daslab-5_401", "SPRITE__daslab-5_400",), false);
+@include img_sprites("../images/sp_daslab-1.jpg", $w, $h, ( "SPRITE__daslab-1_slide", "SPRITE__daslab-1_journal", "SPRITE__daslab-1_contact", "SPRITE__daslab-1_calendar",), false);
+@include img_sprites("../images/sp_daslab-2.jpg", $w, $h, ( "SPRITE__daslab-2_analytic", "SPRITE__daslab-2_aws", "SPRITE__daslab-2_github", "SPRITE__daslab-2_version", "SPRITE__daslab-2_slack",), false);
+@include img_sprites("../images/sp_daslab-3.jpg", $w, $h, ( "SPRITE__daslab-3_meeting", "SPRITE__daslab-3_reminder", "SPRITE__daslab-3_config", "SPRITE__daslab-3_backup",), false);
+@include img_sprites("../images/sp_daslab-4.jpg", $w, $h, ( "SPRITE__daslab-4_publication", "SPRITE__daslab-4_export", "SPRITE__daslab-4_profile", "SPRITE__daslab-4_webauth", "SPRITE__daslab-4_admin",), false);
+@include img_sprites("../images/sp_daslab-5.jpg", $w, $h, ( "SPRITE__daslab-5_500", "SPRITE__daslab-5_404", "SPRITE__daslab-5_401", "SPRITE__daslab-5_400",), false);
 
-@include img_sprites("./images/sp_primerize-1.jpg", $w, $h, ( "SPRITE__primerize-1_plate", "SPRITE__primerize-1_assembly", "SPRITE__primerize-1_table", "SPRITE__primerize-1_input",), false);
-@include img_sprites("./images/sp_primerize-2.jpg", $w, $h, ( "SPRITE__primerize-2_queue", "SPRITE__primerize-2_tutorial", "SPRITE__primerize-2_experiment", "SPRITE__primerize-2_pipeline", "SPRITE__primerize-2_protocol",), false);
-@include img_sprites("./images/sp_primerize-3.jpg", $w, $h, ( "SPRITE__primerize-3_package", "SPRITE__primerize-3_class", "SPRITE__primerize-3_method", "SPRITE__primerize-3_attribute",), false);
+@include img_sprites("../images/sp_primerize-1.jpg", $w, $h, ( "SPRITE__primerize-1_plate", "SPRITE__primerize-1_assembly", "SPRITE__primerize-1_table", "SPRITE__primerize-1_input",), false);
+@include img_sprites("../images/sp_primerize-2.jpg", $w, $h, ( "SPRITE__primerize-2_queue", "SPRITE__primerize-2_tutorial", "SPRITE__primerize-2_experiment", "SPRITE__primerize-2_pipeline", "SPRITE__primerize-2_protocol",), false);
+@include img_sprites("../images/sp_primerize-3.jpg", $w, $h, ( "SPRITE__primerize-3_package", "SPRITE__primerize-3_class", "SPRITE__primerize-3_method", "SPRITE__primerize-3_attribute",), false);
 
-@include img_sprites("./images/sp_rmdb-1.jpg", $w, $h, ( "SPRITE__rmdb-1_heatmap", "SPRITE__rmdb-1_barplot", "SPRITE__rmdb-1_panel", "SPRITE__rmdb-1_browse",), false);
-@include img_sprites("./images/sp_rmdb-2.jpg", $w, $h, ( "SPRITE__rmdb-2_predict",), false);
-@include img_sprites("./images/sp_rmdb-3.jpg", $w, $h, ( "SPRITE__rmdb-3_tool", "SPRITE__rmdb-3_aws", "SPRITE__rmdb-3_logo",), false);
+@include img_sprites("../images/sp_rmdb-1.jpg", $w, $h, ( "SPRITE__rmdb-1_heatmap", "SPRITE__rmdb-1_barplot", "SPRITE__rmdb-1_panel", "SPRITE__rmdb-1_browse",), false);
+@include img_sprites("../images/sp_rmdb-2.jpg", $w, $h, ( "SPRITE__rmdb-2_predict",), false);
+@include img_sprites("../images/sp_rmdb-3.jpg", $w, $h, ( "SPRITE__rmdb-3_tool", "SPRITE__rmdb-3_aws", "SPRITE__rmdb-3_logo",), false);
 
-@include img_sprites("./images/sp_eterna-1.jpg", $w, $h, ( "SPRITE__eterna-1_lab", "SPRITE__eterna-1_column",), false);
-@include img_sprites("./images/sp_eterna-2.jpg", $w, $h, ( "SPRITE__eterna-2_secstr", "SPRITE__eterna-2_graph",), false);
+@include img_sprites("../images/sp_eterna-1.jpg", $w, $h, ( "SPRITE__eterna-1_lab", "SPRITE__eterna-1_column",), false);
+@include img_sprites("../images/sp_eterna-2.jpg", $w, $h, ( "SPRITE__eterna-2_secstr", "SPRITE__eterna-2_graph",), false);
 
-@include img_sprites("./images/sp_hitrace-1.jpg", $w, $h, ( "SPRITE__hitrace-1_diagram", "SPRITE__hitrace-1_color", "SPRITE__hitrace-1_box", "SPRITE__hitrace-1_matrix",), false);
-@include img_sprites("./images/sp_hitrace-2.jpg", $w, $h, ( "SPRITE__hitrace-2_bootstrap", "SPRITE__hitrace-2_varna", "SPRITE__hitrace-2_mohca", "SPRITE__hitrace-2_titration",), false);
+@include img_sprites("../images/sp_hitrace-1.jpg", $w, $h, ( "SPRITE__hitrace-1_diagram", "SPRITE__hitrace-1_color", "SPRITE__hitrace-1_box", "SPRITE__hitrace-1_matrix",), false);
+@include img_sprites("../images/sp_hitrace-2.jpg", $w, $h, ( "SPRITE__hitrace-2_bootstrap", "SPRITE__hitrace-2_varna", "SPRITE__hitrace-2_mohca", "SPRITE__hitrace-2_titration",), false);
 
-@include img_sprites("./images/sp_spindle-1.jpg", $w, $h, ( "SPRITE__spindle-1_manipulate", "SPRITE__spindle-1_browse", "SPRITE__spindle-1_quantitate",), false);
-@include img_sprites("./images/sp_spindle-2.jpg", $w, $h, ( "SPRITE__spindle-2_tracks",), false);
+@include img_sprites("../images/sp_spindle-1.jpg", $w, $h, ( "SPRITE__spindle-1_manipulate", "SPRITE__spindle-1_browse", "SPRITE__spindle-1_quantitate",), false);
+@include img_sprites("../images/sp_spindle-2.jpg", $w, $h, ( "SPRITE__spindle-2_tracks",), false);
 
-@include img_sprites("./images/sp_ribokit-1.jpg", $w, $h, ( "SPRITE__ribokit-1_navigation", "SPRITE__ribokit-1_syntax", "SPRITE__ribokit-1_reference", "SPRITE__ribokit-1_highlight", "SPRITE__ribokit-1_404",), false);
-@include img_sprites("./images/sp_ribokit-2.jpg", $w, $h, ( "SPRITE__ribokit-2_hitrace", "SPRITE__ribokit-2_primerize", "SPRITE__ribokit-2_catalog", "SPRITE__ribokit-2_ribovis", "SPRITE__ribokit-2_install",), false);
+@include img_sprites("../images/sp_ribokit-1.jpg", $w, $h, ( "SPRITE__ribokit-1_navigation", "SPRITE__ribokit-1_syntax", "SPRITE__ribokit-1_reference", "SPRITE__ribokit-1_highlight", "SPRITE__ribokit-1_404",), false);
+@include img_sprites("../images/sp_ribokit-2.jpg", $w, $h, ( "SPRITE__ribokit-2_hitrace", "SPRITE__ribokit-2_primerize", "SPRITE__ribokit-2_catalog", "SPRITE__ribokit-2_ribovis", "SPRITE__ribokit-2_install",), false);
 
-@include img_sprites("./images/sp_celica-1.jpg", $w, $h, ( "SPRITE__celica-1_frame", "SPRITE__celica-1_spring", "SPRITE__celica-1_caliper", "SPRITE__celica-1_palette", "SPRITE__celica-1_wheel", "SPRITE__celica-1_wire",), false);
-@include img_sprites("./images/sp_celica-2.jpg", $w, $h, ( "SPRITE__celica-2_bodykit", "SPRITE__celica-2_drum", "SPRITE__celica-2_radio", "SPRITE__celica-2_vinyl", "SPRITE__celica-2_tape", "SPRITE__celica-2_led",), false);
-@include img_sprites("./images/sp_celica-3.jpg", $w, $h, ( "SPRITE__celica-3_spoiler", "SPRITE__celica-3_banner", "SPRITE__celica-3_decal", "SPRITE__celica-3_starcraft", "SPRITE__celica-3_trunk",), false);
+@include img_sprites("../images/sp_celica-1.jpg", $w, $h, ( "SPRITE__celica-1_frame", "SPRITE__celica-1_spring", "SPRITE__celica-1_caliper", "SPRITE__celica-1_palette", "SPRITE__celica-1_wheel", "SPRITE__celica-1_wire",), false);
+@include img_sprites("../images/sp_celica-2.jpg", $w, $h, ( "SPRITE__celica-2_bodykit", "SPRITE__celica-2_drum", "SPRITE__celica-2_radio", "SPRITE__celica-2_vinyl", "SPRITE__celica-2_tape", "SPRITE__celica-2_led",), false);
+@include img_sprites("../images/sp_celica-3.jpg", $w, $h, ( "SPRITE__celica-3_spoiler", "SPRITE__celica-3_banner", "SPRITE__celica-3_decal", "SPRITE__celica-3_starcraft", "SPRITE__celica-3_trunk",), false);

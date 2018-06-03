@@ -22,7 +22,7 @@ const loaders = (DEBUG = true, SSR = false) => {
         {
           loader: 'css-loader',
           options: {
-            importLoaders: 1,
+            importLoaders: 2,
             modules: true,
             localIdentName: DEBUG ? '[local]' : '__[hash:6]',
           },
@@ -31,8 +31,11 @@ const loaders = (DEBUG = true, SSR = false) => {
           loader: 'postcss-loader',
           options: { plugins: () => ([autoprefixer, csso]) },
         },
+        {
+          loader: 'resolve-url-loader',
+          options: { sourceMap: false },
+        },
         'fix-global-font-face-loader',
-        'resolve-url-loader?-sourceMap',
         {
           loader: 'sass-loader',
           options: {
