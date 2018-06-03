@@ -34,7 +34,7 @@
               ]
             }
           },
-          "generateScopedName": "__[hash:base62:5]",
+          "generateScopedName": "__[hash:6]",
           "handleMissingStyleName": "ignore"
         }]
       ]
