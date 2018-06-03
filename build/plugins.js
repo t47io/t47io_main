@@ -99,7 +99,6 @@ const plugins = (DEBUG = true) => {
     new PurifyCSSPlugin({
       paths: [
         ...(glob.sync(path.join(PATH.APP, '**/*.{jsx,json,scss}'))),
-        ...(glob.sync(path.join(PATH.PUBLIC, '**/*.html'))),
         path.join(PATH.CONFIG, 'main.json'),
         path.join(PATH.CONFIG, 'project.json'),
       ],

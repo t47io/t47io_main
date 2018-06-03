@@ -30,6 +30,9 @@ const config = {
     alias: aliases(),
     symlinks: false,
   },
+  resolveLoader: {
+    modules: ['node_modules', PATH.BUILD],
+  },
 
   module: { rules: loaders(false, true) },
   plugins: [
