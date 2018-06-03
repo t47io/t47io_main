@@ -24,7 +24,7 @@ const loaders = (DEBUG = true, SSR = false) => {
           options: {
             importLoaders: 1,
             modules: true,
-            localIdentName: '[local]__[hash:base62:5]',
+            localIdentName: DEBUG ? '[local]' : '__[hash:base62:5]',
           },
         },
         {

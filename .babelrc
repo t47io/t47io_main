@@ -1,40 +1,43 @@
 {
   "presets": [
-    [
-      "env", {
-        "useBuiltIns": true
-      }
-    ],
+    ["env", { "useBuiltIns": true }],
     "stage-1",
     "react"
   ],
-  "plugins": [
-    "lodash",
-    [
-      "react-css-modules", {
-        "filetypes": {
-          ".scss": {
-            "syntax": "postcss-scss",
-            "plugins": [
-              [
-                "postcss-nested", {
-                  "preserveEmpty": true
-                }
-              ]
-            ]
-          }
-        },
-        "generateScopedName": "[local]__[hash:base62:5]",
-        "handleMissingStyleName": "warn"
-      }
-    ]
-  ],
+  "plugins": ["lodash"],
   "env": {
     "development": {
-      "presets": [
-        "react-hmre"
+      "presets": ["react-hmre"],
+      "plugins": [
+        ["react-css-modules", {
+          "filetypes": {
+            ".scss": {
+              "syntax": "postcss-scss",
+              "plugins": [
+                ["postcss-nested", { "preserveEmpty": true }]
+              ]
+            }
+          },
+          "generateScopedName": "[local]",
+          "handleMissingStyleName": "warn"
+        }]
       ]
     },
-    "production": {}
+    "production": {
+      "plugins": [
+        ["react-css-modules", {
+          "filetypes": {
+            ".scss": {
+              "syntax": "postcss-scss",
+              "plugins": [
+                ["postcss-nested", { "preserveEmpty": true }]
+              ]
+            }
+          },
+          "generateScopedName": "__[hash:base62:5]",
+          "handleMissingStyleName": "ignore"
+        }]
+      ]
+    }
   }
 }
