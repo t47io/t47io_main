@@ -48,8 +48,8 @@
 }
 
 @mixin img_sprites($img, $w, $h, $cls_names, $retina) {
-  $cls_names: list_prefix($cls_names, '.');
-  $cls_after: list_suffix($cls_names, '::after');
+  $cls_names: list_prefix($cls_names, ".");
+  $cls_after: list_suffix($cls_names, "::after");
 
   #{$cls_names} {
     max-width: $w;
@@ -57,7 +57,7 @@
   }
 
   #{$cls_after} {
-    content: ' ';
+    content: " ";
     display: inline-block;
     max-width: 100%;
     width: 100%;
@@ -87,8 +87,8 @@
 }
 
 @mixin img_sprites_bg($img, $w, $h, $cls_names) {
-  $cls_names: list_prefix($cls_names, '.');
-  $cls_after: list_suffix($cls_names, '::after');
+  $cls_names: list_prefix($cls_names, ".");
+  $cls_after: list_suffix($cls_names, "::after");
 
   #{$cls_names} {
     width: 100%;
