@@ -34,8 +34,10 @@ import {
   HTML_TEMPLATE,
   GZIP_FILE_TYPES,
 } from './config.js';
+import { getNow } from '../server/util.js';
 
 
+const now = getNow(/[-:.TZ]/g, 19);
 const compressionRegex = new RegExp(`.(${GZIP_FILE_TYPES.join('|')})$`);
 
 const plugins = (DEBUG = true) => {
@@ -154,8 +156,8 @@ const plugins = (DEBUG = true) => {
       analyzerMode: 'static',
       openAnalyzer: false,
       generateStatsFile: true,
-      statsFilename: path.join(PATH.CONFIG, 'stats.json'),
-      reportFilename: path.join(PATH.CONFIG, 'stats.html'),
+      statsFilename: path.join(PATH.CONFIG, `stats-${now}.json`),
+      reportFilename: path.join(PATH.CONFIG, `stats-${now}.html`),
     }),
   ];
 };

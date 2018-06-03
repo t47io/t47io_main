@@ -1,11 +1,10 @@
 !.gitignore
-*.scss.json
 
 backup/
 backup.tar.gz
 config/**/*.json
 !config/**/*.example.json
-config/stats.*
+config/stats*.*
 config/counsyl.svg
 public/
 !public/.gitignore
