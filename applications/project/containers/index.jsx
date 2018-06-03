@@ -29,7 +29,7 @@ import { noOp } from '../../common/util.js';
 
 /* eslint-disable */
 import cssVendor from '../../vendor/index.scss';
-import cssProject from '../stylesheets/index.scss';
+import cssProj from '../stylesheets/index.scss';
 /* eslint-enable */
 
 
@@ -55,7 +55,7 @@ const Project = ({
       <Meta />
       <Navbar />
 
-      <div styleName="cssProject.PROJECT__body" className="container">
+      <div styleName="cssProj.PROJECT__body" className="container">
         <Router>
           <Route component={DaslabPage} path="/project/daslab" />
           <Route component={PrimerizePage} path="/project/primerize" />

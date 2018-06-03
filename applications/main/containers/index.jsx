@@ -32,7 +32,6 @@ import { HOME } from '../constants/sectionTypes.js';
 
 /* eslint-disable */
 import cssVendor from '../../vendor/index.scss';
-import cssUtil from '../stylesheets/util.scss';
 import cssMain from '../stylesheets/index.scss';
 /* eslint-enable */
 
@@ -58,7 +57,6 @@ const Main = ({
         <HomeSection />
         <ScrollDown onScrollTop={onScrollTop} />
       </ScrollSpy>
-      <div styleName="cssUtil.UTIL__spacer-sm" />
 
       <ScrollSpy
         section={1}
