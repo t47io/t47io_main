@@ -9,8 +9,12 @@
   padding: 0;
   background-color: $colorBlack;
 
-  .container {
+  :global .container {
     height: 100vh;
+  }
+
+  .HOME__shade {
+    will-change: background-color;
   }
 
   .SVG--home {
@@ -26,6 +30,11 @@
     .SVG--0 {
       display: none;
     }
+
+    .SVG--1,
+    .SVG--2,
+    .SVG--3,
+    .SVG--4 {}
 
     @for $i from 0 through 4 {
       .SVG--#{$i} {
