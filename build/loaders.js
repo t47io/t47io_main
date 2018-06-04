@@ -22,7 +22,7 @@ const loaders = (DEBUG = true, SSR = false) => {
         {
           loader: 'css-loader',
           options: {
-            importLoaders: 2,
+            importLoaders: 1,
             modules: true,
             localIdentName: DEBUG ? '[local]' : '__[hash:6]',
           },
@@ -33,7 +33,11 @@ const loaders = (DEBUG = true, SSR = false) => {
         },
         {
           loader: 'resolve-url-loader',
-          options: { sourceMap: false },
+          options: {
+            attempts: 1,
+            fail: true,
+            sourceMap: false,
+          },
         },
         'fix-global-font-face-loader',
         {
