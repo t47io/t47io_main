@@ -20,6 +20,7 @@ class FrappeChart extends React.PureComponent {
     logScale: PropTypes.bool,
     className: PropTypes.string,
   };
+
   static defaultProps = {
     data: {
       labels: [],
@@ -66,6 +67,7 @@ class FrappeChart extends React.PureComponent {
       ...props,
     });
   }
+
   componentWillUnmount() {
     this.chart.unbindWindowEvents();
     this.chart = null;

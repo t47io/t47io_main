@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Trigger from './Trigger.jsx';
-import WebAnimation from '../../common/components/WebAnimation.jsx';
+import WebAnimation from './WebAnimation.jsx';
 
 import { imgDivider } from './Images.js';
 import { sectionHeader } from '../animations/sectionHeader.js';

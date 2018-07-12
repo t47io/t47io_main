@@ -7,7 +7,7 @@ import LogoAlt from '../components/LogoAlt.jsx';
 import Trigger from '../components/Trigger.jsx';
 import WebAnimation from '../components/WebAnimation.jsx';
 
-import * as footerActions from '../../common/actions/footerActions.js';
+import * as footerActions from '../actions/footerActions.js';
 import { initialState as footerProps } from '../reducers/footer.js';
 import {
   FOOTER,

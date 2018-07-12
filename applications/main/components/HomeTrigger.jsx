@@ -11,6 +11,7 @@ class HomeTrigger extends React.PureComponent {
     onToggleAnimation: PropTypes.func,
     debug: PropTypes.bool,
   };
+
   static defaultProps = {
     disabled: false,
     onToggleAnimation: noOp,

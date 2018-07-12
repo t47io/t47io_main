@@ -1,4 +1,4 @@
-import { easeInOutCirc } from '../animations/easing.js';
+import { easeInOutCirc } from './easing.js';
 import { FOOTER_LEFT } from '../constants/sectionTypes.js';
 
 

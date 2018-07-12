@@ -32,7 +32,7 @@ const HomeDescription = ({
         dangerouslySetInnerHTML={{ __html: displayHTML }}
       />
     );
-  } else if (shouldCycle) {
+  } if (shouldCycle) {
     return (
       <ColorCycler
         styleName="cssHome.HOME__typewrite"

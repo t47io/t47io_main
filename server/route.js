@@ -100,7 +100,8 @@ const routes = {
 
       if (form.subject.toLowerCase().startsWith('http') || !emailValidator.validate(form.email)) {
         return next(sendErrorResponse(403));
-      } else if (validFields.length !== Object.keys(form).length) {
+      }
+      if (validFields.length !== Object.keys(form).length) {
         return next(sendErrorResponse(400));
       }
 

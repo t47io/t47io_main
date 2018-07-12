@@ -22,6 +22,7 @@ class Carousel extends React.PureComponent {
       PropTypes.arrayOf(PropTypes.node),
     ]).isRequired,
   };
+
   static defaultProps = {
     items: [],
     interval: 2000,
@@ -35,6 +36,7 @@ class Carousel extends React.PureComponent {
   componentDidMount() {
     this.onLoop();
   }
+
   componentWillUnmount() {
     clearInterval(this.timer);
   }
@@ -48,12 +50,14 @@ class Carousel extends React.PureComponent {
       this.setState({ active: true });
     }, this.props.interval / 10);
   };
+
   onLoop = () => {
     this.timer = setInterval(() => {
       const next = (this.state.current + 1) % this.props.items.length;
       this.onChange(next);
     }, this.props.interval);
   };
+
   onClick = (index) => {
     clearInterval(this.timer);
     this.onChange(index);

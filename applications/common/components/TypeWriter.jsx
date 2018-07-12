@@ -16,6 +16,7 @@ class TypeWriter extends React.PureComponent {
     delay: PropTypes.number,
     shouldAnimate: PropTypes.bool,
   };
+
   static defaultProps = {
     className: '',
     fullText: '',
@@ -37,18 +38,21 @@ class TypeWriter extends React.PureComponent {
   componentDidMount() {
     if (this.state.isActive) { this.onTypeWrite(); }
   }
+
   componentWillReceiveProps(nextProps) {
     if ((nextProps.shouldAnimate && !this.props.shouldAnimate) ||
       nextProps.fullText !== this.props.fullText) {
       this.setState({ isActive: nextProps.shouldAnimate });
     }
   }
+
   componentDidUpdate(prevProps) {
     if ((this.props.shouldAnimate && !prevProps.shouldAnimate) ||
       this.props.fullText !== prevProps.fullText) {
       this.onTypeWrite();
     }
   }
+
   componentWillUnmount() {
     clearInterval(this.timer);
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Logo from '../../common/components/Logo.jsx';
-import { imgErrors } from '../components/Images.js';
+import { imgErrors } from './Images.js';
 
 import { ERROR_COLOR_CODES } from '../../config.js';
 
@@ -29,7 +29,7 @@ const ErrorSection = ({
     </div>
     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <h2 className="ERROR__title">
-        <span className={`label PROJECT__label PROJECT__label--${color}`} >
+        <span className={`label PROJECT__label PROJECT__label--${color}`}>
           {title.custom}
         </span>
       </h2>

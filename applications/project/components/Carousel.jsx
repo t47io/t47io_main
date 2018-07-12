@@ -21,6 +21,7 @@ class Carousel extends React.PureComponent {
     interval: PropTypes.number,
     index: PropTypes.number,
   };
+
   static defaultProps = {
     project: '',
     items: [],
@@ -34,21 +35,27 @@ class Carousel extends React.PureComponent {
   componentDidMount() {
     this.onLoop();
   }
+
   componentWillUnmount() {
     clearInterval(this.timer);
   }
 
-  onClick = (index) => {
-    clearInterval(this.timer);
+  onChange = (index) => {
     this.setState({ current: index });
-    this.onLoop();
   };
+
   onLoop = () => {
     this.timer = setInterval(() => {
       const next = (this.state.current + 1) % this.props.items.length;
-      this.setState({ current: next });
+      this.onChange(next);
       ReactTooltip.rebuild();
     }, this.props.interval);
+  };
+
+  onClick = (index) => {
+    clearInterval(this.timer);
+    this.onChange(index);
+    this.onLoop();
   };
 
   render() {

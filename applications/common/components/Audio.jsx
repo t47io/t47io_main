@@ -11,6 +11,7 @@ class Audio extends React.Component {
     loop: PropTypes.bool,
     onFinish: PropTypes.func,
   };
+
   static defaultProps = {
     play: false,
     loop: false,
@@ -22,6 +23,7 @@ class Audio extends React.Component {
   componentDidMount() {
     this.state.audio.addEventListener('ended', this.props.onFinish);
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.play) {
       this.state.audio.play();
@@ -29,9 +31,11 @@ class Audio extends React.Component {
       this.state.audio.pause();
     }
   }
+
   shouldComponentUpdate(nextProps) {
     return false;
   }
+
   componentWillUnmount() {
     this.state.audio.removeEventListener('ended', this.props.onFinish);
   }

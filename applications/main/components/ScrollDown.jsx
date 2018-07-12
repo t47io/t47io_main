@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { noOp } from '../../common/util.js';
 import { ABOUT } from '../constants/sectionTypes.js';
 
-import '../../main/stylesheets/HomeSection.scss';
+import '../stylesheets/HomeSection.scss';
 
 
 const ScrollDown = ({ onScrollTop }) => (

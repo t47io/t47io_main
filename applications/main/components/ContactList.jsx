@@ -5,7 +5,7 @@ import Audio from '../../common/components/Audio.jsx';
 import Trigger from '../../common/components/Trigger.jsx';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { audName } from '../components/Audio.js';
+import { audName } from './Audio.js';
 import { contactPanel } from '../animations/contact.js';
 import { noOp } from '../../common/util.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
@@ -109,6 +109,7 @@ const ContactList = ({
         >
           <i className="fa fa-megaphone fa-lg fa-fw" />
           <button
+            type="button"
             styleName="cssContact.CONTACT__button cssContact.long"
             className="btn btn-default"
             onClick={onToggleAudio}

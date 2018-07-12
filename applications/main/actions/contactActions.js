@@ -81,4 +81,3 @@ export const submitEmail = () => (dispatch, getState) => {
 };
 
 export const playAudio = () => ({ type: TOGGLE_AUDIO_PLAYBACK });
-

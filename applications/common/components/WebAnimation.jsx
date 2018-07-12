@@ -24,6 +24,7 @@ class WebAnimation extends React.Component {
       PropTypes.arrayOf(PropTypes.node),
     ]),
   };
+
   static defaultProps = {
     tagName: 'div',
     keyframes: [],
@@ -41,6 +42,7 @@ class WebAnimation extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState({ playState: getPlayState(nextProps.shouldAnimate) });
   }
+
   shouldComponentUpdate(nextProps, nextState) {
     const shouldAnimate = (nextProps.shouldAnimate !== this.props.shouldAnimate);
     const shouldReverse = (nextProps.shouldReverse !== this.props.shouldReverse);

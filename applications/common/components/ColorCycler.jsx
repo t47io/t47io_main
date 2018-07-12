@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import cssType from '../../common/mixins/typography.scss';
+import cssType from '../mixins/typography.scss';
 
 
 class ColorCycler extends React.PureComponent {
@@ -13,6 +13,7 @@ class ColorCycler extends React.PureComponent {
     delay: PropTypes.number,
     isActive: PropTypes.bool,
   };
+
   static defaultProps = {
     className: '',
     fullText: '',
@@ -30,11 +31,13 @@ class ColorCycler extends React.PureComponent {
   componentDidMount() {
     if (this.state.isActive) { this.onColorCycle(); }
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.isActive !== this.props.isActive) {
       this.setState({ isActive: nextProps.isActive });
     }
   }
+
   componentWillUnmount() {
     clearInterval(this.timer);
   }

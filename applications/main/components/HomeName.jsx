@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
-import { imgName } from '../components/Images.js';
+import { imgName } from './Images.js';
 import { homeName } from '../animations/home.js';
 
 import '../stylesheets/HomeSection.scss';

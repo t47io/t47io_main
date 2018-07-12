@@ -93,4 +93,3 @@ AffiliationItem.defaultProps = {
 
 
 export default AffiliationItem;
-

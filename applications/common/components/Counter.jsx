@@ -12,6 +12,7 @@ class Counter extends React.PureComponent {
     interval: PropTypes.number,
     shouldAnimate: PropTypes.bool,
   };
+
   static defaultProps = {
     className: '',
     doneClassName: '',
@@ -30,18 +31,21 @@ class Counter extends React.PureComponent {
   componentDidMount() {
     if (this.state.isActive) { this.onCountUp(); }
   }
+
   componentWillReceiveProps(nextProps) {
     if ((nextProps.shouldAnimate && !this.props.shouldAnimate) ||
       nextProps.endValue !== this.props.endValue) {
       this.setState({ isActive: nextProps.shouldAnimate });
     }
   }
+
   componentDidUpdate(prevProps) {
     if ((this.props.shouldAnimate && !prevProps.shouldAnimate) ||
       this.props.endValue !== prevProps.endValue) {
       this.onCountUp();
     }
   }
+
   componentWillUnmount() {
     clearInterval(this.timer);
   }

@@ -58,7 +58,7 @@ const Navbar = ({
           />
         </div>
 
-        <div styleName="cssNav.COMMON__navbar--collapse" className={`navbar-collapse ${collapseClassName}`} >
+        <div styleName="cssNav.COMMON__navbar--collapse" className={`navbar-collapse ${collapseClassName}`}>
           <ul styleName="cssNav.COMMON__navbar-dropdown" className="nav navbar-right">
             {items.map((item, i) => (
               <NavbarItem

@@ -79,7 +79,7 @@ const HomeSection = ({
         shouldAnimate={avatar}
       />
 
-      <div className="container" >
+      <div className="container">
         <div styleName="cssHome.HOME__content cssType.text-white">
           <HomeName
             shouldAnimate={avatar}
