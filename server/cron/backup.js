@@ -9,7 +9,7 @@ const log = logger('cron:backup');
 
 const prepareFolder = () => {
   shell.rm('-rf', PATH.BACKUP);
-  shell.mkdir('-p', `${PATH.BACKUP}/json`, `${PATH.BACKUP}/nginx`);
+  shell.mkdir('-p', `${PATH.BACKUP}/json`, `${PATH.BACKUP}/svg`, `${PATH.BACKUP}/nginx`);
   shell.mkdir('-p', `${PATH.BACKUP}/json/main`, `${PATH.BACKUP}/json/project`, `${PATH.BACKUP}/json/repository`);
 };
 
@@ -18,8 +18,9 @@ const backupJSON = () => {
   shell.cp('-R', 'config/main/*.json', `${PATH.BACKUP}/json/main`);
   shell.cp('-R', 'config/project/*.json', `${PATH.BACKUP}/json/project`);
   shell.cp('-R', 'config/repository/*.json', `${PATH.BACKUP}/json/repository`);
-  shell.rm('-rf', `${PATH.BACKUP}/**/*.example.json`);
+  shell.cp('-R', 'config/*.svg', `${PATH.BACKUP}/svg`);
 
+  shell.rm('-rf', `${PATH.BACKUP}/**/*.example.json`);
   log.debug('JSON config backed up.');
 };
 
