@@ -21,6 +21,7 @@ const backupJSON = () => {
   shell.cp('-R', 'config/project/*.json', `${PATH.BACKUP}/json/project`);
   shell.cp('-R', 'config/repository/*.json', `${PATH.BACKUP}/json/repository`);
   shell.rm('-rf', `${PATH.BACKUP}/**/*.example.json`);
+  shell.rm('-rf', `${PATH.BACKUP}/stats-*.json`);
   shell.rm('-rf', `${PATH.BACKUP}/main.json`, `${PATH.BACKUP}/project.json`);
 
   log.debug('JSON config backed up.');
