@@ -14,13 +14,15 @@ const prepareFolder = () => {
 };
 
 const backupJSON = () => {
-  shell.cp('config/server.json', `${PATH.BACKUP}/json`);
+  shell.cp('-R', 'config/*.svg', `${PATH.BACKUP}/svg`);
+
+  shell.cp('-R', 'config/*.json', `${PATH.BACKUP}/json`);
   shell.cp('-R', 'config/main/*.json', `${PATH.BACKUP}/json/main`);
   shell.cp('-R', 'config/project/*.json', `${PATH.BACKUP}/json/project`);
   shell.cp('-R', 'config/repository/*.json', `${PATH.BACKUP}/json/repository`);
-  shell.cp('-R', 'config/*.svg', `${PATH.BACKUP}/svg`);
-
   shell.rm('-rf', `${PATH.BACKUP}/**/*.example.json`);
+  shell.rm('-rf', `${PATH.BACKUP}/main.json`, `${PATH.BACKUP}/project.json`);
+
   log.debug('JSON config backed up.');
 };
 
