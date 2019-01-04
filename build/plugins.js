@@ -1,17 +1,18 @@
 import glob from 'glob';
 import path from 'path';
 import webpack from 'webpack';
+import zopfli from '@gfx/zopfli';
 
 import BabelMinifyPlugin from 'babel-minify-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ChunkRenamePlugin from 'chunk-rename-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
-import ZopfliPlugin from 'zopfli-webpack-plugin';
 
 import {
   ROOT,
@@ -146,10 +147,10 @@ const plugins = (DEBUG = true) => {
       test: compressionRegex,
       minRatio: Infinity,
     }),
-    new ZopfliPlugin({
+    new CompressionPlugin({
       test: compressionRegex,
-      algorithm: 'zopfli',
       minRatio: Infinity,
+      algorithm: (...args) => zopfli.gzip(...args),
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
