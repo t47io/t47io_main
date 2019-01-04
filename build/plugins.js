@@ -150,7 +150,7 @@ const plugins = (DEBUG = true) => {
     new CompressionPlugin({
       test: compressionRegex,
       minRatio: Infinity,
-      algorithm: (...args) => zopfli.gzip(...args),
+      algorithm: zopfli.gzip,
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
