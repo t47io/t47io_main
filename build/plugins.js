@@ -1,7 +1,7 @@
 import glob from 'glob';
 import path from 'path';
 import webpack from 'webpack';
-import zopfli from '@gfx/zopfli';
+import { gzip as zopfli } from '@gfx/zopfli';
 
 import BabelMinifyPlugin from 'babel-minify-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
@@ -150,7 +150,7 @@ const plugins = (DEBUG = true) => {
     new CompressionPlugin({
       test: compressionRegex,
       minRatio: Infinity,
-      algorithm: zopfli.gzip,
+      algorithm: zopfli,
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
