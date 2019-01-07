@@ -1,8 +1,7 @@
 {
   "bootstrapVersion": 3,
   "styleLoaders": [
-    "style-loader",
-    "css-loader?importLoaders=1",
+    "css-loader?{\"importLoaders\": 2}",
     "postcss-loader",
     "resolve-url-loader?-sourceMap",
     "sass-loader?sourceMap"

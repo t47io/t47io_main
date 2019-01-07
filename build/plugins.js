@@ -13,6 +13,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
+// import TerserPlugin from 'terser-webpack-plugin';
 
 import {
   ROOT,
@@ -136,6 +137,10 @@ const plugins = (DEBUG = true) => {
     }),
     new ManifestPlugin({ publicPath: '' }),
     new ChunkRenamePlugin(JS_CHUNK_MAPS),
+    // new TerserPlugin({
+    //   cache: true,
+    //   parallel: true,
+    // }),
     new BabelMinifyPlugin({
       removeConsole: true,
       removeDebugger: true,

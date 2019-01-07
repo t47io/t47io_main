@@ -1,6 +1,7 @@
 import autoprefixer from 'autoprefixer';
 import csso from 'postcss-csso';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import ExtractCSSPlugin from 'mini-css-extract-plugin';
+// import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import { ASSET_FILE_NAME } from './config.js';
 import { getThemeColor } from './render/util.js';
@@ -16,39 +17,36 @@ const loaders = (DEBUG = true, SSR = false) => {
     },
   }, {
     test: /\.scss$/,
-    use: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: [
-        {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 1,
-            modules: true,
-            localIdentName: DEBUG ? '[local]' : '__[hash:6]',
-          },
+    use: [
+      ExtractCSSPlugin.loader,
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          importLoaders: 2,
+          localIdentName: DEBUG ? '[local]' : '__[hash:6]',
         },
-        {
-          loader: 'postcss-loader',
-          options: { plugins: () => ([autoprefixer, csso]) },
+      },
+      {
+        loader: 'postcss-loader',
+        options: { plugins: () => ([autoprefixer, csso]) },
+      },
+      {
+        loader: 'resolve-url-loader',
+        options: {
+          debug: DEBUG,
+          sourceMap: false,
         },
-        {
-          loader: 'resolve-url-loader',
-          options: {
-            attempts: 1,
-            fail: true,
-            sourceMap: false,
-          },
+      },
+      'fix-global-font-face-loader',
+      {
+        loader: 'sass-loader',
+        options: {
+          data: getThemeColor(),
+          sourceMap: true,
         },
-        'fix-global-font-face-loader',
-        {
-          loader: 'sass-loader',
-          options: {
-            data: getThemeColor(),
-            sourceMap: true,
-          },
-        },
-      ],
-    }),
+      },
+    ],
   }, {
     test: /\.woff$/,
     use: {
