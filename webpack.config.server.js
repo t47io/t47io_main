@@ -1,4 +1,5 @@
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+// import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import ExtractCSSPlugin from 'mini-css-extract-plugin';
 import StaticSiteGeneratorPlugin from 'static-site-generator-webpack-plugin';
 
 import aliases from './build/aliases.js';
@@ -18,12 +19,14 @@ const config = {
     path: PATH.PUBLIC,
     publicPath: '/',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
 
+  mode: 'production',
   devtool: 'cheap-module-source-map',
   performance: {
     assetFilter: asset => (asset.includes('.html')),
-    maxAssetSize: 1000 * 1024,
+    maxAssetSize: 1620 * 1024,
     maxEntrypointSize: Infinity,
   },
   resolve: {
@@ -36,10 +39,13 @@ const config = {
 
   module: { rules: loaders(false, true) },
   plugins: [
-    new ExtractTextPlugin({
+    new ExtractCSSPlugin({
       filename: 'tmp/_ssr.min.css',
-      allChunks: true,
     }),
+    // new ExtractTextPlugin({
+    //   filename: 'tmp/_ssr.min.css',
+    //   allChunks: true,
+    // }),
     new StaticSiteGeneratorPlugin({
       entry: 'main',
       paths: ['/'],

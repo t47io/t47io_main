@@ -15,12 +15,14 @@ const config = {
     path: PATH.PUBLIC,
     publicPath: '/',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
 
+  mode: 'production',
   devtool: 'cheap-module-source-map',
   performance: {
     assetFilter: asset => (asset.includes('.html')),
-    maxAssetSize: 10 * 1024,
+    maxAssetSize: 20 * 1024,
     maxEntrypointSize: Infinity,
   },
   resolve: {
