@@ -29,7 +29,8 @@ export const projectPathRegex = new RegExp(`^/project/(${PROJECT_LIST.join('|')}
 export const errorPathRegex = new RegExp(`^/error/(${HTTP_CODES.join('|')})/?$`);
 
 export const getZipExt = (headers, length = 4) => {
-  const zipType = headers['accept-encoding'].includes('br') ? 'br' : 'gzip';
+  const encoding = headers['accept-encoding'] || '';
+  const zipType = encoding.includes('br') ? 'br' : 'gzip';
   return zipType.slice(0, length);
 };
 export const getHeader = (req, forceHeader = false) => {
