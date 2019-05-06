@@ -10,16 +10,13 @@
   "scripts": {
     "dev": "yarn prep && yarn nodemon",
     "prod": "pm2 start --interpreter babel-node server/server.js -n main",
-
     "prep": "concurrently --raw \"yarn json\" \"yarn build:temp\"",
     "json": "babel-node ./server/json.js",
     "stat": "yarn cron && yarn build && yarn cron:chmod",
     "nodemon": "nodemon --config .nodemonrc server/server.js",
-
     "lint": "concurrently --raw \"yarn lint:js\" \"yarn lint:css\"",
     "lint:js": "eslint applications build server webpack.*.js --ext [.jsx,.js] --fix",
     "lint:css": "stylefmt -i applications/common/mixins/sprite.scss -r \"applications/**/*.{css,scss}\"",
-
     "build": "yarn lint:js && yarn prep && yarn build:server && yarn build:client",
     "build:temp": "yarn webpack:temp && concurrently --raw \"yarn process:temp\" \"yarn process:error\"",
     "build:server": "yarn webpack:server && yarn process:server",
@@ -27,7 +24,6 @@
     "webpack:temp": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.temp.js",
     "webpack:server": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.server.js",
     "webpack:client": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.client.js --verbose",
-
     "process": "yarn process:client && concurrently --raw \"yarn process:manifest\" \"yarn process:static\"",
     "process:temp": "babel-node ./build/process/temp.js",
     "process:server": "babel-node ./build/process/server.jsx",
@@ -38,7 +34,6 @@
     "process:copy": "babel-node ./build/process/copy.js",
     "process:sitemap": "babel-node ./build/process/sitemap.js",
     "process:clean": "babel-node ./build/process/clean.js",
-
     "cron": "concurrently --raw \"yarn cron:contrib\" \"yarn cron:repo\" \"yarn cron:scholar\" \"yarn cron:https\" && yarn cron:backup && yarn cron:email",
     "cron:contrib": "babel-node ./server/cron/git_contrib.js",
     "cron:repo": "babel-node ./server/cron/git_repo.js",
@@ -48,9 +43,10 @@
     "cron:email": "babel-node ./server/cron/email.js",
     "cron:chmod": "babel-node ./server/cron/chmod.js",
     "cron:renew": "babel-node ./server/cron/ssl_renew.js",
-
     "update": "yarn upgrade-interactive --exact && yarn autoclean --force",
-    "update:nginx": "babel-node ./server/cron/build_nginx.js"
+    "update:nginx": "babel-node ./server/cron/build_nginx.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": "github:t47io/t47io_main",
   "license": "CC-BY-NC-SA-4.0",
@@ -163,12 +159,14 @@
     "nodemailer": "5.0.0",
     "pm2": "3.2.4",
     "sanitizer": "0.1.3",
-    "shelljs": "0.8.3"
+    "shelljs": "0.8.3",
+    "snyk": "^1.161.1"
   },
   "os": [
     "darwin",
     "linux"
   ],
   "preferGlobal": false,
-  "private": true
+  "private": true,
+  "snyk": true
 }
