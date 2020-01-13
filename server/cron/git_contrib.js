@@ -62,7 +62,7 @@ const getContrib = async (account) => {
   try {
     let result;
     if (account.startsWith('@')) {
-      result = await fs.readFile(path.join(PATH.CONFIG, `${account.slice(1)}.svg`), 'utf8');
+      result = await fs.readFile(path.join(PATH.CONFIG, `repository/account/${account.slice(1)}.svg`), 'utf8');
       result = { data: result };
     } else {
       result = await axios.get(`${GITHUB.HOST}users/${account}/contributions`);
