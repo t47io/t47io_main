@@ -5,7 +5,7 @@ backup.tar.gz
 config/**/*.json
 !config/**/*.example.json
 config/stats*.*
-config/counsyl.svg
+config/repository/account/2020.svg
 public/
 !public/.gitignore
 static/**/*.pdf
