@@ -1,5 +1,5 @@
 import React from 'react';
-import Waypoint from 'react-waypoint';
+import { Waypoint } from 'react-waypoint';
 import PropTypes from 'prop-types';
 
 import { noOp } from '../../common/util.js';
