@@ -30,9 +30,8 @@ export const animateIntro = () => ({ type: TOGGLE_HOME_INTRO_ANIMATION });
 export const animateTextColor = () => ({ type: TOGGLE_HOME_TEXT_COLOR });
 
 export const animateHome = () => dispatch => (
-  Promise.resolve(
-    dispatch(animateAvatar())
-  )
+  delayFor()
+  .then(() => dispatch(animateAvatar()))
   .then(() => delayFor(AVATAR_SVG_DRAW_DURATION))
   .then(() => dispatch(animateIntro()))
   .then(() => delayFor(SHADE_FADE_DURATION))
