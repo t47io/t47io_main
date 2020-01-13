@@ -18,17 +18,17 @@ class Audio extends React.Component {
     onFinish: noOp,
   };
 
-  state = { audio: null };
+  audio = null;
 
   componentDidMount() {
-    this.state.audio.addEventListener('ended', this.props.onFinish);
+    this.audio.addEventListener('ended', this.props.onFinish);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.play) {
-      this.state.audio.play();
+      this.audio.play();
     } else {
-      this.state.audio.pause();
+      this.audio.pause();
     }
   }
 
@@ -37,7 +37,7 @@ class Audio extends React.Component {
   }
 
   componentWillUnmount() {
-    this.state.audio.removeEventListener('ended', this.props.onFinish);
+    this.audio.removeEventListener('ended', this.props.onFinish);
   }
 
   render() {
@@ -46,7 +46,7 @@ class Audio extends React.Component {
     /* eslint-disable jsx-a11y/media-has-caption */
     return (
       <audio
-        ref={(c) => { this.setState({ audio: c }); }}
+        ref={(c) => { this.audio = c; }}
         src={src}
         loop={loop}
       />

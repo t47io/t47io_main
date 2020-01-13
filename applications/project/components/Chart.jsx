@@ -33,7 +33,7 @@ class FrappeChart extends React.PureComponent {
     className: '',
   };
 
-  state = { chart: null };
+  chart = null;
 
   componentDidMount() {
     const {
@@ -50,7 +50,7 @@ class FrappeChart extends React.PureComponent {
       ),
     } : {};
 
-    this.chart = new Chart(this.state.chart, {
+    this.chart = new Chart(this.chart, {
       title,
       colors,
       height,
@@ -77,7 +77,7 @@ class FrappeChart extends React.PureComponent {
     return (
       <div
         className={this.props.className}
-        ref={(c) => { this.setState({ chart: c }); }}
+        ref={(c) => { this.chart = c; }}
       />
     );
   }
