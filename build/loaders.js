@@ -105,6 +105,9 @@ const loaders = (DEBUG = true, SSR = false) => {
     loader.unshift({
       test: /web-animations-js/,
       use: { loader: 'null-loader' },
+    }, {
+      test: /whatwg-fetch/,
+      use: { loader: 'null-loader' },
     });
   } else if (!DEBUG) {
     loader.unshift({
