@@ -54,7 +54,13 @@ try {
   saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
   const newCronJSON = {
     ...cronJSON,
-    manifest: chunkManifest,
+    manifest: Object.keys(CHUNKS).map(key => ({
+      [key]: Object.values(chunkManifest).map(type => type[CHUNKS[key]]).filter(Boolean)
+    }))
+    .reduce((obj, item) => ({
+      ...obj,
+      ...item,
+    }), {})
   };
   fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
   log.info('Manifest JSON injected.');
