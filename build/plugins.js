@@ -10,6 +10,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
+import SizePlugin from 'size-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
 import ZopfliPlugin from 'zopfli-webpack-plugin';
 
@@ -150,6 +151,10 @@ const plugins = (DEBUG = true) => {
       test: compressionRegex,
       algorithm: 'zopfli',
       minRatio: Infinity,
+    }),
+    new SizePlugin({
+      filename: path.join(PATH.CONFIG, 'sizes.json'),
+      writeFile: true,
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
