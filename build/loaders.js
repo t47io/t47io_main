@@ -33,11 +33,7 @@ const loaders = (DEBUG = true, SSR = false) => {
         },
         {
           loader: 'resolve-url-loader',
-          options: {
-            attempts: 1,
-            fail: true,
-            sourceMap: false,
-          },
+          options: { sourceMap: false },
         },
         'fix-global-font-face-loader',
         {
@@ -88,7 +84,12 @@ const loaders = (DEBUG = true, SSR = false) => {
         options: { cacheDirectory: DEBUG },
       }, {
         loader: 'react-svg-loader',
-        options: { jsx: true },
+        options: {
+          jsx: true,
+          svgo: {
+            plugins: [{ removeViewBox: false }],
+          },
+        },
       }],
     }, {
       use: {
