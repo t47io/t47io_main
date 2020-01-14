@@ -18,6 +18,10 @@
     "react"
   ],
   "rules": {
+    "arrow-parens": [2,
+      "as-needed",
+      { "requireForBlockBody": true }
+    ],
     "comma-dangle": [2, {
       "arrays": "always-multiline",
       "objects": "always-multiline",
@@ -49,10 +53,14 @@
     "react/destructuring-assignment": [0],
     "react/forbid-prop-types": [1, { "forbid": ["any"] }],
     "react/jsx-max-props-per-line": [0],
+    "react/jsx-props-no-spreading": [0],
     "react/jsx-one-expression-per-line": [0],
     "react/no-array-index-key": [0],
     "react/no-danger": [0],
+    "react/no-deprecated": [0],
     "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
-    "react/prop-types": [1, {"ignore": ["children", "route"]}]
+    "react/prop-types": [1, {"ignore": ["children", "route"]}],
+    "react/state-in-constructor": [2, "never"],
+    "react/static-property-placement": [2, "static public field"]
   }
 }

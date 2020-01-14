@@ -6,6 +6,8 @@ import '../../vendor/frappe.scss';
 
 
 class FrappeChart extends React.PureComponent {
+  chart = null;
+
   static propTypes = {
     data: PropTypes.shape({
       labels: PropTypes.arrayOf(PropTypes.any),
@@ -32,8 +34,6 @@ class FrappeChart extends React.PureComponent {
     logScale: false,
     className: '',
   };
-
-  chart = null;
 
   componentDidMount() {
     const {

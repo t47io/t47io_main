@@ -5,6 +5,8 @@ import { noOp } from '../util.js';
 
 
 class Audio extends React.Component {
+  audio = null;
+
   static propTypes = {
     src: PropTypes.string.isRequired,
     play: PropTypes.bool,
@@ -17,8 +19,6 @@ class Audio extends React.Component {
     loop: false,
     onFinish: noOp,
   };
-
-  audio = null;
 
   componentDidMount() {
     this.audio.addEventListener('ended', this.props.onFinish);
