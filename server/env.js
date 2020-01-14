@@ -3,7 +3,9 @@ import path from 'path';
 
 import serverJSON from '../config/server.json';
 
+/* eslint-disable object-curly-newline */
 const { mode, port, email, chmod } = serverJSON;
+/* eslint-enable */
 
 
 export const ROOT = path.join(__dirname, '../');

@@ -15,7 +15,7 @@ import { initialState as contactProps } from '../reducers/contact.js';
 import { noOp } from '../../common/util.js';
 import { CONTACT } from '../constants/sectionTypes.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssUtil from '../stylesheets/util.scss';
 import cssContact from '../stylesheets/ContactSection.scss';

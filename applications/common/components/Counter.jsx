@@ -51,6 +51,7 @@ class Counter extends React.PureComponent {
   }
 
   onCountUp = () => {
+    // eslint-disable-next-line object-curly-newline
     const { beginValue, endValue, duration, interval } = this.props;
     const steps = Math.ceil(duration / interval);
     const increment = (endValue - beginValue) / steps;

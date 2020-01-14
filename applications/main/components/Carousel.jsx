@@ -6,7 +6,7 @@ import CarouselIndicator from './CarouselIndicator.jsx';
 
 import { SVG_BG_INDICES } from '../constants/util.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssSvg from '../stylesheets/svg.scss';
 import cssUtil from '../stylesheets/util.scss';
 import cssCarousel from '../stylesheets/Carousel.scss';

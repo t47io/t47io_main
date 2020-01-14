@@ -7,7 +7,7 @@ import AffiliationRole from './AffiliationRole.jsx';
 import { imgAffiliations } from './Images.js';
 import { SVG_INDICES } from '../../common/constants/util.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssSvg from '../stylesheets/svg.scss';
 import cssAff from '../stylesheets/AffiliationSection.scss';
 /* eslint-enable */

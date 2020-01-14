@@ -53,7 +53,12 @@ export const submitEmailError = code => (
 
 export const submitEmail = () => (dispatch, getState) => {
   dispatch({ type: SUBMIT_CONTACT_EMAIL_WAIT });
-  const { contact: { form: { name, email, subject, message } } } = getState();
+  const {
+    contact: {
+      // eslint-disable-next-line object-curly-newline
+      form: { name, email, subject, message },
+    },
+  } = getState();
 
   return fetch('/send', {
     method: 'POST',

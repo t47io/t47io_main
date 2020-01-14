@@ -38,7 +38,7 @@ import {
   year,
 } from '../util.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssType from '../mixins/typography.scss';
 import cssSvg from '../../main/stylesheets/svg.scss';
 import cssFooter from '../stylesheets/Footer.scss';

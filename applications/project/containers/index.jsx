@@ -27,7 +27,7 @@ import { scrollToSection } from '../../common/actions/navbarActions.js';
 import { animateReady } from '../actions/dataActions.js';
 import { noOp } from '../../common/util.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssVendor from '../../vendor/index.scss';
 import cssProj from '../stylesheets/index.scss';
 /* eslint-enable */

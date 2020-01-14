@@ -43,7 +43,7 @@ class WebAnimation extends React.Component {
     this.setState({ playState: getPlayState(nextProps.shouldAnimate) });
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     const shouldAnimate = (nextProps.shouldAnimate !== this.props.shouldAnimate);
     const shouldReverse = (nextProps.shouldReverse !== this.props.shouldReverse);
     const shouldForceUpdate = this.props.shouldForceUpdate || nextProps.shouldForceUpdate;
@@ -52,6 +52,7 @@ class WebAnimation extends React.Component {
   }
 
   render() {
+    // eslint-disable-next-line object-curly-newline
     const { tagName, keyframes, timing, onFinish, children, ...props } = this.props;
     const { playState } = this.state;
     const CustomTag = `${tagName}`;

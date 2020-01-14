@@ -9,7 +9,7 @@ import {
   REPOSITORY,
 } from '../../config.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssPort from '../stylesheets/PortfolioSection.scss';
 /* eslint-enable */

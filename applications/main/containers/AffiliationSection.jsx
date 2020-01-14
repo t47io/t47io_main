@@ -10,7 +10,7 @@ import SectionHeader from '../../common/components/SectionHeader.jsx';
 import * as affiliationActions from '../actions/affiliationActions.js';
 import { noOp } from '../../common/util.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssUtil from '../stylesheets/util.scss';
 import cssAff from '../stylesheets/AffiliationSection.scss';

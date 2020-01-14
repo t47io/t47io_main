@@ -51,6 +51,7 @@ app.route('/send').get(routes.email.get).post(routes.email.post);
 app.get(errorPathRegex, routes.error);
 app.all('*', routes.all);
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   let code = 500;
   if (err.status) {

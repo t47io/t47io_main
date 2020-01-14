@@ -11,11 +11,13 @@ const AVATARS = require.context('../images/', false, /avatar-[0-5]{1}\.svg$/);
 export const imgAvatars = getContextObject(AVATARS, svgAvatarRegex);
 export SvgAvatar from '../images/t47_avatar.svg';
 
+/* eslint-disable global-require */
 export const imgThesis = [
   require('../images/t47_thesis-0.svg'),
   require('../images/t47_thesis-1.svg'),
   require('../images/t47_thesis-2.svg'),
 ];
+/* eslint-enable */
 
 
 const BRAND_LOGOS = require.context('../images/brands/', false, /\.svg$/);

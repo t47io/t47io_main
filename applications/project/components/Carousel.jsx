@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import CarouselIndicator from './CarouselIndicator.jsx';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssFeat from '../stylesheets/FeatureSection.scss';
 import cssSprite from '../stylesheets/sprites.scss';
 /* eslint-enable */
@@ -59,6 +59,7 @@ class Carousel extends React.PureComponent {
   };
 
   render() {
+    // eslint-disable-next-line object-curly-newline
     const { project, items, className, index } = this.props;
     const { current } = this.state;
     const spriteName = cssSprite[`SPRITE__${project}-${index}_${items[current].tag}`];

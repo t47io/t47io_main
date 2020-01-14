@@ -14,7 +14,7 @@ import { initialState as portfolioProps } from '../reducers/portfolio.js';
 import { noOp } from '../../common/util.js';
 import { PORTFOLIO } from '../constants/sectionTypes.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssUtil from '../stylesheets/util.scss';
 import cssPort from '../stylesheets/PortfolioSection.scss';

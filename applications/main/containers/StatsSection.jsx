@@ -15,7 +15,7 @@ import { noOp } from '../../common/util.js';
 import { STATS } from '../constants/sectionTypes.js';
 import { GITHUB_HOST } from '../../config.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssUtil from '../stylesheets/util.scss';
 import cssStats from '../stylesheets/StatsSection.scss';

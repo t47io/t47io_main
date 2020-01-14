@@ -12,7 +12,7 @@ import { imgPublications } from './Images.js';
 import { pubsItem } from '../animations/pubs.js';
 import { SVG_INDICES } from '../../common/constants/util.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssSvg from '../stylesheets/svg.scss';
 import cssPubs from '../stylesheets/PubsSection.scss';

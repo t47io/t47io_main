@@ -105,7 +105,9 @@ const routes = {
         return next(sendErrorResponse(400));
       }
 
+      /* eslint-disable object-curly-newline */
       const { name, email, subject, message } = form;
+      /* eslint-enable */
       return SMTP.sendMail({
         from: EMAIL_RECV,
         to: EMAIL_RECV,

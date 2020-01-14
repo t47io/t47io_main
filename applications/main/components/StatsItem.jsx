@@ -6,7 +6,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { statsItem } from '../animations/stats.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssUtil from '../stylesheets/util.scss';
 import cssStats from '../stylesheets/StatsSection.scss';
 /* eslint-enable */

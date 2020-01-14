@@ -32,7 +32,7 @@ class Audio extends React.Component {
     }
   }
 
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate() {
     return false;
   }
 
@@ -51,6 +51,7 @@ class Audio extends React.Component {
         loop={loop}
       />
     );
+    /* eslint-enable */
   }
 }
 

@@ -12,7 +12,7 @@ import {
 } from '../animations/home.js';
 import { formatHomeText } from '../util.js';
 
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssHome from '../stylesheets/HomeSection.scss';
 /* eslint-enable */

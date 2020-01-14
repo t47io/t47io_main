@@ -7,6 +7,7 @@ const NAME_OFFSET = SHADE_FADE_START / NAME_ZOOM_DURATION;
 export const homeName = {
   keyframes: [
     { transform: 'scale(5)', opacity: 0, filter: 'none' },
+    // eslint-disable-next-line object-curly-newline
     { transform: 'scale(5)', opacity: 0, filter: 'blur(3em)', offset: NAME_OFFSET },
     { transform: 'scale(1)', opacity: 1, filter: 'none' },
   ],

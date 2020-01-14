@@ -30,17 +30,12 @@
       "functions": "ignore"
     }],
     "function-paren-newline": [2, "consistent"],
-    "global-require": [0],
     "indent": [2, 2, {
       "MemberExpression": "off",
       "SwitchCase": 1
     }],
-    "max-len": [1],
     "no-console": [1, { "allow": ["error"] }],
     "no-mixed-operators": [0],
-    "no-shadow": [2, { "allow": ["DEBUG"] }],
-    "no-unused-vars": [2, { "argsIgnorePattern": "next" }],
-    "object-curly-newline": [0],
     "operator-linebreak": [2, "after"],
 
     "import/extensions": [0, { "extensions": [".js", ".jsx", ".json"] }],
@@ -48,7 +43,6 @@
     "import/prefer-default-export": [0],
 
     "jsx-a11y/anchor-is-valid": [1, { "aspects": ["invalidHref"] }],
-    "jsx-a11y/click-events-have-key-events": [0],
 
     "react/destructuring-assignment": [0],
     "react/forbid-prop-types": [1, { "forbid": ["any"] }],
@@ -58,7 +52,6 @@
     "react/no-array-index-key": [0],
     "react/no-danger": [0],
     "react/no-deprecated": [0],
-    "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
     "react/prop-types": [1, {"ignore": ["children", "route"]}],
     "react/state-in-constructor": [2, "never"],
     "react/static-property-placement": [2, "static public field"]
