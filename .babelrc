@@ -1,13 +1,17 @@
 {
   "presets": [
-    ["env", { "useBuiltIns": true }],
-    "stage-1",
-    "react"
+    ["@babel/env", { "useBuiltIns": false }],
+    "@babel/react"
   ],
-  "plugins": ["lodash"],
+  "plugins": [
+    "lodash",
+    "@babel/syntax-dynamic-import",
+    "@babel/proposal-class-properties",
+    "@babel/proposal-export-default-from",
+    "@babel/proposal-optional-chaining"
+  ],
   "env": {
     "development": {
-      "presets": ["react-hmre"],
       "plugins": [
         ["react-css-modules", {
           "filetypes": {
