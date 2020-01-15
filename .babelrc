@@ -23,7 +23,8 @@
             }
           },
           "generateScopedName": "[local]",
-          "handleMissingStyleName": "warn"
+          "handleMissingStyleName": "warn",
+          "webpackHotModuleReloading": true
         }]
       ]
     },

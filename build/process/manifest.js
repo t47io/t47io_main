@@ -56,7 +56,7 @@ try {
   const newCronJSON = {
     ...cronJSON,
     manifest: Object.keys(CHUNKS).map(key => ({
-      [key]: Object.values(chunkManifest).map(type => type[CHUNKS[key]]).filter(Boolean)
+      [key]: Object.values(chunkManifest).map(type => type[CHUNKS[key]]).filter(Boolean),
     }))
     .reduce((obj, item) => ({
       ...obj,
