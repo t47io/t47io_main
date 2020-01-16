@@ -7,22 +7,31 @@
           "title": "Counsyl Inc.",
           "url": "https://www.counsyl.com/",
           "geo": "South San Francisco, CA, USA",
-          "role": {
-            "position": "LIMS",
-            "title": "Software Engineer",
-            "team": "Analytical Labs"
-          },
+          "roles": [
+            {
+              "position": "Automation & Robotics",
+              "title": "Senior Software Engineer",
+              "team": "DNA"
+            },
+            {
+              "position": "LIMS & Analytical Results",
+              "title": "Software Engineer",
+              "team": "Technology"
+            }
+          ],
           "tag": "Counsyl"
         },
         {
           "title": "Minted LLC",
           "url": "https://www.minted.com/",
           "geo": "San Francisco, CA, USA",
-          "role": {
-            "position": "Full-Stack",
-            "title": "Software Engineer",
-            "team": "E-Commerce"
-          },
+          "roles": [
+            {
+              "position": "Full-Stack",
+              "title": "Software Engineer",
+              "team": "E-Commerce"
+            }
+          ],
           "tag": "Minted"
         }
       ]
@@ -34,11 +43,13 @@
           "title": "AUTODESK Inc.",
           "url": "http://www.autodesk.com/",
           "geo": "San Francisco, CA, USA",
-          "role": {
-            "position": "Intern",
-            "title": "Analyst Data Scientist",
-            "team": "IPG Product Intelligence"
-          },
+          "roles": [
+            {
+              "position": "Intern",
+              "title": "Analyst Data Scientist",
+              "team": "IPG Product Intelligence"
+            }
+          ],
           "tag": "Autodesk"
         }
       ]
@@ -50,11 +61,13 @@
           "title": "Stanford University",
           "url": "https://www.stanford.edu/",
           "geo": "Palo Alto, CA, USA",
-          "role": {
-            "position": "Ph.D.",
-            "title": "Biochemistry",
-            "team": "School of Medicine"
-          },
+          "roles": [
+            {
+              "position": "Ph.D.",
+              "title": "Biochemistry",
+              "team": "School of Medicine"
+            }
+          ],
           "rewards": [
             {
               "year": 2011,
@@ -81,11 +94,13 @@
           "title": "China Agricultural University",
           "url": "https://english.cau.edu.cn/",
           "geo": "Beijing, China",
-          "role": {
-            "position": "B.S.",
-            "title": "Biochemistry and Molecular Biology",
-            "team": "College of Biological Sciences"
-          },
+          "roles": [
+            {
+              "position": "B.S.",
+              "title": "Biochemistry and Molecular Biology",
+              "team": "College of Biological Sciences"
+            }
+          ],
           "rewards": [
             {
               "year": 2010,

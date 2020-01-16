@@ -15,7 +15,7 @@ const AffiliationPanel = ({
   title,
   url,
   geo,
-  role,
+  roles,
   rewards,
   tag,
 }) => (
@@ -50,7 +50,12 @@ const AffiliationPanel = ({
       <span styleName="cssAff.AFFILIATION__geo">{geo}</span>
     </div>
     <div styleName="cssAff.AFFILIATION__text" className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <AffiliationRole {...role} />
+      {roles.map((item, i) => (
+        <AffiliationRole
+          key={`AFFILIATION__role-${tag}-${i}`}
+          {...item}
+        />
+      ))}
       <br className="hidden-xs hidden-sm" />
       <table className="hidden-xs hidden-sm">
         <tbody>
@@ -70,7 +75,7 @@ AffiliationPanel.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string,
   geo: PropTypes.string,
-  role: PropTypes.object,
+  roles: PropTypes.arrayOf(PropTypes.object),
   rewards: PropTypes.arrayOf(PropTypes.object),
   tag: PropTypes.string,
 };
@@ -78,7 +83,7 @@ AffiliationPanel.defaultProps = {
   title: '',
   url: '',
   geo: '',
-  role: {},
+  roles: [],
   rewards: [],
   tag: '',
 };
