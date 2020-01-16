@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssPubs from '../stylesheets/PubsSection.scss';
-/* eslint-enable */
 
 
 const PubsLink = ({

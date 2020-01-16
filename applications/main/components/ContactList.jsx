@@ -11,10 +11,8 @@ import { noOp } from '../../common/util.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 import { EMAIL } from '../../config.js';
 
-/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssContact from '../stylesheets/ContactSection.scss';
-/* eslint-enable */
 
 
 const ContactList = ({

@@ -12,10 +12,8 @@ import { initialState as aboutProps } from '../reducers/about.js';
 import { noOp } from '../../common/util.js';
 import { ABOUT } from '../constants/sectionTypes.js';
 
-/* eslint-disable no-unused-vars */
 import cssUtil from '../stylesheets/util.scss';
 import cssAbout from '../stylesheets/AboutSection.scss';
-/* eslint-enable */
 
 
 const AboutSection = ({

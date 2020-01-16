@@ -8,10 +8,8 @@ import { imgPortfolio } from './Images.js';
 import { portfolioItem } from '../animations/portfolio.js';
 import { SVG_INDICES } from '../../common/constants/util.js';
 
-/* eslint-disable no-unused-vars */
 import cssSvg from '../stylesheets/svg.scss';
 import cssPort from '../stylesheets/PortfolioSection.scss';
-/* eslint-enable */
 
 
 const PortfolioItem = ({

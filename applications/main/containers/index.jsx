@@ -30,10 +30,8 @@ import {
 } from '../../common/constants/sectionTypes.js';
 import { HOME } from '../constants/sectionTypes.js';
 
-/* eslint-disable no-unused-vars */
 import cssVendor from '../../vendor/index.scss';
 import cssMain from '../stylesheets/index.scss';
-/* eslint-enable */
 
 
 const Main = ({

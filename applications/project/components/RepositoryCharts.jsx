@@ -9,10 +9,8 @@ import {
   COMMIT_CHART_OPTIONS,
 } from '../constants/util.js';
 
-/* eslint-disable no-unused-vars */
 import cssFeat from '../stylesheets/FeatureSection.scss';
 import cssRepo from '../stylesheets/GitHubSection.scss';
-/* eslint-enable */
 
 
 const RepositoryCharts = ({

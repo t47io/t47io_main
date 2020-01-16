@@ -19,13 +19,11 @@ import { noOp } from '../../common/util.js';
 import { HOME } from '../constants/sectionTypes.js';
 import { AVATAR_INDICES } from '../constants/util.js';
 
-/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssSvg from '../stylesheets/svg.scss';
 import cssUtil from '../stylesheets/util.scss';
 import cssHome from '../stylesheets/HomeSection.scss';
 import cssCarousel from '../stylesheets/Carousel.scss';
-/* eslint-enable */
 
 
 const HomeSection = ({

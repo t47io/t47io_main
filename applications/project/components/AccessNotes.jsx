@@ -1,9 +1,7 @@
 import React from 'react';
 
-/* eslint-disable no-unused-vars */
 import cssType from '../stylesheets/typography.scss';
 import cssAccess from '../stylesheets/AccessSection.scss';
-/* eslint-enable */
 
 
 const DaslabServerNote = () => (

@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 
 import CarouselIndicator from './CarouselIndicator.jsx';
 
-/* eslint-disable no-unused-vars */
 import cssFeat from '../stylesheets/FeatureSection.scss';
 import cssSprite from '../stylesheets/sprites.scss';
-/* eslint-enable */
 
 
 class Carousel extends React.PureComponent {

@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/* eslint-disable no-unused-vars */
 import cssType from '../../common/mixins/typography.scss';
 import cssUtil from '../stylesheets/util.scss';
 import cssAff from '../stylesheets/AffiliationSection.scss';
-/* eslint-enable */
 
 
 const AffiliationRewardItem = ({

@@ -8,10 +8,8 @@ import { imgDivider } from './Images.js';
 import { sectionHeader } from '../animations/sectionHeader.js';
 import { noOp } from '../util.js';
 
-/* eslint-disable no-unused-vars */
 import cssUtil from '../../main/stylesheets/util.scss';
 import cssSection from '../stylesheets/SectionHeader.scss';
-/* eslint-enable */
 
 
 const SectionHeader = ({

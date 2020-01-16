@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 import { GITHUB_HOST } from '../../config.js';
 
-/* eslint-disable no-unused-vars */
 import cssType from '../stylesheets/typography.scss';
 import cssRepo from '../stylesheets/GitHubSection.scss';
-/* eslint-enable */
 
 
 const RepositoryBasic = ({

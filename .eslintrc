@@ -36,6 +36,7 @@
     }],
     "no-console": [1, { "allow": ["error"] }],
     "no-mixed-operators": [0],
+    "no-unused-vars": [2, { "varsIgnorePattern": "^css[A-Z][a-z]+$" }],
     "operator-linebreak": [2, "after"],
 
     "import/extensions": [0, { "extensions": [".js", ".jsx", ".json"] }],
