@@ -13,6 +13,7 @@ export const initialState = {
     items: [],
     categories: [],
     brands: [],
+    app: {},
     selectedCategory: 'all',
   },
   animations: {

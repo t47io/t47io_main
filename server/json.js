@@ -1,5 +1,6 @@
 import colors from 'colors';
 import fs from 'fs-extra';
+import gitRepoInfo from 'git-repo-info';
 import glob from 'glob';
 import path from 'path';
 
@@ -13,6 +14,8 @@ import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_LIST } from '../applications/project/constants/repositoryTypes.js';
 import logger from './logger.js';
+
+import pkgJSON from '../package.json';
 
 const mainJSON = SECTION_LIST
   .map(section => ({
@@ -75,6 +78,10 @@ const concatMainJSON = () => {
     portfolio: {
       ...mainJSON.portfolio,
       selectedCategory: 'all',
+      app: {
+        version: pkgJSON.version,
+        commit: gitRepoInfo().abbreviatedSha,
+      },
     },
     pubs: {
       ...mainJSON.pubs,

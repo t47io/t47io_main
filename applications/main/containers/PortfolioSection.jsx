@@ -24,6 +24,7 @@ const PortfolioSection = ({
     items,
     categories,
     brands,
+    app,
     selectedCategory,
   },
   animations: {
@@ -109,6 +110,7 @@ const PortfolioSection = ({
           <div styleName="cssUtil.UTIL__spacer-lg" />
           <PortfolioPowerBy
             items={brands}
+            appInfo={app}
             shouldAnimate={brand}
           />
           <Trigger
@@ -127,6 +129,7 @@ PortfolioSection.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object),
     categories: PropTypes.arrayOf(PropTypes.string),
     brands: PropTypes.arrayOf(PropTypes.object),
+    app: PropTypes.arrayOf(PropTypes.object),
     selectedCategory: PropTypes.string,
   }),
   animations: PropTypes.shape({

@@ -29,6 +29,6 @@ export const TITLE = 'SIQI TIAN - Full-Stack Web Developer & RNA Biochemistry Au
 export const DESCRIPTION = 'Personal portfolio of Siqi Tian, a full-stack web designer and developer, as well as an RNA biochemist (PhD) from Stanford University.';
 
 export const LICENSE = 'https://creativecommons.org/licenses/by-nc-sa/4.0/';
-export const REPOSITORY = `${GITHUB_HOST}/t47io/t47io_main/`;
+export const REPOSITORY = `${GITHUB_HOST}t47io/t47io_main/`;
 
 export const ERROR_COLOR_CODES = ['green', 'blue', 'yellow', 'purple', 'red'];

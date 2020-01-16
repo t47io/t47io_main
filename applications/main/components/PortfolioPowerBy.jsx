@@ -15,6 +15,7 @@ import cssPort from '../stylesheets/PortfolioSection.scss';
 
 const PortfolioPowerBy = ({
   items,
+  appInfo,
   shouldAnimate,
 }) => (
   <div styleName="cssPort.PORTFOLIO__power-by">
@@ -59,6 +60,20 @@ const PortfolioPowerBy = ({
         <i className="fa fa-fw fa-sm fa-link-ext" />
       </a>.
     </p>
+    <p styleName="cssPort.PORTFOLIO__find-more" className="text-center">
+      Current version
+      {' '}
+      <b><u>{appInfo.version}</u></b>
+      <span styleName="cssType.text-gray"> @ </span>
+      <a
+        href={`${REPOSITORY}commit/${appInfo.commit}/`}
+        target="_blank"
+        rel="noopener noreferrer external"
+      >
+        {appInfo.commit}
+        <i className="fa fa-fw fa-sm fa-link-ext" />
+      </a>
+    </p>
 
     <ReactTooltip
       id="PORTFOLIO__tooltip"
@@ -74,10 +89,15 @@ PortfolioPowerBy.propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   })),
+  appInfo: PropTypes.shape({
+    version: PropTypes.string,
+    commit: PropTypes.string,
+  }),
   shouldAnimate: PropTypes.bool,
 };
 PortfolioPowerBy.defaultProps = {
   items: [],
+  appInfo: {},
   shouldAnimate: false,
 };
 
