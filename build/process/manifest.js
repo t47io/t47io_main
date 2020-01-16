@@ -1,5 +1,4 @@
 import fs from 'fs-extra';
-import gitRepoInfo from 'git-repo-info';
 import path from 'path';
 import shell from 'shelljs';
 
@@ -62,7 +61,6 @@ try {
       ...obj,
       ...item,
     }), {}),
-    repo: gitRepoInfo().abbreviatedSha,
   };
   fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
   log.info('Manifest JSON injected.');

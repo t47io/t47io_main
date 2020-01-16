@@ -9,12 +9,14 @@ import {
   GITHUB,
   RIBOKIT,
   FILE_NAMES,
+  JSON_FORMAT,
 } from './config.js';
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_LIST } from '../applications/project/constants/repositoryTypes.js';
 import logger from './logger.js';
 
+import cronJSON from '../config/cron.json';
 import pkgJSON from '../package.json';
 
 const mainJSON = SECTION_LIST
@@ -139,6 +141,8 @@ const concatMainJSON = () => {
 
   fs.writeJSONSync(path.join(PATH.CONFIG, 'main.json'), config);
   log.info('Main JSON compiled.');
+
+  return config.portfolio.app;
 };
 
 const concatProjectJSON = () => {
@@ -172,10 +176,16 @@ const concatProjectJSON = () => {
 
 
 try {
-  concatMainJSON();
+  const appInfo = concatMainJSON();
   concatProjectJSON();
-
   log.info('Data JSON files compiled.');
+
+  const newCronJSON = {
+    ...cronJSON,
+    repo: appInfo,
+  };
+  fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
+  log.info('Manifest JSON injected.');
 } catch (err) {
   console.error(err);
   log.error('Failed to compile main and/or project JSON.');
