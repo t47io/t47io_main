@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import cssType from '../mixins/typography.scss';
+import '../mixins/typography.scss';
 
 
 class ColorCycler extends React.PureComponent {
@@ -57,10 +57,9 @@ class ColorCycler extends React.PureComponent {
   render() {
     const { className, fullText, choices } = this.props;
     const { index } = this.state;
-    const textColorClassName = cssType[`text-${choices[index]}`];
 
     return (
-      <p className={`${className} ${textColorClassName}`}>
+      <p styleName={`text-${choices[index]}`} className={className}>
         <span dangerouslySetInnerHTML={{ __html: fullText }} />
       </p>
     );

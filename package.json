@@ -100,7 +100,6 @@
     "postcss": "7.0.26",
     "postcss-csso": "4.0.0",
     "postcss-loader": "3.0.0",
-    "postcss-modules": "1.5.0",
     "postcss-nested": "4.2.1",
     "postcss-scss": "2.0.0",
     "preact": "10.2.1",
