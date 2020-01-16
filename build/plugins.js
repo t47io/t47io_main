@@ -153,6 +153,7 @@ const plugins = (DEBUG = true) => {
       minRatio: Infinity,
     }),
     new SizePlugin({
+      pattern: '**/*.{js,css}',
       filename: path.join(PATH.CONFIG, 'sizes.json'),
       writeFile: true,
     }),

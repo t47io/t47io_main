@@ -79,9 +79,9 @@
     }
 
     .SVG--delay {
+      .SVG--0,
       .SVG--1,
-      .SVG--2,
-      .SVG--3 {
+      .SVG--2 {
         opacity: 1;
         visibility: visible;
       }
@@ -108,12 +108,12 @@
     width: 100%;
     max-width: 224px;
 
-    .SVG--1 {
+    .SVG--0 {
       position: relative;
     }
 
-    .SVG--2,
-    .SVG--3 {
+    .SVG--1,
+    .SVG--2 {
       max-width: 224px;
       left: 50%;
       transform: translateX(-50%);
@@ -187,8 +187,8 @@
     padding-left: 0;
 
     .SVG {
-      .SVG--2,
-      .SVG--3 {
+      .SVG--1,
+      .SVG--2 {
         max-width: calc(100% - 30px);
       }
     }

@@ -20,13 +20,13 @@ const BRAND_LOGOS = require.context('../images/brands/', false, /\.svg$/);
 export const imgBrands = getContextObject(BRAND_LOGOS, svgReactRegex);
 
 
+const AFFILIATION_THUMBS_0 = require.context('../images/affiliations/', false, /-0\.svg$/);
 const AFFILIATION_THUMBS_1 = require.context('../images/affiliations/', false, /-1\.svg$/);
 const AFFILIATION_THUMBS_2 = require.context('../images/affiliations/', false, /-2\.svg$/);
-const AFFILIATION_THUMBS_3 = require.context('../images/affiliations/', false, /-3\.svg$/);
 export const imgAffiliations = [
+  getContextObject(AFFILIATION_THUMBS_0),
   getContextObject(AFFILIATION_THUMBS_1),
   getContextObject(AFFILIATION_THUMBS_2),
-  getContextObject(AFFILIATION_THUMBS_3),
 ];
 
 const PORTFOLIO_THUMBS_0 = require.context('../images/portfolio/', false, /-0\.svg$/);

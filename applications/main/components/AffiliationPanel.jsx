@@ -29,8 +29,8 @@ const AffiliationPanel = ({
         <div styleName="cssSvg.SVG cssSvg.SVG--delay cssAff.SVG cssAff.SVG--delay">
           {SVG_INDICES.map(i => (
             <img
-              key={`AFFILIATION__panel--${i + 1}`}
-              styleName={`cssSvg.SVG--${i + 1} cssAff.SVG--${i + 1}`}
+              key={`AFFILIATION__panel--${i}`}
+              styleName={`cssSvg.SVG--${i + 1} cssAff.SVG--${i}`}
               src={imgAffiliations[i][tag]}
               alt={tag}
             />
