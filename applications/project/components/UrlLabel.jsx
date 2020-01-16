@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TARGET_BLANK } from '../../common/constants/util.js';
+
 import '../stylesheets/typography.scss';
 
 
@@ -22,10 +24,9 @@ const UrlLabel = ({
           </span>
         </span>
         <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer external"
           className={leadClassName}
+          href={url}
+          {...TARGET_BLANK}
         >
           {url}
           <i className="fa fa-fw fa-sm fa-link-ext" />
@@ -42,11 +43,7 @@ const UrlLabel = ({
         </span>
       </h3>
       <p className="text-center lead">
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer external"
-        >
+        <a href={url} {...TARGET_BLANK}>
           {url}
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>

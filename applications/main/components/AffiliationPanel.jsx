@@ -5,7 +5,10 @@ import AffiliationRewardItem from './AffiliationRewardItem.jsx';
 import AffiliationRole from './AffiliationRole.jsx';
 
 import { imgAffiliations } from './Images.js';
-import { SVG_INDICES } from '../../common/constants/util.js';
+import {
+  SVG_INDICES,
+  TARGET_BLANK,
+} from '../../common/constants/util.js';
 
 import cssSvg from '../stylesheets/svg.scss';
 import cssAff from '../stylesheets/AffiliationSection.scss';
@@ -21,11 +24,7 @@ const AffiliationPanel = ({
 }) => (
   <div styleName="cssAff.AFFILIATION__panel" className="row">
     <div styleName="cssAff.AFFILIATION__title" className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={url} {...TARGET_BLANK}>
         <div styleName="cssSvg.SVG cssSvg.SVG--delay cssAff.SVG cssAff.SVG--delay">
           {SVG_INDICES.map(i => (
             <img
@@ -38,11 +37,7 @@ const AffiliationPanel = ({
         </div>
       </a>
       <br />
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={url} {...TARGET_BLANK}>
         {title}
         <i className="fa fa-fw fa-sm fa-link-ext" />
       </a>

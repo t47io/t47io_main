@@ -5,6 +5,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { imgBrands } from './Images.js';
 import { portfolioBrandItem } from '../animations/portfolio.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
 
 import '../stylesheets/PortfolioSection.scss';
 
@@ -27,11 +28,7 @@ const PortfolioPowerByItem = ({
       data-tip={name}
       data-for="PORTFOLIO__tooltip"
     >
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={url} {...TARGET_BLANK}>
         <Svg />
       </a>
     </WebAnimation>

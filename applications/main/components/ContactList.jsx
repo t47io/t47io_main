@@ -8,6 +8,7 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import { audName } from './Audio.js';
 import { contactPanel } from '../animations/contact.js';
 import { noOp } from '../../common/util.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
 import { CONTACT_LEFT } from '../constants/sectionTypes.js';
 import { EMAIL } from '../../config.js';
 
@@ -75,8 +76,7 @@ const ContactList = ({
             <a
               styleName="cssType.text-main-light"
               href="mailto:t47@alumni.stanford.edu"
-              target="_blank"
-              rel="noopener noreferrer external"
+              {...TARGET_BLANK}
             >
               t47 @ alumni.stanford.edu
             </a>
@@ -93,8 +93,7 @@ const ContactList = ({
           <a
             styleName="cssType.text-gray-light"
             href={`mailto:${EMAIL}`}
-            target="_blank"
-            rel="noopener noreferrer external"
+            {...TARGET_BLANK}
           >
             {EMAIL.replace('@', ' @ ')}
           </a>

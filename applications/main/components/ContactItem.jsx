@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { contactItem } from '../animations/contact.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
 
 import '../stylesheets/ContactSection.scss';
 
@@ -22,11 +23,10 @@ const ContactItem = ({
     shouldAnimate={shouldAnimate}
   >
     <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer external"
       styleName="CONTACT__box"
       className="text-center"
+      href={url}
+      {...TARGET_BLANK}
     >
       <span styleName="CONTACT__icon">
         <i className={`fa fa-${icon}`} />

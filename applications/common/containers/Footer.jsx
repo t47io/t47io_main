@@ -25,14 +25,15 @@ import {
   imgSFO,
 } from '../components/Images.js';
 import {
-  SVG_INDICES,
-  URL_DRIBBLE_SEA,
-  URL_DRIBBLE_SFO,
-} from '../constants/util.js';
-import {
   footerHeader,
   footerGif,
 } from '../animations/footer.js';
+import {
+  SVG_INDICES,
+  TARGET_BLANK,
+  URL_DRIBBLE_SEA,
+  URL_DRIBBLE_SFO,
+} from '../constants/util.js';
 import {
   noOp,
   year,
@@ -60,11 +61,7 @@ const Footer = ({
       timing={footerGif.timing}
       shouldAnimate={footer}
     >
-      <a
-        href={URL_DRIBBLE_SFO}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={URL_DRIBBLE_SFO} {...TARGET_BLANK}>
         {SVG_INDICES.map(i => (
           <img
             key={`FOOTTER__city-SFO--${i}`}
@@ -96,20 +93,15 @@ const Footer = ({
       </div>
       <p styleName="cssFooter.FOOTER__copyright">
         <a
-          href={REPOSITORY}
-          target="_blank"
-          rel="noopener noreferrer external"
           styleName="cssType.text-gray"
+          href={REPOSITORY}
+          {...TARGET_BLANK}
         >
           Code and content
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
         on this site is licensed under
-        <a
-          href={LICENSE}
-          target="_blank"
-          rel="noopener noreferrer external"
-        >
+        <a href={LICENSE} {...TARGET_BLANK}>
           <i className="fa fa-fw fa-creative-commons" />
           BY-NC-SA 4.0
           <i className="fa fa-fw fa-sm fa-link-ext" />
@@ -123,11 +115,7 @@ const Footer = ({
       timing={footerGif.timing}
       shouldAnimate={footer}
     >
-      <a
-        href={URL_DRIBBLE_SEA}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={URL_DRIBBLE_SEA} {...TARGET_BLANK}>
         {SVG_INDICES.map(i => (
           <img
             key={`FOOTTER__city-SEA--${i}`}

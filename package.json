@@ -8,7 +8,7 @@
     "yarn": "^1.21.1"
   },
   "scripts": {
-    "dev": "yarn prep && yarn nodemon",
+    "dev": "rm -rf ./public/*.html* && yarn prep && yarn nodemon",
     "prod": "pm2 start --interpreter babel-node server/server.js -n main",
 
     "prep": "concurrently --raw \"yarn json\" \"yarn build:temp\"",

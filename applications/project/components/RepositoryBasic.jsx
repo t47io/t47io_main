@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { GITHUB_HOST } from '../../config.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
 
 import cssType from '../stylesheets/typography.scss';
 import cssRepo from '../stylesheets/GitHubSection.scss';
@@ -32,8 +33,7 @@ const RepositoryBasic = ({
       <p styleName="cssRepo.PROJECT__repo-link">
         <a
           href={url}
-          target="_blank"
-          rel="noopener noreferrer external"
+          {...TARGET_BLANK}
         >
           <code>{url}</code>
           <i className="fa fa-fw fa-sm fa-link-ext" />

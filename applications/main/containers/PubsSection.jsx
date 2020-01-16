@@ -12,6 +12,7 @@ import Trigger from '../../common/components/Trigger.jsx';
 import * as pubsActions from '../actions/pubsActions.js';
 import { initialState as pubsProps } from '../reducers/pubs.js';
 import { noOp } from '../../common/util.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
 import { PUBS } from '../constants/sectionTypes.js';
 
 import cssType from '../../common/mixins/typography.scss';
@@ -62,20 +63,18 @@ const PubsSection = ({
           </span>
           Find more on
           <a
-            href={googleScholar}
-            target="_blank"
-            rel="noopener noreferrer external"
             styleName="cssPubs.PUBS__link"
+            href={googleScholar}
+            {...TARGET_BLANK}
           >
             Google Scholar
             <i className="fa fa-fw fa-sm fa-link-ext" />
           </a>
           and
           <a
-            href={pubmed}
-            target="_blank"
-            rel="noopener noreferrer external"
             styleName="cssPubs.PUBS__link"
+            href={pubmed}
+            {...TARGET_BLANK}
           >
             PubMed
             <i className="fa fa-fw fa-sm fa-link-ext" />

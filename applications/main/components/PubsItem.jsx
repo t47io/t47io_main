@@ -10,7 +10,10 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { imgPublications } from './Images.js';
 import { pubsItem } from '../animations/pubs.js';
-import { SVG_INDICES } from '../../common/constants/util.js';
+import {
+  SVG_INDICES,
+  TARGET_BLANK,
+} from '../../common/constants/util.js';
 
 import cssType from '../../common/mixins/typography.scss';
 import cssSvg from '../stylesheets/svg.scss';
@@ -34,8 +37,7 @@ const PubsItem = ({
 }) => {
   const href = url ? {
     href: url,
-    target: '_blank',
-    rel: 'noopener noreferrer external',
+    ...TARGET_BLANK,
   } : {};
 
   return (

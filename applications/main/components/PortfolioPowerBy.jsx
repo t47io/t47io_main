@@ -8,6 +8,7 @@ import {
   LICENSE,
   REPOSITORY,
 } from '../../config.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
 
 import cssType from '../../common/mixins/typography.scss';
 import cssPort from '../stylesheets/PortfolioSection.scss';
@@ -41,20 +42,12 @@ const PortfolioPowerBy = ({
     </ul>
 
     <p styleName="cssPort.PORTFOLIO__find-more" className="text-center">
-      <a
-        href={REPOSITORY}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={REPOSITORY} {...TARGET_BLANK}>
         Code and content
         <i className="fa fa-fw fa-sm fa-link-ext" />
       </a>
       on this site is licensed under
-      <a
-        href={LICENSE}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={LICENSE} {...TARGET_BLANK}>
         <i className="fa fa-fw fa-creative-commons" />
         BY-NC-SA 4.0
         <i className="fa fa-fw fa-sm fa-link-ext" />
@@ -65,11 +58,7 @@ const PortfolioPowerBy = ({
       {' '}
       <b><u>{appInfo.version}</u></b>
       <span styleName="cssType.text-gray"> @ </span>
-      <a
-        href={`${REPOSITORY}commit/${appInfo.commit}/`}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={`${REPOSITORY}commit/${appInfo.commit}/`} {...TARGET_BLANK}>
         {appInfo.commit}
         <i className="fa fa-fw fa-sm fa-link-ext" />
       </a>

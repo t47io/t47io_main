@@ -7,7 +7,10 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 
 import { imgThesis } from './Images.js';
 import { pubsThesis } from '../animations/pubs.js';
-import { SVG_INDICES } from '../../common/constants/util.js';
+import {
+  SVG_INDICES,
+  TARGET_BLANK,
+} from '../../common/constants/util.js';
 
 import cssType from '../../common/mixins/typography.scss';
 import cssSvg from '../stylesheets/svg.scss';
@@ -49,11 +52,7 @@ const PubsThesis = ({
 
       <h3 styleName="cssPubs.PUBS__thesis-title">
         <PubsTitle title={title} />
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer external"
-        >
+        <a href={url} {...TARGET_BLANK}>
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
       </h3>

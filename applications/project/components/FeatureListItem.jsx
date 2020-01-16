@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TARGET_BLANK } from '../../common/constants/util.js';
+
 import '../stylesheets/FeatureSection.scss';
 
 
@@ -16,13 +18,7 @@ const FeatureListItem = ({
 
   return (
     <li styleName="PROJECT__feature-item">
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
-        {text}
-      </a>
+      <a href={link} {...TARGET_BLANK}>{text}</a>
     </li>
   );
 };

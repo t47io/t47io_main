@@ -12,8 +12,9 @@ import Trigger from '../../common/components/Trigger.jsx';
 import * as statsActions from '../actions/statsActions.js';
 import { initialState as statsProps } from '../reducers/stats.js';
 import { noOp } from '../../common/util.js';
-import { STATS } from '../constants/sectionTypes.js';
 import { GITHUB_HOST } from '../../config.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
+import { STATS } from '../constants/sectionTypes.js';
 
 import cssType from '../../common/mixins/typography.scss';
 import cssUtil from '../stylesheets/util.scss';
@@ -75,11 +76,7 @@ const StatsSection = ({
       <i className="fa fa-fw fa-github-circled" />
       Contributions
       <small styleName="cssStats.STATS__note-link">
-        <a
-          href={`${GITHUB_HOST}${accounts[0]}`}
-          target="_blank"
-          rel="noopener noreferrer external"
-        >
+        <a href={`${GITHUB_HOST}${accounts[0]}`} {...TARGET_BLANK}>
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>
       </small>

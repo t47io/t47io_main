@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { GITHUB_HOST } from '../../config.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
 
 import '../stylesheets/typography.scss';
 
@@ -24,11 +25,7 @@ const UrlLabelList = ({
       </h3>
       {urls.map(url => (
         <p className={`text-center ${leadClassName}`}>
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer external"
-          >
+          <a href={url} {...TARGET_BLANK}>
             {isShortName ? url.replace(`${GITHUB_HOST}/t47io/`, '').replace('/', '') : url}
             <i className="fa fa-fw fa-sm fa-link-ext" />
           </a>

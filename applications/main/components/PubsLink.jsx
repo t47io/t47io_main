@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TARGET_BLANK } from '../../common/constants/util.js';
+
 import cssType from '../../common/mixins/typography.scss';
 import cssPubs from '../stylesheets/PubsSection.scss';
 
@@ -20,10 +22,9 @@ const PubsLink = ({
 
   const iconElement = (
     <a
-      {...href}
-      target="_blank"
-      rel="noopener noreferrer external"
       className={iconClassName}
+      {...href}
+      {...TARGET_BLANK}
     >
       <i className={`fa fa-fwn fa-${icon}`} />
     </a>

@@ -7,6 +7,7 @@ import {
 } from './Images.js';
 
 import { year } from '../../common/util.js';
+import { TARGET_BLANK } from '../../common/constants/util.js';
 import { LICENSE } from '../../config.js';
 
 
@@ -27,11 +28,7 @@ const Footer = () => (
     </p>
     <p className="FOOTER__line">
       Code and content on this site is licensed under
-      <a
-        href={LICENSE}
-        target="_blank"
-        rel="noopener noreferrer external"
-      >
+      <a href={LICENSE} {...TARGET_BLANK}>
         <i className="fa fa-fw">
           <SvgCreativeCommon />
         </i>
