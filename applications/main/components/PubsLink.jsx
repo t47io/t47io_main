@@ -21,7 +21,8 @@ const PubsLink = ({
   const iconElement = (
     <a
       {...href}
-      target="_blank" rel="noopener noreferrer external"
+      target="_blank"
+      rel="noopener noreferrer external"
       className={iconClassName}
     >
       <i className={`fa fa-fwn fa-${icon}`} />

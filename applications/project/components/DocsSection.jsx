@@ -22,7 +22,8 @@ const DocsSection = ({
           <span>
             <a
               href={urls[i]}
-              target="_blank" rel="noopener noreferrer external"
+              target="_blank"
+              rel="noopener noreferrer external"
             >
               {label}
               <i className="fa fa-fw fa-sm fa-link-ext" />

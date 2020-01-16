@@ -32,7 +32,8 @@ const RepositoryBasic = ({
       <p styleName="cssRepo.PROJECT__repo-link">
         <a
           href={url}
-          target="_blank" rel="noopener noreferrer external"
+          target="_blank"
+          rel="noopener noreferrer external"
         >
           <code>{url}</code>
           <i className="fa fa-fw fa-sm fa-link-ext" />

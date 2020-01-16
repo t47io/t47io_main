@@ -29,7 +29,8 @@ const Footer = () => (
       Code and content on this site is licensed under
       <a
         href={LICENSE}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         <i className="fa fa-fw">
           <SvgCreativeCommon />

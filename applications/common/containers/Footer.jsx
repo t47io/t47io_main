@@ -62,7 +62,8 @@ const Footer = ({
     >
       <a
         href={URL_DRIBBLE_SFO}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         {SVG_INDICES.map(i => (
           <img
@@ -96,7 +97,8 @@ const Footer = ({
       <p styleName="cssFooter.FOOTER__copyright">
         <a
           href={REPOSITORY}
-          target="_blank" rel="noopener noreferrer external"
+          target="_blank"
+          rel="noopener noreferrer external"
           styleName="cssType.text-gray"
         >
           Code and content
@@ -105,7 +107,8 @@ const Footer = ({
         on this site is licensed under
         <a
           href={LICENSE}
-          target="_blank" rel="noopener noreferrer external"
+          target="_blank"
+          rel="noopener noreferrer external"
         >
           <i className="fa fa-fw fa-creative-commons" />
           BY-NC-SA 4.0
@@ -122,7 +125,8 @@ const Footer = ({
     >
       <a
         href={URL_DRIBBLE_SEA}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         {SVG_INDICES.map(i => (
           <img

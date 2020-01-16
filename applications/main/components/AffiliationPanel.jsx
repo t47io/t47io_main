@@ -23,7 +23,8 @@ const AffiliationPanel = ({
     <div styleName="cssAff.AFFILIATION__title" className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
       <a
         href={url}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         <div styleName="cssSvg.SVG cssSvg.SVG--delay cssAff.SVG cssAff.SVG--delay">
           {SVG_INDICES.map(i => (
@@ -39,7 +40,8 @@ const AffiliationPanel = ({
       <br />
       <a
         href={url}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         {title}
         <i className="fa fa-fw fa-sm fa-link-ext" />

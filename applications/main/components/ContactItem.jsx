@@ -23,7 +23,8 @@ const ContactItem = ({
   >
     <a
       href={url}
-      target="_blank" rel="noopener noreferrer external"
+      target="_blank"
+      rel="noopener noreferrer external"
       styleName="CONTACT__box"
       className="text-center"
     >

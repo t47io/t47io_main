@@ -68,7 +68,8 @@ const Project = ({
 
       <ReactTooltip
         id="PROJECT__tooltip"
-        effect="solid" place="top"
+        effect="solid"
+        place="top"
         insecure={false}
       />
       <ScrollTop

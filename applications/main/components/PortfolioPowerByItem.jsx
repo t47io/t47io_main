@@ -24,11 +24,13 @@ const PortfolioPowerByItem = ({
       keyframes={portfolioBrandItem.keyframes}
       timing={portfolioBrandItem.timing(index)}
       shouldAnimate={shouldAnimate}
-      data-tip={name} data-for="PORTFOLIO__tooltip"
+      data-tip={name}
+      data-for="PORTFOLIO__tooltip"
     >
       <a
         href={url}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         <Svg />
       </a>

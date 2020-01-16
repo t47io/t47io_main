@@ -76,8 +76,11 @@ const ContactForm = ({
           <input
             styleName="CONTACT__form-item"
             className="form-control input-lg"
-            type="text" name="name" placeholder="Your Name"
-            value={name} required
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={name}
+            required
             disabled={shouldDisableForm}
             onChange={event => onChangeField({ name: event.target.value })}
           />
@@ -92,8 +95,11 @@ const ContactForm = ({
         >
           <input
             className="form-control input-lg"
-            type="email" name="email" placeholder="E-mail"
-            value={email} required
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            value={email}
+            required
             disabled={shouldDisableForm}
             onChange={event => onChangeField({ email: event.target.value })}
           />
@@ -108,8 +114,11 @@ const ContactForm = ({
         >
           <input
             className="form-control input-lg"
-            type="text" name="subject" placeholder="Subject"
-            value={subject} required
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            value={subject}
+            required
             disabled={shouldDisableForm}
             onChange={event => onChangeField({ subject: event.target.value })}
           />
@@ -125,8 +134,11 @@ const ContactForm = ({
           <textarea
             styleName="CONTACT__form-textarea"
             className="form-control input-lg"
-            name="message" rows="5" placeholder="Message"
-            value={message} required
+            name="message"
+            rows="5"
+            placeholder="Message"
+            value={message}
+            required
             disabled={shouldDisableForm}
             onChange={event => onChangeField({ message: event.target.value })}
           />

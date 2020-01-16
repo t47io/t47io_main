@@ -26,7 +26,8 @@ const UrlLabelList = ({
         <p className={`text-center ${leadClassName}`}>
           <a
             href={url}
-            target="_blank" rel="noopener noreferrer external"
+            target="_blank"
+            rel="noopener noreferrer external"
           >
             {isShortName ? url.replace(`${GITHUB_HOST}/t47io/`, '').replace('/', '') : url}
             <i className="fa fa-fw fa-sm fa-link-ext" />

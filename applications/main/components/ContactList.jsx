@@ -75,7 +75,8 @@ const ContactList = ({
             <a
               styleName="cssType.text-main-light"
               href="mailto:t47@alumni.stanford.edu"
-              target="_blank" rel="noopener noreferrer external"
+              target="_blank"
+              rel="noopener noreferrer external"
             >
               t47 @ alumni.stanford.edu
             </a>
@@ -92,7 +93,8 @@ const ContactList = ({
           <a
             styleName="cssType.text-gray-light"
             href={`mailto:${EMAIL}`}
-            target="_blank" rel="noopener noreferrer external"
+            target="_blank"
+            rel="noopener noreferrer external"
           >
             {EMAIL.replace('@', ' @ ')}
           </a>
@@ -119,7 +121,8 @@ const ContactList = ({
             </span>
           </button>
           <Audio
-            src={audName} play={audio}
+            src={audName}
+            play={audio}
             onFinish={onToggleAudio}
           />
         </WebAnimation>
@@ -135,7 +138,8 @@ const ContactList = ({
             styleName="cssContact.CONTACT__button"
             className="btn btn-default"
             href="/resume/"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="fa fa-file-pdf fa-fw" />
             Résumé

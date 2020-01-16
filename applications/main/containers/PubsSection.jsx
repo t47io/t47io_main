@@ -63,7 +63,8 @@ const PubsSection = ({
           Find more on
           <a
             href={googleScholar}
-            target="_blank" rel="noopener noreferrer external"
+            target="_blank"
+            rel="noopener noreferrer external"
             styleName="cssPubs.PUBS__link"
           >
             Google Scholar
@@ -72,7 +73,8 @@ const PubsSection = ({
           and
           <a
             href={pubmed}
-            target="_blank" rel="noopener noreferrer external"
+            target="_blank"
+            rel="noopener noreferrer external"
             styleName="cssPubs.PUBS__link"
           >
             PubMed
@@ -95,7 +97,8 @@ const PubsSection = ({
       ))}
       <ReactTooltip
         id="PUBS__tooltip"
-        effect="solid" place="bottom"
+        effect="solid"
+        place="bottom"
         insecure={false}
       />
     </div>

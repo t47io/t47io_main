@@ -42,7 +42,8 @@ const PortfolioPowerBy = ({
     <p styleName="cssPort.PORTFOLIO__find-more" className="text-center">
       <a
         href={REPOSITORY}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         Code and content
         <i className="fa fa-fw fa-sm fa-link-ext" />
@@ -50,7 +51,8 @@ const PortfolioPowerBy = ({
       on this site is licensed under
       <a
         href={LICENSE}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         <i className="fa fa-fw fa-creative-commons" />
         BY-NC-SA 4.0
@@ -60,7 +62,8 @@ const PortfolioPowerBy = ({
 
     <ReactTooltip
       id="PORTFOLIO__tooltip"
-      effect="solid" place="bottom"
+      effect="solid"
+      place="bottom"
       insecure={false}
     />
   </div>

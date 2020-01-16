@@ -51,7 +51,8 @@ const PubsThesis = ({
         <PubsTitle title={title} />
         <a
           href={url}
-          target="_blank" rel="noopener noreferrer external"
+          target="_blank"
+          rel="noopener noreferrer external"
         >
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>

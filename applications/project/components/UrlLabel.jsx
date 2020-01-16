@@ -23,7 +23,8 @@ const UrlLabel = ({
         </span>
         <a
           href={url}
-          target="_blank" rel="noopener noreferrer external"
+          target="_blank"
+          rel="noopener noreferrer external"
           className={leadClassName}
         >
           {url}
@@ -43,7 +44,8 @@ const UrlLabel = ({
       <p className="text-center lead">
         <a
           href={url}
-          target="_blank" rel="noopener noreferrer external"
+          target="_blank"
+          rel="noopener noreferrer external"
         >
           {url}
           <i className="fa fa-fw fa-sm fa-link-ext" />

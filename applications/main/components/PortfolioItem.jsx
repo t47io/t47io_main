@@ -41,7 +41,8 @@ const PortfolioItem = ({
         <a
           styleName="cssPort.PORTFILIO__text-link"
           href={url || `/project/${name}`}
-          target="_blank" rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {title}
           <i className="fa fa-fw fa-sm fa-link-ext" />

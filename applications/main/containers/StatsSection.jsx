@@ -77,7 +77,8 @@ const StatsSection = ({
       <small styleName="cssStats.STATS__note-link">
         <a
           href={`${GITHUB_HOST}${accounts[0]}`}
-          target="_blank" rel="noopener noreferrer external"
+          target="_blank"
+          rel="noopener noreferrer external"
         >
           <i className="fa fa-fw fa-sm fa-link-ext" />
         </a>

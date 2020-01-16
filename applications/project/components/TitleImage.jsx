@@ -11,7 +11,8 @@ const TitleImage = ({
   <p styleName="PROJECT__title" className="thumbnail text-center">
     <a
       href={image}
-      target="_blank" rel="noopener noreferrer"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <img
         styleName="PROJECT__title-image"

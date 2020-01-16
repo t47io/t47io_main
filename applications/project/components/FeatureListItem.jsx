@@ -18,7 +18,8 @@ const FeatureListItem = ({
     <li styleName="PROJECT__feature-item">
       <a
         href={link}
-        target="_blank" rel="noopener noreferrer external"
+        target="_blank"
+        rel="noopener noreferrer external"
       >
         {text}
       </a>

@@ -31,7 +31,8 @@ const StatsGithub = ({
     </WebAnimation>
     <ReactTooltip
       id="STATS__tooltip"
-      effect="solid" place="top"
+      effect="solid"
+      place="top"
       insecure={false}
     />
   </div>
