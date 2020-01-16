@@ -27,4 +27,4 @@ export const EMAIL_ERROR_CODES = {
 };
 
 export const SVG_BG_INDICES = [0, 1, 2, 3];
-export const AVATAR_INDICES = [0, 1, 2, 3, 4];
+export const AVATAR_INDICES = [1, 2, 3, 4];

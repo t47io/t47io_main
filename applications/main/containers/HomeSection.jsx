@@ -54,12 +54,10 @@ const HomeSection = ({
       />
       <h1 styleName="cssHome.HOME__name--seo">SIQI TIAN</h1>
       <div styleName="cssSvg.SVG cssHome.SVG--home cssCarousel.SVG__background" className={svgClassName}>
-        {!intro && (
-          <SvgAvatar
-            styleName="cssHome.SVG--drawing"
-            preserveAspectRatio="xMidYMid slice"
-          />
-        )}
+        <SvgAvatar
+          styleName={intro ? 'cssSvg.SVG--0 cssHome.SVG--0' : 'cssHome.SVG--drawing'}
+          preserveAspectRatio="xMidYMid slice"
+        />
         {AVATAR_INDICES.map(i => (
           <img
             key={`HOME__avatar--${i}`}
