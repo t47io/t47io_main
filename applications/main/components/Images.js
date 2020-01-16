@@ -1,27 +1,24 @@
 import {
   svgReactRegex,
   svgAvatarRegex,
+  svgThesisRegex,
   getContextObject,
 } from '../../common/util.js';
 
 
 export imgName from '../images/t47_name.svg';
 
-const AVATARS = require.context('../images/', false, /avatar-[0-5]{1}\.svg$/);
+const AVATARS = require.context('../images/', false, /avatar-[1-4]{1}\.svg$/);
 export const imgAvatars = getContextObject(AVATARS, svgAvatarRegex);
 export SvgAvatar from '../images/t47_avatar.svg';
 
-/* eslint-disable global-require */
-export const imgThesis = [
-  require('../images/t47_thesis-0.svg'),
-  require('../images/t47_thesis-1.svg'),
-  require('../images/t47_thesis-2.svg'),
-];
-/* eslint-enable */
+const THESIS = require.context('../images/', false, /t47_thesis-[0-2]{1}\.svg$/);
+export const imgThesis = getContextObject(THESIS, svgThesisRegex);
 
 
 const BRAND_LOGOS = require.context('../images/brands/', false, /\.svg$/);
 export const imgBrands = getContextObject(BRAND_LOGOS, svgReactRegex);
+
 
 const AFFILIATION_THUMBS_1 = require.context('../images/affiliations/', false, /-1\.svg$/);
 const AFFILIATION_THUMBS_2 = require.context('../images/affiliations/', false, /-2\.svg$/);
@@ -49,6 +46,7 @@ export const imgPublications = [
   getContextObject(PUBLICATION_THUMBS_1),
   getContextObject(PUBLICATION_THUMBS_2),
 ];
+
 
 const BACKGROUNDS_0 = require.context('../images/backgrounds/', false, /-0\.svg$/);
 const BACKGROUNDS_1 = require.context('../images/backgrounds/', false, /-1\.svg$/);

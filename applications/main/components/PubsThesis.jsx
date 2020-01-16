@@ -41,7 +41,7 @@ const PubsThesis = ({
           <img
             key={`PUBS__thesis-flyer--${i}`}
             styleName={`cssSvg.SVG--${i} cssPubs.SVG--${i}`}
-            src={imgThesis[i]}
+            src={imgThesis[i.toString()]}
             alt="PhD Thesis Flyer"
           />
         ))}

@@ -2,7 +2,8 @@ export const noOp = () => {};
 
 export const svgUrlRegex = /\.\/(.*)-.*$/g;
 export const svgReactRegex = /\.\/(.*)\.svg/g;
-export const svgAvatarRegex = /\.\/t47_avatar-([0-5])\.svg/g;
+export const svgAvatarRegex = /\.\/t47_avatar-([1-4])\.svg/g;
+export const svgThesisRegex = /\.\/t47_thesis-([0-2])\.svg/g;
 
 export const getContextObject = (context, regex = svgUrlRegex) => (
   context.keys().map(key => ({
