@@ -7,16 +7,16 @@ import WebAnimation from '../../common/components/WebAnimation.jsx';
 import { contactPanel } from '../animations/contact.js';
 import { noOp } from '../../common/util.js';
 import { CONTACT_RIGHT } from '../constants/sectionTypes.js';
-import { EMAIL_ERROR_CODES } from '../constants/util.js';
+import {
+  FORM_FIELDS,
+  FORM_FIELD_DEFAULTS,
+  EMAIL_ERROR_CODES,
+} from '../constants/util.js';
 
 import '../stylesheets/ContactSection.scss';
 
 
 const ContactForm = ({
-  name,
-  email,
-  subject,
-  message,
   isPending,
   isSuccess,
   isError,
@@ -25,6 +25,7 @@ const ContactForm = ({
   onChangeField,
   onSubmitForm,
   onToggleAnimation,
+  ...fieldProps
 }) => {
   const shouldDisableForm = isPending || isError;
   const btnClassName = isError ? 'danger' : 'default';
@@ -66,83 +67,35 @@ const ContactForm = ({
           onSubmitForm();
         }}
       >
-        <WebAnimation
-          className="form-group"
-          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
-          timing={contactPanel.timing(1)}
-          shouldAnimate={counter}
-          propsForceUpdate={shouldDisableForm}
-        >
-          <input
+        {FORM_FIELDS.map((field, i) => (
+          <WebAnimation
             styleName="CONTACT__form-item"
-            className="form-control input-lg"
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={name}
-            required
-            disabled={shouldDisableForm}
-            onChange={event => onChangeField({ name: event.target.value })}
-          />
-        </WebAnimation>
-        <WebAnimation
-          styleName="CONTACT__form-item"
-          className="form-group"
-          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
-          timing={contactPanel.timing(2)}
-          shouldAnimate={counter}
-          propsForceUpdate={shouldDisableForm}
-        >
-          <input
-            className="form-control input-lg"
-            type="email"
-            name="email"
-            placeholder="E-mail"
-            value={email}
-            required
-            disabled={shouldDisableForm}
-            onChange={event => onChangeField({ email: event.target.value })}
-          />
-        </WebAnimation>
-        <WebAnimation
-          styleName="CONTACT__form-item"
-          className="form-group"
-          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
-          timing={contactPanel.timing(3)}
-          shouldAnimate={counter}
-          propsForceUpdate={shouldDisableForm}
-        >
-          <input
-            className="form-control input-lg"
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={subject}
-            required
-            disabled={shouldDisableForm}
-            onChange={event => onChangeField({ subject: event.target.value })}
-          />
-        </WebAnimation>
-        <WebAnimation
-          styleName="CONTACT__form-item"
-          className="form-group"
-          keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
-          timing={contactPanel.timing(4)}
-          shouldAnimate={counter}
-          propsForceUpdate={shouldDisableForm}
-        >
-          <textarea
-            styleName="CONTACT__form-textarea"
-            className="form-control input-lg"
-            name="message"
-            rows="5"
-            placeholder="Message"
-            value={message}
-            required
-            disabled={shouldDisableForm}
-            onChange={event => onChangeField({ message: event.target.value })}
-          />
-        </WebAnimation>
+            className="form-group"
+            keyframes={contactPanel.keyframes(CONTACT_RIGHT)}
+            timing={contactPanel.timing(i + 1)}
+            shouldAnimate={counter}
+            propsForceUpdate={shouldDisableForm}
+          >
+            {field.type === 'textarea' ? (
+              <textarea
+                {...FORM_FIELD_DEFAULTS}
+                styleName="CONTACT__form-textarea"
+                {...field}
+                value={fieldProps[field.name]}
+                disabled={shouldDisableForm}
+                onChange={event => onChangeField({ [field.name]: event.target.value })}
+              />
+            ) : (
+              <input
+                {...FORM_FIELD_DEFAULTS}
+                {...field}
+                value={fieldProps[field.name]}
+                disabled={shouldDisableForm}
+                onChange={event => onChangeField({ [field.name]: event.target.value })}
+              />
+            )}
+          </WebAnimation>
+        ))}
         <WebAnimation
           styleName="CONTACT__form-item"
           className="form-group"
