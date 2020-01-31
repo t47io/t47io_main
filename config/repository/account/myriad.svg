@@ -448,21 +448,21 @@
   <rect class="day" data-date="2019-10-21" data-count="2" />
   <rect class="day" data-date="2019-10-22" data-count="43" />
   <rect class="day" data-date="2019-10-23" data-count="4" />
-  <rect class="day" data-date="2019-10-24" data-count="36" />
+  <rect class="day" data-date="2019-10-24" data-count="41" />
   <rect class="day" data-date="2019-10-25" data-count="2" />
   <rect class="day" data-date="2019-10-26" data-count="0" />
   <rect class="day" data-date="2019-10-27" data-count="0" />
   <rect class="day" data-date="2019-10-28" data-count="1" />
   <rect class="day" data-date="2019-10-29" data-count="0" />
   <rect class="day" data-date="2019-10-30" data-count="0" />
-  <rect class="day" data-date="2019-10-31" data-count="8" />
+  <rect class="day" data-date="2019-10-31" data-count="15" />
   <rect class="day" data-date="2019-11-01" data-count="0" />
   <rect class="day" data-date="2019-11-02" data-count="0" />
   <rect class="day" data-date="2019-11-03" data-count="0" />
   <rect class="day" data-date="2019-11-04" data-count="1" />
-  <rect class="day" data-date="2019-11-05" data-count="16" />
+  <rect class="day" data-date="2019-11-05" data-count="30" />
   <rect class="day" data-date="2019-11-06" data-count="0" />
-  <rect class="day" data-date="2019-11-07" data-count="0" />
+  <rect class="day" data-date="2019-11-07" data-count="1" />
   <rect class="day" data-date="2019-11-08" data-count="0" />
   <rect class="day" data-date="2019-11-09" data-count="0" />
   <rect class="day" data-date="2019-11-10" data-count="0" />
@@ -517,4 +517,34 @@
   <rect class="day" data-date="2019-12-29" data-count="0" />
   <rect class="day" data-date="2019-12-30" data-count="0" />
   <rect class="day" data-date="2019-12-31" data-count="0" />
+  <rect class="day" data-date="2020-01-01" data-count="0" />
+  <rect class="day" data-date="2020-01-02" data-count="11" />
+  <rect class="day" data-date="2020-01-03" data-count="0" />
+  <rect class="day" data-date="2020-01-04" data-count="0" />
+  <rect class="day" data-date="2020-01-05" data-count="0" />
+  <rect class="day" data-date="2020-01-06" data-count="9" />
+  <rect class="day" data-date="2020-01-07" data-count="4" />
+  <rect class="day" data-date="2020-01-08" data-count="3" />
+  <rect class="day" data-date="2020-01-09" data-count="4" />
+  <rect class="day" data-date="2020-01-10" data-count="18" />
+  <rect class="day" data-date="2020-01-11" data-count="0" />
+  <rect class="day" data-date="2020-01-12" data-count="0" />
+  <rect class="day" data-date="2020-01-13" data-count="0" />
+  <rect class="day" data-date="2020-01-14" data-count="15" />
+  <rect class="day" data-date="2020-01-15" data-count="0" />
+  <rect class="day" data-date="2020-01-16" data-count="23" />
+  <rect class="day" data-date="2020-01-17" data-count="99" />
+  <rect class="day" data-date="2020-01-18" data-count="0" />
+  <rect class="day" data-date="2020-01-19" data-count="0" />
+  <rect class="day" data-date="2020-01-20" data-count="0" />
+  <rect class="day" data-date="2020-01-21" data-count="34" />
+  <rect class="day" data-date="2020-01-22" data-count="17" />
+  <rect class="day" data-date="2020-01-23" data-count="10" />
+  <rect class="day" data-date="2020-01-24" data-count="4" />
+  <rect class="day" data-date="2020-01-25" data-count="0" />
+  <rect class="day" data-date="2020-01-26" data-count="0" />
+  <rect class="day" data-date="2020-01-27" data-count="0" />
+  <rect class="day" data-date="2020-01-28" data-count="0" />
+  <rect class="day" data-date="2020-01-29" data-count="4" />
+  <rect class="day" data-date="2020-01-30" data-count="5" />
 </svg>
