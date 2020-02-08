@@ -4,6 +4,7 @@ import path from 'path';
 import postcss from 'postcss';
 import sass from 'node-sass';
 import shell from 'shelljs';
+import { promisify } from 'util';
 
 import { ROOT } from '../../server/env.js';
 import {
@@ -28,6 +29,9 @@ export const replaceHTML = inputHTML => (
 export const loadFileSync = filename => (
   fs.readFileSync(path.join(ROOT, filename), 'utf8')
 );
+export const loadFile = async (filename) => (
+  await fs.readFile(path.join(ROOT, filename), 'utf8')
+);
 
 export const saveFileSync = (filename, content) => {
   const filePath = path.join(ROOT, filename);
@@ -35,11 +39,17 @@ export const saveFileSync = (filename, content) => {
   shell.exec(`zopfli ${filename}`);
   shell.exec(`brotli -Zf -o ${filename}.br ${filename}`);
 };
+export const saveFile = async (filename, content) => {
+  const filePath = path.join(ROOT, filename);
+  await fs.outputFile(filePath, content);
+  await shell.exec(`zopfli ${filename}`, { async: true });
+  await shell.exec(`brotli -Zf -o ${filename}.br ${filename}`, { async: true });
+};
 
-export const getThemeColor = () => {
+export const getThemeColor = async () => {
   const index = (new Date().getMonth() + 1) % 6;
   const whichTheme = THEME_COLORS[Math.max(0, index - 3)];
-  return loadFileSync(`applications/common/themes/${whichTheme}.scss`);
+  return await loadFile(`applications/common/themes/${whichTheme}.scss`);
 };
 
 export const renderSassSync = filename => (
@@ -50,13 +60,23 @@ export const renderSassSync = filename => (
     }).css.toString()
   ).css
 );
+export const renderSass = async (filename) => {
+  const contentSASS = await loadFile(filename);
+  const themeSASS = await getThemeColor();
+  const renderedCSS = await promisify(sass.render)({
+      file: path.join(ROOT, filename),
+      data: `${themeSASS}${contentSASS}`,
+  });
+  const processedCSS = await postcss([autoprefixer]).process(renderedCSS.css, { from: ROOT });
+  return processedCSS.css;
+};
 
-export const loadImageSync = (filename) => {
-  const img = fs.readFileSync(path.join(ROOT, filename));
+export const loadImage = async (filename) => {
+  const img = await fs.readFile(path.join(ROOT, filename), 'utf8');
   return `data:image/svg+xml,${encodeURIComponent(img)}`;
 };
 
-const rnaSVG = loadImageSync(BG_RNA_SVG);
-export const replaceBgRNA = inputCSS => (
-  inputCSS.replace('../images/bg_rna.svg', rnaSVG)
-);
+export const replaceBgRNA = async (inputCSS) => {
+  const rnaSVG = await loadImage(BG_RNA_SVG);
+  return inputCSS.replace('../images/bg_rna.svg', rnaSVG)
+};
