@@ -1,15 +1,14 @@
-import fs from 'fs-extra';
 import path from 'path';
 import shell from 'shelljs';
 
 import { PATH } from '../../server/env.js';
 import { CHUNKS } from '../chunks.js';
 import { MANIFEST_JS } from '../config.js';
-import { JSON_FORMAT } from '../../server/config.js';
 import {
   loadFileSync,
   saveFileSync,
 } from '../render/util.js';
+import { savePrettyJSON } from '../../server/util.js';
 import logger from '../../server/logger.js';
 
 import cronJSON from '../../config/cron.json';
@@ -45,27 +44,29 @@ try {
   process.exit(1);
 }
 
-try {
-  shell.exec(`gzip -df ${path.join(PATH.PUBLIC, `${MANIFEST_JS}.gz`)}`);
+(async () => {
+  try {
+    shell.exec(`gzip -df ${path.join(PATH.PUBLIC, `${MANIFEST_JS}.gz`)}`);
 
-  const manifestJS = loadFileSync(`public/${MANIFEST_JS}`);
-  const fullManifestJs = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJS}`;
+    const manifestJS = loadFileSync(`public/${MANIFEST_JS}`);
+    const fullManifestJs = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJS}`;
 
-  saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
-  const newCronJSON = {
-    ...cronJSON,
-    manifest: Object.keys(CHUNKS).map(key => ({
-      [key]: Object.values(chunkManifest).map(type => type[CHUNKS[key]]).filter(Boolean),
-    }))
-    .reduce((obj, item) => ({
-      ...obj,
-      ...item,
-    }), {}),
-  };
-  fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
-  log.info('Manifest JSON injected.');
-} catch (err) {
-  console.error(err);
-  log.error('Failed to inject Manifest JSON.');
-  process.exit(1);
-}
+    saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
+    const newCronJSON = {
+      ...cronJSON,
+      manifest: Object.keys(CHUNKS).map(key => ({
+        [key]: Object.values(chunkManifest).map(type => type[CHUNKS[key]]).filter(Boolean),
+      }))
+      .reduce((obj, item) => ({
+        ...obj,
+        ...item,
+      }), {}),
+    };
+    await savePrettyJSON('cron.json', newCronJSON);
+    log.info('Manifest JSON injected.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to inject Manifest JSON.');
+    process.exit(1);
+  }
+})();

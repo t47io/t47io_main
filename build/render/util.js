@@ -1,5 +1,5 @@
 import autoprefixer from 'autoprefixer';
-import fs from 'fs';
+import fs from 'fs-extra';
 import path from 'path';
 import postcss from 'postcss';
 import sass from 'node-sass';
@@ -31,7 +31,7 @@ export const loadFileSync = filename => (
 
 export const saveFileSync = (filename, content) => {
   const filePath = path.join(ROOT, filename);
-  fs.writeFileSync(filePath, content, 'utf8');
+  fs.outputFileSync(filePath, content);
   shell.exec(`zopfli ${filename}`);
   shell.exec(`brotli -Zf -o ${filename}.br ${filename}`);
 };

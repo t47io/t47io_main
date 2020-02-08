@@ -5,10 +5,8 @@ import fs from 'fs-extra';
 import path from 'path';
 
 import { PATH } from '../env.js';
-import {
-  GITHUB,
-  JSON_FORMAT,
-} from '../config.js';
+import { GITHUB } from '../config.js';
+import { savePrettyJSON } from '../util.js';
 import logger from '../logger.js';
 
 import statsJSON from '../../config/main/stats.json';
@@ -89,7 +87,7 @@ const getContrib = async (account) => {
       ...statsJSON,
       gitContrib: combinedData,
     };
-    await fs.writeJSON(path.join(PATH.CONFIG, 'main/stats.json'), newStatsJSON, JSON_FORMAT);
+    await savePrettyJSON('main/stats.json', newStatsJSON);
 
     const cronJSON = await fs.readJSON(path.join(PATH.CONFIG, 'cron.json'));
     const oldTotal = parseInt(cronJSON.gitContrib.total, 10) || 0;
@@ -104,7 +102,7 @@ const getContrib = async (account) => {
         lastWeek: combinedData.countArray.slice(combinedData.countArray.length - 7),
       },
     };
-    await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
+    await savePrettyJSON('cron.json', newCronJSON);
 
     log.info('GitHub contribution records updated.');
   } catch (err) {

@@ -5,7 +5,7 @@ import fs from 'fs-extra';
 import path from 'path';
 
 import { PATH } from '../env.js';
-import { JSON_FORMAT } from '../config.js';
+import { savePrettyJSON } from '../util.js';
 import logger from '../logger.js';
 
 import pubsJSON from '../../config/main/pubs.json';
@@ -114,7 +114,7 @@ const diffCitations = (oldCitations, newCitations) => {
         log.warn(`entry ${colors.blue(item.tag)} did not match any citation record.`);
       });
     });
-    await fs.writeJSON(path.join(PATH.CONFIG, 'main/pubs.json'), newPubsJSON, JSON_FORMAT);
+    await savePrettyJSON('main/pubs.json', newPubsJSON);
 
     const cronJSON = await fs.readJSON(path.join(PATH.CONFIG, 'cron.json'));
     const oldCitations = cronJSON.citations;
@@ -123,7 +123,7 @@ const diffCitations = (oldCitations, newCitations) => {
       ...cronJSON,
       citations: diffCitations(oldCitations, newCitations),
     };
-    await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
+    await savePrettyJSON('cron.json', newCronJSON);
 
     log.info('Google Scholar citation records updated.');
   } catch (err) {

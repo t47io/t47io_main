@@ -1,10 +1,7 @@
 import colors from 'colors';
-import fs from 'fs-extra';
 import https from 'https';
-import path from 'path';
 
-import { PATH } from '../env.js';
-import { JSON_FORMAT } from '../config.js';
+import { savePrettyJSON } from '../util.js';
 import { HOST } from '../../applications/config.js';
 import logger from '../logger.js';
 
@@ -45,7 +42,7 @@ const checkCertificate = host => (
       ...cronJSON,
       httpsCert: await checkCertificate(rootHost),
     };
-    await fs.writeJSON(path.join(PATH.CONFIG, 'cron.json'), newJSON, JSON_FORMAT);
+    await savePrettyJSON('cron.json', newJSON);
 
     log.info('SSL Certificate expiration checked.');
   } catch (err) {

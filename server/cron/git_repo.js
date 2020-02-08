@@ -1,14 +1,9 @@
 import axios from 'axios';
 import colors from 'colors';
-import fs from 'fs-extra';
 import Github from 'github-api';
-import path from 'path';
 
-import { PATH } from '../env.js';
-import {
-  GITHUB,
-  JSON_FORMAT,
-} from '../config.js';
+import { GITHUB } from '../config.js';
+import { savePrettyJSON } from '../util.js';
 import { REPOSITORY_LIST } from '../../applications/project/constants/repositoryTypes.js';
 import { delayFor } from '../../applications/common/util.js';
 import logger from '../logger.js';
@@ -171,7 +166,7 @@ Promise.all(
         authors: formatTable(contribs),
         contributions: formatCalendar(contribs),
       };
-      await fs.writeJSON(path.join(PATH.CONFIG, 'repository/', `${repo}.json`), result, JSON_FORMAT);
+      await savePrettyJSON(`repository/${repo}.json`, result);
 
       log.debug(`GitHub records updated for repository ${colors.blue(repoName)}.`);
     } catch (err) {
