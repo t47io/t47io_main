@@ -1,7 +1,9 @@
 import { promises as fs } from 'fs';
-import { glob as g } from 'glob';
+import { glob as globCallback } from 'glob';
 import path from 'path';
 import { promisify } from 'util';
+import { render as renderCallback } from 'node-sass';
+import { exec as execCallback } from 'shelljs';
 
 import {
   PATH,
@@ -93,4 +95,6 @@ export const readJsonFile = async (filename) => {
   return JSON.parse(content);
 };
 
-export const glob = promisify(g);
+export const glob = promisify(globCallback);
+export const exec = promisify(execCallback);
+export const sass = promisify(renderCallback);

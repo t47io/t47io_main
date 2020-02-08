@@ -51,7 +51,7 @@ const matchRecords = allRecords => ({
         if (isEqual(allRecords[i].title, title) && isEqual(allRecords[i].author, author)) {
           citation = allRecords[i].cite;
           allRecords.splice(i, 1);
-          log.info(`scholar entry ${colors.blue(item.tag)} matched citation record (${colors.red(citation)}).`);
+          log.debug(`scholar entry ${colors.blue(item.tag)} matched citation record (${colors.red(citation)}).`);
           break;
         }
       }

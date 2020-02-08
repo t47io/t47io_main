@@ -2,7 +2,7 @@ import htmlMinifier from 'html-minifier';
 
 import { HTML_MINIFIER } from '../config.js';
 import {
-  replaceHTML,
+  replaceHtml,
   loadFileSync,
 } from './util.js';
 
@@ -13,7 +13,7 @@ export const renderMainHTML = (baseHTML) => {
   const helixCSS = loadFileSync('public/tmp/_helix.css');
 
   return htmlMinifier.minify(
-    replaceHTML(
+    replaceHtml(
       baseHTML
       .replace('<meta />', mainMETA)
       .replace('<loader />', helixHTML)
@@ -28,7 +28,7 @@ export const renderProjectHTML = (baseHTML) => {
   const hexagonCSS = loadFileSync('public/tmp/_hexagon.css');
 
   return htmlMinifier.minify(
-    replaceHTML(
+    replaceHtml(
       baseHTML
       .replace('<meta />', projectMETA)
       .replace('<loader />', hexagonHTML)
@@ -37,9 +37,9 @@ export const renderProjectHTML = (baseHTML) => {
   );
 };
 
-export const renderErrorHTML = (baseHTML, bodyHTML, bodyMETA, bodyCSS) => (
+export const renderErrorHtml = (baseHTML, bodyHTML, bodyMETA, bodyCSS) => (
   htmlMinifier.minify(
-    replaceHTML(
+    replaceHtml(
       baseHTML
       .replace('<meta />', bodyMETA)
       .replace('<app />', bodyHTML)
