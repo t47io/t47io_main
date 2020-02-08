@@ -3,17 +3,17 @@ import { promises as fs } from 'fs';
 import gitRepoInfo from 'git-repo-info';
 import path from 'path';
 
-import { PATH } from './env.js';
+import { PATH } from '../server/env.js';
 import {
   GITHUB,
   RIBOKIT,
   FILE_NAMES,
-} from './config.js';
-import { glob, writeJsonFile } from './util.js';
+} from '../server/config.js';
+import { glob, writeJsonFile } from '../server/util.js';
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_LIST } from '../applications/project/constants/repositoryTypes.js';
-import logger from './logger.js';
+import logger from '../server/logger.js';
 
 import cronJSON from '../config/cron.json';
 import pkgJSON from '../package.json';
