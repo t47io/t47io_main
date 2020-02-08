@@ -1,5 +1,7 @@
-import fs from 'fs-extra';
+import { promises as fs } from 'fs';
+import { glob as g } from 'glob';
 import path from 'path';
+import { promisify } from 'util';
 
 import {
   PATH,
@@ -68,15 +70,22 @@ export const getNow = (regex = '', end = -1) => (
 );
 
 const numArrayRegex = /\[(\d|,|\n| )+\]/g;
-export const savePrettyJSON = async (filename, json) => {
-  let content = JSON.stringify(json, null, 2);
-  const numArrays = content.match(numArrayRegex);
-  if (numArrays) {
-    numArrays.forEach((numArray) => {
-      content = content.replace(numArray, numArray.replace(/\n/g, '').replace(/ +/g, ' '));
-    });
+export const writeJsonFile = async (filename, json, pretty = true) => {
+  let content;
+  if (!pretty) {
+    content = JSON.stringify(json);
+  } else {
+    content = JSON.stringify(json, null, 2);
+    const numArrays = content.match(numArrayRegex);
+    if (numArrays) {
+      numArrays.forEach((numArray) => {
+        content = content.replace(numArray, numArray.replace(/\n/g, '').replace(/ +/g, ' '));
+      });
+    }
   }
 
   const filePath = path.join(PATH.CONFIG, filename);
-  await fs.outputFile(filePath, content);
+  await fs.writeFile(filePath, content);
 };
+
+export const glob = promisify(g);

@@ -1,7 +1,6 @@
 import colors from 'colors';
-import fs from 'fs-extra';
+import { promises as fs } from 'fs';
 import gitRepoInfo from 'git-repo-info';
-import glob from 'glob';
 import path from 'path';
 
 import { PATH } from './env.js';
@@ -9,8 +8,8 @@ import {
   GITHUB,
   RIBOKIT,
   FILE_NAMES,
-  JSON_FORMAT,
 } from './config.js';
+import { glob, writeJsonFile } from './util.js';
 import { SECTION_LIST } from '../applications/main/constants/sectionTypes.js';
 import { PROJECT_LIST } from '../applications/project/constants/projectTypes.js';
 import { REPOSITORY_LIST } from '../applications/project/constants/repositoryTypes.js';
@@ -54,16 +53,16 @@ const log = logger('server:json');
 log.debug('All config JSON files loaded.');
 
 
-const getResume = () => {
-  const resumeFiles = glob.sync(path.join(PATH.STATIC, 'resume/*.pdf'));
+const getResume = async () => {
+  const resumeFiles = await glob(path.join(PATH.STATIC, 'resume/*.pdf'));
   const fileName = resumeFiles[resumeFiles.length - 1] || '';
   return path.basename(fileName).replace('.pdf', '');
 };
 
-const getFileSize = (fileName) => {
+const getFileSize = async (fileName) => {
   try {
-    const byteSize = fs.statSync(path.join(PATH.PUBLIC, fileName)).size;
-    return `${(byteSize / 1e6).toFixed(1)} MB`;
+    const fileStat = await fs.stat(path.join(PATH.PUBLIC, fileName));
+    return `${(fileStat.size / 1e6).toFixed(1)} MB`;
   } catch (err) {
     console.error(err);
     log.error(`Failed to get size of file ${colors.blue(fileName)}.`);
@@ -72,7 +71,7 @@ const getFileSize = (fileName) => {
 };
 
 
-const concatMainJSON = () => {
+const concatMainJSON = async () => {
   const config = {
     ...mainJSON,
     navbar: { items: mainJSON.home.sections },
@@ -89,15 +88,15 @@ const concatMainJSON = () => {
       ...mainJSON.pubs,
       thesis: {
         ...mainJSON.pubs.thesis,
-        links: mainJSON.pubs.thesis.links.map(link => ({
+        links: await Promise.all(mainJSON.pubs.thesis.links.map(async link => ({
           ...link,
-          size: getFileSize(`../static/thesis/${FILE_NAMES.THESIS[link.tag]}`),
-        })),
+          size: await getFileSize(`../static/thesis/${FILE_NAMES.THESIS[link.tag]}`),
+        }))),
       },
     },
     contact: {
       ...mainJSON.contact,
-      resume: getResume(),
+      resume: await getResume(),
     },
   };
 
@@ -139,13 +138,13 @@ const concatMainJSON = () => {
   config.pubs.lens = pubsCounter;
   config.stats.items[2].value = pubsCounter;
 
-  fs.writeJSONSync(path.join(PATH.CONFIG, 'main.json'), config);
+  await writeJsonFile('main.json', config, false);
   log.info('Main JSON compiled.');
 
   return config.portfolio.app;
 };
 
-const concatProjectJSON = () => {
+const concatProjectJSON = async () => {
   const updatedProjectJSON = { ...projectJSON };
   PROJECT_LIST.forEach((project) => {
     const updatedJSON = {
@@ -170,24 +169,26 @@ const concatProjectJSON = () => {
     project: updatedProjectJSON,
     repository: repositoryJSON,
   };
-  fs.writeJSONSync(path.join(PATH.CONFIG, 'project.json'), data);
+  await writeJsonFile('project.json', data, false);
   log.info('Project JSON compiled.');
 };
 
 
-try {
-  const appInfo = concatMainJSON();
-  concatProjectJSON();
-  log.info('Data JSON files compiled.');
+(async () => {
+  try {
+    const appInfo = await concatMainJSON();
+    await concatProjectJSON();
+    log.info('Data JSON files compiled.');
 
-  const newCronJSON = {
-    ...cronJSON,
-    repo: appInfo,
-  };
-  fs.writeJSONSync(path.join(PATH.CONFIG, 'cron.json'), newCronJSON, JSON_FORMAT);
-  log.info('Manifest JSON injected.');
-} catch (err) {
-  console.error(err);
-  log.error('Failed to compile main and/or project JSON.');
-  process.exit(1);
-}
+    const newCronJSON = {
+      ...cronJSON,
+      repo: appInfo,
+    };
+    await writeJsonFile('cron.json', newCronJSON);
+    log.info('Manifest JSON injected.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to compile main and/or project JSON.');
+    process.exit(1);
+  }
+})();
