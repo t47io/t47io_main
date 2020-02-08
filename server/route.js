@@ -16,8 +16,8 @@ import {
 } from './config.js';
 import { webpackMiddleware } from './middleware.js';
 import {
-  renderMainHTML,
-  renderProjectHTML,
+  renderMainHtml,
+  renderProjectHtml,
 } from '../build/render/client.js';
 import {
   getPubFile,
@@ -50,7 +50,7 @@ export const sendHtmlFromDisk = (name, req, res) => {
 const routes = {
   main: (req, res) => {
     if (DEBUG) {
-      sendHtmlFromCache('main', renderMainHTML, req, res);
+      sendHtmlFromCache('main', renderMainHtml, req, res);
     } else {
       const { isBot, browser } = req.useragent;
       const isIE = (browser === 'IE');
@@ -63,7 +63,7 @@ const routes = {
   },
   project: (req, res) => {
     if (DEBUG) {
-      sendHtmlFromCache('project', renderProjectHTML, req, res);
+      sendHtmlFromCache('project', renderProjectHtml, req, res);
     } else {
       sendHtmlFromDisk('project', req, res);
     }
