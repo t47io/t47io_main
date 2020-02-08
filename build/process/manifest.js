@@ -1,17 +1,20 @@
 import path from 'path';
-import shell from 'shelljs';
 
 import { PATH } from '../../server/env.js';
 import { CHUNKS } from '../chunks.js';
 import { MANIFEST_JS } from '../config.js';
 import {
-  loadFileSync,
-  saveFileSync,
+  loadFile,
+  saveFile,
 } from '../render/util.js';
-import { savePrettyJSON } from '../../server/util.js';
+import {
+  exec,
+  writeJsonFile,
+} from '../../server/util.js';
 import logger from '../../server/logger.js';
 
 import cronJSON from '../../config/cron.json';
+import manifestJSON from '../../public/manifest.json';
 
 const log = logger('process:manifest');
 
@@ -31,27 +34,27 @@ const parseChunks = (manifest, isCSS = false) => {
 
 let chunkManifest;
 
-try {
-  const manifest = JSON.parse(loadFileSync('public/manifest.json'));
-  chunkManifest = {
-    js: parseChunks(manifest, false),
-    css: parseChunks(manifest, true),
-  };
-  log.debug('Manifest JSON parsed.');
-} catch (err) {
-  console.error(err);
-  log.error('Failed to parse Manifest JSON.');
-  process.exit(1);
-}
 
 (async () => {
   try {
-    shell.exec(`gzip -df ${path.join(PATH.PUBLIC, `${MANIFEST_JS}.gz`)}`);
+    chunkManifest = {
+      js: parseChunks(manifestJSON, false),
+      css: parseChunks(manifestJSON, true),
+    };
+    log.debug('Manifest JSON parsed.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to parse Manifest JSON.');
+    process.exit(1);
+  }
 
-    const manifestJS = loadFileSync(`public/${MANIFEST_JS}`);
-    const fullManifestJs = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJS}`;
+  try {
+    await exec(`gzip -df ${path.join(PATH.PUBLIC, `${MANIFEST_JS}.gz`)}`);
 
-    saveFileSync(`public/${MANIFEST_JS}`, fullManifestJs);
+    const manifestJS = await loadFile(path.join('public/', MANIFEST_JS));
+    const fullManifestJS = `window.manifest=${JSON.stringify(chunkManifest)};${manifestJS}`;
+
+    await saveFile(path.join('public/', MANIFEST_JS), fullManifestJS);
     const newCronJSON = {
       ...cronJSON,
       manifest: Object.keys(CHUNKS).map(key => ({
@@ -62,7 +65,7 @@ try {
         ...item,
       }), {}),
     };
-    await savePrettyJSON('cron.json', newCronJSON);
+    await writeJsonFile('cron.json', newCronJSON);
     log.info('Manifest JSON injected.');
   } catch (err) {
     console.error(err);

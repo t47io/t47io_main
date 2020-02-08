@@ -20,7 +20,7 @@ console.log(`${DEBUG_PRINT ? ' ' : ''}${colors.blue('DEBUG')} mode applied: ${DE
 console.log(colors.magenta('*********************************'));
 /* eslint-enable */
 
-const config = {
+const config = (async () => ({
   entry: entries(DEBUG),
   output: {
     filename: '[name].js',
@@ -42,9 +42,9 @@ const config = {
     modules: ['node_modules', PATH.BUILD],
   },
 
-  module: { rules: loaders(DEBUG, false) },
+  module: { rules: await loaders(DEBUG, false) },
   plugins: plugins(DEBUG),
-};
+}))();
 
 const smp = new SpeedMeasurePlugin();
 const webpackConfig = DEBUG ? config : smp.wrap(config);

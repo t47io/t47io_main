@@ -1,36 +1,40 @@
 import {
-  renderMainHTML,
-  renderProjectHTML,
+  renderMainHtml,
+  renderProjectHtml,
 } from '../render/client.js';
 import {
-  loadFileSync,
-  saveFileSync,
+  loadFile,
+  saveFile,
 } from '../render/util.js';
 import logger from '../../server/logger.js';
 
 const log = logger('process:client');
 
 
-try {
-  const baseHTML = loadFileSync('public/main.html');
-  const finalHTML = renderMainHTML(baseHTML);
+(async () => {
+  try {
+    log.debug('Processing Main Page inline DOM/JS/CSS...');
+    const baseHTML = await loadFile('public/main.html');
+    const finalHTML = await renderMainHtml(baseHTML);
 
-  saveFileSync('public/main.html', finalHTML);
-  log.info('Main Page DOM/JS/CSS inlined.');
-} catch (err) {
-  console.error(err);
-  log.error('Failed to inline DOM/JS/CSS on Main Page.');
-  process.exit(1);
-}
+    await saveFile('public/main.html', finalHTML);
+    log.info('Main Page DOM/JS/CSS inlined.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to inline DOM/JS/CSS on Main Page.');
+    process.exit(1);
+  }
 
-try {
-  const baseHTML = loadFileSync('public/project.html');
-  const finalHTML = renderProjectHTML(baseHTML);
+  try {
+    log.debug('Processing Project Page inline DOM/JS/CSS...');
+    const baseHTML = await loadFile('public/project.html');
+    const finalHTML = await renderProjectHtml(baseHTML);
 
-  saveFileSync('public/project.html', finalHTML);
-  log.info('Project Page DOM/JS/CSS inlined.');
-} catch (err) {
-  console.error(err);
-  log.error('Failed to inline DOM/JS/CSS on Project Page.');
-  process.exit(1);
-}
+    await saveFile('public/project.html', finalHTML);
+    log.info('Project Page DOM/JS/CSS inlined.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to inline DOM/JS/CSS on Project Page.');
+    process.exit(1);
+  }
+})();

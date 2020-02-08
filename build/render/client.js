@@ -3,14 +3,14 @@ import htmlMinifier from 'html-minifier';
 import { HTML_MINIFIER } from '../config.js';
 import {
   replaceHtml,
-  loadFileSync,
+  loadFile,
 } from './util.js';
 
 
-export const renderMainHTML = (baseHTML) => {
-  const mainMETA = loadFileSync('public/tmp/_mainMeta.html');
-  const helixHTML = loadFileSync('public/tmp/_helix.html');
-  const helixCSS = loadFileSync('public/tmp/_helix.css');
+export const renderMainHtml = async (baseHTML) => {
+  const mainMETA = await loadFile('public/tmp/_mainMeta.html');
+  const helixHTML = await loadFile('public/tmp/_helix.html');
+  const helixCSS = await loadFile('public/tmp/_helix.css');
 
   return htmlMinifier.minify(
     replaceHtml(
@@ -22,10 +22,10 @@ export const renderMainHTML = (baseHTML) => {
   );
 };
 
-export const renderProjectHTML = (baseHTML) => {
-  const projectMETA = loadFileSync('public/tmp/_projectMeta.html');
-  const hexagonHTML = loadFileSync('public/tmp/_hexagon.html');
-  const hexagonCSS = loadFileSync('public/tmp/_hexagon.css');
+export const renderProjectHtml = async (baseHTML) => {
+  const projectMETA = await loadFile('public/tmp/_projectMeta.html');
+  const hexagonHTML = await loadFile('public/tmp/_hexagon.html');
+  const hexagonCSS = await loadFile('public/tmp/_hexagon.css');
 
   return htmlMinifier.minify(
     replaceHtml(
