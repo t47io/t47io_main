@@ -3,7 +3,7 @@ import colors from 'colors';
 import Github from 'github-api';
 
 import { GITHUB } from '../config.js';
-import { savePrettyJSON } from '../util.js';
+import { writeJsonFile } from '../util.js';
 import { REPOSITORY_LIST } from '../../applications/project/constants/repositoryTypes.js';
 import { delayFor } from '../../applications/common/util.js';
 import logger from '../logger.js';
@@ -131,54 +131,60 @@ const formatCalendar = (data) => {
 };
 
 
-let gh = null;
-try {
-  gh = new Github({ token });
-  log.debug('Connected to GitHub.');
-} catch (err) {
-  console.error(err);
-  log.error('Failed to connect to GitHub.');
-  process.exit(1);
-}
+(async () => {
+  let gh = null;
+  try {
+    gh = new Github({ token });
+    log.debug('Connected to GitHub.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to connect to GitHub.');
+    process.exit(1);
+  }
 
-Promise.all(
-  Object.keys(REPOSITORY_LIST).map(async (repo) => {
-    const repoName = REPOSITORY_LIST[repo];
-    try {
-      const gitRepo = await gh.getRepo(...repoName.split('/'));
-      const data = await Promise.all([
-        gitRepo.getDetails(),
-        axios.get(`${GITHUB.API}${repoName}/pulls?access_token=${token}`),
-        axios.get(`${GITHUB.API}${repoName}/branches?access_token=${token}`),
-        axios.get(`${GITHUB.API}${repoName}/downloads?access_token=${token}`),
-        getContribRetry(gitRepo, repoName, GITHUB.RETRY, GITHUB.INTERVAL),
-      ]);
+  try {
+    const authConfig = {
+      headers: { 'Authorization': `token ${token}` },
+    };
+    await Promise.all(
+      Object.keys(REPOSITORY_LIST).map(async (repo) => {
+        const repoName = REPOSITORY_LIST[repo];
+        try {
+          const gitRepo = await gh.getRepo(...repoName.split('/'));
+          const data = await Promise.all([
+            gitRepo.getDetails(),
+            axios.get(`${GITHUB.API}${repoName}/pulls`, authConfig),
+            axios.get(`${GITHUB.API}${repoName}/branches`, authConfig),
+            axios.get(`${GITHUB.API}${repoName}/downloads`, authConfig),
+            getContribRetry(gitRepo, repoName, GITHUB.RETRY, GITHUB.INTERVAL),
+          ]);
 
-      const [
-        { data: basics },
-        { data: pulls },
-        { data: branches },
-        { data: downloads },
-        { data: contribs },
-      ] = data;
-      const result = {
-        basics: formatBasics(basics, pulls, branches, downloads),
-        authors: formatTable(contribs),
-        contributions: formatCalendar(contribs),
-      };
-      await savePrettyJSON(`repository/${repo}.json`, result);
+          const [
+            { data: basics },
+            { data: pulls },
+            { data: branches },
+            { data: downloads },
+            { data: contribs },
+          ] = data;
+          const result = {
+            basics: formatBasics(basics, pulls, branches, downloads),
+            authors: formatTable(contribs),
+            contributions: formatCalendar(contribs),
+          };
+          await writeJsonFile(`repository/${repo}.json`, result);
 
-      log.debug(`GitHub records updated for repository ${colors.blue(repoName)}.`);
-    } catch (err) {
-      console.error(err);
-      log.error(`Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
-      throw err;
-    }
-  })
-)
-.then(() => {
-  log.info('Updated GitHub records.');
-})
-.catch(() => {
-  log.error('Failed to update GitHub records.');
-});
+          log.debug(`GitHub records updated for repository ${colors.blue(repoName)}.`);
+        } catch (err) {
+          console.error(err);
+          log.error(`Failed to update GitHub records for repository ${colors.blue(repoName)}.`);
+          throw err;
+        }
+      })
+    );
+    log.info('Updated GitHub records.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to update GitHub records.');
+    process.exit(1);
+  }
+})();

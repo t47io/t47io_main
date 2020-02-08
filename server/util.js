@@ -87,5 +87,10 @@ export const writeJsonFile = async (filename, json, pretty = true) => {
   const filePath = path.join(PATH.CONFIG, filename);
   await fs.writeFile(filePath, content);
 };
+export const readJsonFile = async (filename) => {
+  const filePath = path.join(PATH.CONFIG, filename);
+  const content = await fs.readFile(filePath, 'utf8');
+  return JSON.parse(content);
+};
 
 export const glob = promisify(g);

@@ -71,7 +71,7 @@ const getFileSize = async (fileName) => {
 };
 
 
-const concatMainJSON = async () => {
+const concatMainJson = async () => {
   const config = {
     ...mainJSON,
     navbar: { items: mainJSON.home.sections },
@@ -144,7 +144,7 @@ const concatMainJSON = async () => {
   return config.portfolio.app;
 };
 
-const concatProjectJSON = async () => {
+const concatProjectJson = async () => {
   const updatedProjectJSON = { ...projectJSON };
   PROJECT_LIST.forEach((project) => {
     const updatedJSON = {
@@ -176,8 +176,8 @@ const concatProjectJSON = async () => {
 
 (async () => {
   try {
-    const appInfo = await concatMainJSON();
-    await concatProjectJSON();
+    const appInfo = await concatMainJson();
+    await concatProjectJson();
     log.info('Data JSON files compiled.');
 
     const newCronJSON = {

@@ -1,7 +1,7 @@
 import colors from 'colors';
 import https from 'https';
 
-import { savePrettyJSON } from '../util.js';
+import { writeJsonFile } from '../util.js';
 import { HOST } from '../../applications/config.js';
 import logger from '../logger.js';
 
@@ -42,7 +42,7 @@ const checkCertificate = host => (
       ...cronJSON,
       httpsCert: await checkCertificate(rootHost),
     };
-    await savePrettyJSON('cron.json', newJSON);
+    await writeJsonFile('cron.json', newJSON);
 
     log.info('SSL Certificate expiration checked.');
   } catch (err) {

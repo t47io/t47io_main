@@ -1,12 +1,15 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 import colors from 'colors';
-import fs from 'fs-extra';
+import { promises as fs } from 'fs';
 import path from 'path';
 
 import { PATH } from '../env.js';
 import { GITHUB } from '../config.js';
-import { savePrettyJSON } from '../util.js';
+import {
+  readJsonFile,
+  writeJsonFile,
+} from '../util.js';
 import logger from '../logger.js';
 
 import statsJSON from '../../config/main/stats.json';
@@ -87,9 +90,9 @@ const getContrib = async (account) => {
       ...statsJSON,
       gitContrib: combinedData,
     };
-    await savePrettyJSON('main/stats.json', newStatsJSON);
+    await writeJsonFile('main/stats.json', newStatsJSON);
 
-    const cronJSON = await fs.readJSON(path.join(PATH.CONFIG, 'cron.json'));
+    const cronJSON = await readJsonFile('cron.json');
     const oldTotal = parseInt(cronJSON.gitContrib.total, 10) || 0;
     const newTotal = combinedData.countArray.reduce((sum, d) => (sum + d), 0);
     const diffNumber = newTotal - oldTotal;
@@ -102,7 +105,7 @@ const getContrib = async (account) => {
         lastWeek: combinedData.countArray.slice(combinedData.countArray.length - 7),
       },
     };
-    await savePrettyJSON('cron.json', newCronJSON);
+    await writeJsonFile('cron.json', newCronJSON);
 
     log.info('GitHub contribution records updated.');
   } catch (err) {
