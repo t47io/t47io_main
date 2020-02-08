@@ -10,25 +10,18 @@ const log = logger('cron:backup');
 
 
 const backupJson = async () => {
-  await exec(`mkdir -p ${PATH.BACKUP}/json/main ${PATH.BACKUP}/json/project ${PATH.BACKUP}/json/repository`);
-  await Promise.all([
-    exec(`cp -R ${PATH.CONFIG}/*.json ${PATH.BACKUP}/json`),
-    exec(`cp -R ${PATH.CONFIG}/main/*.json ${PATH.BACKUP}/json/main`),
-    exec(`cp -R ${PATH.CONFIG}/project/*.json ${PATH.BACKUP}/json/project`),
-    exec(`cp -R ${PATH.CONFIG}/repository/*.json ${PATH.BACKUP}/json/repository`),
-  ]);
+  await exec(`mkdir -p ${PATH.BACKUP}/json`);
+  await exec(`cd ${PATH.CONFIG} && find . -name '*.json' ! -name '*.example.json' -exec rsync -R {} ${PATH.BACKUP}/json \\;`);
+  await exec(`cd ${PATH.BACKUP}/json && rm -rf stats-*.json main.json project.json`);
 
-  await Promise.all([
-    exec(`rm -rf ${PATH.BACKUP}/**/*.example.json`),
-    exec(`rm -rf ${PATH.BACKUP}/json/stats-*.json`),
-    exec(`rm -rf ${PATH.BACKUP}/json/main.json ${PATH.BACKUP}/json/project.json`),
-  ]);
   log.debug('JSON config backed up.');
 };
 
 const backupSvg = async () => {
   await exec(`mkdir -p ${PATH.BACKUP}/svg`);
   await exec(`cp -R ${PATH.CONFIG}/repository/account/*.svg ${PATH.BACKUP}/svg`);
+
+  log.debug('SVG data backed up.');
 };
 
 const backupNginx = async () => {
@@ -59,7 +52,7 @@ const createTgz = async () => {
 
   await exec(`cd ${ROOT} && tar -vcf ${tarFilename} backup/`);
   await exec(`zopfli ${ROOT}/${tarFilename}`);
-  await exec(`rm -rf ${ROOT}/${tarFilename}`);
+  await exec(`rm -rf ${ROOT}/${tarFilename} ${PATH.BACKUP}`);
 
   log.debug('Backup TGZ file created.');
 };
