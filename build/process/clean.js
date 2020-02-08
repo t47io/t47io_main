@@ -20,11 +20,14 @@ const log = logger('process:clean');
       glob(path.join(PATH.PUBLIC, '**/*.map.*')),
       glob(path.join(PATH.PUBLIC, '**/e.*.min.js.*')),
       glob(path.join(PATH.PUBLIC, 'error.*')),
+      glob(path.join(PATH.PUBLIC, 'ssr.*')),
       glob(path.join(PATH.PUBLIC, '**/*.json')),
       glob(path.join(PATH.CONFIG, '{manifest|config}.json')),
       glob(path.join(ROOT, '**/.DS_Store')),
     ]);
-    await Promise.all(tmpFiles.flat().map(fs.unlink));
+    await Promise.all(
+      tmpFiles.flat().map(fs.unlink)
+    );
     log.info('Build temporary files deleted.');
   } catch (err) {
     console.error(err);

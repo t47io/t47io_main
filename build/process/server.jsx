@@ -1,7 +1,4 @@
-import fs from 'fs-extra';
-import glob from 'glob';
 import htmlMinifier from 'html-minifier';
-import path from 'path';
 import purify from 'purify-css';
 
 import React from 'react';
@@ -14,29 +11,26 @@ import { PATH } from '../../server/env.js';
 import { HTML_MINIFIER } from '../config.js';
 import {
   templatePairRegex,
-  replaceHTML,
-  loadFileSync,
-  saveFileSync,
+  replaceHtml,
+  loadFile,
+  saveFile,
 } from '../render/util.js';
 import logger from '../../server/logger.js';
 
 const log = logger('process:server');
 
 
-const renderMainHTML = () => {
-  const baseHTML = loadFileSync('applications/index.html');
-  const contentHTML = loadFileSync('public/tmp/_ssr.html');
-  const mainCSS = purify(
-    contentHTML,
-    loadFileSync('public/tmp/_ssr.min.css'),
-    { minify: true }
-  );
+const renderMainHtml = async () => {
+  const baseHTML = await loadFile('applications/index.html');
+  const contentHTML = await loadFile('public/tmp/_ssr.html');
+  const contentCSS = await loadFile('public/tmp/_ssr.min.css');
+  const mainCSS = purify(contentHTML, contentCSS, { minify: true });
 
   let mainMETA = renderToStaticMarkup(<MainMeta />);
   mainMETA = DocumentMeta.renderAsHTML();
 
   let outputHTML = htmlMinifier.minify(
-    replaceHTML(
+    replaceHtml(
       baseHTML
       .replace('<meta />', mainMETA)
       .replace('<loader />', '')
@@ -44,7 +38,6 @@ const renderMainHTML = () => {
       .replace('html{}', mainCSS)
     ), HTML_MINIFIER
   );
-
   while (templatePairRegex.test(outputHTML)) {
     outputHTML = outputHTML.replace(templatePairRegex, '');
   }
@@ -52,18 +45,17 @@ const renderMainHTML = () => {
 };
 
 
-try {
-  const finalHTML = renderMainHTML();
-  saveFileSync('public/index.html', finalHTML);
-  log.debug('Index Page SSR created.');
+(async() => {
+  try {
+    log.debug('Creating Index Page SSR...');
+    const finalHTML = await renderMainHtml();
+    await saveFile('public/index.html', finalHTML);
+    log.info('Index Page SSR created.');
 
-  const ssrFiles = glob.sync(path.join(PATH.PUBLIC, 'ssr.*'));
-  ssrFiles.forEach(ssr => fs.removeSync(ssr));
-  log.debug('SSR temporary files deleted.');
-
-  log.info('Index Page SSR finished.');
-} catch (err) {
-  console.error(err);
-  log.error('Failed to SSR on Index Page.');
-  process.exit(1);
-}
+    log.info('Index Page SSR finished.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to SSR on Index Page.');
+    process.exit(1);
+  }
+})();
