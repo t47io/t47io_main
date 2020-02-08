@@ -144,7 +144,7 @@ const formatCalendar = (data) => {
 
   try {
     const authConfig = {
-      headers: { 'Authorization': `token ${token}` },
+      headers: { Authorization: `token ${token}` },
     };
     await Promise.all(
       Object.keys(REPOSITORY_LIST).map(async (repo) => {

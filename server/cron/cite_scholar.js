@@ -1,11 +1,11 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 import colors from 'colors';
-import fs from 'fs-extra';
-import path from 'path';
 
-import { PATH } from '../env.js';
-import { savePrettyJSON } from '../util.js';
+import {
+  readJsonFile,
+  writeJsonFile,
+} from '../util.js';
 import logger from '../logger.js';
 
 import pubsJSON from '../../config/main/pubs.json';
@@ -51,7 +51,7 @@ const matchRecords = allRecords => ({
         if (isEqual(allRecords[i].title, title) && isEqual(allRecords[i].author, author)) {
           citation = allRecords[i].cite;
           allRecords.splice(i, 1);
-          log.debug(`entry ${colors.blue(item.tag)} matched citation record.`);
+          log.info(`scholar entry ${colors.blue(item.tag)} matched citation record (${colors.red(citation)}).`);
           break;
         }
       }
@@ -102,28 +102,28 @@ const diffCitations = (oldCitations, newCitations) => {
     const newPubsJSON = matchRecords(allRecords);
 
     if (allRecords.length) {
-      log.warn(`${allRecords.length} record(s) from Google Scholar was not matched.`);
+      log.warn(`${allRecords.length} record(s) from Google Scholar was not matched:`);
       allRecords.forEach(item => (
-        log.warn(`entry ${colors.blue(`${item.year} | ${item.author.join()} | ${item.title.join(' ')}`)}`)
+        log.warn(`scholar entry ${colors.blue(item.year)} | ${colors.blue(item.author.join())} | ${colors.blue(item.title.join(' '))}`)
       ));
     }
 
     newPubsJSON.items.forEach((obj) => {
       obj.items.filter(item => (item.citation === null))
       .forEach((item) => {
-        log.warn(`entry ${colors.blue(item.tag)} did not match any citation record.`);
+        log.warn(`pubs entry ${colors.blue(item.tag)} did not match any citation record.`);
       });
     });
-    await savePrettyJSON('main/pubs.json', newPubsJSON);
+    await writeJsonFile('main/pubs.json', newPubsJSON);
 
-    const cronJSON = await fs.readJSON(path.join(PATH.CONFIG, 'cron.json'));
+    const cronJSON = await readJsonFile('cron.json');
     const oldCitations = cronJSON.citations;
     const newCitations = flattenCitations(newPubsJSON.items);
     const newCronJSON = {
       ...cronJSON,
       citations: diffCitations(oldCitations, newCitations),
     };
-    await savePrettyJSON('cron.json', newCronJSON);
+    await writeJsonFile('cron.json', newCronJSON);
 
     log.info('Google Scholar citation records updated.');
   } catch (err) {
