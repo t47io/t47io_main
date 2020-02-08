@@ -7,7 +7,6 @@ import DocumentMeta from 'react-document-meta';
 
 import MainMeta from '../../applications/main/components/Meta.jsx';
 
-import { PATH } from '../../server/env.js';
 import { HTML_MINIFIER } from '../config.js';
 import {
   templatePairRegex,
@@ -45,7 +44,7 @@ const renderMainHtml = async () => {
 };
 
 
-(async() => {
+(async () => {
   try {
     log.debug('Creating Index Page SSR...');
     const finalHTML = await renderMainHtml();
