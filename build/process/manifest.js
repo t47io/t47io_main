@@ -14,6 +14,7 @@ import {
 import logger from '../../server/logger.js';
 
 import cronJSON from '../../config/cron.json';
+// eslint-disable-next-line import/no-unresolved
 import manifestJSON from '../../public/manifest.json';
 
 const log = logger('process:manifest');

@@ -95,6 +95,14 @@ export const readJsonFile = async (filename) => {
   return JSON.parse(content);
 };
 
+export const copyStaticFile = async (filePath, srcPath = '', destPath = '') => {
+  const filename = path.basename(filePath);
+  return fs.copyFile(
+    path.join(PATH.STATIC, typeof srcPath === 'string' ? srcPath : '', filename),
+    path.join(PATH.PUBLIC, typeof destPath === 'string' ? destPath : '', filename)
+  );
+};
+
 export const exec = async cmd => (
   promisify(execCallback)(cmd, { async: true })
 );
