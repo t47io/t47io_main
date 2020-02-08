@@ -1,36 +1,34 @@
-import fs from 'fs-extra';
-import glob from 'glob';
+import { promises as fs } from 'fs';
 import path from 'path';
-import shell from 'shelljs';
 
 import {
   ROOT,
   PATH,
 } from '../../server/env.js';
 import { GZIP_FILE_TYPES } from '../config.js';
+import { glob } from '../../server/util.js';
 import logger from '../../server/logger.js';
 
 const log = logger('process:clean');
 
 
-try {
-  const tmpFiles = [
-    ...glob.sync(path.join(PATH.PUBLIC, `**/*.{${GZIP_FILE_TYPES.join(',')}}`)),
-    ...glob.sync(path.join(PATH.PUBLIC, '**/*.map.*')),
-    ...glob.sync(path.join(PATH.PUBLIC, '**/e.*.min.js.*')),
-    ...glob.sync(path.join(PATH.PUBLIC, 'error.*')),
-    ...glob.sync(path.join(PATH.PUBLIC, '**/*.json')),
-    ...glob.sync(path.join(PATH.CONFIG, 'manifest.json')),
-    ...glob.sync(path.join(PATH.CONFIG, 'stats.json')),
-  ];
-  tmpFiles.forEach(file => fs.removeSync(file));
-
-  shell.cd(ROOT);
-  shell.rm('-rf', 'public/tmp');
-  shell.exec('find . -name ".DS_Store" -type f -delete');
-  log.info('Build temporary files deleted.');
-} catch (err) {
-  console.error(err);
-  log.error('Failed to delete Build temporary files.');
-  process.exit(1);
-}
+(async () => {
+  try {
+    await fs.rmdir(path.join(PATH.PUBLIC, 'tmp'), { recursive: true });
+    const tmpFiles = await Promise.all([
+      glob(path.join(PATH.PUBLIC, `**/*.{${GZIP_FILE_TYPES.join(',')}}`)),
+      glob(path.join(PATH.PUBLIC, '**/*.map.*')),
+      glob(path.join(PATH.PUBLIC, '**/e.*.min.js.*')),
+      glob(path.join(PATH.PUBLIC, 'error.*')),
+      glob(path.join(PATH.PUBLIC, '**/*.json')),
+      glob(path.join(PATH.CONFIG, '{manifest|config}.json')),
+      glob(path.join(ROOT, '**/.DS_Store')),
+    ]);
+    await Promise.all(tmpFiles.flat().map(fs.unlink));
+    log.info('Build temporary files deleted.');
+  } catch (err) {
+    console.error(err);
+    log.error('Failed to delete Build temporary files.');
+    process.exit(1);
+  }
+})();
