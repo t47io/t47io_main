@@ -88,10 +88,12 @@ const concatMainJson = async () => {
       ...mainJSON.pubs,
       thesis: {
         ...mainJSON.pubs.thesis,
-        links: await Promise.all(mainJSON.pubs.thesis.links.map(async link => ({
-          ...link,
-          size: await getFileSize(`../static/thesis/${FILE_NAMES.THESIS[link.tag]}`),
-        }))),
+        links: await Promise.all(
+          mainJSON.pubs.thesis.links.map(async link => ({
+            ...link,
+            size: await getFileSize(`../static/thesis/${FILE_NAMES.THESIS[link.tag]}`),
+          }))
+        ),
       },
     },
     contact: {

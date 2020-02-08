@@ -81,7 +81,7 @@ const getContrib = async (account) => {
 (async () => {
   try {
     const data = await Promise.all(
-      statsJSON.accounts.map(account => getContrib(account))
+      statsJSON.accounts.map(getContrib)
     );
     const result = data.map(ajax => extractData(ajax.data));
     const combinedData = combineData(...result);

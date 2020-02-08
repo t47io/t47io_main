@@ -18,7 +18,7 @@ const log = logger('process:copy');
 
 const copyImages = () => {
   const staticFiles = glob.sync(path.join(PATH.STATIC, '*'), { nodir: true })
-    .map(file => path.basename(file));
+    .map(path.basename);
 
   staticFiles.forEach(file => (
     fs.copySync(

@@ -6,7 +6,7 @@ import { ASSET_FILE_NAME } from './config.js';
 import { getThemeColor } from './render/util.js';
 
 
-const loaders = (DEBUG = true, SSR = false) => {
+const loaders = async (DEBUG = true, SSR = false) => {
   const loader = [{
     test: /\.js(x)?$/,
     exclude: /node_module/,
@@ -39,7 +39,7 @@ const loaders = (DEBUG = true, SSR = false) => {
         {
           loader: 'sass-loader',
           options: {
-            data: getThemeColor(),
+            data: await getThemeColor(),
             sourceMap: true,
           },
         },

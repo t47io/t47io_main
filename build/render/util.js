@@ -33,8 +33,8 @@ export const loadFile = async filename => (
 
 export const saveFile = async (filename, content) => {
   await fs.writeFile(path.join(ROOT, filename), content);
-  await exec(`zopfli ${filename}`, { async: true });
-  await exec(`brotli -Zf -o ${filename}.br ${filename}`, { async: true });
+  await exec(`zopfli ${filename}`);
+  await exec(`brotli -Zf -o ${filename}.br ${filename}`);
 };
 
 export const getThemeColor = async () => {

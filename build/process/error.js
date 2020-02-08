@@ -35,7 +35,9 @@ const processErrorHtml = async (code, baseHTML, rawCSS, bodyMETA) => {
     const bodyMETA = await loadFile('public/tmp/_errorMeta.html');
     const rawCSS = await renderSass('applications/error/stylesheets/index.scss');
 
-    await Promise.all(codes.map(code => processErrorHtml(code, baseHTML, rawCSS, bodyMETA)));
+    await Promise.all(
+      codes.map(code => processErrorHtml(code, baseHTML, rawCSS, bodyMETA))
+    );
     log.info('Custom Error Pages created.');
   } catch (err) {
     console.error(err);

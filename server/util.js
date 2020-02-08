@@ -95,6 +95,8 @@ export const readJsonFile = async (filename) => {
   return JSON.parse(content);
 };
 
+export const exec = async (cmd) => (
+  promisify(execCallback)(cmd, { async: true })
+);
 export const glob = promisify(globCallback);
-export const exec = promisify(execCallback);
 export const sass = promisify(renderCallback);
