@@ -1,5 +1,4 @@
 import {
-  ROOT,
   PATH,
 } from '../env.js';
 import { FILE_NAMES } from '../config.js';
@@ -39,9 +38,9 @@ const backupMisc = async () => {
     exec(`cp /etc/init/uwsgi.conf ${PATH.BACKUP}`),
     exec(`cp /etc/hosts ${PATH.BACKUP}`),
     exec(`cp /etc/apt/sources.list ${PATH.BACKUP}`),
-    exec(`cp /home/admin/.bash_profile ${PATH.BACKUP}/bash_profile`),
-    exec(`cp /home/admin/.dircolors ${PATH.BACKUP}/dircolors`),
-    exec(`cp /home/admin/.nanorc ${PATH.BACKUP}/nanorc`),
+    exec(`cp ${PATH.HOME}/.bash_profile ${PATH.BACKUP}/bash_profile`),
+    exec(`cp ${PATH.HOME}/.dircolors ${PATH.BACKUP}/dircolors`),
+    exec(`cp ${PATH.HOME}/.nanorc ${PATH.BACKUP}/nanorc`),
   ]);
 
   log.debug('System config backed up.');
@@ -50,9 +49,9 @@ const backupMisc = async () => {
 const createTgz = async () => {
   const tarFilename = FILE_NAMES.BACKUP.replace('.gz', '');
 
-  await exec(`cd ${ROOT} && tar -vcf ${tarFilename} backup/`);
-  await exec(`zopfli ${ROOT}/${tarFilename}`);
-  await exec(`rm -rf ${ROOT}/${tarFilename} ${PATH.BACKUP}`);
+  await exec(`cd ${PATH.ROOT} && tar -vcf ${tarFilename} backup/`);
+  await exec(`zopfli ${PATH.ROOT}/${tarFilename}`);
+  await exec(`rm -rf ${PATH.ROOT}/${tarFilename} ${PATH.BACKUP}`);
 
   log.debug('Backup TGZ file created.');
 };

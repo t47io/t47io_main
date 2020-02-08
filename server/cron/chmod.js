@@ -1,6 +1,4 @@
-
 import {
-  ROOT,
   PATH,
   CHMOD,
 } from '../env.js';
@@ -15,7 +13,7 @@ const excludeFind = () => (
 );
 
 const chmodRoot = async () => {
-  await exec(`chown -R ${CHMOD.USER}:${CHMOD.USER} ${ROOT}`);
+  await exec(`chown -R ${CHMOD.USER}:${CHMOD.USER} ${PATH.ROOT}`);
   await Promise.all([
     exec(`find . ${excludeFind()} -type f | xargs chmod 640`),
     exec(`find . ${excludeFind()} -type d | xargs chmod 750`),
@@ -25,7 +23,7 @@ const chmodRoot = async () => {
 const chmodPublic = async () => {
   const userGroup = `${CHMOD.USER}:${CHMOD.GROUP}`;
   await exec(`chown -R ${userGroup} ${PATH.PUBLIC}`);
-  await exec(`chown ${userGroup} ${ROOT} ${ROOT}/..`);
+  await exec(`chown ${userGroup} ${PATH.ROOT} ${PATH.ROOT}/..`);
 };
 
 

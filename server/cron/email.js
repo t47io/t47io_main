@@ -1,7 +1,7 @@
 import path from 'path';
 
 import {
-  ROOT,
+  PATH,
   DEBUG,
   EMAIL_RECV,
   SMTP,
@@ -24,7 +24,7 @@ const formatPubs = () => {
   return sumCitation;
 };
 
-const emailAdmin = (content) => {
+const emailAdmin = async (content) => {
   const dateString = getToday(/-/g);
 
   return SMTP.sendMail({
@@ -34,7 +34,7 @@ const emailAdmin = (content) => {
     text: content,
     attachments: [{
       filename: `t47io_backup_${dateString}.tgz`,
-      path: path.join(ROOT, FILE_NAMES.BACKUP),
+      path: path.join(PATH.ROOT, FILE_NAMES.BACKUP),
     }],
   });
 };

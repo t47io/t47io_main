@@ -1,10 +1,7 @@
 import colors from 'colors';
 import path from 'path';
 
-import {
-  ROOT,
-  PATH,
-} from '../../server/env.js';
+import { PATH } from '../../server/env.js';
 import { GZIP_FILE_TYPES } from '../config.js';
 import {
   exec,
@@ -26,7 +23,7 @@ const log = logger('process:clean');
       glob(path.join(PATH.PUBLIC, '**/*.json')),
       glob(path.join(PATH.PUBLIC, 'tmp/*')),
       glob(path.join(PATH.CONFIG, '{manifest|config}.json')),
-      glob(path.join(ROOT, '**/.DS_Store')),
+      glob(path.join(PATH.ROOT, '**/.DS_Store')),
     ]);
     const tmpFiles = Array.from(new Set(globFiles.flat()));
 

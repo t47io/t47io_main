@@ -14,10 +14,7 @@ import SizePlugin from 'size-plugin';
 import PurifyCSSPlugin from 'purifycss-webpack';
 import ZopfliPlugin from 'zopfli-webpack-plugin';
 
-import {
-  ROOT,
-  PATH,
-} from '../server/env.js';
+import { PATH } from '../server/env.js';
 import {
   getChunkFilenameMap,
   getChunkArgs,
@@ -51,13 +48,13 @@ const plugins = (DEBUG = true) => {
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
-      template: path.join(ROOT, HTML_TEMPLATE),
+      template: path.join(PATH.ROOT, HTML_TEMPLATE),
       filename: path.join(PATH.PUBLIC, 'main.html'),
       inject: false,
       args: getChunkArgs(CHUNKS_MAIN, DEBUG),
     }),
     new HtmlWebpackPlugin({
-      template: path.join(ROOT, HTML_TEMPLATE),
+      template: path.join(PATH.ROOT, HTML_TEMPLATE),
       filename: path.join(PATH.PUBLIC, 'project.html'),
       inject: false,
       args: getChunkArgs(CHUNKS_PROJECT, DEBUG),

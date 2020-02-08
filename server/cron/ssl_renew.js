@@ -1,7 +1,7 @@
 import path from 'path';
 
 import { DAY_MILLISECONDS } from '../../applications/main/constants/util.js';
-import { ROOT } from '../env.js';
+import { PATH } from '../env.js';
 import { exec } from '../util.js';
 import logger from '../logger.js';
 
@@ -17,7 +17,7 @@ const checkExpire = () => {
 };
 
 const runLetsencrypt = async () => {
-  const execPath = path.join(ROOT, '../../', 'letsencrypt');
+  const execPath = path.join(PATH.HOME, 'letsencrypt');
   await exec(`${execPath}/letsencrypt-auto renew`);
 };
 

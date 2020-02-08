@@ -1,7 +1,8 @@
 {
   "chmod": {
     "user": "user",
-    "group": "group"
+    "group": "group",
+    "home": "/home/user/"
   },
   "email": {
     "host": "smtp.gmail.com",

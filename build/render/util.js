@@ -3,7 +3,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import postcss from 'postcss';
 
-import { ROOT } from '../../server/env.js';
+import { PATH } from '../../server/env.js';
 import {
   GA_TRACKER,
   BG_RNA_SVG,
@@ -28,11 +28,11 @@ export const replaceHtml = inputHTML => (
 );
 
 export const loadFile = async filename => (
-  fs.readFile(path.join(ROOT, filename), 'utf8')
+  fs.readFile(path.join(PATH.ROOT, filename), 'utf8')
 );
 
 export const saveFile = async (filename, content) => {
-  await fs.writeFile(path.join(ROOT, filename), content);
+  await fs.writeFile(path.join(PATH.ROOT, filename), content);
   await exec(`zopfli ${filename}`);
   await exec(`brotli -Zf -o ${filename}.br ${filename}`);
 };
@@ -47,11 +47,11 @@ export const renderSass = async (filename) => {
   const contentSASS = await loadFile(filename);
   const themeSASS = await getThemeColor();
   const renderConfig = {
-    file: path.join(ROOT, filename),
+    file: path.join(PATH.ROOT, filename),
     data: `${themeSASS}${contentSASS}`,
   };
   const renderedCSS = await sass(renderConfig);
-  const processedCSS = await postcss([autoprefixer]).process(renderedCSS.css, { from: ROOT });
+  const processedCSS = await postcss([autoprefixer]).process(renderedCSS.css, { from: PATH.ROOT });
   return processedCSS.css;
 };
 

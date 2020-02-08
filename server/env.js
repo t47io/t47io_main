@@ -8,8 +8,10 @@ const { mode, port, email, chmod } = serverJSON;
 /* eslint-enable */
 
 
-export const ROOT = path.join(__dirname, '../');
+const ROOT = path.join(__dirname, '../');
 export const PATH = {
+  HOME: chmod.home,
+  ROOT,
   APP: path.join(ROOT, 'applications/'),
   BACKUP: path.join(ROOT, 'backup/'),
   BUILD: path.join(ROOT, 'build/'),
