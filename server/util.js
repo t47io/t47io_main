@@ -1,3 +1,4 @@
+import fs from 'fs-extra';
 import path from 'path';
 
 import {
@@ -65,3 +66,17 @@ export const getToday = (regex = '', end = 10) => (
 export const getNow = (regex = '', end = -1) => (
   new Date().toISOString().slice(0, end).replace(regex, '')
 );
+
+const numArrayRegex = /\[(\d|,|\n| )+\]/g;
+export const savePrettyJSON = async (filename, json) => {
+  let content = JSON.stringify(json, null, 2);
+  const numArrays = content.match(numArrayRegex);
+  if (numArrays) {
+    numArrays.forEach((numArray) => {
+      content = content.replace(numArray, numArray.replace(/\n/g, '').replace(/ +/g, ' '));
+    });
+  }
+
+  const filePath = path.join(PATH.CONFIG, filename);
+  await fs.outputFile(filePath, content);
+};
