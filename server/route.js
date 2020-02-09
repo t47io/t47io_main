@@ -2,7 +2,6 @@ import colors from 'colors';
 import emailValidator from 'email-validator';
 import path from 'path';
 import sanitizer from 'sanitizer';
-import { promisify } from 'util';
 
 import {
   PATH,

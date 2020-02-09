@@ -66,7 +66,7 @@ export const sendErrorResponse = (code) => {
 
 const getTime = (regex, end) => (
   new Date().toISOString().slice(0, end).replace(regex, '')
-)
+);
 export const getToday = (regex = '', end = 10) => getTime(regex, end);
 export const getNow = (regex = '', end = -1) => getTime(regex, end);
 
