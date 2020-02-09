@@ -1,5 +1,5 @@
 import autoprefixer from 'autoprefixer';
-import { promises as fs } from 'fs';
+import { promises as fs, readFileSync } from 'fs';
 import path from 'path';
 import postcss from 'postcss';
 
@@ -37,15 +37,15 @@ export const saveFile = async (filename, content) => {
   await exec(`brotli -Zf -o ${filename}.br ${filename}`);
 };
 
-export const getThemeColor = async () => {
+export const getThemeColor = () => {
   const index = (new Date().getMonth() + 1) % 6;
   const whichTheme = THEME_COLORS[Math.max(0, index - 3)];
-  return loadFile(`applications/common/themes/${whichTheme}.scss`);
+  return readFileSync(`applications/common/themes/${whichTheme}.scss`);
 };
 
 export const renderSass = async (filename) => {
   const contentSASS = await loadFile(filename);
-  const themeSASS = await getThemeColor();
+  const themeSASS = getThemeColor();
   const renderConfig = {
     file: path.join(PATH.ROOT, filename),
     data: `${themeSASS}${contentSASS}`,

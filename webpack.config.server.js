@@ -6,7 +6,7 @@ import loaders from './build/loaders.js';
 import { PATH } from './server/env.js';
 
 
-const config = (async () => ({
+const config = {
   entry: {
     main: [
       'bootstrap-loader',
@@ -34,7 +34,7 @@ const config = (async () => ({
     modules: ['node_modules', PATH.BUILD],
   },
 
-  module: { rules: await loaders(false, true) },
+  module: { rules: loaders(false, true) },
   plugins: [
     new ExtractTextPlugin({
       filename: 'tmp/_ssr.min.css',
@@ -49,7 +49,7 @@ const config = (async () => ({
       },
     }),
   ],
-}))();
+;
 
 
 export default config;
