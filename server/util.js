@@ -64,12 +64,11 @@ export const sendErrorResponse = (code) => {
   return err;
 };
 
-export const getToday = (regex = '', end = 10) => (
+const getTime = (regex, end) => (
   new Date().toISOString().slice(0, end).replace(regex, '')
-);
-export const getNow = (regex = '', end = -1) => (
-  new Date().toISOString().slice(0, end).replace(regex, '')
-);
+)
+export const getToday = (regex = '', end = 10) => getTime(regex, end);
+export const getNow = (regex = '', end = -1) => getTime(regex, end);
 
 const numArrayRegex = /\[(\d|,|\n| )+\]/g;
 export const writeJsonFile = async (filename, json, pretty = true) => {

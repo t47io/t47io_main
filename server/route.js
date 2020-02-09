@@ -2,6 +2,7 @@ import colors from 'colors';
 import emailValidator from 'email-validator';
 import path from 'path';
 import sanitizer from 'sanitizer';
+import { promisify } from 'util';
 
 import {
   PATH,
@@ -31,11 +32,12 @@ import logger from './logger.js';
 const log = logger('server:route');
 
 
-export const sendHtmlFromCache = (name, render, req, res) => {
-  const HTML = webpackMiddleware.fileSystem.readFileSync(
+export const sendHtmlFromCache = async (name, render, req, res) => {
+  const rawHTML = webpackMiddleware.fileSystem.readFileSync(
     path.join(PATH.PUBLIC, `${name}.html`), 'utf8'
   );
-  res.set(getHeader(req)).send(render(HTML));
+  const renderedHTML = await render(rawHTML);
+  res.set(getHeader(req)).send(renderedHTML);
 };
 export const sendHtmlFromDisk = (name, req, res) => {
   const ext = getZipExt(req.headers, 2);
@@ -48,9 +50,9 @@ export const sendHtmlFromDisk = (name, req, res) => {
 
 
 const routes = {
-  main: (req, res) => {
+  main: async (req, res) => {
     if (DEBUG) {
-      sendHtmlFromCache('main', renderMainHtml, req, res);
+      await sendHtmlFromCache('main', renderMainHtml, req, res);
     } else {
       const { isBot, browser } = req.useragent;
       const isIE = (browser === 'IE');
@@ -61,9 +63,9 @@ const routes = {
       sendHtmlFromDisk(htmlFile, req, res);
     }
   },
-  project: (req, res) => {
+  project: async (req, res) => {
     if (DEBUG) {
-      sendHtmlFromCache('project', renderProjectHtml, req, res);
+      await sendHtmlFromCache('project', renderProjectHtml, req, res);
     } else {
       sendHtmlFromDisk('project', req, res);
     }
