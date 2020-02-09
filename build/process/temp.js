@@ -29,8 +29,10 @@ const processTempCss = async (inputHTML, inputCSS) => {
 
 (async () => {
   try {
-    await processTempCss('_helix.html', 'loading/stylesheets/main.scss');
-    await processTempCss('_hexagon.html', 'loading/stylesheets/project.scss');
+    await Promise.all([
+      processTempCss('_helix.html', 'loading/stylesheets/main.scss'),
+      processTempCss('_hexagon.html', 'loading/stylesheets/project.scss'),
+    ]);
     log.info('Temp CSS finished.');
   } catch (err) {
     console.error(err);

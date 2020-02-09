@@ -56,15 +56,16 @@ const copyThesis = async () => {
 
 (async () => {
   try {
-    await copyImages();
-    await copyRobots();
-
     await exec(`mkdir -p ${path.join(PATH.PUBLIC, 'docs/')}`);
-    await copyPubs();
-    await copyThesis();
-    await copyResume();
+    await Promise.all([
+      copyImages(),
+      copyRobots(),
+      copyPubs(),
+      copyThesis(),
+      copyResume(),
+    ]);
 
-    log.info('tatic files copied to public.');
+    log.info('Static files copied to public.');
   } catch (err) {
     console.error(err);
     log.error('Failed to copy static files to public.');

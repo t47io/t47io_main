@@ -50,8 +50,6 @@ const renderMainHtml = async () => {
     const finalHTML = await renderMainHtml();
     await saveFile('public/index.html', finalHTML);
     log.info('Index Page SSR created.');
-
-    log.info('Index Page SSR finished.');
   } catch (err) {
     console.error(err);
     log.error('Failed to SSR on Index Page.');

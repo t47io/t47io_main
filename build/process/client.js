@@ -11,7 +11,7 @@ import logger from '../../server/logger.js';
 const log = logger('process:client');
 
 
-(async () => {
+const processMainHtml = async () => {
   try {
     log.debug('Processing Main Page inline DOM/JS/CSS...');
     const baseHTML = await loadFile('public/main.html');
@@ -24,7 +24,9 @@ const log = logger('process:client');
     log.error('Failed to inline DOM/JS/CSS on Main Page.');
     process.exit(1);
   }
+};
 
+const processProjectHtml = async () => {
   try {
     log.debug('Processing Project Page inline DOM/JS/CSS...');
     const baseHTML = await loadFile('public/project.html');
@@ -37,4 +39,11 @@ const log = logger('process:client');
     log.error('Failed to inline DOM/JS/CSS on Project Page.');
     process.exit(1);
   }
+};
+
+(async () => {
+  await Promise.all([
+    processMainHtml(),
+    processProjectHtml(),
+  ]);
 })();
