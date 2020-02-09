@@ -4,10 +4,8 @@
     "@babel/react"
   ],
   "plugins": [
-    "@babel/syntax-dynamic-import",
     "@babel/proposal-class-properties",
     "@babel/proposal-export-default-from",
-    "@babel/proposal-optional-chaining",
     "lodash"
   ],
   "env": {
