@@ -1,6 +1,24 @@
 {
   "items": [
     {
+      "year": 2020,
+      "items": [
+        {
+          "title": "Zymergen Inc.",
+          "url": "https://www.zymergen.com/",
+          "geo": "Emeryville, CA, USA",
+          "roles": [
+            {
+              "position": "Automation Platform",
+              "title": "Senior Software Engineer",
+              "team": "Technology"
+            }
+          ],
+          "tag": "Zymergen"
+        }
+      ]
+    },
+    {
       "year": 2017,
       "items": [
         {
@@ -41,7 +59,7 @@
       "items": [
         {
           "title": "AUTODESK Inc.",
-          "url": "http://www.autodesk.com/",
+          "url": "https://www.autodesk.com/",
           "geo": "San Francisco, CA, USA",
           "roles": [
             {
