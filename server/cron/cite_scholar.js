@@ -40,39 +40,30 @@ const extractHTML = (body) => {
 
 const matchRecords = allRecords => ({
   ...pubsJSON,
-  items: pubsJSON.items.map(obj => ({
-    ...obj,
-    items: obj.items.map((item) => {
-      const title = filterWords(item.title, 4);
-      const author = filterWords(item.authors.join(' '), 2, ['and'], 6);
-      let citation = null;
+  items: pubsJSON.items.map((item) => {
+    const title = filterWords(item.title, 4);
+    const author = filterWords(item.authors.join(' '), 2, ['and'], 6);
+    let citation = null;
 
-      for (let i = 0; i < allRecords.length; i += 1) {
-        if (isEqual(allRecords[i].title, title) && isEqual(allRecords[i].author, author)) {
-          citation = allRecords[i].cite;
-          allRecords.splice(i, 1);
-          log.debug(`scholar entry ${colors.blue(item.tag)} matched citation record (${colors.red(citation)}).`);
-          break;
-        }
+    for (let i = 0; i < allRecords.length; i += 1) {
+      if (isEqual(allRecords[i].title, title) && isEqual(allRecords[i].author, author)) {
+        citation = allRecords[i].cite;
+        allRecords.splice(i, 1);
+        log.debug(`scholar entry ${colors.blue(item.tag)} matched citation record (${colors.red(citation)}).`);
+        break;
       }
-      return {
-        ...item,
-        citation,
-      };
-    }),
-  })),
+    }
+    return {
+      ...item,
+      citation,
+    };
+  }),
 });
 
 const flattenCitations = items => (
-  items.map(obj => (
-    obj.items.map(item => ({
-      [item.tag]: item.citation,
-    }))
-    .reduce((dict, item) => ({
-      ...dict,
-      ...item,
-    }), {})
-  ))
+  items.map(item => ({
+    [item.tag]: item.citation,
+  }))
   .reduce((dict, item) => ({
     ...dict,
     ...item,
@@ -108,11 +99,9 @@ const diffCitations = (oldCitations, newCitations) => {
       ));
     }
 
-    newPubsJSON.items.forEach((obj) => {
-      obj.items.filter(item => (item.citation === null))
-      .forEach((item) => {
-        log.warn(`pubs entry ${colors.blue(item.tag)} did not match any citation record.`);
-      });
+    newPubsJSON.items.filter(item => (item.citation === null))
+    .forEach((item) => {
+      log.warn(`pubs entry ${colors.blue(item.tag)} did not match any citation record.`);
     });
     await writeJsonFile('main/pubs.json', newPubsJSON);
 
