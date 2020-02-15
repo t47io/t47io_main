@@ -13,10 +13,14 @@
     }
   },
   "plugins": [
+    "compat",
     "import",
     "jsx-a11y",
     "react"
   ],
+  "settings": {
+    "polyfills": ["fetch"]
+  },
   "rules": {
     "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
     "comma-dangle": [2, {
@@ -36,6 +40,8 @@
     "no-unused-vars": [2, { "varsIgnorePattern": "^css[A-Z][a-z]+$" }],
     "operator-linebreak": [2, "after"],
 
+    "compat/compat": [1],
+
     "import/extensions": [0, { "extensions": [".js", ".jsx", ".json"] }],
     "import/no-extraneous-dependencies": [0],
     "import/prefer-default-export": [0],
@@ -52,5 +58,13 @@
     "react/prop-types": [1, {"ignore": ["children", "route"]}],
     "react/state-in-constructor": [2, "never"],
     "react/static-property-placement": [2, "static public field"]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["server/**/*.js", "build/**/*.js"],
+      "rules": {
+        "compat/compat": [0]
+      }
+    }
+  ]
 }

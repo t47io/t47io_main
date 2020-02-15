@@ -1,4 +1,5 @@
 last 2 major versions
 not dead
 not <0.5%
-ie 10
+not ie > 0
+not op_mini all
