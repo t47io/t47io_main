@@ -44,7 +44,7 @@ const checkCertificate = host => (
     };
     await writeJsonFile('cron.json', newJSON);
 
-    log.info('SSL Certificate expiration checked.');
+    log.info(`SSL Certificate expiration checked (${colors.blue(newJSON.httpsCert.validTo)}).`);
   } catch (err) {
     console.error(err);
     log.error('Failed to check SSL Certificate expiration.');

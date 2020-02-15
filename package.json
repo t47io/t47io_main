@@ -4,7 +4,7 @@
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
-    "node": "^12.15.0",
+    "node": "^12.16.0",
     "yarn": "^1.22.0"
   },
   "scripts": {
@@ -152,8 +152,7 @@
     "github-api": "3.3.0",
     "glob": "7.1.6",
     "helmet": "3.21.2",
-    "https": "1.0.0",
-    "loglevel": "1.6.6",
+    "loglevel": "1.6.7",
     "loglevel-plugin-prefix": "0.8.4",
     "ms": "2.1.2",
     "nodemailer": "6.4.2",
