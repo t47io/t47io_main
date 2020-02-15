@@ -126,17 +126,25 @@ const concatMainJson = async () => {
   };
 
   let pubsCounter = 0;
-  config.pubs.items = config.pubs.items.map((year) => {
-    const visibleEntries = year.items.filter(item => (!item.isHidden));
-    const filteredYear = {
-      ...year,
-      items: visibleEntries,
-      offset: pubsCounter,
-    };
-    pubsCounter += visibleEntries.length;
-    return filteredYear;
-  })
-  .filter(year => year.items.length);
+  const pubsByYear = {};
+  config.pubs.items.sort((a, b) => b.tag.localeCompare(a.tag))
+  .forEach((item) => {
+    if (item.isHidden) {
+      return;
+    }
+    const year = parseInt(item.tag.split('_')[0], 10);
+    if (year in pubsByYear) {
+      pubsByYear[year].items.push(item);
+    } else {
+      pubsByYear[year] = {
+        year,
+        items: [item],
+        offset: pubsCounter,
+      };
+    }
+    pubsCounter += 1;
+  });
+  config.pubs.items = Object.values(pubsByYear).sort((a, b) => (b.year - a.year));
   config.pubs.lens = pubsCounter;
   config.stats.items[2].value = pubsCounter;
 

@@ -1,382 +1,352 @@
 {
   "items": [
     {
-      "year": 2018,
-      "items": [
-        {
-          "authors": [
-            "Hagey R.J.",
-            "Tian S.",
-            "Elazar M.",
-            "Pham E.A.",
-            "Kladwang W.",
-            "Pang P.",
-            "Taubenberger J.K.",
-            "Das R.",
-            "Glenn J.S."
-          ],
-          "title": "Identification and targeting of a pan-genotypic influenza A virus RNA structure that mediates packaging and disease",
-          "journal": "Nature Medicine",
-          "issue": "submitted",
-          "isPreprint": true,
-          "isHidden": true,
-          "citation": null,
-          "tag": "2020_Hagey_unknown"
-        },
-        {
-          "authors": [
-            "Hartwick E.W.",
-            "Costantino D.A.",
-            "MacFadden A.",
-            "Nix J.C.",
-            "Tian S.",
-            "Das R.",
-            "Kieft J.S."
-          ],
-          "title": "Ribosome-induced RNA conformational changes in a viral 3' UTR sense and regulate translation levels",
-          "journal": "Nature Communications",
-          "issue": "9",
-          "page": "5074",
-          "citation": null,
-          "tag": "2018_Hartwick_NatComm",
-          "url": "https://www.nature.com/articles/s41467-018-07542-x"
-        },
-        {
-          "authors": [
-            "Chen L.",
-            "Roake C.M.",
-            "Freund A.",
-            "Batista P.J.",
-            "Tian S.",
-            "Yin A.Y.",
-            "Gajera C.R.",
-            "Lin S.",
-            "Lee B.",
-            "Pech M.F.",
-            "Venteicher A.S.",
-            "Das R.",
-            "Chang H.Y.",
-            "Artandi S.E."
-          ],
-          "title": "An activity switch in human telomerase based on RNA conformation and shaped by _TCAB1_",
-          "journal": "Cell",
-          "issue": "174 (1)",
-          "page": "218 - 230",
-          "citation": null,
-          "tag": "2018_Chen_Cell",
-          "url": "https://www.cell.com/cell/abstract/S0092-8674(18)30571-3"
-        },
-        {
-          "authors": [
-            "Tian S.",
-            "Kladwang W.",
-            "Das R."
-          ],
-          "title": "Allosteric mechanism of the _V_. _vulnificus_ adenine riboswitch resolved by four-dimensional chemical mapping",
-          "journal": "eLife",
-          "issue": "7",
-          "page": "e07600",
-          "citation": null,
-          "tag": "2018_Tian_eLife",
-          "url": "https://elifesciences.org/content/7/e29602"
-        }
-      ]
+      "authors": [
+        "Hagey R.J.",
+        "Tian S.",
+        "Elazar M.",
+        "Pham E.A.",
+        "Kladwang W.",
+        "Pang P.",
+        "Taubenberger J.K.",
+        "Das R.",
+        "Glenn J.S."
+      ],
+      "title": "Identification and targeting of a pan-genotypic influenza A virus RNA structure that mediates packaging and disease",
+      "journal": "Nature Medicine",
+      "issue": "submitted",
+      "isPreprint": true,
+      "isHidden": true,
+      "citation": null,
+      "tag": "2020_Hagey_unknown"
     },
     {
-      "year": 2017,
-      "items": [
-        {
-          "authors": [
-            "Yesselman J.D.*",
-            "Tian S.*",
-            "Liu X.",
-            "Shi L.",
-            "Li J.B.",
-            "Das R."
-          ],
-          "title": "Updates to the RNA mapping database (RMDB), version 2",
-          "journal": "Nucleic Acid Research",
-          "issue": "46 (D1)",
-          "page": "D375 - D379",
-          "citation": null,
-          "tag": "2017_Yesselman_NAR",
-          "url": "https://academic.oup.com/nar/article/46/D1/D375/4372478"
-        },
-        {
-          "authors": [
-            "Miao Z.",
-            "Adamiak R.W.",
-            "Antczak M.",
-            "Batey R.T.",
-            "Becka A.",
-            "Biesiada M.",
-            "Boniecki M.J.",
-            "Bujnicki J.M.",
-            "Chen S-J.",
-            "Cheng C.Y.",
-            "Chou F-C.",
-            "Ferré-D'Amaré A.R.",
-            "Das R.",
-            "Dawson W.K.",
-            "Ding F.",
-            "Dokholyan N.V.",
-            "Dunin-Horkawicz S.",
-            "Geniesse C.",
-            "Kappel K.",
-            "Kladwang W.",
-            "Krokhotin A.",
-            "Lach G.E.",
-            "Magnus M.",
-            "Major F.",
-            "Mann T.H.",
-            "Pachulska-Wieczorek K.",
-            "Patel D.J.",
-            "Piccirilli J.A.",
-            "Popenda M.",
-            "Purzycka K.J.",
-            "Ren A.",
-            "Rice G.M.",
-            "Santalucia J.Jr.",
-            "Sarzynska J.",
-            "Szachniuk M.",
-            "Tandon A.",
-            "Trausch J.J.",
-            "Tian S.",
-            "Wang J.",
-            "Weeks K.M.",
-            "Williams B.",
-            "Xiao Y.",
-            "Xu X.",
-            "Zhang D.",
-            "Zok T.",
-            "Westhof E."
-          ],
-          "title": "RNA-Puzzles Round III: 3D RNA structure prediction of five riboswitches and one ribozyme",
-          "journal": "RNA",
-          "issue": "23 (5)",
-          "page": "655 - 672",
-          "citation": null,
-          "tag": "2017_Miao_RNA",
-          "url": "http://rnajournal.cshlp.org/content/early/2017/01/30/rna.060368.116"
-        },
-        {
-          "authors": [
-            "Tian S.",
-            "Das R."
-          ],
-          "title": "Primerize-2D: Automated primer design for RNA multidimensional chemical mapping",
-          "journal": "Bioinformatics",
-          "issue": "33 (9)",
-          "page": "1405 - 1406",
-          "citation": null,
-          "tag": "2017_Tian_Bioinformatics",
-          "url": "https://academic.oup.com/bioinformatics/article-abstract/33/9/1405/2801460/Primerize-2D-automated-primer-design-for-RNA",
-          "code": "http://primerize2d.stanford.edu/"
-        }
-      ]
+      "authors": [
+        "Hartwick E.W.",
+        "Costantino D.A.",
+        "MacFadden A.",
+        "Nix J.C.",
+        "Tian S.",
+        "Das R.",
+        "Kieft J.S."
+      ],
+      "title": "Ribosome-induced RNA conformational changes in a viral 3' UTR sense and regulate translation levels",
+      "journal": "Nature Communications",
+      "issue": "9",
+      "page": "5074",
+      "citation": null,
+      "tag": "2018_Hartwick_NatComm",
+      "url": "https://www.nature.com/articles/s41467-018-07542-x"
     },
     {
-      "year": 2016,
-      "items": [
-        {
-          "authors": [
-            "Tian S.",
-            "Das R."
-          ],
-          "title": "RNA structure through multidimensional chemical mapping",
-          "journal": "Quarterly Review of Biophysics",
-          "issue": "49 (e7)",
-          "page": "1 - 30",
-          "citation": null,
-          "tag": "2016_Tian_QRB",
-          "url": "https://www.cambridge.org/core/journals/quarterly-reviews-of-biophysics/article/rna-structure-through-multidimensional-chemical-mapping/1D773A4C81E046E6BA4521BAF688E0DC"
-        }
-      ]
+      "authors": [
+        "Chen L.",
+        "Roake C.M.",
+        "Freund A.",
+        "Batista P.J.",
+        "Tian S.",
+        "Yin A.Y.",
+        "Gajera C.R.",
+        "Lin S.",
+        "Lee B.",
+        "Pech M.F.",
+        "Venteicher A.S.",
+        "Das R.",
+        "Chang H.Y.",
+        "Artandi S.E."
+      ],
+      "title": "An activity switch in human telomerase based on RNA conformation and shaped by _TCAB1_",
+      "journal": "Cell",
+      "issue": "174 (1)",
+      "page": "218 - 230",
+      "citation": null,
+      "tag": "2018_Chen_Cell",
+      "url": "https://www.cell.com/cell/abstract/S0092-8674(18)30571-3"
     },
     {
-      "year": 2015,
-      "items": [
-        {
-          "authors": [
-            "Cheng C.Y.",
-            "Chou F.-C.",
-            "Kladwang W.",
-            "Tian S.",
-            "Cordero P.",
-            "Das R."
-          ],
-          "title": "Consistent global structures of complex RNA states through multidimensional chemical mapping",
-          "journal": "eLife",
-          "issue": "4",
-          "page": "e07600",
-          "citation": null,
-          "tag": "2015_Cheng_eLife",
-          "url": "https://elifesciences.org/content/4/e07600",
-          "code": "https://rmdb.stanford.edu/mapseeker/"
-        },
-        {
-          "authors": [
-            "Tian S.",
-            "Yesselman J.D.",
-            "Cordero P.",
-            "Das R."
-          ],
-          "title": "Primerize: Automated primer assembly for transcribing non-coding RNA domains",
-          "journal": "Nucleic Acid Research",
-          "issue": "43 (W1)",
-          "page": "W522 - W526",
-          "citation": null,
-          "tag": "2015_Tian_NAR",
-          "url": "https://academic.oup.com/nar/article/43/W1/W522/2467987",
-          "code": "https://primerize.stanford.edu/"
-        },
-        {
-          "authors": [
-            "Lee S.",
-            "Kim H.",
-            "Tian S.",
-            "Lee T.",
-            "Yoon S.",
-            "Das R."
-          ],
-          "title": "Automated band annotation for RNA structure probing experiments with numerous capillary electrophoresis profiles",
-          "journal": "Bioinformatics",
-          "issue": "31 (17)",
-          "page": "2808 - 2815",
-          "citation": null,
-          "tag": "2015_Lee_Bioinfomatics",
-          "url": "https://academic.oup.com/bioinformatics/article/31/17/2808/183519",
-          "code": "https://rmdb.stanford.edu/hitrace/"
-        },
-        {
-          "authors": [
-            "Miao Z.",
-            "Adamiak R.W.",
-            "Blanchet M-F.",
-            "Boniecki M.",
-            "Bujnicki J.M.",
-            "Chen S-J.",
-            "Cheng C.Y.",
-            "Chojnowski G.",
-            "Chou F-C.",
-            "Cordero P.",
-            "Cruz J.A.",
-            "Ferré-D'Amaré A.R.",
-            "Das R.",
-            "Ding F.",
-            "Dokholyan N.V.",
-            "Dunin-Horkawicz S.",
-            "Kladwang W.",
-            "Krokhotin A.",
-            "Lach G.",
-            "Magnus M.",
-            "Major F.",
-            "Mann T.H.",
-            "Masquida B.",
-            "Matelska D.",
-            "Meyer M.",
-            "Peselis A.",
-            "Popenda M.",
-            "Purzycka K.J.",
-            "Serganov A.",
-            "Stasiewicz J.",
-            "Szachniuk M.",
-            "Tandon A.",
-            "Tian S.",
-            "Wang J.",
-            "Xiao Y.",
-            "Xu X.",
-            "Zhang J",
-            "Zhao P.",
-            "Zok T.",
-            "Westhof E."
-          ],
-          "title": "RNA-Puzzles Round II: Assessment of RNA structure prediction programs applied to three large RNA structures",
-          "journal": "RNA",
-          "issue": "21 (6)",
-          "page": "1066 - 1084",
-          "citation": null,
-          "tag": "2015_Miao_RNA",
-          "url": "http://rnajournal.cshlp.org/content/21/6/1066"
-        },
-        {
-          "authors": [
-            "Xue S.",
-            "Tian S.",
-            "Fujii K.",
-            "Kladwang W.",
-            "Das R.",
-            "Barna M."
-          ],
-          "title": "RNA regulons in _Hox_ 5' UTRs confer ribosome specificity to gene regulation",
-          "journal": "Nature",
-          "issue": "517",
-          "page": "33 - 38",
-          "citation": null,
-          "tag": "2015_Xue_Nature",
-          "url": "http://www.nature.com/nature/journal/v517/n7532/full/nature14010.html"
-        }
-      ]
+      "authors": [
+        "Tian S.",
+        "Kladwang W.",
+        "Das R."
+      ],
+      "title": "Allosteric mechanism of the _V_. _vulnificus_ adenine riboswitch resolved by four-dimensional chemical mapping",
+      "journal": "eLife",
+      "issue": "7",
+      "page": "e07600",
+      "citation": null,
+      "tag": "2018_Tian_eLife",
+      "url": "https://elifesciences.org/content/7/e29602"
     },
     {
-      "year": 2014,
-      "items": [
-        {
-          "authors": [
-            "Tian S.",
-            "Cordero P.",
-            "Kladwang W.",
-            "Das R."
-          ],
-          "title": "High-throughput mutate-map-rescue evaluates SHAPE-directed RNA structure and uncovers excited states",
-          "journal": "RNA",
-          "issue": "20 (11)",
-          "page": "1815 - 1826",
-          "citation": null,
-          "tag": "2014_Tian_RNA",
-          "url": "http://rnajournal.cshlp.org/content/20/11/1815"
-        },
-        {
-          "authors": [
-            "Kladwang W.",
-            "Mann T.H.",
-            "Becka A.",
-            "Tian S.",
-            "Kim H.",
-            "Yoon S.",
-            "Das R."
-          ],
-          "title": "Standardization of RNA chemical mapping experiments",
-          "journal": "Biochemistry",
-          "issue": "53 (19)",
-          "page": "3063 - 3065",
-          "citation": null,
-          "tag": "2014_Kladwang_Biochemistry",
-          "url": "https://pubs.acs.org/doi/abs/10.1021/bi5003426"
-        }
-      ]
+      "authors": [
+        "Yesselman J.D.*",
+        "Tian S.*",
+        "Liu X.",
+        "Shi L.",
+        "Li J.B.",
+        "Das R."
+      ],
+      "title": "Updates to the RNA mapping database (RMDB), version 2",
+      "journal": "Nucleic Acid Research",
+      "issue": "46 (D1)",
+      "page": "D375 - D379",
+      "citation": null,
+      "tag": "2017_Yesselman_NAR",
+      "url": "https://academic.oup.com/nar/article/46/D1/D375/4372478"
     },
     {
-      "year": 2013,
-      "items": [
-        {
-          "authors": [
-            "Shi Y.",
-            "Wang Z.",
-            "Meng P.",
-            "Tian S.",
-            "Zhang X.",
-            "Yang S."
-          ],
-          "title": "The glutamate carboxypeptidase _AMP1_ mediates abscisic acid and abiotic stress responses in _Arabidopsis_",
-          "journal": "New Phytologist",
-          "issue": "199 (1)",
-          "page": "135 - 150",
-          "citation": null,
-          "tag": "2013_Shi_NewPhytol",
-          "url": "https://onlinelibrary.wiley.com/doi/10.1111/nph.12275/abstract"
-        }
-      ]
+      "authors": [
+        "Miao Z.",
+        "Adamiak R.W.",
+        "Antczak M.",
+        "Batey R.T.",
+        "Becka A.",
+        "Biesiada M.",
+        "Boniecki M.J.",
+        "Bujnicki J.M.",
+        "Chen S-J.",
+        "Cheng C.Y.",
+        "Chou F-C.",
+        "Ferré-D'Amaré A.R.",
+        "Das R.",
+        "Dawson W.K.",
+        "Ding F.",
+        "Dokholyan N.V.",
+        "Dunin-Horkawicz S.",
+        "Geniesse C.",
+        "Kappel K.",
+        "Kladwang W.",
+        "Krokhotin A.",
+        "Lach G.E.",
+        "Magnus M.",
+        "Major F.",
+        "Mann T.H.",
+        "Pachulska-Wieczorek K.",
+        "Patel D.J.",
+        "Piccirilli J.A.",
+        "Popenda M.",
+        "Purzycka K.J.",
+        "Ren A.",
+        "Rice G.M.",
+        "Santalucia J.Jr.",
+        "Sarzynska J.",
+        "Szachniuk M.",
+        "Tandon A.",
+        "Trausch J.J.",
+        "Tian S.",
+        "Wang J.",
+        "Weeks K.M.",
+        "Williams B.",
+        "Xiao Y.",
+        "Xu X.",
+        "Zhang D.",
+        "Zok T.",
+        "Westhof E."
+      ],
+      "title": "RNA-Puzzles Round III: 3D RNA structure prediction of five riboswitches and one ribozyme",
+      "journal": "RNA",
+      "issue": "23 (5)",
+      "page": "655 - 672",
+      "citation": null,
+      "tag": "2017_Miao_RNA",
+      "url": "http://rnajournal.cshlp.org/content/early/2017/01/30/rna.060368.116"
+    },
+    {
+      "authors": [
+        "Tian S.",
+        "Das R."
+      ],
+      "title": "Primerize-2D: Automated primer design for RNA multidimensional chemical mapping",
+      "journal": "Bioinformatics",
+      "issue": "33 (9)",
+      "page": "1405 - 1406",
+      "citation": null,
+      "tag": "2017_Tian_Bioinformatics",
+      "url": "https://academic.oup.com/bioinformatics/article-abstract/33/9/1405/2801460/Primerize-2D-automated-primer-design-for-RNA",
+      "code": "http://primerize2d.stanford.edu/"
+    },
+    {
+      "authors": [
+        "Tian S.",
+        "Das R."
+      ],
+      "title": "RNA structure through multidimensional chemical mapping",
+      "journal": "Quarterly Review of Biophysics",
+      "issue": "49 (e7)",
+      "page": "1 - 30",
+      "citation": null,
+      "tag": "2016_Tian_QRB",
+      "url": "https://www.cambridge.org/core/journals/quarterly-reviews-of-biophysics/article/rna-structure-through-multidimensional-chemical-mapping/1D773A4C81E046E6BA4521BAF688E0DC"
+    },
+    {
+      "authors": [
+        "Cheng C.Y.",
+        "Chou F.-C.",
+        "Kladwang W.",
+        "Tian S.",
+        "Cordero P.",
+        "Das R."
+      ],
+      "title": "Consistent global structures of complex RNA states through multidimensional chemical mapping",
+      "journal": "eLife",
+      "issue": "4",
+      "page": "e07600",
+      "citation": null,
+      "tag": "2015_Cheng_eLife",
+      "url": "https://elifesciences.org/content/4/e07600",
+      "code": "https://rmdb.stanford.edu/mapseeker/"
+    },
+    {
+      "authors": [
+        "Tian S.",
+        "Yesselman J.D.",
+        "Cordero P.",
+        "Das R."
+      ],
+      "title": "Primerize: Automated primer assembly for transcribing non-coding RNA domains",
+      "journal": "Nucleic Acid Research",
+      "issue": "43 (W1)",
+      "page": "W522 - W526",
+      "citation": null,
+      "tag": "2015_Tian_NAR",
+      "url": "https://academic.oup.com/nar/article/43/W1/W522/2467987",
+      "code": "https://primerize.stanford.edu/"
+    },
+    {
+      "authors": [
+        "Lee S.",
+        "Kim H.",
+        "Tian S.",
+        "Lee T.",
+        "Yoon S.",
+        "Das R."
+      ],
+      "title": "Automated band annotation for RNA structure probing experiments with numerous capillary electrophoresis profiles",
+      "journal": "Bioinformatics",
+      "issue": "31 (17)",
+      "page": "2808 - 2815",
+      "citation": null,
+      "tag": "2015_Lee_Bioinfomatics",
+      "url": "https://academic.oup.com/bioinformatics/article/31/17/2808/183519",
+      "code": "https://rmdb.stanford.edu/hitrace/"
+    },
+    {
+      "authors": [
+        "Miao Z.",
+        "Adamiak R.W.",
+        "Blanchet M-F.",
+        "Boniecki M.",
+        "Bujnicki J.M.",
+        "Chen S-J.",
+        "Cheng C.Y.",
+        "Chojnowski G.",
+        "Chou F-C.",
+        "Cordero P.",
+        "Cruz J.A.",
+        "Ferré-D'Amaré A.R.",
+        "Das R.",
+        "Ding F.",
+        "Dokholyan N.V.",
+        "Dunin-Horkawicz S.",
+        "Kladwang W.",
+        "Krokhotin A.",
+        "Lach G.",
+        "Magnus M.",
+        "Major F.",
+        "Mann T.H.",
+        "Masquida B.",
+        "Matelska D.",
+        "Meyer M.",
+        "Peselis A.",
+        "Popenda M.",
+        "Purzycka K.J.",
+        "Serganov A.",
+        "Stasiewicz J.",
+        "Szachniuk M.",
+        "Tandon A.",
+        "Tian S.",
+        "Wang J.",
+        "Xiao Y.",
+        "Xu X.",
+        "Zhang J",
+        "Zhao P.",
+        "Zok T.",
+        "Westhof E."
+      ],
+      "title": "RNA-Puzzles Round II: Assessment of RNA structure prediction programs applied to three large RNA structures",
+      "journal": "RNA",
+      "issue": "21 (6)",
+      "page": "1066 - 1084",
+      "citation": null,
+      "tag": "2015_Miao_RNA",
+      "url": "http://rnajournal.cshlp.org/content/21/6/1066"
+    },
+    {
+      "authors": [
+        "Xue S.",
+        "Tian S.",
+        "Fujii K.",
+        "Kladwang W.",
+        "Das R.",
+        "Barna M."
+      ],
+      "title": "RNA regulons in _Hox_ 5' UTRs confer ribosome specificity to gene regulation",
+      "journal": "Nature",
+      "issue": "517",
+      "page": "33 - 38",
+      "citation": null,
+      "tag": "2015_Xue_Nature",
+      "url": "http://www.nature.com/nature/journal/v517/n7532/full/nature14010.html"
+    },
+    {
+      "authors": [
+        "Tian S.",
+        "Cordero P.",
+        "Kladwang W.",
+        "Das R."
+      ],
+      "title": "High-throughput mutate-map-rescue evaluates SHAPE-directed RNA structure and uncovers excited states",
+      "journal": "RNA",
+      "issue": "20 (11)",
+      "page": "1815 - 1826",
+      "citation": null,
+      "tag": "2014_Tian_RNA",
+      "url": "http://rnajournal.cshlp.org/content/20/11/1815"
+    },
+    {
+      "authors": [
+        "Kladwang W.",
+        "Mann T.H.",
+        "Becka A.",
+        "Tian S.",
+        "Kim H.",
+        "Yoon S.",
+        "Das R."
+      ],
+      "title": "Standardization of RNA chemical mapping experiments",
+      "journal": "Biochemistry",
+      "issue": "53 (19)",
+      "page": "3063 - 3065",
+      "citation": null,
+      "tag": "2014_Kladwang_Biochemistry",
+      "url": "https://pubs.acs.org/doi/abs/10.1021/bi5003426"
+    },
+    {
+      "authors": [
+        "Shi Y.",
+        "Wang Z.",
+        "Meng P.",
+        "Tian S.",
+        "Zhang X.",
+        "Yang S."
+      ],
+      "title": "The glutamate carboxypeptidase _AMP1_ mediates abscisic acid and abiotic stress responses in _Arabidopsis_",
+      "journal": "New Phytologist",
+      "issue": "199 (1)",
+      "page": "135 - 150",
+      "citation": null,
+      "tag": "2013_Shi_NewPhytol",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/nph.12275/abstract"
     }
   ],
   "links": {
