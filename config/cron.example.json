@@ -1,55 +1,68 @@
 {
   "citations": {
-    "2018_Hartwick_unknown": null,
-    "2018_Chen_unknown": null,
-    "2018_Hagey_unknown": null,
-    "2018_Tian_eLife": null,
-    "2017_Yesselman_NAR": "2",
-    "2017_Miao_RNA": "20 (+2)",
-    "2017_Tian_Bioinformatics": "2 (+2)",
-    "2016_Tian_QRB": "12 (+3)",
-    "2015_Cheng_eLife": "26",
-    "2015_Tian_NAR": "6",
-    "2015_Lee_Bioinfomatics": "6 (+2)",
-    "2015_Miao_RNA": "69 (+2)",
-    "2015_Xue_Nature": "96 (+1)",
-    "2014_Tian_RNA": "25 (+2)",
-    "2014_Kladwang_Biochemistry": "29 (+2)",
-    "2013_Shi_NewPhytol": "19"
+    "2020_Hagey_unknown": null,
+    "2018_Hartwick_NatComm": "1",
+    "2018_Chen_Cell": "13",
+    "2018_Tian_eLife": "5",
+    "2017_Yesselman_NAR": "8",
+    "2017_Miao_RNA": "65 (+10)",
+    "2017_Tian_Bioinformatics": "3",
+    "2016_Tian_QRB": "28 (+2)",
+    "2015_Cheng_eLife": "44 (+4)",
+    "2015_Tian_NAR": "12",
+    "2015_Lee_Bioinfomatics": "8",
+    "2015_Miao_RNA": "106 (+6)",
+    "2015_Xue_Nature": "177",
+    "2014_Tian_RNA": "40",
+    "2014_Kladwang_Biochemistry": "42",
+    "2013_Shi_NewPhytol": "24"
   },
   "gitContrib": {
-    "total": "3637 (-426)",
-    "lastWeek": [
-      0,
-      0,
-      0,
-      0,
-      10,
-      8,
-      0
-    ]
+    "total": "3595 (-104)",
+    "lastWeek": [ 0, 5, 2, 1, 6, 0, 0 ]
   },
-  "httpsCert": {
-    "fingerprint": "",
-    "issuer": "Let's Encrypt Authority X3",
-    "serialNumber": "",
-    "validFrom": "2018-05-04T02:29:23.000Z",
-    "validTo": "2018-08-04T02:29:23.000Z"
+  "https": {
+    "t47.io": "2018-02-11T01:31:32.000Z",
+    "demo.t47.io": "2018-02-11T01:31:11.000Z",
+    "data.t47.io": "2018-02-11T01:31:42.000Z",
+    "dev.t47.io": "2018-02-11T01:31:59.000Z"
   },
   "manifest": {
-    "js": {
-      "m": "scripts/m.26b853.min.js",
-      "d": "scripts/d.0547dd.min.js",
-      "i": "scripts/i.b07a9a.min.js",
-      "f": "scripts/f.012345.min.js",
-      "p": "scripts/p.8101cf.min.js",
-      "r": "scripts/r.cf599b.min.js",
-      "v": "scripts/v.2893c1.min.js"
-    },
-    "css": {
-      "m": "styles/m.b1ecee.min.css",
-      "p": "styles/p.4ce568.min.css",
-      "v": "styles/v.ecc4cb.min.css"
-    }
+    "mainApp": [
+      "scripts/m.424b4f.min.js",
+      "styles/m.53b3ad.min.css"
+    ],
+    "mainData": [
+      "scripts/d.f3bd63.min.js"
+    ],
+    "mainImage": [
+      "scripts/i.c2d999.min.js"
+    ],
+    "projectApp": [
+      "scripts/p.231df6.min.js",
+      "styles/p.a5d813.min.css"
+    ],
+    "projectData": [
+      "scripts/r.427c2a.min.js"
+    ],
+    "vendor": [
+      "scripts/v.06bc09.min.js",
+      "styles/v.9269c4.min.css"
+    ],
+    "manifest": [
+      "scripts/f.012345.min.js"
+    ]
+  },
+  "repo": {
+    "version": "3.7.0",
+    "commit": "e9c273f081"
+  },
+  "httpsCert": {
+    "subject": "DNS:*.t47.io, DNS:t47.io",
+    "issuer": "Let's Encrypt Authority X3",
+    "fingerprint": "F1:B9:84:5A:58:E2:1C:44:B1:19:99:65:A9:EF:99:3B:F1:BA:82:E3",
+    "serialNumber": "031D2EB1715D4CBD1AF988DB57380EA40FB1",
+    "validFrom": "2020-01-13T18:08:44.000Z",
+    "validTo": "2020-04-12T18:08:44.000Z"
   }
 }

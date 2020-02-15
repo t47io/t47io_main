@@ -21,7 +21,7 @@
           "isPreprint": true,
           "isHidden": true,
           "citation": null,
-          "tag": "2019_Hagey_unknown"
+          "tag": "2020_Hagey_unknown"
         },
         {
           "authors": [
@@ -30,15 +30,16 @@
             "MacFadden A.",
             "Nix J.C.",
             "Tian S.",
+            "Das R.",
             "Kieft J.S."
           ],
-          "title": "A ribosome-induced RNA conformational change retulates translation: An RNA structure-based rheostat",
-          "journal": "Science",
-          "issue": "submitted",
-          "isPreprint": true,
-          "isHidden": true,
+          "title": "Ribosome-induced RNA conformational changes in a viral 3' UTR sense and regulate translation levels",
+          "journal": "Nature Communications",
+          "issue": "9",
+          "page": "5074",
           "citation": null,
-          "tag": "2018_Hartwick_NatComm"
+          "tag": "2018_Hartwick_NatComm",
+          "url": "https://www.nature.com/articles/s41467-018-07542-x"
         },
         {
           "authors": [
@@ -59,10 +60,11 @@
           ],
           "title": "An activity switch in human telomerase based on RNA conformation and shaped by _TCAB1_",
           "journal": "Cell",
-          "issue": "in press",
-          "isPreprint": true,
+          "issue": "174 (1)",
+          "page": "218 - 230",
           "citation": null,
-          "tag": "2018_Chen_Cell"
+          "tag": "2018_Chen_Cell",
+          "url": "https://www.cell.com/cell/abstract/S0092-8674(18)30571-3"
         },
         {
           "authors": [
