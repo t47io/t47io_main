@@ -29,10 +29,8 @@ const chmodPublic = async () => {
 
 (async () => {
   try {
-    await Promise.all([
-      chmodRoot(),
-      chmodPublic(),
-    ]);
+    await chmodRoot();
+    await chmodPublic();
     log.info('Permission changed for directories and files.');
   } catch (err) {
     console.error(err);
