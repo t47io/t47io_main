@@ -4,8 +4,8 @@
   "description": "Personal website app of t47.io",
   "main": "server/server.js",
   "engines": {
-    "node": "^12.16.0",
-    "yarn": "^1.22.0"
+    "node": "^12.15.0",
+    "yarn": "^1.21.1"
   },
   "scripts": {
     "dev": "rm -rf ./public/*.html* && yarn prep && yarn nodemon",
