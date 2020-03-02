@@ -66,7 +66,10 @@ const getContrib = async (account) => {
       result = await fs.readFile(path.join(PATH.CONFIG, `repository/account/${account.slice(1)}.svg`), 'utf8');
       result = { data: result };
     } else {
-      result = await axios.get(`${GITHUB.HOST}users/${account}/contributions`);
+      const getConfig = {
+        headers: { Accept: 'text/html' },
+      };
+      result = await axios.get(`${GITHUB.HOST}users/${account}/contributions`, getConfig);
     }
     log.debug(`GitHub records retreived for account ${colors.blue(account)}.`);
     return result;
