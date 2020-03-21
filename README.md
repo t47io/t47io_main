@@ -33,7 +33,7 @@ Then, setup the repository:
 git clone https://github.com/t47io/t47io_main.git
 cd ./t47io_main/
 # babel-node is used for running ES6 scripts
-yarn global add babel-cli
+yarn global add @babel/node
 # pm2 is used for production only
 yarn global add pm2
 yarn install
