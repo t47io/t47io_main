@@ -22,21 +22,20 @@ const extractData = (body) => {
   const $ = cheerio.load($html);
 
   return {
-    startDate: $('rect.day').first().attr('data-date'),
-    contribs: $('rect.day').map((i, rect) => ({
-      [$(rect).attr('data-date')]: parseInt($(rect).attr('data-count'), 10),
-    })).get()
-    .reduce((obj, item) => ({
-      ...obj,
-      ...item,
-    }), {}),
-    monthText: $('text.month').map((i, month) => ({
-      [$(month).text()]: parseInt($(month).attr('x'), 10),
-    })).get()
-    .reduce((obj, item) => ({
-      ...obj,
-      ...item,
-    }), {}),
+    startDate: $('rect').first().attr('data-date'),
+    contribs: Object.fromEntries(
+      $('rect').map((i, rect) => ([
+        [$(rect).attr('data-date'), parseInt($(rect).attr('data-count'), 10)],
+      ]))
+      .get()
+    ),
+    monthText: Object.fromEntries(
+      $('text').map((i, month) => ([
+        [$(month).text(), parseInt($(month).attr('x'), 10)],
+      ]))
+      .get()
+      .filter(entry => !Number.isNaN(entry[1]))
+    ),
   };
 };
 
