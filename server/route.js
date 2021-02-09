@@ -89,13 +89,11 @@ const routes = {
       return next(sendErrorResponse(code));
     },
     post: (req, res, next) => {
-      const form = Object.keys(req.body).map(key => ({
-        [key]: sanitizer.escape(req.body[key]),
-      }))
-      .reduce((obj, item) => ({
-        ...obj,
-        ...item,
-      }), {});
+      const form = Object.fromEntries(
+        Object.keys(req.body).map(key => ([
+          key, sanitizer.escape(req.body[key]),
+        ]))
+      );
       const validFields = Object.keys(form)
       .filter(key => (form[key].length >= EMAIL_VALID_LEN[key]));
 

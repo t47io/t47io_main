@@ -22,15 +22,14 @@ const log = logger('process:manifest');
 
 const parseChunks = (manifest, isCSS = false) => {
   const ext = isCSS ? '.css' : '.js';
-  const chunkKeys = Object.keys(manifest).filter(key => key.endsWith(ext));
-  return chunkKeys.map((key) => {
-    const chunk = CHUNKS[key.replace(ext, '')][0];
-    return { [chunk]: manifest[key] };
-  })
-  .reduce((obj, item) => ({
-    ...obj,
-    ...item,
-  }), {});
+  return Object.fromEntries(
+    Object.keys(manifest)
+    .filter(key => key.endsWith(ext))
+    .map(key => ([
+      CHUNKS[key.replace(ext, '')][0],
+      manifest[key],
+    ]))
+  );
 };
 
 let chunkManifest;
@@ -58,13 +57,12 @@ let chunkManifest;
     await saveFile(path.join('public/', MANIFEST_JS), fullManifestJS);
     const newCronJSON = {
       ...cronJSON,
-      manifest: Object.keys(CHUNKS).map(key => ({
-        [key]: Object.values(chunkManifest).map(type => type[CHUNKS[key]]).filter(Boolean),
-      }))
-      .reduce((obj, item) => ({
-        ...obj,
-        ...item,
-      }), {}),
+      manifest: Object.fromEntries(
+        Object.keys(CHUNKS).map(key => ([
+          key,
+          Object.values(chunkManifest).map(type => type[CHUNKS[key]]).filter(Boolean),
+        ]))
+      ),
     };
     await writeJsonFile('cron.json', newCronJSON);
     log.info('Manifest JSON injected.');

@@ -50,13 +50,11 @@ export const getChunkFilename = (chunk, DEBUG = true, isCSS = false) => {
 };
 
 export const getChunkFilenameMap = (DEBUG = true, isCSS = false) => (
-  Object.keys(CHUNKS).map(key => ({
-    [key]: getChunkFilename(key, DEBUG, isCSS),
-  }))
-  .reduce((obj, item) => ({
-    ...obj,
-    ...item,
-  }), {})
+  Object.fromEntries(
+    Object.keys(CHUNKS).map(key => ([
+      key, getChunkFilename(key, DEBUG, isCSS),
+    ]))
+  )
 );
 
 export const getChunkArgs = (chunks, DEBUG = true) => ({

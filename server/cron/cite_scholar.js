@@ -61,13 +61,10 @@ const matchRecords = allRecords => ({
 });
 
 const flattenCitations = items => (
-  items.map(item => ({
-    [item.tag]: item.citation,
-  }))
-  .reduce((dict, item) => ({
-    ...dict,
-    ...item,
-  }), {})
+  Object.fromEntries(items.map(item => ([
+    item.tag,
+    item.citation,
+  ])))
 );
 
 const diffCitations = (oldCitations, newCitations) => {

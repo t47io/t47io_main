@@ -6,13 +6,11 @@ export const svgAvatarRegex = /\.\/t47_avatar-([1-4])\.svg/g;
 export const svgThesisRegex = /\.\/t47_thesis-([0-2])\.svg/g;
 
 export const getContextObject = (context, regex = svgUrlRegex) => (
-  context.keys().map(key => ({
-    [key.replace(regex, '$1')]: context(key),
-  }))
-  .reduce((obj, item) => ({
-    ...obj,
-    ...item,
-  }), {})
+  Object.fromEntries(
+    context.keys().map(key => ([
+      [key.replace(regex, '$1')], context(key),
+    ]))
+  )
 );
 
 

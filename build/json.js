@@ -18,36 +18,27 @@ import logger from '../server/logger.js';
 import cronJSON from '../config/cron.json';
 import pkgJSON from '../package.json';
 
-const mainJSON = SECTION_LIST
-  .map(section => ({
+const mainJSON = Object.fromEntries(
+  SECTION_LIST.map(section => ([
     /* eslint-disable */
-    [section]: require(`../config/main/${section}.json`),
+    section, require(`../config/main/${section}.json`),
     /* eslint-enable */
-  }))
-  .reduce((obj, item) => ({
-    ...obj,
-    ...item,
-  }), {});
-const projectJSON = PROJECT_LIST
-  .map(project => ({
+  ]))
+);
+const projectJSON = Object.fromEntries(
+  PROJECT_LIST.map(project => ([
     /* eslint-disable */
-    [project]: require(`../config/project/${project}.json`),
+    project, require(`../config/project/${project}.json`),
     /* eslint-enable */
-  }))
-  .reduce((obj, item) => ({
-    ...obj,
-    ...item,
-  }), {});
-const repositoryJSON = Object.keys(REPOSITORY_LIST)
-  .map(repository => ({
+  ]))
+);
+const repositoryJSON = Object.fromEntries(
+  Object.keys(REPOSITORY_LIST).map(repository => ([
     /* eslint-disable */
-    [repository]: require(`../config/repository/${repository}.json`),
+    repository, require(`../config/repository/${repository}.json`),
     /* eslint-enable */
-  }))
-  .reduce((obj, item) => ({
-    ...obj,
-    ...item,
-  }), {});
+  ]))
+);
 
 const log = logger('server:json');
 log.debug('All config JSON files loaded.');

@@ -22,11 +22,7 @@ import mainJSON from '../config/main.json';
 export const resumeVersion = mainJSON.contact.resume;
 export const pubTags = mainJSON.pubs.items.map(obj => (
   obj.items.map(item => item.tag)
-))
-.reduce((list, item) => ([
-  ...list,
-  ...item,
-]), []);
+)).flat();
 
 export const pubsPathRegex = new RegExp(`^/pdf/(${pubTags.join('|')})/?$`);
 export const thesisPathRegex = new RegExp(`^/phd/(${Object.keys(FILE_NAMES.THESIS).join('|')})/?$`);
